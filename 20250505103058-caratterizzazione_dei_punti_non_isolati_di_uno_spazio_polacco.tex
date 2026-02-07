@@ -1,0 +1,464 @@
+% Created 2026-02-07 Sat 19:33
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Davide Peccioli}
+\date{\today}
+\title{Caratterizzazione dei punti non isolati di uno spazio polacco}
+\begin{document}
+
+\section{Proposizione}
+\label{sec:org0c5df2d}
+
+Prove that for any \href{20250301194013-spazio_polacco.org}{Polish space} \(X\) and \(x \in X\), the singleton \(\{x\}\) is \(\bm{\Pi}^0_1\)-complete if and only if \(x\) is not \href{20250403131856-punto_isolato.org}{isolated} in \(X\). Conclude that the set
+\[
+  C_1 = \{x \in 2^\omega \mid \exists n \ (x(n) = 0)\}
+\]
+from Proposition 2.1.31 of the notes is \(\bm{\Sigma}^0_1\)-complete.
+\subsection{Dimostrazione}
+\label{sec:org26227de}
+
+Siccome \(X\) è uno spazio metrizzabile, allora \(\set{x} \subseteq X\) è chiuso, e pertanto \(\set{x} \in \bm{\Pi_{1}}^{0}(X)\). Bisogna quindi dimostrare che \(\set{x}\) è \(\bm{\Pi}^{0}_{1}\)-hard sse \(x\) è \textbf{non isolato} in \(X\).
+\subsubsection{Implicazione ``\(\implies\)''}
+\label{sec:orgee70b04}
+
+Sia \(C \in \bm{\Pi}_{1}^{0}(\omega^{\omega})\), e sia \(f: \omega^{\omega}\to X\) continua tale che
+\begin{equation*}
+f^{-1}(x) = C.
+\end{equation*}
+
+Si supponga per assurdo che \(x\) sia isolato. Allora \(\set{x} \subseteq X\) è aperto, e quindi \(C \subseteq \omega^{\omega}\) è aperto (retroimmagine continua di un aperto).
+
+Per l'arbitrarietà di \(C\), questo implica che ogni chiuso di \(\omega^{\omega}\) è un clopen. Inoltre, se \(A \subseteq \omega^{\omega}\) è aperto, allora \(\omega^{\omega}\setminus A\) è chiuso e quindi clopen, e pertanto \(A\) è un chiuso:
+\begin{equation*}
+\bm{\Sigma}_{1}^{0}(\omega^{\omega}) = \bm{\Delta}_{1}^{0}(\omega^{\omega}) = \bm{\Pi}_{1}^{0}(\omega^{\omega}).
+\end{equation*}
+Questo contraddice il Theorem 2.1.17 delle note.
+\subsubsection{Implicazione ``\(\impliedby\)''\hfill{}\textsc{Modificato}}
+\label{sec:org0704083}
+
+Sia \(x \in X\) un punto non isolato, ovvero \(x\) un punto di accumulazione di \(X\), e sia \(B \in \bm{\Pi}_{1}^{0}(\omega^{\omega})\).
+
+\begin{itemize}
+\item Si fissi \(d:X\to \R\) una metrica completa su \(X\).
+\item Siccome \(x\) è un punto di accumulazione di \(X\), allora esiste una successione \((y_{n})_{n \in \omega} \subseteq X\setminus\set{x}\) tale che \(y_{n}\to x\), ovvero, per ogni intorno \(U\) di \(x\) esiste \(N \in \N\) tale che, per ogni \(j\ge N\), \(y_{j} \in U\).
+
+\item Si costruisce \(\set{U_{n}}_{n \in \omega}\) una famiglia di aperti di \(X\) tali che
+\begin{itemize}
+\item per ogni \(n \in \omega\): \(U_{n}\setminus \set{x}\neq \emptyset\);
+\item l'intersezione \(\bigcap_{n \in \omega} U_{n} = \set{x}\);
+\item \(\operatorname{diam}(U_{n})\to 0\);
+\item per ogni \(n \in \omega\): \(\operatorname{Cl}(U_{n+1}) \subsetneqq U_{n}\)
+\end{itemize}
+e una successione \(v_{n} \subseteq X\setminus \set{x}\) tale che \(v_{n} \in U_{n}\setminus \operatorname{Cl}(U_{n+1})\).
+
+Sia \(U_{0} = X\). Si supponga di aver costruito \(U_{n}\), e sia \(\alpha \in U_{n}\setminus\set{x}\). Tale \(\alpha\) esiste, poiché esistono infiniti elementi della successione \((y_{j})_{j \in \omega}\) dentro \(U_{n}\) intorno di \(x\).
+
+Detto \(r\coloneqq\min\set{2^{-n-1}, d(x,\alpha)/2}>0\), sia \(U_{n}'\coloneqq B_{d}(x,r)\). Necessariamente \(\alpha\notin U_{n}'\) e \(U_{n}' \subsetneqq U_{n}\).
+
+È quindi possibile porre \(U_{n+1}\coloneqq B_{d}(x,r/2)\):
+\begin{equation*}
+  	\operatorname{Cl}(U_{n+1}) = \operatorname{Cl} \left(B_{d}(x,r/2)\right) \subseteq B_{d}^{\text{cl}}(x,r/2) \subseteq B_{d}(x,r) = U_{n}' \subsetneqq U_{n}.
+\end{equation*}
+
+Si ponga inoltre \(v_{n} \coloneqq \alpha\), \(v_{n} \in U_{n}\setminus \operatorname{Cl}(U_{n+1})\).
+
+Questa famiglia soddisfa tutte le proprietà elencate.
+\end{itemize}
+
+\begin{itemize}
+\item Siccome \(B\) è un chiuso di \(\omega^{\omega}\), allora esiste un albero potato \(T \subseteq \omega^{<\omega}\) tale che \(B=[T]\), i.e.
+\begin{equation*}
+  	B = \set{\alpha \in \omega^{\omega}\mid \forall\,n \in \omega\ (\alpha\upharpoonright n \in T)}
+\end{equation*}
+\item Si costruisce un \(\omega\)-schema \(\set{B_{s}\mid s \in \omega^{<\omega}}\) su \(X\):
+\begin{itemize}
+\item se \(s \in T\), allora \(B_{s} \coloneqq U_{\operatorname{lh}(s)}\); in particolare, quindi \(\emptyset \in T\) e \(B_{\emptyset} = U_{0} = X\);
+\item se \(s\notin T\), sia \(j_{s}\) il più grande indice tale che \(s\upharpoonright j_{s} \in T\); si pone \(B_{s} \coloneqq \set{v_{j_{s}}}\).
+\end{itemize}
+\item Questo definisce effettivamente uno schema tale che \(\operatorname{Cl}(B_{s\concat a}) \subseteq B_{s}\) e ciascun \(B_{s}\neq \emptyset\): pertanto è indotta una funzione continua totale (per il Lemma 1.3.6)
+\begin{equation*}
+  	F:\omega^{\omega}\to X
+\end{equation*}
+\item Resta da mostrare che \(F^{-1}(x) = B\). Questo per definizione garantisce che \(\set{x}\) sia un \(\bm{\Pi}_{1}^{0}\)-hard.
+
+Per ogni \(\beta \in B\),
+\begin{equation*}
+  	F(\beta) \in \bigcap_{n \in \omega} B_{\beta\upharpoonright n}
+\end{equation*}
+dove \(\beta\upharpoonright n \in T\). Quindi \(B_{\beta\upharpoonright n} = U_{n}\). Quindi
+\begin{equation*}
+  	F(\beta) \in \bigcap_{n \in \omega} U_{n} = \set{x}.
+\end{equation*}
+
+Viceversa, se \(\beta \notin B\), allora esiste \(n_{0} \in \omega\) tale che \(\beta\upharpoonright n_{0} \notin T\) e pertanto
+\begin{equation*}
+  	F(\beta) \in \bigcap_{n \in\omega} B_{\beta\upharpoonright n} \subseteq B_{\beta\upharpoonright n_{0}}
+\end{equation*}
+e per costruzione \(x\notin B_{\beta\upharpoonright n_{0}}\).
+\end{itemize}
+\subsubsection{Insieme \(C_{1}\)}
+\label{sec:org64dca7c}
+
+Dal momento che \(\bm{\Sigma}_{1}^{0} = \check{\bm{\Pi}}_{1}^{0}\) segue che \(C_{1}\) è \(\bm{\Sigma}_{1}^{0}\)-completo se e solo se \(2^{\omega}\setminus C_1\) è \(\bm{\Pi}_{1}^{0}\)-completo.
+
+Si ha che \(x \in 2^{\omega}\setminus C_{1}\) se e solo se per ogni \(n \in \omega\), \(x(n)\neq 0\), ovvero \(x(n)=1\).
+
+Pertanto \(2^{\omega}\setminus C_{1} =  \set{u}\), dove
+\begin{align*}
+u: \omega &\longrightarrow 2\\
+n &\longmapsto 1
+\end{align*}
+
+Per la caratterizzazione di cui sopra, \(C_{1}\) è \(\bm{\Sigma}_{1}^{0}\)-completo se e solo se \(u\) non è un punto isolato di \(2^{\omega}\).
+
+Si consideri ora la successione \((x_{n})_{n \in \omega} \subseteq 2^{\omega}\):
+\begin{equation*}
+x_{n}(j) = \begin{cases}
+1 & j<n\\
+0 &j\ge n
+\end{cases}
+\end{equation*}
+Si ha che \(x_{n}\to u\), e pertanto \(u\) non è un punto isolato di \(2^{\omega}\) (per ogni intorno \(I\) di \(u\) esiste \(N \in \omega\) tale che \(x_{N} \in I\setminus\set{u}\)). \qed
+\end{document}

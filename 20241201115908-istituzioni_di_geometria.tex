@@ -1,0 +1,523 @@
+% Created 2026-02-07 Sat 19:31
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Davide Peccioli}
+\date{\today}
+\title{Istituzioni di Geometria [CORSO]}
+\begin{document}
+
+\section{Istituzioni di Geometria (9 cfu)}
+\label{sec:org2d38457}
+
+\subsection{Geometria Algebrica (3 cfu)}
+\label{sec:orge95b62f}
+
+\begin{itemize}
+\item \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}
+\item \href{20241231112713-campo_algebricamente_chiuso.org}{Campo Algebricamente Chiuso}
+\item \href{20241231114009-spazio_affine.org}{Spazio Affine}
+\item \href{20241231114256-varieta_algebrica_affine.org}{Varietà Algebrica Affine}
+\item \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo}
+\item \href{20241231121125-polinomi_omogenei.org}{Polinomi Omogenei}
+\item \href{20241231123223-varieta_algebrica_proiettiva.org}{Varietà Algebrica Proiettiva}
+\item \href{20250102103618-infinitezza_campi_alg_chiusi.org}{Infinitezza Campi alg chiusi}
+\item \href{20250102141936-insiemi_finiti_di_punti_dello_spazio_proiettivo.org}{Insiemi finiti di punti dello spazio proiettivo}
+\item \href{20250102143739-insiemi_finiti_di_punti_dello_spazio_affine.org}{Insiemi finiti di punti dello spazio affine come zeri di due polinomi}
+\item \href{20250102115740-anello_dei_polinomi_ad_ideali_principali.org}{Anello dei polinomi ad ideali principali}
+\item \href{20250102115942-anello_noetheriano.org}{Anello Noetheriano}
+\item \href{20250102165143-ideali_generati_di_un_anello_noetheriano.org}{Ideali Generati di un Anello Noetheriano}
+\item \href{20250102165420-teorema_della_base_di_hilbert.org}{Teorema della Base di Hilbert}
+\item \href{20250102175222-campi_sono_anelli_noetheriani.org}{Campi sono anelli Noetheriani}
+\item \href{20250102180050-zeri_di_un_ideale_generato_in_uno_spazio_affine.org}{Zeri di un ideale generato in uno spazio affine}
+\item \href{20250102182726-ideale_di_polinomi_omogeneo.org}{Ideale di polinomi omogeneo}
+\item \href{20250102183523-luogo_di_zeri_di_un_ideale_omogeneo.org}{Luogo di zeri di un ideale omogeneo}
+\item \href{20250103100601-varieta_algebriche_luogo_di_zeri_di_finiti_polinomi.org}{Varietà Algebriche luogo di zeri di finiti polinomi}
+\item \href{20250103101459-topologia_di_zariski_affine.org}{Topologia di Zariski affine}
+\item \href{20250103180214-topologia_di_zariski_proiettiva.org}{Topologia di Zariski proiettiva}
+\item \href{20250103144124-ideale_di_un_sottoinsieme.org}{Ideale di un sottoinsieme}
+\item \href{20250103145915-zeri_di_un_ideale_di_un_sottoinsieme_affine.org}{Zeri di un ideale di un sottoinsieme affine}
+\item \href{20250109115213-zeri_di_un_ideale_di_un_sottoinsieme_proiettivo.org}{Zeri di un ideale di un sottoinsieme proiettivo}
+\item \href{20250103152646-spazio_topologico_noetheriano.org}{Spazio topologico Noetheriano}
+\item \href{20250103153610-topologia_di_zariski_affine_e_noetheriana.org}{Topologia di Zariski affine è noetheriana}
+\item \href{20250103155209-caratterizzazione_topologia_noetheriana.org}{Caratterizzazione topologia noetheriana}
+\item \href{20250103163621-spazio_topologico_noetheriano_e_compatto.org}{Spazio topologico Noetheriano è compatto}
+\item \href{20250103164917-sottospazio_irriducibile.org}{Sottospazio irriducibile}
+\item \href{20250103170236-scomposizione_di_sp_top_noetheriani_in_componenti_irriducibili.org}{Scomposizione di sp top noetheriani in componenti irriducibili}
+\item \href{20250103170329-caratterizzazione_di_sottospazi_affini_irriducibili_tramite_ideali.org}{Caratterizzazione di sottospazi affini irriducibili tramite ideali}
+\item \href{20250104100907-spazio_affine_e_irriducibile.org}{Spazio affine è irriducibile}
+\item \href{20250104110524-morfismo_tra_varieta_algebriche_affini.org}{Morfismo tra varietà algebriche affini}
+\item \href{20250104112713-morfismo_tra_varieta_algebriche_affini_e_continuo.org}{Morfismo tra varietà algebriche affini è continuo}
+\item \href{20250104114505-morfismo_tra_varieta_algebriche_affini_non_e_chiuso.org}{Morfismo tra varietà algebriche affini non è chiuso}
+\item \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{Morfismo tra varietà algebriche proiettive}
+\item \href{20250104121634-curva_razionale_normale.org}{Curva Razionale Normale}
+\item \href{20250104121837-mappa_di_veronese.org}{Mappa di Veronese}
+\item \href{20250107112123-varieta_algebrica_quasi_proiettiva_qp.org}{Varietà Algebrica Quasi Proiettiva QP}
+\item \href{20250107112412-morfismo_tra_varieta_algebriche_qp.org}{Morfismo tra varietà algebriche QP}
+\item \href{20250104190620-mappa_di_segre.org}{Mappa di Segre}
+\item \href{20250107123816-proiezioni_da_prodotti_di_varieta_proiettive_sono_morfisi.org}{Proiezioni da prodotti di varietà proiettive sono morfisi}
+\item \href{20250107143702-copie_dello_spazio_proiettivo_dentro_la_varieta_di_segre_sono_lineari.org}{Copie dello spazio proiettivo dentro la varietà di Segre sono lineari}
+\item \href{20250107170928-varieta_proiettiva_dentro_prodotti_di_spazi_proiettivi.org}{Varietà proiettiva dentro prodotti di spazi proiettivi}
+\item \href{20250108102640-prodotti_di_varieta_qp.org}{Prodotti di varietà QP}
+\item \href{20250108124906-grafico_di_un_morfismo_proiettivo_e_varieta.org}{Grafico di un morfismo proiettivo è varietà}
+\item \href{20250108162146-proiezione_su_un_iperpiano_dentro_allo_spazio_proiettivo.org}{Proiezione su un iperpiano dentro allo spazio proiettivo}
+\item \href{20250108172559-teorema_proiezione_su_un_iperpiano_di_una_varieta_e_varieta.org}{Teorema proiezione su un iperpiano di una varietà è varietà}
+\item \href{20250108173056-fattori_non_costanti_comuni_tra_polinomi.org}{Fattori non costanti comuni tra polinomi}
+\item \href{20250109095734-risultante_per_polinomi_in_piu_variabili.org}{Risultante per polinomi in più variabili}
+\item \href{20250109120343-cono_in_uno_spazio_proiettivo.org}{Cono in uno spazio proiettivo}
+\item \href{20250109141249-morfismo_da_varieta_proiettiva_a_varieta_qp_e_chiuso.org}{Morfismo da varietà proiettiva a varietà qp è chiuso}
+\item \href{20250109164824-morfismo_da_varieta_proiettiva_connessa_allo_spazio_affine_unidimensionale_e_costante.org}{Morfismo da varietà proiettiva connessa allo spazio affine unidimensionale è costante}
+\item \href{20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse.org}{Ipersuperficie dello spazio proiettivo interseca ogni varietà connessa diversa da un solo punto}
+\item \href{20250110125225-radicale_di_un_ideale.org}{Radicale di un ideale}
+\item \href{20250110125621-radicale_di_un_ideale_e_ideale.org}{Radicale di un ideale è ideale}
+\item \href{20250110142357-ideale_radicale.org}{Ideale Radicale}
+\item \href{20250110182255-ideale_radicale_e_anello_quoziente.org}{Ideale radicale e anello quoziente}
+\item \href{20250110144451-ideale_primo_e_radicale.org}{Ideale primo è radicale}
+\item \href{20250110143120-nullstellensatz.org}{Nullstellensatz}
+\item \href{20250110143644-nullstellensatz_debole.org}{Nullstellensatz debole}
+\item \href{20250110145609-nullstellensatz_debole_implica_nullstellensatz.org}{Nullstellensatz debole implica Nullstellensatz}
+\item \href{20250110150011-corrispondenza_ideali_radicali_e_chiusi_algebrici_dello_spazio_affine.org}{Corrispondenza ideali radicali e chiusi algebrici dello spazio affine}
+\item \href{20250110174110-anello_delle_coordinate.org}{Anello delle coordinate}
+\item \href{20250110175552-algebra_su_un_campo.org}{Algebra su un campo}
+\item \href{20250110180014-algebra_su_un_campo_finitamente_generata.org}{Algebra su un campo finitamente generata}
+\item \href{20250110175521-k_algebre_fin_generate_e_ridotte_come_anelli_delle_coordinate_di_varieta_affini.org}{K-Algebre fin generate e ridotte come anelli delle coordinate di varietà affini}
+\end{itemize}
+\subsection{Geometria Differenziale}
+\label{sec:orgb4fa0bf}
+\begin{itemize}
+\item \href{20250111092123-varieta_topologica.org}{Varietà Topologica}
+\item \href{20250111161343-esempi_fondamentali_di_varieta_topologiche.org}{Esempi fondamentali di varietà topologiche}
+\item \href{20250111161808-immagini_tramiti_omeomorfismi_di_varieta_topologiche_sono_varieta_topologiche.org}{Immagini tramiti omeomorfismi di varietà topologiche sono varietà topologiche}
+\item \href{20250113095039-atlante_topologico.org}{Atlante topologico}
+\item \href{20250113095300-la_sfera_n_dimensionale_e_varieta_topologica.org}{La sfera n-dimensionale è varietà topologica}
+\item \href{20250113095404-spazio_proiettivo_e_varieta_topologica.org}{Spazio proiettivo è varietà topologica}
+\item \href{20250113095724-spazio_delle_matrici_invertibili_e_varieta_topologica.org}{Spazio delle matrici reali invertibili è varietà topologica}
+\item \href{20250113100307-gruppo_lineare_complesso_e_varieta_topologica.org}{Gruppo lineare complesso è varietà topologica}
+\item \href{20250113102456-connessione_per_archi_di_varieta_topologiche.org}{Connessione per archi di varietà topologiche}
+\item \href{20250113103405-cambio_di_carte_per_un_atlante_topologico.org}{Cambio di carte per un atlante topologico}
+\item \href{20250113104517-atlante_astratto.org}{Atlante astratto}
+\item \href{20250113105334-compatibilita_tra_atlanti_astratti_e_varieta_topologiche.org}{Compatibilità tra atlanti astratti e varietà topologiche}
+\item \href{20250113103136-atlante_topologico_differenziabile.org}{Atlante topologico differenziabile}
+\item \href{20250113110035-atlanti_differenziabili_compatibili.org}{Atlanti differenziabili compatibili}
+\item \href{20250113115909-struttura_differenziabile.org}{Struttura Differenziabile}
+\item \href{20250113120151-esistenza_e_unicita_di_una_struttura_differenziabile_per_ogni_atlante.org}{Esistenza e unicità di una struttura differenziabile per ogni atlante}
+\item \href{20250113120835-esempi_fondamentali_di_varieta_differenziabili.org}{Esempi fondamentali di varietà differenziabili}
+\item \href{20250113121849-varieta_topologica_omeomorfa_a_varieta_differenziabile_ne_eredita_la_struttura.org}{Varietà Topologica omeomorfa a varietà differenziabile ne eredità la struttura}
+\item \href{20250113122627-varieta_topologiche_in_dimensione_minore_uguale_a_tre_hanno_struttura_differenziabile.org}{Varietà topologiche in dimensione minore uguale a tre hanno struttura differenziabile}
+\item \href{20250113122808-strutture_differenziabili_sulla_sfera_7_dimensionale.org}{Strutture differenziabili sulla sfera 7 dimensionale}
+\item \href{20250113124917-prodotto_di_varieta_differenziabili_e_varieta_differenziabile.org}{Prodotto di varietà differenziabili è varietà differenziabile}
+\item \href{20250113125032-toro_ha_struttura_di_varieta_differenziabile.org}{Toro ha struttura di varietà differenziabile}
+\item \href{20250113125429-teorema_dell_inversa_locale.org}{Teorema dell'inversa locale}
+\item \href{20250113125903-teorema_della_funzione_implicita.org}{Teorema della funzione implicita}
+\item \href{20250113141843-differenziale_del_determinante_di_una_matrice_reale.org}{Differenziale del determinante di una matrice reale}
+\item \href{20250113142135-gruppo_lineare_speciale_e_varieta_differenziabile.org}{Gruppo lineare speciale è varietà differenziabile}
+\item \href{20250113144147-gruppo_ortogonale_e_una_varieta_differenziabile.org}{Gruppo ortogonale è una varietà differenziabile}
+\item \href{20250113144514-gruppo_lineare_e_sconnesso_e_compatto.org}{Gruppo ortogonale è sconnesso e compatto}
+\item \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{Funzioni Cinfinito tra varietà differenziabili}
+\item \href{20250113151718-restrizione_di_funzioni_reali_cinfinito_su_varieta_differenziabili_definite_in_forma_implicita_e_ancora_cinfinito.org}{Restrizione di funzioni reali Cinfinito su varietà differenziabili definite in forma implicita è ancora Cinfinito}
+\item \href{20250113152036-lemma_di_incollamento_tra_funzioni_cinfinito_tra_varieta_differenziabili.org}{Lemma di incollamento tra funzioni Cinfinito tra varietà differenziabili}
+\item \href{20250113154629-funzione_sulle_carte_indotta_da_funzione_cinfinito_tra_due_varieta_e_cinfinito.org}{Funzione sulle carte indotta da funzione Cinfinito tra due varietà è Cinfinito}
+\item \href{20250113172736-composizione_di_funzioni_cinfinito_e_cinfinito.org}{Composizione di funzioni Cinfinito è Cinfinito}
+\item \href{20250113172924-diffeomorfismo_tra_varieta_differenziabili.org}{Diffeomorfismo tra varietà differenziabili}
+\item \href{20250113173218-diffeomorfismo_tra_le_strutture_differenziali_sui_numeri_reali.org}{Diffeomorfismo tra le strutture differenziali sui numeri reali}
+\item \href{20250113173255-gruppo_dei_diffeomorfismi_di_una_varieta_differenziabile.org}{Gruppo dei diffeomorfismi di una varietà differenziabile}
+\item \href{20250113175231-rivestimento.org}{Rivestimento}
+\item \href{20250114094653-rivestimenti_e_gruppo_fondamentale.org}{Rivestimenti e gruppo fondamentale}
+\item \href{20250114095243-teorema_del_rivestimento_universale.org}{Teorema del rivestimento universale}
+\item \href{20250114095744-rivestimento_n_1.org}{Rivestimento n:1}
+\item \href{20250114095901-teorema_sui_rivestimenti_di_varieta_differenziabili.org}{Teorema sui rivestimenti di varietà differenziabili}
+\item \href{20250114100254-germi_di_funzioni.org}{Germi di funzioni}
+\item \href{20250114101157-spazio_dei_germi_di_funzioni_e_algebra_reale.org}{Spazio dei germi di funzioni è algebra reale}
+\item \href{20250114101437-derivazione_su_una_varieta_differenziabile.org}{Derivazione su una varietà differenziabile}
+\item \href{20250114101917-derivazioni_canoniche_su_una_varieta_differenziabile.org}{Derivazioni Canoniche su una varietà differenziabile}
+\item \href{20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Spazio tangente ad un punto di una varietà differenziabile}
+\item \href{20250114103339-teorema_sulla_base_dello_spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Teorema sulla base dello spazio tangente ad un punto di una varietà differenziabile}
+\item \href{20250114104914-cambio_di_base_sullo_spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Cambio di base sullo spazio tangente ad un punto di una varietà differenziabile}
+\item \href{20250114110247-curve_su_varieta_e_loro_derivata.org}{Curve su varietà e loro derivata}
+\item \href{20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Vettori dello spazio tangente ad una varietà in un punto come derivate di curve}
+\item \href{20250114111331-differenziale_di_una_funzione_tra_varieta_differenziabili.org}{Differenziale di una funzione tra varietà differenziabili}
+\item \href{20250114112126-differenziale_di_composizione_di_funzioni_tra_varieta.org}{Differenziale di composizione di funzioni tra varietà}
+\item \href{20250114112633-differenziale_di_diffeomorfismo_tra_varieta_e_isomorfismo.org}{Differenziale di diffeomorfismo tra varietà è isomorfismo}
+\item \href{20250114112834-differenziale_in_coordinate_locali_su_una_varieta_differenziabile.org}{Differenziale in coordinate locali su una varietà differenziabile}
+\item \href{20250114124407-cambiamento_del_differenziale_in_coordinate_locali_tramite_un_cambio_di_coordinate_su_varieta_differenziali.org}{Cambiamento del differenziale in coordinate locali tramite un cambio di coordinate su varietà differenziabii}
+\item \href{20250114124504-immersione_di_varieta_differenziabili.org}{Immersione di varietà differenziabili}
+\item \href{20250115105535-sommersione_di_varieta_differenziabili.org}{Sommersione di varietà differenziabili}
+\item \href{20250114124533-embedding_di_varieta_differenziabili.org}{Embedding di varietà differenziabili}
+\item \href{20250115102238-immersione_iniettiva_chiusa_e_embedding.org}{Immersione iniettiva chiusa è embedding}
+\item \href{20250114124541-sottovarieta_differenziabile.org}{Sottovarietà differenziabile}
+\item \href{20250114130106-esempio_di_sottovarieta_tramite_il_teorema_della_funzione_implicita.org}{Esempio di sottovarietà tramite il teorema della funzione implicita}
+\item \href{20250114130223-teorema_delle_slice_delle_sottovarieta.org}{Teorema delle slice delle sottovarietà}
+\item \href{20250114131231-teorema_del_rango_per_funzioni_reali.org}{Teorema del rango per funzioni reali}
+\item \href{20250114132151-teorema_della_funzione_implicita_tra_varieta_differenziabili.org}{Teorema della funzione implicita tra varietà differenziabili}
+\item \href{20250114151933-immersione_da_compatti_e_embedding.org}{Immersione da compatti è embedding}
+\item \href{20250114151913-immagine_dello_spazio_tangente_ad_un_punto_di_una_sottovarieta_tramite_il_differenziale_dell_immersione.org}{Immagine dello spazio tangente ad un punto di una sottovarietà tramite il differenziale dell'immersione}
+\item \href{20250115095737-restrizione_di_funzioni_a_sottovarieta_e_loro_differenziale.org}{Restrizione di funzioni a sottovarietà e loro differenziale}
+\item \href{20250115100507-funzione_propria.org}{Funzione Propria}
+\item \href{20250115100745-compattezza_e_compattezza_per_successioni.org}{Compattezza e Compattezza per successioni}
+\item \href{20250115100954-funzioni_cinfintio_tra_varieta_e_proprie_sono_chiuse.org}{Funzioni Cinfintio tra varietà e proprie sono chiuse}
+\item \href{20250115102602-teoremi_di_whitney.org}{Teoremi di Whitney}
+\item \href{20250115103245-fibrato_tangente.org}{Fibrato tangente}
+\item \href{20250115104113-atlante_differenziabile_induce_una_topologia.org}{Atlante differenziabile induce una topologia}
+\item \href{20250115110259-campo_vettoriale_su_una_varieta_differenziabile.org}{Campo vettoriale su una varietà differenziabile}
+\item \href{20250115113256-componenti_locali_di_un_campo_vettoriale.org}{Componenti locali di un campo vettoriale}
+\item \href{20250115113948-componenti_locali_di_un_campo_vettoriale_sono_cinfinito.org}{Componenti locali di un campo vettoriale sono Cinfinito}
+\item \href{20250115115535-azione_di_un_campo_vettoriale_su_una_funzione.org}{Azione di un campo vettoriale su una funzione}
+\item \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{Funzioni da una varietà ai reali Cinfinito}
+\item \href{20250115120103-azione_di_un_campo_vettoriale_su_una_funzione_e_cinfinito.org}{Azione di un campo vettoriale su una funzione è Cinfinito}
+\item \href{20250115121514-insieme_dei_derivatori_du_una_varieta.org}{Insieme dei derivatori du una varietà}
+\item \href{20250115122306-insieme_dei_campi_vettoriali_come_spazio_vettoriale_reale_e_come_modulo.org}{Insieme dei campi vettoriali come spazio vettoriale reale e come modulo}
+\item \href{20250115124556-push_forward_di_campi_vettoriali.org}{Push-Forward di campi vettoriali}
+\item \href{20250115125404-campi_vettoriali_f_riferiti.org}{Campi vettoriali F-riferiti}
+\item \href{20250115144427-differenziale_dell_inclusione_del_fibrato_tangente_ad_una_sottovarieta.org}{Differenziale dell'inclusione del fibrato tangente ad una sottovarietà}
+\item \href{20250115144839-restrizione_di_un_campo_vettoriale_ad_una_sottovarieta.org}{Restrizione di un campo vettoriale ad una sottovarietà}
+\item \href{20250115145035-varieta_differenziabile_pettinabile.org}{Varietà Differenziabile Pettinabile}
+\item \href{20250115145200-pettinabilita_delle_sfere.org}{Pettinabilità delle sfere}
+\item \href{20250115150428-varieta_differenziabile_parallelizzabile.org}{Varietà Differenziabile Parallelizzabile}
+\item \href{20250115150659-parallelizzabilita_delle_sfere.org}{Parallelizzabilità delle sfere}
+\item \href{20250115151027-bracket_di_campi_vettoriali.org}{Bracket di campi vettoriali}
+\item \href{20250115151900-scrittura_locale_del_bracket_di_campi_vettoriali.org}{Scrittura locale del bracket di campi vettoriali}
+\item \href{20250115162927-bracket_di_campi_vettoriali_f_riferiti.org}{Bracket di campi vettoriali F-riferiti}
+\item \href{20250115163338-bracket_di_campi_vettoriali_ristretti_a_sottovarieta.org}{Bracket di campi vettoriali ristretti a sottovarietà}
+\end{itemize}
+\end{document}

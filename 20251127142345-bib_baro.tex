@@ -1,0 +1,570 @@
+% Created 2026-02-07 Sat 19:32
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Davide Peccioli}
+\date{\today}
+\title{(bib) Neuman - Physiology and Medicine of Hyperbaric Oxygen Therapy, 2008}
+\begin{document}
+
+Certamente. Di seguito, fornirò un \textbf{report} \textbf{\textbf{MOLTO APPROFONDITO}} sui capitoli specifici richiesti, con particolare attenzione agli aspetti rilevanti per la subacquea, l'ossigenoterapia iperbarica (HBOT) e la medicina subacquea.
+
+Questo report è basato sul testo ``Physiology and Medicine of Hyperbaric Oxygen Therapy''.
+
+---
+
+\href{20250515141706-da_finire.org}{DA FINIRE}
+
+\#\# Capitolo 4: The Physics of Hyperbaric Oxygen Therapy (La Fisica dell'Ossigenoterapia Iperbarica)
+
+Questo capitolo stabilisce i principi fisici che sono fondamentali per comprendere sia l'immersione che l'HBOT.
+
+\#\#\# Unità di Pressione e Misurazione
+L'unità di pressione più utile e riconosciuta internazionalmente nella comunità iperbarica è l'atmosfera assoluta (\textbf{\textbf{ATA}}, \textbf{Atmospheres Absolute}).
+\section{La pressione atmosferica al livello del mare è pari a \textbf{\textbf{1 ATA}} (che equivale a 14.7 psi o 101.32 kPa).}
+\label{sec:orgfcbc69b}
+\section{La pressione assoluta (\(P_{\text{abs}}\)) è la somma della pressione atmosferica (\(P_{\text{atm}}\)) e della pressione misurata dal manometro (\(P_{\text{gauge}}\)): \(P_{\text{abs}} = P_{\text{atm}} + P_{\text{gauge}}\). Ad esempio, un trattamento a 2.4 ATA al livello del mare richiede una pressione manometrica di 1.4 ATA (1.0 ATA + 1.4 ATA = 2.4 ATA).}
+\label{sec:orgc8aaead}
+
+\#\#\# Pressione Parziale dei Gas (Partial Pressure)
+Il concetto di \textbf{\textbf{pressione parziale}} di un singolo gas in una miscela è cruciale.
+\section{È direttamente proporzionale alla percentuale di quel gas nel volume totale della miscela.}
+\label{sec:org123dd6a}
+\section{Determina direttamente la \textbf{\textbf{quantità di gas assorbito nei tessuti}}. Questo è fondamentale per la comprensione di condizioni come l'embolia gassosa arteriosa (AGE), la malattia da decompressione (DCS) e la tossicità da ossigeno (\textbf{oxygen toxicity}), come trattato nei Capitoli 13, 14 e 23.}
+\label{sec:org4bbe6d4}
+\section{Per esempio, a 6.0 ATA (165 fsw), la pressione parziale di ossigeno (\(P_{\text{O}_{2}}\)) è 1.26 ATA e quella dell'azoto (\(P_{\text{N}_{2}}\)) è 4.74 ATA, assumendo aria (21\% \(O_2\), 79\% \(N_2\)) [75t].}
+\label{sec:orgd553a4e}
+
+\#\# Capitolo 5: Clearance to Dive and Fitness for Work (Idoneità all'Immersione e al Lavoro Iperbarico)
+
+Questo capitolo affronta la valutazione medica dei candidati subacquei e del personale iperbarico, un ruolo spesso ricoperto dai medici iperbarici.
+
+\#\#\# Filosofia e Modelli di Valutazione
+\section{\textbf{\textbf{Ruolo del Medico Iperbarico:}} I medici iperbarici esaminano spesso subacquei sportivi e commerciali per valutarne l'idoneità e, talvolta, per trattare lesioni legate all'immersione.}
+\label{sec:orge091d19}
+\section{\textbf{\textbf{Modelli Amministrativi:}} Esistono differenze regionali significative.}
+\label{sec:org0279a42}
+\begin{itemize}
+\item \textbf{\textbf{Subacquei Ricreativi:}} Il modello più diffuso prevede che il candidato compili un \textbf{\textbf{questionario di \textbf{screening}}} (come il Recreational Scuba Training Council [RSTC] Medical Statement). Se le risposte sono positive, è richiesta una consulenza medica.
+\item \textbf{\textbf{Subacquei Commerciali/Occupazionali:}} È quasi sempre richiesta una \textbf{\textbf{valutazione medica obbligatoria}} da parte di un medico formato in medicina subacquea (ad esempio in Australia e Nuova Zelanda) [81f].
+\end{itemize}
+\section{\textbf{\textbf{Approccio di I Primi Principi (A Generic Approach):}} Per valutare l'idoneità in presenza di una condizione medica, si devono porre tre domande fondamentali:}
+\label{sec:orgc0e9529}
+\begin{enumerate}
+\item La condizione potrebbe predisporre a una \textbf{\textbf{malattia da immersione}} (\textbf{diving illness})?
+\item La condizione potrebbe essere \textbf{\textbf{provocata dall'immersione}}?
+\item La condizione potrebbe \textbf{\textbf{compromettere la sicurezza o le prestazioni}} del subacqueo sott'acqua?
+\end{enumerate}
+\section{Rispondere ``sì'' o ``non lo so'' a una di queste richiede una revisione più approfondita, e un ``sì'' definitivo richiede una valutazione rischio/beneficio.}
+\label{sec:org0cd6b22}
+
+\#\#\# Condizioni Mediche Specifiche con Rilevanza Subacquea
+\section{\textbf{\textbf{Forame Ovale Pervio (Patent Foramen Ovale, PFO):}} Vi è una comprovata sovra-rappresentazione di \textbf{shunt} destro-sinistro (come il PFO) tra i subacquei che hanno sofferto di DCS neurologica o vestibolococleare. Un \textbf{shunt} maggiore è stato riscontrato nel \textbf{\textbf{71\%}} dei casi vestibolococleari (rispetto al 12\% dei controlli).}
+\label{sec:org7bebc5c}
+\begin{itemize}
+\item \textbf{\textbf{Gestione PFO:}} Per un aspirante subacqueo con PFO ``largo'' o facilmente provocabile, l'immersione è sconsigliata. Per un PFO ``piccolo'' e con \textbf{shunting} minimo, il candidato può essere idoneo dopo consulenza sul rischio trascurabile.
+\end{itemize}
+\section{\textbf{\textbf{Asma:}} L'asma è comune nella popolazione subacquea. Il principale rischio è il \textbf{\textbf{barotrauma polmonare}} (PBT), che può portare ad AGE. È difficile dimostrare con certezza che i subacquei asmatici siano a rischio significativamente maggiore di infortuni da immersione. La valutazione può includere la spirometria o il test di provocazione bronchiale [102, 103f].}
+\label{sec:orga383235}
+\section{\textbf{\textbf{Radiografia del Torace (CXR):}} La necessità di routine è controversa. Tuttavia, una CXR può rilevare anomalie polmonari (ad esempio, bolle enfisematose) che predispongono a PBT e AGE. Tali anomalie sono state associate a casi di PBT e AGE.}
+\label{sec:org1d6cfea}
+\section{\textbf{\textbf{Esame Neurologico:}} È fondamentale documentare quantitativamente eventuali anomalie per avere un punteggio di riferimento (\textbf{baseline score}) nel caso in cui il subacqueo necessiti di trattamento per DCS neurologica.}
+\label{sec:org6f00493}
+
+\#\# Capitolo 8: Pulmonary Gas Exchange, Oxygen Transport, and Tissue Oxygenation (Scambio Gassoso Polmonare, Trasporto di Ossigeno e Ossigenazione Tissutale)
+
+Questo capitolo copre la fisiologia fondamentale del trasporto dell'ossigeno, essenziale per capire come la respirazione in ambiente iperbarico influenzi il corpo.
+
+\#\#\# Fisiologia del Trasporto di Ossigeno
+L'HBOT aumenta l'ossigenazione dei tessuti, in particolare grazie all'aumento della \(P_{\text{O}_{2}}\) arteriosa.
+\section{L'O2 si lega all'emoglobina (Hb) per essere trasportato, ma in condizioni iperbariche, la quantità di \textbf{\textbf{ossigeno disciolto fisicamente}} nel plasma aumenta drasticamente (secondo la Legge di Henry, discussa nel Capitolo 4).}
+\label{sec:org401f9f3}
+\section{Durante la respirazione di O2 al livello del mare, la \(P_{\text{O}_{2}}\) nel sangue venoso giugulare raramente superava i 60 mmHg; la respirazione di ossigeno a \textbf{\textbf{3.5 ATA}} porta a profili di ossigenazione tissutale che riflettono un'alta differenza artero-venosa [177, 603f].}
+\label{sec:org0b6d895}
+
+\#\#\# Vasocostrizione Iperossica
+L'iperossia (alta \(P_{\text{O}_{2}}\)) induce \textbf{\textbf{vasocostrizione arteriolarica}}.
+\section{Questo effetto è più marcato nei vasi del \textbf{\textbf{cervello}}, della \textbf{\textbf{retina}} e del muscolo scheletrico.}
+\label{sec:orgd0784ea}
+\section{Nonostante la riduzione del flusso sanguigno (ad esempio, cerebrale, che diminuisce l'apporto di ossigeno), l'enorme aumento di \(O_2\) disciolto garantisce comunque un aumento netto di ossigeno fornito ai tessuti.}
+\label{sec:orgce0cf90}
+\section{Un'elevata \(P_{\text{aCO}_{2}}\) (anidride carbonica arteriosa) aumenta il flusso sanguigno cerebrale, il che a sua volta \textbf{\textbf{aumenta la tossicità dell'ossigeno per il sistema nervoso centrale (CNS)}} e il rischio di convulsioni.}
+\label{sec:org09ba9ab}
+
+\#\# Capitolo 10: Pressure Effects on Human Physiology (Effetti della Pressione sulla Fisiologia Umana)
+
+Questo capitolo distingue gli effetti della pressione (idrostatica o barometrica, \textbf{pressure per se}) dagli effetti delle pressioni parziali dei gas.
+
+\#\#\# Range Fisiologico di Pressione
+\section{Gli esseri umani, senza una cabina pressurizzata, possono tollerare un \textbf{range} di pressione che va da circa \textbf{\textbf{0.17 ATA}} (a 50.000 piedi di altitudine) a \textbf{\textbf{70 ATA}} (circa 2300 piedi sotto la superficie del mare). Questa variazione di circa 700 volte è tollerabile solo con l'uso di attrezzature specializzate per la respirazione.}
+\label{sec:orgc815e03}
+
+\#\#\# Effetti delle Pressioni Parziali dei Gas (Partial Pressure Effects)
+\section{\textbf{\textbf{Narcosi da Azoto (Rapture of the Deep):}} Quando si respira aria in profondità, l'aumento della \(P_{\text{N}_{2}}\) provoca narcosi (come descritto da Paul Bert nel 1878 e da Cousteau 100 anni dopo). La narcosi da azoto è un problema neurologico che limita le immersioni in aria a circa 4 ATA (99 fsw) [214f, 220].}
+\label{sec:org99562fa}
+\section{\textbf{\textbf{Tossicità da Ossigeno del SNC (CNS Oxygen Toxicity):}} È il limite più pressante nell'uso dell'ossigeno iperbarico (in HBOT e immersione con Nitrox). Può verificarsi rapidamente a \(P_{\text{O}_{2}}\) di \textbf{\textbf{2 ATA o superiore}} e può portare a \textbf{\textbf{convulsioni violente}} con poco o nessun preavviso.}
+\label{sec:orgf730f5f}
+
+\#\#\# Effetti della Pressione Idrostatica (Hydrostatic Pressure)
+\section{\textbf{\textbf{HPNS (High-Pressure Nervous Syndrome):}} A profondità estreme (oltre 10–15 ATA), la compressione idrostatica diretta influenza il SNC, producendo un aumento dell'attività neurale che risulta in tremori.}
+\label{sec:orgb5222b9}
+\section{\textbf{\textbf{Effetti Moderati (<5 ATA):}} Anche i livelli moderati di pressione (quelli utilizzati in HBOT) possono avere effetti misurabili che non sono semplicemente dovuti alla \(P_{\text{O}_{2}}\): alterazioni nella diffusione dei gas polmonari, resistenza delle vie aeree, flusso sanguigno tissutale locale, e segnalazione neuronale.}
+\label{sec:org7b1d1d0}
+
+\#\# Capitolo 13: Arterial Gas Embolism (Embolia Gassosa Arteriosa)
+
+L'embolia gassosa arteriosa (AGE) è una grave complicanza iatrogena o da immersione.
+
+\#\#\# Eziologia e Rischio Subacqueo
+\section{\textbf{\textbf{Causa Principale:}} Nella subacquea, l'AGE è quasi sempre una conseguenza del \textbf{\textbf{barotrauma polmonare}} (PBT). Il PBT si verifica quando l'aria rimane intrappolata nei polmoni durante la risalita (anche di soli 1 metro) e l'espansione del gas rompe gli alveoli, permettendo all'aria di entrare nel flusso sanguigno arterioso.}
+\label{sec:org1d025a9}
+\section{\textbf{\textbf{Sintomi:}} I sintomi sono estremamente variabili, ma sono riferibili all'occlusione del sistema vascolare del SNC. I segni suggestivi di AGE includono \textbf{\textbf{perdita di coscienza transitoria, cecità o disorientamento}} dopo l'emersione.}
+\label{sec:org75021cb}
+\section{\textbf{\textbf{Diagnosi:}} L'AGE è una \textbf{\textbf{diagnosi clinica}}. Qualsiasi paziente con una storia suggestiva di AGE richiede un esame neurologico dettagliato e una consulenza iperbarica, poiché le lesioni neurologiche sottili sono difficili da escludere in fase acuta e un ritardo nel trattamento può rendere le lesioni irreversibili.}
+\label{sec:orgb8cbcdf}
+
+\#\#\# Trattamento Iperbarico (HBOT)
+\section{\textbf{\textbf{Priorità:}} La \textbf{\textbf{ricompressione immediata}} è indicata per l'AGE confermata o sospetta.}
+\label{sec:org24bae6a}
+\section{\textbf{\textbf{Protocolli:}} Il trattamento mira a ridurre meccanicamente la dimensione delle bolle (Legge di Boyle) e ad aumentare la \(P_{\text{O}_{2}}\) tissutale.}
+\label{sec:orgd0ef08f}
+\begin{itemize}
+\item Il \textbf{\textbf{Tavolo 6A della Marina USA (U.S. Navy Treatment Table 6A)}} è stato storicamente raccomandato per l'AGE, prevedendo un'escursione a \textbf{\textbf{6 ATA (165 fsw)}} per massimizzare la compressione delle bolle, seguita dalla porzione di respirazione a ossigeno identica al Tavolo 6 [59, 327f].
+\item Tuttavia, alcuni studi mettono in discussione l'ulteriore vantaggio di una compressione superiore a \textbf{\textbf{2.82 ATA}} {[}327f].
+\end{itemize}
+
+\#\# Capitolo 14: Decompression Sickness (Malattia da Decompressione)
+
+La DCS si verifica quando i gas inerti disciolti (principalmente azoto) formano bolle nei tessuti e nel sangue a seguito di una decompressione troppo rapida.
+
+\#\#\# Patogenesi e Sintomatologia
+\section{\textbf{\textbf{Fattori di Rischio:}} Il rischio è legato al carico di gas inerte (profilo tempo-profondità), alla velocità di risalita e alla presenza di \textbf{shunt} destro-sinistro (PFO), che permettono alle bolle venose (VGE) di raggiungere la circolazione arteriosa.}
+\label{sec:orge96bf44}
+\section{\textbf{\textbf{Sintomi Comuni:}} I sintomi sono estremamente variabili, ma i più comuni includono \textbf{\textbf{dolore}} (bends), parestesia, debolezza muscolare e affaticamento [314f]. La \textbf{\textbf{DCS cardiorespiratoria}} (\textbf{chokes}) è caratteristica di alti livelli di VGE.}
+\label{sec:orgfddd2b2}
+\section{\textbf{\textbf{Diagnosi:}} La DCS è una \textbf{\textbf{diagnosi clinica}} basata su storia e esame fisico. La differenziazione tra DCS neurologica e AGE si basa su fattori come il tempo di insorgenza e la presenza di alterazione della coscienza.}
+\label{sec:orgc695263}
+
+\#\#\# Trattamento Iperbarico e Protocolli
+\section{\textbf{\textbf{Ricompressione:}} Il trattamento primario è la ricompressione, per ridurre la dimensione delle bolle e favorirne la riassorbimento.}
+\label{sec:org7eecbcb}
+\section{\textbf{\textbf{Protocolli Standard:}} Il \textbf{\textbf{Tavolo 6 della Marina USA (U.S. Navy Table 6)}} (2.8 ATA o 60 fsw, respirando O2) è il \textbf{gold standard} per la DCS [323, 324t]. La raccomandazione iniziale per la DCS neurologica è la compressione a 18 msw (60 fsw) respirando O2 al 100\%.}
+\label{sec:org1533a59}
+\section{\textbf{\textbf{Uso di Gas Inerti Terapeutici:}} L'uso di un gas inerte diverso (come l'elio in una miscela Heliox o Nitrox) durante la ricompressione profonda (es. Tavolo 6A) può facilitare l'eliminazione delle bolle [322, 327f].}
+\label{sec:org43894eb}
+\section{\textbf{\textbf{Trattamento in Acqua (In-Water Recompression, IWR):}} Può essere utilizzato in luoghi remoti quando non è disponibile una camera iperbarica. Richiede la somministrazione di ossigeno al 100\% tramite maschera a pieno facciale, protezione termica e un accompagnatore.}
+\label{sec:org6027e5c}
+\section{\textbf{\textbf{Terapia Aggiuntiva (Adjunctive Therapy):}} La somministrazione di liquidi (cristalloidi) è considerata cruciale (Livello 1C) [341, 342t]. La lidocaina può essere usata come adiuvante per la DCS neurologica [342t, 375].}
+\label{sec:org1aca408}
+\section{\textbf{\textbf{Ritardo nel Trattamento (Delayed Treatment):}} Sebbene il beneficio diminuisca col ritardo, la ricompressione può essere comunque utile. Per i sintomi lievi, un ritardo non è associato a un peggioramento a lungo termine dell'esito.}
+\label{sec:org9274e95}
+
+\#\# Capitolo 22: Effects of Pressure (Effetti della Pressione)
+
+Questo capitolo si concentra sulle complicazioni dirette causate dalle variazioni di pressione, note come barotraumi.
+
+\#\#\# Barotrauma dell'Orecchio Medio (Middle Ear Barotrauma, MEBT)
+\section{\textbf{\textbf{Complicazione più Comune:}} Il MEBT è la complicanza più frequente dell'HBOT (incidenza 3.8 - 12 per 1000 esposizioni). È causato dall'incapacità di equilibrare la pressione tra l'orecchio medio e l'ambiente esterno, spesso dovuto alla disfunzione della Tuba di Eustachio (ET).}
+\label{sec:orgbdbba13}
+\section{\textbf{\textbf{Prevenzione e Trattamento:}} Si prevengono con l'educazione alle manovre di compensazione (come Valsalva). In caso di disfunzione cronica o incapacità di compensare, si può ricorrere alla \textbf{\textbf{miringotomia}} (incisione del timpano) o all'inserimento di un \textbf{\textbf{tubo di ventilazione}} (\textbf{tympanostomy tube}) [518, 519f, 585].}
+\label{sec:orgb037445}
+
+\#\#\# Barotrauma dell'Orecchio Interno (Inner Ear Barotrauma, IEBT)
+\section{\textbf{\textbf{Rischio Raro ma Serio:}} IEBT è raro ma può portare a perdita dell'udito e disfunzione vestibolare. Le lesioni includono rotture della membrana della finestra rotonda o della membrana di Reissner.}
+\label{sec:orgb104d7c}
+\section{\textbf{\textbf{Chirurgia Otologica:}} La \textbf{\textbf{stapedectomia}} (intervento chirurgico per l'otosclerosi) è considerata una controindicazione relativa all'immersione e all'HBOT, a causa del potenziale rischio di penetrazione della protesi e danni all'orecchio interno dovuti ai cambiamenti di pressione. Si sconsiglia l'immersione anche dopo la timpanoplastica.}
+\label{sec:org74e0f9d}
+
+\#\#\# Altri Barotraumi
+\section{\textbf{\textbf{Barodontalgia:}} Dolore ai denti causato da variazioni di pressione. È stato segnalato in aviatori e subacquei, ma non nei pazienti sottoposti a HBOT.}
+\label{sec:org6f6e544}
+\section{\textbf{\textbf{Impianti Cocleari:}} Sebbene siano stati riportati casi di subacquei con impianti funzionanti, si raccomanda di consultare il produttore prima di iniziare l'HBOT per garantire la sicurezza del paziente e mantenere la garanzia.}
+\label{sec:orgf4fbf29}
+
+\#\# Capitolo 23: Oxygen Toxicity (Tossicità da Ossigeno)
+
+L'esposizione a elevate pressioni parziali di ossigeno può causare tossicità chimica che colpisce principalmente il SNC, i polmoni e la retina [604f].
+
+\#\#\# Tossicità del Sistema Nervoso Centrale (CNS Toxicity)
+\section{\textbf{\textbf{Limite più Critico:}} È la limitazione più pressante dell'HBOT e dell'immersione con gas arricchiti.}
+\label{sec:orga8d35df}
+\section{\textbf{\textbf{Manifestazione:}} Si manifesta con \textbf{\textbf{convulsioni}} (crisi epilettiche). Possono essere precedute da sintomi prodromici (tremori, nausea, contrazioni muscolari, alterazioni visive), ma questi segnali non sono affidabili e non sempre si verificano prima dell'esordio convulsivo.}
+\label{sec:orgf929f1e}
+\section{\textbf{\textbf{Fattori di Rischio:}} La ritenzione di \(CO_{2}\) aumenta il rischio di convulsioni perché induce vasodilatazione cerebrale, che aumenta l'esposizione del cervello all'ossigeno.}
+\label{sec:org283a506}
+\section{\textbf{\textbf{Tolleranza:}} La tolleranza alla tossicità del SNC è stata definita utilizzando un indice obiettivo pre-convulsivo, come i decrementi progressivi nel rapporto \(T_{I}/T_{T}\) (componente temporale della ventilazione).}
+\label{sec:org7310a6e}
+
+\#\#\# Tossicità Polmonare (Pulmonary Toxicity)
+\section{\textbf{\textbf{Effetti:}} La tossicità polmonare è causata dal danno chimico all'epitelio alveolare e all'endotelio capillare [604f].}
+\label{sec:org3a0a15d}
+\section{\textbf{\textbf{Misurazione:}} Viene misurata dal declino progressivo e significativo della \textbf{\textbf{Capacità Vitale (VC)}} {[}613, 614f]. Sono state generate curve iperboliche per prevedere la tolleranza polmonare all'ossigeno in base alla pressione e alla durata dell'esposizione [617f, 621f].}
+\label{sec:org8f59ee1}
+
+\#\#\# Estensione della Tolleranza (Oxygen Tolerance Extension)
+\section{\textbf{\textbf{Intermittent Exposure (Air Breaks):}} La tossicità polmonare e del SNC può essere ritardata in modo significativo \textbf{\textbf{alternando periodi di respirazione di ossigeno (O2) con periodi di respirazione di aria ambiente (air breaks)}}. Questo metodo è essenziale per la sicurezza nei protocolli HBOT prolungati, come il Tavolo 6 della Marina USA.}
+\label{sec:org1707456}
+
+\#\# Ossigeno Iperbarico nella Subacquea (Sintesi)
+
+Per riassumere l'interesse per la subacquea nei capitoli analizzati:
+
+\textbf{\textbf{Fisica e Pressione (Capitoli 4 \& 10):}} Il subacqueo deve comprendere come le pressioni parziali dei gas (in particolare \(P_{\text{N}_{2}}\) e \(P_{\text{O}_{2}}\)) influenzino la tossicità e la narcosi. La profondità (fsw) è direttamente correlata alla pressione assoluta (ATA). A profondità estreme (oltre 10-15 ATA), la limitazione diventa la \textbf{\textbf{HPNS}} (effetti diretti della pressione).
+
+\textbf{\textbf{Medicina Subacquea (Capitoli 5, 13, 14, 22):}}
+\section{\textbf{\textbf{Idoneità:}} La valutazione medica per l'immersione è cruciale, specialmente per condizioni come PFO o anamnesi di asma, che aumentano il rischio di DCS e PBT/AGE.}
+\label{sec:org306797b}
+\section{\textbf{\textbf{Incidenti:}} AGE (causata da PBT, spesso in risalita rapida) e DCS (formazione di bolle) sono le emergenze primarie.}
+\label{sec:org578cf7f}
+\section{\textbf{\textbf{Trattamento:}} La \textbf{\textbf{ricompressione immediata}} è il trattamento fondamentale, spesso utilizzando il Tavolo 6 della Marina USA (60 fsw/2.8 ATA \(O_2\)).}
+\label{sec:org7c6de8c}
+\section{\textbf{\textbf{Barotrauma:}} La complicanza più comune per i subacquei è il \textbf{\textbf{barotrauma dell'orecchio medio}} (MEBT), ma l'IEBT è più grave; si deve prestare attenzione anche alla presenza di chirurgia otologica pregressa (es. stapedectomia).}
+\label{sec:org044037d}
+
+\textbf{\textbf{Limiti e Sicurezza (Capitoli 10 \& 23):}}
+\section{La sicurezza in immersione è limitata dalla \textbf{\textbf{tossicità da ossigeno del SNC}} a \(P_{\text{O}_{2}} \geq 2\) ATA e dalla \textbf{\textbf{narcosi da azoto}} a \(P_{\text{N}_{2}} \geq 3-4\) ATA.}
+\label{sec:org79a1e07}
+\section{L'uso di \textbf{*interruzioni di aria (*air breaks})** è la tecnica standard per estendere la tolleranza all'ossigeno durante i trattamenti prolungati di ricompressione (come il Tavolo 6).}
+\label{sec:org1102bf8}
+\end{document}

@@ -1,0 +1,1094 @@
+% Created 2026-02-07 Sat 19:31
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\def\L{\operatorname{L}}
+\def\Frvar{\operatorname{Frvar}}
+\def\M{\mathcal{M}}
+\def\NN{\mathcal{N}}
+\def\Reg{\operatorname{Reg}}
+\def\[[{\llbracket}
+\def\]]{\rrbracket}
+\def\defaultbooleanmodel{B}
+\def\defaultmodel{\M}
+\def\eval#1{\[[#1\]]_{\defaultbooleanmodel}^{\defaultmodel}}
+\author{Matteo Viale}
+\date{\today}
+\title{Boolean valued semantics for infinitary logics [CORSO]}
+\begin{document}
+
+\maketitle
+
+\href{https://www.mathphd.unito.it/do/corsi.pl/Show?\_id=o1lj}{See the campusnet webpage}, and the \href{https://drive.google.com/drive/folders/1EnAASHseIcdUT5CfzvPMmaQbQODLSTnt?usp=sharing}{course material}.
+\section{Lecture 1 -  \textit{<2025-11-17 Mon>}}
+\label{sec:orga8e1c54}
+
+We work in ZFC
+
+\begin{definizione}
+Given a cardinal \(\lambda\), \(\L\) is a \(\lambda\)-signature if
+\begin{equation*}
+\L=\set{R_{i} \mid i \in I} \cup \set{f_{j} \mid j \in J} \cup \set{c_{k} \mid k \in K}
+\end{equation*}
+such that:
+\begin{itemize}
+\item \(R_{i}\) is an \(\alpha_{i}\)-ary predicat simbpol for some \(\alpha_{i}<\lambda\) for all \(i \in I\);
+\item \(f_{j}\) is an \(\beta_{j}\)-ary function simbpol for some \(\beta_{j}<\lambda\) for all \(j \in J\);
+\item \(c_{k}\) is a constant symbol for all \(k \in K\).
+\end{itemize}
+\end{definizione}
+
+\uline{Note}: if \(\lambda =\omega\) a \(\lambda\)-signature is a first order signature.
+
+\begin{definizione}
+Let \(\L\) be a \(\lambda\)-signature. We fix \(\set{x_{\alpha} \mid \alpha<\lambda}\) a set of free variable.
+
+The \(\L\)-terms are obtained as expected:
+\begin{itemize}
+\item if \(x\) is a variabile, it is a term;
+\item if \(f_{j}\) is \(\beta_{j}\)-ary and \((t_{\beta} \mid \beta<\beta_{j})\) is a sequence of terms, than
+\begin{equation*}
+  f_{J}(t_{\beta} \mid \beta<\beta_{j})
+\end{equation*}
+is a term for all \(j \in J\);
+\item \(c_{k}\) is a term for all \(k \in K\).
+\end{itemize}
+The \(\L\)-atomic formulae are obtained as expected:
+\begin{itemize}
+\item if \(R_{i}\) is an \(\alpha_{i}\)-ary relation symbol and \((t_{\alpha} \mid \alpha<\alpha_{i})\) is a sequence of terms, then
+\begin{equation*}
+  R_{i}(t_{\alpha} \mid \alpha<\alpha_{i})
+\end{equation*}
+is an atomic \(\L\)-formula.
+\end{itemize}
+\end{definizione}
+\begin{oss}
+In both formulae and terms only \(<\lambda\) variables can occure (check through induction).
+\end{oss}
+
+\begin{definizione}
+Given \(\kappa, \lambda\) infinite regular cardinals and \(\L\) a \(\lambda\)-signature, the \(\L_{\kappa,\lambda}\)-formulae are defined as follows:
+\begin{itemize}
+\item every atomic \(\L\)-formula is an \(\L_{\kappa,\lambda}\)-formula
+\item if \(\varphi\) is an \(\L_{\kappa,\lambda}\)-formula, then \(\lnot\varphi\) is;
+\item if
+\(U \in [\lambda]^{<\lambda} %
+  \coloneqq \set{X \subseteq \lambda \mid \card{X}<\lambda}\)
+and \(\varphi\) is a \(\L_{\kappa,\lambda}\)-formula, then
+\begin{equation*}
+  \forall \set{x_{\alpha} \mid \alpha \in U}\ \varphi,\qquad %
+  \exists \set{x_{\alpha} \mid \alpha \in U}\ \varphi,
+\end{equation*}
+are \(\L_{\kappa,\lambda}\)-formulae;
+\item if \(\card{Z}<\kappa\) and \(\set{\varphi_{z} \mid z \in Z} \subseteq \L_{\kappa,\lambda}\)-formulae and there is \(U \subseteq [\lambda]^{<\lambda}\) s.t. for each \(z \in Z\)
+\begin{equation*}
+  \Frvar(\varphi_{z}) \subseteq \set{x_{\alpha} \mid \alpha \in U}
+\end{equation*}
+then the following are \(\L_{\kappa,\lambda}\)-formulae:
+\begin{equation*}
+  \bigwedge_{z \in Z} \varphi_{z}, \qquad %
+  \bigvee_{z \in Z} \varphi_{z}.
+\end{equation*}
+\end{itemize}
+\end{definizione}
+
+\textbf{\textbf{Definizione per induzione di \(\Frvar\)}}.
+
+\begin{esempio}
+In \(\L_{\omega_{1},\omega_{1}}\), consider \(\L_{\kappa,\lambda}=\set{R}\) with \(R\) a binary relation symbol. Consider these axioms:
+\begin{itemize}
+\item Order axioms of \(R\);
+\item this axiom:
+\begin{equation*}
+  \forall (x_{n} \mid n <\omega)\ \left[%
+  \left[\bigwedge_{n<m<\omega}(x_{n} \mathrel{R} x_{m})\right] \implies
+  \left[\exists y\ \bigwedge_{n \in \omega} x_{n} \mathrel{R} y\right]\right]
+\end{equation*}
+\end{itemize}
+One can check that a Tarski-Model has to be an uncountable linear order.
+\end{esempio}
+
+\begin{esempio}
+In \(\L_{\omega_{1},\omega_{1}}\) consider
+\begin{equation*}
+\L=\set{R,c_{\alpha} \mid \alpha<\omega_{1}, d_{n} \mid n<\omega, X, Y}.
+\end{equation*}
+\begin{itemize}
+\item \(X,Y\) are unary relations
+\item \(R\) is the graph of a surjecting function \(X\to Y\), with axioms:
+\begin{align*}
+  \forall x,y,z\ \big(R(x,y) \land R(x,z)\big) &\implies (y=z);\\
+  \forall x,y\ R(x,y) &\implies \big((x \in X) \land (y \in Y)\big);\\
+  \forall x\ \bigg[X(x) &\iff \big(\exists y\ R(x,y)\big)\bigg];\\
+  \forall y\ \bigg[Y(x) &\iff \big(\exists x\ R(x,y)\big)\bigg].
+\end{align*}
+\item we add two axioms
+\begin{align*}
+  \forall x\ \bigg(%
+  X(x) &\iff \bigvee_{n \in \omega} (x=d_{n}) %
+  \bigg);\\
+  \forall y\ \bigg(%
+  Y(y) &\iff \bigvee_{\alpha \in \omega_{1}} (y=c_{\alpha}) %
+  \bigg);\\
+\end{align*}
+\item we add the last axiom
+\begin{equation*}
+  \bigwedge_{\substack{m,n \in\omega\\ m\neq n}} d_{n}\neq d_{m} \land \bigwedge_{\substack{\alpha,\beta \in\omega_{1}\\ \alpha\neq\beta}} c_{\alpha} \neq c_{\beta}.
+\end{equation*}
+\end{itemize}
+
+So we have a \(R\) functional from \(X\) to \(Y\), total and surjective on \(Y\) s.t. \(X\) is countable and \(Y\) is uncountable. This theory can't have a Tarski-Model.
+\label{esempio2VialePHD}
+\end{esempio}
+
+\textbf{From now on no function symbols in what is written, but reintroducing them is a standard exercise}.
+\subsection{Tarski semantics for \(\L_{\kappa,\lambda}\)}
+\label{sec:orge263167}
+
+\begin{definizione}
+Given a \(\lambda\)-signature \(\L = \set{R_{i} \mid i \in I, c_{k} \mid k \in K}\) (relational), \(\M\) is an \(\L\)-structure if
+\begin{equation*}
+\M=(M, R^{\M} \mid i \in I, c_{k}^{\M} \mid k \in K)
+\end{equation*}
+with
+\begin{itemize}
+\item \(R_{i}^{\M} \subseteq M^{\alpha_{i}}\) for all \(i \in I\) where \(\alpha_{i}\) is the arity of \(R_{i}\);
+\item \(c_{k}^{\M} \in M\) for all \(k \in K\).
+\end{itemize}
+\end{definizione}
+
+\(\M\) is a \uline{Tarski-model}.
+
+We say that \(\M\vDash R_{i}(x_{j} \mid j \in U, c_{k} \in V)[m_{j}/x_{j} \mid j \in U]\) for \(m_{j} \in M\), where \(U\cup V = \alpha_{j}\) iff
+\begin{equation*}
+(m_{j} \mid j \in U, c_{k}^{\M} \mid k \in V) \in R_{i}^{\M}.
+\end{equation*}
+(we are discarding the order with this notation)
+
+Given \(\varphi(x_{j} \mid j \in U)\) with displayed free variables
+\begin{equation*}
+\M \vDash \varphi(x_{j} \mid j \in U)[m_{j}/x_{j} \mid j \in U]
+\end{equation*}
+iff
+\begin{itemize}
+\item if \(\varphi\) is \(\lnot \psi\) and \(\M\not\vDash \psi(x_{j} \mid j \in U)[m_{j}/x_{j} \mid j \in U]\).
+\item if \(\varphi\) is \(\exists V\ \psi\) and
+\begin{equation*}
+  \M\vDash \psi(x_{j} \mid j \in U, y_{\ell} \mid \ell \in V)%
+  [m_{j}/x_{j} \mid j \in U, n_{\ell}/y_{\ell} \mid \ell \in V]
+\end{equation*}
+for some \(\set{n_{\ell} \mid \ell \in V} \subseteq M\).
+\item if \(\varphi\) is
+\begin{equation*}
+  \bigwedge_{z \in Z} \psi_{z} (x_{j} \mid j \in U)
+\end{equation*}
+and for all \(z \in Z\) we have \(\M\vDash \psi_{z}(x_{j} \mid j \in U) [m_{j}/x_{j} \mid j \in U]\)
+\item if \(\varphi\) is
+\begin{equation*}
+  \bigvee_{z \in Z} \psi_{z} (x_{j} \mid j \in U)
+\end{equation*}
+and for some \(z \in Z\) we have \(\M\vDash \psi_{z}(x_{j} \mid j \in U) [m_{j}/x_{j} \mid j \in U]\)
+\end{itemize}
+
+With this semantics
+\begin{itemize}
+\item the first example is in \(\L_{\omega_{1},\omega_{1}}\) and its Tarski models are linear orders of uncountable cofinality.
+\item the second example is in \(\L_{\omega_{2},\omega}\) and has no Tarski models.
+\end{itemize}
+\subsection{Proof system}
+\label{sec:org1f13686}
+
+See page 9 of \autocite{santiagosuarezBooleanValuedSemantics2024}
+
+\begin{thm}
+(Soundness Theorem for Tarski Semantics).
+The proof system is sound for Tarski Semantics.
+\end{thm}
+
+\uline{Fact}: the proof system is not complete for Tarski Semantics
+
+\begin{esempio}
+Recall the Example~\ref{esempio2VialePHD}. The conjunction of all the axioms is an \(\L_{\omega_{2},\omega}\)-sentence which is coherent for the proof system but Tarski-false. Hence its negation is Tarki-valid but not provable.
+\end{esempio}
+
+\begin{esempio}
+\uline{Failure of completeness and interpolation for Tarski-semantics}.
+Let
+\begin{equation*}
+\L_{0} = \set{\mathord{=}}, \quad %
+\L_{1}= \set{\mathord{=}, c_{\alpha} \mid \alpha<\omega_{1}},\quad %
+\L_{2} = \set{\mathord{=}, d_{n} \mid n <\omega}
+\end{equation*}
+and let
+\begin{align*}
+\psi_{1} &= \bigwedge_{\alpha<\beta<\omega_{1}} c_{\alpha} \neq c_{b}, &%
+	\psi_{1} &\in \set{\L_{1}\text{-sentences}}\\
+\psi_{2} &= \exists v\ \left(\bigwedge_{n \in \omega} v\neq c_{n}\right) \land \left(\bigwedge_{n<m<\omega} c_{n}\neq c_{m}\right) &%
+	\psi_{2} &\in \set{\L_{2}\text{-sentences}}
+\end{align*}
+then \(\psi_{1}\mathrel{\vDash_{\text{TS}}}\psi_{2}\) but \(\psi_{1}\not\vdash \psi_{2}\).
+\end{esempio}
+\section{Lecture 2 - \textit{<2025-11-19 Wed>}}
+\label{sec:org126a303}
+
+A little recap/obs about last lecture.
+
+\begin{oss}
+\begin{enumerate}
+\item \(\L_{\omega,\omega}\) is (equivalent to) first order logic.
+\item \(\L_{\infty, \lambda} = \bigcup_{\kappa \in \Reg} \L_{\kappa, \lambda}\), where \(\Reg \subseteq \operatorname{Card}\) are the regular cardinals;
+\(\L_{\infty,\infty} \bigcup_{\lambda \in \Reg} \L_{\infty, \lambda}\).
+
+The \(\L_{\infty,\omega}\) is a ``good logic'', very tame with nice semantics, boolean valued, while \(\L_{\infty,\infty}\) is a ``bad logic''.
+\end{enumerate}
+\end{oss}
+
+Lets write a proof of the following:
+\begin{equation*}
+\bigwedge_{\substack{i \in I\\ j \in J}} (\varphi_{i} \lor \psi_{j}) \vdash \bigg(\bigwedge_{i \in I} \varphi_{i}\bigg) \lor \bigg(\bigwedge_{j \in J} \psi_{j}\bigg).
+\end{equation*}
+which is the following, from the rules in \autocite{suarezBooleanCompactnessTheorem2025} in Section 3.2
+\begin{prooftree}
+\AxiomC{\(\varphi_{i} \vdash \varphi_{i}, \psi_{j}\)}
+\AxiomC{\(\psi_{j} \vdash \varphi_{i}, \psi_{j}\)}
+\AxiomC{\(\forall i \in I, j \in J\)}
+\TrinaryInfC{%
+	\(\varphi_{i}\lor\psi_{j} \vdash \varphi_{i}, \psi_{j},\qquad %
+        \forall i \in I, j \in J \)}
+\UnaryInfC{\(\bigwedge_{\substack{i \in I\\ j \in J}} (\varphi_{i}\lor\psi_{j}) \vdash \varphi_{i}, \psi_{j}, \qquad \forall i \in I, j \in J\)}
+\UnaryInfC{\(\bigwedge_{\substack{i \in I\\ j \in J}} (\varphi_{i}\lor\psi_{j}) \vdash \varphi_{i}, \bigwedge_{j \in J} \psi_{j}, \qquad \forall i \in I\)}
+\UnaryInfC{\(\bigwedge_{\substack{i \in I\\ j \in J}} (\varphi_{i}\lor\psi_{j}) \vdash \bigwedge_{i \in I}\varphi_{i}, \bigwedge_{j \in J} \psi_{j}\)}
+\UnaryInfC{\(\bigwedge_{\substack{i \in I\\ j \in J}} (\varphi_{i}\lor\psi_{j}) \vdash \bigg(\bigwedge_{i \in I} \varphi_{i}\bigg) \lor \bigg(\bigwedge_{j \in J} \psi_{j}\bigg)\)}
+\end{prooftree}
+
+
+\begin{esempio}
+If \((M,E)\vDash \mathrm{ZFC}\) as axiomatized in signature \(\set{\in}\), we have that:
+\begin{enumerate}
+\item \(\set{(\Gamma,\Delta) \in M^{2}\mid (M,E)\vDash\text{ there is a proof of }\Gamma\vdash\Delta}\) is a class which is uniformly \(\Delta_{1}\)-definable in \(M\) without parameters i.e. there are \(\Delta_{0}\)-formulae\footnote{All quantification is bounded} \(\theta_{0}(x,y,z)\) and \(\theta_{1}(x,y,w)\) s.t.
+\begin{equation*}
+ \mathrm{ZFC} \vdash
+\end{equation*}
+\end{enumerate}
+{[}\ldots{}]
+\end{esempio}
+
+Completeness for the proof system fine for \(\omega\)-signatures. (first order signatures). But this is not important, since \(\L_{\infty,\omega}\) is the \uline{good} infinitary logic.
+\subsection{Failure of interpolation for Tarski semantics on \(\L_{\infty,\omega}\) and \(\L_{\infty,\infty}\).}
+\label{sec:org5d0040e}
+
+In PHD THESIS (to cite):
+\begin{enumerate}
+\item There are \(\psi_{0},\psi_{1}\), \(\psi_{0} \in \L_{\omega_{2},\omega}\) and \(\psi_{1} \in \L_{\omega_{1},\omega}\) s.t. \(\psi_{0}\implies \psi_{1}\) is Tarski valid, but for no \(\theta\) in \(\L_{\infty,\omega}\), for \(\set{=} = \L(\psi_{0})\cap \L(\psi_{1})\) \(\psi_{0}\implies \theta\) and \(\theta\implies \psi_{1}\) are both Tarski-valid
+\item for any \(\psi_{0}\implies \psi_{1}\) valod for Tarski semantics on \(\L_{\infty,\omega}\) there is a \(\theta\) in \(\L_{\infty,\infty}\) such that
+\begin{equation*}
+ \psi_{0}\implies \theta,\quad \theta\implies\psi_{1}
+\end{equation*}
+are tarski valid, and \(\theta\) is in \(\L(\psi_{0})\cap \L(\psi_{1})\).
+\item \(\L_{\infty,\infty}\) interpolation fails. There is \(\varphi\implies\psi\) in \(\L_{\omega_{1},\omega_{1}}\) which is Tarski valid but has not interpolant \(\theta\) which is in \(\L_{\infty,\infty}\) which respect to Tarski semantics.
+\end{enumerate}
+
+\uline{Counterexample to interpolation for TS in \(\L_{\omega_{2},\omega}\)}:
+Let \(\L_{0} = \set{c_{\alpha} \mid \alpha<\omega_{1}}\) and \(\L_{1} = \set{d_{n} \mid n \in \omega}\).
+\begin{align*}
+\psi_{0} &= \bigwedge_{\alpha<\beta<\omega_{1}}(c_{\alpha} \neq c_{\beta})\\
+\psi_{1} &= \exists v\ \bigg(\bigwedge_{n<\omega} d_{n}\neq v \bigg)
+\end{align*}
+\(\psi_{0}\implies \psi_{1}\) is Tarski valid. In fact, if \(\M\) is a \(\L_{0}\cup\L_{1}\) structure s.t. \(\M\vDash \psi_{0}\), then \(M\) (the domain of \(\M\)) is uncountable. Then \(D=\set{d_{n}^{\M} \mid n \in \omega} \neq M\), so there is \(u \in M\) s.t. \(u \notin D\). \(u\) witness \(\M\vDash\psi_{1}\).
+
+In \(\L = \set{=}\), structures are categorical in each infinite cardinality (obv). Then for \(\M\) an \(\L\)-structure of infinite cardinality, \(\operatorname{Th}(\M)\) is model-complete, in the sense that \(\M_{0} \sqsubseteq \M_{1}\) models of \(\operatorname{Th}(\M)\) are \(\M_{0} \preceq \M_{1}\).
+
+Now, by way of contradiction, assume \(\theta\) is an \(\L\)-sentence for \(\L=\set{=}\) s.t. \(\psi_{0}\implies \theta\) and \(\theta\implies \psi_{1}\) are both Tarski-valid. Then
+\begin{align*}
+\lnot\psi_{1}\implies\lnot \theta,&\qquad%
+\lnot\theta\implies\lnot\psi_{0}.\\
+\lnot\psi_{0} &\equiv\bigvee_{\alpha<\beta<\omega_{1}} c_{\alpha}=c_{\beta}\\
+\lnot\psi_{1} &\equiv\forall v \big(\bigvee_{n \in \omega} d_{n} = v\big)
+\end{align*}
+\(\lnot\psi_{1}\) is true only in a countable structure. On the other hand \(\lnot\psi_{0}\) can be true in structures of any infinite size.
+
+In particular \(\lnot\theta\) is true in structures for \(\set{=}\) of any infinite cardinality, so it is true in all structure of infinity cardinality (by the Lemma~\ref{prossimolemma_vialelll}). Then \(\lnot\psi_{0}\) is true in an uncountable structure. Absurd.
+
+\begin{lem}
+Let \(A,B\) some infinite \(\set{=}\)-structures s.t. \(A \sqsubseteq B\), \(a_{1},\dots,a_{n} \in A\) and \(\sigma \in \L_{\infty,\omega}\),
+\begin{equation*}
+A\vDash\sigma(a_{1},\dots,a_{n}) \iff B\vDash \sigma(a_{1},\dots,a_{n}).
+\end{equation*}
+\label{prossimolemma_vialelll}
+\end{lem}
+\begin{proof}
+Let \(B\vDash\exists x\ \psi(x,a_{1},\dots,a_{n})\), and let \(C=A\cup \set{c}\) s.t. \(B\vDash\psi(c,a_{1},\dots,a_{n})\).
+
+Then \(C \sqsubseteq B\), \(C\vDash\psi(c,a_{1},\dots,a_{n})\) and \(C\cong A\) via an infinity morph \(f\) that fized \(a_{1},\dots,a_{n}\), so
+\begin{equation*}
+A\vDash \psi(f(c),a_{1},\dots,a_{n}).\qedhere
+\end{equation*}
+\end{proof}
+\subsection{Boolean valid semantics}
+\label{sec:orgf521a2c}
+
+\begin{definizione}
+Let \(\L\) be a relational \(\lambda\)-signature. \(\M\) is a \(B\)-valued model for
+\(\L=\set{R_{i}\mid i \in I} \cup\set{c_{k}\mid k \in K}\) for \(B\) a boolean algebra if the following holds:
+\begin{equation*}
+\M=(M, R_{i}^{\M}, c_{k}^{\M})
+\end{equation*}
+\begin{enumerate}
+\item There is a function
+\begin{align*}
+=^{\M}: M^{2} &\longrightarrow B\\
+(\tau,\sigma) &\longmapsto \eval{\tau=\sigma}
+\end{align*}
+s.t.
+\begin{align*}
+ \eval{\tau=\tau} &= 1_{B}\\
+ \eval{\tau=\sigma} &= \eval{\sigma=\tau}\\
+ \eval{\tau=\sigma} \land \eval{\sigma = \nu} &\le \eval{\tau=\nu}.
+\end{align*}
+\item For each \(i \in I\), given \(n_{i}\) the arity of \(R_{i}\), there is a function
+\begin{align*}
+R_{i}^{\M}: M^{n_{i}} &\longrightarrow B\\
+(\sigma_{1},\dots,\sigma_{n_{i}}) &\longmapsto \eval{R_{i}(\sigma_{1},\dots,\sigma_{n_{i}})}
+\end{align*}
+\end{enumerate}
+\end{definizione}
+\section{Lecture 3 - \textit{<2025-11-24 Mon>}}
+\label{sec:orgea86b7f}
+
+Last lecture:
+\begin{enumerate}
+\item Proof that interpolation fail for \(\L_{\infty,\omega}\).
+\item Failure of completeness for Tarski semantics with regard to the Proof System in \autocite{suarezBooleanCompactnessTheorem2025}.
+\item \(\M \mathrel{\vDash_{\L_{\infty,\omega}}^{\text{TS}}} \varphi\) is \(\Delta_{1}(\mathrm{ZFC})\).
+\item \(\M \mathrel{\vDash_{\L_{\infty,\infty}}^{\text{TS}}} \varphi\) is at least \(\Pi_{1}(\mathrm{ZFC})\)
+
+Note that 3. and 4. say that the concept of provability in \(\L_{\infty,\omega}\) is ``good'', since its absolute, while in \(\L_{\infty,\infty}\) is not.
+\end{enumerate}
+
+In this lecture we will show a sentence \(\psi\) and a structure \(\M\) s.t. \(\M\vDash\psi\) holds in \(V\) but not in \(V[G]\).
+
+\begin{esempio}
+We built a bijection between \(\omega\) and \(\omega_{1}\):
+\begin{equation*}
+\L=\set{R,X,Y} \cup \set{c_{\alpha} \mid \alpha < \omega_{1}^{V}} \cup \set{d_{n} \mid n \in \omega}
+\end{equation*}
+where \(R\) is binary and \(X,Y\) are unary.
+\begin{itemize}
+\item \(\psi\) is given by the conjunction of:
+\begin{enumerate}
+\item \(R:X\to Y\) is the graph of a bijection (first order sentence);
+\item \(\displaystyle \forall x\ \bigg(X(x) \iff \bigwedge_{\alpha<\omega_{1}^{V}} x = c_{\alpha}\bigg) \land \bigwedge_{\alpha<\beta<\omega_{1}^{V}} (c_{\alpha} \neq c_{\beta})\);
+\item \(\forall y\ \bigg(Y(y) \iff \bigwedge_{n \in \omega} y = d_{n}\bigg) \land \bigwedge_{n<m<\omega} (d_{n}\neq d_{m})\).
+\end{enumerate}
+Then \(\psi \mathrel{\vDash^{\text{TS}}} \bot\).
+\end{itemize}
+
+We want to show that there is no proof in \(V\) of \(\psi\vdash\bot\).
+
+Assume ``\(P\) is a proof of \(\psi\vdash\bot\)'', \(P \in V\). But that is \(\Delta_{1}(\text{ZFC})\) in parameters \(P,\psi,\bot\).
+Let \(G\) be \(V\)-generic for \(\operatorname{Coll}(\omega,\omega_{1}^{V})\), then
+\begin{equation*}
+V[G]\vDash\text{``}P\text{ is a proof of }\psi\vdash\bot\text{''}
+\end{equation*}
+but in
+\begin{equation*}
+V[G]\vDash \exists f\ \big[(f:\omega_{1}^{V}\to \omega)\text{ is a bijection}\big].
+\end{equation*}
+Then we can consider
+\begin{equation*}
+\M = (f,\omega_{1}^{V}, \omega, c_{\alpha}\mapsto\alpha, d_{n}\mapsto n)
+\end{equation*}
+and \(M\vDash\psi\). Given ZFC consistency, we have that there is noproof \(P\) of \(\psi\vdash\bot\) in \(V\).
+\end{esempio}
+
+\begin{oss}
+Why \(\M \mathrel{\vDash_{\L_{\infty,\omega}}^{\text{TS}}} \varphi\) is \(\Delta_{1}\)? Because we need only to consider the structure \(\M^{<\omega}\) to understand what is true in \(\M\), where \(M\) is its domain.
+
+In fact, if
+\begin{equation}
+\M\vDash \exists (x_{1},\dots,x_{n})\ \psi(x_{1},\dots,x_{n}) %
+\label{jdsknhbvsafiudsjkfhieudn}
+\end{equation}
+the we know that for every \(a_{1},\dots,a_{n} \in M\)
+\begin{equation*}
+\M\vDash \psi(x_{1},\dots,x_{n})[a_{i}/x_{i} : i = 1,\dots,n]
+\end{equation*}
+is simple i.e. \(\Delta_{1}\), so \eqref{jdsknhbvsafiudsjkfhieudn} iff:
+\begin{equation*}
+V\vDash \exists  s \in M^{<\omega}\ \M\vDash \psi(x_{1},\dots,x_{n})[s_{i}/x_{i} \mid i<n]
+\end{equation*}
+simple in parameters \(M\) and \(\omega\).
+\end{oss}
+\begin{oss}
+But if we consider:
+\begin{equation*}
+M\mathrel{\vDash_{\L_{\infty,\infty}}^{\text{TS}}} \exists (x_{n} \mid n<\omega)\ \psi(x_{n} \mid n<\omega)
+\end{equation*}
+which is equivalent to
+\begin{equation*}
+V\vDash \exists  f \in M^{\omega}\ \M\vDash\psi(x_{n} \mid n<\omega)[f(i)/x_{i} \mid i<\omega]
+\end{equation*}
+and so we have to know \(M^{\omega}\) to check whether \(\exists (x_{n} \mid n<\omega)\ \psi(x_{n} \mid n<\omega)\) is true  when I have to check it for \(\psi(x_{n}\mid n<\omega)\).
+\end{oss}
+\begin{esempio}
+Let \(\L = \set{<}\) binary relation, and let \(\psi\) be the conjuction of
+\begin{itemize}
+\item Axioms of linear order
+\item \(\forall (x_{n} \mid n <\omega) \ \exists y \bigg[\bigwedge_{n \in \omega} (x_{n}<y)\bigg]\).
+\end{itemize}
+
+In \(V\) we have that \(\langle \omega_{1}^{V},\in \rangle \vDash\psi\).
+\end{esempio}
+
+\uline{Quantifier elimination axiom}: given \(C=\set{c_{i}\mid i \in I}\) a set of constant in a signature \(\L\):
+\begin{equation*}
+\mathrm{QE}_{C} \coloneqq \qquad \forall x\ \bigg[\bigvee_{i \in I}(x=c_{i})\bigg]
+\end{equation*}
+and if \(\M\vDash \mathrm{QE}_{C}\) then, given \(M\) domain of \(\M\), we have \(\card{M}\le \card{I}\).
+
+Inductively, one maps \(\psi\mapsto \psi_{c}\), by
+\begin{align*}
+\bigg(\bigwedge_{j \in K} \psi_{j}\bigg)_{C} &= \bigwedge_{j \in J} \big((\psi_{j})_{C}\big)\\
+\bigg(\exists x\ \psi(x)\bigg)_{C} &= \bigwedge_{i \in I} \big(\psi(c_{i})\big)_{C}\\
+(\lnot \psi)_{C} &= \lnot(\psi)_{C}\\
+&\vdots
+\end{align*}
+\uline{Fact}: \(\psi \mathrel{\equiv_{\mathrm{QE}_{C}}^{\text{TS}}} \psi_{C}\) for \(\L_{\infty,\omega}\).
+
+One can generalize this concept on \(\psi \mathrel{\equiv_{\mathrm{QE}_{C}}^{\text{TS}}} \psi_{C}\) for \(\L_{\infty,\infty}\).
+
+\begin{esempio}
+We give an example of a \(\psi \mathrel{\equiv_{\mathrm{QE}_{C}}} \varphi\) in \(V\) but not in some \(V[G]\). Given \(C=\set{c_{\alpha} \mid \alpha<\omega_{1}}\):
+\begin{align*}
+\psi: \qquad &\forall (x_{n}\mid n\in \omega) \ \exists y\ %
+	 \bigg[\bigwedge_{n<\omega} (x_{n}<y)\bigg]\\
+\varphi: \qquad &\bigwedge_{f \in (C^{\omega})^{V}} \bigvee_{\alpha<\omega_{1}^{V}} %
+	\bigg[\bigwedge_{n<\omega} \big(f(n)<c_{\alpha}\big)\bigg]
+\end{align*}
+Then \(V\vDash \big(\psi \mathrel{\equiv_{\mathrm{QE}_{C}}^{\text{TS}}} \varphi\big)\).
+
+If then \(G\) is  \(V\)-generic for \(\operatorname{Coll}(\omega,\omega_{1})\) then
+\begin{align*}
+\langle \omega_{1}^{V}, \in, c_{\alpha}\mapsto \alpha : \alpha<\omega_{1}^{V} \rangle &\vDash \psi\qquad \text{holds in \(V\)}\\
+\langle \omega_{1}^{V}, \in, c_{\alpha}\mapsto \alpha : \alpha<\omega_{1}^{V} \rangle &\vDash \varphi\qquad \text{holds in \(V\)}\\
+\langle \omega_{1}^{V}, \in, c_{\alpha}\mapsto \alpha : \alpha<\omega_{1}^{V} \rangle &\not\vDash \psi\qquad \text{holds in \(V[G]\)}\\
+\langle \omega_{1}^{V}, \in, c_{\alpha}\mapsto \alpha : \alpha<\omega_{1}^{V} \rangle &\vDash \varphi \qquad \text{holds in \(V[G]\)}.
+\end{align*}
+\end{esempio}
+
+Modulo \(\mathrm{QE}_{C}\), \(\L_{\infty,\infty}\) is the same as second order logic, at least for Tarski semantics.
+
+In fact, if \(C=\set{c_{i} \mid i \in I}\), it is true in \(\L_{\infty, \card{I}^{+}}\). Given a typical second order formula:
+\begin{equation*}
+\forall  R\ \parentesi{\text{first order}}{R(x) \land \psi(x,y,z,\dots)}
+\end{equation*}
+we can write in \(\L_{\infty, \card{I}^{I}}\):
+\begin{equation*}
+\forall (x_{i} \mid i \in I) \ \bigwedge_{i \in I} R(x_{i}) \land \psi(x_{i}, y,z,\dots)
+\end{equation*}
+\textbf{TO BE ELABORATED NEXT LECTURE}.
+
+\uline{Failure of compactness for \(\L_{\omega_{1},\omega}\) for Tarski semantics.}
+
+Let
+\begin{equation*}
+T = \set{\bigwedge_{n \in \omega} c_{n} = c_{\omega}} \cup \set{c_{n} \neq c_{m} \mid n<m\le \omega}.
+\end{equation*}
+If \(T_{0} \subseteq T\) is finite, let \(K\) be s.t. all constant \(c_{i} \in \psi \in T_{0}\) are with \(i<K\) or \(i=\omega\). Then \(T_{0}\) holds in
+\begin{equation*}
+(K+1, c_{i}\mapsto i, c_{\omega}\mapsto k) \vDash T_{0}
+\end{equation*}
+while no \(\M\vDash T\).
+\subsection{Boolean valued semantics}
+\label{sec:orgca852a2}
+
+\begin{definizione}
+Let \(\L\) be a relational first order signature, \(\L=\set{R_{i}\mid i \in I} \cup\set{c_{k}\mid k \in K}\), and let \(B\) be a boolean algebra.
+
+\(\M =(M, R_{i}^{\M}, c_{k}^{\M})\) is a \(B\)-valued model for
+\(\L\) if the following holds:
+\begin{enumerate}
+\item There is a function
+\begin{align*}
+=^{\M}: M^{2} &\longrightarrow B\\
+(\tau,\sigma) &\longmapsto \eval{\tau=\sigma}
+\end{align*}
+s.t.
+\begin{align*}
+ \eval{\tau=\tau} &= 1_{B}\\
+ \eval{\tau=\sigma} &= \eval{\sigma=\tau}\\
+ \eval{\tau=\sigma} \land \eval{\sigma = \eta} &\le \eval{\tau=\eta}.
+\end{align*}
+\item For each \(i \in I\), given \(n_{i}\) the arity of \(R_{i}\), \(R_{i}^{\M}\) is a function
+\begin{align*}
+R_{i}^{\M}: M^{n_{i}} &\longrightarrow B\\
+(\sigma_{1},\dots,\sigma_{n_{i}}) &\longmapsto \eval{R_{i}(\sigma_{1},\dots,\sigma_{n_{i}})}
+\end{align*}
+s.t.
+\begin{equation*}
+ \eval{R_{i}(\tau_{1},\dotsm\tau_{n_{i}})} \land \bigwedge_{j=1}^{n_{i}} \eval{\tau_{j} = \sigma_{j}} \le \eval{R_{i}(\sigma_{1},\dots,\sigma_{n_{i}})}.
+\end{equation*}
+
+\item For each \(k \in K\), \(c_{k}^{\M} \in M\).
+\end{enumerate}
+\end{definizione}
+
+If \(B=2 = \set{0,1}\), then the \(B\)-valued models are exactly the Tarski models. The rules are given by the equality axioms in Section 3.2 in \autocite{suarezBooleanCompactnessTheorem2025}.
+
+\begin{definizione}
+Let \(\M\) be a \(B\)-valued model and assume \(B\) is a complete boolean algebra (otherwise in what follows replace \(B\) by \(\operatorname{RO}(B^{+})\)).
+\begin{quote}
+Definition~3.4 of \autocite{suarezBooleanCompactnessTheorem2025}
+\end{quote}
+\end{definizione}
+\section{Lecture 4 - \textit{<2025-11-26 Wed>}}
+\label{sec:orgd38799f}
+
+
+\def\defaultbooleanmodel{\parti{J}}
+\def\defaultmodel{\NN}
+\begin{esempio}
+Let \(\L=\set{R_{i} \mid i \in I} \cup \set{c_{k} \mid k \in K}\)
+be a \(\omega\)-signature, where \(R_{i}\) are \(n_{i}\)-ary relation symbols and \(c_{k}\) are constant symbols.
+
+For each \(j \in J\) let
+\begin{equation*}
+\M_{j} = (M_{j}, R_{i}^{\M_{j}}, c_{k}^{\M_{j}})
+\end{equation*}
+be a Tarski \(\L\)-structure. Consider the \(\parti{J}\)-structure \(\NN\):
+\begin{equation*}
+\NN = \bigg(%
+\prod_{j \in J} M_{j}, R_{i}^{\NN}, c_{k}^{\NN}
+\bigg)
+\end{equation*}
+\begin{itemize}
+\item for each \(k \in K\): \(c_{k}^{\N} = (c_{k}^{\M_{j}} \mid j \in J)\):
+\begin{equation*}
+  c_{k}^{\NN} : j \mapsto c_{k}^{\M_{j}}
+\end{equation*}
+\item for each \(i \in I\):
+\begin{equation*}
+  \eval{R_{i}^{\NN} (f_{1},\dots,f_{n_{i}})} = \set{j \in J \mid
+  R_{i}^{\M_{j}} (f_{1},\dots,f_{n_{i}})
+    }
+\end{equation*}
+\end{itemize}
+
+{[}\ldots{}]: prove that this is in fact a \(\parti{J}\)-structure. This is the standard construction of the ultraproduct (before the equivalent relation).
+\label{esempio:4.1}
+\end{esempio}
+\def\defaultbooleanmodel{\M}
+\def\defaultmodel{\operatorname{Meas}}
+\begin{esempio}
+Let's consider
+\begin{equation*}
+L^{\infty}(\R) = \set{ f:\R\to \R \mid %
+	f\text{ Lebesgue measurable}, \operatorname{supess}|f| < \infty %
+}
+\end{equation*}
+where
+\(\operatorname{supess}|f| = \sup \set{r \in \R \mid \mu(|f|>r) > 0}\).
+
+The unit ball of \(L^{\infty}(\R)\) is
+\begin{equation*}
+B_{1}(L^{\infty}(\R)) \coloneqq %
+\set{f \in L^{\infty}(\R) \mid \mu\big(\set{x \mid |f(x)| > 1}\big) = 0}
+\end{equation*}
+Let \(\M = B_{1}(L^{\infty}(\R))\) be a \(\operatorname{Meas}\)-model in a language \(\L = \set{+, \cdot, =}\), where \(+,\cdot\) are ternary relation symbols identifying the graphs of those function, and where
+\begin{equation*}
+\operatorname{Meas} = \set{X \subseteq \R \mid X\text{ is Lebesgue Measurable}}.
+\end{equation*}
+The evaluations are:
+\begin{itemize}
+\item \(\eval{f=g} = \set{x \in \R \mid f(x) = g(x)}\);
+\item \(\eval{f+g=h} = \set{x \in \R\mid f(x) + g(x) = h(x)}\);
+\item \(\eval{f\cdot g=h} = \set{x \in \R \mid f(x) \cdot g(x) = h(x)}\);
+\end{itemize}
+and this is a boolean model.
+
+\def\defaultmodel{\operatorname{MALG}}
+
+We can now consider the boolean algebra
+\begin{equation*}
+\operatorname{MALG} \coloneqq \operatorname{Meas} /\operatorname{Null} %
+= \set{[A]_{\operatorname{Null}} \mid A \in \operatorname{Meas}},\qquad %
+[A]=[B] \IFF \mu(A \mathrel{\triangle} B) = 0
+\end{equation*}
+Is \(L^{\infty}(\R)\) a \(\operatorname{MALG}\)-model? We could use the evaluations
+\begin{itemize}
+\item \(\eval{f=g} = \big[\set{x \in \R \mid f(x) = g(x)}\big]_{\operatorname{Null}}\);
+\item \(\eval{f+g=h} = \big[\set{x \in \R\mid f(x) + g(x) = h(x)}\big]_{\operatorname{Null}}\);
+\item \(\eval{f\cdot g=h} = \big[\set{x \in \R \mid f(x) \cdot g(x) = h(x)}\big]_{\operatorname{Null}}\).
+\end{itemize}
+\end{esempio}
+\def\defaultbooleanmodel{\M}
+\def\defaultmodel{B}
+
+\begin{oss}
+For any info about boolean algebras, see \autocite{vialeForcingMethodSet2024}, Chapters 3 and 4.
+\end{oss}
+
+\begin{definizione}
+Let \(B\) a Boolean Algebra and \(F\) a filter on \(B\) (or dually \(I = \tilde{F} = \set{\lnot a \mid a \in F}\)):
+\begin{equation*}
+B/F \coloneqq \set{[a]_{F} \mid a \in B}, \qquad%
+[a]_{F} = [b]_{F} \IFF (a \mathrel{\triangle} b) \in I
+\end{equation*}
+\end{definizione}
+
+\(B/F\) is a boolean algebra with operations
+\begin{align*}
+[a]_{F} \lor [b]_{F} &= [a \lor b]_{F}\\
+[a]_{F} \land [b]_{F} &= [a \land b]_{F}\\
+\lnot[a]_{F}  &= [\lnot a]_{F}
+\end{align*}
+
+\begin{definizione}
+Let \(\M\) be a \(B\)-valued model for \(\L\). We define the \(B/F\)-structure \(\M / F\) as follows: if
+\begin{equation*}
+\M = (M, R_{i}^{\M}, c_{k}^{\M})
+\end{equation*}
+then
+\begin{equation*}
+\M/F = (M/F, R_{i}^{\M/F}, c_{k}^{\M/F})
+\end{equation*}
+\begin{itemize}
+\item \(M/F \coloneqq \set{[\tau]_{F} \mid \tau \in M}\) where
+\begin{equation*}
+  [\tau]_{F} \coloneqq \set{\sigma \mid \eval{\sigma=\tau} \in F}
+\end{equation*}
+\item we obviously have that
+\def\defaultbooleanmodel{\M/F}
+\def\defaultmodel{B/F}
+\begin{equation*}
+  \eval{[\tau]_{F} = [\tau]_{F}} = [1_{B}]_{F}
+\end{equation*}
+\item copy for relations, and well poseness
+\end{itemize}
+See Definition~3.5 of \autocite{suarezBooleanCompactnessTheorem2025}.
+\end{definizione}
+\def\defaultbooleanmodel{\M}
+\def\defaultmodel{B}
+
+\uline{Fact} if \(G\) is a ultrafilter of the boolean algebra \(B\), and \(\M\) is a \(B\)-valued model for \(\L\), we have that \(\M/G\) is a \(B/G\)-valued model.
+
+But \(B/G \cong 2\) (since \(G\) is a ultrafilter), so \(\M/G\) is a Tarski model.
+
+\begin{esempio}
+Let \(\set{\M_{j} \mid j \in J}\) be \(\L\)-Tarski-structures, for \(\L=\set{R_{i} \mid i \in I} \cup \set{c_{k} \mid k \in K}\)
+an and \(c_{k}\) are constant symbols, and
+consider the \(\parti{J}\)-structure \(\NN\):
+\begin{equation*}
+\NN = \bigg(%
+\prod_{j \in J} M_{j}, R_{i}^{\NN}, c_{k}^{\NN}
+\bigg)
+\end{equation*}
+as in the Example~\ref{esempio:4.1}.
+
+Let \(G\) be an ultrafilter of \(\parti{J}\), i.e. \(G\) is a ultrafilter on \(J\). Then \(\NN/G\) is a Tarski structure, and it is called the ultraproduct of \(\set{\M_{j} \mid j \in J}\) by \(G\).
+\end{esempio}
+\begin{thm}
+(Los Theorem)
+\(\NN/G \vDash \varphi(f_{1},..,f_{n})\) iff \(\set{j \in J \mid \M_{j} \vDash \varphi(f_{1}(j),\dots,f_{n}(j))} \in G\).
+\end{thm}
+\uline{Exercise}: for all \(\varphi(x_{1},\dots,x_{n})\) and \(f_{1},\dots,f_{n} \in \NN\)
+\begin{equation*}
+\eval{\varphi(f_{1},\dots,f_{n})} = \set{j \in J \mid \M_{j} \vDash \varphi(f_{1}(j),\dots,f_{n}(j))}
+\end{equation*}
+
+\begin{definizione}
+Given a logic \(\L_{\star\star}\) among the \(\L_{\kappa,\lambda}\), we say that a \(B\)-valued model \(\M\) for \(\L\) is a \(\L_{\star\star}\)-fill if for \(\L_{\star\star}\)-formulae (in display free variables)
+\begin{equation*}
+\varphi(x_{i} \mid i \in I, y_{k} \mid k \in K)
+\end{equation*}
+we have that
+\begin{equation*}
+\eval{%
+\exists (x_{i} \mid i \in I)\ \varphi (x_{i} \mid i \in I, y_{k} \mid k \in K)
+} = ???
+\end{equation*}
+\end{definizione}
+
+\uline{Fact}: The Los Theorem for \(\L_{\infty,\infty}\) fails for at least one theory \(T\). (De Bondt)
+\begin{thm}
+(Folklore; V. \& Pierobon; V. \& Santiago).
+For any \(\L_{\infty,\omega}\) theory \(T\) TFAE:
+\begin{enumerate}
+\item \(T\) is Boolean consistent (so there is a \(B\)-valued model \(\M\) s.t. \(\eval{\bigwedge T}\));
+\item \(T\) is provably consistent (for the proof system given);
+\item \(T\) has a Full model for \(\L_{\infty, \omega}\).
+\end{enumerate}
+\end{thm}
+
+\autocite{mansfieldCompletenessTheoremInfinitary1972a} proves \(1.\Leftrightarrow 2.\) for \(\L_{\infty,\infty}\).
+
+\begin{thm}
+Assume \(\M\) is full for \(\L_{\omega,\omega}\). Then for all \(\L_{\omega,\omega}\)-formula \(\varphi(x_{i} \mid i \in I)\) and \((\sigma_{i} \in i \in I) \in M^{I}\) and \(G\) ultrafilter on \(B\)
+\begin{equation*}
+\M / G \vDash \varphi\big([\sigma_{i}]_{G} \mid i \in I\big) %
+\IFF%
+\eval{\varphi(\sigma_{i} \mid i \in I)} \in G
+\end{equation*}
+\end{thm}
+
+\def\defaultbooleanmodel{\operatorname{MALG}}
+\def\defaultmodel{\M}
+\uline{Counterexample to fullness}: take
+\(C^{\omega}(\R) = \set{f: \R\to \R \mid f\text{ is analytic}}\). We make \(\M =C^{\omega}(\R)\) a \(\operatorname{MALG}\)-valued model for \(\L=\set{C,<}\), with \(C\) unary and \(<\) binary:
+\begin{align*}
+\eval{f=g} &= \big[\set{x \in \R \mid f(x) = g(x)}\big]\\
+\eval{C(f)} &= \begin{cases}
+[\R], & f \text{ is constant}\\
+[\emptyset], & f \text{ is not constant}
+\end{cases}\\
+\eval{f<g} &= \big[\set{x \in \R \mid f(x) < g(x)}\big]-
+\end{align*}
+\(\M\) is not a full model for first order logic.
+\section{Lecture 5 - \textit{<2025-12-01 Mon>}}
+\label{sec:org0f8cb62}
+
+Non ho preso appunti
+\newpage
+\printbibliography
+\end{document}

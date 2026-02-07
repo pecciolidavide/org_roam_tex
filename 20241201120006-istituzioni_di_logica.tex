@@ -1,0 +1,835 @@
+% Created 2026-02-07 Sat 19:30
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Davide Peccioli}
+\date{\today}
+\title{Istituzioni di Logica [CORSO]}
+\begin{document}
+
+\section{Istituzioni di Logica (9 cfu)}
+\label{sec:org07f5e92}
+
+\subsection{Fondamenti di Logica}
+\label{sec:org884a83b}
+
+\begin{itemize}
+\item \href{20250130162057-linguaggio_del_prim_ordine.org}{Linguaggio del prim'ordine}
+\item \href{20250212112324-estensione_di_un_linguaggio_del_prim_ordine.org}{Estensione di un linguaggio del prim'ordine}
+\item \href{20250131103035-struttura_del_prim_ordine.org}{Struttura del prim'ordine}
+\item \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{Morfismo tra strutture del prim'ordine}
+\item \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{Immersione elementare}
+\item \href{20250131103212-sottostruttura_del_prim_ordine.org}{Sottostruttura del prim'ordine}
+\item \href{20250212100332-sottostruttura_generata_da_un_insieme.org}{Sottostruttura generata da un insieme}
+\item \href{20250130162316-termine_del_prim_ordine.org}{Termine del prim'ordine}
+\item \href{20250131103317-formula_del_prim_ordine.org}{Formula del prim'ordine}
+\item \href{20250131103429-variabile_libera_di_una_formula.org}{Variabile libera di una formula}
+\item \href{20250131103446-enunciato_del_prim_ordine.org}{Enunciato del prim'ordine}
+\item \href{20250212102927-enunciato_con_parametri.org}{Formula con parametri}
+\item \href{20250131103457-chiusura_universale_di_una_formula.org}{Chiusura universale di una formula}
+\item \href{20250131123530-formula_valida.org}{Formula valida}
+\item \href{20250131123540-formula_soddisfacibile.org}{Formula soddisfacibile}
+\item \href{20250131123704-sostituzione_di_termini_in_una_formula.org}{Sostituzione di termini in una formula}
+\item \href{20250212100302-interpretazione_di_un_termine.org}{Interpretazione di un termine}
+\item \href{20250131122913-soddisfazione_di_una_formula.org}{Soddisfazione di una formula}
+\item \href{20250212144403-formula_consistente.org}{Formula consistente}
+\item \href{20250131122913-soddisfazione_di_una_formula.org}{Insieme definito da una formula del prim'ordine}
+\item \href{20250210115830-insieme_di_formule_indipendenti.org}{Insieme di formule indipendenti}
+\item \href{20250212164424-tipo_teoria_dei_modelli.org}{Tipo - Teoria dei Modelli}
+\item \href{20250131122945-modello_di_un_insieme_di_formule.org}{Modello di un insieme di formule}
+\item \href{20250131123011-conseguenza_logica.org}{Conseguenza logica}
+\item \href{20250131123033-equivalenza_logica_tra_due_enunciati.org}{Equivalenza logica tra due enunciati}
+\item \href{20250130114950-teoria_del_prim_ordine.org}{Teoria del Prim'ordine}
+\item \href{20250131123109-insieme_di_assiomi_per_una_teoria.org}{Insieme di assiomi per una teoria}
+\item \href{20250131123128-teoria_soddisfacibile.org}{Teoria massimamente consistente}
+\item \href{20250131123128-teoria_soddisfacibile.org}{Teoria soddisfacibile}
+\item \href{20250131123151-teoria_completa.org}{Teoria completa}
+\item \href{20250212112537-caratterizzazione_di_teoria_completa.org}{Caratterizzazione di teoria completa}
+\item \href{20250131123208-teorie_elementarmente_equivalente.org}{Strutture elementarmente equivalenti}
+\item \href{20250212102253-sottostruttura_elementare.org}{Sottostruttura elementare}
+\item \href{20250131123228-teoria_di_una_struttura.org}{Teoria di una struttura}
+\item \href{20250212102412-teoria_di_una_struttura_con_parametri.org}{Teoria di una struttura con parametri}
+\item \href{20250212101432-modello_assiomatizzabile.org}{Modello assiomatizzabile}
+\end{itemize}
+\subsection{Basic Set Theory}
+\label{sec:org7f7125e}
+
+\subsubsection{Section 16}
+\label{sec:orgb36cf97}
+
+\begin{itemize}
+\item \href{20250130104409-paradosso_di_russel.org}{Paradosso di Russel}
+\item \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\item \href{20250206170922-sequenze_e_stringhe.org}{Sequenze e stringhe}
+\item \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Potenza di una classe}
+\item \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano generalizzato}
+\item \href{20250206171508-axiom_of_choiche.org}{Axiom of Choice}
+\item \href{20250203105434-funzione_di_scelta.org}{Funzione di scelta}
+\item \href{20250206171120-operazione_su_una_classe_mk.org}{Operazione su una classe MK}
+\item \href{20250206171704-axiom_of_global_choice.org}{Axiom of global Choice}
+\item \href{20250207124220-zermelo_franklin_set_theory.org}{Zermelo Franklin Set Theory}
+\end{itemize}
+\subsubsection{Section 18}
+\label{sec:org5968122}
+
+\begin{itemize}
+\item \href{20250203095749-relazione_left_narrow_mk.org}{Relazione left-narrow MK}
+\item \href{20250203100901-relazione_well_founded_mk.org}{Relazione well-founded MK}
+\item \href{20250203104134-buon_ordine_mk.org}{Buon ordine MK}
+\item \href{20250210104534-ac_e_classi_ben_ordinabili.org}{Classe ben ordinata ammette una classe-funzione di scelta MK}
+\item \href{20250203110714-classe_transitiva.org}{Classe Transitiva}
+\item \href{20250203111003-ordinali.org}{Ordinali}
+\item \href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{Insiemi ben ordinati sono isomorfi ad un ordinale unico}
+\item \href{20250203111003-ordinali.org}{Proprietà degli ordinali}
+\item \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}
+\item \href{20250203161132-ordinale_limite.org}{Ordinale limite}
+
+\item \href{20250203161326-topologia_sugli_ordinali.org}{Topologia sugli ordinali}
+
+\item \href{20250205120448-classe_finita_e_infinita_mk.org}{Classe finita e infinita MK}
+\item \href{20250203161431-classe_ben_ordinabile_mk.org}{Classe ben ordinabile MK}
+
+\item \href{20250203161341-cardinali.org}{Cardinali}
+\item \href{20241213101756-cardinalita.org}{Cardinalità}
+\item \href{20250205150457-teorema_di_cantor_bernstein_schroder.org}{Teorema di Cantor-Bernstein-Schröder}
+
+\item \href{20250205152531-numeri_di_hartogs.org}{Numeri di Hartogs}
+\item \href{20250205180824-numero_di_hartogs_di_un_ordinale.org}{Numero di Hartogs di un ordinale}
+
+\item \href{20250612151505-aritmetica_dei_cardinali.org}{Aritmetica dei cardinali}
+
+\item \href{20250206100719-ordine_prodotto_per_classi.org}{Ordine prodotto}
+\item \href{20250206100734-ordine_lessicografico_per_classi.org}{Ordine lessicografico}
+\item \href{20250205180911-buon_ordine_di_godel_per_ordxord.org}{Buon ordine di Godel per OrdxOrd}
+
+\item \href{20250205181254-order_type_del_prodotto_cartesiano_di_un_cardinale_e_il_cardinale_stesso.org}{Order Type del prodotto cartesiano di un cardinale è il cardinale stesso}
+\item \href{20250205182017-insieme_dei_sottoinsiemi_con_order_type_fissato.org}{Insieme dei sottoinsiemi con order type fissato}
+
+\item \href{20250205182056-equipotenza_di_insiemi_di_funzioni.org}{Equipotenza dell'insieme delle sequenze finite}
+\end{itemize}
+\subsubsection{Section 19}
+\label{sec:org27a208f}
+
+\begin{itemize}
+\item \href{20250207104855-funzione_ricorsiva.org}{Funzione Ricorsiva}
+\item \href{20250207121712-teorema_di_ricorsione_caso_speciale.org}{Teorema di Ricorsione - caso speciale}
+
+\item \href{20250207121738-chiusura_transitiva_di_una_relazione_mk.org}{Chiusura transitiva di una relazione MK}
+
+\item \href{20250207121906-teorema_di_ricorsione.org}{Teorema di Ricorsione}
+
+\item \href{20250207122234-rango_di_una_relazione_well_founded.org}{Rango di una relazione well-founded}
+\item \href{20250207122542-collasso_di_mostowski.org}{Collasso di Mostowski}
+\item \href{20250207122435-relazione_estensionale.org}{Relazione estensionale}
+\item \href{20250207122453-lemma_del_collasso_di_mostowski.org}{Lemma del collasso di Mostowski}
+\item \href{20250207122856-punto_fisso_di_funzioni_continue_e_crescenti_sugli_ordinali.org}{Punto Fisso di funzioni continue e crescenti sugli ordinali}
+\item \href{20250207122627-funzione_aleph.org}{Funzione Aleph}
+\item \href{20250207123015-aritmentica_per_gli_ordinali.org}{Aritmentica per gli ordinali}
+\item \href{20250207123105-rango_di_un_insieme.org}{Rango di un insieme}
+\item \href{20250207123246-gerarchia_di_von_neumann.org}{Gerarchia di Von Neumann}
+\item \href{20250207123526-modelli_di_zfc_nella_gerarchia_di_von_neumann.org}{Modelli di ZFC nella Gerarchia di Von Neumann} *
+\item \href{20250620163542-complessita_di_una_formula_nel_linguaggio_della_teoria_degli_insiemi.org}{Complessità di una formula nel linguaggio della teoria degli insiemi} * -> \href{20250620163603-complessita_di_una_formula.org}{Complessità di una formula}
+\item \href{20250207123940-formula_assoluta.org}{Formula assoluta}
+\item \href{20250620172440-assolutezza_delle_formule_tra_un_insieme_transitivo_e_un_modello_di_mk.org}{Assolutezza delle formule tra un insieme transitivo e un modello di MK} *
+\item \href{20250620173236-insieme_transitivo_e_assiomi_di_zf.org}{Insieme transitivo e assiomi di ZFC} *
+\end{itemize}
+\subsubsection{Section 20}
+\label{sec:org56ce790}
+
+\begin{itemize}
+\item \href{20250612151505-aritmetica_dei_cardinali.org}{Cardinal exponentiation}
+\item \href{20250210101346-collezione_dei_sottoinsiemi_ben_ordinabili_di_cardinalita_limitata.org}{Collezione dei sottoinsiemi ben ordinabili di cardinalità limitata}
+\item \href{20250210103126-classe_funzione_beth.org}{Classe funzione Beth}
+\item \href{20250621113243-cardinalita_dei_reali.org}{Cardinalità dei reali}
+\item \href{20250210103648-ipotesi_del_continuo.org}{Ipotesi del continuo}
+\item \href{20250210103702-ipotesi_del_continuo_generalizzata.org}{Ipotesi del continuo generalizzata}
+\item \href{20250210104221-ch_e_gch_sono_indipendenti_dall_assiomatizzazione_della_teoria_degli_insiemi.org}{CH e GCH sono indipendenti dall'assiomatizzazione della Teoria degli Insiemi}
+\item \href{20250821170414-relazione_tra_reali_e_omega1.org}{Relazione tra reali e omega1}
+\item \href{20250210104302-forme_deboli_di_ac.org}{Forme deboli di AC}
+\item \href{20250210104534-ac_e_classi_ben_ordinabili.org}{Esiste funzione di scelta sse ben ordinabile}
+\item \href{20250210104427-assiomi_equivalenti_ad_ac.org}{Assiomi equivalenti ad AC} *:
+\begin{itemize}
+\item \href{20250210104633-lemma_di_zorn.org}{Zorn Lemma}
+\item \href{20250210104633-lemma_di_zorn.org}{Weak Zorn Lemma}
+\item \href{20250210104707-principio_di_massimalita_di_hausdorff.org}{MaxHaus}
+\item \href{20250621133056-teichmuller_tukey_lemma.org}{Teichmüller-Tukey Lemma}
+\item \href{20250621133123-axiom_of_multiple_choices.org}{Axiom of Multiple Choices}
+\item \href{20250621133254-kurepa_s_maximality_principle.org}{Kurepa’s maximality principle}
+\end{itemize}
+
+\item \href{20250622095126-classe_di_equivalenza_di_scott.org}{Classe di equivalenza di Scott} *
+\item \href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{Order type di una classe qualunque} *
+\item \href{20241213101756-cardinalita.org}{Cardinalità} senza AC
+\item \href{20250210105502-ac_e_comparabilita_delle_cardinalita.org}{AC e comparabilità delle cardinalità} *
+\item \href{20250210104302-forme_deboli_di_ac.org}{Axiom of countable Choice} *
+\item \href{20250210105804-ipotesi_per_cui_omega1_non_e_unione_numerabile_di_insiemi_numerabili.org}{Unione numerabile di insiemi numerabili è numerabile} *
+\item \href{20250210104302-forme_deboli_di_ac.org}{Axiom of dependent Choices} *
+\end{itemize}
+\subsubsection{Section 21}
+\label{sec:org09662ad}
+
+\begin{itemize}
+\item \href{20250612151505-aritmetica_dei_cardinali.org}{Somma di cardinali}
+\item \href{20250612151505-aritmetica_dei_cardinali.org}{Prodotto di cardinali}
+\item \href{20250211145622-proprieta_di_prodotto_e_somma_generalizzata_di_cardinali.org}{Proprietà di prodotto e somma generalizzata di cardinali}
+\item \href{20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali.org}{Somma generalizzata di cardinali è minore del supremum dei cardinali}
+\item \href{20250211104310-cardinalita_dell_unione_di_insiemi_e_minore_del_supremum_della_cardinalita_degli_insiemi_per_la_cardinalita_dell_insieme_degli_indici.org}{Cardinalità dell'unione di insiemi è minore del supremum della cardinalità degli insiemi per la cardinalità dell'insieme degli indici}
+\item \href{20250211104106-somma_di_cardinali_e_minore_del_prodotto_di_cardinali.org}{Somma di cardinali è minore del prodotto di cardinali}
+\item \href{20250211104356-teorema_di_cantor.org}{Teorema di Cantor}
+\item \href{20250211104500-funzione_cofinale.org}{Funzione cofinale} *
+\item \href{20250211104628-proprieta_di_funzioni_cofinali_e_cofinalita_di_un_ordinale.org}{Proprietà di funzioni cofinali e cofinalità di un ordinale} *
+\item \href{20250211104639-ordinale_regolare.org}{Ordinale regolare} *
+\item \href{20250211104941-cardinali_infiniti_hanno_numero_di_hartogs_regolare.org}{Cardinali infiniti hanno numero di Hartogs regolare} *
+\item \href{20250211105023-ogni_cardinale_singolare_e_estremo_superiore_di_una_sequenza_crescente_di_cardinali_regolari.org}{Ogni cardinale singolare è estremo superiore di una sequenza crescente di cardinali regolari} *
+\item \href{20250211105119-ordinale_elevato_alla_sua_cofinalita_e_maggiore_a_se_stesso.org}{Ordinale elevato alla sua cofinalità è maggiore a se stesso} *
+\item \href{20250211105133-formula_di_hausdorff.org}{Formula di Hausdorff} *
+\item \href{20250211105153-teorema_di_bukovsky_hechler.org}{Teorema di Bukovsky-Hechler} *
+\item \href{20250206171120-operazione_su_una_classe_mk.org}{Operazione su una classe MK} *
+\item \href{20250211105332-chiusura_rispetto_ad_una_collezione_di_operatori_di_una_sottoclasse.org}{Chiusura rispetto ad una collezione di operatori di una sottoclasse} *
+\item \href{20250211111630-maggiorazioni_della_cardinalita_della_chiusura_rispetto_ad_una_collezione_di_operatori.org}{Maggiorazioni della cardinalità della chiusura rispetto ad una collezione di operatori} *
+\item \href{20250203161326-topologia_sugli_ordinali.org}{Topologia sugli ordinali} *
+\item \href{20250211111723-ordinale_e_compatto_sse_zero_o_successore.org}{Ordinale è compatto sse zero o successore} *
+\item \href{20250211111812-spazio_topologico_totalmente_disconnesso.org}{Spazio topologico totalmente disconnesso} *
+\item \href{20250211112135-spazio_topologico_regolare.org}{Spazio topologico regolare} *
+\item \href{20250211112210-spazio_topologico_completamente_regolare.org}{Spazio topologico completamente regolare} *
+\item \href{20250211112246-spazio_topologico_completamente_regolare_che_non_surietta_su_r_e_totalmente_disconnesso.org}{Spazio topologico completamente regolare che non surietta su R è totalmente disconnesso} *
+\item \href{20250211113036-caratterizzazione_funzioni_continue_e_monotone_da_sottoinsieme_degli_ordinali_agli_ordinali.org}{Caratterizzazione funzioni continue e monotone da sottoinsieme degli ordinali agli ordinali} *
+\item \href{20250211120015-caratterizzazione_di_sottoinsiemi_chiusi_e_illimitati_in_un_cardinale_regolare_o_ord.org}{Caratterizzazione di sottoinsiemi chiusi e illimitati in un cardinale regolare o Ord} *
+\item \href{20250211120127-club_set.org}{Club set} *
+\item \href{20250211120146-club_set_di_un_cardinale_e_un_filtro_proprio_del_cardinale.org}{Club set di un cardinale è un filtro proprio del cardinale} *
+\item \href{20250211121223-filtro_kappa_completo.org}{Filtro kappa-completo} *
+\item \href{20250211120754-club_set_di_un_cardinale_e_un_filtro_k_completo.org}{Club set di un cardinale è un filtro k-completo} *
+\item \href{20250211121245-ordinale_chiuso_rispetto_ad_una_operazione.org}{Ordinale chiuso rispetto ad una operazione} *
+\item \href{20250211121743-insieme_degli_ordinali_chiusi_rispetto_ad_una_operazione_e_sottoinsiemi_di_un_cardinale_chiusi_e_illimitati.org}{Insieme degli ordinali chiusi rispetto ad una operazione e sottoinsiemi di un cardinale chiusi e illimitati} *
+\item \href{20250211121805-intersezione_diagonale_di_una_sequenza.org}{Intersezione diagonale di una sequenza} *
+\item \href{20250211121853-intersezione_diagonale_di_una_sequenza_di_chiusi_e_illimitati_di_un_cardinale_e_un_chiuso_e_illimitato.org}{Intersezione diagonale di una sequenza di chiusi e illimitati di un cardinale è un chiuso e illimitato} *
+\item \href{20250211121910-sottoinsieme_stazionario_di_un_cardinale.org}{Sottoinsieme stazionario di un cardinale} *
+\item \href{20250211121932-lemma_di_fodor.org}{Lemma di Fodor} *
+\item {[}BROKEN LINK: c37241a6-6c89-469b-b08c-bfd075ee6737] *
+\item \href{20250211123155-cardinale_limite_forte.org}{Cardinale limite forte} *
+\item \href{20250207123526-modelli_di_zfc_nella_gerarchia_di_von_neumann.org}{Modelli di ZFC nella Gerarchia di Von Neumann} *
+\item \href{20250211123243-universo.org}{Universo} *
+\item \href{20250211123850-universo_se_e_solo_se_nella_gerarchia_di_von_neumann_di_un_cardinale_fortemente_inaccessibile.org}{Universo se e solo se nella gerarchia di Von Neumann di un cardinale fortemente inaccessibile} *
+\end{itemize}
+\subsection{Model Theory}
+\label{sec:org69a1acc}
+
+\subsubsection{Capitolo 1 (1)}
+\label{sec:org8a3b571}
+\begin{itemize}
+\item Esercizio 1.17
+\end{itemize}
+\subsubsection{Capitolo 2 (22)}
+\label{sec:orgffba837}
+\begin{itemize}
+\item \href{20250131123208-teorie_elementarmente_equivalente.org}{Strutture elementarmente equivalenti su un sottoinsieme} (flashcard fatte)
+\item Esercizi \href{20250212103145-sottostrutture_sono_elementarmente_equivalenti_su_un_insieme_sse_lo_sono_su_ogni_sottoinsieme_finito.org}{2.16}, 2.17, 2.18, 2.19 (flashcard fatte)
+\item \href{20250611111403-analisi_non_standard.org}{Analisi non-standard}  (flashcard fatte)
+\item Lemma 2.21
+\item Proposizione 2.22
+\item Proposizione 2.24
+\item Esercizi 2.26, 2.29, 2.30, 2.31, 2.32, 2.33, 2.34
+\item \href{20250612110627-chiusura_logica_di_una_teoria.org}{Chiusura logica di una teoria}
+\item \href{20250131123128-teoria_soddisfacibile.org}{Teoria massimamente soddisfacibile} (flashcard fatte)
+\item Esecizi 2.52, 2.53
+\item Esercizi 2.43, 2.44
+\item \href{20250212113245-criterio_di_tarski_vaught.org}{Lemma 2.54}
+\item \href{20251026160523-insieme_delle_formula_del_prim_ordine.org}{Cardinalità dell'insieme delle formule di un linguaggio del prim'ordine}
+\item \href{20250212115524-teorema_di_lowenheim_skolem_all_ingiu.org}{Teorema 2.55}
+\item Esercizi 2.56, 2.57
+
+\item \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione TEORIA DEI MODELLI}
+\end{itemize}
+\subsubsection{Capitolo 3 (0)}
+\label{sec:org0d3abd0}
+Niente
+\subsubsection{Capitolo 4 (0)}
+\label{sec:org98d9bbc}
+Niente
+\subsubsection{Capitolo 5 (2)}
+\label{sec:orgf5c20cf}
+\begin{itemize}
+\item \href{20250212165712-teorema_di_compattezza.org}{Teorema di Compattezza}
+\item \href{20250212164424-tipo_teoria_dei_modelli.org}{Tipo - Teoria dei Modelli}
+\item \href{20250212165544-tipo_finitamente_consistente_e_consistente.org}{Tipo finitamente consistente è consistente}
+\item Esercizio 5.9
+\item \href{20250212185030-immersione_elementare_induce_isomorfismo.org}{Immersione elementare induce isomorfismo}
+\item \href{20250212171043-teorema_di_compattezza_per_tipi.org}{Teorema 5.7}
+\item \href{20250212172708-teorema_di_lowenheim_skolem_all_insu.org}{Teorema 5.8}
+\end{itemize}
+\subsubsection{Capitolo 6 (8)}
+\label{sec:orgc96e75f}
+\begin{itemize}
+\item \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{Mappe parziali tra strutture del prim'ordine}
+\item \href{20250203101604-ordine.org}{Ordine}
+\item \href{20250213104706-lemma_di_estensione_di_un_isomorfismo_parziale_tra_ordini.org}{Lemma 6.1}
+\item \href{20250213111504-teoria_lambda_categorica.org}{Teoria lambda-categorica}
+\item \href{20250213111842-teoria_degli_ordini_lineari_densi_senza_punto_finale_e_omega_categorica.org}{Corollario 6.4}
+\item Esercizi 6.8, 6.10
+\item \href{20250213123032-teoria_dei_grafi.org}{Teoria dei grafi}
+\item \href{20250213140253-esiste_un_grafo_aleatorio.org}{Esiste un grafo aleatorio}
+\item \href{20250213140655-teoria_dei_grafi_aleatori_e_omega_categorica.org}{Corollario 6.16}
+\item Esercizi 6.18, 6.19, 6.22.(1->2)
+\end{itemize}
+\subsubsection{Capitolo 7 (5)}
+\label{sec:org958c83f}
+\begin{itemize}
+\item \href{20250213142026-categorie_di_modelli_e_morfismi_parziali.org}{Categorie di modelli e morfismi parziali}
+\item \href{20250213153736-componente_connessa_di_una_categoria_di_modelli_e_morfismi_parziali.org}{Componente connessa di una categoria di modelli e morfismi parziali}
+\item \href{20250213151902-modello_lambda_ricco.org}{Modello lambda ricco}
+\item \href{20250213151951-modello_lambda_universale.org}{Modello lambda universale}
+\item {[}BROKEN LINK: 47112750-3aa0-48a1-a11c-4860dc95be50]
+\item \href{20250213162407-caratterizzazione_di_modello_lambda_ricco.org}{Caratterizzazione di modello lambda-ricco}
+\item \href{20250214101844-lemma_di_estensione_di_morfismi_tra_modelli_ricchi.org}{Lemma di estensione di morfismi tra modelli ricchi}
+\item Teorema \href{20250213152410-modello_e_ricco_sse_omogeneo_e_universale.org}{7.8}
+\item Teorema \href{20250213152449-morfismi_tra_modelli_lambda_ricchi_sono_elementari.org}{7.11}
+\item \href{20250214165749-teoria_con_eliminazione_dei_quantificatori.org}{Teoria con eliminazione dei quantificatori}
+\item Esempio 7.15
+\item Esercizi 7.16 e 7.17
+\end{itemize}
+\subsubsection{Capitolo 8 (10)}
+\label{sec:orgb74a406}
+
+\begin{itemize}
+\item \href{20250616135710-teoria_dei_gruppi_abeliani.org}{Teoria dei gruppi abeliani} *
+\item \href{20250616140010-lemma_di_estensione_di_un_isomorfismo_parziale_tra_gruppi_abeliani.org}{Proposizioni 8.5}
+
+\item \href{20250616140201-teoria_dei_gruppi_abeliani_privi_di_torsione.org}{Teoria dei gruppi abeliani privi di torsione} *
+\item Proposizione 8.7 *
+
+\item \href{20250616140755-teoria_dei_gruppi_abeliani_divisibili.org}{Teoria dei gruppi abeliani divisibili} *
+\item \href{20250616140840-lemma_di_estensione_di_un_isomorfismo_parziale_tra_gruppi_abeliani_divisibili.org}{Lemma 8.9} *
+\item \href{20250616141222-modelli_lambda_ricchi_nella_categoria_dei_modelli_della_teoria_tfag.org}{Corollario 8.10} *
+\item \href{20250616141052-teoria_dei_gruppi_abeliani_privi_di_torsione_e_categorica.org}{Corollario 8.11} *
+
+\item \href{20250616141738-teoria_dei_domini_di_integrita.org}{Proposizione 8.18} *
+
+\item \href{20250616152011-teoria_dei_campi.org}{Teoria dei campi}
+\item Lemma 8.20 *
+\item Corollari 8.21, 8.22, 8.23 *
+\end{itemize}
+\subsubsection{Capitolo 9 (10)}
+\label{sec:orgd6264a9}
+
+\begin{itemize}
+\item \href{20250617093912-soddisfazione_di_un_tipo_e_mappa_elementare.org}{Soddisfazione di un tipo e mappa elementare}
+\item \href{20250617095548-modello_lambda_saturo.org}{Modello lambda saturo}
+\item \href{20250617104602-catena_elementare_di_modelli.org}{Catena elementare di modelli}
+\item \href{20250617102642-esistenza_di_modelli_saturi_di_cardinalita_fissata.org}{Teoremi 9.3}, \href{20250617102704-modello_lambda_saturo_sse_lambda_ricco.org}{9.5}
+
+\item \href{20250617102733-modello_mostro.org}{Modello MOSTRO}
+\item \href{20250617103021-insieme_definibil_e_automorfismi_in_un_modello_mostro.org}{Osservazione 9.24}
+\item \href{20250618103257-gruppo_degli_automorfismi_che_fissano_un_sottoinsieme_e_tipo_di_un_elemento.org}{Gruppo degli automorfismi che fissano un sottoinsieme e tipo di un elemento}
+
+\item Esercizi \href{https://chatgpt.com/s/t\_685141178d6c8191ac4da08e216d0200}{9.30}, \href{https://chatgpt.com/s/t\_685141178d6c8191ac4da08e216d0200}{9.28, 9.31, 9.32}, \href{https://chatgpt.com/s/t\_685140a157888191802e8c5d31d02b88}{9.34, 9.33, 9.35} (per il 9.33: \href{https://math.stackexchange.com/a/4962078/1320017}{mathoverflow})
+\end{itemize}
+\subsubsection{Capitolo 10 (0)}
+\label{sec:orgb8ea1a7}
+Niente
+\subsubsection{Capitolo 11 (12)}
+\label{sec:orge21045d}
+
+\begin{itemize}
+\item \href{20250618095344-elementi_algebrici_e_definibili_teoria_dei_modelli.org}{Elementi algebrici e definibili - Teoria dei Modelli}
+
+\item Teorema \href{20250618102057-caratterizzazione_chiusura_definibile_in_un_modello_mostro.org}{11.2}, \href{20250618101423-caratterizzazione_chiusura_algebrica_in_un_modello_mostro.org}{11.3}
+\item \href{20250618110012-automorfismo_e_chiusura_algebrica_in_un_modello_mostro.org}{Automorfismo e chiusura algebrica in un modello mostro}
+\item \href{20250618153446-struttura_minimale.org}{Struttura minimale}
+\item Teorema \href{20250618155509-principio_dello_scambio_per_chiusura_algebrica_in_un_modello_mostro.org}{11.17}
+\item \href{20250618155810-base_di_un_insieme_dentro_un_modello_mostro.org}{Base di un insieme dentro un modello mostro}
+\item Teorema \href{20250618155810-base_di_un_insieme_dentro_un_modello_mostro.org}{11.19}, \href{20250618160252-teorema_della_base_dentro_un_modello_mostro.org}{11.20}, \href{20250618160625-teoria_fortemente_minimale_e_lambda_categorica.org}{11.23}
+\item Esercizi \href{https://math.stackexchange.com/q/5076471/1320017}{11.7}, \href{https://chatgpt.com/s/t\_6852a361b3208191a165350effaa4cbd}{11.13}, 11.14, 11.16, 11.26, 11.27
+\end{itemize}
+\subsection{Ricorsione}
+\label{sec:org04d6703}
+
+\subsubsection{Capitolo 1: Cenni di ricorsività}
+\label{sec:org17aa1d3}
+
+\paragraph{Sezione 1.1: Funzioni ricorsive}
+\label{sec:org481aa88}
+
+\begin{itemize}
+\item \href{20250215141024-funzioni_primitive_ricordive.org}{Funzioni primitive ricorsive} (flascard fatte)
+\item \href{20250519112500-proprieta_di_chiusura_delle_funzioni_primitive_ricorsive.org}{Proprietà di chiusura delle funzioni primitive ricorsive} (flascard fatte)
+\item \href{20250215171731-quoziente_e_resto_sono_funzioni_ricorsive_primitive.org}{Quoziente e resto sono funzioni ricorsive primitive}  (flascard fatte)
+\item \href{20250215151413-biiezione_canonica_tra_n_e_n2.org}{Biiezione canonica tra N e N2} (flascard fatte)
+\item \href{20250215151440-operatore_di_minimizzazione_non_limitato.org}{Operatore di minimizzazione non limitato} (flascard fatte)
+\item \href{20250215151458-funzioni_ricorsive.org}{Funzioni ricorsive} (flascard fatte)
+\item \href{20250215151703-inversa_di_una_funzione_totale_iniettiva_e_ricorsiva_e_ricorsiva.org}{Inversa di una funzione totale iniettiva e ricorsiva è ricorsiva} (flascard fatte)
+\item \href{20250215151720-tesi_di_church.org}{Tesi di Church} (flascard fatte)
+\item \href{20250216162850-funzioni_ricorsive_in_piu_dimensioni.org}{Funzioni ricorsive in più dimensioni} (flascard fatte)
+\end{itemize}
+\paragraph{Sezione 1.2}
+\label{sec:org0721f0a}
+
+\begin{itemize}
+\item \href{20250216173925-insieme_ricorsivo.org}{Insieme ricorsivo} (flascard fatte)
+\item \href{20250216174510-insieme_ricorsivo_primitivo.org}{Insieme ricorsivo primitivo} (flascard fatte)
+\item \href{20250519112917-proprieta_di_chiusura_degli_insiemi_ricorsivi.org}{Proprietà di chiusura degli insiemi ricorsivi} (flascard fatte)
+\item \href{20250520101337-funzioni_ricorsive_definite_per_casi.org}{Funzioni ricorsive definite per casi} (flascard fatte)
+\item \href{20250520101418-funzioni_ricorsive_per_minimizzazione_su_un_predicato.org}{Funzioni ricorsive per minimizzazione su un predicato} (flascard fatte)
+\item \href{20250601162421-funzioni_ricorsive_e_loro_grafico.org}{Grafico di una funzione ricorsiva è ricorsiva} (flascard fatte)
+\end{itemize}
+\paragraph{Sezione 1.3: Insiemi semiricorsivi}
+\label{sec:orgb89a10a}
+
+\begin{itemize}
+\item \href{20250520113238-insieme_semiricorsivo.org}{Insieme semiricorsivo} (flascard fatte)
+\item \href{20250520113316-proprieta_di_chiusura_degli_insiemi_semiricorsivi.org}{Proprietà di chiusura degli insiemi semiricorsivi} (flascard fatte)
+\item \href{20250520113349-teorema_di_post.org}{Teorema di Post} (flascard fatte)
+\item \href{20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive.org}{Insieme semiricorsivo come range di funzioni ricorsive} (flascard fatte)
+\item \href{20250520143216-insieme_ricorsivo_come_range_di_funzione_ricorsiva_totale_crescente.org}{Insieme ricorsivo come range di funzione ricorsiva totale crescente} (flascard fatte)
+\item \href{20250601162421-funzioni_ricorsive_e_loro_grafico.org}{Funzioni parziali con grafico semiricorsivo sono ricorsive} (flascard fatte)
+\end{itemize}
+\paragraph{Sezione 1.4: Ricorsività su altri insiemi e codifiche}
+\label{sec:orge2617dc}
+
+\begin{itemize}
+\item \href{20250531104048-codifica_di_un_insieme_numerabile.org}{Codifica di un insieme numerabile} (flashcard fatte)
+\item \href{20250531105333-insiemi_ricorsivi_tramite_codifica.org}{Insiemi ricorsivi tramite codifica} (flashcard fatte)
+\item \href{20250531110714-teorema_cinese_dei_resti.org}{Teorema Cinese dei resti} (flashcard fatte)
+\item \href{20250531110725-funzione_beta_di_godel.org}{Funzione beta di Godel} (flashcard fatte)
+\item \href{20250531110737-codifica_delle_sequenze_finite_tramite_beta_di_godel.org}{Codifica delle sequenze finite tramite beta di Godel} (flashcard fatte)
+\end{itemize}
+\paragraph{Sezione 1.5: Alcune applicazioni della codifica di sequenze}
+\label{sec:org6b59800}
+
+\begin{itemize}
+\item \href{20250601160026-funzione_memoria.org}{Funzione memoria} (flashcard fatte)
+\item \href{20250601161456-generalizzazione_schema_di_ricorsione.org}{Generalizzazione schema di Ricorsione} (flashcard fatte)
+\item \href{20250601162102-teorema_di_forma_normale_di_kleene.org}{Teorema di Forma Normale di Kleene} (flashcard fatte)
+\item \href{20250601162421-funzioni_ricorsive_e_loro_grafico.org}{Grafico di una funzione ricorsiva parziale è semiricorsivo} (flashcard fatte)
+\item \href{20250601162421-funzioni_ricorsive_e_loro_grafico.org}{Funzione ricorsiva sse il suo grafico è semiricorsivo} (flashcard fatte)
+\item \href{20250601162421-funzioni_ricorsive_e_loro_grafico.org}{Caratterizzazione funzioni ricorsive tramite grafico} (flashcard fatte)
+\item \href{20250601171055-insieme_semiricorsivo_come_monio_di_funzione_ricorsiva_parziale.org}{Insieme semiricorsivo come dominio di funzione ricorsiva parziale} (flashcard fatte)
+\item \href{20250601171113-funzione_ricorsiva_parziale_con_dominio_ricorsivo_e_restrizione_di_funzione_ricorsiva_totale.org}{Funzione ricorsiva parziale con dominio ricorsivo è restrizione di funzione ricorsiva totale} (flashcard fatte)
+\end{itemize}
+\paragraph{Sezione 1.6: Gerarchia aritmetica}
+\label{sec:orgee75a82}
+
+\begin{itemize}
+\item {[}BROKEN LINK: a6dd5cae-c225-49d4-8945-602100951278] (flashcard fatte)
+\end{itemize}
+\subsubsection{Capitolo 2: Definibilità nel modello standard}
+\label{sec:org166029c}
+
+\paragraph{Sezione 2.1: Complessità delle definizioni}
+\label{sec:orgf2534af}
+
+\begin{itemize}
+\item \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{Complessità di una formula del modello standard} (flashcard fatte)
+\item \href{20250606095019-modello_standard_dell_artimetica.org}{Modello standard dell'artimetica} (flashcard fatte)
+\item \href{20250603170634-insieme_definibile_nel_modello_standard.org}{Insieme definibile nel modello standard} (flashcard fatte)
+\end{itemize}
+\paragraph{Sezione 2.2: Ricorsività vs definibilità}
+\label{sec:org82034e2}
+
+\begin{itemize}
+\item \href{20250215151458-funzioni_ricorsive.org}{Definizione equivalente di funzioni ricorsive} (flashcard fatte)
+\item \href{20250603171922-funzioni_ricorsive_vs_definibili.org}{Funzioni ricorsive vs definibili} (flashcard fatte)
+\end{itemize}
+\subsubsection{Capitolo 3: Teorie formali dell'aritmetica}
+\label{sec:org7e11bf5}
+
+\paragraph{Sezione 3.1: Aritmetica di Peano del second'ordine}
+\label{sec:org189855d}
+
+\begin{itemize}
+\item \href{20250608093535-aritmetica_di_peano_del_second_ordine.org}{Aritmetica di Peano del second'ordine} (flashcard fatte)
+\end{itemize}
+\paragraph{Sezione 3.2: Aritmetica di Robinson e aritmetica di Peano del prim'ordine}
+\label{sec:org0e2a474}
+
+\begin{itemize}
+\item \href{20250608093604-aritmetica.org}{Aritmetica di Robinson} (flashcard fatte)
+\item \href{20250608093604-aritmetica.org}{Aritmetica di Peano del prim'ordine} (flashcard fatte)
+\item \href{20250608093604-aritmetica.org}{Numerali} (flashcard fatte)
+\end{itemize}
+\paragraph{Sezione 3.3: Rappresentabilità delle funzioni ricorsive in Q}
+\label{sec:orgc15328e}
+
+\begin{itemize}
+\item \href{20250608094213-insieme_rappresentato_da_una_formula.org}{Insieme rappresentato da una formula} (flashcard fatte)
+\item \href{20250608094553-aritmetica_di_robinson_rappresenta_funzioni_ricorsive_totali_e_predicati_ricorsivi.org}{Aritmetica di Robinson rappresenta funzioni ricorsive totali e predicati ricorsivi} (flashcard fatte)
+\item \href{20250608165649-descrizione_modelli_dell_aritmetica_di_robinson.org}{Descrizione modelli dell'aritmetica di Robinson} (flashcard fatte)
+\end{itemize}
+\subsubsection{Capitolo 4: Incompletezza e indecidibilità}
+\label{sec:org396e1fa}
+
+\paragraph{Sezione 4.1: Aritmetizzazione della sintassi}
+\label{sec:org8d128cc}
+
+\begin{itemize}
+\item \href{20250609104647-buona_codifica_di_un_linguaggio.org}{Buona codifica di un linguaggio} (flashcard fatte)
+\item \href{20250609135250-teoria_ricorsivamente_assiomatizzabile.org}{Teoria ricorsivamente assiomatizzabile} (flashcard fatte)
+\item \href{20250609135524-codifica_delle_dimostrazioni_a_partire_dagli_assiomi.org}{Codifica delle dimostrazioni a partire dagli assiomi} (flashcard fatte)
+\end{itemize}
+\paragraph{Sezione 4.2: Primo teorema di incompletezza di Godel}
+\label{sec:orga1d7afc}
+
+\begin{itemize}
+\item \href{20250609162617-primo_teorema_di_incompletezza_di_godel.org}{Primo Teorema di Incompletezza di Gödel} (flashcard fatte)
+\item \href{20250609162657-teoria_coerente.org}{Teoria Coerente} (flashcard fatte)
+\item \href{20250609162711-teoria_omega_coerente.org}{Teoria omega-coerente} (flashcard fatte)
+\item \href{20250131123151-teoria_completa.org}{Teoria completa} (flashcard fatte)
+\end{itemize}
+\paragraph{Sezione 4.3: Decidibilità}
+\label{sec:org5229a4a}
+
+\begin{itemize}
+\item \href{20250610134232-teoria_decidibile.org}{Teoria decidibile} (flashcard fatte)
+\item \href{20250610135033-teoria_completa_e_ricorsivamente_assiomatizzabile_e_decidibile.org}{Teoria completa e ricorsivamente assiomatizzabile è decidibile} (flashcard fatte)
+\item \href{20250610135104-estensione_finita_di_una_teoria_decidibile_e_decidibile.org}{Estensione finita di una teoria decidibile è decidibile} (flashcard fatte)
+\item \href{20250610135350-aritmetica_di_robinson_e_essenzialmente_indecidibile.org}{Aritmetica di Robinson è essenzialmente indecidibile} (flashcard fatte)
+\item \href{20250610135416-teoria_decidibile_e_coerente_ha_estesione_decidibile_coerente_e_completa.org}{Teoria decidibile e coerente ha estesione decidibile coerente e completa} (flashcard fatte)
+\end{itemize}
+\paragraph{Sezione 4.4: Teorema di Tarski e Teorema di Church}
+\label{sec:org1e8dc0f}
+
+\begin{itemize}
+\item \href{20250610145135-teorema_dell_indefinibilita_della_verita.org}{Teorema dell'indefinibilità della verità} (flashcard fatte)
+\item \href{20250610145208-teorema_di_church.org}{Teorema di Church} (flashcard fatte)
+\end{itemize}
+\end{document}

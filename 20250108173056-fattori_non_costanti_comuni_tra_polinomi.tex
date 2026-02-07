@@ -1,0 +1,477 @@
+% Created 2026-02-07 Sat 19:35
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Davide Peccioli}
+\date{\today}
+\title{Fattori non costanti comuni tra polinomi}
+\begin{document}
+
+Sia \(A\) un \href{20250108173116-ufd.org}{UFD}. (\href{20250108173116-ufd.org}{Allora} \(A[X]\) è un UFD)
+
+Siano \(f,g \in A[x]\),
+\begin{align*}
+f(x)&=a_{m}\ x^{m}+a_{m-1}\ x^{m-1} + \dots + a_{0}\\
+g(x)&= b_{n}\ x^{n} + b_{n-1}\ x^{n-1}+\dots+b_{0}
+\end{align*}
+\section{Lemma 1}
+\label{sec:orgd24ef50}
+\(f\) e \(g\) hanno \href{20250108173845-fattore_comune.org}{fattori comuni} non costanti se e solo se esiste \(h \in A[x]\) tale che
+\begin{itemize}
+\item \(\deg h < n+m=\deg fg\) (vedi \href{20241231124742-grado_polinomi.org}{Grado-Polinomi})
+\item \(f\) e \(g\) \href{20250108174027-divisione.org}{dividono} \(h\).
+\end{itemize}
+\subsection{Dimostrazione}
+\label{sec:orgee30073}
+
+\subsubsection{``\(\implies\)''}
+\label{sec:org289b786}
+Supponiamo che \(f\) e \(g\) abbiamo come fattore comune non costante \(k \in A[x]\):
+\begin{equation*}
+f=uk,\qquad g=vk
+\end{equation*}
+con \(u,v \in A[x]\), \(\deg u<\deg f\), \(\deg v<\deg g\).
+
+Allora si ponga \(h=uvk\).
+\begin{equation*}
+\deg h = \deg u + \deg vk < \deg f + \deg g = n+m
+\end{equation*}
+\subsubsection{``\(\impliedby\)''}
+\label{sec:org156b089}
+Sia \(h=uf=vg\). Allora \(\deg(u)=\deg h - \deg f<n = \deg g\)
+Dunque i fattori di \(g\) non possono essere dentro ad \(u\), e pertanto ci sono fattori di \(g\) dentro ad \(f\).
+\section{Matrice di Sylvester}
+\label{sec:orgc3ce819}
+La matrice di Sylvester tra \(f\) e \(g\) è una matrice \((n+m)\ (n+m)\)
+\begin{equation*}
+S_{f,g} =\left[\begin{aligned}
+            \hphantom{\,n\lbrace}&\overset{m+1}{\overbrace{\hphantom{\begin{matrix}
+                a_0 & a_1 & \dots & a_{m}\\[1ex]
+                0 & a_0 & a_1 & \dots\\[1ex]
+                \vdots & & \ddots & \ddots \\[1ex]
+                0 & \dots & 0 & a_0
+            \end{matrix}}}} & & \overset{n-1}{\!\overbrace{\hphantom{\begin{matrix}
+                0 & 0 & \dots & 0\\[1ex]
+                a_{m} & 0 & \dots & 0\\[1ex]
+                \\[1ex]
+                \dots & \dots & \dots & a_{m}
+            \end{matrix}}}}\\[-2ex]
+            \hphantom{\,n\lbrace}&\begin{matrix}
+                a_0 & a_1 & \dots & a_{m}\\[1ex]
+                0 & a_0 & a_1 & \dots\\[1ex]
+                \vdots & & \ddots & \ddots \\[1ex]
+                0 & \dots & 0 & a_0
+            \end{matrix} & &\!\left.\begin{matrix}
+                0 & 0 & \dots & 0\\[1ex]
+                a_{m} & 0 & \dots & 0\\[1ex]
+                \\[1ex]
+                \dots & \dots & \dots & a_{m}
+            \end{matrix}\right\rbrace\,n\\\hline
+            \hphantom{\,n\lbrace}& \begin{matrix}
+                b_0 & b_1 & \dots & b_{n}\\[1ex]
+                0 & b_0 & b_1 & \dots\\[1ex]
+                \vdots & & \ddots & \ddots\\[1ex]
+                0 & \dots & 0 & b_0
+            \end{matrix} & &\!\left.\begin{matrix}
+                0 & 0 & \dots & 0\\[1ex]
+                b_{n} & 0 & \dots & 0\\[1ex]
+                \\[1ex]
+                \dots & \dots & \dots & b_{n}
+            \end{matrix}\right\rbrace\,m\\[-3.6ex]
+            \hphantom{\,n\lbrace}&\parentesi{n+1}{\hphantom{\begin{matrix}
+                b_0 & b_1 & \dots & b_{n}\\[1ex]
+                0 & b_0 & b_1 & \dots\\[1ex]
+                \vdots\\[1ex]
+                0 & \dots & 0 & b_0
+            \end{matrix}}} & &\parentesi{m-1}{\hphantom{\!
+                \begin{matrix}
+                    0 & 0 & \dots & 0\\[1ex]
+                    b_{n} & 0 & \dots & 0\\[1ex]
+                    \\[1ex]
+                    \dots & \dots & \dots & b_{n}
+                \end{matrix}
+            }}
+        \end{aligned}\right]
+\end{equation*}
+Il risultante è
+\begin{equation*}
+\operatorname{Res}(f,g)\coloneqq \det S_{f,g} \in A
+\end{equation*}
+(vedi \href{20250104111751-determinante_di_una_matrice.org}{Determinante di una matrice})
+\section{Lemma 2}
+\label{sec:orgcec9c6d}
+\(f\) e \(g\) hanno un fattore non costante in comune se e solo se \(\operatorname{Res}(f,g)=0\).
+\subsection{Dimostrazione}
+\label{sec:orgc203338}
+Dal lemma 1, \(f,g\) hanno un fattore non costante in comune se e solo se esiste \(h \in A[x]\) di grado minore di \(m+n\) divisibile per \(f\) e per \(g\).
+Ma tale \(h\) esiste se e solo se i polinomi seguenti sono \href{20241212142019-insiemi_linearmente_indipendenti.org}{linearmente dipendenti}:
+\begin{equation*}
+E=\set{f,xf,x^{2}f,\dots,x^{n-1}f, g, xg, x^{2}g, \dots, x^{m-1}g}
+\end{equation*}
+
+\begin{itemize}
+\item Se tali polinomi sono linearmente dipendenti allora esiste \(\set{\alpha_{i}}_{i=0}^{n+m-1}\) non tutti nulli tale che
+\begin{equation*}
+  \alpha_{0}f + \alpha_{1}xf + \dots + \alpha_{n-1}x^{n-1}f + \alpha_{n}g + \alpha_{n+1}xg + \dots + \alpha_{n+m-1}x^{m-1}g = 0
+\end{equation*}
+Pertanto
+\begin{equation*}
+  \parentesi{u}{(\alpha_{0} + \alpha_{1}x + \dots +\alpha_{n-1}x^{n-1})}\ f = \parentesi{v}{-(\alpha_{n} + \alpha_{n+1}x + \dots + \alpha_{n + m-1}x^{m-1})}\ g
+\end{equation*}
+Siccome \(\deg u < \deg g\), ci devono necessariamente essere dei fattori di \(g\) dentro ad \(f\), e pertanto esiste \(h\) per il lemma precedente.
+
+\item Viceversa, se \(h\) esiste allora \(h=uf=vg\) con
+\begin{equation*}
+  p=\deg u < \deg g=n,\qquad q= \deg v<\deg f=m
+\end{equation*}
+e pertanto \(uf-vg\) è \href{20250108181703-combinazione_lineare.org}{combinazione lineare} di elementi di \(E\); infatti
+\begin{equation*}
+  uf = (c_{p}x^{p} +\dots +c_{0} ) f  = c_{p} (x^{p}f) + \dots + c_{1}(xf) c_{0} f,\qquad p<n
+\end{equation*}
+Siccome \(uf-vg=0\) a è combinazione lineare coefficienti non nulli, allora \(E\) è linearmente dipendente.
+\end{itemize}
+
+
+Siccome la Matrice di Sylvester ha per righe le componenti dei polinomi di \(E\) rispetto alla base \(\set{1,x,x^{2},\dots,x^{m+n-1}}\), \(E\) è linearmente dipendente se e solo se \(\det S_{f,g}=0\) (vedi \href{20250104111751-determinante_di_una_matrice.org}{Determinante di una matrice}).
+\end{document}

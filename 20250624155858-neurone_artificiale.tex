@@ -1,0 +1,1276 @@
+% Created 2026-02-07 Sat 19:32
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Davide Peccioli}
+\date{\today}
+\title{Rete Neurale}
+\begin{document}
+
+\section{Neurone Artificiale}
+\label{sec:org17e36e3}
+Un \uline{neurone} è una cellula del corpo umano che può essere schematizzata come segue:
+\begin{quote}
+A neuron is a cell which consists of the following parts: dendrites, axon,and body-cell. The synapse is the connection between the axon of one neuron and the dendrite of another. The functions of each part is briefly described below:
+\begin{itemize}
+\item Dendrites are transmission channels that collect information from the axons of other neurons. The signal traveling through an axon reaches its terminal end and produces some chemicals \(x_{i}\) which are liberated in the synaptic gap. These chemicals are acting on the dendrites of the next neuron either in a strong or a weak way. The connection strength is described by the weight system \(w_{i}\)-
+\item The body-cell collects all signals from dendrites. Here the dendrites activity adds up into a total potential and if a certain threshold is reached, the neuron fires a signal through the axon. The threshold depends on the sensitivity of the neuron and measures how easy is to get the neuron to fire.
+\item The axon is the channel for signal propagation. The signal consists in the movement of ions from the body-cell towards the end of the axon. The signal is transmitted electrochemically to the dendrites of the next neuron.
+\end{itemize}
+\end{quote}
+
+Matematicamente, quindi, si considera un \(\Sigma\)-neurone come una unità che riceve degli input (un vettore \(\bm{x}\)), lo \href{20250625095723-prodotto_scalare.org}{moltiplica} per un vettore di pesi \(\bm{w} = (w_{0},\dots,w_{n})\), somma un certo \uline{bias}, e produce un output processando il prodotto scalare tramite una \uline{\hyperref[sec:org7100e77]{funzione di attivazione}}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	{\text{Input: }\bm{x}} \\
+	{\bm{x}\cdot\bm{w}} \\
+	{\text{Funzione di attivazione}} \\
+	{\text{Output: }y}
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=2-1, to=3-1]
+	\arrow[from=3-1, to=4-1]
+\end{tikzcd}
+\end{equation*}
+
+Altri tipi di neuroni, invece, detti \(\Pi\)-neuroni, moltiplicano gli input.
+
+\begin{definizione}
+Un \uline{neurone astratto} è una \href{20250206170922-sequenze_e_stringhe.org}{quadrupla} \(\langle \bm{x},\bm{w},\varphi,y\rangle\) dove \(\bm{x} = (x_{0},x_{1},\dots,x_{n})\) è il vettore degli input, \(\bm{w} = \set{w_{0},w_{1},\dots,w_{n}}\) è il vettore dei pesi, con \(x_{0}=-1\) e \(w_{0}=b\) il \uline{bias}, e \(\varphi\) è una \hyperref[sec:org7100e77]{funzione di attivazione}. \(y\) è la funzione di output, che nel caso di un \(\Sigma\)-neurone è
+\begin{equation*}
+y = \varphi(\bm{w}\cdot\bm{x}).
+\end{equation*}
+\end{definizione}
+
+Alcuni esempi di neuroni:
+\begin{itemize}
+\item \href{20250710102223-percettrone.org}{Perceptron}
+\item \href{20250710111302-neurone_sigmoidale.org}{Neurone Sigmoidale}
+\end{itemize}
+\subsection{Input type di un neurone}
+\label{sec:orgd1b0e78}
+
+Gli input del neurone possono essere di diversi \uline{tipi}:
+\begin{itemize}
+\item \emph{binary}: \(x_{i} \in \set{0,1}\);
+\item \emph{signed}: \(x_{i} \in \set{-1,1}\);
+\item \emph{digital}: \(x_{i} \in \set{0,1,2,3,4,5,6,7,8,9}\)
+\item \emph{real}: \(x_{i} \in \R\);
+\item \emph{interval}: \(x_{i} \in[a,b]\subseteq \R\).
+\end{itemize}
+\subsection{Input efficiency}
+\label{sec:org0617a75}
+
+Sia \(n\) il numero degli input, e sia \(\beta\) il numero di stati possibili (ovvero quanti valori ciascun input può assumere).
+
+Il costo computazionale dell'implementazione di un neurone \(F\) è
+\begin{equation*}
+F\propto \beta\cdot n, \quad F=k\beta n.
+\end{equation*}
+
+Si consideri \(F\) fissato. Si vuole massimizzare la quantità di dati trasmessi, ovvero la quantità di stati diversi che la \(n\)-upla \((x_{1},\dots,x_{n})\) può assumere: \(\beta^{n}\).
+
+Sia quindi \(f(\beta)\) la quantità da massimizzare:
+\begin{equation*}
+f(\beta) = \beta^{n} = \beta^{F/(k\beta)}
+\end{equation*}
+Per farlo, si considera
+\begin{align*}
+\dpd{}{\beta} \ln f(\beta) &= \dpd{}{\beta} \left(\frac{F}{k\beta}\ln\beta\right)\\
+&= \dpd{}{\beta} \left(\frac{F}{k\beta}\right)\cdot\ln\beta + \frac{F}{k\beta}\cdot\dpd{}{\beta} \left(\ln\beta\right)\\
+&= -\frac{F}{k\beta^{2}}\ln\beta + \frac{F}{k\beta^{2}}\\
+&= \frac{F}{k\beta^{2}} (1-\ln\beta).
+\end{align*}
+
+Dunque \(f(\beta)\) ha un massimo per \(\beta=e\). Graficamente (vedi Fig.~\ref{fig:funzionecostobeta}) è possibile vedere che, restringendosi a \(\beta \in \N\), il valore più efficiente è \(\beta=3\).
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    domain=0.1:10,
+    samples=200,
+    axis lines=middle,
+    xlabel={$ \beta $},
+    ylabel={$ f(\beta)$},
+    % grid=both,
+    width=12cm,
+    height=8cm,
+    ymin=1, ymax=1.5,
+    xtick={1, 2, 3, 4, 5, 6, 7, 8,9,10},
+    ytick={0.5, 1, 1.5},
+    enlargelimits
+  ]
+    % Funzione
+    \addplot[blue, thick] {x^(1/x)};
+
+    % % Punto massimo in e
+    \addplot[dashed, red] coordinates {(2.718,0) (2.718,{e^(1/e)})};
+    % \addplot[dashed, red] coordinates {(0,{e^(1/e)}) (2.718,{e^(1/e)})};
+    % \node[red, below right] at (axis cs:2.718,1.4446) {$\left(e, e^{1/e} \right)$};
+
+    % Punto f(2)
+    \addplot[only marks, mark=*, mark size=2pt, color=red] coordinates {(2, {2^(1/2)})};
+    \node[red, left] at (axis cs:2,1.4142) {$f(2)$};
+
+    % Punto f(3)
+    \addplot[only marks, mark=*, mark size=2pt, color=red] coordinates {(3, {3^(1/3)})};
+    \node[red, above right] at (axis cs:3,1.4422) {$f(3)$};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{\label{fig:funzionecostobeta}La funzione costo \(f(\beta)=\beta^{1/\beta}\)}
+\end{figure}
+\subsection{Approssimazione di una funzione continua}
+\label{sec:org33892f3}
+
+Tramite un neurone è possibile approssimare\footnote{Approssima in senso \(L^{2}\) (ovvero minimizza la \href{20250624162220-spazi_lp.org}{norma \(L^{2}\)} della differenza).} una \href{20250103103252-funzione_continua.org}{funzione continua}
+\begin{equation*}
+f: K\to \R
+\end{equation*}
+con \(K \subseteq \R^{n}\) \href{20250103163701-spazio_topologico_compatto.org}{compatto}, utilizzando una \href{20250710111143-regressione_lineare.org}{regressione lineare}.
+
+L'input del neurone sarà una \href{20250206170922-sequenze_e_stringhe.org}{\(n\)-upla} \(X=(x_{1},\dots,x_{n}) \in K\), mentre l'output sarà la funzione lineare
+\begin{equation*}
+L(X) = b+\sum_{i=1}^{n} a_{i}\,x_{i}
+\end{equation*}
+
+Per semplicità si considera l'approssimazione vicino allo zero, e si suppone che
+\begin{equation*}
+L(0)=f(0)=0
+\end{equation*}
+(a meno di traslazione verticale per \(f(0)\)).
+
+Si vuole quindi minimizzare
+\begin{equation*}
+C(a_{1},\dots,a_{n}) = \frac{1}{2}\norma{f-L}_{L^{2}}^{2} = \frac{1}{2}\int_{K} \left(\sum_{i=1}^{n} a_{i}x_{i} - f(X)\right)^{2}\dif x_{1}\cdots\dif x_{n}
+\end{equation*}
+calcolandone il \href{20250624171244-gradiente_di_una_funzione.org}{gradiente}
+\begin{align*}
+\dpd{C}{a_{k}} &= \int_{K} x_{k} \left(\sum_{i=1}^{n} a_{i}x_{i} - f(X)\right)\dif x_{1}\cdots\dif x_{n}\\
+&= \sum_{i=1}^{n} a_{i} \int_{K} x_{i} x_{k}\dif x_{1}\cdots\dif x_{n} - \int_{K} x_{k} f(x)\dif x_{1}\cdots\dif x_{n}
+\end{align*}
+e dunque, posti
+\begin{equation*}
+\rho_{ij} \coloneqq \int_{K} x_{i}x_{j}\dif x_{1}\cdots\dif x_{n},\qquad m_{k} \coloneqq \int_{K} x_{k}f(x)\dif x_{1}\cdots\dif x_{n}
+\end{equation*}
+si ha che
+\begin{equation*}
+\dpd{C}{a_{k}} = \sum_{i=1}^{n}a_{i}\,\rho_{ik} - m_{k}
+\end{equation*}
+ovvero, in forma matriciale, posta\footnote{Vedi:
+\begin{itemize}
+\item \href{20250104111539-spazio_delle_matrici.org}{Spazio delle matrici}
+\item \href{20250113144338-matrice_trasposta.org}{Matrice Trasposta}
+\item \href{20250624171244-gradiente_di_una_funzione.org}{Gradiente di una funzione}
+\end{itemize}} \(\rho=(\rho_{ij})\), \(\bm{a} = \null^{T}(a_{1},\dots,a_{n})\) e \(\bm{m} = \null^{T}(m_{1},\dots,m_{n})\):
+\begin{equation*}
+\nabla C = \rho\, \bm{a} - \bm{m}
+\end{equation*}
+
+Dunque, posto che \(\rho\) sia \href{20250104111735-matrice_invertibile.org}{invertibile}, si ottiene che i valori ottimali per \(L\) siano
+\begin{equation*}
+\bm{a} = \rho^{-1}\bm{m}.
+\end{equation*}
+
+Nel caso di funzioni a valori in \(\R^{m}\) il problema si scompone nelle diverse coordinate.
+\section{Funzioni di attivazione}
+\label{sec:org7100e77}
+Nel Machine Learning le funzioni che agiscono nei \hyperref[sec:org17e36e3]{neuroni} vengono dette \uline{funzioni di attivazione}. Se ne presentano alcuni esempi, con i loro nomi specifici.
+
+Sono tutte funzioni \(A \subseteq\R\to B \subseteq \R\).
+\subsection{Funzioni Lineari}
+\label{sec:org149ee4c}
+
+Tra le funzioni di attivazione utilizzate vi sono le seguenti funzioni lineari:
+\begin{itemize}
+\item \(f(x) = kx\), per \(k > 0\) costante;
+\item la funzione identità \(x\mapsto x\).
+\end{itemize}
+\subsection{Step Functions}
+\label{sec:org55c0ad7}
+
+\subsubsection{Threshold step function}
+\label{sec:org2e0887c}
+
+La \href{20250624161413-funzione_di_heaviside.org}{funzione di Heaviside} (vedi Fig. \ref{fig:heav})
+\begin{equation*}
+H(x)=\begin{cases}
+1 & x\ge 0\\
+0 & x<0
+\end{cases}
+\end{equation*}
+la cui derivata (nel senso delle \href{20250625100117-distribuzione_analisi_matematica.org}{distribuzioni}) è una \href{20250625100133-delta_di_dirac.org}{Delta di Dirac}: \(H'(x) = \delta(x)\):
+\begin{equation*}
+\delta(x) = \begin{cases}
+0 & x\neq 0\\
++\infty & x=0
+\end{cases}
+\end{equation*}
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {0};
+\addplot[domain=0:2, samples=100, ultra thick, red] {1};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione di Heaviside}\label{fig:heav}
+\end{figure}
+\subsubsection{Bipolar step function}
+\label{sec:orgf019937}
+
+La funzione segno: (vedi Fig. \ref{fig:bip})
+\begin{equation*}
+S(x)= \begin{cases}
+1 & x\ge{0}\\
+-1 & x<0
+\end{cases}
+\end{equation*}
+per cui vale: \(S(x)=2H(x)-1\). Pertanto la sua derivata è
+\begin{equation*}
+S'(x) = 2H'(x)=2\delta(x)
+\end{equation*}
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {-1};
+\addplot[domain=0:2, samples=100, ultra thick, red] {1};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione segno}\label{fig:bip}
+\end{figure}
+\subsection{Hockeystick Functions}
+\label{sec:org508d24e}
+
+\subsubsection{Funzione di attivazione ReLU}
+\label{sec:orgcc45061}
+La \emph{Rectified Linear Unit} (ReLU) è (vedi Fig. \ref{fig:relu})
+\begin{equation*}
+\operatorname{ReLU}(x) = xH(x) = \max\set{0,x}
+\end{equation*}
+e la sua derivata \(\operatorname{ReLU}'(x) = H(x)\).
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {0};
+\addplot[domain=0:2, samples=100, ultra thick, red] {x};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{RELU}(x)\)}\label{fig:relu}
+\end{figure}
+\subsubsection{PReLU}
+\label{sec:org8d4e961}
+
+La \emph{Parametric Rectivied Linear Unit} (PReLU) è (vedi Fig \ref{fig:prelu}), per \(\alpha>0\)
+\begin{equation*}
+\operatorname{PReLU}(\alpha;x) = \operatorname{PReLU}_{\alpha}(x) = \begin{cases}
+\alpha x & x<0\\
+x & x \ge 0
+\end{cases}
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {x};
+\addplot[domain=0:2, samples=100, ultra thick, red] {2 * x};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{PRELU}_{2}(x)\)}\label{fig:prelu}
+\end{figure}
+\subsubsection{ELU}
+\label{sec:org0830927}
+
+La \emph{Exponential Linear Units} (ELU) è (vedi Fig. \ref{fig:elu}):
+\begin{equation*}
+\operatorname{ELU}(\alpha,x) = \begin{cases}
+x &x>0\\
+\alpha(e^{x}-1) &x\le 0
+\end{cases}
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {x};
+\addplot[domain=0:2, samples=100, ultra thick, red] {2 * exp(x) - 2};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{ELU}(\alpha,x)\)}\label{fig:elu}
+\end{figure}
+\subsubsection{SELU}
+\label{sec:org025cd1a}
+
+La \emph{Scaled Exponential Linear Units} (SELU) è (vedi Fig. \ref{fig:selu})
+\begin{equation*}
+\operatorname{SELU}(\alpha,\lambda,x) = \lambda\operatorname{ELU}(\alpha,x) = \begin{cases}
+\lambda\,x & x>0\\
+\alpha\lambda(e^{x}-1) &x\le 0.
+\end{cases}
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {0.4 * x};
+\addplot[domain=0:2, samples=100, ultra thick, red] {0.8 * exp(x) - 0.8};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{SELU}(0.4,2,x)\)}\label{fig:selu}
+\end{figure}
+\subsubsection{SLU}
+\label{sec:org473a293}
+
+La \emph{Sigmoid Linear Units} (SLU) è (vedi Fig. \ref{fig:slu})
+\begin{equation*}
+\phi(x) = \frac{x}{1+e^{-x}}.
+\end{equation*}
+
+Questa non è una \href{20250203132953-funzione_monotona.org}{funzione monotona}, ma ha un \href{20250627153543-massimo_e_minimo_di_una_funzione_reale.org}{minimo} in \(x_{0}\approx -1,27\).
+
+Spesso si usa anche la versione parametrica:
+\begin{equation*}
+\phi_{c}(x) = \frac{x}{1+e^{-cx}}.
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-7:7, samples=100, ultra thick, red] {x / (1 + exp(-x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{SLU}(x)\)}\label{fig:slu}
+\end{figure}
+\subsubsection{Funzione Softplus}
+\label{sec:orgf8d4c4f}
+Questa è una funzione positiva crescente, con \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{range} \((0,+\infty)\): (vedi Fig. \ref{fig:sp})
+\begin{equation*}
+\operatorname{sp}(x) = \ln(1+e^{x}).
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-3:3, samples=100, ultra thick, red] {ln(1 + exp(x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{sp}(x)\)}\label{fig:sp}
+\end{figure}
+
+Inoltre
+\begin{align*}
+\operatorname{sp}(x)- \operatorname{sp}(-x) &= \ln(1+e^{x}) - \ln(1+e^{-x}) \\
+&= \ln\left(\frac{1+e^{x}}{1+e^{-x}}\right) = \ln\left(\frac{1+e^{x}}{e^{-x}(1+e^{x})}\right) \\
+&= \ln e^{x} = x.
+\end{align*}
+La sua derivata è
+\begin{equation*}
+\operatorname{sp}'(x) = \frac{1}{1+e^{-x}}>0.
+\end{equation*}
+\subsection{Funzioni Sigmoidali}
+\label{sec:org6007b13}
+
+\subsubsection{Funzione Logistica}
+\label{sec:org6b87322}
+La funzione logistica è (vedi Fig. \ref{fig:logistic})
+\begin{equation*}
+\sigma_{c}(x) = \sigma(c;x) = \frac{1}{1+e^{-cx}}.
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-3:3, samples=100, ultra thick, red] {1 / (1 + exp(- 2 * x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\sigma_{2}(x)\)}\label{fig:logistic}
+\end{figure}
+
+La famiglia di funzioni \((\sigma_{c}(x))_{c \in (0,+\infty)}\) approssima la \href{20250624161413-funzione_di_heaviside.org}{funzione di Heaviside} \(H(x)\), in quanto
+\begin{equation*}
+\lim_{c\to \infty} e^{-cx} = \begin{cases}
+0 & x>0\\
+1 & x=0\\
++ \infty & x<0
+\end{cases}
+\end{equation*}
+e pertanto
+\begin{equation*}
+\lim_{c\to+\infty} \sigma_{c}(x) = \begin{cases}
+1 &x>0\\
+\frac{1}{2} & x=0\\
+0 &x<0
+\end{cases}
+\end{equation*}
+e pertanto, per ogni \(x\neq 0\): \(H(x) =\lim_{c\to+\infty}\sigma_{c}(x)\).
+
+Le funzioni logistiche sono soluzioni della seguente equazione differenziale:
+\begin{equation*}
+\sigma_{c}' = c\sigma_{c}\,(1-\sigma_{c})
+\end{equation*}
+infatti:
+\begin{align*}
+\sigma_{c}'(x) &= - \frac{1}{(1+e^{-cx})^{2}} \cdot (-c\,e^{-cx})\\
+&= c \cdot \frac{1}{1+e^{-cx}} \cdot \frac{e^{-cx}}{1+e^{-cx}}\\
+&= c \cdot \frac{1}{1+e^{-cx}} \cdot \left(\frac{e^{-cx}+1-1}{1+e^{-cx}}\right)\\
+&= c \cdot \frac{1}{1+e^{-cx}} \cdot \left(1+\frac{-1}{1+e^{-cx}}\right)\\
+&= c\cdot \sigma_{c}(x) \cdot (1-\sigma_{c}(x)).
+\end{align*}
+
+Spesso ci si rifesce a \(\sigma\coloneqq \sigma_{1}\) come alla \uline{funzione logistica} o \uline{funzione sigmoide} (in quanto è l'archetipo della \href{20250625110110-funzione_sigmoidale.org}{Funzione sigmoidale}).
+\subsubsection{Tangente Iperbolica}
+\label{sec:org9d08711}
+
+La \uline{\href{20250627184228-funzioni_iperboliche.org}{tangente iperbolica}} \(\tanh(x)\) è (vedi Fig. \ref{fig:tanh})
+\begin{equation*}
+\tanh(x) = \frac{e^{x}-e^{-x}}{e^{x}+e^{-x}} = 2\sigma_{2}(x)-1
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:2, samples=100, ultra thick, red] {(exp(x) - exp(-x)) / (exp(x) + exp(-x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\tanh(x)\)}\label{fig:tanh}
+\end{figure}
+
+Inoltre si ha che \(\tanh'(x) = 1-(\tanh(x))^{2}\):
+\begin{align*}
+\tanh'(x) &= 2\sigma_{2}'(x) = 2\cdot 2\sigma_{2}(x)\cdot(1-\sigma_{2}(x))\\
+&= 2\sigma_{2}(x) \cdot (2-2\sigma_{2}(x))\\
+&= (\tanh(x)+1) \cdot (1 - 2\sigma_{2}(x)+1)\\
+&= (\tanh(x)+1)(-\tanh(x)+1) = 1-(\tanh(x))^{2}
+\end{align*}
+\subsubsection{Arcotangente}
+\label{sec:org02e4858}
+
+È spesso utilizzata la seguente \href{20250627184319-funzioni_trigonometriche.org}{arcotangente} (vedi Fig. \ref{fig:arctan}):
+\begin{equation*}
+h(x) = \frac{2}{\pi} \arctan(x) \qquad x \in \R.
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:2, samples=100, ultra thick, red] {rad(atan(x)) * 2 / 3.1415};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(h(x)\)}\label{fig:arctan}
+\end{figure}
+\subsubsection{Softsign}
+\label{sec:org6a4e9d9}
+
+La seguente funzione differenziabile è la funzione \emph{softsign}: (vedi Fig. \ref{fig:softsign})
+\begin{equation*}
+\operatorname{so}(x)=\frac{x}{1+|x|},\qquad x \in \R
+\end{equation*}
+che ha raange \((-1,1)\).
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:2, samples=100, ultra thick, red] {x / (1 + abs(x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{so}(x)\)}\label{fig:softsign}
+\end{figure}
+\subsubsection{Piecewise Linear}
+\label{sec:org02b2b05}
+
+Dato un parametro \(\alpha>0\) (vedi Fig. \ref{fig:pieclin})
+\begin{equation*}
+f_{\alpha}(x) = f(\alpha,x) = \begin{cases}
+-1 & x\le-\alpha\\
+x/\alpha & -\alpha<x<\alpha\\
+1 &x\ge \alpha.
+\end{cases}
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-4:-2, samples=100, ultra thick, red] {-1};
+\addplot[domain=-2:2, samples=100, ultra thick, red] {x / 2};
+\addplot[domain=2:4, samples=100, ultra thick, red] {1};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(f_{2}(x)\)}\label{fig:pieclin}
+\end{figure}
+\subsection{Bumped-type Functions}
+\label{sec:orge4656d2}
+
+\subsubsection{Gaussiana}
+\label{sec:orgbdbe516}
+
+La funzione gaussiana mappa \(\R\) nell'intervallo \((0,1]\): (vedi Fig. \ref{fig:gauss})
+\begin{equation*}
+g(x) = e^{-x^{2}},\qquad x \in \R.
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-4:4, samples=100, ultra thick, red] {exp(- x * x)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(g(x)\)}\label{fig:gauss}
+\end{figure}
+\subsubsection{Doppio esponenziale}
+\label{sec:org014c989}
+
+Mappa la retta reale nell'intervallo \((0,1]\) ed è definita: (vedi Fig. \ref{fig:dexp})
+\begin{equation*}
+f(x) = e^{-\lambda\,|x|},\qquad x \in \R, \lambda>0.
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-4:0.01, samples=100, ultra thick, red] {exp(2 * x)};
+\addplot[domain=-0.01:4, samples=100, ultra thick, red] {exp(- 2 * x)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(f(x)\) con parametro \(\lambda=2\)}\label{fig:dexp}
+\end{figure}
+\section{Rete Neurale}
+\label{sec:orgff0f42a}
+Una \uline{rete neurale} è un modello computazionale ispirato alla struttura e al funzionamento del cervello biologico, costituito da un insieme di unità (detti \hyperref[sec:org17e36e3]{neuroni artificiali}) organizzate in strati (input, nascosti e output) connesse tra loro da pesi sinaptici che modulano il segnale trasmesso.
+
+Questa riceve degli \uline{input} e produce un \uline{output} (dando luogo ad una \uline{funzione input-output}), in base a certi parametri \(\bm{w}\), per simulare la \uline{FUNZIONE TARGET}; quest'ultima è l'obiettivo finale della Rete Neurale (ovvero si vuole far sì che l'output della rete neurale sia il più vicino possibile al risultato della funzione target).
+
+Per misurare la distanza tra l'output di una rete e la funzione target si utilizza una \uline{funzione errore} (o \uline{funzione costo}), che deve essere scelta in base all'applicazione specifica.
+
+Il \uline{\href{20250627110009-training_error_and_test_error.org}{processo di apprendimento}} è quello che, partendo dai parametri \(\bm{w}\), li modifica (iterativamente), fino a dei parametri \(\bm{w}^{*}\), che sono \uline{ottimali}, nel senso che minimizzano la \uline{funzione errore}. Dunque il processo di apprendimento comporta la minimizzazione della funzione costo.
+\subsection{Rete Neurale Feedforward}
+\label{sec:orgc7dbe12}
+\begin{esempio}
+Si consideri una rete neurale come in Figura~\ref{fig:3neuroni}, divisa in tre layer: quello di input (layer 0), quello centrale (nascosto, layer 1), e quello di output (layer 2).
+\begin{itemize}
+\item Il neurone 1 del layer 1 \uline{riceve}
+\begin{equation*}
+  s_{1}^{(1)}\coloneqq\sum_{i=0}^{2} x_{i}^{(0)} w_{i{1}}^{(1)}
+\end{equation*}
+e \uline{trasmette} \(x_{1}^{(1)}\coloneqq \phi(s_{1}^{(1)})\).
+\item Il neurone 2 del layer 1 \uline{riceve}
+\begin{equation*}
+  s_{2}^{(1)}\coloneqq\sum_{i=0}^{2} x_{i}^{(0)} w_{i{2}}^{(1)}
+\end{equation*}
+e \uline{trasmette} \(x_{2}^{(1)}\coloneqq\phi(s_{2}^{(1)})\).
+\end{itemize}
+
+Compattando la notazione, si ottiene che\footnote{Vedi ``\href{20250113144338-matrice_trasposta.org}{Matrice Trasposta}''}
+\begin{equation*}
+S^{(1)}= \begin{pmatrix}
+s_{1}^{(1)}\\[0.5em]
+s_{2}^{(1)}
+\end{pmatrix}=\begin{pmatrix}
+w_{01}^{(1)} & w_{11}^{(1)} & w_{21}^{(1)}\\[0.5em]
+w_{02}^{(1)} & w_{12}^{(1)} & w_{22}^{(1)}
+\end{pmatrix}\begin{pmatrix}
+x_{0}^{(1)}\\[0.5em]
+x_{1}^{(1)}\\[0.5em]
+x_{2}^{(1)}
+\end{pmatrix} = \null^{\text{T}}{W^{(1)}}\, X^{(0)}
+\end{equation*}
+ed inoltre \(X^{(1)} = \phi(S^{(1)}) = (-1, \phi(s^{(1)}_{1}),\, \phi(s^{(1)}_{2}))\).
+\begin{itemize}
+\item Il neurone 1 del layer 2 \uline{riceve}
+\begin{equation*}
+  s_{1}^{(2)}\coloneqq\sum_{i=0}^{2} x_{i}^{(1)} w_{i{1}}^{(2)}
+\end{equation*}
+e \uline{trasmette} \(x_{1}^{(2)}\coloneqq \phi(s_{1}^{(2)})\).
+\end{itemize}
+\end{esempio}
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	\&\& {x_0^{(1)}=-1} \\
+	{x_0^{(0)} = -1} \\
+	{x_1^{(0)}=x_1} \&\& {\boxed{\Sigma, \phi}} \\
+	{x_2^{(0)}=x_2} \&\&\&\& {\boxed{\Sigma, \phi}} \& {y=x_1^{(2)}} \\
+	{x_0^{(0)} = -1} \\
+	{x_1^{(0)}=x_1} \&\& {\boxed{\Sigma,\phi}} \\
+	{x_2^{(0)}=x_2}
+	\arrow["{w_{01}^{(2)}}"{description}, from=1-3, to=4-5]
+	\arrow["{w^{(1)}_{01}}"{description}, from=2-1, to=3-3]
+	\arrow["{w^{(1)}_{11}}"{description}, from=3-1, to=3-3]
+	\arrow["{w^{(2)}_{11}}"{description}, from=3-3, to=4-5]
+	\arrow["{w^{(1)}_{21}}"{description}, from=4-1, to=3-3]
+	\arrow[from=4-5, to=4-6]
+	\arrow["{w^{(1)}_{02}}"{description}, from=5-1, to=6-3]
+	\arrow["{w^{(1)}_{12}}"{description}, from=6-1, to=6-3]
+	\arrow["{w^{(2)}_{21}}"{description}, from=6-3, to=4-5]
+	\arrow["{w^{(1)}_{22}}"{description}, from=7-1, to=6-3]
+\end{tikzcd}
+\end{equation*}
+\caption{\label{fig:3neuroni}Rete Neurale con tre neuroni}
+\end{figure}
+
+Si dà ora un po' di nomenclatura, in generale, per le reti neurali feedforward, definite sotto:
+\begin{itemize}
+\item \uline{Layers}: We shall denote in the following the layer number by the upper script \(\ell\). We have \(\ell=0\) for the input layer, \(\ell=1\) for the first hidden layer, and \(\ell=L\) for the output layer. Note that the number of hidden layers is equal to \(L-1\). The number of neurons in the layer \(\ell\) is denoted by \(d^{(\ell)}\). In particular, \(d^{(0)}\) is the number of inputs and \(d^{(L)}\) is the number of outputs.
+\item \uline{Weights}: The system of weights is denoted by \(w_{i j}^{(\ell)}\), with \(1 \leq \ell \leq L, 0 \leq i \leq\) \(d^{(\ell-1)}, 1 \leq j \leq d^{(\ell)}\). The weight \(w_{i j}^{(\ell)}\) is associated with the edge that joins the \(i\) th neuron in the layer \(\ell-1\) to the \(j\) th neuron in the layer \(\ell\). Note that the edges join neurons in consecutive layers only. The weights \(w_{0 j}^{(\ell)}=b_j^{(\ell)}\) are regarded as biasses. They are the weights corresponding to the fake input \(x_0^{(\ell)}=-1\). The number of biases is equal to the number of neurons. The number of weights, without biasses, between the layers \(\ell-1\) and \(\ell\) is given by \(d^{(\ell-1)} d^{(\ell)}\), so the total number of weights in a feedforward network is \(\sum_{\ell=1}^L d^{(\ell-1)} d^{(\ell)}\).
+\item \uline{Inputs and outputs}: The inputs to the network are denoted by \(x_j^{(0)}\), with \(1 \leq j \leq d^{(0)}\). We denote by \(x_j^{(\ell)}\) the output of the \(j\)-th neuron in the layer \(\ell\). Consequently, \(x_j^{(L)}\) is the network output, with \(1 \leq \ell \leq d^{(L)}\). The notation \(x_0^{(\ell)}=-1\) is reserved for the fake input linked to the bias corresponding to the neurons in the layer \(\ell+1\).
+\end{itemize}
+
+Consider the \(j\)-th neuron in the layer \(\ell\). In its first half, the neuron collects the information from the previous layer, as a weighted average, into the \uline{signal}:
+\begin{equation*}
+s_j^{(\ell)}=\sum_{i=0}^{d^{(\ell-1)}} w_{i j}^{(\ell)} x_i^{(\ell-1)}=\sum_{i=1}^{d^{(\ell-1)}} w_{i j}^{(\ell)} x_i^{(\ell-1)}-b_j^{(\ell)}.
+\end{equation*}
+
+In its second half, the neuron applies an activation function \(\phi\) to the previous signal and outputs the value
+\begin{equation*}
+x_j^{(\ell)}=\phi\left(\sum_{i=1}^{d^{(\ell-1)}} w_{i j}^{(\ell)} x_i^{(\ell-1)}-b_j^{(\ell)}\right)
+\end{equation*}
+
+This can be written in the following equivalent matrix form:
+\begin{equation*}
+X^{(\ell)}=\phi\left(\null^{\text{T}}W^{(\ell)} X^{(\ell-1)}-B^{(\ell)}\right)
+\end{equation*}
+where we used the notations
+\begin{equation*}
+X^{(\ell)}=\null^{\text{T}}\left(x_1^{(\ell)}, \ldots, x_{d^{\ell}}^{(\ell)}\right), \quad W^{(\ell)}=\left(w_{i j}^{(\ell)}\right)_{i, j}, \quad B^{(\ell)}=\null^{\text{T}}\left(b_1^{(\ell)}, \ldots, b_{d^{\ell}}^{(\ell)}\right)
+\end{equation*}
+with \(1 \leq i \leq d^{(\ell-1)}\) and \(1 \leq j \leq d^{(\ell)}\), and where we used the convention that the \hyperref[sec:org7100e77]{activation function} applied on a vector acts on each of the components of the vector. We note that the input to the network is given by the vector \(X^{(0)}=\null^{\text{T}}\left(x_1^{(0)}, \ldots, x_{d^{(0)}}^{(0)}\right)\), while the network output is \(X^{(L)}=\null^{\text{T}}\left(x_1^{(L)}, \ldots, x_{d^{(L)}}^{(L)}\right)\).
+\begin{definizione}
+Let \(U_{\ell}=\left\{1,2, \ldots, d^{(\ell)}\right\}, 0 \leq \ell \leq L\), and consider the sequence of affine functions \(\alpha_1, \ldots, \alpha_L\)
+\begin{equation*}
+\alpha_{\ell}: \mathcal{F}\left(U_{\ell-1}\right) \rightarrow \mathcal{F}\left(U_{\ell}\right)
+\end{equation*}
+and the \href{20250115100904-successione.org}{sequence} of \hyperref[sec:org7100e77]{activation functions} \(\phi^{(\ell)}: \R \rightarrow \R\). Then the corresponding feedforward neural network is the sequence of maps \(f_0, f_1, \ldots, f_L\), where
+\begin{equation*}
+f_{\ell}=\phi^{(\ell)} \circ \alpha_{\ell} \circ f_{\ell-1}, \quad 1 \leq \ell \leq L
+\end{equation*}
+with \(f_0\) given.
+\end{definizione}
+
+Hence, a deep feedforward neural network produces a sequence of progressively more abstract reparametrizations, \(f_{\ell}\), by mapping the input, \(f_0\), through a series of parametrized functions, \(\alpha_{\ell}\), and nonlinear activation functions, \(\phi^{(\ell)}\). The network's output is given by
+\begin{equation*}
+f_L=\phi^{(L)} \circ \alpha_L \circ \phi^{(L-1)} \circ \alpha_{L-1} \circ \cdots \circ \phi^{(1)} \circ \alpha_1 .
+\end{equation*}
+
+The number \(L\) is referred as the \uline{depth of the network} and \(\max \left\{d^{(1)}, \ldots, d^{(L-1)}\right\}\) as the \uline{width}.
+\subsubsection{Rete Neurale ReLU-feedforward}
+\label{sec:orgfb33a2a}
+\begin{definizione}
+Una \uline{rete neurale ReLU-feedforward} con input \(\bm{x} \in \R^{n}\) e output \(y \in \R^{m}\), illustrata in Fig.~\ref{fig:reluff}, è data da:
+\begin{itemize}
+\item \(L-1\) \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{numeri naturali} \(\ell_{1},\dots,\ell_{L-1}\);
+\item \(L\) \href{20250129094132-trasformazione_affine.org}{funzioni affini} \(A_{1},\dots,A_{L}\) tali che
+\begin{align*}
+  A_{1}:\R^{n}&\to \R^{\ell_{1}}\\
+  A_{i}: \R^{\ell_{i-1}}&\to \R^{\ell_{i}}\\
+  A_{L}: \R^{\ell_{L-1}}&\to \R^{m}
+\end{align*}
+\end{itemize}
+L'output della rete è
+\begin{equation*}
+A_{L}\circ \operatorname{ReLU}\circ A_{L-1}\circ\dots\circ \operatorname{ReLU}\circ A_{1},
+\end{equation*}
+dove \(\operatorname{ReLU}\) è la versione multidimensionale della \hyperref[sec:orgcc45061]{funzione di attivazione ReLU}, ovvero
+\begin{equation*}
+\operatorname{ReLU}(x_{1},\dots,x_{r}) = \left(\operatorname{ReLU}(x_{1}),\dots,\operatorname{ReLU}(x_{r})\right).
+\end{equation*}
+\label{def10.2.1}
+\end{definizione}
+
+Si utilizza la seguente nomenclatura:
+\begin{itemize}
+\item \(L\) è la \uline{profondità della rete neurale};
+\item la \uline{larghezza} della rete neurale è
+\begin{equation*}
+  w\coloneqq\max\set{\ell_{1},\dots,\ell_{L-1}}
+\end{equation*}
+mentre la \uline{larghezza} di un layer è \(\ell_{i}\);
+\item la \uline{dimensione} della rete neurale è
+\begin{equation*}
+  s=\ell_{1}+\dots+\ell_{L-1}
+\end{equation*}
+ovvero il numero di neuroni nascosti.
+\end{itemize}
+
+\begin{figure}
+\newcommand{\Lone}{1.5}
+\newcommand{\Ltwo}{3.0}
+\newcommand{\Lthree}{6.0}
+\newcommand{\Lhidden}{4.5}
+\newcommand{\outputorizzontale}{7.5}
+\begin{center}
+\scalebox{0.7}{
+\begin{tikzpicture}[x=2.5cm, y=1.2cm,
+    bullet/.style={circle, fill=black, inner sep=1.5pt},
+    neuron/.style={rectangle, draw, rounded corners, minimum width=1.2cm, minimum height=6mm, inner sep=1pt},
+    affine/.style={->, thick},
+    brace/.style={decorate,decoration={brace,amplitude=6pt},thick},
+    reverse brace/.style={decorate,decoration={brace,mirror,amplitude=6pt},thick}]
+
+% Inputs (x1 to xn)
+\node[bullet, label=left:$x_1$] (x1) at (0,1.2) {};
+\node[bullet, label=left:$x_2$] (x2) at (0,0.6) {};
+\node[bullet, label=left:$\vdots$] (xdots) at (0,0) {};
+\node[bullet, label=left:$x_n$] (xn) at (0,-1.2) {};
+
+% Brace grouping inputs
+\draw[brace] ([xshift=4pt, yshift=3pt]x1.north west) -- ([xshift=4pt, yshift=-3pt]xn.south west);
+
+% Hidden layer 1
+\node at (\Lone,2.0) {$\ell_1$};
+\node[neuron] (h11) at (\Lone,1.2) {ReLU};
+\node at (\Lone,0.6) {$\vdots$};
+\node[neuron] (h13) at (\Lone,0) {ReLU};
+\node at (\Lone,-0.6) {$\vdots$};
+\node[neuron] (h15) at (\Lone,-1.2) {ReLU};
+
+\draw[brace] ([xshift=6pt,yshift=3pt]h11.north east) -- ([xshift=6pt,yshift=-3pt]h15.south east);
+\draw[reverse brace] ([xshift=-6pt,yshift=3pt]h11.north west) -- ([xshift=-6pt,yshift=-3pt]h15.south west);
+
+% A_1 arrow
+\draw[affine] ([xshift=10pt]xdots.east) -- ([xshift=-15pt]h13.west) node[midway, above] {$A_1$};
+
+% Hidden layer 2
+\node at (\Ltwo,2.0) {$\ell_2$};
+\node[neuron] (h21) at (\Ltwo,1.2) {ReLU};
+\node at (\Ltwo,0.6) {$\vdots$};
+\node[neuron] (h23) at (\Ltwo,0) {ReLU};
+\node at (\Ltwo,-0.6) {$\vdots$};
+\node[neuron] (h25) at (\Ltwo,-1.2) {ReLU};
+
+\draw[brace] ([xshift=6pt,yshift=3pt]h21.north east) -- ([xshift=6pt,yshift=-3pt]h25.south east);
+\draw[reverse brace] ([xshift=-6pt,yshift=3pt]h21.north west) -- ([xshift=-6pt,yshift=-3pt]h25.south west);
+
+% A_2 arrow
+\draw[affine] ([xshift=18pt]h13.east) -- ([xshift=-18pt]h23.west) node[midway, above] {$A_2$};
+
+% Hidden layer L-1
+\node at (\Lthree,2.0) {$\ell_{L-1}$};
+\node[neuron] (hL1) at (\Lthree,1.2) {ReLU};
+\node at (\Lthree,0.6) {$\vdots$};
+\node[neuron] (hL3) at (\Lthree,0) {ReLU};
+\node at (\Lthree,-0.6) {$\vdots$};
+\node[neuron] (hL5) at (\Lthree,-1.2) {ReLU};
+
+\draw[brace] ([xshift=6pt,yshift=3pt]hL1.north east) -- ([xshift=6pt,yshift=-3pt]hL5.south east);
+\draw[reverse brace] ([xshift=-6pt,yshift=3pt]hL1.north west) -- ([xshift=-6pt,yshift=-3pt]hL5.south west);
+
+% Other Hidden Layers
+
+\node (Layerdots) at (\Lhidden,0) {$\dots$};
+
+% A_{3} arrow
+\draw[affine] ([xshift=20pt]h23.east) -- ([xshift=-3pt]Layerdots.west) node[midway, above] {$A_{3}$};
+
+% A_{L-1} arrow
+\draw[affine] ([xshift=3pt]Layerdots.east) -- ([xshift=-20pt]hL3.west) node[midway, above] {$A_{L-1}$};
+
+% Final output layer
+\node[bullet, label=right:$y_1$] (y1) at (\outputorizzontale,1.2) {};
+\node[bullet, label=right:$\vdots$] (ydots) at (\outputorizzontale,0) {};
+\node[bullet, label=right:$y_m$] (ym) at (\outputorizzontale,-1.2) {};
+
+\draw[reverse brace] ([xshift=-4pt, yshift=3pt]y1.north east) -- ([xshift=-4pt, yshift=-3pt]ym.south east);
+
+% Arrow to output
+\draw[affine] ([xshift=20pt]hL3.east) -- ([xshift=-10pt]ydots.west) node[midway, above] {$A_{L}$};;
+
+
+% Parentesi sotto
+\draw[reverse brace, thin] ([xshift=-30pt]\Lone, -1.7) -- ([xshift=30pt]\Lthree, -1.7) node[midway, below, yshift=-6pt] {$L-1$ hidden layers};
+
+\end{tikzpicture}
+}
+\end{center}
+\caption{\label{fig:reluff}Una rete neurale ReLU-feedforward}
+\end{figure}
+\section{Funzioni costo (Machine Learning)}
+\label{sec:org6ead025}
+Una funzione costo è una funzione che misura, dati certi parametri \(\bm{w}\) di una rete neurale, \uline{quanto la rete neurale si discosta dalla funzione target}.
+\subsection{La Funzione Errore Supremum}
+\label{sec:orgc9be388}
+
+Una rete neurale prende input \(x \in [0,1]\) e deve imparare una data funzione continua \(\phi:[0,1]\to [0,1]\).
+
+La funzione della rete neurale, dipendete dai parametri \(\bm{w},b\), è \(f_{\bm{w},b}(x)\).
+
+La funzione costo Supremum è
+\begin{equation*}
+C(\bm{w},b) \coloneqq \sup_{x \in [0,1]}|f_{\bm{w},b}(x)-\phi(x)|.
+\end{equation*}
+
+Se la funzione \(\phi\) è conosciuta solo per \(N\) valori \(x_{1},\dots,x_{N}\), allora la funzione costo diventa
+\begin{equation*}
+C(\bm{w},b) \coloneqq \max_{i=1,\dots, N} |f_{\bm{w},b}(x_{i})-\phi(x_{i})|.
+\end{equation*}
+\subsection{La Funzione Errore Norma L2}
+\label{sec:org446b108}
+
+Una rete neurale prende input \(x \in [0,1]\) e deve imparare una data funzione \(\phi:[0,1]\to \R\) tale che
+\begin{equation*}
+\int_{0}^{1}(\phi(x))^{2}\dif x <\infty
+\end{equation*}
+
+La funzione della rete neurale, dipendete dai parametri \(\bm{w},\bm{b}\), è \(f_{\bm{w},\bm{b}}(x)\). La funzione costo associata a questo tipo di problema è quella che misura la distanza nella \href{20250625123506-spazio_normato.org}{norma} \href{20250624162220-spazi_lp.org}{\(L^{2}\)}:
+\begin{equation*}
+C(\bm{w},\bm{b}) \coloneqq \int_{[0,1]} (f_{\bm{w},\bm{b}}(x)-\phi(x))^{2}\dif x.
+\end{equation*}
+
+Se la funzione \(\phi\) è conosciuta soltanto in \(N\) punti
+\begin{equation*}
+z_{1}=\phi(x_{1}),\quad z_{2}=\phi(x_{2}),\qquad, z_{N} = \phi(x_{N})
+\end{equation*}
+allora, posti \(\bm{z}=(z_{1},\dots,z_{N})\) e \(\bm{x} = (x_{1},\dots,x_{N})\), la funzione costo diventa la \href{20250301193511-spazio_metrico.org}{distanza} in \(\R^{N}\) tra \(\bm{z}\) e \(f_{\bm{w},\bm{b}}(\bm{x}) \coloneqq \left(f_{\bm{w},\bm{b}}(z_{1}),\dots,f_{\bm{w},\bm{b}}(z_{N})\right)\):
+\begin{equation*}
+C(\bm{w},\bm{b}) = \norma{\bm{z}-f_{\bm{w},\bm{b}}(\bm{x})}^{2} = \sum_{i=1}^{N} |z_{i}-f_{\bm{w},\bm{b}}(x_{i})|^{2}
+\end{equation*}
+\subsubsection{Interpretazione Geometrica}
+\label{sec:orgde3b62b}
+
+Fissati \(\bm{x}\) e \(\bm{z}\), la mappa \((\bm{w},\bm{b})\mapsto f_{\bm{w},\bm{b}}(\bm{x})\) rappresenta una ipersuperficie in \(\R^{N}\):
+\begin{equation*}
+\Phi(\bm{w},\bm{b}) = \begin{pmatrix}
+\Phi_{1}(\bm{w},\bm{b})\\
+\vdots\\
+\Phi_{N}(\bm{w},\bm{b})\\
+\end{pmatrix} = \begin{pmatrix}
+f_{\bm{w},\bm{b}}(x_{1})\\
+\vdots\\
+f_{\bm{w},\bm{b}}(x_{N})
+\end{pmatrix}
+\end{equation*}
+e la funzione costo \(C(\bm{w},\bm{b})\) è la \href{20250301193511-spazio_metrico.org}{distanza} euclidea in \(\R^{N}\) di un punto sulla ipersuperficie dal punto \(\bm{z}\). Si suppongano appropriate ipotesi di differenziabilità della ipersuperficie.
+
+Il costo è minimizzato in \((\bm{w}^{*},\bm{b}^{*})\) quando la distanza è minima, ovvero quando \(\Phi(\bm{w}^{*},\bm{b}^{*})\) è la proiezione ortogonale di \(\bm{z}\) sulla ipersuperficie: questo significa che il vettore \(\Phi(\bm{w}^{*},\bm{b}^{*})-\bm{z}\) è ortogonale al \href{20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{piano tangente} alla ipersuperficie in \(\Phi(\bm{w}^{*},\bm{b}^{*})\): quest'ultimo è generato dai vettori\footnote{Vedi: ``\href{20250114103236-derivata_parziale.org}{Derivata parziale}''}
+\begin{equation*}
+\restriction{\partial_{w_{k}} \Phi(\bm{w},\bm{b})}{(\bm{w}^{*},\bm{b}^{*})}; \qquad \restriction{\partial_{b_{j}} \Phi(\bm{w},\bm{b})}{(\bm{w}^{*},\bm{b}^{*})}
+\end{equation*}
+
+Richiedere l'ortogonalità, quindi, significa richiedere che i prodotti scalari:
+\begin{align*}
+\left(\restriction{\partial_{w_{k}} \Phi(\bm{w},\bm{b})}{(\bm{w}^{*},\bm{b}^{*})}\right)\cdot (\Phi(\bm{w}^{*},\bm{b}^{*})-\bm{z}) &= 0\\
+\left(\restriction{\partial_{b_{j}} \Phi(\bm{w},\bm{b})}{(\bm{w}^{*},\bm{b}^{*})}\right) \cdot(\Phi(\bm{w}^{*},\bm{b}^{*})-\bm{z}) &= 0.
+\end{align*}
+
+Queste sono le \uline{equazioni normali}, che operativamente diventano
+\begin{align*}
+\sum_{i=1}^{N} (f_{\bm{w},\bm{b}}(x_{i})-z_{i})\cdot \restriction{\partial_{w_{k}} f_{\bm{w},\bm{b}} (x_{i})}{(\bm{w},\bm{b}) = (\bm{w}^{*},\bm{b}^{*})} &= 0\\
+\sum_{i=1}^{N} (f_{\bm{w},\bm{b}}(x_{i})-z_{i})\cdot \restriction{\partial_{b_{j}} f_{\bm{w},\bm{b}} (x_{i})}{(\bm{w},\bm{b}) = (\bm{w}^{*},\bm{b}^{*})} &= 0
+\end{align*}
+\subsection{Funzione costo MSE (Machine Learning)}
+\label{sec:orgb91a848}
+Si consideri una \hyperref[sec:orgff0f42a]{rete neurale} che:
+\begin{itemize}
+\item prenda in input \(X\) \href{20250711175937-variabile_aleatoria.org}{variabile aleatoria},
+\item voglia emulare la funzione target \(Z\), v.a.
+\item abbia output \(Y\coloneqq f_{\bm{w},b}(X)\).
+\end{itemize}
+
+La funzione costo più adatta per questo tipo di problema è
+\begin{equation*}
+C(w,b) \coloneqq \media[(Y-Z)^{2}].
+\end{equation*}
+
+Nel caso in cui non si conoscessero le distribuzioni di \(X\) e \(Z\), ma soltanto delle osservazioni \((X_{1},Z_{1}),\dots,(X_{N}, Z_{N})\) nel training set, la funzione costo discretizzata diventa
+\begin{equation*}
+\tilde{C}(w,b) = \frac{1}{N} \sum_{i=1}^{N} (f_{w,b}(X_{i})-Z_{i})^{2}
+\end{equation*}
+\subsection{Regolarizzazione della Funzione Costo (Machine Learning)}
+\label{sec:org9329525}
+Per evitare il fenomeno dell'\href{20250627103519-overfitting.org}{overfitting}, è bene mantenere i parametri \uline{piccoli}. Pertanto, data una \hyperref[sec:org6ead025]{funzione costo} \(C(\bm{w})\), la si \uline{regolarizza}, utilizzando una funzione costo \(G(\bm{w})\), data da \(C(\bm{w})\) più un termine di regolarizzazione.
+
+\begin{description}
+\item[{Regolarizzazione \(L^{2}\).}] Si aggiunge alla funzione \(C(\bm{w})\) la \href{20250627104832-p_norma_in_rn.org}{2-norma} in \(\R^{n}\) dei parametri:
+\begin{equation*}
+  G(\bm{w}) \coloneqq C(\bm{w}) + \lambda\norma{\bm{w}}^{2}_{2},\qquad\text{dove }\norma{\bm{w}}^{2}_{2} = \sum_{i=1}^{n} (w_{i})^{2}.
+\end{equation*}
+Il valore \(\lambda>0\) è un \href{20250627104011-moltiplicatore_di_lagrange.org}{moltiplicatore di Lagrange}; questo parametro deve essere scelto in maniera da minimizzare l'\emph{overfitting}.
+\item[{Regolarizzazione \(L^{1}\).}] Si aggiunge alla funzione \(C(\bm{w})\) la 1-norma in \(\R^{n}\) dei parametri:
+\begin{equation*}
+  G(\bm{w}) \coloneqq C(\bm{w}) + \lambda\norma{\bm{w}}^{2}_{2},\qquad\text{dove }\norma{\bm{w}}_{1} = \sum_{i=1}^{n} |w_{i}|.
+\end{equation*}
+Il valore \(\lambda>0\) è un \href{20250627104011-moltiplicatore_di_lagrange.org}{moltiplicatore di Lagrange}. Questo metodo, non differenziabile nell'origine, potrebbe dare dei problemi nella ricerca dei minimi tramite il gradiente.
+\item[{Potential Regolation.}] Sia \(U:\R^{n}\to \R^{+}\) tale che:
+\begin{enumerate}
+\item \(U(x) = 0\) se e solo se \(x=0\);
+\item \(U\) ha un minimo assoluto in \(x=0\).
+\end{enumerate}
+
+La funzione costo regolarizzata diventa:
+\begin{equation*}
+  G(\bm{w}) = C(\bm{w}) + \lambda\, U(\bm{w}),\qquad\lambda>0
+\end{equation*}
+
+Il potenziale deve essere scelto in maniera tale che l'errore, utilizzando \(G\), sia \uline{minore} che utilizzando \(C\).
+\end{description}
+\end{document}

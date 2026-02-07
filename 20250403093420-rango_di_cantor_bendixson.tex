@@ -1,0 +1,530 @@
+% Created 2026-02-07 Sat 19:30
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Davide Peccioli}
+\date{\today}
+\title{Rango di Cantor-Bendixson}
+\begin{document}
+
+\section{Definizione}
+\label{sec:org9c31f39}
+
+\subsection{Osservazione}
+\label{sec:org4a59086}
+\(x \notin X'\) se e solo se \(\set{x}\cap X\) è un aperto di \(X\).
+\section{Proprietà di derivata e rango di Cantor-Bendixson per spazi polacchi}
+\label{sec:org899bbd3}
+Sia \(\alpha\) un ordinale limite, siano \((X_{\beta})_{\beta<\alpha}\) una famiglia di spazi polacchi e sia
+\begin{equation*}
+X\coloneqq \coprod_{\beta<\alpha} X_{\beta}.
+\end{equation*}
+Allora, per ogni ordinale \(\lambda\):
+\begin{equation*}
+X^{(\lambda)} = \coprod_{\beta<\alpha} X_{\beta}^{(\lambda)}
+\end{equation*}
+\subsection{Dimostrazione}
+\label{sec:orgdb4ce1f}
+Si ricorda la topologia dell'unione disgiunta: \(U \subseteq \coprod_{\beta<\alpha} X_{\beta}\) è aperto se e solo se, detta
+\begin{equation*}
+\varphi_{\beta_{i}}: X_{\beta_{i}}\to \coprod_{\beta<\alpha} X_{\beta}
+\end{equation*}
+l'iniezione canonica, per ogni \(\beta_{i}<\alpha\) l'insieme \(\varphi^{-1}_{\beta_{i}} \subseteq X_{\beta_{i}}\) è aperto.
+
+Per induzione su \(\lambda\).
+\begin{itemize}
+\item Caso base: \(\lambda = 0\): banale.
+\item Caso base: \(\lambda = 1\): bisogna dimostrare che
+\begin{equation*}
+  \left(\coprod_{\beta<\alpha} X_{\beta}\right)' = \coprod_{\beta<\alpha} X_{\beta}'
+\end{equation*}
+
+Sia \(x \in \coprod_{\beta<\alpha} X_{\beta}\). Allora esiste un unico \(\beta_{0}\) tale che \(x \in X_{\beta_{0}}\).
+
+Dunque, se \(x \notin \left(\coprod_{\beta<\alpha} X_{\beta}\right)'\) allora:
+\begin{itemize}
+\item per ogni \(\beta\neq \beta_{0}\), \(x\notin X_{\beta}\) e quindi \(x\notin X_{\beta}' \subseteq X_{\beta}\);
+\item per \(\beta_{0}\), \(\set{x} \subseteq X_{\beta_{0}}\) è aperto, e quindi \(x\notin X_{\beta_{0}}'\);
+\end{itemize}
+pertanto \(x\notin \coprod_{\beta<\alpha} X_{\beta}'\).
+
+Viceversa, se \(x \notin \coprod_{\beta<\alpha} X_{\beta}'\) significa che \(\set{x} \subseteq X_{\beta_{0}}\) è aperto e pertanto per ogni \(\beta<\alpha\) l'insieme \(\varphi_{\beta}^{-1}\left(\set{x}\right)\) è aperto (poiché uguale a \(\emptyset\) se \(\beta\neq \beta_{0}\) e uguale a \(\set{x}\) se \(\beta=\beta_{0}\)). Pertanto \(\set{x} \subseteq \coprod_{\beta<\alpha} X_{\beta}\) è aperto, e dunque
+\begin{equation*}
+  x\notin \left(\coprod_{\beta<\alpha} X_{\beta}\right)'
+\end{equation*}
+\end{itemize}
+
+
+\begin{itemize}
+\item Ordinale successore: \(\lambda=\gamma+1\).
+\begin{align*}
+  X^{(\lambda)} &= \left(\coprod_{\beta<\alpha} X_{\beta}\right)^{(\lambda)} = \left(\left(\coprod_{\beta<\alpha} X_{\beta}\right)^{(\gamma)}\right)'\\
+  &= \left(\coprod_{\beta<\alpha} X_{\beta}^{(\gamma)}\right)' = \coprod_{\beta<\alpha} (X_{\beta}^{(\gamma)})'\\
+  &= \coprod_{\beta<\alpha} (X_{\beta}^{(\gamma+1)}) = \coprod_{\beta<\alpha} X_{\beta}^{(\lambda)}.
+\end{align*}
+
+\item Ordinale limite \(\lambda\):
+\begin{align*}
+  X^{(\lambda)} &= \bigcap_{\gamma<\lambda} X^{(\gamma)} = \bigcap_{\gamma<\lambda} \left(\coprod_{\beta<\alpha} X_{\beta}\right)^{(\gamma)}\\
+  &= \bigcap_{\gamma<\lambda}\left(\coprod_{\beta<\alpha} X_{\beta}^{(\gamma)}\right) = \coprod_{\beta<\alpha} \bigcap_{\gamma<\lambda} X_{\beta}^{(\gamma)}\\
+  &= \coprod_{\beta<\alpha} X_{\beta}^{(\lambda)}
+\end{align*}
+\end{itemize}
+\section{Esempi di spazi polacchi con rango di Cantor-Bendixson arbitrario}
+\label{sec:org73b8341}
+Recall the notion of \href{20250403093420-rango_di_cantor_bendixson.org}{Cantor-Bendixson rank} of a \href{20250301194013-spazio_polacco.org}{Polish space} from Section 1.4 in the notes for the course. For each \href{20250203111003-ordinali.org}{ordinal} \(\alpha<\omega_1\), provide an example of a Polish space \(X\) with Cantor-Bendixson rank \(\alpha\). (Optional: show that such an \(X\) can always be taken as a countable space, and that if \(\alpha\) is a successor ordinal than \(X\) can be taken to be compact.)
+
+{[}Hint. To geometrically visualize the problem it is easier to work in \(\R^2\). Use a construction by transfinite recursion over \(\alpha\). The cases \(\alpha=0,1\) are easy. For \(\alpha=2\) consider \(X=\{x\} \cup\left\{x_n \mid n \in \omega\right\}\) with x\textsubscript{n} \(\rightarrow\) x\$ and all \(x_{n}\) isolated. This suggest the strategy when \(\alpha=\beta+1\) is successor: consider a sequence of spaces of Cantor-Bendixson rank \(\beta\) and construe them as a sequence of spaces accumulating towards a point. For limit cases, consider the (disjoint) sum of spaces with Cantor-Bendixson rank cofinal in \(\alpha\).]
+\subsection{Soluzione}
+\label{sec:orgfabf20b}
+
+Si costruiscono, per ricorsione, spazi polacchi \(X_{\alpha} \subseteq \R\) con rango di Cantor-Bendixson \(\alpha\) e tali che \(X^{\infty}_{\alpha} = \emptyset\).
+
+Questo garantisce che ciascun \(X_{\alpha}\) sia uno spazio polacco \href{20250111143651-insieme_numerabile.org}{numerabile}.
+\subsubsection{Caso base}
+\label{sec:orgbc3e0b3}
+
+Per \(\alpha=0\) deve valere che \(X_{0}^{(0)} = X_{0} = \emptyset\). Pertanto si pone \(X_{0}= \emptyset\).
+
+Per \(\alpha=1\) deve valere che \(X^{(1)}_{1} = X_{1}' = \emptyset\). Pertanto si pone \(X_{1}= \omega \subseteq \R\).
+\subsubsection{Ordinale successore}
+\label{sec:org50a181d}
+
+Sia \(\alpha=\beta+1\) un ordinale successore, e sia \(X_{\beta} \subseteq \R\) uno spazio polacco con rango di Cantor-Bendixson \(\beta\) e tale che \(X_{\beta}^{\infty} = \emptyset\).
+
+Sia \(\set{y_{n}\mid n \in \omega} \subseteq \R\) una successione convergente ad \(y \in \R\), composta da punti isolati tali che per ogni \(n \in \omega\): \(y_{n}< y\). Per ciascun \(n \in \omega\) sia \(U_{n} \subseteq \R\) un intervallo aperto tale che \(y_{n} \subseteq U_{n}\) e che \(\forall\, m\neq n\): \(\operatorname{Cl}(U_{n})\cap \operatorname{Cl}(U_{m}) = \emptyset\).
+
+Sia ora, per ogni \(n \in\omega\), \(\Phi_{n}: \R\to U_{n}\) un omeomorfismo (è sufficiente considerare una contrazione dell'arco tangente). Siano \(X_{n}\) le immagini di \(X_{\beta}\) tramite \(\Phi_{n}\):
+\begin{equation*}
+X_{n} \coloneqq \Phi_{n}(X_{\beta}) \subseteq U_{n}.
+\end{equation*}
+
+Si definisce \(X_{\alpha} \coloneqq \set{y}\cup \bigcup_{n \in \omega} X_{n}\). Questo è spazio polacco in quanto unione numerabile di spazi polacchi.
+
+Per induzione su \(\lambda<\alpha\):
+\begin{equation*}
+X_{\alpha}^{(\lambda)} = \set{y} \cup \bigcup_{n \in \omega} X_{n}^{(\lambda)}
+\end{equation*}
+\begin{itemize}
+\item Caso base: per \(\lambda=0\) è banale.
+\item Ordinale successore: sia \(\lambda<\alpha\), \(\lambda = \gamma+1\).
+Si dimostra che
+\begin{equation*}
+  	\set{y}\cup \bigcup_{n \in \omega} (X_{n}^{(\gamma)})' = \left(\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\right)'
+\end{equation*}
+
+Si consideri \(x \notin \left(\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\right)'\), \(x\neq y\).
+
+Allora \(\set{x} \subseteq\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\) è aperto: per ogni \(n \in\omega\) si ha che \(\set{x}\cap X_{n}^{(\gamma)}\) è aperto in \(X_{n}^{(\gamma)}\)   e quindi per ogni \(n \in \omega\): \(x\notin (X_{n}^{(\gamma)})'\), ovvero
+\begin{equation*}
+  	x \notin \set{y}\cup \bigcup_{n \in \omega} \left(X_{n}^{(\gamma)}\right)'.
+  \end{equation*}
+
+Se invece per assurdo \(y\notin \left(\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\right)'\) allora $\backslash$\(\set{y} \subseteq \set{y} \bigcup_{n \in \omega} X_{n}^{(\gamma)}\) è aperto e quindi esiste \(\varepsilon>0\) tale che
+\begin{equation*}
+  	(y-\varepsilon, y+\varepsilon) \cap \left(\set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\gamma)}\right) = \set{y}
+\end{equation*}
+Siano ora \(y_{n_{0}}, y_{n_{1}}, y_{n_{2}} \in (y-\varepsilon, y+\varepsilon)\) (che esistono poiché \(y_{n}\to y\)), con \(y_{n_{0}}< y_{n_{1}} < y_{n_{2}}\). Allora, siccome \(U_{n_{1}} = (a,b)\) per certi \(a,b \in \R\) tali che \(y_{n_{0}} < a\) e \(b< y_{n_{1}} < y\), si ha:
+\begin{equation*}
+  	U_{n_{1}} \subseteq (y-\varepsilon, y).
+\end{equation*}
+Siccome \(\lambda<\alpha\) ovvero \(\gamma+1<\beta+1\) allora \(\gamma<\beta\) e pertanto, per ogni \(n \in \omega\): \(X_{n}^{(\gamma)}\neq \emptyset\). Quindi
+\begin{equation*}
+  	\emptyset\neq\Phi_{n_{1}}(X_{\beta}^{(\gamma)}) = X_{n_{1}}^{(\gamma)} \subseteq U_{n_{1}} \subseteq (y-\varepsilon, y)
+\end{equation*}
+e pertanto
+\begin{equation*}
+  	(y-\varepsilon, y+\varepsilon) \cap\left(\set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\gamma)}\right) \supseteq \set{y}\cup \Phi_{n_{1}}(X_{\beta}^{(\gamma)})\supsetneqq \set{y}
+\end{equation*}
+Assurdo. Quindi \(y \in \left(\set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\gamma)}\right)'\)
+
+Viceversa, se \(x \notin \set{y}\cup \bigcup_{n \in \omega}(X_{n}^{(\gamma)})'\) allora per ogni \(n \in \omega\):
+\begin{equation*}
+  	x \notin (X_{n}^{(\gamma)})'
+\end{equation*}
+e pertanto \(\set{x} \subseteq X_{n}^{(\gamma)}\) è aperto. Ma \(X_{n}^{(\gamma)}\) è aperto di \(\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\) e quindi anche \(\set{x}\) lo è:
+\begin{equation*}
+  	x \notin \left(\set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\lambda)}\right)'.
+\end{equation*}
+Si noti che per ogni \(n \in \omega\) si ha che \(X_{n}^{(\gamma)}\) è aperto di \(\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\) poiché
+\begin{equation*}
+  	X_{n}^{(\gamma)} = U_{n}\cap \left(\set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\gamma)}\right)
+\end{equation*}
+dove \(U_{n}\) è un aperto di \(\R\).
+
+Pertanto si ha che
+\begin{align*}
+  	X_{\alpha}^{(\lambda)} &= \left(X_{\alpha}^{(\gamma)}\right)'\\
+  	&= \set{y}\cup \bigcup_{n \in \omega} (X_{n}^{\gamma})' = \set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\lambda)}.
+\end{align*}
+\end{itemize}
+
+
+\begin{itemize}
+\item Ordinale limite: sia \(\lambda <\alpha\) un ordinale limite. Allora
+\begin{align*}
+  	X_{\alpha}^{(\lambda)} &= \bigcap_{\gamma<\lambda} X_{\alpha}^{(\gamma)} = \bigcap_{\gamma<\lambda}\left(\set{y}\cup \bigcup_{n \in\omega} X_{n}^{(\gamma)}\right)\\
+  	&= \set{y}\cup \bigcap_{\gamma<\lambda} \bigcup_{n \in \omega} X_{n}^{(\gamma)}\\
+  	&= \set{y}\cup \bigcup_{n \in \omega} \bigcap_{\gamma<\lambda} X_{n}^{(\gamma)} = \set{y}\cup\bigcup_{n \in\omega} X_{n}^{(\lambda)}.
+\end{align*}
+\end{itemize}
+
+Pertanto \(X_{\alpha}^{(\beta)} = \set{y}\) e \(X_{\alpha}^{(\alpha)} = \emptyset\).
+\subsubsection{Ordinale limite}
+\label{sec:org92cf726}
+Sia \(\alpha<\omega_{1}\) un ordinale limite, e sia per ogni \(\beta<\alpha\): \(X_{\beta}\) uno spazio polacco con rango di Cantor-Bendixson \(\beta\) e tale che \(X_{\beta}^{\infty} = \emptyset\).
+
+Sia \((\beta_{n})_{n \in \omega}\) una successione di ordinali cofinale in \(\alpha\). Senza perdita di generalità è possibile considerare ciascun \(X_{\beta_{n}}\) contenuto nell'intervallo \(I_{n}\coloneqq(n-1/2,n+1/2)\), per mezzo di un omeomorfismo \(\R\to I_{n}\).
+
+Allora si pone \(X_{\alpha}\coloneqq \coprod_{n<\omega} X_{\beta_{n}}\), \(X_{\alpha} \subseteq \R\) è uno spazio polacco in quanto unione numerabile di spazi polacchi.
+
+Inoltre \(X^{\infty}_{\alpha} = \emptyset\) e \(X\) ha rango di Cantor-Bendixson \(\alpha\). Infatti, per ogni \(\lambda<\alpha\) esiste \(n_{0} \in \omega\) tale che \(\beta_{n_{0}} >\lambda\) per cofinalità di \((\beta_{n})_{n \in \omega}\) e pertanto:
+\begin{equation*}
+X^{(\lambda)}_{\alpha} = \coprod_{n<\omega} X_{\beta_{n}}^{(\lambda)} \supseteq X_{\beta_{n_{0}}}^{(\lambda)} \neq\emptyset
+\end{equation*}
+mentre
+\begin{equation*}
+X^{(\alpha)}_{\alpha} = \coprod_{n<\omega} X_{\beta_{n}}^{(\alpha)} = \coprod_{n<\omega}\emptyset = \emptyset.\qedd
+\end{equation*}
+\end{document}

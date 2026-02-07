@@ -1,0 +1,4396 @@
+% Created 2026-02-07 Sat 19:30
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+%
+\def\acl{\operatorname{acl}}
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\extD{\mathscr{D}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+%% NON FORKING
+\def\nonforkSymbol{\mathbin{\raise1.8ex\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+\def\X{\mathcal{X}}
+\def\Z{\mathcal{Z}}
+\def\DD{\mathscr{D}}
+\def\CC{\mathscr{C}}
+\def\strongSigma{\vphantom{\Sigma}^\text{s}\Sigma}
+\def\X{\mathcal{X}}
+\def\Z{\mathcal{Z}}
+\def\V{\mathcal{V}}
+\author{Davide Peccioli}
+\date{\today}
+\title{Teoria dei modelli [CORSO]}
+\begin{document}
+
+\maketitle
+\textbf{\textbf{NOTAZIONE IMPORTANTE}}: Tutte le mappe sono parziali, se non diversamente indicato.
+
+Le dispense di questo corso sono \autocite{zambellaCrecheCourseModel2024}
+\section{Istruzioni Esame}
+\label{sec:org3b14dda}
+
+\begin{itemize}
+\item Esercizi settimanali da consegnare entro un paio di settimane.
+\item Parte da dove abbiamo smesso in Istituzioni
+\item Prima di scrivere bene l'esercizio chiediamo a lui che lo sketch di dimostrazione sia giusto. Inoltre, se non riusciamo lui ci dà anche i suggerimenti. (Questo garantisce un minimo di 28)
+\item Gli esercizi POTREBBERO essere sbagliati.
+\item Alla fine vuole fare un esame in cui si fanno gli esercizi fatti dagli altri durante il corso.
+\end{itemize}
+\section{Lezione 1 - \textit{<2025-09-23 Tue>}}
+\label{sec:org5bac8a3}
+
+\subsection{Ripasso}
+\label{sec:org433ec68}
+
+\subsubsection{Saturazione e omogeneità}
+\label{sec:org179ed99}
+
+Fissiamo un modello saturo \(\mathcal{U}\) di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
+
+\begin{itemize}
+\item \uline{Saturo}: realizza tutti i tipi \(p(x)\) tali che
+\begin{enumerate}
+\item \(p(x) \subseteq \mathcal{L}(A)\) per qualche \(A \subseteq \mathcal{U}\) di cardinalità piccola \(\card{A} <\kappa\).
+\item \(p(x)\) è finitamente consistente (in \(\mathcal{U}\)).
+\end{enumerate}
+\item \(\mathcal{U}\) è detto \uline{modello mostro}.
+\item Se \(\kappa\) è inaccessibile ogni teoria \(T\) con un modello infinito ha un modello mostro di cardinalità \(\kappa\); \uline{nota}: due modelli mostro della stessa cardinalità sono isomorfi.
+\item Nota: se non si vogliono usare gli inaccessibili possiamo richiedere che \(\mathcal{U}\) sia \(\kappa\)-saturo e \(\kappa\)-omogeneo e di cardinalità arbitraria.
+\end{itemize}
+
+Alcuni fatti importanti:
+\begin{enumerate}
+\item Sono fatti equivalenti:
+\begin{itemize}
+\item \(\mathcal{U}\) è saturo;
+\item \(\mathcal{U}\) realizza tutti i tipi finitamente consistenti con \(<\kappa\) parametri e \(\le\kappa\) variabili.
+\end{itemize}
+\item Se \(\mathcal{U}\) è saturo allora \(\mathcal{U}\) è omogeneo: se \(f:\mathcal{U}\to\mathcal{U}\) elementare e \(\card{f}<\kappa\) allora esiste \(h \in \operatorname{Aut}(\mathcal{U})\) tale che \(f \subseteq h\).
+\end{enumerate}
+
+\begin{definizione}
+\(M\) è \uline{debolmente \(\lambda\)-saturo} se realizza \(p(x) \subseteq \mathcal{L}(\emptyset)\), finitamente consistente in \(M\), con \(\card{x}\le \lambda\).
+
+\(M\) si dice \uline{debolmente saturo} se è debolmente \(\card{M}\)-saturo.
+\end{definizione}
+
+\begin{prop}
+Sono fatti equivalenti:
+\begin{enumerate}
+\item \(\mathcal{U}\) è saturo;
+\item \(\mathcal{U}\) è omogeneo e debolmente saturo\footnote{Essere \uline{debolmente saturo} significa essere universale nella categoria di modelli e morfismi ricchi.}.
+\end{enumerate}
+\end{prop}
+
+\begin{oss}
+Se \(N \equiv \mathcal{U}\) è un modello e \(c\) enumerazione di \(N\), il tipo \(\operatorname{tp}(c) =p(x)\) è finitamente consistente in \(\mathcal{U}\); ogni realizzazione \(b\vDash p(x)\) enumera un modello isomorfo a \(N\). (Lemma del diagramma elementare)
+\end{oss}
+
+\begin{definizione}
+\(M\) è \uline{debolmente \(\lambda\)-omogeneo} se per ogni \(f:M\to M\) elementare, \(\card{f}<\lambda\), per ogni \(b \in M\) esiste \(c \in M\) tale che \(f\cup\set{\langle b,c\rangle }: M\to M\) elementare. \(M\) si dice anche \uline{back and forth \(\lambda\)-omogeneo}.
+\end{definizione}
+
+\begin{prop}
+Sono fatti equivalenti:
+\begin{enumerate}
+\item \(\mathcal{U}\) è \(\lambda\)-saturo;
+\item \(\mathcal{U}\) è debolmente \(\lambda\)-omogeneo e debolmente \(\lambda\)-saturo.
+\end{enumerate}
+\end{prop}
+\subsubsection{\(\mathcal{U}\) come spazio topologico}
+\label{sec:org104eb4b}
+
+Sia \(A \subseteq \mathcal{U}\) piccolo.
+
+\begin{definizione}
+La \uline{\(A\)-topologia} su \(\mathcal{U}^{x}\) è la topologia generata dalla seguente base di clopen:
+\begin{equation*}
+\set{\varphi(\mathcal{U}^{x})\mid \varphi(x)\in \mathcal{L}(A)}.
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+La \(A\)-topologia è compatta per saturazione di \(\mathcal{U}\).
+\end{oss}
+
+\begin{prop}
+Per ogni \(p(x) \subseteq \mathcal{L}(A)\), \(q(z) \subseteq \mathcal{L}(B)\) tali che \(p(\mathcal{U}^{x})\cap q(\mathcal{U}^{x}) = \emptyset\).
+
+Allora esistono:
+\begin{itemize}
+\item \(\varphi(x)\) congiunzione di formule di \(p(x)\);
+\item \(\psi(x)\) congiunzione di formule di \(q(x)\);
+\end{itemize}
+tali che \(\varphi(\mathcal{U}^{x})\cap \psi(\mathcal{U}^{x}) = \emptyset\).
+\label{prop:Fatto5}
+\end{prop}
+
+\begin{oss}
+Si noti che \(p(\mathcal{U}^{x}) \subseteq \varphi(\mathcal{U}^{x})\) e \(q(\mathcal{U}^{x}) \subseteq \psi(\mathcal{U}^{x})\).
+
+Nel caso \(A=B\), la Proposizione~\ref{prop:Fatto5} afferma che la \(A\)-topologia è normale.
+\end{oss}
+\subsubsection{Definibilità e Automorfismi}
+\label{sec:org1f528df}
+
+\begin{prop}
+Sia \(\varphi(x;z) \in \mathcal{L}\), \(b \in \mathcal{U}^{z}\) e \(f \in \operatorname{Aut}(\mathcal{U})\):
+\begin{align*}
+f\big[\varphi(\mathcal{U}^{x},b)\big] &= \set{fa\mid a \in \varphi(\mathcal{U}^{x},b)} = \set{fa\mid a \in \mathcal{U}^{x}, \varphi(a,b)}\\
+&= \set{fa\mid a \in \mathcal{U}^{x}, \varphi(fa,fb)} = \set{fa\mid fa \in \mathcal{U}^{x}, \varphi(fa,fb)}\\
+&= \set{a'\mid a' \in \mathcal{U}^{x}, \varphi(a',fb)} = \varphi(\mathcal{U}^{x},fb)
+\end{align*}
+\end{prop}
+
+Ovvero gli automorfismi mappano insiemi definibili in insiemi definibili, con stessa formula e parametro diverso.
+\subsubsection{Definibilità e invarianza}
+\label{sec:org5796991}
+
+\begin{thm}
+Sia \(\mathcal{D} \subseteq \mathcal{U}^{x}\) insieme definibile. Sono fatti equivalenti:
+\begin{enumerate}
+\item \(\mathcal{D}\) è \uline{invariante su \(A\)}\footnote{Ovvero per ogni \(f \in \operatorname{Aut}(\mathcal{U}/A)\), \(f[\mathcal{D}]=\mathcal{D}\).};
+\item \(\mathcal{D}=\varphi(\mathcal{U}^{x})\) per qualche \(\varphi(x) \in \mathcal{L}(A)\).
+\end{enumerate}
+\end{thm}
+
+\begin{thm}
+Sia \(\mathcal{D} \subseteq \mathcal{U}^{x}\) insieme tipo-definibile\footnote{Ovvero definibile da \(p(x) \subseteq \mathcal{L}(\mathcal{U})\)  con insieme di parametri piccolo: \(\mathcal{D}=p(\mathcal{U}^{x})\).}. Sono fatti equivalenti:
+\begin{enumerate}
+\item \(\mathcal{D}\) è \uline{invariante su \(A\)};
+\item \(\mathcal{D}=p(\mathcal{U}^{x})\) per qualche \(p(x) \subseteq \mathcal{L}(A)\).
+\end{enumerate}
+\end{thm}
+\subsection{Preservation Theorem}
+\label{sec:org551e94c}
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, \(T\) una \(\mathcal{L}\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti.
+
+Sia \(\Delta\) un insieme di formule chiuso per sostituzione di variaibli e che contenga la formula ``\(x=y\)''.
+
+Se \(C \subseteq \set{\forall , \exists , \land,\lor,\lnot}\) è un insieme di connettivi, \(C\Delta\) denota la chiusura di \(\Delta\) per i connettivi in \(C\). \(\Delta^{\pm} \coloneqq \set{\lnot}\Delta\).
+
+\begin{prop}
+Sia \(M\vDash T\), \(b \in M^{x}\) e
+\begin{equation*}
+q(x) \coloneqq \Delta\text{-}\operatorname{tp}_{M}(b) \coloneqq \set{\psi(x) \in \Delta\mid M\vDash \psi(b)}.
+\end{equation*}
+Per ogni \(\varphi(x) \in \mathcal{L}\) sono fatti equivalenti:
+\begin{enumerate}
+\item per ogni \(\Delta\)-morfismo\footnote{\(k:M \xrightarrow{\Delta} N\) mappa parziale si dice \(\Delta\)-morfismo se per ogni \(a \in \operatorname{dom}(k)^{x}\) e per ogni \(\varphi(x) \in \Delta\)
+\begin{equation*}
+M\vDash\varphi(a)\,\implies\, N\vDash\varphi(ka)
+\end{equation*}} \(k:M \xrightarrow{\Delta} N\), \(N\vDash T\) e \(b \in \operatorname{dom}(k)\)
+\begin{equation*}
+ N\vDash\varphi(kb).
+\end{equation*}
+\item \(T\vdash q(x)\implies\varphi(x)\)\footnote{Questa scrittura significa che per ogni \(N\vDash T\) si ha \(q(N^{x}) \subseteq \varphi(N^{x})\)}
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(\(2.\Rightarrow 1.\)): Poiché \(M,b\vDash q(x)\), allora \(N,kb\vDash q(x)\), e quindi \(N\vDash\varphi(kb)\).
+
+(\(1.\Rightarrow 2.\)): Sia per assurdo \(N\vDash T\) tale che \(N,c\vDash q(x) \land \lnot\varphi(x)\).
+
+Allora, detto \(k = \set{\langle b,c\rangle}\)\footnote{Se \(b=\langle b_{i}\mid i<\card{x}\rangle\), \(c=\langle c_{i}\mid i<\card{x}\rangle\)
+\begin{equation*}
+\set{\langle b,c\rangle}\coloneqq\set{\langle b_{i},c_{i}\rangle\mid i<\card{x}}.
+\end{equation*}}, si ha che \(k:M\to N\) è \(\Delta\)-morfismo, poiché \(N,kb=c\vDash q(x)\); ma \(N\vDash \lnot\varphi(kb)\). Assurdo.
+\end{proof}
+
+\begin{thm}
+(Lyndon-Robinson Lemma). Sia \(\varphi(x) \in \mathcal{L}\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(\varphi(x)\) è equivalente ad una \(\set{\land ,\lor }\Delta\)-formula;
+\item \(\varphi(x)\) è preservata da \(\Delta\)-morfismi.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Ovvia.
+
+(\(2.\Rightarrow 1.\)): Mostriamo che
+\begin{equation*}
+T\vdash \varphi(x) \iff \bigvee \set{p(x) \subseteq \Delta: T\vdash p(x)\implies \varphi(x)}
+\end{equation*}
+
+L'implicazione \(\impliedby\) è ovvia, mentre per \(\implies\), se \(M,b\vDash T \land \varphi(x)\), sia \(q(x)=\Delta\text{-}\operatorname{tp}_{M}(b) \subseteq\Delta\). Per la proposizione precedente,
+\begin{equation*}
+T\vdash q(x)\implies \varphi(x).
+\end{equation*}
+
+Quindi
+\begin{align*}
+T\vdash \varphi(x) &\iff \bigvee \set{p(x) \subseteq \Delta: T\vdash p(x)\implies \varphi(x)}\\
+&\iff \bigvee \set{\psi(x) \subseteq \set{\land}\Delta: T\vdash \psi(x)\implies \varphi(x)}\\
+&\iff \psi_{1}(x) \lor \dots \lor \psi_{n}(x).\qedhere
+\end{align*}
+\end{proof}
+\section{Lezione 2 - \textit{<2025-09-24 Wed>}}
+\label{sec:orge2cd651}
+
+\subsection{Preservation Theorem}
+\label{sec:org0e329bb}
+
+\begin{cor}
+(Fatto 1). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(T\) ha l'eliminazione dei quantificatori\footnote{Per ogni \(\varphi(x) \in \mathcal{L}\) esiste \(\psi(x) \in \mathcal{L}\) \uline{senza quantificatori} tale che
+\begin{equation*}
+T\vdash \forall x\ \varphi(x)\iff\psi(x)
+\end{equation*}};
+\item ogni \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo parziale} tra \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} di \(T\) è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{morfismo elementare}
+\end{enumerate}
+\end{cor}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Ovvio.
+
+(\(2.\Rightarrow 1.\)): Segue banalmente dal Teorema precedente. (\href{20251020153459-lyndon_robinson_lemma.org}{Lyndon-Robinson Lemma})
+\end{proof}
+
+\begin{cor}
+(Fatto 1.5). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(T\) ha \(\Delta\)-eliminazione positiva dei quantificatori\footnote{Per ogni \(\varphi(x) \in \set{\exists ,\forall ,\land , \lor}\!\Delta\) esiste \(\psi(x) \in \set{\land ,\lor}\Delta\) tale che
+\begin{equation*}
+T\vdash \forall x\ \varphi(x)\iff\psi(x)
+\end{equation*}};
+\item ogni \(\Delta\)-morfismo tra modelli di \(T\) è un \(\set{\land ,\lor}\Delta\)-morfismo.
+\end{enumerate}
+\end{cor}
+
+\begin{prop}
+(Fatto 2). Siano \(M,N\) due \(\mathcal{L}\)-strutture, e sia \(N\) \(\omega\)-saturo, e sia \(k:M\to N\) un \(\Delta\)-morfismo con \(\card{k}<\omega\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(k\) è un \(\set{\exists, \land }\!\Delta\)-morfismo;
+\item per ogni \(b \in M^{<\omega}\) esiste \(c \in N^{<\omega}\) tale che \(k\cup\set{\langle b,c\rangle}\) è un \(\Delta\)-morfismo.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Sia \(a\) una enumerazione di \(\dom k\), e sia \(p(x,y) = \Delta\text{-}\operatorname{tp}(a,b)\). Per 1., \(p(ka,y)\) è finitamente consistente in \(N\) (in quanto considero la congiunzione di formule di \(p(x,y)\) e ne prendo un esiste).
+
+Siccome \(k\) è finita e \(N\) è \(\omega\)-saturo, allora esiste \(c \in N\) tale che \(N,c\vDash p(ka,y)\). Tale \(c\) è quello cercato.
+
+(\(2.\Rightarrow 1.\)): Ogni \(\varphi(x) \in \set{\exists ,\land}\!\Delta\) è della forma \(\exists \overline{y}\,\psi(x,\overline{y})\), con \(\psi(x,\overline{y}) \in \set{\land}\!\Delta\) e \(\card{\overline{y}} < \omega\).
+
+Sia \(a \in \dom(k)^{x}\) tale che \(M\vDash\varphi(a)\). Voglio mostrare \(N\vDash\varphi(ka)\).
+
+Sia \(\overline{b} \in N^{\overline{y}}\) tale che \(M\vDash \psi(a,\overline{b})\); \textbf{FINIRE}
+\end{proof}
+
+\begin{prop}
+(Fatto 3). Siano \(M,N\) due \(\mathcal{L}\)-strutture, e sia \(N\) \(\omega\)-saturo, e sia \(k:M\to N\) un \(\Delta\)-morfismo con \(\card{k}<\omega\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(k\) è un \(\set{\forall , \lor }\!\Delta\)-morfismo;
+\item per ogni \(c \in N^{<\omega}\) esiste \(b \in M^{<\omega}\) tale che \(k\cup\set{\langle b,c\rangle}\) è un \(\Delta\)-morfismo.
+\end{enumerate}
+\end{prop}
+
+\begin{cor}
+Siano \(M,N\) due \(\mathcal{L}\)-strutture, con \(N\) \(\omega\)-saturo,  \(\card{M}=\omega\) e \(k:M\to N\) un \(\Delta\)-morfismo, \(\card{k}<\omega\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(k\) è un \(\set{\exists ,\land}\!\Delta\)-morfismo.
+\item \(k\) si estende ad un \(\Delta\)-morfismo totale.
+\end{enumerate}
+\end{cor}
+
+\begin{cor}
+Siano \(M,N\) due \(\mathcal{L}\)-strutture, con \(N\) \(\omega\)-saturo,  \(\card{M}=\omega\) e \(k:N\to M\) un \(\Delta\)-morfismo, \(\card{k}<\omega\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(k\) è un \(\set{\forall ,\lor}\!\Delta\)-morfismo.
+\item \(k\) si estende ad un \(\Delta\)-morfismo suriettivo (parziale).
+\end{enumerate}
+\end{cor}
+
+\begin{thm}
+(Teorema 1). Sia \(\varphi(x) \in \mathcal{L}\). Sono fatti equivalenti:
+\begin{enumerate}
+\item esiste \(\psi(x) \in \set{\exists ,\land }\!\Delta\) tale che \(T\vdash \forall x\ (\varphi(x)\iff\psi(x))\);
+\item \(\varphi(x)\) è preservata da \(\Delta\)-morfismi totali tra modelli di \(T\).
+\end{enumerate}
+\end{thm}
+
+\begin{cor}
+Sono fatti equivalenti:
+\begin{enumerate}
+\item \(T\) ha \(\Delta\)-eliminazione positiva dei quantificatori;
+\item ogni \(\Delta\)-morfismo tra modelli di \(T\) è sia un \(\set{\exists ,\land }\!\Delta\)-morfismo che un \(\set{\forall , \lor}\!\Delta\)-morfismo.
+\end{enumerate}
+\end{cor}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Ovvia.
+
+(\(2.\Rightarrow 1.\)): Per induzione sulla sintassi. Assumiamo 2. e che \(\varphi(x,y)\) sia preservata da \(\Delta\)-morfismi. Mostriamo che la verità di \(\exists y\ \varphi(x;y)\) è conservata.
+
+Per ipotesi induttiva \(\varphi(x,y)\) è equivalente a \(\psi(x,y) \in \set{\land ,\lor}\!\Delta\), ed inoltre \(\exists y\ \varphi(x;y)\) è equivalente a \(\exists y\ \psi(x,y) \in \set{\exists , \lor,\land }\Delta = \set{\exists , \land }\Delta\). ???????
+
+Per 2. \(\exists y\ \psi(x;y)\) è preservata dai \(\Delta\)-morfismi. Idem per \(\forall y\ \psi(x;y)\).
+
+Induzione ovvia per \(\land ,\lor\).
+\end{proof}
+\subsection{Back-and-forth conditions for QE}
+\label{sec:org526cfa5}
+
+\begin{prop}
+(Fatto 4). Sono fatti equivalenti
+\begin{enumerate}
+\item \(T\) ha \(\Delta\)-eliminazione positiva dei quantificatori;
+\item per ogni \(k:M\to N\) \(\Delta\)-morfismo finito tra modelli \(\omega\)-saturi di \(T\):
+\begin{itemize}
+\item per ogni \(b \in M\) esiste \(c \in N\) tale che \(k\cup\set{\langle b,c\rangle}\) è un \(\Delta\)-morfismo;
+\item per ogni \(c \in N\) esiste \(b \in N\) tale che \(k\cup\set{\langle b,c\rangle}\) è un \(\Delta\)-morfismo.
+\end{itemize}
+\end{enumerate}
+\end{prop}
+\subsection{Model-completeness}
+\label{sec:org254760b}
+
+\begin{definizione}
+\(T\) è \(\Delta\)-model-completo se ogni \(\Delta\)-morfismo totale \(k:M\to N\) tra modelli di \(T\) è un \(\set{\exists ,\forall ,\land ,\lor}\!\Delta\)-morfismo
+\end{definizione}
+
+\begin{prop}
+(Fatto 5). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(T\) è \(\Delta\)-model-completo;
+\item \(T\) ha \(\set{\exists, \land  }\!\Delta\)-eliminazione positiva dei quantificatori.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+???
+\end{proof}
+
+\begin{prop}
+(Fatto 6). Si
+\end{prop}
+
+\uline{Esercizio}: \(T\) è model completa sse per ogni \(M\vDash T\) la teoria \(T\cup\Delta\text{-}\operatorname{Diag}(M)\)\footnote{Si definisce
+\begin{equation*}
+\Delta\text{-}\operatorname{Diag}(M) \coloneqq \set{\varphi(x)\mid \varphi(x) \in \Delta, a \in M^{x}}
+\end{equation*}} è una \(\mathcal{L}(M)\)-teoria completa.
+\section{Lezione 3 - \textit{<2025-09-30 Tue>}}
+\label{sec:orgf370d5f}
+
+Sia \(T\) una teoria completa con un modello infinito (ovvero senza modelli finiti). Sia \(\mathcal{U}\vDash T\) modello mostro di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
+
+\uline{Convenzione per questa lezione}: tutti i tipi \(p(x)\) sono:
+\begin{itemize}
+\item \(p(x) \subseteq \mathcal{L}(\mathcal{U})\);
+\item \(\card{p(x)}<\kappa\) (ovvero i tipi sono piccoli).
+\end{itemize}
+
+\begin{definizione}
+Un tipo \(p(x)\) si dice \uline{isolato} (da \(\varphi\)) se esiste \(\varphi(x) \in \mathcal{L}(\mathcal{U})\) consistente tale che \(\varphi(x) \implies p(x)\) ovvero \(\varphi(x)\implies \psi(x)\) per ogni \(\psi(x) \in p(x)\) ovvero \(\varphi(\mathcal{U}^{x}) \subseteq p(\mathcal{U}^{x})\).
+\end{definizione}
+\begin{definizione}
+Un tipo \(p(x)\) si dice \uline{isolato da \(\Delta\)} (con \(\Delta\) insieme di formule) se esiste \(\varphi(x) \in \Delta\) che isola \(p(x)\).
+
+Un tipo \(p(x)\) si dice \uline{isolato su \(A \subseteq\mathcal{U}\)} se è isolato da \(\mathcal{L}(A)\).
+\end{definizione}
+
+\begin{oss}
+Per ogni \(p(x) \subseteq \mathcal{L}(A)\) consistente, esiste un modello \(M\supseteq A\) che realizza \(p(x)\)\footnote{Ovvero esiste \(c \in M\) tale che \(M,c\vDash p(x)\)}.
+\end{oss}
+
+\uline{Domanda 1}: dato \(p(x) \subseteq \mathcal{L}(A)\) consistente, esiste un modello \(M\supseteq A\) che \uline{non} realizza \(p(x)\)?
+
+\uline{Risposta banale}: se \(p(x)\) è isolato da \(A\) allora NO. Infatti, se \(\varphi(x) \implies p(x)\) per qualche \(\varphi(x) \in \mathcal{L}(A)\), siccome ogni \(M\supseteq A\) ha una soluzione di \(\varphi(x)\), questa realizza \(p(x)\) in \(M\).
+
+\begin{oss}
+Se \(a\vDash p(x)\) allora la formula \(x=a\) isola \(p(x)\).
+\end{oss}
+\begin{prop}
+Sia \(p(x) \subseteq \mathcal{L}(M)\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(M\) realizza \(p(x)\);
+\item \(p(x)\) è isolato su \(M\).
+\end{enumerate}
+\end{prop}
+
+\uline{Domanda 2}: dato \(p(x) \subseteq \mathcal{L}(A)\) consistente non isolato da \(A\), esiste \(M\supseteq A\) che non realizza \(p(x)\)? La riposta è NO.
+
+\begin{thm}
+(Teorema di omissione dei tipi). Se \(\card{\mathcal{L}(A)}\ge \omega\) allora per ogni \(p(x) \subseteq \mathcal{L}(A)\) non isolato\footnote{Quando è chiaro dal contesto, non si dice ``non isolato da \(A\)'', ma semplicemente ``non isolato''.} esiste \(M\supseteq A\) che omette \(p(x)\).
+\label{thm:OTT}
+\end{thm}
+In inglese questo è l'\emph{Omitting Type Theorem} (OTT).
+
+\begin{thm}
+Sia \(\mathcal{L}(A)\) numerabile, \(p(x) \subseteq \mathcal{L}(A)\). Sono fatti equivalenti.
+\begin{enumerate}
+\item \(p(x)\) è realizzato in ogni modello \(M\supseteq A\);
+\item \(p(x)\) è isolato su \(A\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(2.\Rightarrow 1.\)): questo è ovvio, vedi la Domanda~1.
+
+(\(1.\Rightarrow 2.\)): Questo è il Teorema~\ref{thm:OTT}. Si dimostra \(\lnot 2.\Rightarrow \lnot 1.\): sia \(p(x) \subseteq \mathcal{L}(A)\) non isolato e costruiamo un modello \(M\supseteq A\) che omette \(p(x)\). Si vuole applicare una costruzione simile a quella di \href{20250212115524-teorema_di_lowenheim_skolem_all_ingiu.org}{LS all'ingiù}.
+
+Si costruisce \(\langle A_{i}:i<\omega\rangle\) per ricorsione.
+\begin{itemize}
+\item Sia \(A_{0}\coloneqq A\).
+\item Data \(\varphi(y) \in \mathcal{L}(A_{0})\) consistente, \(\card{y}=1\), prendiamo \(b\vDash \varphi(y)\) tale che \(A_{0}\cup\set{b}\) non isola \(p\).
+
+Tale \(b\) esiste per il lemma successivo.
+
+Definiamo \(A_{1}\coloneqq A_{0}\cup\set{b}\)
+\end{itemize}
+\end{proof}
+
+\begin{lem}
+Sia \(\mathcal{L}(A)\) numerabile, \(p(x) \subseteq \mathcal{L}(A)\) non isolato, \(\varphi(y) \in \mathcal{L}(A)\) consistente con \(\card{y} =1\). Allora esiste \(b\vDash \varphi(y)\) e \(A\cup\set{b}\) non isola \(p(x)\).
+\label{lem:kurulma}
+\end{lem}
+\begin{proof}
+Costruiamo in \(\omega\) passi un tipo \(q(y)\) consistente che ``descrive'' le proprietà richieste a \(b\).
+
+\uline{Passo 0}: \(q_{0}(y)\coloneqq \set{\varphi(y)}\).
+
+\uline{Passo 1}: Sia \(\xi(x,y) \in \mathcal{L}(A)\). Voglio che ogni \(b\vDash q(y)\) sia tale che \(\lnot\forall x\ \big(\xi(x,b) \implies p(x)\big)\).
+
+Vorrei poter porre \(q_{1}(y) \coloneqq q_{0}(y)\cup\set{\exists x\, \big[\xi(x,y) \land \lnot p(x)\big]}\). Purtroppo quella non è una formula. Allora cerco un \(\psi(x) \in p(x)\) tale che
+\begin{equation*}
+q_{1}(y) \coloneqq q_{0}(y)\cup \set{\exists x\, \big[\xi(x,y) \land \lnot \psi(x)\big]}
+\end{equation*}
+sia consistente.
+
+Provo con tutte le \(\psi(x) \in p(x)\) fino a che non ne trovo uno. Se per assurdo non esistesse, allora per
+\begin{equation*}
+q_{0}(y)\cup \set{\exists x\, \big[\xi(x,y) \land \lnot \psi(x)\big]}
+\end{equation*}
+è inconsistente per ogni \(\psi(x) \in p(x)\), ovvero \(q_{0}(y) \land \exists x\, \big[\xi(x,y) \land \lnot \psi(x)\big]\) è inconsistente\footnote{Ad ogni passo \(q_{n}(y)\) è un insieme finito di formule, quindi posso trattarlo come una formula (la congiunzione di tutti i suoi elementi).} per ogni \(\psi(x) \in p(x)\), ovvero
+\begin{align*}
+&\forall y\, \lnot\bigg[q_{0}(y) \land \exists x\, \big[\xi(x,y) \land \lnot \psi(x)\big]\bigg]\\
+&\forall y\,\bigg[\lnot q_{0}(y) \lor \forall x\, \big[\lnot\xi(x,y) \lor \psi(x)\big]\bigg]\\
+&\forall y\,\bigg[\lnot q_{0}(y) \lor \forall x\, \big[\xi(x,y) \implies \psi(x)\big]\bigg]\\
+&\forall y\, \forall x\ \bigg[q_{0}(y) \land \big(\xi(x,y) \implies \psi(x)\big)\bigg]\\
+&\forall x\ \bigg[\exists y\ \big(q_{0}(y) \land \xi(x,y)\big) \implies \psi(x)\bigg]
+\end{align*}
+Siccome quello vale per ogni \(\psi(x) \in p(x)\), allora \(\exists y\ \big(q_{0}(y) \land \xi(x,y)\big)\) isola \(p(x)\).
+\end{proof}
+
+\uline{Esercizio di meditazione}: Leggere la dimostrazione del Teorema di Kuratowski-Ulam\footnote{Vedi \autocite{mottorosNotesDescriptiveSet2024} per una dimostrazione.} e convincersi che in fondo è il Lemma~\ref{lem:kurulma}
+
+\uline{Esercizio} (?) Sia \(\mathcal{L}(A)\) numerabile, e sia \(P \subseteq S_{x}(A)\). Sono fatti equivalenti:
+\begin{enumerate}
+\item esiste un modello \(M\supseteq A\) che omette tutti i tipi in \(P\);
+\item \(P\) è magro nella \(A\)-topologia;
+\item esiste un modello \(M\supseteq A\) tale che \(\set{p \in S_{x}(M)\mid p\upharpoonright A \in P}\) è magro.
+\end{enumerate}
+
+Riprendiamo ora la Domanda~2:
+\begin{quote}
+\uline{Domanda 2}: dato \(p(x) \subseteq \mathcal{L}(A)\) consistente non isolato da \(A\), esiste \(M\supseteq A\) che non realizza \(p(x)\)?
+\end{quote}
+Siano \(X,Y\) insiemi qualsiasi con \(\card{X}=\card{Y}>\omega\), sia \(F\) l'insieme delle biiezioni tra \(X\) e \(Y\). Sia \(M=X\sqcup Y \sqcup F\).
+
+Il linguaggio \(\mathcal{L}\) contiene simboli per gli insiemi \(X,Y,F\) e il simbolo \(r(f,x,y)\) che vale se \(f(x)=y\).
+
+Fisso \(\mathcal{U}\succeq M\) modello mostro, e siano
+\begin{align*}
+\mathcal{U}_{X}&\coloneqq X(\mathcal{U})\\
+\mathcal{U}_{Y}&\coloneqq Y(\mathcal{U})\\
+\mathcal{U}_{F}&\coloneqq F(\mathcal{U}).
+\end{align*}
+Allora \(\mathcal{U}=\mathcal{U}_{X}\sqcup\mathcal{U}_{Y}\sqcup\mathcal{U}_{F}\).
+
+Per ogni \(f \in \mathcal{U}_{F}\), \(r(f,x,y)\) definisce una biiezione tra \(\mathcal{U}_{X}\) e \(\mathcal{U}_{Y}\).
+
+Sia \(Y_{0} \subseteq Y\) numerabile e \(c \in \mathcal{U}_{Y}\setminus Y_{0}\). Detto \(A\coloneqq X\cup Y_{0}\) sia \(p(y) = \operatorname{tp}(c/A)\). Notiamo che \(\card{A}>\omega\).
+
+Voglio dimostrare che:
+\begin{enumerate}
+\item \(p(y)\) è realizzato in ogni modello \(N\supseteq A\);
+\item \(p(y)\) non è isolato.
+\end{enumerate}
+
+Osserviamo che per ogni \(c' \in \mathcal{U}_{Y}\setminus Y_{0}\) esiste \(\hat{g} \in \operatorname{Aut}(\mathcal{U}/A)\) e \(\hat{g}c=c'\) Infatti, sia
+\begin{equation*}
+g\coloneqq \Id_{\mathcal{U}_{Y}\setminus\set{c,c'}}\cup \set{\langle c,c'\rangle, \langle c',c\rangle}
+\end{equation*}
+Allora la \(\hat{g}\) diventa
+\begin{equation*}
+\hat{g} = g\cup\Id_{\mathcal{U}_{X}}\cup \set{\langle f,g\circ f\rangle\mid f \in \mathcal{U}_{F}}.
+\end{equation*}
+
+Utilizzando questa osservazione:
+\begin{enumerate}
+\item Se \(N\supseteq A\) allora \(\card{Y(N)}>\omega\) e quindi \(Y(N)\) contiene un elemento \(c' \notin Y_{0}\), e per l'osservazione \(c'\mathrel{\equiv_{A}}c\).
+\item Supponiamo che \(\varphi(y) \in \mathcal{L}(X,Y_{0})\) tale che \(\varphi(y)\implies p(y)\). Sia \(Y_{1} \subseteq Y_{0}\) finito tale che \(\varphi(y) \in \mathcal{L}(X,Y_{1})\).
+
+Sia \(b\) tale che \(b\vDash\varphi(y)\). Sicuramente \(b\notin Y_{0}\). Prendo \(b' \in Y_{0}\setminus Y_{1}\). Per l'osservazione \(c'\mathrel{\equiv_{A}}c\) e quindi \(c'\vDash \varphi(x)\). Assurdo.
+\end{enumerate}
+\section{Lezione 4 - \textit{<2025-10-01 Wed>}}
+\label{sec:org362d335}
+
+Sia \(T\) una teoria completa con un modello infinito (ovvero senza modelli finiti). Sia \(\mathcal{U}\vDash T\) modello mostro di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
+
+\uline{Convenzione per questa lezione}: tutti i tipi \(p(x)\) sono:
+\begin{itemize}
+\item \(p(x) \subseteq \mathcal{L}(\mathcal{U})\);
+\item \(\card{p(x)}<\kappa\) (ovvero i tipi sono piccoli).
+\end{itemize}
+\subsection{Modelli primi e modelli atomici}
+\label{sec:org45b7517}
+
+\begin{definizione}
+Un modello \(M\) è \uline{primo su \(A \subseteq \mathcal{U}\)} se per ogni modello \(N \supseteq A\) esiste \(f \in \operatorname{Aut}(\mathcal{U}/A)\) tale che \(f[M] \preceq N\)\footnote{Questo è equivalente a richiedere che \(f[M] \subseteq N\).}.
+\end{definizione}
+
+\begin{definizione}
+Un modello \(M\) è \uline{atomico su \(A \subseteq \mathcal{U}\)} se per ogni \(a \in M^{<\omega}\) il \(\operatorname{tp}(a/A)\) è isolato su \(A\).
+\end{definizione}
+
+\begin{thm}
+Se \(\mathcal{L}(A)\le \omega\) allora le seguenti affermazioni sono equivalenti.
+\begin{enumerate}
+\item \(M\) è primo su \(A\);
+\item \(M\) è numerabile e atomico su \(A\).
+\end{enumerate}
+\label{thm:primosseatomico}
+\end{thm}
+
+\uline{Domanda 1}: Esistono dei modelli così? Prossima settimana.
+
+\begin{proof}
+(del Teorema~\ref{thm:primosseatomico})
+
+(\(1.\Rightarrow 2.\)): Corollario del OTT. Infatti se 1. allora \(M\) è numerabile; inoltre, se non fosse atomico, prendo \(b \in M^{<\omega}\) tale che \(p(x)\coloneqq\operatorname{tp}(b/A)\) non è isolato su \(A\); prendo \(N\) che omette \(p(x)\). Non posso immergere \(M\) in \(N\) (altrimenti l'immagine di \(b\) realizzerebbe \(p(x)\) in \(N\)).
+\end{proof}
+
+\uline{Notazione}: diremo che \(b\) è isolato da \(A\) se \(\operatorname{tp}(b/A)\) è isolato su \(A\).
+
+\begin{prop}
+Siano \(a,b \in \mathcal{U}^{<\omega}\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(A\) isola \(a,b\);
+\item \(A,a\)\footnote{Con questo si intende \(A\cup\operatorname{rng}(a)\).} isola \(b\) e \(A\) isola \(a\).
+\end{enumerate}
+\label{prop:isolchainrule}
+\end{prop}
+
+\begin{oss}
+Se \(p(x;y) \coloneqq \operatorname{tp}\big((a,b)/A\big)\) allora
+\begin{enumerate}
+\item \(\operatorname{tp}\big(b/(A,a)\big) = p(a;y)\);
+\item \(\operatorname{tp}(a/A)\) è equivalente a \(\exists y\ p(x;y)\).
+\end{enumerate}
+Notiamo inoltre che \(\exists y\ p(x;y)\) è equivalente al tipo \(\set{\exists y\ \varphi(x;y)\mid \varphi \in p}\).
+\end{oss}
+
+\begin{proof}
+(della Proposizione~\ref{prop:isolchainrule}). Sia \(p(x;y) \coloneqq \operatorname{tp}\big((a,b)/A\big)\)
+
+(\(1.\Rightarrow 2.\)): Fissiamo \(\varphi \in p\) tale che
+\begin{equation*}
+\forall x,y\ \big[\varphi(x,y) \implies p(x,y)\big].
+\end{equation*}
+Allora ?????
+\begin{itemize}
+\item per il punto 1. dell'Osservazione precedente si ha che \(\forall y \ \big[\varphi(a,y)\implies p(a,y)\big]\), e quindi \(A,a\) isola \(b\).
+\item per il punto 2. dell'Osservazione precedente si ha che \(\forall x\ \big[\exists y\ \varphi(x,y)\implies \exists y\ p(x,y)\big]\), e quindi \(A\) isola \(a\).
+\end{itemize}
+
+(\(2.\Rightarrow 1.\)): Siccome \(A,a\) isola \(b\), allora
+\begin{equation*}
+\varphi(a;y)\implies p(a;y)
+\end{equation*}
+per qualche \(\varphi \in p\). Siccome \(A\) isola \(a\), allora
+\begin{equation*}
+\psi(x) \implies \exists y\ p(x,y)
+\end{equation*}
+per qualche \(\psi \in \exists y\ p(x,y)\), ovvero \(\psi(x) \implies \exists y\ \xi(x,y)\) per ogni \(\xi \in p\).
+
+Fissiamo una \(\xi \in p\). Osserviamo che \(\varphi(a,y)\implies \xi(a,y)\), quindi
+\begin{equation*}
+\forall y\ \big[\varphi(x,y)\implies \xi (x,y)\big] \in \operatorname{tp}(a/A) = \exists y\ p(x;y)
+\end{equation*}
+e quindi
+\begin{align*}
+&\forall x\ \bigg[\psi(x)\implies \forall y\ \big[\varphi(x,y)\implies \xi (x,y)\big]\bigg]\\
+&\forall x\,\forall y\ \bigg[\psi(x)\implies\big[\varphi(x,y)\implies \xi (x,y)\big]\bigg]\\
+&\forall x\,\forall y\ \bigg[\big[\psi(x) \land \varphi(x,y)\big]\implies\xi (x,y)\bigg]
+\end{align*}
+e siccome \(\xi\) è arbitrarira allora
+\begin{equation*}
+\forall x\,\forall y\ \bigg[\big[\psi(x) \land \varphi(x,y)\big]\implies p (x,y)\bigg]\qedhere
+\end{equation*}
+\end{proof}
+
+\begin{cor}
+Se \(M\) è atomico su \(A\), allora \(M\) è atomico su \(A,a\) per ogni \(a \in M\).
+\end{cor}
+
+\begin{proof}
+Sia \(b \in M^{<\omega}\). \(A\) isola \(a,b\), quindi \(A,a\) isola \(b\).
+\end{proof}
+
+\begin{prop}
+Sia \(k:M\to N\) una mappa elementare e \(M\) atomico su \(\dom k\). Allora per ogni \(b \in M\) esiste \(c \in N\) tale che \(k\cup\set{\langle b,c\rangle}:M\to N\) è elementare.
+\label{prop:stellinaoijoijoijoijoijoijjhbhdjkcas}
+\end{prop}
+\begin{proof}
+Sia \(a\) una enumerazione di \(\dom k\). Sia \(p(x;y) = \operatorname{tp}(a,b)\).
+\begin{itemize}
+\item \uline{Oss. 1}: \(p(a,y)\) è isolato su \(\dom k\).
+\item \uline{Oss. 2}: \(p(ka,y)\) è isolato su \(\operatorname{rng} k\)\footnote{Passa per mappe elementari, vedi i suoi appunti}.
+\end{itemize}
+
+Sia quindi \(\varphi(x,y)\) tale che \(\varphi(ka,y)\implies p(ka,y)\). Il \(c \in N\) cercato p testimone di
+\begin{equation*}
+N\vDash \exists y\ \varphi(ka,y)\qedhere
+\end{equation*}
+\end{proof}
+
+Possiamo quindi terminare la dimostrazione del Teorema~\ref{thm:primosseatomico}.
+\begin{proof}
+(del Teorema~\ref{thm:primosseatomico})
+
+(\(2.\Rightarrow 1.\)): Dato \(N\supseteq A\), si consideri \(\Id_{A}:M\to N\) mappa elementare. Estendendo \(\omega\) volte usando la Proposizione~\ref{prop:stellinaoijoijoijoijoijoijjhbhdjkcas}.
+\end{proof}
+
+\begin{cor}
+Sia \(\mathcal{L}(A)\) numerabile. Due modelli primi su \(A\) sono isomorfi.
+\label{cor:asteriscojknkjnkjndavljhbdnlahkjdacnskjdnc}
+\end{cor}
+\subsection{Categoricità numerabile}
+\label{sec:org2591530}
+
+\begin{thm}
+Se \(\mathcal{L}(A)\) è numerabile le seguenti affermazioni sono equivalenti.
+\begin{enumerate}
+\item \(T\) è \(\omega\)-categorica (su \(A\))\footnote{Questa nozione è non standard: signfica che due modelli di \(T\) che contengono \(A\) sono isomorfi tramite un isomorfismo che fissa \(A\).}
+\item Ogni \(p(x) \subseteq \mathcal{L}(A)\) è isolato su \(A\).
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Per OTT.
+
+(\(2.\Rightarrow 1.\)): Se ogni tipo è isolato allora ogni modello numerabile è primo su \(A\), quindi per il Corollario~\ref{cor:asteriscojknkjnkjndavljhbdnlahkjdacnskjdnc}.
+\end{proof}
+
+\begin{prop}
+(Forse \(\mathcal{L}\) deve essere numerabile?). Fissato \(A \subseteq \mathcal{U}\) arbitrario e \(x\) con \(\card{x}<\omega\) le seguenti affermazioni sono equivalenti:
+\begin{enumerate}
+\item Ogni \(p(x) \subseteq \mathcal{L}(A)\) è isolato su \(A\);
+\item \(S_{x}(A)\) è finito;
+\item \(\mathcal{L}_{x}(A)\)\footnote{\(\mathcal{L}_{x}(A) \subseteq \mathcal{L}(A)\) sono le formule con variabile \(x\).} è finito;
+\item L'azione di \(\operatorname{Aut}(\mathcal{U}/A)\) su \(\mathcal{U}^{x}\) ha un numero finito di orbite.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Si ha che
+\begin{equation*}
+\mathcal{U}^{x} = \coprod_{p \in S_{x}(A)}p(\mathcal{U}^{x}).
+\end{equation*}
+
+Se ogni \(p(x) \in S_{x}(A)\) è equivalente ad una formula in \(\mathcal{L}_{x}(A)\) (ovvero \(p(x)\) è isolato su \(A\)) allora per compattezza \(S_{x}(A)\) deve essere finito.
+
+(\(2.\Rightarrow 1.\)): Se \(p(x) \in S_{x}(A)\) finito, allora \(\lnot p(x)\) è disgiunzione finita di tipi, e quindi un tipo, quindi una formula, e quindi \(p(x)\) è isolato.
+
+Ogni \(q(x) \subseteq \mathcal{L}(A)\) è disgiunzione di tipi completi (che sono tutti isolati) e quindi anche \(q(x)\) è isolato.
+
+(\(2.\Leftrightarrow 3.\)): Ovvia.
+
+(\(2.\Leftrightarrow 4.\)): I tipi completi definiscono orbite e viceversa.
+\end{proof}
+
+\begin{oss}
+Ovviamente se \(A\) è infinito allora tutte le 4 opzioni sono false, in quanto
+\begin{equation*}
+\mathcal{L}_{x}(A)\supseteq \set{x=a\mid a \in A}
+\end{equation*}
+non può essere finito.
+\end{oss}
+
+\uline{Esercizio}: Sia \(\mathcal{L}\) numerabile. Se \(T\) è \href{20250618153446-struttura_minimale.org}{fortemente minimale} e \(\omega\)-categorica allora \(T\) non è finitamente assiomatizzabile.
+
+\begin{thm}
+Sia \(\mathcal{L}\) numerabile. Se \(T\) è totalmente categorica allora non è finitamente assiomatizzabile.
+\end{thm}
+\begin{thm}
+Sia \(\mathcal{L}\) numerabile. Se \(T\) è totalmente categorica allora è finitamente assiomatizzabile modulo \(\set{\exists^{\ge n} x\,(x=x)\mid n<\omega }\).
+\end{thm}
+
+---
+
+\begin{definizione}
+\(T\) ha la \uline{proprietà del modello finito} (pmf) se per ogni enunciato \(\varphi \in \mathcal{L}\) esiste \(A \subseteq\mathcal{U}\) finito, \(A\) sottostruttura di \(\mathcal{U}\) e
+\begin{equation*}
+A\vDash \varphi\iff\mathcal{U}\vDash\varphi.
+\end{equation*}
+\end{definizione}
+
+\begin{prop}
+Se \(T\) ha la pmf allora non è finitamente assiomatizzabile.
+\end{prop}
+\begin{proof}
+Supponiamo che \(T\vdash\varphi\vdash T\) per \(\varphi \in \mathcal{L}\). Se \(A\) sottostruttura tale che \(A\vDash\varphi\) allora \(A\vDash \exists^{\ge n}x \,(x=x)\) per ogni \(n\), e quindi \(\card{A}\ge \omega\).
+\end{proof}
+
+\begin{definizione}
+Un insieme \(C \subseteq \mathcal{U}\) è \uline{omogeneo} se per ogni mappa elementare (su \(\mathcal{U}\)) \(k:C\to C\) e per ogni \(b \in C\) esiste \(c \in C\) tale che \(k\cup\set{\langle b,c\rangle}:C\to C\) è elementare.
+\end{definizione}
+
+\begin{prop}
+Se \(T\) è fortemente minimale allora ogni \(C=\operatorname{acl}(C)\) è omogeneo.
+\label{prop:dadimostrare_lezione5}
+\end{prop}
+
+
+(dimostrato la prossima lezione)
+\section{Lezione 5 - \textit{<2025-10-07 Tue>}}
+\label{sec:orgbb96fad}
+
+Sia \(T\) una teoria completa con un modello infinito (ovvero senza modelli finiti). Sia \(\mathcal{U}\vDash T\) modello mostro di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
+
+Dalla lezione precedente si hanno questi due teoremi:
+\begin{thm}
+Sia \(\mathcal{L}\) numerabile. Se \(T\) è \href{20250618153446-struttura_minimale.org}{fortemente minimale} e \(\omega\)-categorica allora \(T\) non è finitamente assiomatizzabile.
+\end{thm}
+\begin{thm}
+Sia \(\mathcal{L}\) numerabile. Se \(T\) è totalmente categorica allora non è finitamente assiomatizzabile.
+\end{thm}
+
+\begin{oss}
+Questi due risultati sono collegati, in quanto una teoria fortemente minimale è \(\lambda\)-categorica per ogni \(\lambda>\omega\). Il collegamente è chiaro in luce del seguente teorema:
+\end{oss}
+
+\begin{thm}
+(Teorema di Lachlon-Baldwin). Ogni modello \(M\), \(\card{M}>\omega\) contiene \(A \subseteq M\) definibile, fortemente minimale\footnote{Ovvero per ogni \(\varphi(x) \in \mathcal{L}(M)\), \(\card{x}=1\), \(\varphi(A)\) finito o \(\lnot\varphi(A)\) finito.} e \(M=\operatorname{acl}(A)\)
+\end{thm}
+
+\begin{quote}
+Se \(T\) è fortemente minimale allora ogni \(C=\operatorname{acl}(C)\) è omogeneo.
+\end{quote}
+
+\begin{proof}
+(della Proposizione~\ref{prop:dadimostrare_lezione5}). Sia \(k:C\to C\) elementare e finita, \(a\) una enumerazione di \(\dom k\), \(b \in C\).
+\begin{itemize}
+\item Caso 1: \(b \in \operatorname{acl}(\dom k)\). Per ogni \(h \in \operatorname{Aut}(\mathcal{U})\), \(h\supseteq k\)
+\begin{equation*}
+  h[\operatorname{acl}\dom k] = \operatorname{acl}(\operatorname{rng} k)
+\end{equation*}
+Tale \(h\supseteq k\) esiste per omogeneità e quindi prendo \(c =h(b) \in C\) poiché \(C =\operatorname{acl}(C)\). Ottengo \(k\cup\set{\langle b,c\rangle}\) elementare.
+\item Caso 2: \(b\notin \operatorname{acl}(\dom k)\). Allora \(\dim(\operatorname{acl}(\dom k))<\dim C\) e quindi
+\begin{equation*}
+  \dim(\operatorname{acl}(\operatorname{rng} k))<\dim C
+\end{equation*}
+e quindi esiste \(c \in C\setminus \operatorname{acl}(\operatorname{rng} k)\). Quindi \(k\cup\set{\langle b,c\rangle}\) è elementare.
+\end{itemize}
+\end{proof}
+
+\begin{lem}
+Sia \(\mathcal{L}\) numerabile. Se \(T\) è fortemente minimale e \(\omega\)-categorica allora \(T\) ha p.m.f.
+\end{lem}
+\begin{proof}
+Mostriamo per induzione che per ogni \(\varphi \in \mathcal{L}(\mathcal{U})\) esiste \(A \subseteq \mathcal{U}\) sottostruttura finita di \(\mathcal{U}\) che contiene i parametri di \(\varphi\) e \(A\vDash \varphi\).
+
+Fissiamo \(n \in \N\). Allora esiste \(A_{n} \subseteq \mathcal{U}\) sottostruttura tale che
+\begin{equation*}
+A\vDash\varphi \quad \iff\quad \mathcal{U}\vDash\varphi
+\end{equation*}
+per ogni \(\varphi \in \mathcal{L}(A)\) tale che il numero di parametri di \(\varphi\) + il numero dei quantificatori in \(\varphi\) è \(\le n\).
+
+Dimostro per induzione sulla complessità di \(\varphi\). Sia \(A_{n}=\operatorname{acl}(A_{n})\) finito tale che ogni \(p(z) \in S(A_{n})\) con \(\card{z}=n\) ha soluzione in \(A\). (\uline{Esercizio}: dimostrare che esiste).
+
+Passo atomica e induzione per \(\land, \lor, \lnot\) banale. Mostriamo l'induzione per \(\exists\).
+
+Consideriamo \(\exists x\ \varphi(x,a)\) con \(\card{x}=1\), \(\card{a}<n\). Per ipotesi induttiva si ha che, per ogni \(c \in A\):
+\begin{equation*}
+A\vDash \varphi(c,a)\iff \mathcal{U}\vDash\varphi(c,a).
+\end{equation*}
+Voglio dimostrare
+\begin{equation*}
+A\vDash\exists x\ \varphi(x,a)\iff \mathcal{U}\vDash\exists x\ \varphi(x,a)
+\end{equation*}
+(\(\Rightarrow\): segue immediatamente da ipotesi induttiva.
+
+(\(\Leftarrow\)): Sia \(b \in \mathcal{U}\) tale che \(b,a\vDash\varphi(x,z)\), e sia \(p(x,z)=\operatorname{tp}(b,a)\). \(\card{x,z}\le n\), quindi esiste \(c,a' \in A^{\card{x,z}}\) tale che \(c,a'\vDash\varphi(x,z)\). Sia \(k=\set{\langle a',a\rangle}:A\to A\) mappa elementare. Per omogeneità la estendo a \(k\cup\set{\langle c,c'\rangle}:A\to A\) elementare, quindi \(c',a\vDash\varphi(x;z)\). Pertanto \(c'\) è testimone di \(A\vDash\exists x\ \varphi(x;z)\).
+\end{proof}
+\subsection{Teorie sottili (\emph{small})}
+\label{sec:org54cf610}
+
+Sia \(\mathcal{L}\) numerabile. Sia \(T\) una teoria completa con un modello infinito (ovvero senza modelli finiti). Sia \(\mathcal{U}\vDash T\) modello mostro di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
+
+\begin{definizione}
+\(T\) è \uline{sottile su \(A\)} se per ogni \(x\), \(\card{x}<\omega\), \(S_{x}(A)\) è numerabile.
+\end{definizione}
+
+\begin{definizione}
+\(T\) è \uline{sottile} se è sottile su \(\emptyset\).
+\end{definizione}
+
+\begin{prop}
+Se \(T\) è sottile su \(A\) e \(B\) è finito allora \(T\) è sottile su \(A\cup B\).
+\end{prop}
+\begin{proof}
+Sia \(b\) una enumerazione di \(B\). Ogni \(p(x) \in S_{x}(A\cup B)\) allora \(p(x)=q(x,b)\) con \(q(x,z) \in S_{x,z}(A)\). Ma se \(\card{x}<\omega\) allora \(S_{x,z}(A)\) è numerabile, poiché \(z\) finito in quanto \(B\) è finito.
+\end{proof}
+\begin{definizione}
+Sia \(\Delta\) un insieme di formule con \(x\) libera. Un \uline{\(\Delta\)-albero binario} è una sequenza
+\begin{gather*}
+2^{<\lambda}\to \Delta\\
+\langle \varphi_{s}(x): s \in 2^{<\lambda}\rangle
+\end{gather*}
+tale che
+\begin{enumerate}
+\item per ogni \(s \in 2^{\lambda}\) il tipo
+\begin{equation*}
+ p_{s}(x)\coloneqq\set{\varphi_{s\upharpoonright i}(x): i<\lambda}
+\end{equation*}
+è consistente.
+\item per ogni \(r,s \in 2^{\lambda}\), se \(r\neq s\) allora \(p_{r}(x)\cup p_{s}(x)\) è inconsistente.
+\end{enumerate}
+
+\(\lambda\) si dice \uline{altezza dell'albero}.
+\end{definizione}
+In particolare:
+\begin{itemize}
+\item per oggi \(\Delta=L_{x}(A)\);
+\item più avanti si potrà avere \(\Delta = \set{\varphi(x,b),\lnot\varphi(x,b)\mid b \in B}\).
+\end{itemize}
+
+Spesso la condizione 2. si ottiene richiedendo che
+\begin{equation*}
+\varphi_{s\concat 0}(x) \iff\lnot \varphi_{s\concat 1}(x)
+\end{equation*}
+
+
+\uline{Notazione}: si denota con \(S(\Delta)\) l'insieme dei \(\Delta\)-tipi massimali consistenti\footnote{\(p(x) \in S(\Delta)\) sse \(p(x) \subseteq \Delta\) consistente e per ogni \(\varphi(x) \in \Delta\), se \(p(x)\cup\set{\varphi(x)}\) consistente allora \(\varphi(x) \in p(x)\).}
+
+\begin{lem}
+Sia \(\Delta\) numerabile e chiuso per negazioni. LSASE
+\begin{enumerate}
+\item esiste un \(\Delta\)-albero binario di altezza \(\omega\);
+\item \(\card{S(\Delta)} = 2^{\omega}\);
+\item \(\card{S(\Delta)} >\omega\)
+\end{enumerate}
+\end{lem}
+\begin{proof}
+(\(1.\Rightarrow 2.\Rightarrow 3.\)): ovvio.
+
+(\(3.\Rightarrow 1.\)): Costruiamo un albero per induzione su \(n<\omega\). Assumiamo come ipotesi induttiva che per ogni \(s \in 2^{n}\) il tipo
+\begin{equation*}
+p_{s}(x) = \set{\varphi_{s\upharpoonright i}(x)\mid i \le n}
+\end{equation*}
+ha \(>\omega\) estensioni in \(S(\Delta)\).
+
+\uline{Claim}: esiste \(\psi^{s}(x) \in \Delta\) tale che \(p_{s}(x)\cup\set{\psi(x)}\) e \(p_{s}(x)\cup\set{\lnot\psi(x)}\) abbiano \(>\omega\) estensioni in \(S(\Delta)\)..
+
+Posso quindi porre \(\varphi_{s\concat 0 }(x) \coloneqq\psi^{s}(x)\), \(\varphi_{s\concat 1}(x) \coloneqq \lnot\psi^{s}(x)\).
+
+\uline{Dimostrazione del claim}: per assurdo, supponiamo che per ogni \(\psi(x) \in \Delta\) si ha che \(p_{s}(x)\cup\set{\psi(x)}\) o \(p_{s}(x)\cup\set{\lnot\psi(x)}\) hanno \(\le \omega\) estensioni. Notiamo che \uline{esattamente} uno tra i due tipi può avere \(\le \omega\) estensioni per ipotesi induttiva. Definiamo
+\begin{align*}
+q(x)&=p_{s}(x)\cup\set{\psi(x) \in\Delta\mid p_{s}(x)\cup\set{\lnot\psi(x)}\text{ ha }\le\omega\text{ estensioni}} \\
+&=p_{s}(x)\cup\set{\psi(x) \in\Delta\mid p_{s}(x)\cup\set{\psi(x)}\text{ ha }>\omega\text{ estensioni}}
+\end{align*}
+Allora \(q(x)\) è consistente\footnote{Se per assurdo \(q(x)\) non fosse consistente, allora \(p_{s}(x)\implies \bigvee_{i=1}^{n}\lnot \psi_{i}(x)\) ma ogni \(\psi_{i}(x)\) ha \(\le\omega\) estensioni, quindi assurdo.}, e inoltre \(q(x) \in S(\Delta)\).
+
+Contiamo i tipi in \(S(\Delta)\setminus\set{q(x)}\) che estendono \(p_{s}(x)\). Se \(p(x)\) soddisfa queste ipotesi allora è inconsistente con \(q(x)\), quindi contiene \(\psi(x)\) tale che \(p_{s}(x)\cup\set{\psi(x)}\) ha \(\le\omega\) estensioni. Siccome \(\Delta\) è numerabile allora si ottiene che la cardinalità dell'insieme dei tipi in \(S(\Delta)\setminus\set{q(x)}\) che estendono \(p_{s}(x)\) è numerabile. Assurdo.
+\end{proof}
+
+\begin{thm}
+Sia \(\mathcal{L}\) numerabile. LSASE:
+\begin{enumerate}
+\item \(T\) è sottile.
+\item esiste un modello saturo numerabile;
+\item non esiste un \(L_{x}\)-albero binario di altezza \(\omega\) per nessun \(x\) con \(\card{x}<\omega\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(1.\Leftrightarrow 3.\)): per il lemma precedente.
+
+(\(2.\Rightarrow 1.\)): lasciato per esercizio.
+\end{proof}
+
+\begin{thm}
+Ogni teoria sottile \(T\) ha modelli atomici su ogni \(A\) numerabile.
+\label{thm:thmino}
+\end{thm}
+\begin{lem}
+Sia \(\mathcal{L}(A)\) numerabile. Sono fatti equivalenti:
+\begin{enumerate}
+\item esiste un modello atomico su \(A\);
+\item ogni formula \(\varphi(y) \in \mathcal{L}(A)\) consistnete, con \(\card{y}<\omega\), ha una soluzione isolata su \(A\)\footnote{Ovvero (una delle due seguenti condizioni equivalenti):
+\begin{itemize}
+\item esiste \(a\vDash\varphi(y)\) e \(\operatorname{tp}(a/A)\) è isolato
+\item è conseguenza di una \(\psi(y) \in \mathcal{L}(A)\) completa su \(A\).
+\end{itemize}}.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): ovvia.
+
+(\(1.\Rightarrow 2.\)): assumiamo 2. e costruiamo \(M\supseteq A\) atomico: \(M=\set{a_{i}\mid i <\omega}\) costruito per induzione.
+
+Sia \({a} \coloneqq \langle a_{i}\mid i<\omega\rangle\). L'ipotesi induttiva è che \(a\upharpoonright i\) è isolato su \(A\).
+\begin{itemize}
+\item \uline{Passo \(i\)}: considero \(\psi(x,a\upharpoonright i)\) consistente. Per ipotesi induttiva esiste \(\varphi(z)\) che isola \(\operatorname{tp}(a\upharpoonright i /A)\). Quindi \(\psi(x;z) \land  \varphi(z)\) È consistente. Sia \(c,a'\vDash \psi(x;z) \land  \varphi(z)\) isolato su \(A\). Quindi \(a' \equiv_{A} a\upharpoonright i\) e quindi esiste \(h \in \operatorname{Aut}(\mathcal{U}/A)\) con \(h(a') = a\upharpoonright i\). quindi \(h(c),a\upharpoonright i\vDash \psi(x;z) \land  \varphi(z)\) isolato su \(A\).
+\end{itemize}
+\end{proof}
+\begin{proof}
+(del Teorema~\ref{thm:thmino}).
+Per assurdo, neghiamo l'ipotesi 2. del lemma precedente.
+Sia \(\varphi(x)\) formula che non segue da nessuna formula completa.
+
+Costruisco albero binario: \(p_{0}(x)=\set{\varphi(x)}\).
+Dato \(p_{s}(x)\), cerco \(\psi(x) \in \mathcal{L}(A)\) tale che \(p_{s}(x)\cup\set{\psi(x)}, p_{s}(x)\cup\set{\lnot\psi(x)}\) ed estendo nel modo ovvio.
+
+Tale \(\psi\) esiste, altrimenti \(p_{s}(x)\) sarebbe una formula completa su \(A\).
+\end{proof}
+\section{Lezione 6 - \textit{<2025-10-08 Wed>}}
+\label{sec:org6316f53}
+
+\uline{Esercizio} (Vaught): Nessuna teoria completa \(T\) ha esattamente due modelli numerabili. (\(\mathcal{L}\) numerabile)
+
+\emph{Soluzione}:
+Assumiamo per assurdo che \(T\) abbia esattamente due modelli numerabili.
+Allora \(T\) non ha modelli finiti e non è \(\omega\)-categorica, e \(T\) è sottile,
+in quanto un modello numerabile realizza al più \(\omega\) tipi su \(\omega\).
+
+Quindi \(T\) ha un modello numerabile saturo \({N}\), ed un modello atomico \({M}\).
+WLOG \({M}\preceq {N}\).
+Sia quindi \(a \in N^{<\omega}\) tale che \(\operatorname{tp}(a)\) non è isolato.
+Necessariamente \(a\notin {M}\), e quindi \(M\not\cong N\).
+
+\(T\) è piccola su \(a\).
+Sia \({M}'\) modello atomico su \(a\),
+\({M}\cup\set{a} \subseteq {M}'\preceq {N}\), \({M}\preceq {M}'\)
+
+Se ci sono solo due modelli, allora \({M}'\cong {M}\) oppure \({M}'\cong {N}\).
+\begin{itemize}
+\item Sicuramente \({M}'\not\cong {M}\) (come per \({N}\not\cong{N}\))
+\item Se fosse \(M'\cong N\) allora \(M'\) è atomico e saturo su \(a\), e quindi \(T\) è \(\omega\)-categorica su \(a\) (Esercizio del foglio 2). Assurdo.
+\end{itemize}
+
+\begin{esempio}
+Esiste una teoria con esattamente 3 modelli. Vedi esercizio di IdL.
+\end{esempio}
+\subsection{Linguaggio a più sorte}
+\label{sec:org8338a4f}
+
+Un linguaggio a più sorte \(\mathcal{L}\) è un insieme
+\begin{equation*}
+\mathcal{L} = \mathcal{L}_{\text{fun}} \sqcup \mathcal{L}_{\text{rel}}\sqcup \mathcal{L}_{\text{sort}}.
+\end{equation*}
+dotato di una funzione \uline{arietà} che assegna:
+\begin{itemize}
+\item a \(r \in \mathcal{L}_{\text{rel}}\) una tupla \(\langle s_{0},\dots,s_{n}\rangle \in \mathcal{L}_{\text{sort}}^{<\omega}\); si dirà che \(r\) è di sorta \(\langle s_{0},\dots,s_{n}\rangle\)
+\item a \(f \in \mathcal{L}_{\text{fun}}\) una tupla \(\langle s_{0},\dots,s_{n}\rangle \in \mathcal{L}_{\text{sort}}^{<\omega}\); si dirà che \(f\) è di sorta \(\langle s_{0},\dots,s_{n}\rangle\)
+\end{itemize}
+
+Un \(\mathcal{L}\)-modello \(\mathcal{M}\) è composto da
+\begin{itemize}
+\item \(M_{s}\) insieme per ogni \(s \in \mathcal{L}_{\text{sort}}\)
+\item per ogni \(r \in \mathcal{L}_{\text{rel}}\) di sorta \(\langle s_{0},\dots,s_{n}\rangle\) un insieme
+\begin{equation*}
+  r^{\mathcal{M}} \subseteq M_{s_{0}}\times \dots\times M_{s_{n}}
+\end{equation*}
+\item per ogni \(f \in \mathcal{L}_{\text{fun}}\) di sorta \(\langle s_{0},\dots,s_{n}\rangle\) una funzione totale
+\begin{equation*}
+  f^{\mathcal{M}} : M_{s_{1}}\times \dots\times M_{s_{n}}\to M_{s_{0}}
+\end{equation*}
+\end{itemize}
+
+Fisso per ogni \(s \in \mathcal{L}_{\text{sort}}\) un insieme di variabili \(V_{s}\),
+tale che se \(s\neq s'\) allora \(V_{s}\cap V_{s'}=\emptyset\).
+\begin{itemize}
+\item I termini sono definiti in ``modo ragionevole''. N.B. i termini hanno anche una arietà.
+\item Una formula atomica è \(r(t_{1},\dots,t_{n})\) con \(r \in \mathcal{L}_{\text{rel}}\) con \(t_{i}\) che rispettano la sorta di \(r\).
+\item Per costruire le formule:
+\begin{itemize}
+\item per \(\land ,\lor,\lnot\) tutto uguale:
+\item i quantificatori sono \(\exists_{s}\) e \(\forall_{s}\) per ogni \(s \in \mathcal{L}_{\text{sort}}\).
+\end{itemize}
+\end{itemize}
+
+\begin{oss}
+In generale, per un linguaggio a più sorti, posso considerare un linguaggio ad un'unica sorta che contenga un predicato per ogni sorta. Il problema insorge per linguaggi ad infinite sorti, poiché i modelli saturi costruiti nel linguaggio ``ad una sorta'' avrebbero elementi che non sono di nessuna sorte.
+\end{oss}
+\subsection{Linguaggio del secondo ordine}
+\label{sec:org45185ac}
+
+???
+\subsection{Immaginari}
+\label{sec:orgc9f97e1}
+
+Sia \(T\) una \(\mathcal{L}\)-teoria completa con un modello infinito (ovvero senza modelli finiti). Sia \(\mathcal{U}\vDash T\) modello mostro di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
+
+Si definisce \(\mathcal{U}^{\text{eq}}\) struttura a più sorti nel linguaggio \(\mathcal{L}^{\text{eq}}\): si considera \(\mathcal{L}_{\text{sort}} = \set{0}\cup \mathcal{L}_{x,z}\), con \(\card{x}=\card{z}=\omega\)\footnote{Si noti che \(\mathcal{L}_{x,z}\) è l'insieme delle \(\mathcal{L}\)-formule nelle variabili \(x,z\)}
+\begin{enumerate}
+\item \(\mathcal{U}\) è il dominio della sorta 0 (anche detta \emph{home} o reale);
+\item per ogni \(\sigma(x,z) \in \mathcal{L}_{x,z}\), il dominio della sorta \(\sigma\) è
+\begin{equation*}
+ \mathcal{U}_{\sigma} \coloneqq \set{\sigma(\mathcal{U}^{x}; b)\mid b \in \mathcal{U}^{z}}
+\end{equation*}
+\end{enumerate}
+
+\(\mathcal{L}^{\text{eq}}\) contiene i simboli di \(\mathcal{L}\) che ``vivono nella sorta \(0\)'', e \(\in_{\sigma}\) per ogni \(\sigma \in\mathcal{L}_{x,z}\), di arietà \(\langle 0^{n},\sigma\rangle\) dove \(n\) è il più piccolo tale che solo le variabili in \(x\upharpoonright n\) occorrono in \(\sigma\).
+
+\begin{lem}
+Sia \(\mathcal{X}\) tupla di variabili di sorta \(\sigma(x;z)\) e \(\mathcal{A}\) tupla di parametri di sorta \(\sigma(x;z)\), \(u\) variabile di sorta 0. Se \(\varphi(u,\mathcal{X}) \in \mathcal{L}^{\text{eq}}\). Allora esiste \(\varphi'(u;z) \in \mathcal{L}\) e \(b \in \mathcal{U}^{z}\) tale che
+\begin{equation*}
+\mathcal{U}^{\text{eq}}\vDash \forall  u\ \big[\varphi(u,\mathcal{A})\iff \varphi'(u,b)\big]
+\end{equation*}
+\end{lem}
+
+\uline{Morale del lemma}: \sout{questa espansione non serve a nulla}; i sottoinsiemi di \(\mathcal{U}\) definibili (con parametri) in \(\mathcal{L}^{\text{eq}}\) sono gli stessi che quelli definibili in \(\mathcal{L}\).
+
+\begin{proof}
+???? FINIRE
+\end{proof}
+
+\begin{oss}
+Per ogni \(A \subseteq \mathcal{U}^{\text{eq}}\) esiste un \(B \subseteq \mathcal{U}\) tale che i sottoinsiemi \(\mathcal{L}^{\text{eq}}(A)\)-definibili di \(\mathcal{U}\) sono contenuti nei \(\mathcal{L}(B)\)-definibili di \(\mathcal{U}\).
+
+In generale, però, non esiste \(B\) tale che questa inclusione sia una uguaglianza.
+\end{oss}
+
+\begin{esempio}
+Sia \(\mathcal{L}=\set{E}\), \(E^{\mathcal{U}}\) relazione di equivalenza con due classi infinite.
+
+Se \(\mathcal{A} \subseteq\mathcal{U}\) è una delle due classi, allora
+\(x \in \mathcal{A}\) è equivalente a \(E[b,x]\) per qualche \(b \in \mathcal{U}\).
+\end{esempio}
+\section{Lezione 7 - \textit{<2025-10-14 Tue>}}
+\label{sec:orga3f1f25}
+
+\begin{oss}
+\(\mathcal{U}^{\text{eq}}\) è saturo, ovvero realizza ogni tipo \(p(x,\mathcal{X})\) finitamente consistente con ``pochi'' parametri.
+\end{oss}
+\begin{oss}
+\(\mathcal{U}^{\text{eq}}\) è un modello omogeneo:
+se \(a,\mathcal{A}\mathrel{\equiv_{\mathcal{L}^{\text{eq}}}}a',\mathcal{A}'\),
+con \(\card{a,\mathcal{A}}<\kappa\) allora esiste \(f \in \operatorname{Aut}(\mathcal{U}^{\text{eq}})\) tale che
+\begin{equation*}
+fa=a',\qquad f\mathcal{A}=\mathcal{A}'.
+\end{equation*}
+\end{oss}
+\begin{oss}
+Si ha che \(\operatorname{Aut}(\mathcal{U}^{\text{eq}})\cong \operatorname{Aut}(\mathcal{U})\) canonicamente.
+\end{oss}
+\subsection{Sottostrutture elementari}
+\label{sec:org24859ac}
+
+Sia \(\mathcal{V}^{\dag}\preceq \mathcal{U}^{\text{eq}}\).
+\begin{itemize}
+\item Il dominio della \emph{home sort} di \(\mathcal{V}^{\dag}\) è \(\mathcal{V}\preceq\mathcal{U}\).
+\item Il dominio della sorta \(\sigma(x;z)\) è della forma \(\sigma(\mathcal{U}^{x}; b)\) per qualche \(b \in \mathcal{U}^{z}\).
+\end{itemize}
+
+Detto \(\mathcal{A}\coloneqq \sigma(\mathcal{U}^{x};b)\) allora
+\begin{equation*}
+\mathcal{U}^{\text{eq}}\vDash \exists z \ \forall x\ [x \in \mathcal{A}\iff \sigma(x;z)]
+\end{equation*}
+e per elementarietà
+\begin{equation*}
+\mathcal{V}^{\dag}\vDash \exists z \ \forall x\ [x \in \mathcal{A}\iff \sigma(x;z)]
+\end{equation*}
+e quindi esiste \(b' \in \mathcal{V}\) tale che
+\(\mathcal{A}=\sigma(\mathcal{U}^{x};v')\).
+
+Viceversa, preso \(\mathcal{V}\preceq \mathcal{U}\) e definisco \(\mathcal{V}^{\text{eq}}\) ``aggiungendo'' gli insiemi \(\sigma(\mathcal{U}^{x};b)\) con \(b \in \mathcal{V}^{z}\) ottengo \(\mathcal{V}^{\text{eq}}\preceq \mathcal{U}^{\text{eq}}\).
+
+---
+
+\begin{definizione}
+Un elemento \(a \in \mathcal{U}^{\text{eq}}\) (di qualsiasi sorta) si dice \uline{definibile su \(A \subseteq \mathcal{U}^{\text{eq}}\)} se esiste \(\varphi (u) \in \mathcal{L}^{\text{eq}}(A)\) tale che
+\begin{equation*}
+\varphi(a) \land \exists^{=1} u\ \varphi(u).
+\end{equation*}
+\end{definizione}
+
+\begin{prop}
+LSASE:
+\begin{enumerate}
+\item \(\mathcal{A} \in \mathcal{U}^{\text{eq}}\) è definibile su \(A \subseteq \mathcal{U}^{\text{eq}}\);
+\item esiste \(\psi(x) \in \mathcal{L}(A)\) tale che \(x \in \mathcal{A} \iff \psi(x)\).
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Sia \(\varphi(\mathcal{X}) \in \mathcal{L}^{\text{eq}}(A)\) tale che \(\mathcal{A}\) sia l'unica soluzione di \(\varphi(\mathcal{X})\). Quindi
+\begin{equation*}
+x \in A\iff \exists \mathcal{X}\ [x \in \mathcal{X} \land \varphi(\mathcal{X})]
+\end{equation*}
+e poi posso eliminare la parte immaginaria.
+\end{proof}
+
+\begin{definizione}
+Se \(A \subseteq \mathcal{U}^{\text{eq}}\) si definisce \(\operatorname{dcl}^{\text{eq}}(A)\) l'insieme degli elementi di \(\mathcal{U}^{\text{eq}}\) definibili su \(A\).
+
+Se \(A \subseteq \mathcal{U}^{\text{eq}}\) si definisce \(\operatorname{dcl}(A)\) l'insieme degli elementi di \(\mathcal{U}\) definibili su \(A\).
+\end{definizione}
+\begin{definizione}
+Se \(A \subseteq \mathcal{U}^{\text{eq}}\) si definisce \(\operatorname{acl}^{\text{eq}}(A)\) l'insieme degli elementi di \(\mathcal{U}^{\text{eq}}\) algebrici su \(A\).
+
+Se \(A \subseteq \mathcal{U}^{\text{eq}}\) si definisce \(\operatorname{acl}(A)\) l'insieme degli elementi di \(\mathcal{U}\) algebrici su \(A\).
+\end{definizione}
+
+Però come possiamo definire gli elementi algebrici?
+
+\begin{definizione}
+\emph{(Tentativo 1).}
+Un elemento \(a \in \mathcal{U}^{\text{eq}}\) si dice \uline{algebrico su \(A \subseteq \mathcal{U}^{\text{eq}}\)} se esiste \(\varphi (u) \in \mathcal{L}^{\text{eq}}(A)\) tale che
+\begin{equation*}
+\varphi(a) \land \exists^{=n} u\ \varphi(u)
+\end{equation*}
+per qualche \(n \in \N\).
+\end{definizione}
+
+\begin{definizione}
+\emph{(Tentativo 2).}
+Un elemento \(a \in \mathcal{U}^{\text{eq}}\) si dice \uline{algebrico su \(A \subseteq \mathcal{U}^{\text{eq}}\)} se l'orbita
+\begin{equation*}
+O(a/A) = \set{fa \mid f \in \operatorname{Aut}(\mathcal{U}^{\text{eq}}/A)}
+\end{equation*}
+è finita.
+\end{definizione}
+
+\begin{definizione}
+\emph{(Tentativo 3).}
+Un elemento \(a \in \mathcal{U}^{\text{eq}}\) si dice \uline{algebrico su \(A \subseteq \mathcal{U}^{\text{eq}}\)} se
+\begin{equation*}
+a \in \bigcap_{A \subseteq M^{eq}} M^{eq}.
+\end{equation*}
+\end{definizione}
+
+Ci si deve chiedere quale di queste definizioni è ben chiara quando \(a\) è un insieme definibile.
+
+Notiamo che, per il tentativo 3, un insieme \(\mathcal{A} \in M^{eq}\) sse \(\mathcal{A} \subseteq \mathcal{U}\) è definibile su \(M\) in \(\mathcal{U}\).
+
+\begin{prop}
+Le tre diverse definizioni di elementi algebrici sono equivalenti.
+\end{prop}
+
+---
+
+\begin{definizione}
+Una \uline{equivalenza finita definibile in \(A \subseteq \mathcal{U}^{\text{eq}}\)} è una formula \(\varepsilon(x;y) \in \mathcal{L}(A)\) che definisce una relazione di equivalenza su \(\mathcal{U}^{x}\) con un numero finito di classi.
+\end{definizione}
+
+\begin{thm}
+LSASE
+\begin{enumerate}
+\item \(\mathcal{A} \in \operatorname{acl}^{\text{eq}}(A)\);
+\item \(\mathcal{A}\) è unione di classi di una equivalenza finita definibile in \(A\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(2.\Rightarrow 1.\)):
+Supponiamo \(\mathcal{A}=\bigcup_{i=1}^{n} \varepsilon(\mathcal{U}^{x},c_{i})\) per \(c_{i} \in \mathcal{U}^{x}\), con \(\varepsilon(x;y) \in \mathcal{L}(A)\).
+
+Utilizzando la definizione del Tentativo 2, l'orbita di \(\mathcal{A}/A\) ha cardinalità al più \(\binom{m}{n}\) dove \(m\) è il numero di classi di \(\varepsilon\).
+
+Utilizzando invece la definizione del Tentativo 3, sia \(M^{\text{eq}}\supseteq A\). Allora
+\begin{equation*}
+\mathcal{U}^{\text{eq}}\vDash \text{``esistono }m\text{ classi di }\varepsilon\text{''}
+\end{equation*}
+e per elementarietà
+\begin{equation*}
+M^{\text{eq}}\vDash \text{``esistono }m\text{ classi di }\varepsilon\text{''}
+\end{equation*}
+quindi per ogni \(i=1,\dots,n\) esiste \(c_{i}' \in M^{x}\) tale che \(\varepsilon(c_{i}',c_{i})\).
+
+(\(1.\Rightarrow 2.\)):
+Sia \(\mathcal{A} \in \operatorname{acl}^{\text{eq}}(A)\) (utilizzando la definizione del Tentativo 1) e sia \(\varphi(\mathcal{X}) \in \mathcal{L}^{\text{eq}}(A)\) tale che
+\begin{equation*}
+\varphi(\mathcal{A}) \land \exists^{=n} \mathcal{X}\ \varphi(\mathcal{X}).
+\end{equation*}
+
+Si definisce
+\begin{equation*}
+\varepsilon(x;y) = \forall \mathcal{X}\ \bigg[\varphi(\mathcal{X})\implies \big[x \in \mathcal{X}\iff y \in \mathcal{X}\big]\bigg]
+\end{equation*}
+\uline{Claim}: \(\varepsilon\) è una relazione di equivalenza finita.
+
+Siano \(\mathcal{A}_{1},\dots,\mathcal{A}_{n}\) tutte le soluzioni di \(\varphi(\mathcal{X})\). Allora
+\begin{equation*}
+\varepsilon(x;y) = \bigwedge_{i=1}^{n}\big[x \in \mathcal{A}_{i}\iff y \in \mathcal{A}_{i}\big]
+\end{equation*}
+e quindi \(\varepsilon\) ha al più \(2^{n}\) classi.
+\end{proof}
+\begin{definizione}
+\(a,b \in \mathcal{U}^{x}\) hanno lo stesso tipo forte di Shelah su \(A \subseteq \mathcal{U}\) (e si scrive \(a\mathrel{\overset{\text{Sh}}{\equiv}_{A}}b\)) se per ogni \(\varepsilon(x;y) \in \mathcal{L}(A)\) relazione di equivalenza finita
+\begin{equation*}
+\mathcal{U}\vDash\varepsilon(a,b).
+\end{equation*}
+\end{definizione}
+\begin{oss}
+Se \(a\mathrel{\overset{\text{Sh}}{\equiv}_{A}}b\) allora \(a,b\) hanno lo stesso tipo su \(A\): infatti, presa \(\varphi(x) \in \mathcal{L}(A)\) prendo
+\begin{equation*}
+\varepsilon(x,y) \coloneqq \big[\varphi(x)\iff\varphi(y)\big].
+\end{equation*}
+\end{oss}
+
+\uline{Esercizio}: LSASE:
+\begin{enumerate}
+\item \(a\mathrel{\overset{\text{Sh}}{\equiv}_{A}}b\);
+\item \(a \mathrel{\equiv_{\operatorname{acl}^{\text{eq}}A}} b\).
+\end{enumerate}
+
+\emph{Soluzione}.
+(\(\lnot 1.\Rightarrow \lnot 2.\)):
+Esiste \(\varepsilon(x,y) \in \mathcal{L}(A)\) tale che \(\lnot\varepsilon(a,b)\).
+
+Sia \(\mathcal{A}=\varepsilon(\mathcal{U}^{x},b) \in\operatorname{acl}^{\text{eq}}A\).
+Poiché \(b \in \mathcal{A}\) e \(a\notin \mathcal{A}\) ottengo \(\lnot 2.\)
+
+(\(\lnot 2.\Rightarrow \lnot 1.\)):
+Esiste \(\varphi(x) \in \mathcal{L}(\operatorname{acl}^{\text{eq}}A)\) tale che
+\begin{equation*}
+\varphi(a) \land \lnot\varphi(b)
+\end{equation*}
+e pertanto
+\begin{equation*}
+\mathscr{B}\coloneqq
+\varphi(\mathcal{U}^{x}) \in \operatorname{dcl}^{\text{eq}}\big(\operatorname{acl}^{\text{eq}}A\big)
+= \operatorname{acl}^{\text{eq}}A.
+\end{equation*}
+Siccome \(\mathscr{B} \in \operatorname{acl}^{\text{eq}}A\)
+\begin{equation*}
+\mathscr{B}=\bigcup_{i=1}^{n}\varepsilon(\mathcal{U}^{x};c_{i})
+\end{equation*}
+dove \(\varepsilon(x;y) \in \mathcal{L}(A)\) relazione di equivalenza finita.
+
+\(a \in \mathscr{B}\), quindi per qualche \(c_{i}\) si ha \(\varepsilon(a;c_{i})\); siccome \(b\notin \mathscr{B}\) si ha \(\lnot \varepsilon(b;c_{i})\) e quindi \(\lnot \varepsilon(a;b)\).\qed
+\section{Lezione 8 - \textit{<2025-10-15 Wed>}}
+\label{sec:orgf9069b8}
+
+\subsection{Eliminazione degli immaginari}
+\label{sec:orgc1d4d6b}
+
+\begin{definizione}
+Una teoria \(T\) ha \uline{eliminazione degli immaginari} se per ogni \(\mathscr{D} \subseteq \mathcal{U}^{x}\) definibile, esiste \(\varphi(x;z) \in \mathcal{L}\) tale che
+\begin{equation*}
+\mathcal{U}\vDash \exists^{=1}z\ \forall x\ [x \in \mathscr{D}\iff \varphi(x;z)] .
+\end{equation*}
+\end{definizione}
+Bisogna verificare che la definizione dipende solo da \(T\) (e non dipende dal modello mostro scelto).
+
+\begin{definizione}
+Una teoria \(T\) ha \uline{eliminazione debole degli immaginari} se per ogni \(\mathscr{D} \subseteq \mathcal{U}^{x}\) definibile, esiste \(\varphi(x;z) \in \mathcal{L}\) ed esiste \(k \in \N^{+}\) tale che
+\begin{equation*}
+\mathcal{U}\vDash \exists^{=k}z\ \forall x\ [x \in \mathscr{D}\iff \varphi(x;z)].
+\end{equation*}
+\end{definizione}
+\uline{Nota}: quando \(\card{z}=\emptyset\) si considera \(\exists^{=1}z\) come sempre vera.
+
+\begin{thm}
+LSASE:
+\begin{enumerate}
+\item \(T\) ha eliminazione degli immaginari;
+\item ogni insieme definibile è \uline{interdefinibile} con una tupla reale;
+\item ogni \(\mathscr{D} \subseteq \mathcal{U}^{x}\) definibile è definibile su \(\operatorname{dcl}\set{\mathscr{D}}\), ovvero \(\mathscr{D} \in \operatorname{dcl}^{\text{eq}}\big(\operatorname{dcl}\set{\mathscr{D}}\big)\).
+\end{enumerate}
+\end{thm}
+\begin{definizione}
+\(a,b \in \mathcal{U}^{\text{eq}}\) di sorte arbitraria sono \uline{interdefinibili} se vale uno dei seguenti fatti equivalenti:
+\begin{enumerate}
+\item \(\operatorname{dcl}^{\text{eq}}(a)=\operatorname{dcl}^{\text{eq}}(b)\);
+\item \(a \in \operatorname{dcl}^{\text{eq}}(b)\) e \(b \in \operatorname{dcl}^{\text{eq}}(a)\);
+\item \(\operatorname{Aut}(\mathcal{U}/a)=\operatorname{Aut}(\mathcal{U}/b)\).
+\end{enumerate}
+\end{definizione}
+
+\begin{thm}
+LSASE:
+\begin{enumerate}
+\item \(T\) ha eliminazione debole degli immaginari;
+\item ogni insieme definibile è \uline{interdefinibile} con un insieme finito;
+\item ogni \(\mathscr{D} \subseteq \mathcal{U}^{x}\) definibile è definibile su \(\operatorname{acl}\set{\mathscr{D}}\), ovvero \(\mathscr{D} \in \operatorname{dcl}^{\text{eq}}\big(\operatorname{acl}\set{\mathscr{D}}\big)\).
+\end{enumerate}
+\label{thm:ikajncdahbckhdasgjbmnjkhkgjvmbkgyunvmbhygkufjhcvm}
+\end{thm}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Sia \(\mathscr{D}\) un insieme definibile: per ipotesi
+\begin{equation*}
+\mathcal{U}\vDash \exists^{=k}z\ \forall x\ [x \in \mathscr{D}\iff \varphi(x;z)]
+\end{equation*}
+e dunque sia \(\mathscr{B}\coloneqq \set{z\mid \forall x\ [x \in \mathscr{D}\iff \varphi(x;z)]} = \set{z_{1},\dots,z_{k}}\).
+
+Quindi \(\mathscr{B} \in \operatorname{dcl}^{\text{eq}}\set{\mathscr{D}}\), e inoltre \(\mathscr{D} \in \operatorname{dcl}^{\text{eq}}\set{\mathscr{B}}\) poiché
+\begin{equation*}
+\mathscr{D}=\set{x \mid \exists z \in \mathscr{B}\ \varphi(x;z)}.
+\end{equation*}
+
+(\(2.\Rightarrow 3.\)): Se \(\mathscr{B}=\set{b_{1},\dots,b_{n}}\) è tale che
+\begin{equation*}
+\operatorname{dcl}^{\text{eq}}\set{\mathscr{D}}=
+\operatorname{dcl}^{\text{eq}}\set{\mathscr{B}}
+\end{equation*}
+allora \(b_{i} \in \operatorname{acl}\set{\mathscr{B}}\) testimoniato dalla formula \(z \in \mathscr{B}\) e quindi \(b \in \operatorname{acl}\set{\mathscr{D}}\):
+\begin{equation*}
+\operatorname{acl}\set{\mathscr{D}} = \operatorname{acl}\operatorname{acl}\set{\mathscr{D}} =
+\operatorname{acl}\operatorname{dcl}\set{\mathscr{D}}=
+\operatorname{acl}\operatorname{dcl}\set{\mathscr{B}}=
+\operatorname{acl}\set{\mathscr{B}}
+\end{equation*}
+Sappiamo che \(\mathscr{D} \in \operatorname{dcl}^{\text{eq}}\set{\mathscr{B}}\) e quindi esiste \(\psi(x;\mathscr{B})\) tale che
+\begin{equation*}
+\mathscr{D}=\set{x\mid \psi(x;\mathscr{B})}
+\end{equation*}
+e quindi esiste \(\psi'(x;b_{1},\dots,b_{n})\) tale che
+\begin{equation*}
+\mathscr{D} = \set{x\mid \psi'(x;b_{1},\dots,b_{n})}
+\end{equation*}
+e quindi \(\mathscr{D} \in \operatorname{dcl}^{\text{eq}}(\operatorname{acl}\set{\mathscr{D}})\).
+
+(\(3.\Rightarrow 1.\)): Fissiamo \(\mathscr{D}\neq\emptyset\) definibile e fissiamo \(\sigma(x;z)\) e \(b \in (\operatorname{acl}\set{\mathscr{D}})^{z}\) tale che
+\begin{equation*}
+\forall x\ [x \in \mathscr{D}\iff\sigma(x;z)].
+\end{equation*}
+Fisso \(\delta(z,\mathcal{X})\) tale che \(\delta(b;\mathscr{D}) \land \exists^{\le k}z \ \delta(z;\mathscr{D})\) e pongo
+\begin{equation*}
+\psi(z;\mathcal{X}) =  \forall x\ [x \in \mathcal{X}\iff\sigma(x;z)] \land \delta(z;\mathcal{X}).
+\end{equation*}
+Affermo che
+\begin{equation*}
+\exists^{=k}z\ \forall x\ [x \in \mathscr{D}\iff \sigma(x;z) \land \exists \mathcal{X}\ \psi(z;\mathcal{X})].
+\end{equation*}
+\(\mathscr{B}\) è testimone di \(\exists z\). Vogliamo mostrare che esistono \(k\) testimoni di \(\exists z\). Sia \(c\) tale che
+\begin{equation*}
+\forall x\ [x \in \mathscr{D}\iff \sigma(x;c) \land \exists \mathcal{X}\ \psi(c;\mathcal{X})]
+\end{equation*}
+FINIRE
+\end{proof}
+
+\begin{thm}
+La teoria \(T_{\text{acf}}^{p}\)\footnote{Questa è la teoria dei campi algebricamente chiusi di caratteristica \(p\).} ha eliminazione degli immaginari.
+\label{thm:tacfpeliminazoijaijoijfortedididididi}
+\end{thm}
+
+\begin{lem}
+La teoria \(T_{\text{acf}}^{p}\) ha eliminazione debole degli immaginari.
+\end{lem}
+
+\begin{thm}
+Se \(T\) è una teoria fortemente minimale e
+\(\operatorname{acl}(\emptyset)\) è infinita allora \(T\) ha l'eliminazione debole degli immaginari.
+\end{thm}
+
+\begin{lem}
+Se ogni formula \(\varphi(z) \in \mathcal{L}^{\text{eq}}(A)\) consistente ha una soluzione in \(\operatorname{acl}(A)\) allora \(T\) ha l'eliminazione debole degli immaginari.
+\label{lem:oijsoidisojnckskjndkjncskdjn}
+\end{lem}
+\begin{proof}
+(del Lemma~\ref{lem:oijsoidisojnckskjndkjncskdjn}).
+Se \(\mathscr{D}\) è di sorta \(\sigma(x;z)\) prendo come
+\begin{equation*}
+\varphi(z) = \forall x\ [x \in \mathscr{D}\iff\sigma(x;z)]
+\end{equation*}
+con \(\varphi(z) \in \mathcal{L}^{\text{eq}}(\set{\mathscr{D}})\).
+
+Se \(\varphi(z)\) ha soluzione in \(\operatorname{acl}\set{\mathscr{D}}\) allora \(\mathscr{D}\) è definibile su \(\operatorname{acl}\set{\mathscr{D}}\). La tesi segue dal
+Teorema~\ref{thm:ikajncdahbckhdasgjbmnjkhkgjvmbkgyunvmbhygkufjhcvm}
+\end{proof}
+
+\begin{lem}
+\(T_{\text{acf}}^{p}\) elimina gli immaginari finiti.
+\label{lem:kjnkjnkadsjnclakjdnaclkdjn}
+\end{lem}
+\begin{proof}
+(del Lemma~\ref{lem:kjnkjnkadsjnclakjdnaclkdjn}).
+Sia \(\mathcal{A}=\set{a_{1},\dots,a_{n}} \subseteq \mathcal{U}^{m}\), e sia
+\begin{equation*}
+a_{i} = a_{i,1},\dots,a_{i,m}.
+\end{equation*}
+Siano \(x,y\) variabili con \(\card{x}=1\) e \(y=y_{1},\dots,y_{m}\): si definisce
+\begin{equation*}
+t(x,y) = \prod_{i=1}^{n}\left(x-\sum_{k=1}^{m}a_{i,k}y_{k}\right).
+\end{equation*}
+L'interpretazione di \(t(x,y)\) dipende solo da \(\mathcal{A}\) e non dall'enumerazione.
+
+Sia \(c\) la tupla dei coefficienti dello sviluppo in monomi di \(t(x,y)\).
+
+Dato \(\mathcal{A}\) definisco \(c\) e viceversa.
+\end{proof}
+
+\begin{proof}
+(del Teorema~\ref{thm:tacfpeliminazoijaijoijfortedididididi}).
+Segue banalmente dal Lemma~\ref{lem:kjnkjnkadsjnclakjdnaclkdjn}.
+\end{proof}
+
+\uline{Esercizio}: I grafi aleatori non hanno l'eliminazione degli immaginari.
+
+\begin{thm}
+I grafi aleatori hanno eliminazione debole degli immaginari.
+\end{thm}
+
+\begin{lem}
+Se \(\mathscr{D}\) è definibile sia su \(A\) che su \(B\), allora è definibile su \(A\cap B\) allora \(T\) ha eliminazione debole degli immaginari.
+\label{lem:kjnasodkchjgvjbvcgjmvcxhfcjgvkhbjnbhvgcjfvbj}
+\end{lem}
+\begin{proof}
+(del Lemma~\ref{lem:kjnasodkchjgvjbvcgjmvcxhfcjgvkhbjnbhvgcjfvbj})
+Sia \(A\) \(\subseteq\)-minimale tale che \(\mathscr{D}\) sia definibile su \(A\) finito.
+
+Sia \(f \in \operatorname{Aut}(\mathcal{U}/\set{\mathscr{D}})\). Affermo che \(f[A]=A\). Infatti \(\mathscr{D}\) è definibile su \(f[A]\) e pertanto, per ipotesi, su \(f[A]\cap A\). Per minimalità \(f[A]=A\).
+
+Sia \(a\) tupla che enumera \(A\). L'orbita di \(a/\set{\mathscr{D}}\) è finita, e quindi \(a \in \operatorname{acl}\set{\mathscr{D}}\).
+\end{proof}
+\section{{\bfseries\sffamily TODO} Lezione 9 - \textit{<2025-10-21 Tue>}}
+\label{sec:orge717d26}
+
+\subsection{Formule e tipi invarianti}
+\label{sec:orga0bbde6}
+
+In this chapter, \(\mathcal{L}\) è un linguaggio, \(T\) is a complete theory without finite models, and \(\mathcal{U}\) is a saturated model of inaccessible cardinality \(\kappa\) strictly larger than \(\card{\mathcal{L}}+\omega\).
+\begin{definizione}
+\(\mathscr{D} \subseteq \mathcal{U}^{z}\) è \uline{invariante su \(A \subseteq \mathcal{U}\)} piccolo, se per ogni \(f \in \operatorname{Aut}(\mathcal{U}/A)\)
+\begin{equation*}
+f[\mathscr{D}] =\mathscr{D}
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+\(\mathscr{D}\) è inviariante se
+\begin{equation*}
+a \in \mathscr{D}\iff b \in \mathscr{D}
+\end{equation*}
+per ogni \(a\mathrel{\equiv_{A}}b\), \(a,b \in \mathcal{U}^{z}\).
+\end{oss}
+\begin{prop}
+Detto \(\lambda=\card{\mathcal{L}_{z}(A)}\), gli insiemi invarianti su \(A\) sono al più \(2^{2^{\lambda}}\).
+\end{prop}
+\begin{proof}
+Vedi Proposizione~14.1 di \autocite{zambellaCrecheCourseModel2025}.
+\end{proof}
+\begin{definizione}
+Una formula \(\varphi(x) \in \mathcal{L}(\mathcal{U})\) è \(A\)-invariante se \(\varphi(\mathcal{U}^{x})\) lo è.
+\end{definizione}
+\begin{definizione}
+Sia \(\varphi(x;z) \in \mathcal{L}\). Una \(\varphi\)-formula su \(\mathcal{U}\) è (alcune possibilità):
+\begin{enumerate}
+\item \(\varphi(x;b)\) e \(\lnot\varphi(x;b)\) per \(b \in \mathcal{U}^{z}\);
+\item congiunzioni di formule della forma \(\varphi(x;b)\) e \(\lnot\varphi(x;b)\) per \(b \in \mathcal{U}^{z}\).
+\item combinazioni booleane\footnote{Ovvero chiusura rispetto a tutti i connettivi tranne i quantificatori.} di formule della forma \(\varphi(x;b)\) per \(b \in \mathcal{U}^{z}\).
+\item formula in \(\mathcal{L}_{x}'(\mathcal{U})\) costruite a partire da \(\varphi(x';z')\) dove \(x'\) è una copia di \(x\) e \(z'\) è una copia di \(z\).
+\end{enumerate}
+\end{definizione}
+
+\begin{definizione}
+Sia \(\varphi(x;z) \in \mathcal{L}\). Una \(\varphi\)-formula su \(A\) è:
+\begin{itemize}
+\item[{3'.}] combinazioni booleane di formule della forma \(\varphi(x;b)\) per \(b \in \mathcal{U}^{z}\) \uline{che siano inviarianti su \(A\)}.
+\end{itemize}
+
+Con \(\mathcal{L}_{\varphi}(A)\) si intende l'insieme delle \(\varphi\)-formule su \(A\).
+\end{definizione}
+
+Quest'ultima è la definizione utilizzata.
+\begin{definizione}
+Sia \(\varphi(x;z) \in \mathcal{L}\).
+Un \(\varphi\)-tipo è un insieme di \(\varphi\)-formule.
+
+Un \(\varphi\)-tipo \uline{globale} è un insieme massimale finitamente consistente di \(\varphi\)-formule su \(\mathcal{U}\).
+\(S_{\varphi}(\mathcal{U})\) è l'insieme di tutti i \(\varphi\)-tipi globali.
+\end{definizione}
+\begin{itemize}
+\item[{$\square$}] \href{20251113175327-insieme_esternamente_definibile_in_un_modello_mostro.org}{Insieme esternamente definibile} vedi p.118 di \autocite{zambellaCrecheCourseModel2025a}
+\end{itemize}
+
+\begin{definizione}
+Un \(\varphi\)-tipo \(p(x) \subseteq \mathcal{L}_{\varphi}(\mathcal{U})\) è \(A\)-invariante se per ogni \(\psi(x;\overline{b}) \in p\) e per ogni \(f \in \operatorname{Aut}(\mathcal{U}/A)\)
+\begin{equation*}
+p(x)\vdash \psi(x;f\overline{b})
+\end{equation*}
+ovvero esiste una congiunzione finita di formule in \(p(x)\) che implica \(\psi(x;f\overline{b})\). ?????
+\end{definizione}
+
+\uline{Notazione}: scriveremo \(p(x)\vdash fp(x)\) dove
+\begin{equation*}
+fp(x) \coloneqq \set{\psi(x;f\overline{b})\mid \psi(x;\overline{b}) \in p(x)}.
+\end{equation*}
+
+Se \(p(x) \in S_{\varphi}(\mathcal{U})\) allora a meno di equivalenza
+\begin{equation*}
+p(x) \subseteq \set{\varphi(x;b),\lnot\varphi(x;b)\mid b \in \mathcal{U}^{z}}.
+\end{equation*}
+\uline{Notazione}: definisco
+\begin{equation*}
+\mathscr{D}_{p,\varphi} \coloneqq \set{b \in \mathcal{U}^{z}\mid \varphi(x;b) \in p(x)}.
+\end{equation*}
+
+\(\mathscr{D}_{p,\varphi}\) è un insieme \textbf{esternamente definibile} (da \(\varphi(x;z)\) o da \(p\)).
+
+Sia \(\nonstandard{\mathcal{U}}\succeq \mathcal{U}\) saturo di cardinalità maggiore, tale che
+\begin{equation*}
+\nonstandard{\mathcal{U}},\nonstandard{a}\vDash p(x)
+\end{equation*}
+allora
+\begin{equation*}
+\mathscr{D}_{p,\varphi} = \mathcal{U}^{z}\cap \varphi(\nonstandard{\!a},\nonstandard{\mathcal{U}}^{z}).
+\end{equation*}
+
+\begin{prop}
+\(p(x)\) è \(A\)-invariante sse \(\mathscr{D}_{p,\varphi}\) è \(A\)-invariante.
+\end{prop}
+
+\uline{Fatto.}
+Sia \(p(x) \subseteq \mathcal{L}_{\varphi}(\mathcal{U})\). \(p(x)\) è \(A\)-invariante sse per ogni \(\psi(x,\overline{b}) \in \mathcal{L}_{\varphi}(\mathcal{U})\) e per ogni \(a\mathrel{\equiv_{A}}b\) si ha:
+\begin{equation*}
+	p(x)\vdash \psi(x;a) \oldiff p(x)\vdash \psi(x;b)
+\end{equation*}
+
+\uline{Fatto.}
+Sia \(p(x) \in S_{\varphi}(\mathcal{U})\). \(p(x)\) è \(A\)-invariante sse per ogni \(a\mathrel{\equiv_{A}}b\) si ha:
+\begin{equation*}
+p(x)\vdash \varphi(x;a)\iff\varphi(x;b).
+\end{equation*}
+
+\uline{Fatto.}
+Sia \(p(x) \in S_{\varphi}(\mathcal{U})\). \(p(x)\) è \(A\)-invariante sse per ogni \(a\mathrel{\equiv_{A}}b\) e per ogni \(c\vdash p(x)\upharpoonright A\cup\set{a,b}\)\footnote{Ovvero tenendo soltanto le formule con parametri in \(A\cup\set{a,b}\).} si ha:
+\begin{equation*}
+\varphi(c;a)\iff\varphi(c;b).
+\end{equation*}
+
+\uline{Fatto.}
+Sia \(p(x) \in S_{\varphi}(\mathcal{U})\). \(p(x)\) è \(A\)-invariante sse per ogni \(a\mathrel{\equiv_{A}}b\) e per ogni \(c\vdash p(x)\upharpoonright A\) si ha:
+\begin{equation*}
+a\mathrel{\equiv_{A\cup\set{c}}}b.
+\end{equation*}
+\subsubsection{Eredi e coeredi}
+\label{sec:orgf32995d}
+
+\begin{definizione}
+Un tipo \(p(x) \subseteq \mathcal{L}(\mathcal{U})\) si dice \uline{finitamente soddisfacibile in \(A\)} se per ogni \(\psi(x) \in \set{\land}\!p\):
+\begin{equation*}
+\psi(A^{x})\neq \emptyset.
+\end{equation*}
+\end{definizione}
+\begin{prop}
+Se \(p(x) \in S_{\varphi}(\mathcal{U})\) è finitamente soddisfacibile in \(A\), allora \(p(x)\) è \(A\)-invariante.
+\end{prop}
+\begin{proof}
+Vogliamo mostrare che \(p(x)\vdash \varphi(x,a)\iff\varphi(x,b)\) per ogni \(a\mathrel{\equiv_{A}}b\).
+
+Per assurdo se \(p(x)\not\vdash \varphi(x,a)\iff\varphi(x,b)\) allora
+\begin{equation*}
+p(x)\vdash \varphi(x,a)\not\iff\varphi(x,b).
+\end{equation*}
+Poiché è finitamente soddisfacibile allora esiste \(c \in A^{x}\) tale che
+\begin{equation*}
+\varphi(c,a)\not\iff\varphi(c,b)
+\end{equation*}
+e quindi \(a\not\mathrel{\equiv_{A}}b\). Assurdo.
+\end{proof}
+\begin{oss}
+Sia \(a \in \mathcal{U}^{x}\) e \(p(x)= \operatorname{tp}(a/B)\). LSASE:
+\begin{enumerate}
+\item \(p(x)\) è finitamente soddisfacibile in \(A\);
+\item \(a \in\) chiusura di \(A^{x}\) nella \(B\)-topologia di \(\mathcal{U}\).
+\end{enumerate}
+\end{oss}
+\begin{prop}
+Se \(q(x) \subseteq \mathcal{L}(\mathcal{U})\) finitamente soddisfacibile in \(A\), allora esiste \(q(x) \subseteq p(x) \in S(\mathcal{U})\), \(p(x)\) finitamente soddisfacibile in \(A\).
+\end{prop}
+\begin{proof}
+Sia \(p(x)\supseteq q(x)\) un tipo massimale finitamente soddisfacibile in \(A\) (che esiste per il \href{20250210104633-lemma_di_zorn.org}{Lemma di Zorn}).
+
+Affermo che \(p(x)\) è completo. Per assurdo, supponiamo che \(\psi(x), \lnot\psi(x)\notin p(x)\). Per massimalità esiste \(\varphi(x) \in p(x)\) tale che né \(\varphi(x) \land \psi(x)\) né \(\varphi(x) \land\lnot\psi(x)\) sono realizzate in \(A\). Ma esiste \(c \in A^{x}\) tale che \(c\vdash \varphi(x)\). Quindi
+\begin{equation*}
+C\vdash \psi(x) \lor\lnot\psi(x).\qedhere
+\end{equation*}
+\end{proof}
+\begin{cor}
+Tutti i tipi su un modello \(M\) si estendono a tipi globali invarianti su \(M\).
+\end{cor}
+\section{{\bfseries\sffamily DONE} Lezione 10 - \textit{<2025-10-22 Wed>}}
+\label{sec:orgc3fa062}
+
+\subsection{{\bfseries\sffamily DONE} \href{20251026210840-sequenza_di_morley.org}{Sequenze di Morley}}
+\label{sec:orga67fa01}
+
+Sia \(p(x) \in S(\mathcal{U})\) invariante su \(A\).
+
+\begin{definizione}
+Una \uline{sequenza di Morley} di \(p(x)\) su \(A\) è \(\overline{c} \in (\mathcal{U}^{x})^{\alpha}\), \(\overline{c} = \langle c_{i}: i<\alpha\rangle\) tale che
+\begin{equation*}
+\forall  i<\alpha: \quad c_{i}\vDash p(x)\upharpoonright A\cup{\overline{c}\upharpoonright i}.
+\end{equation*}
+\end{definizione}
+\subsection{Sequenze di indiscernibili}
+\label{sec:orgf5e50e3}
+
+Sia \((I,<)\) un ordine lineare. Una \(I\)-sequenza è
+\begin{equation*}
+\overline{c} =\langle c_{i}: i \in I\rangle,\quad c_{i} \in \mathcal{U}.
+\end{equation*}
+
+\uline{Notazione}: se \(I_{0} \subseteq I\) finito, \(c\upharpoonright I_{0}\) è letto come una tupla finita.
+\begin{definizione}
+\(\overline{c}\) è una \uline{sequenza di indiscernibili su \(A\)} se per ogni \(I_{0}, I_{1} \subseteq I\), \(\card{I_{0}}=\card{I_{1}} = n<\omega\)
+\begin{equation*}
+c\upharpoonright I_{0} \equivalentover{A} c\upharpoonright I_{1}.
+\end{equation*}
+\end{definizione}
+
+\uline{Nota}: in questo caso scriviamo \(I_{0},I_{1} \in I^{(n)}\) o
+\begin{equation*}
+I_{0},I_{1} \in \binom{I}{n}.
+\end{equation*}
+Se \(I\) è insieme qualsiasi e \(\overline{c}=\set{c_{i}\mid i \in I}\), si ha la seguente:
+\begin{definizione}
+\(\overline{c}\) è una \uline{sequenza di totalmente indiscernibili su \(A\)} se per ogni \(n\), per ogni \(\set{i_{1},\dots,i_{n}}, \set{j_{1},\dots,j_{n}} \subseteq I\) insiemi di elementi distinti
+\begin{equation*}
+(c_{i_{1}},\dots,c_{i_{n}})\equivalentover{A} (c_{j_{1}},\dots,c_{j_{n}}).
+\end{equation*}
+\end{definizione}
+\begin{thm}
+Ogni \(\overline{c}=\langle c_{i}:i<\omega\rangle\) sequenza di Morley di \(p(x) \in S(\mathcal{U})\) invariante su \(A\) è indiscernibile su \(A\).
+\end{thm}
+\begin{proof}
+Mostriamo per induzione su \(n\) che per ogni \(I \in \omega^{(n)}\)
+\begin{description}
+\item[{Ipotesi induttiva}] \(c\upharpoonright n \equivalentover{A} c\upharpoonright I\);
+\item[{Tesi}] \(c\upharpoonright n, c_{n} \equivalentover{A} c\upharpoonright I, c_{i}\), per \(i>I\).
+\end{description}
+
+Vedi Proposizione~14.20 di \autocite{zambellaCrecheCourseModel2025a}
+\end{proof}
+\subsection{Eredi e coeredi}
+\label{sec:org9961c78}
+
+\begin{definizione}
+Si dice \(p(x) \subseteq \mathcal{L}(\mathcal{U})\) finitamente soddisfacibile in \(M\) se
+\begin{equation*}
+\varphi(M^{x}) \neq \emptyset \quad\text{ per ogni }\varphi(x) \in \set{\land}p.
+\end{equation*}
+In questo caso si dice che \(p(x)\) è un \uline{coerede} di \(p(x)\upharpoonright M\).
+\end{definizione}
+\begin{definizione}
+Se \(p(x)\) è finitamente soddisfacibile in \(M\), una sequenza di Morley di \(p(x)\) su \(M\) si dice \uline{sequenza di coeredi}.
+\end{definizione}
+\uline{Notazione}: Siano \(a \in \mathcal{U}^{x}\), \(b \in \mathcal{U}^{z}\). Si scriverà
+\begin{equation*}
+a \nonfork b \qquad \oldiff\qquad \operatorname{tp}(a/M,b)\text{ è finitamente soddisfacibile in }M
+\end{equation*}
+ovvero per ogni \(\varphi(x;z) \in \mathcal{L}(M)\)
+\begin{equation*}
+\varphi(a;b)\quad\oldimplies\quad \varphi(m;b)\text{ per qualche }m \in M
+\end{equation*}
+ovvero \(a\) appartiene alla chiusura (topologica) di \(M^{x}\) nella \((M,b)\)-topologia.
+
+Si definisce il tipo
+\begin{equation*}
+x\nonfork  b = \set{\lnot \varphi(x,b): \varphi(x;z) \in \mathcal{L}(M), \varphi(M^{x},b)= \emptyset}
+\end{equation*}
+soddisfatto da tutti i seguenti elementi:
+\begin{equation*}
+a\vDash x\nonfork  b \IFF a\nonfork  b.
+\end{equation*}
+
+\begin{lem}
+Valgono le seguenti proprietà.
+\begin{enumerate}
+\item Se \(a\nonfork  b\) allora \(fa\nonfork  fb\) per ogni \(f \in \operatorname{Aut}(\mathcal{U}/M)\). \hfill(invarianza)
+\item \(a\mathrel{\nonfork_{M}} b\) sse \(a_{0}\nonfork b_{0}\) per ogni \(a_{0} \subseteq a\), \(b_{0} \subseteq b\) sottotuple finite.
+\hfill(carattere finito)
+\item Se \(a\nonfork  b, c\) e \(c\nonfork  b\) allora \(a,c\nonfork  b\).
+\hfill(transitività)
+\item Se \(a\nonfork b\), per ogni \(c\) esiste \(a'\equivalentover{M,b}a\) e \(a'\nonfork b,c\).
+\hfill(\emph{coheir extension})
+\item Se \(a\nonfork b_{1},b_{2}\) e \(b_{1} \equivalentover{M} b_{2}\) allora \(b_{1}\equivalentover{M,a}b_{2}\).
+\hfill(\emph{non-splitting})
+\end{enumerate}
+\label{lem:propfork}
+\end{lem}
+\begin{proof}
+Vedi hw4 - TdM
+\end{proof}
+
+\uline{Domanda}: \(a \nonfork z\) è un tipo?
+\begin{equation*}
+a \nonfork z = \set{\lnot \varphi(a;z)\mid \varphi(M^{x}, z) = \emptyset\ \varphi(x;z) \in \L(M)}.
+\end{equation*}
+
+La risposta è NO!! See Remark~14.7 e Esercizio~14.13 di \autocite{zambellaCrecheCourseModel2025a}.
+\section{{\bfseries\sffamily DONE} Lezione 11 - \textit{<2025-10-28 Tue>}}
+\label{sec:orgb93674b}
+
+\begin{lem}
+LSASE:
+\begin{enumerate}
+\item \(\overline{c} = \langle c_{i} : i<\omega \rangle\) è sequenza di coeredi su \(M\) (rispetto a qualche \(p(x) \in S(\U)\));
+\item \(c_{i} \nonfork (c \restricted i)\) e \(c_{i+1} \equivalentover{M, c \restricted i} c_{i}\);
+\item \(c_{i} \nonfork (c \restricted i)\) e \(c_{j} \equivalentover{M, c \restricted i} c_{i}\) per ogni \(j>i\).
+\end{enumerate}
+\end{lem}
+
+Le condizioni 2. e 3. sono banalmente equivalenti, e pertanto saranno utilizzate in maniera interscambiabile.
+
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Sia \(p(x) \in S(\U)\) finitamente soddisfacibile in \(M\) tale che \(\overline{c}\) sia sequenza di coeredi rispetto a \(p\).
+
+\uline{Si dimostra \(c_{i} \nonfork (c \restricted i)\)}.
+
+Sia \(\varphi(x, z_{0},\dots,z_{i-1}) \in \L(M)\) tale che \(\varphi(c_{i}, c \restricted i)\).
+
+Poiché \(p(x)\) è completo e \(c_{i}\vDash p(x) \restricted {\scriptstyle M, (c\restricted i)}\) allora:
+\begin{equation*}
+\varphi(x; c \restricted i) \in p(x) \restricted {\scriptstyle M, (c\restricted i)}.
+\end{equation*}
+dove con \(p(x)\upharpoonright A\) si intende la restrizione di un tipo ad un insieme di parametri.
+
+Siccome \(p(x)\) finitamente soddisfacibile in \(M\) allora \(\varphi(M^{x}; c \restricted i) \neq \emptyset\). Per definizione questo significa che
+\begin{equation*}
+c_{i} \nonfork (c \restricted i).
+\end{equation*}
+
+\uline{Si dimostra l'equivalenza elementare}.
+
+Per definizione si ha che
+\begin{equation*}
+c_{i}\vDash p(x) \restricted{\scriptstyle M, (c\restricted{i})},\qquad c_{i+1}\vDash p(x) \restricted{\scriptstyle M, (c\restricted{i+1})}
+\end{equation*}
+In particolare, dalla seconda relazione, segue che
+\begin{equation*}
+c_{i+1}\vDash p(x) \restricted{\scriptstyle M, (c\restricted i)} \subseteq p(x) \restricted{\scriptstyle M, (c\restricted{i+1})}
+\end{equation*}
+
+Per la completezza di \(p(x)\) segue \(c_{i} \equivalentover{M, c\restricted i} c_{i+1}\).
+
+(\(2.\Rightarrow 1.\)):
+Sia \(q(x) = \set{\varphi(x) \in \L(M, \overline{c}) \mid
+\null\vDash\varphi(c_{i})\text{ per infiniti }i<\omega}\).
+È evidente che in realtà
+\begin{equation*}
+q(x)
+= \set{\varphi(x) \in \L(M, \overline{c}) \mid
+\null \vDash\varphi(c_{i})\text{ per cofiniti }i<\omega}.
+\end{equation*}
+Infatti ``\(\supseteq\)'' è ovvio, mentre per il viceversa, se per infiniti \(c_{i}\) vale \(\varphi(c_{i})\), allora in particolare esisterà \(I \in \N\) tale che
+\begin{equation*}
+\varphi(x) \in \L(M, c\restricted I),\qquad \varphi(c_{I})
+\end{equation*}
+e allora vale anche \(\varphi(c_{j})\) per ogni \(j>I\), in quanto
+\begin{equation*}
+c_{j} \equivalentover{M, c \restricted I} c_{I}
+\end{equation*}
+per ogni \(j>I\).
+
+In particolare \(q(x)\) è chiuso per congiunzioni e finitamente soddisfacibile (ne sono testimoni i \(c_{i}\)).
+
+Quindi \(q(x)\) è finitamente soddisfacibile in \(M\) (poiché \(M\) è sottostruttura elementare di \(\U\)).
+
+Sia quindi \(p(x)\supseteq q(x)\), \(p(x) \in S(\U)\). Questo è finitamente soddisfacibile in \(M\) in quanto lo è in \(\U\).
+
+\uline{\(\overline{c} = \langle c_{i} : i<\omega \rangle\) è sequenza di Morley di \(p(x)\) su \(M\)}
+
+Si deve dimostrare che \(c_{i}\vDash p(x) \restricted {\scriptstyle M, (c \restricted i)}\) per ogni \(i \in \omega\).
+
+Se per qualche \(c_{i}\) e per qualche \(\varphi(x; c \restricted i) \in  p(x) \restricted {\scriptstyle M, (c \restricted i)}\) si avesse \(\lnot \varphi(c_{i}; c \restricted i)\), allora per ogni \(j>i\) si avrebbe (siccome \(c_{j} \equivalentover{M, (c\restricted i)} c_{i}\))
+\begin{equation*}
+\lnot\varphi(c_{j}; c \restricted i)
+\end{equation*}
+e pertanto \(\lnot\varphi(x; c\restricted i) \in q(x)\). Assurdo perché \(q(x) \subseteq p(x)\) e \(p(x)\) finitamente soddisfacibile.
+\end{proof}
+\subsection{Teorema di Ramsey}
+\label{sec:org4761d84}
+
+Vedi Sezione 15.1 di \autocite{zambellaCrecheCourseModel2025a}.
+
+\href{20251029171516-teorema_di_ramsey.org}{Teorema di Ramsey}
+\section{{\bfseries\sffamily DONE} Lezione 12 - \textit{<2025-10-29 Wed>}}
+\label{sec:org64daed1}
+
+\subsection{Teorema di Ehrenfeucht-Mostowski}
+\label{sec:orgbbd5ff8}
+
+\begin{thm}
+(Teorema di Ramsey).
+Sia \(M\) insieme infinito.
+Per ogni \(k\)-colorazione di \(M^{(n)}\) esiste \(H \subseteq M\) infinito tale che gli \(H^{(n)}\) sono monocromatici.
+\end{thm}
+\begin{definizione}
+Sia \((I,<)\) un insieme parzialmente ordinato senza elementi massimi, e sia \(\overline{a} \coloneqq \langle a_{i}: i \in I \rangle\), con \(a_{i} \in \U\). Sia \(\overline{x} = \langle x_{i} : i<\omega \rangle\). Si definisce il \uline{tipo di Ehrenfeucht-Mostowski} come
+\begin{equation*}
+\operatorname{EM-tp}(\overline{a}/A) \coloneqq \set{\varphi(\overline{x}) \in \L(A) \mid \varphi(a \upharpoonright I_{0})\text{ per ogni }I_{0} \in \binom{I}{\omega}}.
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Se \(\overline{a}\) è una sequenza di indiscernibili su \(A\), allora \(\operatorname{EM-tp}(\overline{a}/A)\) è completo.
+\end{oss}
+\begin{thm}
+(Teorema di Ehrenfeucht-Mostowski).
+Data \(\overline{a} \coloneqq \langle a_{i}: i \in I \rangle\) con \((I,<)\) un insieme parzialmente ordinato senza elementi massimi, esiste \(\overline{c} = \langle c_{i} : i<\omega \rangle\) di indiscernibili su \(A\) tale che \begin{equation*}
+\operatorname{EM-tp}(\overline{c}/A) \supseteq \operatorname{EM-tp}(\overline{a}/A).
+\end{equation*}
+\end{thm}
+\begin{proof}
+(idea). Sia \(q(\overline{x}) \coloneqq \operatorname{EM-tp}(\overline{a}/A)\).
+Vogliamo realizzare
+\begin{equation*}
+q(x) \cup \set{\varphi(\overline{x} \restricted I_{0}) \iff \varphi(\overline{x} \restricted I_{1}) \mid I_{0},I_{1} \in I^{(\omega)}, \varphi(x) \in \L(A)}
+\end{equation*}
+Devo dimostrare che il tipo di cui sopra sia finitamente consistente. Basta mostrare che per ogni \(\varphi_{1},\dots,\varphi_{n} \in \L(A)\) soddisfo
+\begin{equation*}
+\set{\varphi(\overline{x} \restricted I_{0}) \iff \varphi(\overline{x} \restricted I_{1}) \mid I_{0},I_{1} \in I^{(\omega)}, i=1,\dots,n}
+\end{equation*}
+con qualche \(\overline{a} \restricted H\), \(H \in I^{(\omega)}\).
+
+Sia \(m\) il massimo tale che \(x_{m}\) occorre in \(\varphi_{1},\dots,\varphi_{n}\). Soddisfo
+\begin{equation*}
+\set{\varphi(\overline{x} \restricted I_{0}) \iff \varphi(\overline{x} \restricted I_{1}) \mid I_{0},I_{1} \in I^{(m)}, i=1,\dots,n}
+\end{equation*}
+con qualche \(\overline{a} \restricted H\), \(H \in I^{(\omega)}\).
+
+Coloro \(I^{(m)}\) con \(2^{n}\) colori: un colore per ogni valore di verità di
+\begin{equation*}
+\varphi_{1}(a_{i_{1}},\dots,a_{i_{m}}), \dots , \varphi_{n}(a_{i_{1}},\dots, a_{i_{m}}).
+\end{equation*}
+
+Per Ramsey esiste \(H \subseteq I^{(\omega)}\) monocromatico.
+\end{proof}
+\begin{prop}
+Sia \(\overline{c} = \langle c_{i} : i <\omega \rangle\) sequenza di indiscernibili su \(A\). Esiste \(M\supseteq A\) tale che \(\overline{c}\) è una sequenza di indiscernibili su \(M\).
+\end{prop}
+\begin{proof}
+Sia \(M\) un modello arbitrario.
+Consideriamo \(\operatorname{EM-tp}(\overline{c}/A)\) completo, e definiamo
+\begin{equation*}
+p(\overline{x})\coloneqq \operatorname{EM-tp}(\overline{c}/M)\supseteq \operatorname{EM-tp}(\overline{c}/A)
+\end{equation*}
+Per il Teorema di Ehrenfeucht-Mostowski esiste \(\overline{b}\vDash p(\overline{x})\) sequenza di indiscernibili su \(M\).
+Siccome \(\overline{b}\vDash \operatorname{EM-tp}(\overline{c}/A)\) allora
+\begin{equation*}
+\overline{b} \equivalentover{A} \overline{c}
+\end{equation*}
+e pertanto esiste \(f \in \operatorname{Aut}(\U/A)\) tale che \(f(\overline{b}) = c\), ovvero \(\overline{c}\) è indiscernibile su \(f[M] \supseteq A\).
+\end{proof}
+\subsection{Teorema di Hindman}
+\label{sec:orgb86d36f}
+
+Sia \(S\) un semigruppo, \(\L\) un linguaggio che estende il linguaggio dei gruppi moltiplicativi. Sia \(\U \succeq S\) modello mostro.
+
+\begin{thm}
+(Teorema di Hindman).
+Per ogni colorazione finita di \(\N\) esiste un insieme infinito \(H \subseteq \N\) tale che
+\begin{equation*}
+\set{\sum_{a \in A} a \mid A \subseteq H\text{ finito}}
+\end{equation*}
+è monocromatico.
+\end{thm}
+\begin{oss}
+Questo teorema dice ``quasi'' che esiste un insieme monocromatico chiuso per somma. Infatti, mancano le somme di lunghezza arbitraria dello stesso elemento.
+\end{oss}
+
+\begin{thm}
+(Teorema di Hindman).
+Per ogni colorazione finita di \(S\) esiste un insieme infinito ordinato \((H,<) \subseteq S\) tale che
+\begin{equation*}
+\set{\prod_{a \in A}^{\text{ordinato}} a \mid A \subseteq H\text{ finito}}
+\end{equation*}
+è monocromatico.
+\label{thm:hindman}
+\end{thm}
+
+\begin{thm}
+(Teorema di van der Waerden).
+Per ogni colorazione finita di \(\N\) esistono \uline{progressioni aritmetiche}\footnote{Un progressione aritmetica è una sequenza finita della forma
+\begin{equation*}
+a, a+b, a+2b, \dots, a+nb.
+\end{equation*}} di lunghezza arbitraria monocromatiche.
+\end{thm}
+Per \(\mathcal{A}, \mathcal{B} \subseteq \U\) si definisce
+\begin{equation*}
+\mathcal{A} * \mathcal{B} \coloneqq \set{a\cdot b\mid a \in \mathcal{A}, b \in \mathcal{B}, a \nonfork[S] b}.
+\end{equation*}
+
+\uline{Notazione}: abbrevio
+\begin{align*}
+\mathcal{A}*b &\coloneqq \mathcal{A}*\orbita(b/S)\\
+a*\mathcal{B} &\coloneqq \orbita(a/S)*\mathcal{B}\\
+a*b &\coloneqq \orbita(a/S)* \orbita(b/S)
+\end{align*}
+
+\begin{oss}
+È possibile definire i sequenti tipi
+\begin{align*}
+x \nonfork[S] b &= \set{\lnot\varphi(x;b) \mid \varphi(S^{x}; b) = \emptyset, \varphi(x;z) \in \L(S)}\\
+a \nonfork[S] z \equivalentover{S} b &= \set{\lnot\varphi(a;z) \mid \varphi(S^{x}; b) = \emptyset, \varphi(x;z) \in \L(S)}\\
+x \nonfork[S] z \equivalentover{S} b &= \set{\lnot\varphi(x;z) \mid \varphi(S^{x}; b) = \emptyset, \varphi(x;z) \in \L(S)}
+\end{align*}
+\end{oss}
+
+\begin{prop}
+Se \(\mathcal{A}\) è tipo-definibile su \(S\) allora anche \(\mathcal{A}*b\) è tipo-definibile su \(S\).
+\end{prop}
+\begin{proof}
+Voglio mostrare che
+\begin{equation*}
+\set{a,b'\mid a \in \mathcal{A}, b' \equivalentover{S} b, a \nonfork[S] b'}
+\end{equation*}
+è tipo-definibile.
+
+Voglio quindi
+\begin{equation*}
+p(x;y) = x \in \mathcal{A} \land x \nonfork[S] y \equivalentover{S} b.
+\end{equation*}
+e pertanto \(\mathcal{A}*b\) è definito da
+\begin{equation*}
+q(z) = \exists x,y\ \big(z = x\cdot y \land p(x,y)\big).\qedhere
+\end{equation*}
+\end{proof}
+\begin{oss}
+È possibile pensare a \(*\) come una operazione:
+\begin{align*}
+*: \U/\equivalentover{S} \times \U/\equivalentover{S} &\longrightarrow \U/\equivalentover{S}\\
+(a/\equivalentover{S}), (b/\equivalentover{S}) &\longmapsto ab/\equivalentover{S}
+\end{align*}
+continua a sinistra e in generale non a destra (nella \(S\)-topologia).
+\end{oss}
+\section{{\bfseries\sffamily TODO} Lezione 13 - \textit{<2025-11-04 Tue>}}
+\label{sec:org5dc7650}
+
+\subsection{Topological dynamics}
+\label{sec:orgf7035cb}
+
+Sia \(S\) semigruppo (operazione definibile in \(\L\)), \(\U \succeq S\).
+
+Vogliamo definire una operazione \(*\) tra sottoinsiemi di \(\U\). [l'obiettivo finale è mostrare che \(*\) è operazione di semigruppo su \(\U/\equivalentover{S}\)]
+
+Per \(\mathcal{A}, \mathcal{B} \subseteq \U\) si definisce
+\begin{equation*}
+\mathcal{A} * \mathcal{B} \coloneqq \set{a\cdot b\mid a \in \mathcal{A}, b \in \mathcal{B}, a \nonfork[S]b}.
+\end{equation*}
+
+\uline{Notazione}: abbrevio
+\begin{align*}
+\mathcal{A}*b &\coloneqq \mathcal{A}*\orbita(b/S)\\
+a*\mathcal{B} &\coloneqq \orbita(a/S)*\mathcal{B}\\
+a*b &\coloneqq \orbita(a/S)* \orbita(b/S)
+\end{align*}
+
+\begin{oss}
+Se \(\mathcal{A},\mathcal{B}\) sono invarianti su \(S\), allora \(\mathcal{A}*\mathcal{B}\) è invariante su \(S\).
+\end{oss}
+
+\begin{thm}
+Se \(\mathcal{A}\) è tipo-definibile (su \(S\)) allora \(\mathcal{A}*b\) è tipo-definibile per ogni \(b\).
+\end{thm}
+
+\begin{lem}
+Se \(\mathcal{A},\mathcal{B},\mathcal{C}\) sono invarianti su \(S\) allora
+\begin{equation*}
+\mathcal{A}*(\mathcal{B}*\mathcal{C}) \subseteq (\mathcal{A}*\mathcal{B})*\mathcal{C}.
+\end{equation*}
+\end{lem}
+\begin{proof}
+Sia \(a\cdot b\cdot c \in \mathcal{A}*(\mathcal{B}*\mathcal{C})\). Allora
+\begin{equation*}
+b \nonfork[S]c, \qquad
+a \nonfork[S]b\cdot c
+\end{equation*}
+Voglio mostrare che esistono \(a' \in \mathcal{A}\), \(b' \in \mathcal{B}\), \(c' \in \mathcal{C}\) tale che
+\begin{equation*}
+a' \nonfork[S]b', \qquad
+a'\cdot b' \nonfork[S]c'
+\end{equation*}
+e che \(a\cdot b\cdot c = a'\cdot b' \cdot c'\).
+
+È sufficiente che esiste \(a' \in \mathcal{A}\) tale che
+\begin{equation*}
+a' \nonfork[S]b, \qquad
+a', b \nonfork[S]c
+\end{equation*}
+e che
+\(a\cdot b\cdot c \equivalentover{S} a'\cdot b \cdot c\).
+
+Per il Lemma~\ref{lem:propfork}(4) trovo \(a'\) tale che
+\begin{equation*}
+a \equivalentover{S,b\cdot c} a' \nonfork[S]b\cdot c, b,c.
+\end{equation*}
+(allora immediatamente \(a'\nonfork[S]b,c\) e \(a' \nonfork[S]b\)).
+
+In particolare, siccome \(a' \nonfork[S]b,c\) e \(b \nonfork[S]c\) per il Lemma~\ref{lem:propfork}(3) si ottiene che \(a',b \nonfork[S]c\).
+
+Resta da dimostrare l'elementare equivalenza. \(a' \in \mathcal{A}\) per invarianza, e siccome \(a \equivalentover{S,b\cdot c} a'\)
+\begin{equation*}
+a, b\cdot c \equivalentover{S} a', b \cdot c
+\end{equation*}
+e pertanto \(a\cdot b\cdot c \equivalentover{S} a'\cdot b \cdot c\).
+\end{proof}
+\begin{definizione}
+La relazione \(\nonfork\) è \uline{stazionaria} se
+\begin{equation*}
+a \equivalentover{S} x \nonfork[S]b
+\end{equation*}
+è un tipo completo su \(S,b\).
+\end{definizione}
+\textbf{D'ora in avanti \(\nonfork\) è assunta stazionaria}.
+
+\uline{Conseguenza}: se \(a\nonfork[S]b\) e \(a' \equivalentover{S} a\) allora \(a' \nonfork[S]b\).
+
+\begin{lem}
+Se \(a \nonfork[S]b\) e \(a' \equivalentover{S} a\) allora
+\(a\cdot b \equivalentover{S} a' \cdot b\).
+\end{lem}
+\begin{proof}
+Infatti \(a,b \equivalentover{S} a',b\).
+\end{proof}
+\begin{cor}
+Se \(a \nonfork[S]b\), \(a' \nonfork[S]b'\),
+\(a' \equivalentover{S} a\), \(b' \equivalentover{S} b\)
+allora
+\(a\cdot b \equivalentover{S} a'\cdot b'\).
+\end{cor}
+\begin{proof}
+Se per assurdo \(a\cdot b \not\equivalentover{S} a'\cdot b'\) sia \(fb'=b\) per \(f \in \Aut(\U/S)\), e quindi
+\(a\cdot b \not\equivalentover{S} f(a'\cdot b')\)
+e quindi
+\(a\cdot b \not\equivalentover{S} f(a') \cdot f(b') = a''\cdot b\), dove
+\(a'' \equivalentover{S} a\).
+\end{proof}
+\begin{cor}
+\(a*b\) è un'orbita.
+\end{cor}
+
+\begin{thm}
+Se \(\mathcal{A},\mathcal{B},\mathcal{C}\) sono invarianti su \(S\) allora
+\begin{equation*}
+\mathcal{A}*(\mathcal{B}*\mathcal{C}) = (\mathcal{A}*\mathcal{B})*\mathcal{C}.
+\end{equation*}
+\end{thm}
+\begin{proof}
+Considerare il caso \(\mathcal{A},\mathcal{B}, \mathcal{C}\) orbite.
+\end{proof}
+\def\defaultnonforkmodel{M}
+
+Questo teorema vale in generale, non solo per \(S\) sottogruppo.
+\begin{prop}
+Se per ogni \(\varphi(x) \in \L(\U)\) esiste \(\psi(x) \in\L(M)\) tale che
+\begin{equation*}
+\varphi(M^{x}) = \psi(M^{x}),
+\end{equation*}
+dove \(\varphi(M^{x}) = \varphi(\U^{x})\cap M^{x}\), \uline{allora} \(\nonfork[M]\) è stazionaria:
+\begin{equation*}
+a \equivalentover{M} x \nonfork[M] b.
+\end{equation*}
+è un tipo completo su \(M,b\).
+\end{prop}
+\begin{proof}
+Sia \(\varphi(x) = \varphi(x;b)\) per \(\varphi(x;z) \in \L\) e \(b \in \U^{z}\).
+
+Siano \(a_{1},a_{2} \in \U^{x}\) tali che
+\(a_{1} \equivalentover{M} a_{2}\) e \(a_{1} \nonfork[S]b\), \(a_{2} \nonfork[S]b\).
+Voglio mostrare che \(\varphi(a_{1},b) \iff \varphi (a_{2},b)\).
+
+Sappiamo che \(\varphi(a_{i},b) \iff \psi(a_{i})\) perché \(\varphi(M^{x}) = \psi(M^{x})\).
+
+Siccome \(a_{1}\equivalentover{M} a_{2}\) allora \(\psi(a_{1}) \iff \psi(a_{2})\).
+\end{proof}
+
+\begin{oss}
+Per ottenere che \(\nonfork\) è 1-stazionaria\footnote{Ovvero il tipo è completo per \(\card{x}=1\).} basta aggiungere al linguaggio un predicato per ogni sottoinsieme di \(S\).
+\end{oss}
+\begin{definizione}
+\(\mathcal{A}\neq\emptyset\) è idempotente se \(\mathcal{A}*\mathcal{A} \subseteq \mathcal{A}\).
+\end{definizione}
+\begin{oss}
+Se \(\mathcal{A}\) è idempotente e \(\mathcal{B} \subseteq \mathcal{A}\) allora \(\mathcal{A}*\mathcal{B}\) è idempotente.
+\end{oss}
+\def\defaultnonforkmodel{S}
+\begin{thm}
+(Ellis).
+Se \(\mathcal{A}\) è tipo-definibile e idempotente, allora esiste \(b \in \mathcal{A}\) tale che \(\orbita(b/S)\) è idempotente.
+\end{thm}
+\begin{proof}
+Per compattezza possiamo assumere che \(\mathcal{A}\) sia \(\subseteq\)-minimale tra gli idempotenti tipo-definibili.
+
+Prendiamo \(b \in \mathcal{A}\). Allora \(\mathcal{A}*b = \mathcal{A}\) per minimalità.
+\begin{equation*}
+\mathcal{A}'\coloneqq
+\set{a \in \mathcal{A} \mid a \nonfork[S]b, a\cdot b \equivalentover{S} b}.
+\end{equation*}
+Questo insieme è tipo-definibile su \(S,b\), ed è invariante su \(S\). (quindi è tipo-definibile su \(S\)).
+
+Si ha che \(\mathcal{A}' \neq \emptyset\) poiché \(\mathcal{A}*b=\mathcal{A}\). Inoltre \(\mathcal{A}'\) è idempotente.
+
+Quindi \(\mathcal{A}'=\mathcal{A}\), e quindi
+\(\orbita(b/S) \subseteq \mathcal{A}'\).
+
+Quindi \(\orbita(b/S)\) è idempotente.
+\end{proof}
+\def\fp{\operatorname{fp}}
+Sia \(S=\big(\N, \cdot, \parti(\N)\big)\), \(\U\succeq S\), \(\overline{a}\) tupla in \(\U\) di lunghezza \(\le \omega\).
+\begin{equation*}
+\fp(\overline{a}) \coloneqq \set{a_{i_{1}}\cdot \dots \cdot a_{i_{n}}\mid i_{0}<\dots<i_{n} <\card{\overline{a}}}.
+\end{equation*}
+
+
+\begin{thm}
+(Teorema di Hindman).
+Per ogni colorazione finita di \(\N\) esiste \(\overline{a} \in \N^{\omega}\) tale che \(\fp(\overline{a})\) è monocromatico.
+\end{thm}
+\def\defaultnonforkmodel{\N}
+\begin{proof}
+Sia
+\begin{equation*}
+\mathcal{A} \coloneqq \set{a \in \U\mid a\neq 0}
+\end{equation*}
+che è definibile e idem-potente. Quindi contiene \(b_{0}\) tale che \(\orbita(b_{0}/\N)\) è idempotente.
+
+Sia \(\overline{b} = \langle b_{i} : i<\omega \rangle\) sequenza di coeredi su \(N\).
+
+Si noti che \(\fp(\overline{b})\) è monocromatica (ha colore 1). Infatti
+\begin{equation*}
+b_{0}\cdot b_{1} \equivalentover{\N} b_{0},\qquad
+b_{0}\cdot b_{1} \equivalentover{\N} b_{i}
+\end{equation*}
+poiché \(b_{1}\nonfork[S]b_{0}\).
+
+Definiamo per induzione una sequenza \(\overline{a} = \langle a_{i}: i<\omega\rangle\) tale che
+\begin{equation*}
+\fp(\overline{a} \restricted{n}, b_{1},b_{0})
+\end{equation*}
+ha colore \(1\). (definibile da \(\varphi(a\restricted{n}, b_{1},b_{0})\))
+
+Lo assumo per ipotesi induttiva. Voglio trovare \(a_{n}\). Siccome \(b_{1}\nonfork[S]b_{0}\) allora esiste \(a_{n} \in \N\) tale che
+\begin{equation*}
+\varphi(a \restricted{n}, a_{n}, b_{0})
+\end{equation*}
+e quindi \(\fp(a \restricted{n}, a_{n}, b_{0})\) ha colore 1.
+Voglio arrivare a mostrare che \(\fp(a \restricted{n}, a_{n}, b_{1}, b_{0})\) ha colore 1.
+
+Siccome \(b_{1}\equivalentover{\N} b_{0}\), sicuramente
+\begin{equation*}
+a_{i_{1}}\cdot \dots a_{i_{n}} \cdot b_{0} \text{%
+ha lo stesso colore di %
+}a_{i_{1}}\cdot \dots a_{i_{n}} \cdot b_{1}
+\end{equation*}
+Se per assurdo \(a_{i_{1}}\cdot \dots a_{i_{n}} \cdot b_{1}\cdot b_{0}\) ha colore diverso, siccome \(b_{1}\nonfork[S] b_{0}\) ho
+\begin{equation*}
+b_{1}\cdot b_{0} \equivalentover{\N} b_{0}
+\end{equation*}
+per idempotenza quindi anche
+\(a_{i_{1}}\cdot \dots a_{i_{n}} \cdot b_{0}\)
+ha un colore diverso. Assurdo.
+\end{proof}
+\section{{\bfseries\sffamily TODO} Lezione 14 - \textit{<2025-11-05 Wed>}}
+\label{sec:org597df12}
+
+\def\D{\mathcal{D}}
+\def\DD{\bm{\D}}
+\def\U{\mathcal{U}}
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+\def\L{\mathcal{L}}
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+\def\b{\bm{b}}
+
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+
+\begin{thm}
+(Teorema di van der Waerden).
+Per ogni colorazione finita di \(\N\) e per ogni \(k<\omega\) esistono \(m,n < \omega\) tali che la sequenza\footnote{Questa è una progressione aritmetica}
+\begin{equation*}
+\langle n + m \cdot i \mid i<k \rangle
+\end{equation*}
+è monocromatica.
+\label{thm:vdWaerden}
+\end{thm}
+
+\begin{thm}
+(Teorema di Hales-Jewett).
+Sia \(A\) insieme finito. Per ogni colorazione di \(A^{<\omega}\) esiste \(w(x) \in (A\cup \set{x})^{<\omega}\) tale che
+\begin{equation*}
+\set{w(d) \mid d \in A}
+\end{equation*}
+è monocromatico (dove con \(w(d)\) si intende sequenza in \(A^{<\omega}\) ottenuta sostituendo ogni occorenza di \(x\) in \(w(x)\) con \(d\)).
+\label{thm:HalesJewett}
+\end{thm}
+
+\begin{thm}
+(Teorema di Hales-Jewett - \emph{versione di Koppelberg}).
+Sia \(S\) un semigruppo, \(C \subseteq S\) sottosemigruppo \emph{nice}. Per ogni colorazione di \(C\) e per ogni insieme finito di retrazioni di \(S\) in \(C\):
+\begin{equation*}
+\set{\sigma_{i} : S\to C \tc i<k}
+\end{equation*}
+esiste un \(w \in S\) tale che
+\begin{equation*}
+\set{\sigma_{i}(w) \tc i<k}
+\end{equation*}
+è monocromatico.
+\label{thm:HalesJewettdiK}
+\end{thm}
+
+\begin{definizione}
+Un sottosemigruppo \(C \subseteq S\) si dice \emph{nice} se per ogni \(a,b \in S\)
+\begin{equation*}
+a\cdot b \in C \IMPLICA a,b \in C.
+\end{equation*}
+\end{definizione}
+\begin{esempio}
+Si consideri come \(S \coloneqq (A\cup\set{x})^{<\omega}\) che ha come operazione la concatenazione. \(C\coloneqq A^{<\omega}\) è \emph{nice}.
+\end{esempio}
+\begin{definizione}
+Un omomorfismo \(f:S\to C\) si dice \uline{retrazione}
+\begin{equation*}
+f \restricted{C} = \Id_{C}.
+\end{equation*}
+\end{definizione}
+\begin{esempio}
+Si consideri come \(S \coloneqq (A\cup\set{x})^{<\omega}\) che ha come operazione la concatenazione, e sia \(C\coloneqq A^{<\omega}\).
+
+Dato \(d \in A\) considero
+\begin{align*}
+\sigma_{d}: S &\longrightarrow C\\
+w(x) &\longmapsto w(d).
+\end{align*}
+\end{esempio}
+
+\begin{proof}
+(Teorema~\ref{thm:HalesJewettdiK}
+\(\Rightarrow\)
+Teorema~\ref{thm:vdWaerden}).
+
+Sia \(S = \set{n+m\cdot x \mid n,m \in \N}\), e sia \(C = \langle \N,+\rangle\) un sottosemigruppo \emph{nice}.
+Dato \(k<\omega\) sia
+\begin{align*}
+\sigma_{i}: S &\longrightarrow C\\
+n+m\cdot x &\longmapsto n + m\cdot i.
+\end{align*}
+
+Per il Teorema~\ref{thm:HalesJewettdiK} esiste \(n'+m'\cdot x\) tale che
+\begin{equation*}
+\set{\sigma_{i}(n'+m'\cdot x) \tc i<k} = \set{n' + m'\cdot i \mid i < k}
+\end{equation*}
+è monocromatico.
+\end{proof}
+
+\def\defaultnonforkmodel{S}
+Dato \(S\) semigruppo, sia \(\U \succeq S\) modello mostro nel linguaggio che contiene \(\cdot\) e un simbolo per ogni sottoinsieme di \(S\).
+Allora la relazione \(\nonfork\) è \(1\)-stazionaria.
+
+Allora l'operzione \(*\) tra elementi di \(\U/\equivalentover{S}\) è un'operazione di semigruppo.
+
+\begin{oss}
+\(\U/\equivalentover{S}\) è uno spazio topologico compatto.
+\begin{quote}
+\(*\) è continua a destra sse \(A* b\) è tipo-definibile per ogni \(A\) tipo-definibile.
+\end{quote}
+\end{oss}
+
+\begin{definizione}
+Un \(\emptyset \neq C \subseteq \U\) si dice:
+\begin{itemize}
+\item ideale sinistro se \(\U * C \subseteq C\);
+\item ideale destro se \(C * \U \subseteq C\);
+\item ideale bilatero se è sia ideale destro che sinistro.
+\end{itemize}
+\end{definizione}
+
+\begin{prop}
+Ogni ideale sinistro tipo-definibile contiene un ideale sinistro \(\subseteq\)-minimale e questo è tipo-definibile.
+\end{prop}
+\begin{proof}
+Sia \(C\) ideale sinistro tipo-definibile. Sia \(b \in C\).
+Allora \(C*b\) è un ideale sinistro tipo-definibile e \(C*b \subseteq C*C \subseteq U*C \subseteq C\).
+
+Quindi esiste \(C' \subseteq C\) tale che \(C'* b = C'\) per ogni \(b \in C'\).
+Affermo che \(C'\) è minimale. Questo è tipo-definibile poiché intersezione di chiusi.
+
+Sia \(C'' \subseteq C'\) ideale sinistro: sia \(b \in C'' \subseteq C'\):
+\begin{equation*}
+C' = C' * b \subseteq \U*b \subseteq \U * C'' \subseteq C''.\qedhere
+\end{equation*}
+\end{proof}
+
+\uline{Nota}: \(C*C \subseteq U*C \subseteq C\), quindi \(C\) è idempotente.
+
+\begin{lem}
+Sia \(M\) ideale sinistro minimale tipo-definibile. Siano \(u,v \in M\) idempotenti.
+\begin{enumerate}
+\item \(a*u \equivalentover{S} a\) per ogni \(a \in M\).
+\item \(*\) è una operazione di gruppo su \(u*M\) con identità \(u\).
+\item La mappa
+\begin{align*}
+ f_{v}: u*M &\longrightarrow v*M\\
+ a&\longmapsto v*a
+\end{align*}
+è un isomorfismo di gruppi.
+\item Se \(u\neq v\) allora \((u * M) \cap (v * M) = \emptyset\).
+\item \(M = \bigcup_{\substack{u \in M\\ \text{idempotente}}} u*M\).
+\end{enumerate}
+\end{lem}
+\begin{proof}
+\begin{enumerate}
+\item \(M*u=M\), allora esiste \(a' \in M\) tale che \(a'*u = a\). Quindi \begin{equation*}
+     a * u = a' * u * u = a' * u = a.
+\end{equation*}
+\item Sia \(a \in u*M \subseteq M\), allora \(M*a = M\), quindi
+\begin{equation*}
+ u*M*a = u*M
+\end{equation*}
+e quindi esiste \(a' \in M\) tale che \(u*a'*a = u\) e quindi \(u*a'\) è l'inverso sinistro di \(a\).
+\item Mostriamo che
+\begin{align*}
+ f_{u}: v*M &\longrightarrow u*M\\
+ a&\longmapsto u*a
+\end{align*}
+è inversa:
+\begin{equation*}
+ f_{u}\,f_{v} (u*a) = \parentesi{u}{u * v} * u * a = u * u * a = u * a.
+\end{equation*}
+Inoltre si ha che
+\begin{equation*}
+ f_{v}(a*b) = v * a * b = v * a * v * b = f_{v}(a) * f_{v}(b).
+\end{equation*}
+\item Per assurdo sia \(a \in (u * M) \cap (v * M)\).
+Sia \(a' \in u*M\) tale che \(a*a' = u\) (poiché \(u*M\) è un gruppo).
+
+Siccome \(a \in v*M\) allora
+\begin{equation*}
+ u = a * a' \in v * \parentesi{=M}{M * a'} = v * M
+\end{equation*}
+e quindi \(u=v\).
+\item Sia \(a \in M\) e sia \(\set{c \in M \mid c*a = a}\). Questo è un idempotente tipo-definibile.
+
+Quindi esiste \(u \in \set{c \in M \mid c*a = a}\) elemento idempotente e quindi
+\begin{equation*}
+ u * a = a
+\end{equation*}
+e quindi \(a \in u*M\).
+\end{enumerate}
+\end{proof}
+
+\begin{oss}
+Partendo da \(S\) semigruppo abbiamo ottenuto \(\U/\equivalentover{S}\), definendo \(*\) operazione di semigruppo continua a dx.
+Questo è il semigruppo di Ellis. (Stone-Check compactification)
+
+Considerando ora \(u*M\) si è ottenuto un gruppo con l'operazione \(*\). Questo non dipende da \(M\) e \(u\).  Questo è il gruppo di Ellis.
+\end{oss}
+\section{{\bfseries\sffamily DONE} Lezione 15 - \textit{<2025-11-11 Tue>}}
+\label{sec:org0959ebe}
+\def\D{\mathcal{D}}
+\def\DD{\bm{\D}}
+\def\U{\mathcal{U}}
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+\def\L{\mathcal{L}}
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+\def\b{\bm{b}}
+
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{#1}}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+
+\def\defaultnonforkmodel{S}
+Sia \(S\) un semigruppo,
+\(\L= \set{\cdot} \cup \parti{S} \cup\text{altro}\) e sia \(\U\) modello saturo tale che \(S \preceq \U\).
+
+Si ha \(*\) operazione di semigruppo su \(\U/\equivalentover{S}\) con
+\begin{equation*}
+a*b = \set{a' \cdot b' \mid %
+a \equivalentover{S} a' \nonfork b' \equivalentover{S} b}.
+\end{equation*}
+L'operazione \(*\) è continua a sinistra, ovvero
+\begin{quote}
+\(x*b\) è un tipo (su \(S\)) per ogni \(b\).
+\end{quote}
+
+\begin{oss}
+Esistono idempotenti, ovvero \(b\) tali che
+\begin{equation*}
+b*b = \orbita(b/S).
+\end{equation*}
+\end{oss}
+
+Abbiamo introdotto il concetto di \textbf{ideale sinistro}:
+\begin{equation*}
+M \subseteq \U\text{ ideale sinistro} \IFF \U*M \subseteq M.
+\end{equation*}
+
+\begin{prop}
+LSASE:
+\begin{enumerate}
+\item \(M\) ideale sinistro \uline{minimale};
+\item per ogni \(b \in M\): \(M * b = M\).
+\end{enumerate}
+\end{prop}
+
+\begin{prop}
+Sia \(M\) ideale sinistro minimale, \(a \in \U\). Allora \(M*a\) è ideale sinistro minimale.
+\end{prop}
+\begin{proof}
+Sia \(b*a \in M*a\) con \(b \in M\) arbitrario. Basta mostrare
+\begin{equation*}
+M*a*b*a = M*a
+\end{equation*}
+Ma \(a*b \in M\) e pertanto \(M*a*b = M\) per minimalità di \(M\).
+\end{proof}
+\begin{prop}
+Sia \(M\) ideale sinistro minimale, \(a \in \U\) idempotente, allora
+\(a*M*a\) contiene un idempotente.
+\end{prop}
+\begin{proof}
+Sia \(u \in M*a\) idempotente. Affermo che \(a*u\) è idempotente.
+\begin{equation*}
+a*u*a*u = a*(u*a)*u = a * u * u = a*u. % Hello
+\qedhere
+\end{equation*}
+\end{proof}
+\begin{thm}
+(Teorema di Hales-Jewett).
+Sia \(S\) un semigruppo e sia \(C \subseteq S\) un \uline{sottosemigruppo \emph{nice}}\footnote{Ovvero se \(a\cdot b \in C\) allora \(a \in C\) e \(b \in C\).}. Dato \(k \in \omega\) sia
+\begin{equation*}
+\Sigma\coloneqq \set{%
+\sigma_{i}: S\to C \text{ omomorfismo}%
+\mid \sigma_{i} \restricted{C} = \Id_{C}, i<k}
+\end{equation*}
+Per ogni colorazione finita di \(C\) esiste \(a \in S\setminus C\) tale che
+\begin{equation*}
+\set{\sigma_{i}(a) \mid i < k}
+\end{equation*}
+è monocromatico.
+\label{thm:halesjewett:bis}
+\end{thm}
+\begin{lem}
+Per ogni \(\sigma \in \Sigma\), per ogni \(a,b \in \U\) e
+\(A \subseteq \U\):
+\begin{enumerate}
+\item \(\sigma\big(\orbita(a/A)\big) = \orbita(\sigma a / A)\);
+\item \(\sigma(a*b) = \sigma(a)*\sigma(b)\).
+\end{enumerate}
+\end{lem}
+\def\C{\mathcal{C}}
+\begin{proof}
+(del Teorema~\ref{thm:halesjewett:bis}).
+Sia \(\L=\set{\cdot}\cup\parti{S}\cup \Sigma\). Sia \(\U\succeq S\) modello mostro, e sia \(\C = \phi(\U^{x})\), dove
+\begin{equation*}
+\phi(x):\qquad x \in C.
+\end{equation*}
+\begin{itemize}
+\item Dal momento che la proprietà \emph{nice} è esprimibile al prim'ordine, anche \(\mathcal{C}\) è \emph{nice}. Pertanto \(\U\setminus\C\) è ideale sinistro.
+\item Sia \(M \subseteq \U\setminus\C\) ideale sinistro minimale tipo-definibile, e sia \(N \subseteq \C\) ideale sinistro di \(\C\)\footnote{Ovvero \(\C*N \subseteq N\).} minimale tipo-definibile.
+\item Sia \(v \in N\) idempotente, e sia \(u \in v*M*v\) idempotente.
+\item Per ogni \(\sigma \in \Sigma\)
+\begin{equation}
+\sigma(u) \in \sigma(v)*\sigma(M)*\sigma(v) = v*\sigma(M)*v %
+\label{eq:vsigmaMv}
+\end{equation}
+con \(\sigma(u)\) idempotente.
+\item \(\sigma(M)\) è ideale sinistro di \(\C\), in quanto \(\sigma\) è l'identità su \(\C\):
+\begin{equation*}
+\C*\sigma(M) = \sigma(\C*M) \subseteq \sigma(M).
+\end{equation*}
+\item Si ha che \(\sigma(M)*v \subseteq N\) e per minimalità di \(N\):
+\begin{equation*}
+\sigma(M)*v = N.
+\end{equation*}
+\item Applicando alla~\eqref{eq:vsigmaMv}: \(\sigma(u) \in v*N\), ma per un lemma già visto \(v*N\) è un gruppo con identità \(v\), e quindi \(\sigma(u) \equivalentover{S} v\) per ogni \(\sigma \in \Sigma\).
+\end{itemize}
+
+Dunque
+\begin{equation*}
+\U\vDash \exists x \in (\U\setminus\C)\ %
+\bigg[ %
+\bigwedge_{\sigma \in \Sigma}%
+\text{``}\sigma(x)\text{ ha colore 1''}%
+\bigg].
+\end{equation*}
+e pertanto vale anche per \(S\).
+\end{proof}
+\begin{thm}
+(Teorema di van der Waerden).
+Per ogni colorazione di \(\N\) e per ogni \(k<\omega\) esiste una progressione aritmetica di lunghezza \(k\) monocromatica.
+\end{thm}
+\begin{thm}
+(Teorema di Szeméredi).
+Per ogni \(A \subseteq \N\) ``abbastanza grande'' e per ogni \(k<\omega\) esiste una progressione aritmetica di lunghezza \(k\) contenuta in \(A\).
+\end{thm}
+\(A\) è ``abbastanza grande'' se ha \uline{densità di Banach positiva}, ovvero
+\begin{equation*}
+\limsup_{\substack{%
+\card{I}\to \infty\\%
+ I\text{ intervallo}}} %
+\frac{\card{A\cap I}}{\card{I}} > 0.
+\end{equation*}
+\section{{\bfseries\sffamily DONE} Lezione 16 - \textit{<2025-11-12 Wed>}}
+\label{sec:org9a49e11}
+
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+\def\X{\mathcal{X}}
+\def\Z{\mathcal{Z}}
+\def\D{\mathcal{D}}
+%
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+\subsection{Relazioni stabili}
+\label{sec:org3692fb2}
+
+Sia \(\pi \subseteq \X\times\Z\) una relazione. Si indica indifferentemente
+\begin{equation*}
+(x,z) \in \pi,\qquad \pi(x,z).
+\end{equation*}
+
+\begin{definizione}
+\(\pi(x,z)\) è \uline{instabile} (o ha la \emph{order property}) se per ogni \(m<\omega\) esiste una sequenza
+\(\< a_{i}, b_{i} : i<m \>\)
+tale che
+\begin{equation}
+i<j<m \IMPLICA \pi(a_{i}, b_{j}) \land \lnot\pi(a_{j}, b_{i}). %
+\label{eq:relinstabile}
+\end{equation}
+Questa sequenza prende il nome di \uline{scaletta di lunghezza \(m\) per \(\pi\)} (o \emph{ladder sequence}).
+\end{definizione}
+
+Si potrebbe sostituire la~\eqref{eq:relinstabile} con una delle seguenti:
+\begin{enumerate}
+\item \(i < j < m\) sse \(\pi(a_{i}, b_{j})\);
+\item \(i \le j < m\) sse \(\pi(a_{i}, b_{j})\)
+\end{enumerate}
+Si ha che \(1.\oldiff 2.\), ma non sono equivalenti
+alla~\eqref{eq:relinstabile}
+
+\begin{prop}
+LSASE:
+\begin{enumerate}
+\item \(\pi\) è instabile;
+\item per ogni \(m<\omega\) esiste \(B \subseteq \Z\) e
+\(\< a_{i} \mid i < m \>\) (con  \(a_{i} \in \X\))
+tale che
+\begin{equation*}
+ \pi(a_{0}, B) \subsetneq \pi(a_{1}, B) \subsetneq \dots \subsetneq \pi(a_{m-1},B).
+\end{equation*}
+dove \(\pi(a, B) = \set{b \in B \mid \pi(a,b)}\).
+\end{enumerate}
+\end{prop}
+\begin{prop}
+Sia \(\psi(x;z) \in \L(A)\). LSASE:
+\begin{enumerate}
+\item \(\psi(x;z)\) è stabile;
+\item non esistono scalette di lunghezza \(\omega\);
+\item per ogni \(\< a_{i}, b_{i} \mid i <\omega \>\) sequenza di \(A\)-indiscernibili
+\begin{equation*}
+ \psi(a_{0},b_{1}) \iff \psi(a_{1}, b_{0}).
+\end{equation*}
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(\(1.\Leftrightarrow 2.\)): Per compattezza.
+
+(\(2.\Leftrightarrow 3.\)): EM thm.
+\end{proof}
+\begin{prop}
+\(\pi(x,z)\) è stabile sse \(\pi(x, x';z, z')\) stabile per ogni \(x',z'\).
+\end{prop}
+\begin{prop}
+Combinazioni Booleane di relazioni stabili sono stabili.
+\end{prop}
+\begin{proof}
+(\(\lnot\)): Se \(\< a_{i}, b_{i} \mid i<m \>\) è una scaletta per \(\pi\)
+\begin{equation*}
+i<j<m \IMPLICA \pi(a_{i}, b_{j}) \land \lnot\pi(a_{j}, b_{i}). %
+\end{equation*}
+allora \(\< a_{m-i+1}, b_{m-i+1} \mid i<m \>\) è una scaletta per \(\lnot \pi\).
+
+(\(\land\)): \uline{Caso facile}: siano \(\pi(x;z), \sigma(x;z) \in \L(A)\). Si dimostra che
+\begin{equation*}
+\pi(x;z), \sigma(x;z) \text{ stabili} \IMPLICA
+\pi(x;z)\land\sigma(x;z)\text{ stabile}
+\end{equation*}
+ovvero
+\begin{equation*}
+\pi(x;z)\land\sigma(x;z)\text{ instabile} \IMPLICA
+\pi(x;z) \text{ instabile}\lor \sigma(x;z) \text{ instabile}.
+\end{equation*}
+
+Si supponga che \(\< a_{i}, b_{i} \mid i<\omega \>\) sequenza di \(A\) indiscernibili tali che
+\begin{equation*}
+\pi(a_{0},b_{1}) \land \sigma(a_{0},b_{1}) \land
+\lnot\big[\pi(a_{1},b_{0}) \land \sigma(a_{1},b_{0})\big]
+\end{equation*}
+ovvero
+\begin{equation*}
+\pi(a_{0},b_{1}) \land \sigma(a_{0},b_{1}) \land
+\big[\lnot\pi(a_{1},b_{0}) \lor \lnot\sigma(a_{1},b_{0})\big]
+\end{equation*}
+\begin{itemize}
+\item Se \(\lnot\pi(a_{1},b_{0})\) è vera, allora \(\pi\) è instabile;
+\item se \(\lnot\sigma(a_{1},b_{0})\) è vera, allora \(\sigma\) è instabile.
+\end{itemize}
+
+(\(\land\)): \uline{Caso generale}. Siano \(\pi,\sigma\) relazioni arbitrarie. Si vuole dimostrare
+\begin{equation*}
+\pi(x;z)\land\sigma(x;z)\text{ instabile} \IMPLICA
+\pi(x;z) \text{ instabile}\lor \sigma(x;z) \text{ instabile}.
+\end{equation*}
+Sia \(\< a_{i}, b_{i} \mid i<k \>\) scaletta per
+\(\pi(x;z)\land\sigma(x;z)\),
+con \(k\) ``abbastanza grande'', ovvero se \(i<j<k\) si ha
+\begin{equation*}
+\pi(a_{i},b_{j}) \land \sigma(a_{i},b_{j}) \land
+\big[\lnot\pi(a_{j},b_{i}) \lor \lnot\sigma(a_{j},b_{i})\big].
+\end{equation*}
+\begin{itemize}
+\item Coloro \(i<j\) di verde se \(\lnot\pi(a_{j},b_{i})\);
+\item Coloro \(i<j\) di blu se \(\lnot\sigma(a_{j},b_{i})\).
+\end{itemize}
+
+Per il \href{20251029171516-teorema_di_ramsey.org}{Teorema di Ramsey} per ogni \(m\) esiste \(k\) (ovvero quel \(k\) abbastanza grande) tale che per ogni colorazione di \(\set{0,\dots,k-1}^{(2)}\) esiste \(H \subseteq \set{0,\dots,k-1}\) tale che \(\card{H}\ge m\) e \(H^{(2)}\) è monocromatico.
+\begin{itemize}
+\item Se \(H^{(2)}\) è blu, allora \(\sigma\) ammette scaletta di lunghezza \(m\);
+\item se \(H^{(2)}\) è verde, allora \(\pi\) ammette scaletta di lunghezza \(m\).
+\end{itemize}
+Segue che almeno una dei due è instabile.
+Infatti, se \(\sigma\) non ammette scalette di lunghezza \(m'\), allora non ammette scalette di lunghezza \(m>m'\).
+Pertanto, per ogni \(m>m'\) si ha che \(\pi\) ammette scaletta di lunghezza \(m\).
+Segue che \(\pi\) ammette scalette di lunghezza \(m\) per ogni \(m<\omega\).
+\end{proof}
+\begin{definizione}
+\(\D \subseteq \Z\) è \uline{approssimabile da \(\pi\)} se per ogni
+\(B \subseteq \Z\) finito esiste \(a \in \X\) tale che
+\begin{equation*}
+\pi(a;B) =\set{b \in B\mid \pi(a,b)} = \D \cap B.
+\end{equation*}
+\end{definizione}
+\begin{oss}
+Considero \(\parti{\Z}\) come spazio topologico, identificando con \(2^{\Z}\) con la topologia prodotto.
+Quindi gli intorni di base di \(\parti{\Z}\) hanno la forma, per \(B\) finito e \(C \subseteq B\)
+\begin{equation*}
+\set{A \in \parti{\Z} \mid A\cap B = C}.
+\end{equation*}
+\(\D\) è approssimabile da \(\pi\) sse \(\D\) è nella chiusura topologica di
+\begin{equation*}
+\set{\pi(a; \Z) \mid a \in X}.
+\end{equation*}
+\end{oss}
+\begin{thm}
+Se \(\pi \subseteq \X \times \Z\) è stabile e \(\D\) è approssimabile da \(\pi\), allora esistono \(\< a_{ij} \mid i,j < m\>\) in \(\X\) tali che
+\begin{equation*}
+\D = \bigcup_{i=1}^{m} \bigcap_{j=1}^{m} \pi(a_{i}, Z).
+\end{equation*}
+\end{thm}
+\begin{prop}
+Sia \(\psi(x;z) \in \L(A)\), \(\D \subseteq \U^{z}\). LSASE:
+\begin{enumerate}
+\item \(\D\) approssimabile da \(\psi\);
+\item \(\D\) è esternamente definibile da \(\psi\)\footnote{\(\D\) è esternamente definibile da \(\psi\) se vale una selle seguenti affermazioni equivalenti:
+\begin{enumerate}
+\item esiste \(\nonstandard{\U} \succ \U\), \(\nonstandard{a} \in \nonstandard{\U}\) tale che
+\begin{equation*}
+\D = \psi(\nonstandard{a}, \nonstandard{\U}^{z}) \cap \U^{z}
+\end{equation*}
+\item esiste \(p(x) \in S(\U)\) tale che
+\begin{equation*}
+\D =\D_{p,\psi} = \set{b \in \U^{z} \mid \psi(x;b) \in p}
+\end{equation*}
+\end{enumerate}}.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(b. \(\Rightarrow 1.\)):
+Sia \(B \subseteq \U^{z}\) finito.
+Sia \(a\vDash p(x)\restricted{A,B}\).
+Allora \(\pi(a, B) = \D\cap B\), ovvero che
+\begin{equation*}
+\forall b \in B\ %
+\big[\pi(a,b) \implies b \in \D\big]%
+\land %
+\big[\lnot\pi(a,b) \implies b \notin \D\big]
+\end{equation*}
+Questo è ovvio poiché \(p\) è completo e \(a\vDash p(x) \restricted{A,B}\).
+
+(\(1.\Rightarrow\) b.): Sia
+\begin{equation*}
+S(\U)\ni p(x) \supseteq \set{\pi(x;b) \mid b \in \D} \cup \set{\lnot\pi(x;b) \mid b \notin \D}.
+\end{equation*}
+Sia \(B \subseteq \U^{z}\) finito. Allora
+\begin{equation*}
+p(x) \restricted{B} \supseteq \set{\pi(x;b) \mid b \in \D\cap B} \cup \set{\lnot\pi(x;b) \mid b \in B\setminus\D}
+\end{equation*}
+Ma se \(a\) è tale che \(\pi(a,B) = \D\cap B\), allora \(a\vDash p(x) \restricted{B}\), e quindi \(p(x)\) è finitamente consistente.
+\end{proof}
+\section{{\bfseries\sffamily TODO} Lezione 17 - \textit{<2025-11-18 Tue>}}
+\label{sec:org0b352c7}
+
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+%
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+\def\D{\mathcal{D}}
+\def\dlo{\text{dlo}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+
+Sia \(\varphi \subseteq \U^{x}\times \U^{z}\) una \uline{relazione qualsiasi}.
+Forse questo può essere generalizzato al di fuori del Modello Mostro
+
+\begin{definizione}
+Un insieme \(\D\) è \uline{approssimabile da \(\varphi(x;z)\) dal basso} se vale una delle seguenti equivalenti:
+\begin{itemize}
+\item per ogni \(B \subseteq \U^{z}\) finito esiste \(a \in \U^{x}\) tale che
+\begin{equation*}
+\D \cap B = \varphi(a;B) \coloneqq \varphi(a;\U^{z})\cap B
+\end{equation*}
+e \(\varphi(a;\U^{z}) \subseteq \D\);
+\item per ogni \(B \subseteq \D\) finito esiste \(a \in \U^{x}\) tale che
+\begin{equation*}
+B \subseteq \varphi(a;\U^{z}) \subseteq \D.
+\end{equation*}
+\end{itemize}
+\end{definizione}
+\begin{thm}
+Se \(\varphi(x;z)\) è stabile e \(\D\) è approssimabile da \(\varphi(x;z)\) allora esiste \(\langle a_{ij} \mid i,j<m\rangle\) in \(\U^{x}\) tale che
+\begin{equation*}
+\D = \bigcup_{i=1}^{m}\bigcap_{j=1}^{m} \varphi(a_{ij}, \U^{z}).
+\end{equation*}
+\label{teorema_obiettivo_sjdancvlkjfbhsdlkvsj}
+\end{thm}
+
+\begin{lem}
+Se \(\varphi(x;z)\) è stabile, \(\D\) approssimato da \(\varphi(x;z)\) dal basso, allora esiste
+\(\< a_{i} \mid i<m \>\)
+tale che
+\begin{equation*}
+\D = \bigcup_{i=1}^{m} \varphi(a_{i}, \U^{z}).
+\end{equation*}
+\end{lem}
+\begin{proof}
+Costruiamo una catena \(\< a_{i}, b_{i} \mid i<m \>\) come segue:
+\begin{enumerate}
+\item Sia \(b_{0} \in \D\) e \(a_{0}\) tale che
+\(b_{0} \in \varphi(a_{0};\U^{z}) \subseteq \D\).
+\item Sia \(b_{1} \in \D \setminus \varphi(a_{0};\U^{z})\) e \(a_{1}\) tale che
+\(\set{b_{0},b_{1}} \subseteq \varphi(a_{1};\U^{z})\).
+\item Sia \(b_{2} \in \D \setminus \big(\varphi(a_{0};\U^{z})\cup \varphi(a_{1};\U^{z})\big)\) e \(a_{2}\) tale che
+\(\set{b_{0},b_{1},b_{2}} \subseteq \varphi(a_{2};\U^{z})\).
+\end{enumerate}
+
+Il \(b_{i}\) esiste poiché, se quell'insieme fosse vuoto, allora si avrebbe l'uguaglianza e quindi la tesi; gli \(a_{i}\) esistono per ipotesi di approssimazione dal basso. Per stabilità:
+\begin{equation*}
+i<j \IMPLICA \lnot\varphi(a_{i}, b_{j}) \land \varphi(a_{j}; b_{i}).
+\end{equation*}
+Quindi la costruzione si ferma in un passo finito.
+\end{proof}
+\begin{lem}
+Se \(\varphi(x;z)\) è stabile e \(\D\) è approssimata da \(\varphi(x;z)\) allora \(\D\) è approssimata dal basso dalla formula
+\begin{equation*}
+\psi(x_{1},\dots,x_{m}; z) = \bigwedge_{i=1}^{m} \varphi(x_{i};z).
+\end{equation*}
+\end{lem}
+\begin{proof}
+Neghiamo il lemma e sia \(B \subseteq \D\) un controesempio.
+
+Costruiamo una catena \(\< a_{i}, b_{i} \mid i<m \>\) come segue:
+\begin{enumerate}
+\item \(a_{0}\) e \(b_{0}\) sono tali che
+\begin{equation*}
+ B \subseteq \varphi(a_{0}; \U^{z}) \subseteq \D,\qquad b_{0} \in \varphi(a_{0};\U^{z})\setminus \D.
+\end{equation*}
+\item \(a_{1}\) e \(b_{1}\) sono tali che
+\begin{equation*}
+ B \subseteq \varphi(a_{1}; \U^{z}) \subseteq \D \setminus \set{b_{0}},\qquad %
+ b_{1} \in %
+ \big[\varphi(a_{0};\U^{z})\cap \varphi(a_{1};\U^{z})\big]\setminus \D.
+\end{equation*}
+\item \(a_{2}\) e \(b_{2}\) sono tali che
+\begin{equation*}
+ B \subseteq \varphi(a_{2}; \U^{z})\subseteq \D \setminus \set{b_{0},b_{1}},\qquad %
+ b_{2} \in %
+ \big[\varphi(a_{0};\U^{z})\cap \varphi(a_{1};\U^{z}) \cap \varphi(a_{2};\U^{z})\big]\setminus \D.
+\end{equation*}
+\end{enumerate}
+
+Per la stabilità
+\begin{equation*}
+i<j \IMPLICA \varphi(a_{i}, b_{j}) \land \lnot \varphi(a_{j}, b_{i})
+\end{equation*}
+e quindi la scaletta deve terminare.
+\end{proof}
+\begin{thm}
+LSASE:
+\begin{enumerate}
+\item \(\varphi(x;z)\) è stabile;
+\item ogni \(\D \subseteq \U^{z}\) esternamente definibile è definibile
+\item detta \(\kappa\) la cardinalità di \(\U\), ci sono \(\le\kappa\) insiemi esternamente definibile da \(\varphi(x;z)\), ovvero \(\card{S_{\varphi}(\U)}\le \kappa\).
+\item ci sono \(<2^{k}\) insiemi esternamente definibile da \(\varphi(x;z)\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): versione debole del
+Teorema~\ref{teorema_obiettivo_sjdancvlkjfbhsdlkvsj}.
+
+(\(2.\Rightarrow 3.\)): ovvia.
+
+(\(3.\Rightarrow 4.\)): ovvia.
+
+(Cenno \(\lnot 1.\Rightarrow \lnot 4.\)):
+Per ipotesi esiste una scaletta \(\< a_{i}, b_{i} \mid i \in I \>\) con \((I,<)\) modello saturo di \(T_{\dlo}\) di cardinalità \(\kappa\).
+\begin{quote}
+\uline{Esercizio}: esistono \(2^{\kappa}\) tagli di Dedekind in \(I\), ovvero insiemi \(C \subseteq I\) chiusi all'ingiù rispetto a \(<\).
+\end{quote}
+
+Per ogni taglio \(C\) considero il tipo
+\begin{equation*}
+p_{C}(x) = \set{\lnot\varphi(x;b_{i}) \mid i \in C} \cup%
+\set{\varphi(x;b_{i}) \mid i \in I\setminus C}.
+\end{equation*}
+
+\begin{quote}
+\uline{Esercizio}:  siccome \(\langle a_{i}, b_{i} \mid i \in I \rangle\) è una scaletta, per ogni \(B\) finito sia \(B \cap C < j < B \setminus C\).
+\begin{equation*}
+a_{j} \vDash p_{C} (x) \restricted{B}.
+\end{equation*}
+\end{quote}
+\end{proof}
+\begin{definizione}
+Il \uline{rango binario} (di Shelah) di \(\varphi(x;z)\) ??? RECUPERARE
+\end{definizione}
+\begin{thm}
+LSASE:
+\begin{enumerate}
+\item \(\varphi(x;z)\) stabile;
+\item il rango binario di \(\varphi(x;z)\) è finito.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(Cenno \(\lnot 1.\Rightarrow\lnot 2.\)): Ci sono \(2^{\kappa}\) insiemi esternamente definibili.
+\begin{quote}
+\uline{Esercizio}: Esiste un \(b_{\emptyset}\) tale che \(2^{\kappa}\) insiemi esternamente definibili contengano \(b_{\emptyset}\) e \(2^{\kappa}\) insiemi esternamente definibili che non contengano \(b_{\emptyset}\).
+\end{quote}
+Iterando ottengo una sequenza \(\langle b_{s} \mid s \in 2^{<\omega} \rangle\)
+
+(Cenno \(\lnot 2.\Rightarrow\lnot 1.\)): se rango \(\infty\) per compattezza esiste albero di altezza \(\kappa\) e quindi \(\card{S\varphi(\U)} = 2^{\kappa}\).
+(Poiché \(2^{<\kappa }= \kappa\)).
+\end{proof}
+\section{{\bfseries\sffamily TODO} Lezione 18 - \textit{<2025-11-25 Tue>}}
+\label{sec:orgb09e948}
+
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+%
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+
+\def\D{\mathcal{D}}
+\def\C{\mathcal{C}}
+\def\acl{\operatorname{acl}}
+\def\Lascar{\mathscr{L}}
+\def\distanza#1{\operatorname{d}_{#1}}
+\subsection{Lascar invariance}
+\label{sec:orgf12ea67}
+
+Sia \(\D \subseteq \U^{z}\) insieme arbitrario, denotiamo con
+\begin{equation*}
+f\D = f[\D] = \set{fa \mid a \in \D},\qquad \orbita(\D / A) = \set{f\D \mid f \in \Aut(\U/A)}.
+\end{equation*}
+\begin{definizione}
+\(\D\) è \uline{Lascar invariante su \(A\)} se è invariante su \(M\) per ogni \(M\supseteq A\).
+\end{definizione}
+
+\begin{oss}
+\begin{enumerate}
+\item Se \(A\) è un modello, Lascar invariante su \(A\) significa invariante su \(A\).
+\item Se \(\acl(A)\) è un modello\footnote{NOTA: la chiusura algebrica \uline{non è} necessariamente un modello.}, allora ``Lascar invariante su \(A\)'' = ``invariante su \(\acl(A)\)''
+\end{enumerate}
+\end{oss}
+
+\uline{Domanda 1}: quanti sono gli insiemi Lascar invarianti su \(A\)?
+\begin{prop}
+Sia \(\lambda=\card{\L_{z}(A)}\), con \(\card{z}<\kappa\). Ci sono al più \(2^{2^{\lambda}}\) insiemi \(\D \subseteq \U^{z}\) Lascar invarianti su \(A\).
+\label{quantisonolascarinvariante}
+\end{prop}
+\begin{proof}
+Sia \(N \supseteq A\) modello, \(\card{N} = \lambda\). Allora ogni insieme Lascar invariante su \(A\) è invariante su \(N\).
+
+Su \(N\) ci sono \(2^{2^{\card{N}}}\) insiemi invarianti su \(N\).
+\end{proof}
+\begin{thm}
+Sia \(\D \subseteq \U^{z}\) e \(A \subseteq \U\) piccolo. Sia \(\lambda=\card{\L_{z}(A)}\), con \(\card{z}<\kappa\). LSASE:
+\begin{enumerate}
+\item \(\D\) è Lascar invariante su \(A\);
+\item ogni insieme in \(\orbita(\D / A)\) è Lascar invariante su \(A\);
+\item \(\orbita(\D / A)\) ha cardinalità \(\le 2^{2^{\lambda}}\);
+\item \(\orbita(\D / A)\) ha cardinalità \(<\kappa\) (si dice che la cardinalità di \(\orbita(\D / A)\) è \uline{bounded}).
+\item \(c_{0} \in \D \iff c_{1} \in \D\) per ogni sequenza
+\(\langle c_{i} \mid i <\omega \rangle\)
+di indiscernibili su \(A\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Se \(f \in \Aut(\U / A)\) allora \(\D\) è invariante su \(M\supseteq A\) sse \(f\D\) è invariante su \(f[M] \supseteq A\), \(f[M]\) modello.
+
+(\(2.\Rightarrow 3.\)): Ovvio per la Proposizione~\ref{quantisonolascarinvariante}.
+
+(\(3.\Rightarrow 4.\)): Perché \(\kappa\) è inaccessibile.
+
+(\(4.\Rightarrow 5.\)): Sia \(\langle c_{i} \mid i < \kappa \rangle\) di \(A\) indiscernibili (vedere esercizio).
+
+Per assurdo, supponiamo che \(\lnot(c_{0} \in \D \iff c_{1} \in \D)\).
+Definiamo una relazione di equivalenza su \(\U^{z}\)
+\begin{equation*}
+E(u,v) \IFF \forall \C \in \orbita(\D / A)\ (u \in \C \iff v \in \C)
+\end{equation*}
+Questa non è una relazione definibile. \(E\) è invariante su \(A\)\footnote{Come per le formule??}. Per ipotesi, \(\card{\orbita(\D / A)} = \mu < \kappa\).
+Quindi \(E\) ha al più \(2^{\mu}\) classi.
+
+Ma \(\lnot(c_{0} \in \D \iff c_{1} \in \D)\), quindi \(\lnot E(c_{0},c_{1})\), e quindi
+\begin{equation*}
+\forall i<j<\kappa\ \bigg(\lnot E(c_{i}, c_{j})\bigg).
+\end{equation*}
+Quindi \(E\) ha \(\kappa\) classi. Assurdo.
+
+(\(5.\Rightarrow 1.\)): Fisso un modello \(M\supseteq A\) arbitrario. Devo mostrare che \(\D\) è invariante su \(M\).
+
+Prendo \(a \equivalentover{M} b\) arbitrari, e mostro che \(a \in \D \iff b \in \D\). Prendo \(p(x) \in S(\U)\) tipo globale coerede di \(\tp(a/M) = \tp(b/M)\) (finitamente soddisfacibili poiché \(M\) è modello).
+
+Definisco \(\langle c_{i} \mid i < \omega \rangle\) tale che
+\begin{equation*}
+c_{i} \vDash p(x) \restricted{M,\, c\restricted{i},\, a, b}
+\end{equation*}
+Quindi
+\begin{align*}
+&a, c_{0}, c_{1}, \dots\\
+&b, c_{0}, c_{1}, \dots
+\end{align*}
+è una sequenza di Morley su \(M\) di \(p(x)\) e pertanto, per ipotesi
+\begin{align*}
+a \in \D &\iff c_{0} \in \D\\
+b \in \D &\iff c_{0} \in \D
+\end{align*}
+e pertanto \(a \in \D \iff b \in \D\).
+\end{proof}
+\begin{definizione}
+Il \uline{tipo di Lascar di \(a\) su \(A\)} è \(\Lascar(a / A)\),
+\begin{equation*}
+\Lascar(a / A) \coloneqq %
+	\bigcap \set{%
+		\D \mid a \in \D, \D \text{ Lascar invariante su \(A\)} %
+	}
+\end{equation*}
+\end{definizione}
+\begin{definizione}
+Il \uline{grafo di Lascar su \(A\)} in \(\U^{x}\) è costruito come segue: per ogni \(a,b \in \U^{x}\), c'è un arco tra \(a\) e \(b\) se
+\begin{equation*}
+a \equivalentover{M} b \qquad \text{per qualche \(M\supseteq A\)}.
+\end{equation*}
+Si definisce \(\distanza{A}(a,b)\) come il minimo \(n\) tale che
+\begin{equation*}
+a = a_{0} \equivalentover{M_{0}} a_{1} \equivalentover{M_{1}} \dots \equivalentover{M_{n-2}} a_{n-1} \equivalentover{M_{n-1}} a_{n} = b
+\end{equation*}
+o \(\infty\) altrimenti.
+\end{definizione}
+\begin{prop}
+Si ha che
+\begin{equation*}
+\Lascar(a / A) = \set{b \mid \distanza{A}(a,b)< \infty}.
+\end{equation*}
+\end{prop}
+\begin{proof}
+(\(\supseteq\)): Sia \(a \in \D\) Lascar invariante su \(A\) arbitrario. Devo mostrare che \(\D\) contiene ogni \(b\) tale che \(\distanza{A}(a,b) < \infty\). Sia quindi
+\begin{equation*}
+a = a_{0} \equivalentover{M_{0}} a_{1} \equivalentover{M_{1}} \dots \equivalentover{M_{n-2}} a_{n-1} \equivalentover{M_{n-1}} a_{n} = b
+\end{equation*}
+\begin{itemize}
+\item Esiste \(f_{0} \in \Aut(\U / M_{0})\) tale che \(f_{0}(a_{0} = a_{1})\)
+\item Esiste \(f_{1} \in \Aut(\U / M_{1})\) tale che \(f_{1}(a_{1} = a_{2})\)
+\item \(\dots\)
+\item Esiste \(f_{n-1} \in \Aut(\U / M_{n-1})\) tale che \(f_{n-1}(a_{n-1} = a_{n})\)
+\end{itemize}
+
+Poiché ciascun \(f_{i}\) fissa un modello che fissa \(A\), allora fissa anche \(\D\), e pertanto \(f_{n-1}\circ\dots\circ f_{0}\) fissa \(\D\):
+\begin{equation*}
+f_{n-1}\circ\dots\circ f_{0} \D = \D \IMPLICA %
+b = f_{n-1}\circ\dots\circ f_{0} a \in \D
+\end{equation*}
+
+(\(\subseteq\)): basta mostrare che \(\set{b \mid \distanza{A}(a,b)< \infty}\) è Lascar invariante. Sia  \(b\) tale che \(\distanza{A}(a,b) < \infty\):
+\begin{equation*}
+a = a_{0} \equivalentover{M_{0}} a_{1} \equivalentover{M_{1}} \dots \equivalentover{M_{n-2}} a_{n-1} \equivalentover{M_{n-1}} a_{n} = b.
+\end{equation*}
+Sia \(f \in \Aut(\U / M)\), con \(M\supseteq A\). Voglio mostrare che \(\distanza{A}(a,fb)<\infty\)\_
+\begin{equation*}
+a = a_{0} \equivalentover{M_{0}} a_{1} \equivalentover{M_{1}} \dots \equivalentover{M_{n-2}} a_{n-1} \equivalentover{M_{n-1}} a_{n} = b \equivalentover{M} fb. %
+\qedhere
+\end{equation*}
+\end{proof}
+\begin{definizione}
+Un tipo \(p(x) \in S_{\varphi}(\U)\) è Lascar invariante su \(A\) se \(\mathscr{D}_{p\varphi}\) è Lascar invariante su \(A\).
+\end{definizione}
+La definizione si intende per tipi \(q(x) = \bigcup_{\varphi \in \L(\U)} p_{\varphi}(x)\), con \(p_{\varphi} \in S_{\varphi}(\U)\).
+
+\begin{oss}
+Siano \(\varphi(x;z) \in \L(A)\) e \(p(x) \in S_{\varphi}(\U)\). Se \(p(x)\) è finitamente soddisfacibile in ogni \(M \supseteq A\) allora \(p(x)\) è Lascar invariante su \(A\).
+\end{oss}
+
+Diciamo che \(p(x) \in S_{\varphi}(\U)\) è un Lascar coerede su \(A\) se è finitamente soddisfacibile in ogni \(M \supseteq A\).
+
+\begin{thm}
+(falso).
+Se \(q(x) \subseteq \L(\U)\) è finitamente soddisfacibile in ogni \(M\supseteq A\), allora esiste \(p(x) \in S(\U)\), \(p(x) \supseteq q(x)\) finitamente soddisfacibile in ogni \(M\supseteq A\).
+\end{thm}
+
+Affinché il teorema valga, mi serve la seguente proprietà: per ogni \(\theta(x), \rho(x) \in \L(\U)\): \(\theta(x) \lor \rho(x)\) soddisfacibile in ogni \(M\supseteq A\) allora o \(\theta(x)\) è soddisfacibile in ogni \(M\supseteq A\) o \(\rho(x)\) è soddisfacibile in ogni \(M\supseteq A\).
+
+\begin{esempio}
+Sia \(\U \succeq (\Q,<)\), e considero la formula \((x<a) \lor (x \ge a)\).
+\end{esempio}
+\section{{\bfseries\sffamily TODO} Lezione 19 - \textit{<2025-11-26 Wed>}}
+\label{sec:org1e3001c}
+
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+%
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+
+\def\V{\mathcal{V}}
+
+\begin{thm}
+Se \(\varphi(x;z), \psi(x;z) \in \L\) sono stabili, \(b \in \U^{z}\) e
+\begin{equation*}
+\varphi(x;b) \lor\psi(x;b)
+\end{equation*}
+è soddisfatta in ogni \(M\supseteq A\) allora:
+\begin{itemize}
+\item o \(\varphi(x;b)\) è soddisfatta in ogni \(M\supseteq A\);
+\item o \(\psi(x;b)\) è soddisfatta in ogni \(M\supseteq A\).
+\end{itemize}
+\label{teorema_obiettivo:kjkjnkjnkjnkjnkjnkjnkjnkjn}
+\end{thm}
+\begin{oss}
+Si dice ``quasi soddisfatta in \(A\)'' il luogo di ``è soddisfatta in ogni \(M\supseteq A\)''. La proprietà di ``quasi soddisfacibilità'' è \uline{partition-regular}.
+\end{oss}
+
+Questo teorema si trova in \autocite{harnikFundamentalsForking1984}.
+
+\begin{prop}
+Se \(\varphi(x;z) \in \L\) è stabile, \(b \in \U^{z}\), allora
+\begin{itemize}
+\item o \(\varphi(x;b)\) è soddisfatta in ogni modello \(M\);
+\item o \(\lnot \varphi(x;b)\) è soddisfatta in ogni modello \(M\).
+\end{itemize}
+ovvero \(\varphi(x;b)\) è quasi soddisfatta in \(\emptyset\) oppure \(\lnot\varphi(x;b)\) è quasi soddisfatta in \(\emptyset\).
+\label{prop:utilizzataunpounjkjoagitandolemani}
+\end{prop}
+\begin{proof}
+Per disegno
+\end{proof}
+\begin{lem}
+Sia \(\varphi(x) \in \L(\U)\) quasi soddisfacibile in \(A\). Allora esiste \(\theta(x_{1},\dots,x_{n}) \in \L(A)\) consistente, con \(\card{x_{i}} = \card{x}\) tale che
+\begin{equation*}
+\theta(x_{1},\dots,x_{n}) \implies \bigvee_{i=1}^{n} \varphi(x_{i}).
+\end{equation*}
+\label{lem:thetaamaroinbocca}
+\end{lem}
+\def\c{\overline{c}}
+\def\x{\overline{x}}
+\begin{proof}
+Sia \(M\supseteq A\), sia \(\c\) una enumerazione di \(M^{x}\), e sia
+\(q(\x) \coloneqq \tp(\c / A)\).
+
+Ogni realizzazione di:
+\begin{equation*}
+q(\x) \cup \set{ \lnot \varphi(x_{i}) \mid i < \card{\c}}.
+\end{equation*}
+enumera \(N^{x}\), dove \(N\mathrel{\cong_{A}}M\) e \(N\) non soddisfa \(\varphi(x)\), quindi \(q(\x) \cup \set{ \lnot \varphi(x_{i}) \mid i < \card{\c}}\) è inconsistente.
+
+Pertanto esiste \(\theta(x_{1},\dots,x_{n}) \in q(\x)\) tale che
+\begin{equation*}
+\theta(x_{1},\dots,x_{n}) \implies \bigvee_{i=1}^{n} \varphi(x_{i}).%
+\qedhere
+\end{equation*}
+\end{proof}
+\begin{oss}
+Nel dimostrare il
+Teorema~\ref{teorema_obiettivo:kjkjnkjnkjnkjnkjnkjnkjnkjn},
+si ha come ipotesi che \(\varphi(x;b) \lor \psi(x;b)\) sia quasi soddisfacibile in \(A\). Per il
+Lemma~\eqref{lem:thetaamaroinbocca}, questo è equivalente a
+\begin{equation*}
+\theta(x_{1},\dots,x_{n}) \implies \bigvee_{i=1}^{n} [\varphi(x_{i};b) \lor \psi(x_{i};b)]
+\end{equation*}
+per qualche \(\theta \in \L(A)\),
+ancora equivalente a
+\begin{equation*}
+\theta(x_{1},\dots,x_{n}) \implies \bigvee_{i=1}^{n} \varphi(x_{i};b) \lor \bigvee_{i=1}^{n} \psi(x_{i};b)
+\end{equation*}
+per qualche \(\theta \in \L(A)\). ????
+\end{oss}
+Posso riscrivere il
+Teorema~\ref{teorema_obiettivo:kjkjnkjnkjnkjnkjnkjnkjnkjn}
+come segue:
+\begin{thm}
+Se \(\varphi(x;z), \psi(x;z) \in \L\) sono stabili, \(b \in \U^{z}\) e
+\begin{equation*}
+\theta(x) \implies \varphi(x;b) \lor\psi(x;b)
+\end{equation*}
+per qualche \(\theta(x) \in \L(A)\). Allora:
+\begin{itemize}
+\item o \(\varphi(x;b)\) è soddisfatta in ogni \(M\supseteq A\);
+\item o \(\psi(x;b)\) è soddisfatta in ogni \(M\supseteq A\).
+\end{itemize}
+\end{thm}
+\begin{proof}
+Ripete quella della
+Proposizione~\ref{prop:utilizzataunpounjkjoagitandolemani}
+ma si scelgono gli \(a_{ij}\) che soddisfano \(\theta(x)\).
+\end{proof}
+\begin{oss}
+La stabilità della \(\psi(x;z)\) non si usa.
+\end{oss}
+
+\begin{cor}
+Sia \(\varphi(x;z) \in \L(A)\) stabile. Sia \(q(x) \subseteq \L(\U)\) finitamente soddisfacibile in ogni \(M\supseteq A\). Allora esiste \(p(x) \in S_{\varphi}(\U)\) tale che \(q(x) \cup p(x)\) è finitamente soddisfacibile in ogni \(M\supseteq A\).
+\end{cor}
+\begin{proof}
+Sia \(p(x) \subseteq \L_{\varphi^{\pm}}(\U)\) massimale tale che \(q(x) \cup p(x)\) è finitamente soddisfacibile in ogni \(M\supseteq A\).
+Voglio mostrare che \(p(x)\) è completo.
+
+Se per assurdo esistesse \(\varphi(x;b)\) tale che \(\varphi(x;b),\lnot\varphi(x;b) \notin p(x)\), quindi esiste \(\alpha(x) \in q(x)\) e \(\theta(x;b_{1},\dots,b_{n}) \in \set{\land}p\) tale che
+\begin{align*}
+\alpha(x) \land \theta(x;b_{1},\dots,b_{n}) \land \varphi(x;b)\\
+\alpha(x) \land \theta(x;b_{1},\dots,b_{n}) \land \lnot\varphi(x;b)\\
+\end{align*}
+non sono soddisfacibili in ogni \(M \supseteq A\). Ma la congiunzione delle due formule è soddisfacibile in ogni \(M\supseteq A\), in quanto elemento di \(p(x) \cup q(x)\).
+
+Ma \(\alpha(x) \land \theta(x;z_{1},\dots,z_{n}) \land \varphi(x;z)\) è stabile, e pertanto per il teorema si ha la contraddizione.
+\end{proof}
+
+\begin{thm}
+(\(T\) stabile). Se \(a \nonfork b\) allora \(b \nonfork a\).
+\end{thm}
+
+\begin{thm}
+Sia \(\varphi(x;z) \in \L(M)\) stabile. Se \(a \nonfork b\) e \(\varphi(a,b)\), allora \(\varphi(a;M^{z}) \neq \emptyset\).
+\label{thm:inversione_forking}
+\end{thm}
+\begin{lem}
+Se \(a \nonfork b\), allora esiste \(\V \preceq \U \mathrel{\cong_{M, b}} \V\) tale che \(a \nonfork \V\).
+\end{lem}
+\def\w{\overline{w}}
+\begin{proof}
+Sia \(\c\) una enumerazione di \(\U\), e sia \(p(\w, z) = \tp(\c, b / M)\). Considero
+\begin{equation*}
+p(\w,b) \cup \set{%
+	\lnot\varphi(a,\w) \mid %
+	\varphi(x;\w) \in \L(M), \varphi(M^{x},\c)=\emptyset %
+}
+\end{equation*}
+Un elemento che realizzi questo tipo enumera \(\V\).
+
+Supponiamo che il tipo sia inconsistente. Allora
+\begin{equation*}
+\forall \w \big[%
+	\theta(\w,b) \implies \bigvee_{i=1}^{n} \varphi_{i}(a, \w)%
+\big]
+\end{equation*}
+ma siccome \(a\nonfork b\) allora esiste \(a' \in M\) tale che
+\begin{equation*}
+\forall \w \big[%
+	\theta(\w,b) \implies \bigvee_{i=1}^{n} \varphi_{i}(a', \w)%
+\big]
+\end{equation*}
+Ponendo \(\w = \c\) ottengo
+\begin{equation*}
+\theta(\c,b) \implies \bigvee_{i=1}^{n} \varphi_{i}(a', \c)
+\end{equation*}
+quindi \(\varphi_{i}(M^{x}, \c) \neq \emptyset\). Assurdo.
+\end{proof}
+
+\begin{proof}
+(del Teorema~\ref{thm:inversione_forking}).
+Sia \(\V\preceq \U\), \(\V \mathrel{\cong_{M,b}}\U\) tale che \(a \nonfork \V\).
+
+Allora \(\varphi(a;\V^{z})\) è un insieme esternamente definibile (nella prospettiva di \(\V\)). Ma \(\varphi(x;z)\) è stabile, quindi \(\varphi(a;\V^{z}) = \psi(\V^{z})\) per qualche \(\psi(z) \in \L(\V)\).
+
+Per \emph{non splitting} se \(b_{1},b_{2} \in \V^{z}\) e \(b_{1} \equivalentover{M} b_{2}\), siccome \(a \nonfork \V\) allora \(b_{1}\equivalentover{M,a} b_{2}\).
+
+Quindi \(\varphi(a,b_{1}) \iff \varphi(a,b_{2})\) e pertanto \(\psi(\V^{z}) = \varphi(a, \V^{z})\) invariante per \(\Aut(\V / M)\), quindi esiste \(\theta(z) \in \L(M)\) tale che \(\psi(\V^{z}) = \theta(\V^{z})\).
+
+Ma \(\theta(M^{z}) \neq \emptyset\), quindi anche \(\varphi(a,M^{x}) \neq \emptyset\).
+\end{proof}
+\section{{\bfseries\sffamily TODO} Lezione 20 - \textit{<2025-12-02 Tue>}}
+\label{sec:orga1b96b8}
+
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+%
+\def\acl{\operatorname{acl}}
+\def\dcl{\operatorname{dcl}}
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+
+\def\V{\mathcal{V}}
+\def\D{\mathscr{D}}
+
+Recap teorema dell'ultima volta:
+\begin{thm}
+(\(T\) stabile).
+Per ogni \(M\vDash T\):
+\begin{equation*}
+a \nonfork b \IMPLICA b \nonfork a.
+\end{equation*}
+\end{thm}
+\begin{thm}
+Sia \(\varphi(x;z) \in \L\) stabile. Se \(a \nonfork b\) e \(\varphi(a,b)\), allora
+\begin{equation*}
+\varphi(a, M^{z}) \neq \emptyset.
+\end{equation*}
+\end{thm}
+
+\begin{thm}
+Sia \(\varphi(x;z) \in \L(\U)\) stabile, \(p(x) \in S_{\varphi}(\U)\), \(A \subseteq \U\). LSASE:
+\begin{enumerate}
+\item \(\D_{p,\varphi} \in \acl^{\eq} A\)\footnote{Ricordiamo che
+\begin{equation*}
+\D_{p,\varphi} = \set{b \in \U^{z} \mid \varphi(x,b) \in p}
+\end{equation*}
+è insieme definibile.};
+\item \(p(x)\) è finitamente soddisfacibile in ogni \(M \supseteq A\);
+\item \(p(x)\) è Lascar invariante su \(A\)\footnote{Ricordiamo che \(p(x)\) è Lascar invariante su \(A\) se \(\D_{p,\varphi}\) è invariante su ogni modello \(M \supseteq A\).};
+\item \(p(x)\) è invariante su \(\acl^{\eq} A\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(1. \Rightarrow 2.\)):
+Fissiamo \(M \supseteq A\) e fissiamo \(\varphi(x;b) \in p(x)\), e mostriamo che \(\varphi(M^{x}, b) \neq \emptyset\).
+
+\emph{\uline{Nota}:
+in realtà dovremmo mostrare che ogni
+\(\theta(x; b_{1},\dots,b_{n}) \in \set{\land}\!p\) è finitamente soddisfacibile.
+Vedi sotto}
+
+Sia \(a \vDash p(x) \restricted{M}\), allora
+\begin{equation*}
+\varphi(a; M^{z}) = \D_{p,\varphi} \cap M^{z}.
+\end{equation*}
+Possiamo assumere che \(b \nonfork a\) (se così non fosse potremmo trovare \(a'\vDash p(x) \restricted{M}\) che soddisfa questa condizione).
+
+Quindi \(\varphi(a,b) \iff b \in \D_{p,\theta}\): se non lo fosse, esisterebbe \(b' \in M^{x}\) tale che
+\(\varphi(a,b') \not\iff b' \in \D_{p,\theta}\)
+contraddicendo \(\varphi(a; M^{z}) = \D_{p,\varphi} \cap M^{z}\).
+
+Siccome \(b \in \D_{p,\varphi}\), ottengo \(\varphi(a,b)\), e per simmetria ottengo \(\varphi(M^{x}, b) \neq \emptyset\).
+\end{proof}
+
+Se invece di \(\varphi(x;b)\) prendiamo \(\theta(x;b_{1},\dots,b_{n}) \in \set{\land} p\)
+osserviamo che \(\theta(x;z_{1},\dots,z_{n})\) è stabile e che \(\D_{p,\theta}\) è finita.
+\subsection{Stazionarietà}
+\label{sec:orgd3620d7}
+
+\begin{definizione}
+Sia \(q(x) \subseteq \L(\U)\). \(q(x)\) è \uline{stazionario} (su \(A\)) se esiste un \emph{unico} tipo \(p(x) \in S(\U)\) tale che:
+\begin{itemize}
+\item \(p(x) \supseteq q(x)\);
+\item \(p(x)\) è Lascar invariante su \(A\).
+\end{itemize}
+\end{definizione}
+
+\begin{thm}
+(\(T\) stabile).
+Ogni \(q(x) \in S(\acl^{\eq} A)\)\footnote{\(q(x)\) è un tipo completo a parametri in \(S(\acl^{\eq} A)\).\label{org17ac3d7}} è stazionario su \(A\).
+\label{thm_stazionario_acleq}
+\end{thm}
+\begin{lem}
+(Lemma misterioso di Harrington).
+Sia \(\varphi(x;z) \in \L(\U)\) stabile,
+\(p(x) \in S_{\varphi}(\U)\),
+\(q(z) \in S_{\varphi^{\text{op}}}(\U)\)\footnote{Con \(\varphi^{\text{op}}\) intendiamo
+\begin{equation*}
+\varphi^{\text{op}}(z;x) = \varphi(x;z)
+\end{equation*}} invarianti su \(M\).
+
+Per ogni
+\(a \vDash p(x) \restricted{M}\),
+\(b \vDash q(z) \restricted{M}\)
+abbiamo
+\begin{equation*}
+a \in D_{q, \varphi^{\text{op}}} \iff b \in \D_{p,\varphi}.
+\end{equation*}
+\end{lem}
+\begin{proof}
+Possiamo assumere che \(a \nonfork b\).
+Affermo che
+\begin{equation*}
+\varphi(a;b) \iff  a \in \D_{q,\varphi^{\text{op}}}
+\end{equation*}
+altrimenti \(\varphi(a;b) \not\iff  a \in \D_{q,\varphi^{\text{op}}}\). Questa è una formula \(\psi(a,b)\) a parametri in \(M\).
+
+Per \(a \nonfork b\) ottengo che esiste \(a' \in M^{x}\) tale che
+\begin{equation*}
+\varphi(a';b) \not\iff %
+a' \in \D_{q,\varphi^{\text{op}}}
+\end{equation*}
+e pertanto \(\varphi(M^{x}, b) \neq \D_{q,\varphi^{\text{op}}} \cap M^{x}\).
+Quindi \(b \not\vDash q(z) \restricted{M}\).
+
+Per simmetria \(b \nonfork a\), quindi
+\begin{equation*}
+\varphi(a;b) \iff  b \in \D_{p,\varphi}.
+\end{equation*}
+Segue la tesi.
+\end{proof}
+
+\uline{Esercizio}:
+(\(T\) stabile).
+Ogni \(q(x) \in S(M)\)\textsuperscript{\ref{org17ac3d7}} è stazionario su \(M\).
+
+\begin{proof}
+(del Teorema~\ref{thm_stazionario_acleq}).
+L'esistenza di \(p(x) \supseteq q(x)\) globale e Lascar invariante su \(A\) segue dall'esistenza di un coerede di Lascar globale.
+
+Supponiamo che \(p_{1}(x), p_{2}(x) \in S(\U)\) estendono \(q(x)\). Fissiamo \(\varphi(x;z)\) e mostriamo che
+\begin{equation*}
+\D_{p_{1},\varphi} = \D_{p_{2},\varphi}.
+\end{equation*}
+Fissiamo \(b \in \U^{z}\) e mostriamo che
+\begin{equation*}
+b \in \D_{p_{1},\varphi} \iff b \in \D_{p_{2},\varphi}.
+\end{equation*}
+Sia \(t(z) \in S(\U)\) Lascar-coerede di \(\tp(b / \acl^{\eq} A)\). Fisso \(M \supseteq A\) arbitrario.
+
+Siano \(a_{i} \vDash p_{i}(x) \restricted{M}\). Allora per il lemma:
+\begin{equation*}
+a_{i} \in \D_{t,\varphi^{\text{op}}} \iff b \in \D_{p_{i}, \varphi}.
+\end{equation*}
+Ma
+\begin{equation*}
+a_{1} \in \D_{t,\varphi^{\text{op}}} \iff a_{2} \in \D_{t,\varphi^{\text{op}}}
+\end{equation*}
+in quando \(\D_{t,\varphi^{\text{op}}} \in \acl^{\eq} A \subseteq M\).
+\end{proof}
+(idea un po' incasinata).
+\section{{\bfseries\sffamily TODO} Lezione 21 - \textit{<2025-12-03 Wed>}}
+\label{sec:org12d2d63}
+
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+%
+\def\acl{\operatorname{acl}}
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\extD{\mathscr{D}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+
+\uline{ESERCIZIO BONUS}: correggere il capitolo 18.
+
+Sia \(p(x) \in S_{\varphi}(\U)\) invariante su \(A\) se
+\begin{equation*}
+\extD_{p,\varphi} = \set{b \in \U^{z} \mid \varphi(x;b) \in p}
+\end{equation*}
+invariante su \(A\).
+
+Sia \(X\) un insieme, \(G\) un gruppo che agisce su \(X\). Sia \(D \subseteq X\).
+
+\begin{definizione}
+Si dice che \(D\) è \uline{\(G\)-syndetico} se un numero finito di \(G\)-traslazioni di \(D\) ricopre \(X\), ovvero esiste \(C \subseteq G\) finito tale che
+\begin{equation*}
+X = \bigcup C \cdot D \coloneqq \bigcup \set{g D \mid g \in C}.
+\end{equation*}
+\end{definizione}
+\begin{definizione}
+Si dice che \(D\) è \uline{\(G\)-thick} se per ogni sottoinsieme \(C \subseteq G\) finito
+\begin{equation*}
+\bigcap C\cdot D \neq \emptyset.
+\end{equation*}
+\end{definizione}
+
+\begin{prop}
+LSASE:
+\begin{enumerate}
+\item \(D\) non è \(G\)-syndetico;
+\item \(X \setminus D\)\footnote{D'ora in avanti si scriverà \(\lnot D \coloneqq X \setminus D\)} è \(G\)-thick.
+\end{enumerate}
+\label{prop:charsyndthi}
+\end{prop}
+\begin{proof}
+Per ogni \(C \subseteq G\) finito si ha
+\begin{equation*}
+X \neq \bigcup C\cdot D
+\end{equation*}
+sse \(\emptyset \neq \bigcap C \cdot (X\setminus D)\).
+\end{proof}
+\begin{cor}
+LSASE
+\begin{enumerate}
+\item \(D\) è \(G\)-thick;
+\item per ogni \(C \subseteq X\) \(G\)-syndetici: \(D\cap C \neq \emptyset\).
+\end{enumerate}
+\end{cor}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Se \(D\cap C = \emptyset\) allora \(D \subseteq \lnot C\) quindi \(\lnot C\) è \(G\)-thick. Per la
+Proposizione~\ref{prop:charsyndthi}
+segue che \(C\) non è \(G\)-syndetic.
+
+(\(\lnot 1.\Rightarrow \lnot 2.\)): \(\lnot D\) è \(G\)-syndetico, ma \(D\cap \lnot D = \emptyset\).
+\end{proof}
+
+D'ora in avanti, considereremo:
+\begin{itemize}
+\item \(X \subseteq \U^{x}\) insieme tipo-definibile su \(A\);
+\item \(Z \subseteq \U^{z}\) insieme tipo-definibile su \(A\).
+\item \(G \le \Aut(\U/A)\).
+\end{itemize}
+
+\textbf{Vedi ``Azione del gruppo degli automorfismi''}
+
+D'ora in avanti, \(D=\varphi(X;b) \coloneqq \varphi(\U^{x}; b)\cap X\) per \(b \in Z\), \(\varphi(x;z) \in \L(A)\).
+
+Quindi se \(g \in G\) allora \(gD = \varphi(X, gb)\).
+
+Si scriverà
+\begin{itemize}
+\item \(L(Z)\) per indicare uno dei seguenti insiemi:
+\begin{align*}
+  &\set{\varphi(x;b) \mid b \in Z}\\
+  &\set{\varphi(X;b) \mid b \in Z}
+\end{align*}
+\item \(\displaystyle \Sigma_{G}(x) \coloneqq \set{\theta \in L(Z) \mid \theta(x) \text{ è }G\text{ syndetico}}\).
+\end{itemize}
+
+\uline{Notazione}: in questa sezione, scriveremo \(S(Z)\) per indicare l'insieme dei tipi massimali finitamente soddisfacibili in \(X\) con parametri in \(Z\).
+
+\begin{thm}
+Sia \(p(x) \in S(Z)\). LSASE:
+\begin{enumerate}
+\item \(p(x)\) è \(G\)-invariante
+\item \(p(x) \vdash \Sigma_{G}(x)\)
+\item \(p(x)\) è \(G\)-thick (ogni formula in \(\set{\land}p\) è \(G\)-thick).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Se serve vedi sulla blackboard.
+
+(\(2.\Rightarrow 3.\)): Se \(D\) è \(G\)-syndetico, se \(p(x) \vdash x \in \lnot D\) dove \(\lnot D\) non è \(G\)-thick, quindi \(\lnot 2.\)
+\end{proof}
+
+\begin{cor}
+Assumiamo che esista \(p(x) \in S(Z)\) che sia \(G\)-thick. Allora
+\begin{enumerate}
+\item per ogni \(D \in L(Z)\): \(D\) e \(\lnot D\) non sono entrambi \(G\)-syndetici;
+\item \(\Sigma_{G}(x)\) è finitamente consistente;
+\item ogni \(G\)-syndetico è \(G\)-thick.
+\end{enumerate}
+\end{cor}
+\begin{proof}
+(solo di 3.).
+Se \(D\) è \(G\)-syndetico, se non fosse \(G\)-thick allora \(\lnot D\) è \(G\)-syndetico. Questo contraddice 1.
+\end{proof}
+
+La seguente è una notazione \emph{non standard}.
+\begin{definizione}
+Un insieme \(D \in L(Z)\) è \uline{\(G\)-wide} se per ogni partizione finita di \(D\) in insiemi in \(L(Z)\), contiene un insieme \(G\)-thick.
+\end{definizione}
+
+\begin{thm}
+Sia \(D \in L(Z)\). LSASE:
+\begin{enumerate}
+\item \(\Sigma_{G}(x) \cup \set{x \in D}\) è finitamente consistente in \(X\);
+\item esiste \(p(x) \in S(Z)\) \(G\)-thick e \(p(x) \vdash x \in D\);
+\item \(D\) è \(G\)-wide.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Per 1. esiste \(p(x) \in S(Z)\) tale che \(p(x) \vdash \Sigma_{G}(x) \cup \set{x \in D}\). Per il teorema, \(p(x)\) è \(G\)-thick.
+
+(\(2.\Rightarrow 3.\)): Se \(C_{1},\dots,C_{n}\) sono un ricoprimento di \(D\) e \(p(x) \vdash x \in D\) è \(G\)-thick, allora \(p(x) \vdash x \in C_{i}\) per qualche \(i\). Quindi \(C_{i}\) è \(G\)-thick.
+
+(\(2.\Rightarrow 1.\)): per il Teorema.
+
+(\(3.\Rightarrow 2.\)): Sia \(p(x) \supseteq \set{x \in D}\) massimale tra i \(L(Z)\)-tipi che sono \(G\)-wide\footnote{Ovvero, come per \(G\)-thick, ogni formula in \(\set{\land} p\) è \(G\)-wide.}.
+
+Basta mostrare che \(p(x)\) è completo.
+
+Altrimenti sia \(\theta(x)\) tale che \(\theta(x), \lnot\theta(x) \notin p(x)\). Quindi esiste \(\psi_{i}(x) \in \set{\land}p\) tale che
+\begin{equation*}
+\psi_{1}(x) \land \theta(x), \qquad \psi_{2}(x)\land \lnot\theta(x)
+\end{equation*}
+non sono \(G\)-wide.
+
+Sia quindi \(C_{1},\dots,C_{n}\) un ricoprimento di \(X\) che testimonia non \(G\)-wideness di entrambe. Ma \(C_{1},\dots,C_{n}\) ricopre
+\begin{equation*}
+\psi_{1}(x) \land \psi_{2}(x) \in p.%
+\qedhere
+\end{equation*}
+\end{proof}
+\section{Lezione 22 - \textit{<2025-12-09 Tue>}}
+\label{sec:org9f5f133}
+
+\(D\) è \(G\)-thick se \(\forall C \subseteq G\) finito
+\begin{equation*}
+\bigcap C \cdot D \neq \emptyset
+\end{equation*}
+
+Si ha che \(p \in S_{\varphi}(\U)\) è \(G\)-invariante se e solo se
+\begin{equation*}
+\forall \theta(x;b) \in \set{\land}p \qquad \theta(\U^x; b) \text{ è } G\text{-thick.}
+\end{equation*}
+
+\begin{definizione}
+\(q(x) \subseteq \L(\U)\) è \(G\)-thick se
+\begin{equation*}
+\forall \theta(x;b) \in \set{\land}q \qquad \theta(\U^x; b) \text{ è } G\text{-thick.}
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+\(p(x) \in S_x(\U)\) è \(G\)-invariante sse è \(G\)-thick.
+\end{oss}
+
+\uline{Domanda:} se \(q(x) \subseteq \L(\U)\) è \(G\)-thick, esiste \(p(x) \in S(\U)\) tale che \(p(x) \supseteq q(x)\) è \(G\)-invariante? \textbf{NO}.
+
+\uline{Nota:} D'ora in avanti gli insiemi sono definibili
+
+\begin{definizione}
+\(D\) è \(G\)-wide se per ogni \(C_1, \dots, C_n\) ricoprimento di \(D\) un \(C_i\) è \(G\)-thick.
+\end{definizione}
+
+\uline{Fatto}: \(q(x) \subseteq \L(\U)\) è \(G\)-wide sse
+esiste \(q(x) \subseteq p(x) \in S(\U)\) : \(G\)-thick
+\begin{quote}
+\textbf{DIGRESSIONE SUL FORKING}
+\end{quote}
+
+\begin{definizione}
+\(D\) è \uline{non-dividing} se per ogni \(B \subseteq G\) infinito,
+e per ogni \(n<\omega\) esiste \(C \subseteq B\) tale che
+\begin{equation*}
+\card{C} > n, \qquad %
+\bigcap C \cdot D \neq \emptyset.
+\end{equation*}
+\end{definizione}
+
+\begin{definizione}
+\(D\) è non-forking se per ogni \(C_1, \dots, C_n\) ricoprimento di \(D\), un \(C_i\) è non-dividing.
+\end{definizione}
+
+\begin{oss}
+Se \(T\) è NIP (classe di teorie che include le teorie stabili)
+\begin{equation*}
+D \text{ non-divide } \IFF D \text{ è } H\text{-thick}
+\end{equation*}
+dove \(H = \Aut^f(\U/A)\).
+\end{oss}
+
+\emph{Nota}: \(\Aut^f(\U/A) \le \Aut(\U/A)\) sottogruppo generato dagli automorfismi che fissano un qualche \(M \supseteq A\).
+
+\textbf{Nota:} se \(T\) è stabile allora
+\begin{equation*}
+\Aut^f(\U/A) = \Aut(\U/acl A).
+\end{equation*}
+
+\begin{quote}
+\textbf{FINE DIGRESSIONE}
+\end{quote}
+Siano ora:
+\begin{equation*}
+\X \subseteq \U^x, \quad \X \subseteq \U^z, \quad \DD \subseteq \X
+\end{equation*}
+
+\begin{definizione}
+\(\DD\) è \(G\)-syndetic se \(\exists C \subseteq G\) finito tale che
+\begin{equation*}
+\bigcup C \cdot \DD \supseteq \X
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+\(\DD\) è \(G\)-thick se \(\forall C \subseteq G\) finito
+\begin{equation*}
+\bigcap C \cdot \DD \neq \emptyset.
+\end{equation*}
+\end{oss}
+
+\uline{Fatto}: \(\DD\) non è \(G\)-syndetic sset \(\neg \DD\) è \(G\)-thick.
+
+Si ricorda che:
+\begin{equation*}
+\Sigma_G(x) = \{ x \in \DD \mid \DD \text{ è } G\text{-syndetic} \}
+\end{equation*}
+
+\textbf{Nota:} \(x \in \DD\) è una formula in quanto \(\DD\) è definibile
+
+\uline{Fatto} \(\Sigma_G(x)\) finitamente consistente sse
+esiste \(p(x) \in S_{\X}(\Z)\)\footnote{\(S_{\X}(\Z)\) è l'insieme dei tipi finitamente consistenti in \(\X\) a parametri in \(\Z\).} \(G\)-invariante.
+
+\uline{Fatto}: \(\Sigma_{G}(x)\) è finitamente consistente con \(x \in \DD\) sse esiste \(p(x) \in S_{\X}(\Z)\) \(G\)-invariante/\(G\) thick, e \(p(x) \vdash x \in \DD\) sse \(\DD\) è \(G\)-wide.
+
+\begin{definizione}
+\(\DD\) è \uline{fortemente \(G\)-syndetic} se \(\forall  C \subseteq \DD\) finito
+\(\bigcap C\cdot \DD\) è \(G\)-syndetic.
+\end{definizione}
+(``Ufficialmente'' questo si chiama insieme \emph{thickly syndetic}).
+
+\begin{definizione}
+\(\DD\) è \uline{debolmente \(G\)-thick} se \(\exists   C \subseteq \DD\) finito
+\(\bigcup C\cdot \DD\) è \(G\)-thick.
+\end{definizione}
+(``Ufficialmente'' questo si chiama insieme \emph{weakly syndetic}).
+
+\begin{thm}
+Se \(\DD,\CC\) sono fortemente \(G\)-syndetici, allora \(\DD\cap \CC\) è fortemente \(G\)-syndetic.
+\end{thm}
+\begin{proof}
+Sia \(C \subseteq G\) finito. Mostriamo che \(\bigcap C (\DD\cap\CC)\) è \(G\)-syndetico.
+\begin{equation*}
+\bigcap C (\DD\cap\CC) = %
+	\parentesi{\DD'}{\bigg(\bigcap C \DD\bigg)} %
+		\cap %
+	\parentesi{\CC'}{\bigg(\bigcap C \CC\bigg)} = \DD' \cap \C'
+\end{equation*}
+con \(\DD'\) e \(\CC'\) che sono \(G\)-syndetici.
+
+Fisso \(F \subseteq G\) finito tale che \(\bigcup F \CC' = \X\), e mostro che
+\(\bigcup F (\DD' \cap \CC')\) è \(G\)-syndetic.
+\begin{equation*}
+\bigcup F (\DD' \cap \CC') \supseteq %
+	\bigg(\bigcap F \DD'\bigg) \cap \bigg(\bigcup F \CC'\bigg) = \bigg(\bigcap F \DD'\bigg)
+\end{equation*}
+Infatti si ha che
+\begin{align*}
+\bigcup F (\DD' \cap \CC') &= %
+	\bigcup_{f \in F} (f\DD' \cap f\CC') \supseteq %
+	\bigcup_{f \in F} %
+		\left(\bigg(\bigcap_{f' \in F} f' \DD'\bigg) \cap f\CC'\right)\\
+	&= \bigg(\bigcap_{f' \in F} f' \DD'\bigg) \cap %
+		\bigg(\bigcup_{f \in F} f \CC'\bigg) = %
+		\bigg(\bigcap F \DD'\bigg) \cap \bigg(\bigcup F \CC'\bigg).
+\end{align*}
+Pertanto, siccome \(\bigcup F \CC' = \X\), si ha che
+\begin{equation*}
+\bigcup F (\DD' \cap \CC') \supseteq %
+	\bigg(\bigcap F \DD'\bigg),
+\end{equation*}
+con \(\bigcap F \DD'\) \(G\)-syndetic.
+\end{proof}
+
+Questo Teorema implica che
+\begin{equation*}
+\strongSigma_{G}(x) = \set{x \in \DD \mid \DD\text{ è fortemente }G\text{-syndetic}}
+\end{equation*}
+è chiusa per congiunzione e quindi finitamente consistente.
+
+\uline{Fatto} \(\strongSigma_{G}(x)\) finitamente consistente con \(x \in \DD\) sse \(x \in \DD\) è debolmente \(G\)-thick.
+
+\begin{proof}
+(\(\Rightarrow\)): se \(\strongSigma_{G}(x)\cup\set{x \in \DD}\) finitamente consistente allora \(x\notin \DD\) non fortmente \(G\)-syndetic sse \(x \in \DD\) è debolmente \(G\)-thick.
+
+(\(\Leftarrow\)): Se \(\strongSigma_{G}(x) \vdash x \notin \DD\) allora esiste \(\CC\) fortemente \(G\)-syntetic tale che \(\CC \subseteq \lnot \DD\), quindi \(\lnot \DD\) è fortemente \(G\)-syndetic, quindi \(\D\) non è debolmente \(G\)-thick.
+\end{proof}
+
+\begin{thm}
+Se \(\CC \cup \DD\) è debolmente \(G\)-thick allora almeno uno tra \(\CC\) e \(\DD\) è debolmente \(G\)-thick.
+\label{thm:debthickpartitionregular}
+\end{thm}
+
+\begin{thm}
+Per ogni definibile, LSASE:
+\begin{enumerate}
+\item \(G\)-thick sse \(G\)-wide;
+\item \(G\)-syndetic sse fortemente \(G\)-syndetic;
+\item \(G\)-thick sse debolmente \(G\)-thick.
+\end{enumerate}
+\end{thm}
+Quando questo vale, ``ricorda'' forking=dividing. Mostreremo che questo succede per \(T\) stabile e \(G = \Aut(\U/\acl^{\eq} A)\).
+\begin{proof}
+(\(3.\Rightarrow 1.\)): debolmente \(G\)-thick è ``partition regular''
+(Teorema~\ref{thm:debthickpartitionregular}) quindi anche \(G\)-thick. Segue 1.
+
+(\(1.\Rightarrow 2.\)): Siano \(\DD, \CC\) \(G\)-syndetici. Mostriamo che \(\DD \cap \CC\) è \(G\)-syndetico.
+
+Per assurdo, supponiamo sia falso. Allora \(\lnot \DD \cup \lnot \CC\) è \(G\)-thick, per 1. allora \(\lnot \DD\) è \(G\)-thick (oppure \(\lnot \CC\)).
+
+Allora \(\DD\) è non \(G\)-syndetic. Assurdo.
+\end{proof}
+
+\begin{definizione}
+Un insieme \(\X\) è \uline{stazionario} se esiste un unico \(p(x) \in S_{\X}(\U)\) che è \(G\)-invariante.
+\end{definizione}
+
+\uline{Fatto}: se \(\X\) è stazionario e \(G\)-thick=\(G\)-wide, allora
+\begin{quote}
+\(G\)-thick = \(G\)-syndetic.
+\end{quote}
+\begin{proof}
+(\(\supseteq\)): siccome \(\Sigma_{G}(x)\) è finitamente consistente allora \(G\)-syndetico implica \(G\)-thick (non serve \(\X\) stazionario).
+
+(\(\subseteq\)): per assurdo sia \(\DD\) un \(G\)-thick e non \(G\)-syndetic.
+Quindi \(\lnot\DD\) è \(G\)-thick.
+
+Poiché \(G\)-thick=\(G\)-wide, allora esiste \(p_{1}(x) \vdash x \in \DD\) e \(p_{2}(x) \vdash x \notin \DD\), con \(p_{1},p_{2} \in S_{\X}(\U)\). Questo contraddice \(\X\) stazionario.
+\end{proof}
+\section{Lezione 23 (Ultima) - \textit{<2025-12-16 Tue>}}
+\label{sec:orgf5e77ca}
+
+Sia \(\Z = \U^{z}\). Fissiamo
+\begin{equation*}
+G=\Aut(\U/A),\qquad H = \Aut(\U/\acl^{\eq} A), \qquad H \trianglelefteq G
+\end{equation*}
+Inoltre, per \(q(x) \in S(A)\) o \(q(x) \in S(\acl^{\eq} A)\), scegliamo
+\begin{equation*}
+\X = q(\U^{x}).
+\end{equation*}
+
+Tutti gli insiemi usati per syndetic, thick, wide, etc\ldots{} sono (solo) quelli definiti da una combinazione booleana di \(\varphi(x;b)\) con \(b \in \Z\) e \(\varphi(x;z) \in \L(A)\) fissata formula stabile. Questo insieme di formule è
+\begin{equation*}
+\Delta(\Z).
+\end{equation*}
+
+\begin{thm}
+(strano).
+Sia \(\varphi(x;z) \in \L(A)\) stabile. Dato \(M \supseteq A\), \(b \in \Z\), esistono \(b_{i} \equivalentover{M} b\) per \(i=1,\dots,n\) tali che una combinazione Booleana \uline{positiva}\footnote{Ovvero senza negazioni, solo \(\land\) e \(\lor\).} di \(\varphi(x;b_{i})\), \(\theta(x;b_{1},\dots,b_{n})\) è equivalente a una formula \(\psi(x)\) in \(\L(M)\), ovvero
+\begin{equation*}
+\psi(\U^{x}) = \theta(\U^{z},\overline{b}).
+\end{equation*}
+\label{thm_strano:2}
+\end{thm}
+
+Il Teorema ricorda questo: Sia \(\varphi(x;z) \in \L(A)\) stabile, \(M\supseteq A\), \(b \in \U^{z}\). Esistono \(c_{1},\dots,c_{n} \in M^{z}\) tali che
+\begin{equation*}
+\varphi(M^{x}, b) = \theta(M^{x}; c_{1},\dots,c_{n})
+\end{equation*}
+dove \(\theta(x;c_{1},\dots,c_{n})\) è combinazione booleana positiva di \(\varphi(x;c_{i})\).
+
+Dal punto di vista di \(M\), \(\varphi(M^{x},b)\) è un insieme esternamente definibile.
+
+Possiamo anche richiedere che \(c_{i} \equivalentover{A} b\), poiché se si definisce \(p(x) = \tp(b/A)\) allora \(p(x) \land \varphi(x;z)\) è relazione stabile.
+
+\begin{proof}
+(del Teorema~\ref{thm_strano:2}).
+Sia \(\V \preceq \U\) isomorfo ad \(\U\) su \(M\). Allora esistono \(b_{i} \equivalentover{M} b\) per \(i=1,\dots,n\), \(b_{i} \in \V\) ed esiste \(\theta(x;\overline{b})\) combinazione booleana positiva delle \(\varphi(x;b_{i})\) tale che
+\begin{equation*}
+\varphi(\V^{x};b) = \theta(\V^{x}; \overline{b}).
+\end{equation*}
+
+WLOG posso trovare \(\V\) tale che \(b \nonfork \V\). Per \emph{non splitting}, se \(a_{1} \equivalentover{M} a_{2} \in \V\), allora \(a_{1} \equivalentover{M,b} a_{2}\).
+
+Quindi \(\theta(\V^{x};\overline{b})\) è invariante per \(\Aut(\V/M)\), quindi esiste \(\psi(x) \in \L(M)\) tale che
+\begin{equation*}
+\theta(\V^{x}; \overline{b}) = \psi(\V^{x})
+\end{equation*}
+ovvero, in particolare
+\begin{equation*}
+\V \vDash \forall x\ [\theta(x;\overline{b}) \iff \psi(x)]
+\end{equation*}
+e, per elementarietà,
+\begin{equation*}
+\U \vDash \forall x\ [\theta(x;\overline{b}) \iff \psi(x)]
+\end{equation*}
+\end{proof}
+
+\begin{thm}
+(strano 2).
+Sia \(\varphi(x;z) \in \L(A)\) stabile, \(b \in \Z\), esistono \(b_{i} \equivalentover{\acl^{\eq} A} b\) per \(i=1,\dots,n\) tali che una combinazione Booleana positiva di \(\varphi(x;b_{i})\), \(\theta(x;b_{1},\dots,b_{n})\) è equivalente a una formula \(\psi(x)\) in \(\L(A)\), ovvero
+\begin{equation*}
+\psi(\U^{x}) = \theta(\U^{z},\overline{b}).
+\end{equation*}
+\end{thm}
+
+\begin{thm}
+Sia \(\varphi(x;z) \in \L(A)\) stabile. Sia \(\X=q(\U^{x})\), \(q(x) \subseteq \L(\U)\) piccolo e finitamente soddisfacibile in ogni \(M\supseteq A\)\footnote{Basta \(q(x) \in S(A)\).}.
+Si consideri il gruppo \(H=\Aut(\U / \acl^{\eq}A)\).
+
+Per ogni \(\Delta(\Z)\)-definibile \(D\), LSASE:
+\begin{enumerate}
+\item \(D\) è \(H\)-thick;
+\item \(D\) è \(H\)-wide.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(2.\Rightarrow 1.\)): ovvia.
+
+(\(1.\Rightarrow 2.\)): Assumiamo WLOG che \(D=\varphi(\U^{x};b)\). Basta mostrare che \(q(x) \cup \set{x \in D}\) è finitamente soddisfacibile in ogni \(M\supseteq A\). In questo modo possiamo estenderla a \(p(x) \in S_{\varphi}(\U^{z})\) finitamente soddisfacibile in ogni \(M\supseteq A\). Quindi \(D\) è \(H\)-wide.
+
+Fissiamo quindi \(M\supseteq A\) e fissiamo \(\sigma(x) \in \set{\land}q\). Mostriamo che \(\sigma(x)\land\varphi(x,b)\) è soddisfacibile in \(M\).
+
+Per il Teorema (strano), esiste una combinazione booleana positiva di \(\sigma(x)\land \varphi(x;b_{i})\): \(\theta(x;b_{1},\dots,b_{n})\), con \(b_{i} \equivalentover{M} b\), tale che \(\theta(x;\overline{b}) \iff \psi(x)\) per qualche \(\psi(x) \in \L(M)\).
+
+Affermo che \(\theta(x;\overline{b})\) è consistente. Da questo segue il teorema, poichhé allora \(\theta(x;\overline{b})\) è consistente in \(M\). Quindi \(\varphi(x) \land \theta(x;b_{i})\) è soddisfacibile in \(M\) per qualche \(i\), in particolare per \(m \in M^{x}\)
+\begin{equation*}
+\U \vDash \sigma(m) \land \varphi(m;b_{i})
+\end{equation*}
+e siccome \(b_{i} \equivalentover{M} b\) si ha che
+\begin{equation*}
+\U \vDash \sigma(m) \land \varphi(m;b).
+\end{equation*}
+
+Il fatto che \(\theta(x;\overline{b})\) è consistente segue dall'ipotesi che \(D\) sia \(H\)-thick. Infatti
+\begin{equation*}
+\theta(x:\overline{b}) = \bigvee_{i=1}^{n}\bigwedge_{j=1}^{n}
+\big(\sigma(x) \land \varphi(x;b_{\langle i,j\rangle})\big)
+\end{equation*}
+dove \(b_{\langle i,j\rangle} \equivalentover{M} b\), e in particolare \(b_{\langle i,j\rangle} \equivalentover{\acl^{\eq} A} b\).
+
+Quindi \(b_{\langle i ,j \rangle}\) sono \(H\)-coniugati. Siccome \(D\) è \(H\)-thickl, allora
+\begin{equation*}
+\bigwedge_{j=1}^{n}\varphi(x;b_{\langle i,j \rangle})
+\end{equation*}
+sono tutti consistenti in \(X\), quindi consistenti con \(q(x)\) e quindi consistenti con \(\sigma(x)\).
+\end{proof}
+
+Ricordiamo che
+\begin{itemize}
+\item \(D\) non syndetic sse \(\lnot D\) è thick.
+\item \(D\) thick sse \(\lnot D\) non syndetic.
+\item \(D\) non thick sse \(\lnot D\) è syndetic.
+\item \(D\) syndetic sse \(\lnot D\) non thick.
+\end{itemize}
+
+\begin{cor}
+LSASE:
+\begin{enumerate}
+\item syndetic implica thick
+\item non esiste \(D\) tale che \(D,\lnot D\) entrambi syndetic.
+\end{enumerate}
+\end{cor}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Se 1. e \(D\) syndetic, allora \(D\) è thick. Allora \(\lnot D\) è non syndetic.
+
+(\(2.\Rightarrow 1.\)): Se 2. e \(D\) syndetic, allora \(\lnot D\) non syndetic, quindi \(D\) thick.
+\end{proof}
+
+\begin{cor}
+LSASE
+\begin{enumerate}
+\item thick implica syndetic;
+\item non esiste \(D\) tale che \(D,\lnot D\) entrambi thick.
+\end{enumerate}
+\end{cor}
+
+Ora assumiamo che thick=wide (sse syndetic è chiuso per congiunzioni), quindi vale ``syndetic implica thick''. Affermo che se \(H=\Aut(\U/\acl^{\eq} A)\) e \(\X=q(\U^{x})\), \(q(x) \in S(\acl^{\eq}A)\), allora vale anche ``thick implica syndetic''. Infatti abbiamo già visto che \(q(x)\) è stazionario (ovvero esiste un unico tipo \(p(x) \in S_{\varphi}(\U)\) \(H\)-thick/wide/invariante globale che lo estende).
+
+Se per assurdo ``thick non implica syndetic'', allora esistono \(D\), \(\lnot D\) thick = wide, quindi posso estenderli a due diversi \(p(x) \in S_{\varphi}(\U)\) \(H\)-invarianti. Assurdo.
+
+\begin{oss}
+La stessa cosa vale se al posto di \(H\) si considera
+\begin{equation*}
+G=\Aut(\U/A).
+\end{equation*}
+\end{oss}
+\section{INFO ESAME}
+\label{sec:org5952367}
+
+Possiamo tenere le dispense del corso durante l'esame. Ha detto che molto probabilmente non ci fornirà la lista degli esercizi papabili.
+\newpage
+\printbibliography
+\end{document}

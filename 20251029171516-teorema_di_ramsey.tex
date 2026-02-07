@@ -1,0 +1,464 @@
+% Created 2026-02-07 Sat 19:34
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Davide Peccioli}
+\date{\today}
+\title{}
+\begin{document}
+
+\section{Teorema di Ramsey}
+\label{sec:org69f0694}
+Si veda la Sezione~15.1 di \autocite{zambellaCrecheCourseModel2025a}
+
+\def\M{\mathcal{M}}
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+\def\equivalentover#1{\mathrel{\equiv_{#1}}}
+\def\restricted#1{\,\mathord{\upharpoonright}{\scriptstyle #1}}
+%% Alcuni simboli
+\def\nonforkSymbol{\mathbin{\raise1.8ex\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$} } }
+\renewcommand{\nonfork}[1][M]{\mathrel{\nonforkSymbol_{#1}}}
+
+\uline{Notazione}:
+\begin{itemize}
+\item per \(k \in \N\), \((k] = \set{1,\dots,k}\)
+\item per \(I\) insieme e \(\lambda\) \href{20250203161341-cardinali.org}{cardinale}, si indica con
+\begin{equation*}
+  \binom{I}{\lambda} = I^{(\lambda)} =  \set{J \subseteq I \mid \card{J} = \lambda}.
+\end{equation*}
+l'insieme dei \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsiemi} di \(I\) di \href{20241213101756-cardinalita.org}{cardinalità} fissata.
+\end{itemize}
+
+\begin{definizione}
+Una \uline{colorazione} per un insieme \(M^{(n)}\) è una funzione
+\begin{equation*}
+f: M^{(n)} \to (k]
+\end{equation*}
+per qualche \(n,k \in \omega\) fissato.
+\end{definizione}
+
+\begin{definizione}
+Dato un insieme \(M\) ed una colorazione \(f:M^{(n)}\to (k]\), \(H \subseteq M\) è \uline{monocromatico} se la \href{20250205170515-restrizione_di_una_classe.org}{restrizione} \(f \upharpoonright H^{(n)}\) è costante.
+\end{definizione}
+
+\begin{thm}
+Per ogni \(M\) insieme infinito e per ogni colorazione
+\begin{equation*}
+f: \binom{M}{n}\to (k]
+\end{equation*}
+esiste \(H \subseteq M\) infinito e monocromatico.
+\end{thm}
+
+\begin{proof}
+Sia \(\L\) il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} contenente \(k\) relazioni \(n\)-arie:
+\begin{equation*}
+\L = \set{r_{i} \mid i \in (k]}
+\end{equation*}
+e sia \(\M\) la \(\L\)-struttura di dominio \(M\), in cui
+\begin{equation*}
+r_{i}^{\M} \coloneqq \set{(a_{1},\dots,a_{n}) \mid f\big(\set{a_{1},\dots,a_{n}}\big) = i}.
+\end{equation*}
+
+Sia \(\U \succeq \mathcal{M}\)\footnote{con ``\(\preceq\)'' si intende che \(\mathcal{M}\) è \href{20250212102253-sottostruttura_elementare.org}{Sottostruttura elementare} di \(\U\).} un \href{20250617095548-modello_lambda_saturo.org}{modello saturo} \href{20250617102733-modello_mostro.org}{mostro}. Si noti che esiste una \href{20250131103317-formula_del_prim_ordine.org}{formula del prim'ordine} che afferma che \(r_{i}(x_{1},\dots,x_{n})\) rappresentano una colorazione di \(M^{(n)}\) (ovvero che le relazioni sono simmetriche e sono un ``ricoprimento''), e pertanto, per elementarietà, questo vale anche in \(\U\).
+
+Sia \(x\) una variabile di lunghezza 1 e sia \(q(x)\) il tipo \(x\notin M\). Questo è \href{20250212164424-tipo_teoria_dei_modelli.org}{finitamente soddisfacibile}, e \href{20251026195832-estensione_tipo_finitamente_soddisfacibile_in_un_insieme_a_tipo_massimale_e_completo.org}{pertanto} esiste un \href{20250617102733-modello_mostro.org}{tipo globale} \(p(x) \supseteq q(x)\), \(p(x) \in S(\U)\) finitamente soddisfacibile in \(M\). \href{20251026195746-tipo_finitamente_soddisfacibile_e_invariante.org}{Inoltre} \(p(x)\) è invariante su \(M\).
+
+Sia \(\overline{c} = \langle c_{i} \mid i<\omega \rangle\) una \href{20251026211057-sequenza_di_coeredi.org}{sequenza di coeredi di \(p(x)\) su \(M\)}.
+
+In particolare, siccome \(\overline{c}\) è un \href{20251026210840-sequenza_di_morley.org}{sequenza di Morley} su \(p(x)\) invariante su \(M\), \href{20251026211005-sequenza_di_morely_inviariante_e_indiscernibile.org}{allora} è una \href{20251026210908-sequenza_di_indiscernibili.org}{sequenza di indiscernibili} su \(M\). Pertanto per ogni \(I,J \in \omega^{(n)}\)
+\begin{equation*}
+c \restricted{I} \equivalentover{M} c \restricted{J}.
+\end{equation*}
+e dunque, per ogni \(i=1,\dots,k\)
+\begin{equation*}
+r_{i}(c\restricted{I}) \IFF r_{i}(c \restricted{J})
+\end{equation*}
+Segue che \(\set{c_{i} \mid i <\omega}\) è monocromatico (WLOG di colore 1). Si osservi però che questa sequenza è in \(\U\), non in \(M\).
+
+Si vuole costruire per induzione una sequenza \(\overline{a} = \langle a_{i} : i <\omega \rangle\) in \(M\) monocromatica di colore 1.
+
+Per induzione su \(i\): si supponga per ipotesi induttiva che tutte le sottosequenze di lunghezza \(n\) di
+\begin{equation*}
+(a\restricted{i}) \concat (c\restricted{n}),
+\end{equation*}
+dove ``\(\concat\)'' rappresenta la concatenazione tra \href{20250206170922-sequenze_e_stringhe.org}{stringhe}, abbiano lo stesso colore 1. Si cerca quindi \(a_{i} \in M\) in maniera che
+\begin{equation*}
+(a\restricted{i}) \textcolor{red}{\concat a_{i}} \concat (c\restricted{n}) = (a\restricted{i+1}) \concat (c\restricted{n})
+\end{equation*}
+abbia la stessa proprietà.
+
+Siccome \(\overline{c}\) è sequenza di indiscernibili su \(M\)\footnote{Ovvero per ogni \(I,J \in \omega^{(n)}\)
+\begin{equation*}
+c \restricted{I} \equivalentover{M} c \restricted{J}.
+\end{equation*}} in particolare
+\begin{equation*}
+(a\restricted{i}) \concat (c\restricted{n}) \concat c_{n}
+\end{equation*}
+ha tutte le sottostringhe di lunghezza \(n\) di colore 1 (poiché \(a\restricted{i} \subseteq M\)).
+
+In particolare esiste una formula \(\varphi \in \L\) tale che \(\varphi(a\restricted{i};\, c \restricted{n};\, c_{n})\) affermi che tutte le sottosequenze di lunghezza \(n\) della stringa abbiano colore 1.
+Questa formula per sua natura è simmetrica nelle variabili libere.
+
+Per la \href{20251026211057-sequenza_di_coeredi.org}{caratterizzazione delle sequenze di coeredi} si ha che
+\begin{equation*}
+c_{n} \nonfork c \restricted{n}
+\end{equation*}
+e dunque per \href{20251029154447-tuple_indipendenti_rispetto_ad_un_modello_monster_model.org}{definizione} esiste \(\bm{a} \in M\) tale che
+\begin{equation*}
+\varphi(a\restricted{i};\, c \restricted{n};\, \textcolor{red}{\bm{a}})
+\end{equation*}
+e, per l'osservazione di cui sopra,
+\begin{equation*}
+\varphi(a\restricted{i};\, \bm{a};\, c \restricted{n}).
+\end{equation*}
+
+Quindi la stringa
+\begin{equation*}
+(a \restricted{i}) \concat \bm{a} \concat (c\restricted{n})
+\end{equation*}
+è monocromatica di colore 1. Ponendo \(a_{i} \coloneqq \bm{a}\) si ha la tesi.
+\end{proof}
+\printbibliography
+\end{document}

@@ -1,0 +1,439 @@
+% Created 2026-02-07 Sat 19:34
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Davide Peccioli}
+\date{\today}
+\title{Morfismi tra modelli lambda-ricchi sono elementari}
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione TEORIA DEI MODELLI}.
+
+Sia \(\mathcal{M} = \mathcal{M}_{\text{ob}}\cup \mathcal{M}_{\text{hom}}\) una \href{20241126100904-categoria.org}{categoria} \href{20250213142026-categorie_di_modelli_e_morfismi_parziali.org}{di modelli e morfismi parziali} di \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} \(\mathcal{L}\) tale che
+\begin{enumerate}
+\item per ogni \(M \in \mathcal{M}_{\text{ob}}\) e per ogni \(A \subseteq M\), \(\id_{A} : M\partialto M\) è \(\id_{A} \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(M,N \in \mathcal{M}_{\text{ob}}\), e \(k:M\partialto N\) \href{20250213105339-funzione_parziale.org}{funzione parziale}, se per ogni \(k' \subseteq k\) \href{20250205120448-classe_finita_e_infinita_mk.org}{finito} si ha \(k' \in \mathcal{M}_{\text{hom}}\), allora \(k \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(k \in \mathcal{M}_{\text{hom}}\), \(k\) è \href{20250111142446-funzione_inversa.org}{invertibile} e la sua \href{20250111142446-funzione_inversa.org}{inversa} \(k^{-1} \in \mathcal{M}_{\text{hom}}\);
+\item gli elementi di \(\mathcal{M}_{\text{hom}}\) \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{preservano la verità} delle \href{20250131103317-formula_del_prim_ordine.org}{formule atomiche};
+\item se \(M \in \mathcal{M}_{\text{ob}}\) e \(N\) è una \href{20250131103035-struttura_del_prim_ordine.org}{struttura} \href{20250131123208-teorie_elementarmente_equivalente.org}{elementarmente equivalente} a \(M\), \(M\equiv N\), allora \(N \in \mathcal{M}_{\text{ob}}\).
+\item per ogni \(M, N \in \mathcal{M}_{\text{ob}}\), se \(h:M\partialto N\) è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappa elementare}, allora \(h \in \mathcal{M}_{\text{hom}}\).
+\end{enumerate}
+
+Sia \(\lambda\) un \href{20250203161341-cardinali.org}{cardinale} tale che \(\card{\mathcal{L}}\le\lambda\)
+\section{Teorema}
+\label{sec:org37532db}
+Siano \(M,N \in \mathcal{M}_{\text{ob}}\) dei modelli \(\lambda\)-ricchi. Allora, per ogni \(k \in \mathcal{M}_{\text{hom}}(M,N)\), \(k\) è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{morfismo elementare}.
+\subsection{Dimostrazione}
+\label{sec:orgdb60714}
+Sia \(k \in \mathcal{M}_{\text{hom}}(M,N)\).
+\begin{itemize}
+\item Se tutte le restrizioni finite di \(k\) sono elementari, allora \(k\) è elementare: si supponga ad esempio che \(M\vDash \varphi[a_{1},\dots,a_{n}]\); poiché \(k\upharpoonright\set{a_{1},\dots,a_{n}}\) è elementare, allora
+\begin{equation*}
+  N\vDash \varphi\left[k\upharpoonright\set{a_{1},\dots,a_{n}}(a_{1}),\dots,k\upharpoonright\set{a_{1},\dots,a_{n}}(a_{n})\right]
+\end{equation*}
+ovvero \(N\vDash \varphi[k(a_{1}),\dots,k(a_{n})]\).
+
+Pertanto, WLOG, si dimostra l'enunciato per \(k\) finita.
+\item Si costruiscono due \href{20250212102253-sottostruttura_elementare.org}{sottostrutture elementari} (che per 5. sono in \(\mathcal{M}_{\text{ob}}\)): \(\operatorname{dom}k \subseteq M'\preceq M\), \(N'\preceq N\) ed una mappa \(h \in \mathcal{M}_{\text{hom}}(M,N)\) tale che \(k \subseteq h\) e \(h:M'\to N'\) sia biiettiva.
+
+Per le ipotesi 3. e 4. \(h\) è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo} (e quindi in particolare è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappa elementare}) e quindi, per l'ipotesi 6. \(h \in \mathcal{M}_{\text{hom}}\).
+\item Siano ora \(\varphi\) una \(\mathcal{L}\)-formula, e siano \(a_{1},\dots,a_{n} \in \operatorname{dom}(k)\) tali che \(M\vDash \varphi[a_{1},\dots,a_{n}]\). Allora \(a_{1},\dots,a_{n} \in M'\) e pertanto (siccome \(M'\preceq M\))
+\begin{equation*}
+  M'\vDash \varphi[a_{1},\dots,a_{n}]
+\end{equation*}
+e poiché \(h\) è un isomorfismo:
+\begin{equation*}
+  N'\vDash \varphi[ha_{1},\dots,ha_{n}]
+\end{equation*}
+ma \(N'\preceq N\) e \(h\upharpoonright \operatorname{dom}k = k\) e pertanto
+\begin{equation*}
+  N\vDash \varphi[ha_{1},\dots,ha_{n}]\quad\leadsto\quad N\vDash \varphi[ka_{1},\dots,ka_{n}].
+\end{equation*}
+\end{itemize}
+
+Per ricorsione si costruisce una famiglia \(\langle h_{i}: i<\lambda\rangle\) tale che \(\card{h_{i}}<\lambda\) ; \href{20250205181254-order_type_del_prodotto_cartesiano_di_un_cardinale_e_il_cardinale_stesso.org}{si fissi \(\pi:\lambda^{2}\to \lambda\)} una \href{20250104111707-funzione_biunivoca.org}{biiezione} tale che \(j,k\le\pi(j,k)\):
+\begin{itemize}
+\item si pone \(h_{0}\coloneqq k \in \mathcal{M}_{\text{hom}}\);
+\item ai passi \href{20250203161132-ordinale_limite.org}{limite} si considera l'unione; anche questa ha cardinalità \(<\lambda\), e inoltre è in \(\mathcal{M}_{\text{hom}}\) per la proprietà 2.;
+\item per i passi \href{20250203161132-ordinale_limite.org}{successori} \(i+1\), si suppongia sia costruita \(h_{j}\) per ogni \(j<i+1\).
+
+\begin{itemize}
+\item Siccome \(\operatorname{dom}(h_{j})\) ha cardinalità \(<\lambda\) allora anche \(\card{\mathcal{L}(\operatorname{dom}h_{j})}<\lambda\): sia dunque
+\begin{equation*}
+	\langle \varphi_{j,k}(x)\mid k<\lambda\rangle
+\end{equation*}
+una \href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{enumerazione} delle \href{20250131103317-formula_del_prim_ordine.org}{formule} \href{20250212144403-formula_consistente.org}{consistenti} di \(\mathcal{L}(\operatorname{dom}h_{j})\) in \(M\).
+
+Siano dunque \(j,k<i\) tali che \(\pi(j,k)=i\), e sia \(b \in M\) testimone di \(\varphi_{j,k}\) in \(M\) (ovvero \(M\vDash \varphi_{j,k}[b]\)). Poiché \(\card{h_{i}}<\lambda\), siccome \(N\) è \(\lambda\)-ricco, esiste \(c \in N\) tale che
+\begin{equation*}
+h_{i}\cup\set{(b,c)} \in \mathcal{M}_{\text{hom}}.
+\end{equation*}
+
+Si pone dunque \(h_{i+1/2} \coloneqq h_{i}\cup\set{(b,c)}\). Dunque \(\card{h_{i+1/2}}<\lambda\).
+
+\item Siccome \(\operatorname{rng}(h_{j})\) ha cardinalità \(<\lambda\) allora anche \(\card{\mathcal{L}(\operatorname{rng}h_{j})}<\lambda\): sia dunque
+\begin{equation*}
+	\langle \psi_{j,k}(x)\mid k<\lambda\rangle
+\end{equation*}
+una \href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{enumerazione} delle \href{20250131103317-formula_del_prim_ordine.org}{formule} \href{20250212144403-formula_consistente.org}{consistenti} di \(\mathcal{L}(\operatorname{rng}h_{j})\) in \(N\).
+
+Siano dunque \(j,k < i\) tali che \(\pi(j,k) = i\), e sia \(b \in N\) testimone di \(\psi_{j,k}\) in \(N\) (ovvero \(N\vDash\psi_{j,k}[b]\)). Poiché \(\card{(h_{i+1/2})^{-1}}<\lambda\) e \((h_{i+1/2})^{-1} \in \mathcal{M}_{\text{hom}}\) per l'ipotesi 3., allora siccome \(M\) è \(\lambda\)-ricco, esiste \(c \in N\) tale che
+\begin{equation*}
+	(h_{i+1/2})^{-1}\cup \set{(b,c)} \in \mathcal{M}_{\text{hom}}.
+\end{equation*}
+
+Si pone quindi \(h_{i+1}\coloneqq\left((h_{i+1/2})^{-1}\cup \set{(b,c)}\right)^{-1}\).
+\end{itemize}
+\end{itemize}
+
+Dunque sia \(h\coloneqq\bigcup_{i<\lambda} h_{i}\) e siano
+\begin{equation*}
+M' = \operatorname{dom}h,\qquad N': \operatorname{rng}h.
+\end{equation*}
+\begin{itemize}
+\item \(k \subseteq h\), \(h \in \mathcal{M}_{\text{hom}}\) poiché ogni sua restrizione finita lo è (ad ogni passo \(i<\omega\le \lambda\) si ha che \(h_{i} \in \mathcal{M}_{\text{hom}}\)), e inoltre \(h\) è iniettiva, pertanto \(h\upharpoonright M' = h\upharpoonright \operatorname{dom}h\) è una biiezione.
+\item \(M'\preceq M\): si utilizza il \href{20250212113245-criterio_di_tarski_vaught.org}{Criterio di Tarski-Vaught}; sia \(\varphi(x)\) una \(\mathcal{L}(M')\)-formula consistente in \(M\). Allora \(\varphi(x)\) è una \(\mathcal{L}(\operatorname{dom}h_{i})\) per qualche \(i<\lambda\) (poiché ogni formula è una stringa finita), e pertanto \(\varphi=\varphi_{i,k}\) per qualche \(k<\lambda\). Quindi, per costruzione, esiste \(b \in \operatorname{dom}h_{\pi(i,k)+1} \subseteq M'\) tale che \(M\vDash \varphi[b]\).
+\item \(N'\preceq N\): si utilizza il \href{20250212113245-criterio_di_tarski_vaught.org}{Criterio di Tarski-Vaught}; sia \(\psi(x)\) una \(\mathcal{L}(N')\)-formula consistente in \(N\). Allora \(\varphi(x)\) è una \(\mathcal{L}(\operatorname{rng}h_{i})\) per qualche \(i<\lambda\) (poiché ogni formula è una stringa finita), e pertanto \(\psi=\psi_{i,k}\) per qualche \(k<\lambda\). Quindi, per costruzione, esiste \(b \in \operatorname{rng}h_{\pi(i,k)+1} \subseteq N'\) tale che \(N\vDash \psi[b]\).\qed
+\end{itemize}
+\end{document}

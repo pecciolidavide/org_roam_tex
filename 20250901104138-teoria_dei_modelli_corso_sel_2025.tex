@@ -1,0 +1,1561 @@
+% Created 2026-02-07 Sat 19:32
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Silvia Barbina}
+\date{Scuola Estiva di Logica 2025}
+\title{Teoria dei modelli [CORSO SEL2025]}
+\begin{document}
+
+\section{Lezione 1}
+\label{sec:org91bb38b}
+
+\subsection{Introduzione}
+\label{sec:org31b41fe}
+
+Si lavora con un linguaggio
+\begin{equation*}
+\mathcal{L} = \set{\set{R_{i}}_{i \in I}, \set{f_{j}}_{j \in J}, \set{c_{k}}_{k \in K}}
+\end{equation*}
+
+Definizioni di base:
+\begin{enumerate}
+\item Una \uline{teoria} è un insieme di \(\mathcal{L}\)-enunciati:
+\item Una \(\mathcal{L}\)-struttura \(M\) è un modello della teoria \(T\) se per ogni \(\sigma \in T\), \(M\vDash \sigma\). Si scrive \(M\vDash T\).
+
+\(T\) è \uline{coerente}, o \uline{consistente}, se ammette un modello.
+\item Con \(\operatorname{Mod}(T)\) si indica la classe di tutti i modelli tella teoria \(T\).
+\item Con \(\operatorname{Th}(M)\) si indica la teoria della struttura \(M\), ossia
+\begin{equation*}
+ \operatorname{Th}(M) \coloneqq\set{\sigma: M\vDash\sigma,\sigma\text{ enunciato}}.
+\end{equation*}
+\item Se \(T\) è una teoria e \(\sigma\) è un enunciato,
+\begin{equation*}
+ T\vDash\sigma\text{ per ogni }M\vDash T
+\end{equation*}
+\item \(T\) è una teoria \uline{completa} se per ogni enunciato \(\sigma\) si ha
+\begin{equation*}
+ T\vDash \sigma\quad\text{o}\quadT\vDash\lnot\sigma.
+\end{equation*}
+\item Scriviamo \(M\equiv N\), e diremo che \(M,N\) sono \uline{elementarmente equivalenti} se
+\begin{equation*}
+ \operatorname{Th}(M)=\operatorname{Th}(N)
+\end{equation*}
+\end{enumerate}
+
+Alcune domande naturali:
+\begin{enumerate}
+\item Data \(T\), possiamo descrivere \(\operatorname{Mod}(T)\)? In generale, la domanda ha senso quando \(T\) è completa
+\item Data \(M\) (struttura), \(\operatorname{Th}(M)\) è sempre completa. Come sono fatti i modelli di \(\operatorname{Th}(M)\)?
+\item Come stabilire se una data teoria \(T\) è completa?
+\item Data una struttura \(M\), è possibile descrivere \(\operatorname{Th}(M)\) in modo efficace? (per esempio mediante degli assiomi)
+\end{enumerate}
+
+\begin{esempio}
+Sia \(T\) una teoria \(\omega\)-categorica, ossia avente un unico modello infinito numerabile a meno di isomorfismo. Allora
+\begin{itemize}
+\item \(T\) è completa;
+\item i modelli infinito numerabili di \(T\) sono tutti isomorfi;
+\item una classificazione di \(\operatorname{Mod}(T)\) si ha banalmente per \(T\) totalmente categorica.
+\end{itemize}
+\end{esempio}
+
+\uline{Abusi di notazioni}.
+\begin{itemize}
+\item Una struttura verrà denotata dal suo dominio \(M\); non distinguiamo tra simboli nel linguaggio e le loro interpretazioni in \(M\).
+\item Se \(A \subseteq M\), definiamo un'espansione di \(\mathcal{L}\):
+\begin{equation*}
+  \mathcal{L}(A) = L\cup\set{a \mid a \in A}.
+\end{equation*}
+Una \(\mathcal{L}(A)\)-formula ha parametri in \(A\).
+\item Scriviamo ``\(\varphi \in \mathcal{L}\)'' per ``\(\varphi\) è una \(\mathcal{L}\)-formula''.
+\item Tuple di variabili/costanti si denotano con \(x\)/\(a\), e, occasionalmente \(\bar{x}\)/\(\bar{a}\). \(|x|\) denota la lunghezza della tupla \(x\) (ex: \(a \in M^{|a|}\))
+\item \(M,N,U,V\) denotano struttura e \(A,B,C\) sono sottoinsiemi del dominio di una struttura.
+\end{itemize}
+\subsection{Immersioni e immersioni elementari}
+\label{sec:org4ef6af8}
+
+Se \(M,N\) sono due \(\mathcal{L}\)-struttura, allora
+\begin{enumerate}
+\item \(f:M\to N\) è una \uline{immersione} se e solo se per ogni \(\varphi(x) \in \mathcal{L}\) \uline{atomica} (oppure senza quantificatori) e \(\forall a \in M^{|x|}\)
+\begin{equation*}
+ 	M\vDash\varphi(a)\quad\iff\quad N\vDash \varphi\big(f(a)\big)
+\end{equation*}
+Troviamo una copia isomorfa di \(M\) dentro \(N\).
+\item \(f:M\to N\) è una \uline{immersione elementare} se per ogni \(\varphi(x) \in \mathcal{L}\) e \(\forall a \in M^{|x|}\)
+\begin{equation*}
+ 	M\vDash\varphi(a)\quad\iff\quad N\vDash \varphi\big(f(a)\big)
+\end{equation*}
+\end{enumerate}
+
+Inoltre
+\begin{enumerate}
+\item \(M\) è \uline{sottostruttura} di \(N\) (\(M \subseteq N\)) se l'inclusione \(i:M\to N\) è una immersione.
+\item \(M\) è \uline{sottostruttura elementare} di \(N\) (\(M \preceq N\)) se l'inclusione \(i:M\to N\) è una immersione elementare.
+\item Una immersione biiettiva è un isomorfismo ed è, in particolare, un'immersione elementare.
+\item Ogni immersione è iniettiva
+\begin{equation*}
+ 	M\vDash a=b\quad\iff\quad N\vDash f(a)=f(b)
+\end{equation*}
+\end{enumerate}
+
+\begin{esempio}
+Sia \(\mathcal{L}_{lo}=\set{<}\), con \(<\) simbolo di relazione binaria. Allora \((\R,<)\) è una \(\mathcal{L}_{lo}\)-struttura, dove \(<\) è (interpretato come) l'ordine usuale sui reali.
+
+Gli intervalli \([0,1]\) e \([0,2] \subseteq \R\) sono \(\mathcal{L}_{lo}\) strutture e sono entrambi sottostrutture di \(\R\). Inoltre \([0,1]\cong [0,2]\), con \(x\mapsto 2x\) \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo}.
+
+\uline{Ma} l'inclusione \([0,1]\subseteq[0,2]\) non è elementare. Infatti, sia
+\begin{equation*}
+\varphi(x):\quad \forall y \ (y<x \lor y=x)
+\end{equation*}
+allora \([0,1]\vDash\varphi(1)\) ma \([0,1]\not\vDash\varphi(1)\).
+
+Altre osservazioni: \([0,1]\not\preceq \R\) e \([0,1]\not\equiv \R\). Però \([0,1]\equiv[0,2]\) poiché \([0,1]\cong[0,2]\).
+\end{esempio}
+
+\begin{thm}
+(\href{20250212113245-criterio_di_tarski_vaught.org}{Criterio di Tarski-Vaught}) Per ogni \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \(A \subseteq N\), sono fatti equivalenti:
+\begin{enumerate}
+\item \(A\) è il dominio di una sottostruttura elementare \(M\preceq N\);
+\item per ogni \href{20250212102927-enunciato_con_parametri.org}{formula} \(\varphi(x) \in \mathcal{L}(A)\) con \(|x|=1\)
+\begin{equation*}
+ 	N\vDash \exists\,x\ \varphi(x)\quad \implies\quad N\vDash \varphi(b)\text{ per qualche } b \in A
+\end{equation*}
+\end{enumerate}
+\end{thm}
+
+\begin{definizione}
+Sia \(\lambda\) un ordinale. Allora una \uline{catena di \(\mathcal{L}\)-strutture} è una successione \(\langle M_{i}\mid i <\lambda\rangle\) tale che, per ogni \(i<j<\lambda\), \(M_{i} \subseteq M_{j}\).
+\end{definizione}
+
+L'\uline{unione della catena} è la struttura \(M\) dove
+\begin{itemize}
+\item il dominio è \(\bigcup_{i<\lambda} M_{i}\);
+\item \(c\) costante, allora \(c^{M} =c^{M_{i}}\) per qualche \(i<\lambda\);
+\item \(f\) funzione, \(\bar{a} \in M^{n}\), allora \(f^{M}(\bar{a}) = f^{M_{i}}(\bar{a})\) per \(i\) tale che \(\bar{a} \in M_{i}^{n}\);
+\item \(R\) relazione, allora \(R^{M} = \bigcup_{i<\lambda} R^{M_{i}}\).
+\end{itemize}
+\subsection{Teorema di Lowenheim-Skolem all'ingiù}
+\label{sec:orgde521d0}
+
+\begin{thm}
+Sia \(N\) una \(\mathcal{L}\)-struttura con \(|N|\ge |\mathcal{L}|+\omega\), e sia \(A \subseteq N\).
+
+Allora per ogni \(\lambda\) tale che \(|A|+|\mathcal{L}|\le \lambda \le |N|\) esiste \(M\preceq N\) tale che
+\begin{enumerate}
+\item \(A \subseteq M\)
+\item \(|M|=\lambda\).
+\end{enumerate}
+\end{thm}
+\subsection{Teoria degli ordini lineari}
+\label{sec:orgfdf5886}
+
+Sia \(\mathcal{L}_{lo}=\set{<}\), con \(<\) relazione binaria. Una \(\mathcal{L}_{lo}\) struttura è un \uline{ordine lineare} se soddisfa
+\begin{enumerate}
+\item \(\forall x\ \lnot(x<x)\);
+\item \(\forall x,y,z\ \big[(x<y \land y<z)\implies x<z\big]\);
+\item \(\forall x,y\ [x<y \lor y<x \lor x=y]\).
+\end{enumerate}
+Un ordine lineare è \uline{denso} se soddisfa
+\begin{enumerate}
+\item \(\exists x,y\ [x<y]\)
+\item \(\forall x,y\ \big[(x<y)\implies \exists z\ (x<z \land z<y)\big]\).
+\end{enumerate}
+Un ordine lineare è \uline{senza estremi} se
+\begin{enumerate}
+\item \(\forall x\)
+\end{enumerate}
+
+??? (vedi \href{20250203101604-ordine.org}{Ordine lineare}, \href{20250203101604-ordine.org}{Ordine denso}, \href{20250203101604-ordine.org}{Ordine senza punto finale})
+
+(\(T_{\text{lo}}\) e \(T_{\text{dlo}}\))
+\subsection{Teoria dei grafi}
+\label{sec:org0bd3286}
+
+Sia \(\mathcal{L}_{gph} = \set{R}\). Un \uline{grafo} è una \(\mathcal{L}_{gph}\)-struttura che soddisfa
+
+??? (Vedi \href{20250213123032-teoria_dei_grafi.org}{Teoria dei grafi}, \href{20250213123032-teoria_dei_grafi.org}{Teoria dei grafi aleatori})
+
+(\(T_{\text{gph}}\) e \(T_{\text{rg}}\))
+
+I modelli di \(T_{\text{dlo}}\) e \(T_{\text{rg}}\) sono necessariamente infiniti.
+\section{Lezione 2}
+\label{sec:orge2c93a5}
+
+\begin{definizione}
+Siano \(M,N\) due \(\mathcal{L}\)-strutture. Un'\uline{immersione parziale} è una mappa iniettiva
+\begin{equation*}
+p:\operatorname{dom}(p) \subseteq M\to N
+\end{equation*}
+tale che
+\begin{enumerate}
+\item per ogni relazione \(n\)-aria \(R\), \(a \in \operatorname{dom}(p)^{n}\)
+\begin{equation*}
+ a \in R^{M}\quad\iff\quad p(a) \in R^{N}
+\end{equation*}
+\item per ogni funzione \(n\)-aria \(f\), \(a, f^{M}(a) \in \operatorname{dom}(p)^{n}\)
+\begin{equation*}
+ p\big(f^{M}(a)\big)=f^{N}\big(p(a)\big)
+\end{equation*}
+\item per ogni costante \(c\) tale che \(c^{M} \in \operatorname{dom}(p)\)
+\begin{equation*}
+ p(c^{M})=c^{N}
+\end{equation*}
+\end{enumerate}
+\end{definizione}
+
+\begin{definizione}
+\(M,N\) sono \uline{parzialmente isomorfe} se esiste una collezione \(I\neq\emptyset\) di immersioni parziali tali che
+\begin{enumerate}
+\item se \(p \in I\) e \(a \in M\), esiste \(\hat{p} \in I\) con \(p \subseteq \hat{p}\) e \(a \in \operatorname{dom}(\hat{p})\);
+\item se \(p \in I\) e \(b \in M\), esiste \(\hat{p} \in I\) con \(p \subseteq \hat{p}\) e \(b \in \operatorname{rng}(\hat{p})\).
+\end{enumerate}
+\end{definizione}
+
+\begin{lem}
+(Andirivieni, o back-and-forth) Se \(\card{M}=\card{N}=\omega\) e \(M,N\) sono parzialmente isomorfe via \(I\), allora \(M\cong N\).
+\end{lem}
+\begin{proof}
+Enumeriano \(M,N\), dicendo
+\begin{align*}
+M&=\langle a_{i}: i <\omega\rangle\\
+N&=\langle b_{i}: i <\omega\rangle
+\end{align*}
+Definiamo induttivamente una catena \(\langle p_{i}:i<\omega\rangle\) di immersioni parziali con \(a_{i} \in \operatorname{dom}(p_{i+1})\) e \(b_{i} \in \operatorname{rng}(p_{i+1})\).
+
+Sia \(p_{0} \in I\) arbitrario. Al passo \(i+1\), usiamo le proprietà 1. e 2. della definizione per ottenere \(p_{i+1}\).
+
+Allora \(p=\bigcup_{i \in \omega}p_{i}\) è l'isomorfismo cercato.
+\end{proof}
+
+\begin{thm}
+Siano \(M,N\vDash T_{\text{dlo}}\) con \(\card{M}=\card{N}=\omega\). Allora \(M\cong N\).
+\end{thm}
+
+\begin{proof}
+Se \(p:M\to N\) è un'immersione parziale con \(\card{\operatorname{dom}(p)}<\omega\) e \(c \in M\), allora, per gli assiomi di \(T_{\text{dlo}}\) è possibile trovare \(d \in N\) tale che \(p\cup\set{(c,d)}\) è ancora un'immersione parziale.
+
+Analogamente, se \(d \in N\) e \(p:M\to N\) è un'immersione parziale con \(\card{\operatorname{dom}(p)}<\omega\), troviamo \(c \in N\) tale che \(p\cup\set{(c,d)}\) è ancora un'immersione parziale.
+
+Dunque \(I=\set{p:M\to N\text{ immersione parziale finita}}\) rende \(M\) e \(N\) parzialmente isomorfe.
+
+Per il lemma dell'andirivieni, \(M\cong N\).
+\end{proof}
+
+\begin{cor}
+\(T_{\text{dlo}}\) è \(\omega\)-categorica.
+\end{cor}
+
+\begin{oss}
+Ogni teoria \(\omega\)-categorica \(T\) con un modello infinito è completa. Infatti, se \(M,N\vDash T\) e \(\varphi \in L\) è enunciato t.c. \(M\vDash\varphi\), siano \(M',N'\vDash T\) con \(\card{M'}=\card{N'}=\omega\), \(M'\vDash M\), \(N'\vDash N\) (che esistono per LW). Allora \(M'\cong N'\) e, per elementarità, \(N\vDash\varphi\).
+\end{oss}
+
+\begin{cor}
+\(T_{\text{dlo}}\) è completa.
+\end{cor}
+
+\begin{thm}
+\(T_{\text{rg}}\) è coerente.
+\end{thm}
+
+\begin{proof}
+Si definisce un grafo su \(\omega\) come segue: per \(i<j\), \(R(i,j)\) sse la cifra \(i\)-esima nell'espansione binaria di \(j\) è \(1\).
+
+Dimostrare che \(\langle \omega,R\rangle \vDash T_{\text{rg}}\).
+\end{proof}
+
+\begin{thm}
+Siano \(M,N\vDash T_{\text{rg}}\) con \(\card{M}=\card{N}=\omega\). Allora \(M\cong N\).
+\end{thm}
+
+\begin{proof}
+Siano \(m_{0} \in M\), \(n_{0} \in N\). Allora \(\langle m_{0},n_{0}\rangle\) è un'immersione parziale.
+
+Dunque \(I=\set{p:M\to N\text{ immersione parziale finita}}\neq \emptyset\).
+
+Siano ora \(p \in I\) e \(m \in M\). Considero \(U,V \subseteq \operatorname{rng}(p)\)
+\begin{align*}
+U&=\set{p(a) \in \operatorname{rng}(p)\mid R(m,a)}\\
+V&=\set{p(a) \in \operatorname{rng}(p)\mid \lnotR(m,a)}
+\end{align*}
+Dunque esiste \(n \in N\) tale che, per ogni \(a \in \operatorname{dom}(p)\)
+\begin{equation*}
+M\vDash R\big(m,a\big)\quad\iff\quad R\big(n,p(a)\big)
+\end{equation*}
+\ldots{}
+\end{proof}
+
+\begin{cor}
+\(T_{\text{rg}}\) è \(\omega\)-categorica e completa.
+\end{cor}
+
+Il modello numerabile \(\Gamma\) di \(T_{\text{rg}}\) si chiama \uline{grafo di Rado}, o \uline{random graph}.
+
+Ogni grafo finito e ogni grafo numerabile si immerge in \(\Gamma\).
+
+Inoltre \(\Gamma\) è \uline{ultraomogeneo}: ogni isomorfismo tra sottografi finiti di \(\Gamma\) si estende ad un automorfismo di \(\Gamma\).
+
+Anche \(\langle\Q,<\rangle\) è ultraomogeneo. \ldots{}
+
+\begin{definizione}
+Una mappa \(f:\operatorname{dom}(f) \subseteq M\to N\) si dice \uline{elementare} se \(\forall \varphi(x) \in \mathcal{L}\), \(a \in \operatorname{dom}(f)^{|x|}\)
+\begin{equation*}
+M\vDash\varphi(a)\quad\iff\quad N\vDash\varphi\big(f(a)\big).
+\end{equation*}
+\end{definizione}
+
+\begin{prop}
+Una mappa è elementare sse ogni sua restrizione finita lo è.
+\end{prop}
+\begin{proof}
+(\(\Rightarrow\)): ovvio.
+
+(\(\Leftarrow\)): siano \(\varphi(x) \in \mathcal{L}\) e \(a \in M\) tali che
+\begin{equation*}
+M\vDash\varphi(a)\quad \land \quad N\not\vDash\varphi(f(a))
+\end{equation*}
+Allora \(f\upharpoonright \set{a}\) è finita e non elementare.
+\end{proof}
+
+\begin{thm}
+Siano \(M,N\vDash T_{\text{dlo}}\) (o \(T_{\text{rg}}\)), e sia \(p:M\to N\) un'immersione parziale. Allora \(p\) è elementare.
+\end{thm}
+\begin{proof}
+In virtù della proposizione precedente, basta il caso \(\card{p}<\omega\).
+
+Siano \(M'\preceq M\), \(N'\preceq N\) tali che \(\card{M'}=\card{N'}=\omega\) e
+\begin{align*}
+\operatorname{dom}(p) &\subseteq M'\\
+\operatorname{rng}(p) &\subseteq N'
+\end{align*}
+Allora per andirivieni fra \(M'\) e \(N'\), \(p\) si estende a \(\pi:M'\cong N'\).
+
+In particolare, \(p\) è elementare.
+\end{proof}
+\begin{cor}
+\(\langle \Q,<\rangle\preceq\langle \R,<\rangle\)
+\end{cor}
+\subsection{Tipi}
+\label{sec:org4278c4e}
+
+Tutte le strutture si intendono in un linguaggio \(\mathcal{L}\) fissato.
+
+\begin{definizione}
+Un \uline{tipo} \(p(x)\) è un insieme di \(\mathcal{L}\)-formule le cui variabili libere sono in \(x=\langle x_{i}:i<\lambda\rangle\), con \(\lambda\) cardinale.
+\end{definizione}
+
+Notazione: \(p(x) \subseteq \mathcal{L}\)
+
+\begin{definizione}
+Un tipo \(p(x)\) è
+\begin{itemize}
+\item \uline{soddifacibile in \(M\)} se \(\exists a \in M^{|x|}\) tale che
+\begin{equation*}
+  M\vDash\varphi(a)\quad\text{ per ogni }\varphi(x) \in p(x);
+\end{equation*}
+scriviamo \(M\vDash p(a)\), oppure \(M,a\vDash p(x)\) e diciamo che \(a\) \uline{realizza} \(p(x)\) in \(M\);
+\item \uline{soddisfacibile} se è soddisfacibile in qualche \(M\);
+\item \uline{finitamente soddisfacibile in \(M\)} se ogni \(q(x)\subseteq p(x)\) finito è soddisfacibile in \(M\);
+\item \uline{finitamente soddisfacibile} se ogni \(q(x)\subseteq p(x)\) finito è soddisfacibile.
+\end{itemize}
+\end{definizione}
+
+Spesso si dice ``consistente'' invece di ``soddisfacibile''.
+
+\begin{esempio}
+Sia \(M=\langle \N, <\rangle\), sia \(\varphi_{n}(x)\) la formula ``ci sono almeno \(n\) elementi \(<x\)'', e sia
+\begin{equation*}
+p(x)=\set{\varphi_{n}(x)\mid n \in \omega}.
+\end{equation*}
+\begin{itemize}
+\item \(p(x)\) è finitamente soddisfacibile in \(M\).
+\item \(p(x)\) non è soddisfacibile in \(M\).
+\end{itemize}
+\end{esempio}
+
+\begin{thm}
+(Teorema di Compattezza)\hspace{1em} Una teoria \(T\) è coerente se e solo se è coerente ogni sottoinsieme finito di \(T\).
+\end{thm}
+Un corollario è
+\begin{thm}
+(compattezza per tipi)\hspace{1em} Se \(p(x)\) è un tipo finitamente soddisfacibile, allora \(p(x)\) è soddisfacibile.
+\end{thm}
+
+\begin{lem}
+(Lemma del diagramma)\hspace{1em} Sia \(a=\langle a_{i}:i<\lambda\rangle\) una enumerazione della struttura \(M\). Sia \(q(x)\) il \uline{diagramma di \(M\)}:
+\begin{equation*}
+q(x)=\set{\varphi(x) \in \mathcal{L}\mid M\vDash\varphi(a)},\quad |x|=|a|=\lambda.
+\end{equation*}
+Allora \(q(x)\) è soddisfacibile in una struttura \(N\) se e solo se esiste \(\beta:M\to N\) immersione elementare.
+\end{lem}
+
+\begin{proof}
+(\(\Leftarrow\)): \(N\vDash q\big(\beta(a)\big)\).
+(\(\Rightarrow\)): Se \(b \in N^{|x|}\) è tale che \(N\vDash q(b)\), allora
+\begin{equation*}
+\beta:a_{i}\mapsto b_{i},\quad i<\lambda
+\end{equation*}
+è una immersione elementare. Quindi
+\begin{equation*}
+M\vDash \varphi(a)\quad\iff\quad \varphi(x) \in q(x)\quad \iff \quad N\vDash \varphi(b) = \varphi\big(\beta(a)\big).\qedhere
+\end{equation*}
+\end{proof}
+
+Se \(A \subseteq M\), consideriamo i tipi in \(\mathcal{L}(A)\), detti \uline{con parametri in \(A\)}, o \uline{su \(A\)}.
+
+In particolare, se \(A=M\) e \(p(x) \subseteq \mathcal{L}(M)\), esistono:
+\begin{enumerate}
+\item \(a=\langle a_{i}:i<\card{M}\rangle\) enumerazzione
+\item \(q(x,z) \subseteq \mathcal{L}\)
+\end{enumerate}
+tali che \(p(x) = q(x,a)\).
+
+Allora il lemma precedente si può enunciare come segue.
+\begin{lem}
+Sia \(\operatorname{Th}(M_{M})\) la teoria di \(M\) in \(\mathcal{L}(M)\). Se \(N\vDash\operatorname{Th}(M_{M})\), allora \(M\preceq N\).
+\end{lem}
+\begin{thm}
+Sia \(M\) una struttura e \(p(x) \subseteq \mathcal{L}(M)\) un tipo finitamente soddisfacibile in \(M\). Allora \(p(x)\) è realizzato in qualche \(N\succeq M\).
+\label{thm:realtipifinsodd}
+\end{thm}
+
+\begin{esempio}
+Sia \(M=(0,1) \subseteq \Q\) una \(\mathcal{L}_{lo}\)-struttura. Siano
+\begin{enumerate}
+\item \(a_{n}=1-1/n \in M\) per \(n \in \omega\setminus\set{0}\);
+\item \(p(x) = \set{a_{n}<x: n \in \omega}\).
+\end{enumerate}
+
+Allora \(p(x) \in \mathcal{L}(M)\) è finitamente sodidsfacibile in \(M\), ma non è realizzato. Viceversa
+\begin{equation*}
+\Q,1\vDash p(x)
+\end{equation*}
+e sappiamo che \(M\preceq \Q\).
+\end{esempio}
+\begin{proof}
+(del Teorema\textasciitilde{}\ref{thm:realtipifinsodd})\hspace{1em} Siano:
+\begin{enumerate}
+\item \(a\) una enumerazione di \(M\);
+\item \(p(x)=p'(x,a)\) con \(p'(x,z) \subseteq\mathcal{L}\), \(|z|=\card{a}=\card{M}\);
+\item \(q(z) = \set{\varphi(z)\mid M\vDash\varphi(a)}\).
+\end{enumerate}
+
+Allora \(p'(x,z)\cup q(z)\) è finitamente soddisfacibile, per ipotesi. Per compattezza, esiste una struttura \(N\) e \(c,d\) tali che
+\begin{equation*}
+N,c,d\vDash p'(x,z)\cup q(z)
+\end{equation*}
+e in particolare \(N\vDash q(d)\) e dunque esiste \(\beta:M\to N\) immersione elementare. Possiamo assumere \(M\preceq N\).
+\end{proof}
+Un corollario è questo importante teorema.
+\begin{thm}
+(Lowenheim-Skolem all'insù)\hspace{1em} Sia \(\card{M}\ge \omega\). Allora per ogni \(\lambda\ge \card{M}+\card{\mathcal{L}}\) esiste \(N\succeq M\) con \(\card{N}=\lambda\).
+\end{thm}
+\begin{proof}
+Sia \(x=\langle x_{i}: i<\lambda\rangle\) una tupla di variabili distinte, e sia
+\begin{equation*}
+p(x)=\set{x_{i}\neq x_{j}\mid i<j<\lambda}.
+\end{equation*}
+Allora \(p(x)\) è finitamente soddisfacibile in \(M\), e dunque realizzato in \(N\succeq M\), con \(\card{N}\ge \lambda\).
+
+Per Lowenheim-Skolem all'ingiù, possiamo assumere \(\card{N}=\lambda\).
+\end{proof}
+\section{Lezione 3}
+\label{sec:orgc67ab2e}
+
+\subsection{Saturazione}
+\label{sec:org8171aa7}
+
+\begin{definizione}
+Sia \(\lambda\) un cardinale infinito. La struttura \(M\) si dice \(\lambda\)-satura se realizza ogni tipo \(p(x) \subseteq \mathcal{L}(A)\) (per \(A \subseteq M\)) con
+\begin{enumerate}
+\item \(\card{x}=1\)
+\item \(p(x)\) è finitamente soddisfacibile in \(M\);
+\item \(\card{A}\le\lambda\).
+\end{enumerate}
+
+\(M\) si dice satura se è \(\card{M}\)-satura.
+\end{definizione}
+
+\begin{esempio}
+Sia \(p(x) = \set{x\neq a\mid  a \in M} \subseteq \mathcal{L}(M)\):
+\begin{itemize}
+\item \(p(x)\) è finitamente soddisfacibile in \(M\);
+\item \(p(x)\) non è soddisfacibile in \(M\).
+\end{itemize}
+\end{esempio}
+
+\begin{definizione}
+Se \(A \subseteq M\) e \(b \in M^{|b|}\) allora il \uline{tipo di \(b\) su \(A\)} è
+\begin{equation*}
+\operatorname{tp}_{M}(b/A) \coloneqq\set{\varphi(x) \in \mathcal{L}(A): M\vDash \varphi(b)}.
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Si ha che
+\begin{enumerate}
+\item \(\operatorname{tp}(b/A)\) è completo: se \(\varphi(x) \in \mathcal{L}(A)\), si ha \(M\vDash\varphi(b)\) o \(M\vDash \lnot\varphi(b)\);
+\item se \(A \subseteq M\preceq N\) e \(b \in M^{|b|}\)
+\begin{equation*}
+ \operatorname{tp}_{M}(b/A) = \operatorname{tp}_{N}(b/A);
+\end{equation*}
+\end{enumerate}
+\end{oss}
+
+\uline{Importante} se \(M\equiv N\), allora \(\emptyset:M\partialto N\) è elementare.
+
+\begin{prop}
+Sia \(f:\operatorname{dom}(f) \subseteq M\to N\) elementare. Allora:
+\begin{enumerate}
+\item \(M\equiv N\);
+\item Se \(a\) enumera \(\operatorname{dom}(f)\)
+\begin{equation*}
+ \operatorname{tp}(a/\emptyset) = \operatorname{tp}\big(f(a)/\emptyset\big)
+\end{equation*}
+e più in generale, se \(b \in \operatorname{dom}(f)^{|b|}\), se \(A \subseteq \operatorname{dom}(f)\cap N\) e \(f\upharpoonright A = \Id_{A}\):
+\begin{equation*}
+ \operatorname{tp}(b/A) = \operatorname{tp}\big(f(b)/A\big).
+\end{equation*}
+\item Se \(a\) enumera \(\operatorname{dom}(f)\) e \(p(x,a) \subseteq L(A)\) è finitamente soddisfacibile in \(M\), allora \(p\big(x,f(a)\big)\) è finitamente soddisfacibile in \(N\).
+
+Infatti, se \(\set{\varphi_{1}(x,a),\dots,\varphi_{n}(x,a)} \subseteq p(x,a)\) allora
+\begin{equation*}
+ M\vDash \exists x \bigwedge_{i=1}^{n} \varphi_{i}(x,a)
+\end{equation*}
+e per elementarità di \(f\)
+\begin{equation*}
+ N\vDash \exists x \bigwedge_{i=1}^{n} \varphi_{i}\big(x,f(a)\big).
+\end{equation*}
+\end{enumerate}
+\end{prop}
+
+\begin{thm}
+Sia \(N\) tale che \(\card{\mathcal{L}}+\omega\le\lambda\le\card{N}\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(N\) è \(\lambda\)-satura;
+\item se \(f:M\partialto N\) è mappa elementare con \(\card{f}\le \lambda\) e \(b \in M\), allora esiste \(\hat{f}\supseteq f\) elementare tale che \(b \in \operatorname{dom}(\hat{f})\) ;
+\item se \(A \subseteq N\) è tale che \(\card{A}<\lambda\) e \(p(z) \subseteq \mathcal{L}(A)\) con \(\card{z}\le\lambda\) è finitamente soddisfacibile in \(N\), allora \(p(z)\) è soddisfacibile in \(N\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(1. \Rightarrow 2.\)): Sia \(f\) come in 2., sia \(b \in M\). Sia \(a\) un'enumerazione di \(\operatorname{dom}(f)\), e sia \(p(x,a)=\operatorname{tp}_{M}(b/a)\).
+
+\(p(x,a)\) è soddisfacibile in \(M\), e dunque \(p\big(x,f(a)\big)\) è finitamente soddisfacibil e in \(N\) e \(\card{f(a)}<\lambda\), \(N\) è \(\lambda\)-satura.
+
+Dunque \(p\big(x,f(a)\big)\) è realizzato in \(N\). Sia \(d\) tale che \(N,d\vDash p\big(x,f(a)\big)\). Allora \(\hat{f}=f\cup\set{(b,d)}\) è la mappa cercata.
+\end{proof}
+
+\begin{cor}
+Se \(M,N\) sono saturi con \(\card{M}=\card{N}\), allora ogni mappa elementare \(f:M\partialto N\) tale che \(\card{f}<\card{M}\) si estende ad un isomorfismo \(\alpha:M\cong N\).
+
+In particolare, se \(M,N\) sono saturi, \(\operatorname{Th}(M)=\operatorname{Th}(N)\) e \(\card{M}=\card{N}\), allora \(M\cong N\).
+\end{cor}
+\begin{cor}
+Se \(M\vDash T_{\text{dlo}}\) o \(M\vDash T_{\text{rg}}\), allora \(M\) è \(\omega\)-saturo.
+\end{cor}
+
+Ricordiamo che un \uline{automorfismo} di una struttura \(M\) è un isomorfismo \(M\to M\). Gli automorfismi di \(M\) formano un gruppo, scritto \(\operatorname{Aut}(M)\).
+
+Se \(A \subseteq M\), si definisce
+\begin{equation*}
+\operatorname{Aut}(M/A) \coloneqq\set{\alpha \in \operatorname{Aut}(M) \mid \alpha\upharpoonright=\Id_{A}}.
+\end{equation*}
+l'insieme degli automorfismi di \(M\) che fissano \(A\).
+
+\begin{definizione}
+Sia \(\lambda\) un cardinale infinito. Una struttura \(N\) è
+\begin{enumerate}
+\item \uline{\(\lambda\)-universale} se per ogni \(M\equiv N\) con \(\card{M}\le \lambda\), esiste \(\beta:M\to N\) immersione elementare, e \uline{universale} se è \(\card{N}\)-universale;
+\item \uline{\(\lambda\)-omogenea} se ogni mappa elementare \(f:N\partialto N\), con \(\card{f}<\lambda\), si estende ad \(\alpha \in \operatorname{Aut}(N)\), e \uline{omogenea} se è \(\card{N}\)-omogenea;
+\item \uline{ultraomogenea} se ogni immersione parziale finita si estende ad un automorfismo.
+\end{enumerate}
+\end{definizione}
+
+\begin{thm}
+Sia \(N\) tale che \(\card{N}\ge \card{L}\). Sono equivalenti:
+\begin{enumerate}
+\item \(N\) è satura;
+\item \(N\) è universale e omogenea.
+\end{enumerate}
+\end{thm}
+
+\begin{definizione}
+Sia \(a \in N^{|a|}\) e sia \(A \subseteq N\). Allora
+\begin{enumerate}
+\item l'\uline{orbita di \(a\) su \(A\)} è
+\begin{equation*}
+ O_{N}(a/A) \coloneqq \set{\alpha(a): \alpha \in \operatorname{Aut}(N/A)},
+\end{equation*}
+dove per definizione \(alpha(a_{0},\dots,a_{i},\dots) \coloneqq \big(\alpha(a_{0}),\dots,\alpha(a_{i}),\dots\big)\);
+\item se \(\varphi \in \mathcal{L}(A)\),
+\begin{equation*}
+ \varphi(N) \coloneqq \set{a \in N^{|x|}:N\vDash\varphi(a)}
+\end{equation*}
+è l'insieme \uline{definito} da \(\varphi(x)\).
+\end{enumerate}
+
+Un sottoinsieme di \(N\) è \uline{definibile su \(A\)} se è definito da qualche \(\varphi(x) \in \mathcal{L}(A)\).
+
+Un sottoinsieme di \(N\) è \uline{tipo-definibile su \(A\)} se è nella forma
+\begin{equation*}
+p(N) \coloneqq \set{a \in N^{|x|}\mid N\vDash p(a)}
+\end{equation*}
+per qualche tipo \(p(x) \subseteq \mathcal{L}(A)\).
+\end{definizione}
+
+\begin{oss}
+Se \(a,b \in N^{|a|}\) e \(A \subseteq N\), allora
+\begin{equation*}
+\operatorname{tp}(a/A)=\operatorname{tp}(b/A)
+\end{equation*}
+se e solo se la mappa
+\begin{equation*}
+\set{\langle a_{i}, b_{i}\rangle\mid i <\card{a}}\cup\Id_{A}
+\end{equation*}
+è una mappa elementare \(N\to N\).
+\end{oss}
+
+\begin{thm}
+Siano \(N\) \(\lambda\)-omogenea, \(A \subseteq N\), \(\card{A}<\lambda\), e sia \(a \in N^{|a|}\), con \(|a|<\lambda\).
+
+Sia \(p(x)=\operatorname{tp}(a/A)\). Allora
+\begin{equation*}
+O_{N}(a/A) = p(N).
+\end{equation*}
+\end{thm}
+\begin{proof}
+(\(\subseteq\)) Se \(b \in O_{N}(a/A)\) allora \(b =\alpha(a)\) per \(\alpha \in \operatorname{Aut}(N/A)\) e se \(\varphi(x,c) \in \mathcal{L}(A)\) con \(c\) parametri,
+\begin{align*}
+N\vDash\varphi(a,c)\quad &\iff\quad N\vDash\varphi\big(\alpha(a),\alpha(c)\big)\\
+&\iff\quad N\vDash\varphi(b,c).
+\end{align*}
+(\(\supseteq\)) Se \(N\vDash p(b)\) allora \(\operatorname{tp}(b/A)=\operatorname{tp}(a/A)\) e
+\begin{equation*}
+f=\set{\langle a_{i},b_{i}\rangle: i<\card{a}}\cup\Id_{A}
+\end{equation*}
+è elementare con \(\card{f}<\lambda\).
+
+Per \(\lambda\)-omogeneità, esiste \(\alpha\supseteq f\), \(\alpha \in \operatorname{Aut}(N)\). In particolare, \(\alpha\upharpoonright A =\Id_{A}\), e dunque
+\begin{equation*}
+b \in O_{N}(a/A).\qedhere
+\end{equation*}
+\end{proof}
+\subsection{Modello mostro}
+\label{sec:org842e6a7}
+
+Sia \(T\) una teoria completa senza modelli finiti. Lavoriamo in \(\mathcal{U}\vDash T\) tale che
+\begin{enumerate}
+\item \(\mathcal{U}\) è saturo;
+\item \(\card{\mathcal{U}}>\card{M}\) per ogni \(M\vDash T\) con cui ci interessa lavorare.
+\end{enumerate}
+
+\uline{Avvertimento}: non ci siamo occupati dell'esistenza di un modello saturo di \(T\).
+
+\begin{definizione}
+\(N\) è \uline{debolmente \(\lambda\)-omogeneo} se per ogni \(f:N\partialto N\) elementare e tale che \(\card{f}<\lambda\), e per ogni \(b \in N\), esiste \(c \in N\) tale che \(f\cup\set{\langle b,c\rangle}\) è elementare.
+\end{definizione}
+
+In particolare, se \(N\) è \(\lambda\)-saturo, allora
+\begin{itemize}
+\item \(N\) è debolmente \(\lambda\)-omogeneo;
+\item \(N\) è \(\lambda\)-universale.
+\end{itemize}
+
+\uline{Terminologia e convenzioni in \(\mathcal{U}\)}.
+\begin{itemize}
+\item ``vale \(\varphi(x)\)'', o ``\(\vDash\varphi(x)\)'', se \(\mathcal{U}\vDash \forall x \ \varphi(x)\);
+\item ``\(\varphi(x)\) è consistente'' se \(\mathcal{U}\vDash \exists x\ \varphi(x)\);
+\item un tipo \(p(x)\) è coerente/consistente se esiste \(a \in \mathcal{U}^{|x|}\) tale che \(\mathcal{U}\vDash p(a)\);
+\item un cardinale \(\lambda\) è \uline{piccolo} se \(\lambda<\card{\mathcal{U}}\);
+\item \(\card{\mathcal{U}}=\kappa\);
+\item un \uline{modello} è \(M\preceq\mathcal{U}\), con \(\card{M}\) piccola;
+\item \(A,B,C\) sono sottoinsiemi piccoli (ovvero di cardinalità piccola) di \(\mathcal{U}\);
+\item \(\operatorname{tp}(a/A) \coloneqq \operatorname{tp}_{\mathcal{U}}(a/A)\);
+\item \(O(a/A) \coloneqq O_{\mathcal{U}}(a/A)\).
+\end{itemize}
+
+\uline{Altre convensioni}
+\begin{itemize}
+\item se non altrimenti specificato, le tuple hanno lunghezza piccola;
+\item gli insiemi definibili hanno la forma \(\varphi(\mathcal{U})\) per \(\varphi \in \mathcal{L}(\mathcal{U})\);
+\item i tipi hanno parametri in insiemi piccoli
+\item gli insiemi tipo-definibili hanno la formula \(p(\mathcal{U})\) per qualche tipo \(p(x) \subseteq \mathcal{L}(A)\), \(A\) piccolo.
+\end{itemize}
+
+Se \(p(x),q(x)\) sono tipi, scriviamo
+\begin{align*}
+p(x)\implies q(x)\quad&\text{per}\quad p(\mathcal{U}) \subseteq q(\mathcal{U});\\
+p(x)\implies \lnot q(x)\quad&\text{per}\quad p(\mathcal{U}) \cap q(\mathcal{U})=\emptyset;
+\end{align*}
+
+\begin{prop}
+Se \(p(x) \subseteq \mathcal{L}(A)\), \(q(x) \subseteq \mathcal{L}(B)\) sono tipi coerenti e tali che \(p(x)\implies\lnot q(x)\), allora esistono \(\varphi(x)\) e \(\psi(x)\) congiunzione di formule (risp. di \(p(x)\) e \(q(x)\)) tali che
+\begin{equation*}
+\vDash \varphi(x)\implies\lnot\psi(x)
+\end{equation*}
+\end{prop}
+
+Infatti, se \(p(\mathcal{U})\cap q(\mathcal{U}) = \emptyset\), allora
+\begin{equation*}
+p(x)\cup q(x)
+\end{equation*}
+non è soddisfacibile in \(\mathcal{U}\), e dunque (siccome \(\mathcal{U}\) è saturo), non è finitamente soddisfacibile.
+
+\begin{prop}
+Se \(\alpha \in \operatorname{Aut}(\mathcal{U})\) e \(\varphi(\mathcal{U},b)\) è un insieme definibile, allora
+\begin{equation*}
+\alpha\big[\varphi(\mathcal{U},b)\big] = \varphi\big(\mathcal{U},\alpha(b)\big).
+\end{equation*}
+Analogamente, se \(p(x,z) \subseteq \mathcal{L}\) e \(b \in \mathcal{U}^{|z|}\)
+\begin{equation*}
+\alpha\big[p(\mathcal{U},b)\big]=p\big(\mathcal{U},\alpha(b)\big).
+\end{equation*}
+\end{prop}
+
+\begin{definizione}
+Un insieme \(D \subseteq \mathcal{U}^{\lambda}\) (per \(\lambda<\kappa\)) è \uline{invariante} su \(A \subseteq\mathcal{U}\) se per ogni \(\alpha \in \operatorname{Aut}(\mathcal{U}/A)\),
+\begin{equation*}
+\alpha[D]=D.
+\end{equation*}
+o, equivalentemente,
+\begin{equation*}
+\forall a \in D\quad O(a/A) \subseteq D.
+\end{equation*}
+\end{definizione}
+\begin{oss}
+Se \(b\vDash \operatorname{tp}(a/A)\), allora, per omogeneità esiste \(\alpha \in \operatorname{Aut}(\mathcal{U}/A)\) tale che \(\alpha(a)=b\), dunque \(b \in O(a/A)\).
+
+Quindi \(D\) è invariante se e solo se
+\begin{equation*}
+\forall  a \in D,\ \forall  b \in \mathcal{U},\quad \operatorname{tp}(a/A) =\operatorname{tp}(b/A)\implies b \in D.
+\end{equation*}
+\end{oss}
+\begin{thm}
+Sia \(A \subseteq \mathcal{U}\). Per ogni \(\varphi(x) \in \mathcal{L}(\mathcal{U})\), sono equivalenti:
+\begin{enumerate}
+\item esiste \(\psi(x) \in \mathcal{L}(A)\) tale che
+\begin{equation*}
+ \vDash \forall x\ \big[\psi(x)\iff\varphi(x)\big];
+\end{equation*}
+\item \(\varphi(\mathcal{U})\) è invariante su \(A\).
+\end{enumerate}
+\label{thm:oijsoidkjnjjjjjd}
+\end{thm}
+
+Notiamo che la condizione 1. dice che \(\varphi(\mathcal{U})\) è definibile su \(A\).
+\section{Lezione 4}
+\label{sec:org2b03741}
+
+\begin{oss}
+Sottoinsiemi finiti e cofiniti di \(\mathcal{U}\) sono sempre definibili.
+\end{oss}
+\begin{proof}
+(del Teorema~\ref{thm:oijsoidkjnjjjjjd})\hspace{0.7em} (\(2.\Rightarrow 1.\)): Siano \(\varphi(x,z) \in \mathcal{L}\) e \(b \in \mathcal{U}^{|z|}\) tali che \(\varphi(\mathcal{U},b)\) è invariante su \(A\).
+
+Sia \(c\vDash \operatorname{tp}(b/A)\). Per omogeneità, \(c=\alpha(b)\) per qualche \(\alpha \in \operatorname{Aut}(\mathcal{U}/A)\). Allora
+\begin{equation*}
+\alpha\big[\varphi(\mathcal{U},b)\big]=\varphi(\mathcal{U},c)
+\end{equation*}
+me ma per invarianza \(\alpha\big[\varphi(\mathcal{U},b)\big]=\varphi(\mathcal{U},b)\), e pertanto
+\begin{equation*}
+\varphi(\mathcal{U},c)=\varphi(\mathcal{U},b).
+\end{equation*}
+
+Allora, se \(q(z)\coloneqq\operatorname{tp}(b/A)\)
+\begin{equation*}
+q(z)\implies \forall x\ \big[\varphi(x,b)\iff\varphi(x,z)\big].
+\end{equation*}
+Per saturazione/compattezza, esiste \(\chi(z) \in q(z)\) tale che
+\begin{equation*}
+\vDash \chi(z)\implies \forall x\ \big[\varphi(x,b)\iff\varphi(x,z)\big].
+\end{equation*}
+Allora \(\varphi(\mathcal{U},b)\) è definito da
+\begin{equation*}
+\exists z\ [\chi(z) \land \psi(x,z)] \in \mathcal{L}(A).\qedhere
+\end{equation*}
+\end{proof}
+\subsection{Eliminazione dei quantificatori}
+\label{sec:org5a7614e}
+
+\begin{prop}
+Sia \(\varphi(x) \in \mathcal{L}\). Sono fatti equivalenti:
+\begin{enumerate}
+\item esiste \(\psi(x)\) senza quantificatori tale che
+\begin{equation*}
+ \vDash \forall x\ \big[\varphi(x)\iff\psi(x)\big].
+\end{equation*}
+\item per ogni immersione parziale \(p:\mathcal{U}\partialto\mathcal{U}\), \(a \in \operatorname{dom}(p)^{|x|}\)
+\begin{equation*}
+ \vDash \varphi(a)\iff\varphi\big(p(a)\big).
+\end{equation*}
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): abbastanza ovvia.
+
+(\(2.\Rightarrow 1.\)): Per \(a \in \mathcal{U}^{|x|}\), sia
+\begin{equation*}
+\operatorname{qftp}(a) \coloneqq \set{\chi(x) \in \operatorname{tp}(a/\emptyset)\mid \chi(x)\text{ senza quantificatori}}
+\end{equation*}
+e sia
+\begin{equation*}
+\mathcal{F}\coloneqq\set{q(x)\mid q(x)=\operatorname{qftp}(a)\text{ per }a \in \varphi(\mathcal{U})}.
+\end{equation*}
+Vogliamo dimostrare che
+\begin{equation*}
+\varphi(\mathcal{U}) = \bigcup_{q \in \mathcal{F}}q(\mathcal{U}).
+\end{equation*}
+Per \(\subseteq\) è ovvio per definizione di \(\mathcal{F}\).
+
+Per \(\supseteq\), sia \(q(x) \in \mathcal{F}\), \(q(x)=\operatorname{qftp}(a)\) e sia \(b\vDash q(x)\).
+
+Allora \(a_{i}\mapsto b_{i}\) è immersione parziale, dunque per ipotesi \(\vDash \varphi(b)\).
+
+Dunque \(q(\mathcal{U}) \subseteq \varphi(\mathcal{U})\), e dunque \(\varphi(\mathcal{U}) \supseteq \bigcup_{q \in \mathcal{F}}q(\mathcal{U})\).
+
+In particolare \(q(x)\implies \varphi(x)\) per ogni \(q(x) \in \mathcal{F}\). Allora esiste \(\psi_{q}(x) \in q(x)\) tale che
+\begin{equation*}
+\vDash \psi_{q}(x)\implies\varphi(x)
+\end{equation*}
+(per compattezza/saturazione).
+
+FINIRE DIMOSTRAZIONE
+\end{proof}
+
+\begin{definizione}
+Una teoria \(T\) ha l'\uline{eliminazione dei quantificatori} (q.e.) se per ogni \(\varphi(x) \in \mathcal{L}\) esiste \(\psi(x)\) senza quantificatori tale che
+\begin{equation*}
+T\vDash \forall x\ \big[\varphi(x)\iff\psi(x)\big].
+\end{equation*}
+\end{definizione}
+
+Se \(T\) è completa e ha q.e., il tipo di \(a \in \mathcal{U}^{|a|}\) è determinato di \(\operatorname{qftp}(a)\).
+
+\begin{thm}
+Sia \(T\) completa senza modelli finiti. Sono fatti equivalenti:
+\begin{enumerate}
+\item \(T\) ha q.e.
+\item ogni immersione parziale \(p:\mathcal{U}\partialto \mathcal{U}\) è elementare;
+\item per ogni \(p:\mathcal{U}\partialto\mathcal{U}\) con \(\card{p}<\card{\mathcal{U}}\) e \(b \in \mathcal{U}\), esiste \(\hat{p}\supseteq p\) immersione parziale con \(\card{\hat{p}}<\card{\mathcal{U}}\) e \(b \in \operatorname{dom}(\hat{p})\);
+\item per ogni \(p:\mathcal{U}\partialto\mathcal{U}\) con \(\card{p}<\omega\) e \(b \in \mathcal{U}\), esiste \(\hat{p}\supseteq p\) immersione parziale con \(\card{\hat{p}}<\omega\) e \(b \in \operatorname{dom}(\hat{p})\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Ogni \(\varphi(x) \in \mathcal{L}\) è equivalente a \(\psi(x)\) senza quantificatori, e \(p\) preserva \(\psi(x)\).
+
+(\(2.\Rightarrow 1.\)): \(p\) è immersione parziale, dunque \(p\) elementare, e dunque \(p\) preserva ogni \(\varphi(x) \in \mathcal{L}\).
+
+Dal teorema precedente, \(\varphi(x)\) è equivalente a \(\psi(x)\) senza quantificatori, e questo vale per ogni \(\varphi(x) \in \mathcal{L}\).
+
+(\(2.\Rightarrow 3.\)): Sia \(p\) parziale e \(\card{p}<\card{\mathcal{U}}\). Allora \(p\) è elementare e per omogeneità di \(\mathcal{U}\), \(p \subseteq \alpha \in \operatorname{Aut}(\mathcal{U})\). Pertanto è sufficiente porre \(\hat{p}\coloneqq p\cup\set{\langle b,\alpha(b)\rangle}\).
+
+(\(3.\Rightarrow 2.\)) (traccia): Se \(p_{0}\subseteq p\), \(\card{p_{0}}<\omega\), estendiamo \(p_{0}\) ad \(\alpha \in \operatorname{Aut}(\mathcal{U})\) per back-and-forth. Allora \(p_{0}\) è elementare.
+\end{proof}
+\subsection{Insiemi definibili e algebrici}
+\label{sec:orgc632e2c}
+
+\begin{definizione}
+\begin{enumerate}
+\item \(a \in \mathcal{U}\) è \uline{definibile su \(A \subseteq\mathcal{U}\)} se \(\set{a}\) è definibile su \(A\) (ovvero \(\varphi(\mathcal{U})=\set{a}\) per qualche \(\varphi(x) \in \mathcal{L}(A)\)).
+\item \(a \in \mathcal{U}\) è \uline{algebrico su \(A \subseteq \mathcal{U}\)} se esiste \(\varphi(x) \in \mathcal{L}(A)\) tale che \(a \in \varphi(\mathcal{U})\) e \(\card{\varphi(\mathcal{U})}<\omega\). (Una tale \(\varphi(x)\) si dice \uline{algebrica}).
+\item La \uline{chiusura definibile} di \(A \subseteq \mathcal{U}\) è
+\begin{equation*}
+ \operatorname{dcl}(A) = \set{a \in \mathcal{U}\mid a\text{ è definibile su }A}.
+\end{equation*}
+\item La \uline{chiusura algebrica} di \(A \subseteq \mathcal{U}\) è
+\begin{equation*}
+ \operatorname{acl}(A) = \set{a \in \mathcal{U}\mid a\text{ è algebrico su }A}.
+\end{equation*}
+\end{enumerate}
+\end{definizione}
+
+Ovviamente \(\operatorname{dcl}(A) \subseteq \operatorname{acl}(A)\)
+
+\begin{esempio}
+Sia \(T_{\text{do}} =\operatorname{Th}(\Z,<)\). Si dimostra che \(T_{\text{do}}\) è assiomatizzata da
+\begin{align*}
+\forall x\ &\lnot(x<x)\\
+\forall x,y,z\ &\big[(x<y \land y<z)\implies x<z\big]\\
+\forall x,y\ &\big[\big]
+\end{align*}
+FINIRE GLI ASSIOMI.
+
+\(T_{\text{do}}\) è completa, ma non è \(\omega\)-categorica. (ad esempio \(2.\Z\vDash T_{\text{do}}\)).
+
+Considerando invece \(\Q.\Z\vDash T_{\text{do}}\) (ovvero \(\Q\) copie di \(\Z\)): questo è un modello saturo (ovvero \(\omega\)-saturo e numerabile).
+
+Un modello mostro \(\mathcal{U}\vDash T_{\text{do}}\) ha la forma \(\mathcal{V}.\Z\), dove \(\mathcal{V}\vDash T_{\text{dlo}}\) è un modello mostro.
+\end{esempio}
+
+\begin{oss}
+Sia \(p(x) \subseteq \mathcal{L}(A)\), con \(\card{x}<\omega\).
+\begin{equation*}
+\card{p(\mathcal{U})}\ge\omega\quad\iff\quad \card{p(\mathcal{U})}=\card{\mathcal{U}}.
+\end{equation*}
+In particolare, se \(\varphi(x)\) non è algebrica, allora \(\card{\varphi(\mathcal{U})}=\card{\mathcal{U}}\).
+
+Infatti, sia
+\begin{equation*}
+q(x)=p(x) \cup\set{x\neq d\mid d \in p(\mathcal{U})}
+\end{equation*}
+tipo con parametri in \(A \cup p(\mathcal{U})\). Allora \(q(x)\) è finitamente soddisfacibile.
+
+Supponiamo \(\omega\ge \card{p(\mathcal{U})} < \card{\mathcal{U}}\). Allora per saturazione \(\mathcal{U}\vDash q(b)\) per qualche \(b \in \mathcal{U}\).
+
+Allora \(\mathcal{U}\vDash p(b)\), ma \(b\neq d\) per ogni \(d \in p(\mathcal{U})\). Assurdo.
+
+L'unica possibilità è che \(\card{p}(\mathcal{U})=\card{\mathcal{U}}\).
+\end{oss}
+\begin{prop}
+Per \(a \in \mathcal{U}\) e \(A \subseteq \mathcal{U}\) sono fatti equivalenti:
+\begin{enumerate}
+\item \(a \in \operatorname{dlc}(A)\);
+\item \(O(a/A) =\set{a}\).
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Sia \(\set{a}\) definito da \(\varphi(x) \in \mathcal{L}(A)\), ossia \(\varphi(\mathcal{U})=\set{a}\).
+
+Ma \(\varphi(\mathcal{U})\) è invariante su \(A\), e quindi \(O(a/A) \subseteq \varphi(U)=\set{a}\).
+
+(\(2.\Rightarrow 1.\)): \(O(a/A)=\set{a}\) è definibile (da \(x=a\)) ed è invariante su \(A\) (perché è un'orbita).
+
+Ma allora \(\set{a}\) è definibile da \(\varphi(x) \in \mathcal{L}(A)\), e quindi
+\begin{equation*}
+a \in \operatorname{dlc}(A)\qedhere
+\end{equation*}
+\end{proof}
+
+\begin{thm}
+Se \(a \in \mathcal{U}\) e \(A \subseteq \mathcal{U}\), sono fatti equivalenti:
+\begin{enumerate}
+\item \(a \in \operatorname{acl}(A)\);
+\item \(\card{O(a/A)}<\omega\);
+\item \(a \in M\) per ogni mdoello \(M\) tale che \(A \subseteq M\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\(1.\Leftrightarrow 2.\)): è simile al caso definibile su \(A\).
+
+(\(1.\Rightarrow 3.\)): Se \(a \in \operatorname{acl}(A)\) allora esiste \(\varphi(x) \in \mathcal{L}(A)\) tale che
+\begin{equation*}
+\vDash \varphi(a) \land \exists^{=n} x\ \varphi(x).
+\end{equation*}
+Allora se \(M \preceq \mathcal{U}\) e \(A \subseteq M\), si ha
+\begin{equation*}
+M\vDash \exists^{=n} x\ \varphi(x)
+\end{equation*}
+Poiché ogni testimone di \(\varphi(x)\) in \(M\) è un testimone in \(\mathcal{U}\), \(\varphi(\mathcal{U}) \subseteq M\); in particolare, \(a \in M\).
+
+(\(3.\Rightarrow 1.\)): se \(a\notin \operatorname{acl}(A)\), allora \(p(x) = \operatorname{tp}(a/A)\) è tale che \(\card{p(\mathcal{U})}\ge \omega\), e dunque
+\begin{equation*}
+\card{p(\mathcal{U})}=\card{\mathcal{U}}
+\end{equation*}
+e \(p(\mathcal{U})\setminus M\neq \emptyset\) per ogni modello \(M\supseteq A\).
+
+Se \(b \in p(\mathcal{U})\setminus M\), spostiamo
+\begin{itemize}
+\item \(b\) in \(a\) con \(\alpha \in \operatorname{Aut}(\mathcal{U}/A)\);
+\item \(M\) in \(\alpha[M] \preceq \mathcal{U}\)
+\end{itemize}
+e \(a=\alpha(b)\notin \alpha[M]\).
+\end{proof}
+\begin{cor}
+Vale
+\begin{equation*}
+\operatorname{acl}(A)=\bigcap \set{M\preceq \mathcal{U}\mid A \subseteq M}.
+\end{equation*}
+\end{cor}
+\begin{prop}
+Alcune proprietà di \(\operatorname{acl}(A)\):
+\begin{enumerate}
+\item carattere finito: se \(a \in \operatorname{acl}(A)\) allora esiste \(A_{0} \subseteq A\) finito tale che \(a \in \operatorname{acl}(A_{0})\)
+\item \(A \subseteq \operatorname{acl}(A)\);
+\item \(A \subseteq B\implies \operatorname{acl}(A) \subseteq \operatorname{acl}(B)\);
+\item \(\operatorname{acl}\big(\operatorname{acl}(A)\big)=\operatorname{acl}(A)\).
+\end{enumerate}
+\end{prop}
+
+\begin{prop}
+Se \(\beta \in \operatorname{Aut}(\mathcal{U})\) e \(A \subseteq \mathcal{U}\), allora
+\begin{equation*}
+\beta\big[\operatorname{acl}(A)\big] = \operatorname{acl}\big(\beta[A]\big).
+\end{equation*}
+\end{prop}
+\begin{proof}
+Sia \(a \in \operatorname{acl}(A)\) algebrico per la formula \(\varphi(x,b)\), \(b \in \mathcal{U}^{|b|}\).
+
+Allora \(\card{\varphi(\mathcal{U},b)}<\omega\), e valgono
+\begin{enumerate}
+\item \(\vDash\varphi\big(\beta(a),\beta(b)\big)\);
+\item \(\card{\varphi(\mathcal{U},\beta(b))}<\omega\)
+\end{enumerate}
+poiché \(\beta\) è automorfismo.
+
+Segue che \(\beta(a)\) è algebrico su \(\beta(b)\), e dunque
+\begin{equation*}
+\beta\big[\operatorname{acl}(A)\big] \subseteq \operatorname{acl}\big(\beta[A]\big).\qedhere
+\end{equation*}
+\end{proof}
+\subsection{Teorie Fortemente Minimali}
+\label{sec:org701d8b1}
+
+Ricordiamo che in ogni struttura \(M\), gli insiemi finiti e cofiniti sono sempre definibili.
+
+\begin{definizione}
+Una struttura \(M\) è \uline{minimale} se tutti i suoi sottoinsiemi definibili sono finiti o cofiniti.
+\begin{itemize}
+\item \(M\) è \uline{fortemente minimale} se è minimale e ogni sua estensione elementare è minimale.
+\item Una teoria \(T\) coerente e senza modelli finiti è \uline{fortemente minimale} se per ogni \(\varphi(x,\overline{z}) \in \mathcal{L}\) esiste \(n \in \omega\) tale che
+\begin{equation*}
+  T\vDash \forall \overline{z}\ \big[\exists^{\le n}x\ \varphi(x,\overline{x}) \lor\exists^{\le n}x\ \lnot\varphi(x,\overline{x})\big]
+\end{equation*}
+\end{itemize}
+\end{definizione}
+
+Sia ora \(T\) una teoria completa con modello mostro \(\mathcal{U}\).
+\begin{definizione}
+Sia \(a \in \mathcal{U}\), \(B \subseteq \mathcal{U}\). Allora \(a\) è \uline{indipendente da \(B\)} se \(a\notin \operatorname{acl}(B)\).
+
+\(B\) è un \uline{insieme indipendente} se per ogni \(b \in B\), \(b\) è indipendente da \(B\setminus\set{b}\).
+\end{definizione}
+\section{Lezione 5}
+\label{sec:orgc76241c}
+
+\begin{prop}
+\(\operatorname{Th}(M)\) è fortemente minimale sse \(M\) è fortemente minimale.
+\end{prop}
+\begin{esempio}
+Sia \(L=\set{E}\), con \(E\) relazione binaria. Sia \(M\) numerabile e \(E\) interpretata come relazione di equivalenza, tale che per ogni \(n \in \omega\setminus\set{0}\), \(M\) contiene esattamente una classe di equivalenza di cardinalità \(n\), e nessuna classe di cardinalità \(\omega\).
+
+Allora \(M\) è minimale (e inoltre \(\operatorname{Th}(M)\) ha q.e.) e ammette \(N\succeq M\) dove \(E\) ha una classe di equivalenza infinita (e \uline{non} cofinita).
+\end{esempio}
+
+---
+
+Lavoriamo in \(T\) completa, fortemente minimale, con modello mostro \(\mathcal{U}\).
+
+\begin{esempio}
+Sia \(\K\) un campo, e sia \(\mathcal{L}_{\K}=\set{+,-,0,\set{\lambda}_{\lambda \in \K}}\).
+
+Si assiomatizza un campo vettoriale \(V\) su \(\K\), dove tutto è interpretato nel modo usuale (i \(\lambda\) sono funzioni unarie che rappresentano il prodotto per scalari): questo dà luogo a \(T_{\text{VS}\K}\).
+
+È possibile vedere che \(T_{\text{VS}\K}\):
+\begin{itemize}
+\item è completa;
+\item ha q.e.;
+\end{itemize}
+e pertanto:
+\begin{itemize}
+\item i termini sono combinazioni lineari \(\lambda_{1}\, x_{1}+\dots+\lambda_{n}\,x_{n}\);
+\item le formule atomiche sono uguaglianze tra combinazioni lineari.
+\end{itemize}
+
+Per q.e., \(T_{\text{VS}\K}\) è fortemente minimale.
+\end{esempio}
+\begin{esempio}
+Sia \(\mathcal{L}_{\text{rng}} = \set{+,\cdot,-,0,1}\). Allora \({\mathrm{ACF}}\) è la \(\mathcal{L}_{\text{rng}}\)-teoria che include:
+\begin{itemize}
+\item gli assiomi di gruppo abeliano;
+\item gli assiomi di monoide commutativo;
+\item gli assiomi di campo
+\item assiomi per la chiusura algebrica.
+\end{itemize}
+
+Sia \(\chi_{p}\equiv [1+1+\dots+1=0]\), dove \(1\) è ripetuto \(p\) volte.
+\begin{itemize}
+\item per \(p\) primo, sia \(\mathrm{ACF}_{p}\coloneqq\mathrm{ACF}\cup\set{\chi_{p}}\);
+\item \(\mathrm{ACF}_{0} \coloneqq \mathrm{ACF}\cup\set{\lnot\chi_{n}\mid n \in \omega}\).
+\end{itemize}
+
+È possibile mostrare che \(\mathrm{ACF}_{p}\) e \(\mathrm{ACF}_{0}\) sono complete e hanno q.e.
+
+Allora:
+\begin{itemize}
+\item le formule atomiche con parametri sono equazioni polinomiali;
+\item una formula atomica con una variabile e parametri in \(A\) è equivalente a \(p(x)=0\), dove \(p(x)\) è un polinomio nel sottocampo generato da \(A\).
+\end{itemize}
+Quindi:
+\begin{itemize}
+\item le formule atomiche con parametri e una solo variabile libera definiscono insiemi finiti;
+\item le formule quantifier-free con una variabile e parametri definiscono insiemi finiti o cofiniti.
+\end{itemize}
+
+Per q.e., \(\mathrm{ACF}_{p}\) e \(\mathrm{ACF}_{0}\) sono fortemente minimali.
+\end{esempio}
+FINIRE CON LE SLIDES
+
+\begin{lem}
+(Lemma dello scambio). Siano \(B \subseteq \mathcal{U}\), \(a,b \in \mathcal{U}\setminus\operatorname{acl}(B)\). Allora
+\begin{equation*}
+b \in \operatorname{acl}(aB)\quad\iff\quad a \in \operatorname{acl}(bB)
+\end{equation*}
+dove con \(aB\coloneqq B\cup\set{a}\).
+\end{lem}
+\begin{proof}
+Per assurdo, sia \(a \in \operatorname{acl}(bB)\) e \(b \notin \operatorname{acl}(aB)\).
+
+Sia \(\varphi(x,y) \in \mathcal{L}(B)\) tale che
+\begin{equation*}
+\vDash\varphi(a,b) \land \exists^{\le n} x\ \varphi(x,b)
+\end{equation*}
+per qualche \(n \in \omega\setminus\set{0}\).
+
+Consideriamo ora
+\begin{equation*}
+\psi(a,y):\quad \varphi(a,y) \land \exists^{\le n} x\ \varphi(x,y)
+\end{equation*}
+con \(\psi(a,y) \in \mathcal{L}(aB)\).
+
+Siccome \(b\notin \operatorname{acl}(aB)\), allora \(\card{\psi(a,\mathcal{U})}\ge \omega\), e dunque
+\begin{equation*}
+\card{\psi(a,\mathcal{U})}=\card{\mathcal{U}}.
+\end{equation*}
+
+Inoltre, per forte minimalità, \(\card{\lnot\psi(a,\mathcal{U})}<\omega\).
+
+Sia \(M\) un modello, \(B \subseteq M\): allora \(M\cap \psi(a,\mathcal{U})\neq \emptyset\): sia quindi \(c \in M\cap \psi(a,\mathcal{U})\). Allora
+\begin{equation*}
+\vDash \psi(a,c) \land \exists^{\le n} x\ \psi(x,c)
+\end{equation*}
+ossia \(a \in \operatorname{acl}(cB)\).
+
+Dunque \(M \supseteq B\) implica \(a \in M\). Per la caratterizzazione, \(a \in \operatorname{acl}(B)\). Assurdo.
+\end{proof}
+\begin{definizione}
+Se \(B \subseteq C \subseteq \mathcal{U}\), \(B\) è una \uline{base di \(C\)} se
+\begin{enumerate}
+\item \(B\) è indipendente;
+\item \(C \subseteq \operatorname{acl}(B)\) (o, equivalentemente, se \(\operatorname{acl}(B)=\operatorname{acl}(C)\)).
+\end{enumerate}
+\end{definizione}
+\begin{prop}
+Se \(B\) è un insieme indipendente e \(a \notin \operatorname{acl}(B)\), allora
+\begin{equation*}
+B\cup\set{a}
+\end{equation*}
+è ancora un insieme indipendente.
+\end{prop}
+\begin{cor}
+Se \(B \subseteq C \subseteq \mathcal{U}\), sono fatti equivalenti:
+\begin{enumerate}
+\item \(B\) è una base di \(C\);
+\item \(B\) è un sottoinsieme indipendente massimale di \(C\).
+\end{enumerate}
+\end{cor}
+
+\begin{thm}
+(basi di sottoinsiemi di \(\mathcal{U}\)). Sia \(C \subseteq \mathcal{U}\). Allora
+\begin{enumerate}
+\item se \(B \subseteq C\) è indipendente, allora \(B\) si può estendere ad una base di \(C\);
+\item se \(A\) e \(B\) sono basi di \(C\), allora \(\card{A}=\card{B}\).
+\end{enumerate}
+\end{thm}
+\begin{definizione}
+Sia \(C \subseteq \mathcal{U}\) algebricamente chiuso (ossia \(C=\operatorname{acl}(C)\)) e sia \(A\) una base di \(C\).
+
+Allora \(\operatorname{dim}(C)\coloneqq\card{A}\) è la \uline{dimensione di \(C\)}
+\end{definizione}
+
+\begin{definizione}
+Se \(a\notin\operatorname{acl}(A)\), \(a\) si dice \uline{trascendente} su \(A\).
+\end{definizione}
+In una struttura fortemente minimale, tutti gli elementi trascendenti hanno lo stesso tipo su \(A\).
+\begin{thm}
+Sia \(f:\mathcal{U}\partialto\mathcal{U}\) una mappa elementare, e siano
+\begin{equation*}
+b\notin\operatorname{acl}\big(\operatorname{dom}(f)\big);\quad c\notin \operatorname{acl}\big(\operatorname{rng}(f)\big).
+\end{equation*}
+Allora \(f\cup\set{\langle b,c\rangle}\) è elementare.
+\end{thm}
+\begin{proof}
+Sia \(a\) una enumerazione di \(\operatorname{dom}(f)\) e sia \(\varphi(x,a) \in \mathcal{L}(a)\) (con \(\card{x}=1\)).
+
+Mostriamo \(\vDash \varphi(b,a)\iff\varphi\big(c,f(a)\big)\).
+\begin{itemize}
+\item \uline{Caso 1}: \(\card{\varphi(\mathcal{U},a)}<\omega\). Allora \(\card{\varphi\big(\mathcal{U},f(a)\big)}<\omega\).
+
+Poiché \(b\notin\operatorname{acl}(A)\) e \(c\notin\operatorname{acl}\big(f(a)\big)\),
+\begin{equation*}
+  \vDash\lnot\varphi(b,a) \land \lnot\varphi\big(c,f(a)\big).
+\end{equation*}
+\item \uline{Caso 2}: FINIRE DALLE SLIDE\qedhere
+\end{itemize}
+\end{proof}
+\begin{cor}
+Ogni biiezione fra sottoinsiemi indipendenti di \(\mathcal{U}\) è elementare.
+\end{cor}
+
+Ricordiamo: in qualsiasi teoria \(T\), se \(M\vDash T\) e \(A \subseteq M\), allora \(\operatorname{acl}(A) \subseteq M\). In particolare, ciascun modello è algebricamente chiuso.
+
+Se \(T\) è fortemente minimale, questo implica che ogni modello ha una dimensione.
+
+\begin{thm}
+Siano \(M, N \preceq \mathcal{U}\) tali che \(\dim(M)=\dim(N)\). Allora \(M\cong N\).
+\end{thm}
+
+COMPLETARE CON LA DIMOSTRAZIONE
+
+Se \(T\) è fortemente minimale e \(\lambda>\card{\mathcal{L}}\), allora \(T\) è \(\lambda\)-categorica.
+
+Infatti: per \(A \subseteq \mathcal{U}\), si ha \(\card{\operatorname{acl}(A)}\le\card{\mathcal{L}(A)}+\omega\) poiché
+\begin{itemize}
+\item ci sono al più \(\card{\mathcal{L}(A)}+\omega\) formule
+\item ogni \(\varphi(x) \in \mathcal{L}(A)\) ha al più finite soluzioni.
+\end{itemize}
+
+Se \(\card{M}=\lambda>\card{\mathcal{L}}\), allora una base deve avere cardinalità \(\lambda\). Ma ogni due modelli di dimensione \(\lambda\) sono isomorfi.
+
+Morale: i modelli di una teoria fortemente minimale sono determinati a meno di isomorfismi dalla loro dimensione, dunque dalla loro cardinalità se la cardinalità è strettamente maggiore della cardinalità del linguaggio.
+
+\begin{thm}
+Sia \(N\) un modello, \(\card{N}\ge \card{\mathcal{L}}\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(N\) è saturo;
+\item \(\dim(N)=\card{N}\).
+\end{enumerate}
+\end{thm}
+
+Vedi questo sito web: \url{https://www.forkinganddividing.com/}.
+\end{document}

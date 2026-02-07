@@ -1,0 +1,446 @@
+% Created 2026-02-07 Sat 19:30
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Davide Peccioli}
+\date{\today}
+\title{Calcolo dell'omologia simpliciale per il complesso di catene generato da un 2-simplesso}
+\begin{document}
+
+Sia \(\sigma=[p_{0},p_{1},p_{2}]\) un 2-\href{20250121121923-simplessi.org}{simplesso}, e sia \(K = K[\sigma]\) il \href{20250120163114-complesso_di_catene.org}{complesso simpliciale} \href{20250121125446-complesso_simpliciale_generato_da_un_simplesso.org}{generato} da \(\sigma\).
+Sia \(R\) un \href{20241219112842-pid.org}{PID}.
+
+Denotando con
+\begin{equation*}
+\simplesso{i_{0},\dots,i_{k}} = [p_{i_{0}},\dots,p_{i_{k}}]
+\end{equation*}
+si ha che i \href{20250121160600-complesso_di_catene_simpliciali.org}{complessi di catene simpliciali} sono i seguenti \href{20241213094625-modulo_libero.org}{moduli liberi}\footnote{Vedi:
+\begin{itemize}
+\item \href{20241213095808-somma_diretta.org}{Somma Diretta}
+\item \href{20241213095808-somma_diretta.org}{Somma diretta dell'anello è modulo libero}
+\end{itemize}}:
+\begin{align*}
+C_{0}(K) &= R^{(\set{\simplesso{0},\simplesso{1},\simplesso{2}})}\\
+C_{1}(K) &= R^{(\set{\simplesso{01}, \simplesso{02}, \simplesso{12}})}\\
+C_{2}(K) &= R^{(\set{\simplesso{012}})} = R\cdot \simplesso{012}
+\end{align*}
+
+Le \href{20250121132856-mappe_di_bordo_tra_moduli_di_catene_simpliciali.org}{mappe di bordo} sono le seguenti:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=tiny]
+	0 \& {C_2(K)} \& {C_1(K)} \& {C_0(K)} \& 0 \\
+	\& {\simplesso{012}} \& {\simplesso{12}-\simplesso{02}+\simplesso{01}} \\
+	\&\& {\simplesso{01}} \& {\simplesso{1}-\simplesso{0}} \\
+	\&\& {\simplesso{02}} \& {e_2-\simplesso{0}} \\
+	\&\& {\simplesso{12}} \& {e_2-\simplesso{1}}
+	\arrow["{\partial_3}", from=1-1, to=1-2]
+	\arrow["{\partial_2}", from=1-2, to=1-3]
+	\arrow["{\partial_1}", from=1-3, to=1-4]
+	\arrow["{\partial_0}", from=1-4, to=1-5]
+	\arrow[maps to, from=2-2, to=2-3]
+	\arrow[maps to, from=3-3, to=3-4]
+	\arrow[maps to, from=4-3, to=4-4]
+	\arrow[maps to, from=5-3, to=5-4]
+\end{tikzcd}
+\end{equation*}
+
+Si vogliono calcolare i \href{20241205141053-r_moduli.org}{moduli} di \href{20250121160827-omologia_simpliciale.org}{omologia}.
+
+\begin{itemize}
+\item \textbf{Modulo di omologia 2}
+
+Si ha che \(\partial_{2}\) è una mappa iniettiva\footnote{Se \(\partial_{2}(r\simplesso{012}) = 0\), allora
+\begin{equation*}
+r\simplesso{12} - r\simplesso{02} + r\simplesso{01} = 0
+\end{equation*}
+con \(\set{\simplesso{01}, \simplesso{02}, \simplesso{12}}\) \href{20241213094625-modulo_libero.org}{base di \(C_{1}(K)\)}: quindi \(r=0\).}, e quindi \(\operatorname{ker}\partial_{2} = \{0\}\). Inoltre, ovviamente, \(\partial_{3}\equiv 0\), e dunque \(\operatorname{Im}\partial_{3} = \set{0}\).
+Dunque
+\begin{equation*}
+H_{2}(K) = \frac{\operatorname{ker}\partial_{2}}{\operatorname{Im}\partial_{3}} = \set{0}/\set{0} = 0
+\end{equation*}
+
+\item \textbf{Modulo di omologia 1}
+
+Per il \href{20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.org}{primo teorema di isomorfismo}, \(\operatorname{Im}\partial_{2} \cong C_{2}(K) / \set{0}\), con base \(\set{\simplesso{12}-\simplesso{02}+\simplesso{01}}\).
+
+Consideriamo invece un generico elemento di \(C_{1}(K)\), ovvero, fissati \(a,b,c \in R\),
+\begin{equation*}
+a\simplesso{01} + b\simplesso{02}+c\simplesso{12}.
+\end{equation*}
+Per calcolare il \(\operatorname{ker}\partial_{1}\) imponiamo
+\begin{equation*}
+  \begin{aligned}
+  	0 &= \partial_{1}(a\simplesso{01}+b\simplesso{02}+c\simplesso{12})\\
+  	&= a \simplesso{1}-a\simplesso{0} +b\simplesso{2}-b\simplesso{0} +c\simplesso{2}-c\simplesso{1}\\
+  	&= \simplesso{1}(a-c) + \simplesso{0} (-a-b) + \simplesso{2}(b+c)
+  \end{aligned}%
+\IFF%
+  \begin{cases}
+  	a-c=0\\
+  	-a-b=0\\
+  	b+c=0
+  \end{cases}
+\end{equation*}
+dove la doppia implicazione vale perché \(\simplesso{0},\set{\simplesso{1},\simplesso{2}}\) è base di \(C_{0}(K)\).
+
+Dunque, \(x \in \operatorname{ker}\partial_{1}\) se e solo se \(x = c(\simplesso{01}-\simplesso{02}+\simplesso{12})\) e dunque
+\begin{equation*}
+\operatorname{ker}\partial_{1} = R\cdot (\simplesso{01}-\simplesso{02}+\simplesso{12})
+\end{equation*}
+
+Pertanto
+\begin{equation*}
+H_{1}(K) = \frac{R\cdot(\simplesso{01}-\simplesso{02}+\simplesso{12})}{R\cdot (\simplesso{01}-\simplesso{02}+\simplesso{12})
+} = 0
+\end{equation*}
+
+\item \textbf{Modulo di omologia 0}
+
+Siccome \(\partial_{0} \equiv 0\), allora \(\operatorname{ker}\partial_{0} = C_{0}(K) = R^{\set{\simplesso{0},\simplesso{1},\simplesso{2}}}\).
+Viceversa, \(\operatorname{Im}\partial_{1} = R^{\set{\simplesso{1}-\simplesso{0},\simplesso{2}-\simplesso{0},\simplesso{2}-\simplesso{1}}}\), e dunque
+\begin{equation*}
+H_{0}(K) = \frac{R^{\set{\simplesso{0},\simplesso{1},\simplesso{2}}}}{R^{\set{\simplesso{1}-\simplesso{0},\simplesso{2}-\simplesso{0},\simplesso{2}-\simplesso{1}}}} = R\cdot \simplesso{0}
+\end{equation*}
+\end{itemize}
+\end{document}

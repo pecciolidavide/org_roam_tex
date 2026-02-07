@@ -1,0 +1,593 @@
+% Created 2026-02-07 Sat 19:30
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt]{article}
+%% CREATO CON ORG - EMACS
+\newcommand{\use}[2][]{\usepackage[#1]{#2}}
+% PACCHETTI FONDAMENTLAI
+\use[utf8]{inputenc}
+\use[T1]{fontenc}
+\use{graphicx}
+\use{longtable}
+\use{wrapfig}
+\use{rotating}
+\use[normalem]{ulem}
+\use{amsmath}
+\use{amsthm}
+\use{amssymb}
+
+\use{eucal} % Cambia mathcal{...}
+
+\use{capt-of}
+\use[italian]{babel}
+\use[babel]{csquotes}
+% bib la TEX lo carica in automatico org-cite
+\use{microtype}
+\use{lmodern}
+\use{subfig} % sottofigure
+\use{multicol} % due colonne
+\use{lipsum} % lorem ipsum
+\use{color} % colori in latex
+\use{parskip} % rimuove l'indentazione dei nuovi paragrafi %% Add parbox=false to all new tcolorbox
+\use{centernot}
+\use[outline]{contour}\contourlength{3pt}
+\use{fancyhdr}
+\use{layout}
+\use[most]{tcolorbox} % Riquadri colorati
+\use{ifthen} % IFTHEN
+\use{geometry}
+
+% pacchetti matematica
+\use{yhmath}
+\use{dsfont}
+\use{mathrsfs}
+\use{cancel} % semplificare
+\use{polynom} %divisione tra polinomi
+\use{forest} % grafi ad albero
+\use{booktabs} % tabelle
+\use{commath} %simboli e differenziali
+\use{bm} %bold
+\use[fulladjust]{marginnote} %to use marginnote for date notes
+\use{arrayjobx}%array
+\use[intlimits]{empheq} % Riquadri colorati attorno alle equazioni
+\use{mathtools}
+\use{circuitikz} % Disegnare i circuiti
+\use{mathtools}
+\use{stmaryrd} % [[ \llbracket ]] \rrbracket
+\use{bussproofs} % dimostrazioni
+
+%%%%%%%%%%%%%
+
+
+%%%% QUIVER
+\newcommand{\duepunti}{\,\mathchar\numexpr"6000+`:\relax\,}
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+%%%%%%%%%%
+
+
+%% DEFINIZIONI COMANDI MATEMATICI
+\let\sin\relax %TOGLIE LA DEFINIZIONE SU "\sin"
+
+% cambia la definizione di empty set
+% ---
+\let\oldemptyset\emptyset
+% ---
+% \let\emptyset\varnothing
+% ---
+% \let\emptyset\relax
+% \newcommand{\emptyset}{\text{\textnormal{\O}}}
+% ---
+
+\DeclareMathOperator{\bounded}{bd}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\epi}{Epi}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spettro}{Spettro}
+\DeclareMathOperator{\nulls}{nullspace}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ar}{ar}
+\DeclareMathOperator{\const}{Const}
+\DeclareMathOperator{\fun}{Fun}
+\DeclareMathOperator{\rel}{Rel}
+\DeclareMathOperator{\altezza}{ht}
+\let\det\relax %TOGLIE LA DEFINIZIONE SU "\det"
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gl}{GL}
+\def\Id{\mathrm{Id}}
+\def\id{\mathrm{id}}
+\DeclareMathOperator{\I}{\mathds{1}}
+\DeclareMathOperator{\II}{II}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tc}{t.c.}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\mon}{Mon}
+\newcommand{\card}[1]{\left\vert #1 \right\vert}
+\newcommand{\trasposta}[1]{\prescript{\text{T}}{}{#1}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\diesis}{\#}
+\newcommand{\bemolle}{\flat}
+\newcommand{\nonstandard}[1]{\prescript{*}{}{#1}}
+\newcommand{\starR}{\nonstandard{\R}}
+\newcommand{\borel}{\mathscr{B}}
+\newcommand{\lebesgue}[1]{\mathscr{L}\left(#1\right)}
+\newcommand{\media}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\A}{\mathds{A}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\qo}{\hspace{1em}\text{q.o.}\,}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+\renewcommand{\parallel}{\mathrel{/\mkern-5mu/}}
+\newcommand{\parti}[2][]{\wp_{#1}(#2)}
+\newcommand{\diff}[1]{\operatorname{d}_{#1}}
+\let\oldvec\vec
+\renewcommand{\vec}[1]{\overrightarrow{\vphantom{i}#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\dfreccia}[1]{\xrightarrow{\ #1 \ }}
+\newcommand{\sfreccia}[1]{\xleftarrow{\ #1 \ }}
+\newcommand{\formalsum}[2]{{\sum_{#1}^{#2}}{\vphantom{\sum}}'}
+\newcommand{\minim}[2]{\mu_{#1}\, \left(#2\right)}
+\newcommand{\concat}{\null^{\frown}} % concatenazione di stringe
+\newcommand{\godelcode}[1]{\langle\!\langle #1 \rangle\!\rangle}
+\newcommand{\godeldec}[1]{(\!(#1)\!)}
+\newcommand{\termcode}[1]{\ulcorner #1\urcorner}
+\newcommand{\partialto}{\dashrightarrow}
+\newcommand{\restricted}{\upharpoonright}
+\newcommand{\embeds}{\precsim}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\equipotenti}{\asymp}
+%% \newcommand{\dotplus}{\mathbin{\dot{+}}} %% A quanto pare esiste già
+\newcommand{\bigdot}{\mathbin{\boldsymbol{\cdot}}}
+\newcommand{\dotexp}[1]{^{.#1}}
+\newcommand{\conv}{\mathbin{*}}
+\newcommand{\convolution}[2]{(#1\conv #2)}
+\newcommand{\nil}{\mathfrak{N}}
+\newcommand{\divisore}{\mathrel{|}}
+\newcommand{\simplesso}[1]{\mathrm{e}_{#1}}
+
+\renewcommand{\iff}{\mathrel{\longleftrightarrow}} %% Notazione Logica.
+\newcommand{\oldiff}{\mathrel{\Longleftrightarrow}}
+\renewcommand{\implies}{\mathrel{\rightarrow}} %% Notazione Logica
+\newcommand{\oldimplies}{\mathrel{\Longrightarrow}}
+\renewcommand{\impliedby}{\mathrel{\leftarrow}} %% Notazione Logica
+\newcommand{\oldimpliedby}{\mathrel{\Longleftarrow}}
+
+\newcommand{\IFF}{\quad\Longleftrightarrow\quad}
+\newcommand{\IMPLICA}{\quad\Longrightarrow\quad}
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont #1} % remove bold from description
+
+
+%% Definizione di Divergenza di K-L
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\kldiv}{D_{KL}\infdivx}
+
+%% Definizione di \dotminus
+
+\makeatletter
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+\makeatother
+
+%tramite i prossimi due comandi posso decidere come scrivere i logaritmi naturali in tutti i documenti: ho infatti eliminato qualsiasi differenza tra "ln" e "log": se si vuole qualcosa di diverso bisogna inserire manualmente il tutto
+\let\ln\relax
+\DeclareMathOperator{\ln}{ln}
+\let\log\relax
+\DeclareMathOperator{\log}{log}
+%%%%%%
+
+%% NUOVI COMANDI
+\newcommand{\straniero}[1]{\textit{#1}} %parole straniere
+\newcommand{\titolo}[1]{\textsc{#1}} %titoli
+\newcommand{\qedd}{\tag*{$\blacksquare$}} %qed per ambienti matemastici
+\renewcommand{\qedsymbol}{$\blacksquare$} %modifica colore qed
+\newcommand{\ooverline}[1]{\overline{\overline{#1}}}
+\newcommand{\circoletto}[1]{\left(#1\right)^{\text{o}}}
+%
+\newcommand{\qmatrice}[1]{\begin{pmatrix}
+#1_{11} & \cdots & #1_{1n}\\
+\vdots & \ddots & \vdots \\
+#1_{m1} & \cdots & #1_{mn}
+\end{pmatrix}}
+%
+\newcommand{\parentesi}[2]{%
+\underset{#1}{\underbrace{#2}}%
+}
+%
+\newcommand{\norma}[1]{% Norma
+\left\lVert#1\right\rVert%
+}
+\newcommand{\scalare}[2]{% Scalare
+\left\langle #1, #2\right\rangle
+}
+%%%%%
+
+%% RESTRIZIONI
+\newcommand{\referenze}[2]{
+        \phantomsection{}#2\textsuperscript{\textcolor{blue}{\textbf{#1}}}
+}
+
+\let\restriction\relax
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+%%%%%%%%%%%
+
+%%% FORMATTAZIONE FOOTNOTEMARK
+
+\def\footnotemarkformatting#1{[#1]}
+\renewcommand{\thefootnote}{\footnotemarkformatting{\arabic{footnote}}}
+
+%% SEZIONE GRAFICA
+\use{tikz}
+\usetikzlibrary{matrix, patterns, calc, decorations.pathreplacing, hobby, decorations.markings, decorations.pathmorphing, babel}
+\use{tikz-3dplot}
+\use{mathrsfs} %per geogebra
+\use{tikz-cd}
+\tikzset
+{
+  %surface/.style={fill=black!10, shading=ball,fill opacity=0.4},
+  plane/.style={black,pattern=north east lines},
+  curve/.style={black,line width=0.5mm},
+  dritto/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth}}}, postaction=decorate},
+  rovescio/.style={decoration={markings,mark=at position 0.5 with {\arrow{Stealth[reversed]}}}, postaction=decorate}
+}
+\use{pgfplots} % stampare le funzioni
+        \pgfplotsset{/pgf/number format/use comma,compat=1.15}
+        %\pgfplotsset{compat=1.15} %per geogebra
+        \usepgfplotslibrary{fillbetween, polar}
+%%%%%%
+
+%% CITAZIONI
+\use{lineno}
+
+\newcommand{\citazione}[1]{%
+  \begin{quotation}
+  \begin{linenumbers}
+  \modulolinenumbers[5]
+  \begingroup
+  \setlength{\parindent}{0cm}
+  \noindent #1
+  \endgroup
+  \end{linenumbers}
+  \end{quotation}\setcounter{linenumber}{1}
+  }
+%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% AMS THM
+
+\theoremstyle{definition}% default
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem{esempio}[thm]{Esempio}
+\theoremstyle{plain}
+\newtheorem{definizione}[thm]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{oss}{Osservazione}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\use{hyperref}
+\hypersetup{%
+        pdfauthor={Davide Peccioli},
+        pdfsubject={},
+        allcolors=black,
+        citecolor=black,
+%	colorlinks=true,
+        bookmarksopen=true}
+\setcounter{secnumdepth}{0} % rimuove i numeri di sezione senza rimuovere le ref
+\renewcommand{\href}[2]{\textcolor{blue}{#2}} % disabilita il comando href
+\use{enotez} %
+\setenotez{%
+ mark-format = \footnotemarkformatting % Mette i numeri tra parentesi quadre%
+}\let\footnote=\endnote % rende tutte le note a pié pagina come delle note a fine file 
+
+
+\let\olddocument\document % modifico l'ambiende documenti per non dover stampare \printendnote
+\let\oldenddocument\enddocument
+\renewenvironment{document}%
+{%
+  \olddocument
+}{%
+  \printendnotes\oldenddocument
+}
+\renewcommand{\thethm}{\arabic{thm}}
+
+\usepackage[hyperref]{biblatex}
+\addbibresource{~/Documents/org/roam/bib/master.bib}
+\author{Davide Peccioli}
+\date{\today}
+\title{}
+\begin{document}
+
+\section{Omologia per attaccamento di k-cella}
+\label{sec:org1a37850}
+Sia \(R\) un \href{20241219112842-pid.org}{PID}.
+
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} di \href{20250109155715-spazio_topologico_di_hausdorff.org}{Haussrdof}, \(e^{k}\) una \(k\)-cella, \(\varphi: \partial e^{k}\to X\) \href{20250103103252-funzione_continua.org}{continua} e
+\begin{equation*}
+Y \coloneqq X \mathrel{\cup_{\varphi}} e^k
+\end{equation*}
+l'\href{20250215122759-export.org_archive}{attaccamento di \(e^{k}\) ad \(X\)}.
+
+\begin{prop}
+La mappa \(\Phi: (e^{k}, \partial e^{k})\longrightarrow \big(Y, j(X)\big)\) \href{20250126191208-funtore_da_topp_a_rmod_di_omologia.org}{induce} un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo} in \href{20250122154903-omologia_singolare_relativa.org}{omologia relativa}:
+\begin{equation*}
+\forall q:\qquad H_{q}(e^{k},\partial e^{k}) \cong H_{q}\big(Y,j(X)\big).
+\end{equation*}
+\end{prop}
+\begin{proof}
+Sia \(C\) un \href{20250215122759-export.org_archive}{collare} di \(\partial e^{k}\).
+\begin{enumerate}
+\item Abbiamo il seguente \href{20250111142332-omeomorfismo.org}{omeomorfismo}:
+\begin{equation*}
+\restriction{\Phi}{e^{k}\setminus \partial e^{k}}:(e^{k}\setminus \partial e^{k}, C\setminus \partial e^{k})\longrightarrow \big(
+ Y \setminus j(X),\ (j(X) \cup \Phi(C))\setminus j(X)
+\big)
+\end{equation*}
+che \href{20250126191208-funtore_da_topp_a_rmod_di_omologia.org}{induce} un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo}
+\begin{equation*}
+\forall  n:\qquad H_{n}(e^{k}\setminus \partial e^{k}, C\setminus \partial e^{k})\cong H_{n}\big(
+ Y \setminus j(X),\ (j(X) \cup \Phi(C))\setminus j(X)
+\big)
+\end{equation*}
+
+\item Poiché \(\partial e^{k} \subseteq C\) e \(j(X) \subseteq j(X) \cup \Phi(C)\) sono \href{20250122155727-retratto_di_deformazione_di_uno_spazio_topologico.org}{retratti di deformazione}, \href{20250126190440-equivalenze_omotopiche_tra_coppie_topologiche_induce_isomorfismo_tra_omologia_singolare_relativa.org}{allora}
+\begin{align*}
+ \forall n:\qquad H_{n}\big(Y,j(X)\big) & \cong \big(Y, j(X) \cup \Phi(C)\big)\\
+ \forall n:\qquad H_{n}(e^{k},\partial e^{k}) & \cong H_{n}(e^{k}, C)
+\end{align*}
+\item Per il \href{20250126223310-teorema_di_escissione.org}{Teorema di Escissione}:
+\begin{align*}
+  H_{n}(e^{k}\setminus \partial e^{k}, C\setminus \partial e^{k}) & \cong H_{n}(e^{k}, C)\\
+  H_{n}\big(
+         Y \setminus j(X),\ (j(X) \cup \Phi(C))\setminus j(X)
+  \big) & \cong H_{n}\big(
+         Y,\ (j(X) \cup \Phi(C))
+  \big)
+\end{align*}
+\end{enumerate}
+Tutto questo dà l'isomorfismo richiesto:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{H_{n}(e^{k},\partial e^{k})} \&\& {H_{n}(e^{k}, C)} \&\& {H_{n}(e^{k}\setminus \partial e^{k}, C\setminus \partial e^{k})} \\
+	\\
+	{H_{n}\big(Y,j(X)\big)} \&\& {H_n\big(Y, j(X) \cup \Phi(C)\big)} \&\& {H_{n}\big(Y \setminus j(X),\ (j(X) \cup \Phi(C))\setminus j(X)\big)}
+	\arrow["{{\cong }}", from=1-1, to=1-3]
+	\arrow["{{2.}}"', draw=none, from=1-1, to=1-3]
+	\arrow["\cong"', from=1-5, to=1-3]
+	\arrow["{{3.}}", draw=none, from=1-5, to=1-3]
+	\arrow["\cong", from=1-5, to=3-5]
+	\arrow["{{1.}}"', draw=none, from=1-5, to=3-5]
+	\arrow["\cong"', from=3-1, to=3-3]
+	\arrow["{{2.}}", draw=none, from=3-1, to=3-3]
+	\arrow["\cong", from=3-5, to=3-3]
+	\arrow["{{3.}}"', draw=none, from=3-5, to=3-3]
+\end{tikzcd}
+\qedhere
+\end{equation*}
+\end{proof}
+
+\begin{prop}
+Per l'\href{20250122133631-omologia_singolare.org}{omologia singolare}:
+\begin{enumerate}
+\item Per ogni \(q \neq k,k-1\):
+\begin{equation*}
+ H_{q}(Y) \cong H_{q}(X);
+\end{equation*}
+\item Vale una e una sola delle seguenti:
+\begin{itemize}
+\item si ha un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo} con la \href{20241213095808-somma_diretta.org}{somma diretta}
+\begin{equation*}
+   H_{k}(Y) \cong H_{k}(X) \oplus R
+\end{equation*}
+e, se \(H_{k-1}(X)\) è \href{20241213100845-modulo_finitamente_generato.org}{finitamente generato}, allora lo è anche \(H_{k-1}(Y)\) e vale la seguente formula per il \href{20260109173733-rango_di_un_modulo.org}{rango}:
+\begin{equation*}
+   \operatorname{rk}\big(H_{k-1}(Y)\big) = \operatorname{rk}\big(H_{k-1}(X)\big);
+\end{equation*}
+\item si ha un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo}:
+\begin{equation*}
+   H_{k}(Y) \cong H_{k}(X)
+\end{equation*}
+e, se \(H_{k-1}(X)\) è \href{20241213100845-modulo_finitamente_generato.org}{finitamente generato}, allora lo è anche \(H_{k-1}(Y)\) e vale la seguente formula per il \href{20260109173733-rango_di_un_modulo.org}{rango}:
+\begin{equation*}
+   \operatorname{rk}\big(H_{k-1}(Y)\big) = \operatorname{rk}\big(H_{k-1}(X)\big) - 1.
+\end{equation*}
+\end{itemize}
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Si noti che per la proposizione precedente:
+\begin{equation*}
+     H_{q}\big(Y,j(X)\big) \cong H_{q}(e^{k}, \partial e^{k}) = \begin{cases}
+             R & q = k\\
+             0 & q \neq k
+     \end{cases}
+\end{equation*}
+per l'\href{20250127162702-calcolo_dell_omologia_singolare_della_sfera_e_dell_omologia_singolare_relativa_del_disco_rispetto_alla_sfera.org}{omologia relativa già calcolata}.
+
+\begin{enumerate}
+\item Si scriva la \href{20250122154927-successione_esatta_di_una_coppia_topologica.org}{SEL per l'omologia relativa}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+        {H_{q+1}\big(Y,j(X)\big)} \& {H_{q}\big(j(X)\big)} \& {H_{q}(Y)} \& {H_{q}\big(Y,j(X)\big)} \\
+        \& {H_q(X)}
+        \arrow[from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow["\cong"{marking, allow upside down}, draw=none, from=1-2, to=2-2]
+        \arrow[from=1-3, to=1-4]
+\end{tikzcd}
+\end{equation*}
+Per \(q \neq k\), \(q\neq k-1\), allora \(q \neq k\) e \(q+1 \neq k\), e quindi
+\begin{equation*}
+ H_{q+1}\big(Y,j(X)\big) = 0,\qquad H_{q}\big(Y,j(X)\big) = 0.
+\end{equation*}
+\href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{Pertanto}, \(H_{q}(X) \cong H_{q}(j(X)) \cong H_{q}(Y)\)
+\item Si consideri sempre la SEL per l'omologia relativa, vicino a \(q=k\).
+\begin{equation*}
+\scalebox{0.8}{%
+\begin{tikzcd}[ampersand replacement=\&,column sep=small]
+        {H_{k+1}\big(Y,j(X)\big)} \& {H_{k}\big(j(X)\big)} \& {H_{k}(Y)} \& {H_{k}\big(Y,j(X)\big)} \& {H_{k-1}\big(j(X)\big)} \& {H_{k-1}(Y)} \& {H_{k-1}\big(Y,j(X)\big)} \\
+        \& {H_k(X)} \&\&\& {H_{k-1}(X)}
+        \arrow[from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow["\cong"{marking, allow upside down}, draw=none, from=1-2, to=2-2]
+        \arrow[from=1-3, to=1-4]
+        \arrow[from=1-4, to=1-5]
+        \arrow[from=1-5, to=1-6]
+        \arrow["\cong"{marking, allow upside down}, draw=none, from=1-5, to=2-5]
+        \arrow[from=1-6, to=1-7]
+\end{tikzcd} %
+}
+\end{equation*}
+e si facciano le dovute sostituzioni
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+        0 \& {H_k(X)} \& {H_{k}(Y)} \& R \& {H_{k-1}(X)} \& {H_{k-1}(Y)} \& 0
+        \arrow[from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow[from=1-3, to=1-4]
+        \arrow["\alpha", from=1-4, to=1-5]
+        \arrow[from=1-5, to=1-6]
+        \arrow[from=1-6, to=1-7]
+\end{tikzcd} %
+\end{equation*}
+Siccome \(R\) è un \(R\)-modulo libero, ed \(R\) è un PID, \href{20241219192830-pid_sottomoduli_sono_liberi.org}{allora ogni suo sottomodulo è libero}. In particolare lo è il \href{20241213105201-kernel.org}{kernel} \(\ker\alpha\).
+Ci sono solo due casi possibili:
+
+\begin{enumerate}
+\item \(\boxed{\ker \alpha \cong R}\): allora sicuramente la seguente è esatta:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+        0 \& {H_k(X)} \& {H_{k}(Y)} \& {\ker\alpha} \& 0
+        \arrow[from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow[from=1-3, to=1-4]
+        \arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+e siccome \(\ker\alpha \cong R\) è \href{20241213094625-modulo_libero.org}{libero}, \href{20250120131729-teorema_di_spezzamento_sec.org}{si ha che}
+\begin{equation*}
+  H_{k}(Y) \cong H_{k}(X) \oplus R.
+\end{equation*}
+
+Per la seconda parte, per il \href{20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.org}{primo teorema di isomorfismo} questa è una \href{20250120125004-successione_di_r_moduli_esatta.org}{successione esatta corta}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+        0 \& {R/\ker\alpha} \&\& {H_{k-1}(X)} \&\& {H_{k-1}(Y)} \& 0
+        \arrow[from=1-1, to=1-2]
+        \arrow["{\overline{\alpha}}"', from=1-2, to=1-4]
+        \arrow[from=1-4, to=1-6]
+        \arrow[from=1-6, to=1-7]
+\end{tikzcd}
+\end{equation*}
+\begin{itemize}
+\item \href{20250120121333-quoziente_di_modulo_fg_e_fg.org}{\(R/\ker \alpha\) è finitamente generato}. Inoltre è \href{20250120103129-modulo_di_torsione.org}{di torsione}.
+
+Infatti, siccome \(\ker\alpha \subseteq R\) è sottomodulo, allora è ideale di un PID, e pertanto esiste \(r \in R\), \(r \neq 0\) tale che\footnote{Vedi l'\href{20241219113154-ideale_generato.org}{ideale generato da un elemento}}
+\begin{equation*}
+\ker\alpha = (r)
+\end{equation*}
+Allora per ogni \(p + \ker \alpha \in R/\alpha\), \(r\cdot [p] = 0\).
+
+Pertanto ha \href{20260109173733-rango_di_un_modulo.org}{rango nullo}.
+
+\item Se \(H_{k-1}(X)\) è finitamente generato, allora lo è anche \(H_{k-1}(Y)\).\footnote{Questo segue dal fatto che \(H_{k-1}(Y)\) è l'immagine di \(H_{k-1}(X)\) tramite morfismo.}
+
+Pertanto \href{20260206182305-rango_in_una_successione_di_r_moduli_finitamente_generati.org}{vale la formula}
+\begin{equation*}
+\operatorname{rk}H_{k-1}(X) = \operatorname{rk}H_{k-1}(Y) + \parentesi{=0}{\operatorname{rk}(R/\ker\alpha)}.
+\end{equation*}
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+
+
+\begin{enumerate}
+\item \(\boxed{\ker \alpha = 0}\): allora la seguente è esatta:
+\begin{equation*}
+\scalebox{0.93}{%
+\begin{tikzcd}[ampersand replacement=\&]
+        0 \& {H_k(X)} \& {H_{k}(Y)} \&\& R \& {H_{k-1}(X)} \& {H_{k-1}(Y)} \& 0 \\
+        \&\&\& {\ker\alpha}
+        \arrow[from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow["0"', from=1-3, to=2-4]
+        \arrow["\alpha", from=1-5, to=1-6]
+        \arrow[from=1-6, to=1-7]
+        \arrow[from=1-7, to=1-8]
+        \arrow[hook, from=2-4, to=1-5]
+\end{tikzcd}%
+}
+\end{equation*}
+e pertanto lo sono entrambe le seguenti:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+        \& 0 \& {H_k(X)} \& {H_{k}(Y)} \& 0 \\
+        0 \& R \& {H_{k-1}(X)} \& {H_{k-1}(Y)} \& 0
+        \arrow[from=1-2, to=1-3]
+        \arrow[from=1-3, to=1-4]
+        \arrow[from=1-4, to=1-5]
+        \arrow[from=2-1, to=2-2]
+        \arrow["\alpha", from=2-2, to=2-3]
+        \arrow[from=2-3, to=2-4]
+        \arrow[from=2-4, to=2-5]
+\end{tikzcd}
+\end{equation*}
+\href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{Segue} che \(H_{k}(X) \cong H_{k}(Y)\), e \(H_{k-1}(Y) \cong H_{k-1}(X) / R\).
+
+Quindi, se \(H_{k-1}(X)\) è finitamente generato, \href{20250120121333-quoziente_di_modulo_fg_e_fg.org}{allora} \(H_{k-1}(Y)\) è finitamente generato, e inoltre per il \href{20260109173733-rango_di_un_modulo.org}{rango} \href{20260206182305-rango_in_una_successione_di_r_moduli_finitamente_generati.org}{vale}:
+\begin{equation*}
+  \operatorname{rk} H_{k-1}(X) = \operatorname{rk} H_{k-1}(Y) + \parentesi{=1}{\operatorname{rk} R}.
+\end{equation*}
+\end{enumerate}
+\end{proof}
+\end{document}
