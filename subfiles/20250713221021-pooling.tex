@@ -1,0 +1,124 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Pooling}
+\label{sec:org4c4cf5d}
+Sia \(f:[a,b]\to \R\) una funzione continua, e sia
+\begin{equation*}
+a=x_{0}<x_{1}<\dots<x_{n}=b
+\end{equation*}
+la partizione di \([a,b]\) di ampiezza \((b-a)/n\).
+
+\begin{definizione}
+Il \uline{max-pooling} di \(f\) è la \href{20250630171950-funzione_semplice.org}{funzione semplice}
+\begin{equation*}
+S_{n}(x) = \sum_{i} M_{i}\,\mathds{1}_{[x_{i-1},x_{i})}(x)
+\end{equation*}
+dove \(M_{i}\coloneqq \max_{x \in[x_{i-1},x_{i}]}f(x)\).
+\end{definizione}
+
+\begin{definizione}
+Il \uline{min-pooling} di \(f\) è la \href{20250630171950-funzione_semplice.org}{funzione semplice}
+\begin{equation*}
+s_{n}(x) = \sum_{i} m_{i}\,\mathds{1}_{[x_{i-1},x_{i})}(x)
+\end{equation*}
+dove \(m_{i}\coloneqq \min_{x \in[x_{i-1},x_{i}]}f(x)\).
+\end{definizione}
+
+\begin{definizione}
+L'\uline{average-pooling} di \(f\) è la \href{20250630171950-funzione_semplice.org}{funzione semplice}
+\begin{equation*}
+A_{n}(x) = \sum_{i} a_{i}\,\mathds{1}_{[x_{i-1},x_{i})}(x)
+\end{equation*}
+dove \(a_{i}\coloneqq \frac{n}{b-a}\int_{x_{i-1}}^{x_{i}} f(x)\dif x = \frac{1}{x_{i}-x_{i-1}}\int_{x_{i-1}}^{x_{i}} f(x)\dif x\).
+\end{definizione}
+\begin{thm}
+Se \(f:[a,b]\to \R\) è \href{20250103103252-funzione_continua.org}{continua}, allora \(S_{n}, s_{n}, A_{n}\) \href{20250629105745-convergenza_uniforme.org}{convergono uniformemente} ad \(f\) su \([a,b]\) per \(n\to\infty\).
+\end{thm}
+Si denoti ora con \(\mathcal{P}_{n}\) l'operatore che a \(g(x)\) associa il corrispondente max/min/avg pooling: \(s_{n}\), \(S_{n}\), \(A_{n}\); sia
+\begin{equation*}
+T_{a}\circ g(x) \coloneqq g(x-a).
+\end{equation*}
+
+\begin{prop}
+Se \(f:[a,b]\to \R\) è continua, allora esiste \(n \in\N\) ed esiste \(\varepsilon_{n} >0\) tali che
+\begin{equation*}
+\forall |a|<\varepsilon_{n}\qquad\mathcal{P}_{n}(T_{a}\circ f) = \mathcal{P}_{n}(f).
+\end{equation*}
+\end{prop}
+
+The previous property provides stability of the pooling under small input variations.
+\subsection{Pooling Layer in una rete neurale}
+\label{sec:orgcb7b1de}
+\begin{definizione}
+Si consideri una \href{20250624155858-neurone_artificiale.org}{rete neurale} \href{20250624155858-neurone_artificiale.org}{feedforward}. Il layer \(\ell\) è detto \uline{di pooling} se:
+\begin{enumerate}
+\item il layer \(\ell-1\) è diviso in \(N\) gruppi;
+\item i neuroni del layer \(\ell-1\) che appartengono alla stessa classe sono collegati ad un unico neurone nel layer \(\ell\);
+\item ci sono \(N\) neuroni nel layer \(\ell\), ciascuno dei quali ha funzione di attivazione \(\max\).
+\end{enumerate}
+\end{definizione}
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,row sep=small]
+	{(\ell-1)} \&\&\& {(\ell)} \\
+	\\
+	{x_{1,1}} \\
+	\vdots \&\& \bullet \& {y_1=\max\set{x_{1,1},\dots,x_{1,p}}} \\
+	{x_{1, p}} \\
+	\\
+	{x_{2,1}} \\
+	\vdots \&\& \bullet \& {y_2=\max\set{x_{2,1},\dots,x_{2,q}}} \\
+	{x_{2,q}} \\
+	\\
+	\vdots \\
+	\\
+	{x_{N, 1}} \\
+	\vdots \&\& \bullet \& {y_N=\max\set{x_{N,1},\dots,x_{N,r}}} \\
+	{x_{N,r}}
+	\arrow[from=3-1, to=4-3]
+	\arrow[from=4-1, to=4-3]
+	\arrow[from=4-3, to=4-4]
+	\arrow[from=5-1, to=4-3]
+	\arrow[from=7-1, to=8-3]
+	\arrow[from=8-1, to=8-3]
+	\arrow[from=8-3, to=8-4]
+	\arrow[from=9-1, to=8-3]
+	\arrow[from=13-1, to=14-3]
+	\arrow[from=14-1, to=14-3]
+	\arrow[from=14-3, to=14-4]
+	\arrow[from=15-1, to=14-3]
+\end{tikzcd}
+\end{equation*}
+\caption{Un layer di pooling}
+\end{figure}
+
+Si vuole studiare l'\href{20250714154153-sigma_algebra_come_campo_di_informazione.org}{informazione contenuta nel Layer di Pooling}. Se i neuroni del layer \(\ell-1\) producono come output delle \href{20250711175937-variabile_aleatoria.org}{variabili aleatorie}
+\begin{equation*}
+X_{11},\dots,X_{1p},\quad X_{21},\dots,X_{2p},\quad\dots\quad X_{N{1}},\dots, X_{Np}
+\end{equation*}
+(si è supposto senza perdita di generalità che ogni gruppo contenga lo stesso numero \(p\) di neuroni), allora i neuroni del layer di pooling producono
+\begin{equation*}
+Y_{i} = \max\set{X_{i{1}},\dots,X_{ip}}
+\end{equation*}
+
+L'informazione contenuta nel layer \(\ell\) è\footnote{Con \(\sigma(X)\) si intende la \href{20250714154501-sigma_algebra_generata_da_una_variabile_aleatoria.org}{\(\sigma\)-algebra generata da \(X\)}.}
+\begin{equation*}
+\sigma(Y) \coloneqq \sigma(Y_{1},\dots,Y_{N}) = \sigma\left[\bigcup\sigma(Y_{i})\right]
+\end{equation*}
+Siccome \href{20250714162717-sigma_algebra_generata_dal_massimo_di_variabili_aleatorie.org}{si è dimostrato} che \(\sigma(Y_{i}) \subseteq \bigcap \sigma(X_{ij})\)
+\begin{align*}
+\sigma(Y) &= \sigma\left[\bigcup\sigma(Y_{i})\right]\subseteq\sigma\left[\bigcup_{i=1}^{N}\bigcap_{j=1}^{p} \sigma(X_{ij})\right] = \\
+&=\sigma\left[\bigcap_{j=1}^{p}\bigcup_{i=1}^{N}\sigma(X_{ij})\right] \subseteq \bigcap_{j=1}^{p} \sigma\left[\bigcup_{i=1}^{N}\sigma(X_{ij})\right] = \bigcap_{j=1}^{p} \sigma(X_{1j},\dots,X_{Nj})
+\end{align*}
+
+Dunque, se per ciascun gruppo del \((\ell-1)\)-layer prendo un neurone qualsiasi \(X_{ij_{i}}\), allora
+\begin{equation*}
+\sigma(Y) \subseteq \sigma(X_{1j_{1}},\dots,X_{Nj_{N}}).
+\end{equation*}
+La cosa è significativa, poiché consente di eliminare dei neuroni superflui ogni qualvolta che si presenta un layer di pooling.
+\end{document}

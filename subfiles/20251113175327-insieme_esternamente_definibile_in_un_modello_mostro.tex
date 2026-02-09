@@ -1,0 +1,60 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+\def\X{\mathcal{X}}
+\def\Z{\mathcal{Z}}
+\def\D{\mathcal{D}}
+%
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+\section{Insieme esternamente definibile in un modello mostro}
+\label{sec:org614f8ce}
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+
+Sia \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio}, \(T\) una \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123151-teoria_completa.org}{completa} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti e \(\U\) un \href{20250617095548-modello_lambda_saturo.org}{modello saturo} di \href{20241213101756-cardinalita.org}{cardinalità} \href{20250211123155-cardinale_limite_forte.org}{inaccessibile} \(\kappa>\card{\L}+ \omega\). \(\U\) è un \href{20250617102733-modello_mostro.org}{modello mostro}.
+
+\begin{definizione}
+Un insieme \(\D \subseteq \U^{z}\) si dice \uline{esternamente definibile} da \(\varphi(x;z) \in \L\) se esiste \(p(x) \in S_{\varphi}(\U)\)\footnote{Con \(S_{\varphi}(\U)\) si intende l'\href{20251026161720-phi_formula_su_un_insieme.org}{insieme dei \(\varphi\)-tipi globali}} tale che
+\begin{equation*}
+\D = \mathscr{D}_{p,\varphi} \coloneqq \set{a \in \U^{z} \mid \varphi(x;a) \in p(x)}.
+\end{equation*}
+\end{definizione}
+
+\begin{prop}
+Sia \(\D \subseteq \U^{z}\). LSASE:
+\begin{enumerate}
+\item \(\D\) è esternamente definibile da \(\varphi(x;z)\);
+\item esiste una \href{20250212102253-sottostruttura_elementare.org}{estensione elementare} \(\nonstandard{\U} \succ \U\), esiste \(\nonstandard{a} \in \nonstandard{\U}\) tale che
+\begin{equation*}
+\D = \varphi(\nonstandard{a}, \nonstandard{\U}^{z}) \cap \U^{z}
+\end{equation*}
+\end{enumerate}
+\end{prop}
+\end{document}

@@ -1,0 +1,38 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\mult#1{\mathrm{mult}_{#1}\,}
+
+
+\begin{document}
+
+\section{Funzione olomorfa a valori nella sfera di Riemann ramifica}
+\label{sec:org6837c27}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatta}, \(\C_{\infty}\) la \href{20260127112905-sfera_di_riemann.org}{sfera di Riemann}, e \(F:X\to Y\) una \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{funzione olomorfa} non costante.
+
+\begin{prop}
+Se \(F\) non è un \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{isomorfismo}, allora esistono dei \href{20260129104340-punto_di_ramificazione_per_una_funzione_tra_superfici_di_riemann.org}{punti di ramificazione} (ovvero \(F\) ramifica).
+\end{prop}
+\begin{proof}
+Per la \href{20260129171832-formula_di_hurewicz_superfici_di_riemann.org}{Formula di Hurwitz} si ha che, detto \(Y\coloneqq\C_{\infty}\)
+\begin{equation*}
+2g(X)-2 = (\deg F)\big(2g(Y)-2\big) + \sum_{p \in X} (\mult{p}F-1).
+\end{equation*}
+dove \(g\) indica il \href{20260127112828-superficie_di_riemann.org}{genere topologico} e \(\mult{p}F\) indica la \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{molteplicità}.
+
+Vale che:
+\begin{itemize}
+\item il \href{20260127112828-superficie_di_riemann.org}{genere di \(\C_{\infty}\) è \(0\)}.
+\item \href{20260130162420-genere_topologico_di_una_superficie_di_riemann_non_cresce_per_olomorfismi.org}{necessariamente} \(g(X) = 0\),
+\item siccome \(F\) non è isomorfismo, \href{20260129171557-caratterizzazione_isomorfismo_tra_superfici_di_riemann_tramite_grado.org}{allora} \(\deg F \ge 2\).
+\end{itemize}
+
+Quindi
+\begin{equation*}
+-2 = -2 (\deg F) + \sum_{p \in X} (\mult{p}F-1) %
+\IMPLICA %
+2\parentesi{\ge 1}{(\deg F -1)} = \sum_{p \in X} (\mult{p}F-1)
+\end{equation*}
+Quindi \(\sum_{p \in X} (\mult{p}F-1) > 0\), e pertanto \(F\) ha almeno un punto di ramificazione.
+\end{proof}
+\end{document}

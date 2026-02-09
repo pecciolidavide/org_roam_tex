@@ -1,0 +1,32 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}.
+\begin{definizione}
+Un \href{20250103163814-sottospazio_topologico.org}{sottospazio} \(A \subseteq X\), con l'inclusione
+\begin{equation*}
+i_{A}: A\hookrightarrow X
+\end{equation*}
+si dice \textbf{retratto di deformazione di \(X\)} se esiste una \href{20250122155714-retratto_di_uno_spazio_topologico.org}{retrazione}
+\begin{equation*}
+r: X\longrightarrow A
+\end{equation*}
+tale che \(i_{A}\circ r \sim \operatorname{Id}_{X}\) sono \href{20250121094654-omotopia_tra_funzioni_continue.org}{omotope}.
+\end{definizione}
+\begin{oss}
+Si hanno
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,column sep=3.15em]
+	A \& X
+	\arrow["i_{A}", shift left, hook, from=1-1, to=1-2]
+	\arrow["r", shift left, from=1-2, to=1-1]
+\end{tikzcd}
+\end{equation*}
+con \(r\circ i_{A} = \operatorname{Id}_{A}\) e \(i_{A}\circ r\sim \operatorname{Id}_{X}\) \href{20250103103252-funzione_continua.org}{funzioni continue}.
+
+Pertanto \(A\) e \(X\) sono \href{20250124155008-spazi_topologici_omotopicamente_equivalenti.org}{omotopicamente equivalenti}.
+\end{oss}
+\end{document}

@@ -1,0 +1,47 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
+\begin{prop}
+La collezione degli \href{20250216173925-insieme_ricorsivo.org}{insiemi ricorsivi} (\href{20250216174510-insieme_ricorsivo_primitivo.org}{primitivi}) è chiusa per
+\begin{itemize}
+\item \uline{Sostituzioni ricorsive totali}. Se \(P \subseteq \N^{k}\) è ricorsivo (primitivo) e per \(1\le i \le k\) le
+\begin{equation*}
+  g_{i}: \N^{\ell}\to \N
+\end{equation*}
+sono \href{20250215151458-funzioni_ricorsive.org}{ricorsive} (\href{20250215141024-funzioni_primitive_ricordive.org}{primitive}) \uline{\href{20250213105339-funzione_parziale.org}{totali}}, allora anche \(R \subseteq \N^{\ell}\) definito come
+\begin{equation*}
+  R(\oldvec{x}) \quad \iff\quad P\left(g_{1}(\oldvec{x}),\dots,g_{k}(\oldvec{x})\right)
+\end{equation*}
+è un sottoinsieme ricorsivo (primitivo). \footnote{Notiamo che è necessario che le \(g_{i}\) siano totali, poiché le funzioni caratteristiche di un insieme \uline{devono essere totali}: se le \(g_{i}\) non fossero totali, allora \(\chi_{P}(g_{1},\dots,g_{k})\) non sarebbe una funzione totale, e pertanto non potrebbe rappresentare la funzione caratteristica di un insieme.}
+\item \uline{\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Intersezione}}, \uline{\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{unione}}, \uline{\href{20250317100425-complementare_di_un_insieme.org}{complemento}}. Se \(P, Q \subseteq \N^{k}\) sono ricorsivi (primitivi), allora lo sono anche
+\begin{equation*}
+  P\cap Q,\quad P\cup Q, \quad \N^{k}\setminus P.
+\end{equation*}
+\item \uline{Quantificazioni limitate}. Se \(P \subseteq \N^{k+1}\) è un insieme ricorsivo (primitivo), allora lo sono anche gli insiemi \(R_{\exists}, R_{\forall} \subseteq \N^{k+1}\):
+\begin{align*}
+  R_{\exists}(\oldvec{x},y)\quad &\iff\quad \exists\, z\le y\ P(\oldvec{x}, z)\\
+  R_{\forall}(\oldvec{x},y)\quad &\iff\quad \forall\, z\le y\ P(\oldvec{x}, z).
+\end{align*}
+\end{itemize}
+\end{prop}
+\begin{proof}
+Si ha che le \href{20250215160218-funzione_caratteristica.org}{funzioni caratteristiche} sono: \footnote{Vedi gli \href{20250215141024-funzioni_primitive_ricordive.org}{Esempi di funzioni primitive ricorsive}.}
+\begin{align*}
+\chi_{R}(\oldvec{x}) &= \chi_{P}\left(g_{1}(\oldvec{x}),\dots,g_{k}(\oldvec{x})\right)\\
+\chi_{P\cap Q}(\oldvec{x}) &= \chi_{P} (\oldvec{x}) \cdot \chi_{Q} (\oldvec{x})\\
+\chi_{P\cup Q}(\oldvec{x}) &= \operatorname{sgn}\left(\chi_{P}(\oldvec{x})+\chi_{Q}(\oldvec{x})\right)\\
+\chi_{\N^{k}\setminus \mathds{P}}(\oldvec{x}) &= \overline{\operatorname{sgn}}\left(\chi_{P}(\oldvec{x})\right)\\
+\chi_{\exists}(\oldvec{x},y) &= \operatorname{sgn}\left(\sum_{z=0}^{y} \chi_{P}(\oldvec{x},z)\right)\\
+\chi_{\forall}(\oldvec{x},y) &= \prod_{z=0}^{y} \chi_{P}(\oldvec{x}, z).\qedhere
+\end{align*}
+\end{proof}
+\begin{oss}
+Utilizzando l'\href{20250520105413-algoritmo_di_tarski_kuratowski.org}{algoritmo di Tarski-Kuratowski}, si ha che congiunzione, disgiunzione e negazione di predicati ricorsivi è ancora ricorsivo, così come quantificazioni limitate.
+\end{oss}
+\end{document}

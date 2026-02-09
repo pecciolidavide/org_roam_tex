@@ -1,0 +1,41 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Algebra di Boole}
+\label{sec:orgae2ed54}
+From the book 
+
+\begin{definizione}
+A \uline{boolean algebra} is a structure \(\langle B, \land, \lor, \lnot, 0_{B}, 1_{B} \rangle\) such that, for all \(a, b, c \in B\):
+\begin{enumerate}
+\item \uline{associative}:
+\begin{align*}
+ a \land (b \land c) &= (a \land b) \land c \\
+ a \lor (b \lor c) &= (a \lor b) \lor c;
+\end{align*}
+\item \uline{distributivity}:
+\begin{align*}
+ a \land (b \lor c) &= (a \land b) \lor (a \land c)\\
+ a \lor (b \land c) &= (a \lor b) \land (a \lor b);
+\end{align*}
+\item \uline{commutative}:
+\begin{align*}
+ a \land b &= b \land a\\
+ a \lor b &= b \lor a;
+\end{align*}
+\item \uline{identity}:
+\begin{align*}
+ a \lor 0 &= a\\
+ a \land 1 &= a;
+\end{align*}
+\item \uline{complements}:
+\begin{align*}
+ a \land \lnot a = 0\\
+ a \lor \lnot a = 1.
+\end{align*}
+\end{enumerate}
+\end{definizione}
+\end{document}

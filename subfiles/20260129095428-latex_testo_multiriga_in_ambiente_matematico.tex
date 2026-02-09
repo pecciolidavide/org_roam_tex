@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{\LaTeX{} - Testo Multiriga in ambiente matematico}
+\label{sec:org8b24a5d}
+Il comando standard per creare del testo multiriga dentro un ambiente matematico è il seguente:
+\begin{verbatim}
+\parbox{[LARGHEZZA]}{[TESTO]}
+\end{verbatim}
+
+Un esempio è il seguente codice
+\begin{verbatim}
+\begin{equation*}
+\parbox{10em}{\centering funzioni meromorfe \(f\) su \(X\) a valori in \(\C\)}
+\end{equation*}
+\end{verbatim}
+che produce
+\begin{equation*}
+\parbox{10em}{\centering funzioni meromorfe \(f\) su \(X\) a valori in \(\C\)}
+\end{equation*}
+\end{document}

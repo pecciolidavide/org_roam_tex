@@ -1,0 +1,37 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Derivazioni Canoniche su una varietà differenziabile}
+\label{sec:orgfde1073}
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} di dimensione \(n\), e sia \(p \in M\) fissato. Sia \((U,\varphi)\) una \href{20250111092123-varieta_topologica.org}{carta} su \(M\), con \(p \in U\).
+
+\begin{definizione}
+Per ogni \(f_{p} \in C^{\infty}_{p}\) (vedi \href{20250114100254-germi_di_funzioni.org}{Germi di funzioni}), di cui \(f\) è un \href{20250113110148-relazione_di_equivalenza.org}{rappresentante} in un \href{20250111142313-intorno.org}{intorno} \(V\) di \(p\), e per ogni \(k=1,\dots,n\) si definisce la \href{20250114101437-derivazione_su_una_varieta_differenziabile.org}{derivazione} \(v_{k}\):
+\begin{equation*}
+v_{k}(f_{p}) \coloneqq \restriction{\dpd{(f\circ \varphi^{-1})}{{x^{k}}}}{\varphi(p)}
+\end{equation*}
+Le \(v_{k}\) sono dette derivazioni canoniche.
+\end{definizione}
+
+Questa è una \href{20250114103236-derivata_parziale.org}{derivata parziale} su \(\R^{n}\):
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	\& \R \\
+	{M\supseteq U\cap V} \\
+	\& {\R^n}
+	\arrow["f", from=2-1, to=1-2]
+	\arrow["\varphi"', from=2-1, to=3-2]
+	\arrow["{f\circ\varphi^{-1}}"', from=3-2, to=1-2]
+\end{tikzcd}
+\end{equation*}
+
+Inoltre \(v_{k}(f_{p})\) è ben definita; infatti due rappresentanti di \(f_{p}\), \(f,g\), coincidono in un intorno di \(p\), e quindi \(f\circ\varphi^{-1},g\circ\varphi^{-1}\) coincidono in un intorno di \(\varphi(p)\), e quindi hanno la stessa derivata.
+
+\uline{Notazione}: Se \(\varphi = (x^{1},\dots,x^{n})\), allora si scrive
+\begin{equation*}
+v_{k} \coloneqq \restriction{\dpd{}{{x^{k}}}}{p}
+\end{equation*}
+\end{document}

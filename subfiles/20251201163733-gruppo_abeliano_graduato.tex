@@ -1,0 +1,41 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Modulo graduato}
+\label{sec:orga67a1fb}
+\begin{definizione}
+Sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo}. \(M\) si dice \uline{graduato} se esistono degli \(R\)-moduli \(M_{i}\), \(i \in \N\), tali che la \href{20241213095808-somma_diretta.org}{somma diretta} sia:
+\begin{equation*}
+M = \bigoplus_{i \in \N} M_{i}
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Siccome sono moduli i seguenti:
+\begin{itemize}
+\item \href{20250127093245-gruppo_abeliano.org}{gruppi abeliani} (sono \(\Z\)-moduli);
+\item \href{20241205141119-anello.org}{anelli} (considerati con la somma sono gruppi abeliani, e quindi \(\Z\)-moduli)
+\item \href{20241205142027-spazio_vettoriale.org}{spazi vettoriali} (sono \(\K\)-moduli con \(\K\) \href{20241205142049-campo.org}{campo})
+\end{itemize}
+questa definizione è valida per tutti questi esempi. Si noti che \textbf{non è valida} per le \href{20251201160758-isomorfismo_tra_algebre_graduate.org}{Algebre Graduate}.
+\end{oss}
+\section{Morfismo tra moduli graduati}
+\label{sec:org25b25ad}
+\begin{definizione}
+Siano \(V=\bigoplus_{i \in \N} V_{i}\), \(W = \bigoplus_{j \in \N} W_{j}\) due \href{20241205141053-r_moduli.org}{moduli} \hyperref[sec:orga67a1fb]{graduati}.
+\begin{itemize}
+\item Un \uline{morfismo di moduli graduate} è \(F:V\to W\) \href{20241206115416-morfismi_r_moduli.org}{morfismo tra moduli} tale che, per ogni \(i \in \N\), \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{l'immagine}:
+\begin{equation*}
+  F[V_{i}] \subseteq W_{i}.
+\end{equation*}
+\item Un \uline{isomorimorfismo tra moduli graduati} è un morfismo \href{20250104111707-funzione_biunivoca.org}{biiettivo} tale che la sua \href{20250111142446-funzione_inversa.org}{inversa} sia ancora un morfismo.
+\item Un \uline{morfismo graduato} di grado \(d\) è \(F:V\to W\) \href{20241206115416-morfismi_r_moduli.org}{morfismo tra moduli} tale che, per ogni \(i \in \N\), l'immagine:
+\begin{equation*}
+  F[V_{i}] \subseteq W_{i+d}.
+\end{equation*}
+\end{itemize}
+\end{definizione}
+\end{document}

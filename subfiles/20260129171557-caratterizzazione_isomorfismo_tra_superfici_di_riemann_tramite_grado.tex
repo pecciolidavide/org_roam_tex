@@ -1,0 +1,39 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\mult#1{\mathrm{mult}_{#1}\,}
+
+
+\begin{document}
+
+\section{Caratterizzazione isomorfismo tra superfici di Riemann tramite grado}
+\label{sec:org7daffdd}
+Siano \(X,Y\) \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatte}, e sia \(F:X\to Y\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfismo} non costante.
+
+\begin{prop}
+La mappa \(F\) è un \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{isomorfismo} se è solo se ha \href{20260129171444-teorema_del_grado_per_olomorfismi_tra_superfici_di_riemannn.org}{grado} \(\deg F = 1\).
+\end{prop}
+\begin{proof}
+(\(\Rightarrow\)): Se \(F\) è isomorfismo allora è \href{20250104111707-funzione_biunivoca.org}{biunivoca}, e pertanto:
+\begin{itemize}
+\item ogni punto di \(Y\) ha un solo elemento nella \href{20260128184014-fibra_di_una_funzione.org}{fibra};
+\item ogni punti di \(X\) ha \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{molteplicità} 1
+\end{itemize}
+e quindi \(\deg F = 1\).
+
+(\(\Leftarrow\)): Poiché \(\deg F = 1\),
+\begin{itemize}
+\item per ogni \(x \in X\), \(\mult{x} F = 1\), e quindi esiste \(U_{x}\) intorno di \(x\) e \(V_{x}\) intorno di \(F(x)\) tale che \(F\) sia un \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfismo};
+\item allora per ogni \(y \in Y\) esiste un unico \(x \in X\) tale che \(F(x) = y\)
+\end{itemize}
+Questo prova la biiettività.
+
+Sia quindi \(G\coloneqq F^{-1} : Y\to X\). Dimostrando che \(G\) sia olomorfa si ha la tesi.
+
+Sia \(y \in Y\) e \(x = G(y)\). Allora \(F\) è un biolomorfismo locale tra \(U_{x}\) e \(V_{x}\), e pertanto
+\begin{equation*}
+G: V_{x}\to U_{x}
+\end{equation*}
+è olomorfa. Quindi \(G\) è olomorfa.
+\end{proof}
+\end{document}

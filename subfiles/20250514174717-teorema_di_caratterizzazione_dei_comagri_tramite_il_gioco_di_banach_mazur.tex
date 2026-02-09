@@ -1,0 +1,188 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema I}
+\label{sec:org5fb1b80}
+
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250131161811-insieme_vuoto_mk.org}{non vuoto}, e sia \(A \subseteq X\) un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} qualsiasi. Allora \(A\) è \href{20250419122752-insieme_magro.org}{comagro} se e solo se il giocatore II ha una \href{20250513171520-giochi_di_gale_stewart.org}{strategia vincente} nel \href{20250513111844-gioco_di_banach_mazur.org}{gioco di Banach-Mazur} \(G^{**}(A)\).
+\subsection{Dimostrazione}
+\label{sec:org252d2c5}
+
+(\(\Rightarrow\)): Se \(A\) è comagro, allora esistono \((W_{n})_{n \in\omega}\) aperti densi di \(X\) tali che
+\begin{equation*}
+\bigcap_{n \in\omega} W_{n} \supseteq A.
+\end{equation*}
+
+Il giocatore II gioca \(V_{n} \coloneqq W_{n}\cap U_{n}\); questo è aperto, e inoltre è non vuoto poiché \(W_{n}\) è denso in \(X\).
+
+(\(\Leftarrow\)): Sia \(\sigma\) una strategia vincente di II. Si costruisce \(\sigma' \subseteq \sigma\) albero potato e non vuoto per induzione sulla lunghezza delle stringhe.
+\begin{itemize}
+\item \(\emptyset \in \sigma'\).
+\item Sia \(s=\langle U_{0},V_{0},\dots,U_{n}\rangle\). Allora esiste un unico \(V_{n} \subseteq U_{n}\) tale che \(s\concat V_{n} \in \sigma\). Si pone \(s\concat V_{n} \in \sigma'\).
+\item Sia \(s = \langle U_{0},V_{0},\dots, U_{n}, V_{n}\rangle \in \sigma'\). Per ogni sottoinsieme aperto \(U \subseteq V_{n}\) si definisce \(U^{*}\) l'unico sottoinsieme di \(U\) tale che
+\begin{equation*}
+  s\concat \langle U,U^{*}\rangle \in \sigma
+\end{equation*}
+
+È possibile, tramite un'applicazione del Lemma di Zorn, garantire l'esistenza di una collezione massimale \(\mathcal{U}_{s}\) di aperti non vuoti \(U \subseteq V_{n}\) tale che la collezione \(\mathcal{V}_{s} \coloneqq \set{U^{*}\mid U \in \mathcal{U}_{s}}\) sia composta da insiemi a due a due disgiunti.
+
+\begin{itemize}
+\item Infatti, data una catena di collezioni di aperti che soddisfino la proprietà richiesta \((\mathcal{U}_{\alpha})_{\alpha}\) ordinata dall'inclusione, allora
+\begin{equation*}
+\mathcal{U}^{\star}\coloneqq \bigcup_{\alpha} \mathcal{U}_{\alpha}
+\end{equation*}
+è un maggiorante della catena, in quanto detto
+\begin{equation*}
+\mathcal{V}^{\star} \coloneqq \set{U^{*}\mid U \in \mathcal{U}^{\star}}
+\end{equation*}
+dati \(V,V' \in \mathcal{V}^{\star}\) allora esiste \(\mathcal{U}_{\alpha_{0}}\) ed esistono \(U_{0},U_{1} \in \mathcal{U}_{\alpha_{0}}\) tali che
+\begin{equation*}
+U_{0}^{*}=V,\quad U_{1}^{*} = V'
+\end{equation*}
+e pertanto \(V\cap V' =\emptyset\).
+\end{itemize}
+
+Dunque, per ogni \(U \in \mathcal{U}_{s}\), \(s\concat U \in \sigma'\).
+
+Inoltre \(\bigcup \mathcal{V}_{s}\) è denso in \(V_{n}\). Infatti, se per assurdo esistesse \(B \subseteq V_{n}\) aperto tale che \(B\cap \bigcup \mathcal{V}_{s} = \emptyset\), allora \(\mathcal{U}_{s}\cup \set{B}\) viola la massimalità di \(\mathcal{U}_{s}\).
+\end{itemize}
+
+Sia ora, per ogni \(n \in\omega\):
+\begin{equation*}
+W_{n+1} \coloneqq \bigcup_{\substack{s \in \sigma'\\
+\operatorname{lh}(s) = 2n}} \bigcup \mathcal{V}_{s} = \bigcup_{\langle U_{0},V_{0},\dots, U_{n+1}, V_{n+1}\rangle \in \sigma'} V_{n+1}
+\end{equation*}
+
+Per ogni \(n \in \omega\), \(W_{n+1} \subseteq X\) è denso.
+\begin{itemize}
+\item \(W_{1}\) è denso, poiché \(\mathcal{U}_{\emptyset}\) è una collezione di aperti di \(X\) tali che \(\mathcal{V}_{\emptyset}\) sia composta da insiemi a due a due disgiunti, e pertanto, se vi fosse \(B \subseteq X\) aperto tale che \(B\cap W_{1} = \emptyset\), allora \(\mathcal{U}_{\emptyset}\cup\set{B}\) viola la massimalità di \(\mathcal{U}_{\emptyset}\).
+\item Se \(W_{n+1}\) è denso, allora lo è anche \(W_{n+2}\). Sia \(B \subseteq X\) aperto.
+
+Siccome \(W_{n+1}\) è denso allora \(W_{n+1}\cap B\neq \emptyset\), ed esiste \(\tilde{s} = \langle U_{0},V_{0},\dots,U_{n}, V_{n}\rangle \in \sigma'\) tale che \(B\cap\bigcup \mathcal{V}_{\tilde{s}} \neq \emptyset\).
+
+Quindi esistono \(V_{n}\supseteq U \supseteq V\) tali che \(\tilde{s}\concat \langle U, V\rangle \in \sigma'\), con \(V\cap B\neq \emptyset\). Infatti, se così non fosse, allora \(\mathcal{U}_{\tilde{s}}\cup\set{V_{n}\cap B}\) contraddice la massimalità di \(\mathcal{U}_{\tilde{s}}\).
+
+Poiché \(\bigcup \mathcal{V}_{s\concat \langle U, V\rangle}\) è denso in \(V\), allora \(\bigcup \mathcal{V}_{s\concat \langle U, V\rangle} \cap B \neq \emptyset\), ed inoltre
+\begin{equation*}
+  \bigcup \mathcal{V}_{\tilde{s}\concat \langle U, V\rangle} \subseteq W_{n+2}
+\end{equation*}
+e pertanto \(W_{n+2}\cap B\neq \emptyset\).
+\end{itemize}
+
+Per finire, si dimostra che \(\bigcap_{n \in \omega} W_{n+1} \subseteq A\). Sia \(x \in \bigcap_{n \in \omega} W_{n+1}\).
+
+Allora esiste \((U_{i}, V_{i})_{i \in \omega} \in [\sigma']\) tale che \(x \in V_{n}\) per ogni \(n\). Questa si costruisce per induzione.
+\begin{itemize}
+\item Poiché \(x \in W_{1}\), allora esiste \(\langle U_{0},V_{0},U_{1},V_{1}\rangle \in \sigma'\) tale che \(x \in V_{1}\).
+\item Sia ora \(p=\langle U_{0},V_{0},\dots,U_{n}, V_{n}\rangle \in\sigma'\) tale che \(x \in V_{n}\).
+
+Siccome \(x \in W_{n+1}\) allora esiste \(p' \in\sigma'\),
+\begin{equation*}
+  p'\coloneqq \langle U_{0}',V_{0}',\dots,U_{n+1}',V_{n+1}'\rangle
+\end{equation*}
+tale che \(x \in V_{n+1}\). Necessariamente \(p'\) estende \(p\).
+
+Infatti, si supponga per assurdo che \(p \neq \langle U_{0}',V_{0}',\dots,U_{n}',V_{n}'\rangle\), e sia \(j\le n\) il primo indice tale che
+\begin{equation*}
+  \langle U_{j}, V_{j}\rangle \neq \langle U_{j}', V_{j}'\rangle.
+\end{equation*}
+Necessariamente allora \(U_{j}\neq U_{j}'\), poiché \(V_{j}\) e \(V_{j}'\) sono univocamente determinati dall'insieme precedente. In particolare, però:
+\begin{equation*}
+  U_{j}, U_{j}' \in \mathcal{U}_{\langle U_{0},V_{0},\dots,U_{j-1},V_{j-1}\rangle} = \mathcal{U}_{\langle U_{0}',V_{0}',\dots,U_{j-1}',V_{j-1}'\rangle}
+\end{equation*}
+e pertanto, per definizione, \(V_{j}\cap V_{j'} = \emptyset\). Assurdo, poiché \(x \in V_{j}\cap V_{j}'\).
+\end{itemize}
+
+Dunque \(\langle U_{0},V_{0},\dots,U_{n}, V_{n}, U_{n+1}', V_{n+1}'\rangle\) estende la sequenza iniziale.
+
+In particolare, quindi \(x \in \bigcap_{n \in \omega} V_{n}\).
+
+Poiché \(\sigma\) è una strategia vincente per il giocatore II, allora per ogni \((U_{i}, V_{i})_{i \in \omega} \in [\sigma'] \subseteq [\sigma]\),
+\begin{equation*}
+\bigcap_{i \in \omega} U_{i} = \bigcap_{i \in \omega} V_{i}\subseteq A
+\end{equation*}
+e dunque \(x \in A\).\qed
+\section{Teorema II}
+\label{sec:org1694d8d}
+Se \(X\) è uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250514174255-gioco_di_choquet.org}{di Choquet} non \href{20250131161811-insieme_vuoto_mk.org}{vuoto} ed esiste una \href{20250301193511-spazio_metrico.org}{distanza} \(d\) su \(X\) le cui \href{20250301193511-spazio_metrico.org}{palle aperte} sono aperti di \(X\), allora:
+
+\(A\) è \href{20250419122752-insieme_magro.org}{magro} in un \href{20250103145124-topologia.org}{aperto} non vuoto se e solo se il giocatore I ha una \href{20250513171520-giochi_di_gale_stewart.org}{strategia vincente} nel \href{20250513111844-gioco_di_banach_mazur.org}{gioco di Banach-Mazur} \(G^{**}(A)\).
+\subsection{Dimostrazione}
+\label{sec:orga8acb56}
+
+(\(\Rightarrow\)): Se \(A\) è magro in \(Y \subseteq X\), sia per ogni \(n \in \omega\): \(W_{n} \subseteq Y\) aperti densi di \(Y\), con
+\begin{equation*}
+\bigcap_{n \in\omega} W_{n} \subseteq Y \setminus A.
+\end{equation*}
+
+\href{20250514174255-gioco_di_choquet.org}{Poiché} \(Y\) è uno \href{20250514174255-gioco_di_choquet.org}{spazio di Choquet}, allora nel \href{20250513171520-giochi_di_gale_stewart.org}{gioco}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped, sep=tiny]
+	{\text{I}} \&\& {B_1} \&\& {B_2} \&\& \dots \\
+	{\text{II}} \& {A_0} \&\& {A_1} \&\& \dots
+\end{tikzcd}
+\end{equation*}
+con gli aperti non vuoti \(Y\supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\) in cui I vince sse \(\bigcap_{n \in \omega}{B_{n}} \neq \emptyset\), I ha una \href{20250513171520-giochi_di_gale_stewart.org}{strategia vincente}. Questo infatti è un gioco di Choquet a giocatori invertiti.
+
+Sia quindi \(\sigma\) la strategia vincente di I in questo gioco di Choquet.
+
+Nel gioco \(G^{**}(A)\), il giocatore I pone \(U_{0} \coloneqq Y\). Si costruisce per induzione la strategia vincente per I.
+
+Al passo \(n+1\)-esimo, sia \((U_{0},V_{0},\dots, U_{n}, V_{n})\) la sequenza di insiemi giocati. Si pone, per ogni \(i\le n\): \(V_{i}'\coloneqq V_{i}\cap W_{i}\), e si sceglie \(U_{n+1}\) come l'unico sottoinsieme aperto non vuoto di \(V_{n}\) tale che
+\begin{equation*}
+(V_{0}', U_{1}, V_{1}', U_{2},\dots, V_{n}', U_{n+1}) \in\sigma.
+\end{equation*}
+
+Allora \(\bigcap_{n \in \omega} U_{n}\neq\emptyset\) e inoltre
+\begin{equation*}
+\bigcap_{n \in\omega} U_{n} = \bigcap_{n \in\omega} V_{n}' \subseteq \bigcap_{n \in \omega} W_{n} \subseteq Y\setminus A
+\end{equation*}
+e dunque \(\bigcap_{n \in\omega} U_{n} \not\subseteq A\).
+
+(\(\Leftarrow\)): Sia \(\sigma\) una strategia vincente per I in \(G^{**}(A)\), e sia \(U_{0}\) l'elemento di partenza per \(\sigma\).
+
+Si costruisce una strategia \(\sigma'\) per I, vincente, e tale che l'insieme giocato al passo \(n\)-esimo \(U_{n}\) abbia diametro (rispetto alla metrica \(d\)):
+\begin{equation*}
+\operatorname{diam}(U_{n})<2^{-n}.
+\end{equation*}
+
+Al passo \(n+1\), sia \((U_{0},V_{0},\dots,U_{n}, V_{n})\) la sequenza di insiemi giocati, e sia \(v_{n} \in V_{n}\). Si definisce
+\begin{equation*}
+V_{n}'\coloneqq V_{n}\cap B_{d}(v_{n}, 2^{-n-1}), \qquad \operatorname{diam}(V_{n}) \le 2^{-n}
+\end{equation*}
+che è un aperto non vuoto. Si pone infine \(U_{n+1}\) come l'unico sottoinsieme aperto di \(V_{n}'\) tale che
+\begin{equation*}
+(U_{0},V_{0},\dots,U_{n}, V_{n}', U_{n+1}) \in \sigma.
+\end{equation*}
+
+Questo \(U_{n+1}\) è la risposta secondo la strategia \(\sigma'\), in quanto \(\operatorname{diam}(U_{n})\le \operatorname{diam}(V_{n}')\le 2^{-n}\).
+
+Siccome \(\sigma'\) è una strategia vincente per I, allora
+\begin{equation*}
+\emptyset\neq\bigcap_{n \in \omega} U_{n}
+\end{equation*}
+e inoltre
+\begin{equation*}
+\operatorname{diam}\left(\bigcap_{n \in \omega} U_{n}\right) = 0
+\end{equation*}
+Segue che \(\bigcap_{n \in \omega} U_{n} = \set{x}\), con \(x \in U_{0}\setminus A\).
+
+Sia quindi
+\begin{equation*}
+W\coloneqq \set{x \in U_{0}\mid
+\exists\, (U_{i}, V_{i})_{i \in \omega} \in [\sigma']\ x \in \bigcap_{n \in \omega} U_{i}}
+\end{equation*}
+\begin{itemize}
+\item \(W\) è denso in \(U_{0}\), poiché per ogni \(B \subseteq U_{0}\) esiste \(p = (U_{i}, V_{i})_{i \in \omega} \in [\sigma']\) tale che \(V_{0} = B\), e, siccome \(p \in [\sigma']\) allora
+\begin{equation*}
+  \bigcap_{n \in \omega} U_{i} = \set{x} \subseteq U_{1} \subseteq V_{0} = B
+\end{equation*}
+e dunque \(W\cap B\neq \emptyset\).
+\item Inoltre \(W \subseteq U_{0}\setminus A\), per costruzione di \(\sigma'\).
+\end{itemize}
+
+Pertanto \(A\) è magro in \(U_{0}\).\qed
+\end{document}

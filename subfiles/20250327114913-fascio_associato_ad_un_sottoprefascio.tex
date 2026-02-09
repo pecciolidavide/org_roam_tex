@@ -1,0 +1,91 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Fascio associato ad un sottoprefascio}
+\label{sec:orgcba2673}
+\begin{oss}
+Sia \(\mathcal{F}\) un \href{20250324174728-fascio.org}{fascio}, e sia \(\mathcal{G} \subseteq \mathcal{F}\) un \href{20250325150647-sottoprefascio.org}{sotto-prefascio}.
+
+Allora \(\mathcal{G}\) soddisfa l'\href{20250324174728-fascio.org}{assioma dell'unicità}, e il \href{20250327114851-fascio_associato_ad_un_prefascio.org}{fascificato} \(\mathcal{G}^{+} \subseteq \mathcal{F}\) è un \href{20250325150647-sottoprefascio.org}{sottofascio} di \(\mathcal{F}\):
+\begin{equation*}
+\mathcal{G} \subseteq \mathcal{G}^{+} \subseteq \mathcal{F}
+\end{equation*}
+con
+\begin{equation*}
+\mathcal{G}^{+}(U) = \set{s \in \mathcal{F}(U) \mid \forall  p \in U\ \exists W \subseteq U \text{ intorno aperto di \(p\)}:\ \restriction{s}{W} \in \mathcal{G}(W)}.
+\end{equation*}
+\end{oss}
+
+\begin{proof}
+È necessario dimostrare che \(\mathcal{G}^{+}(U)\) sia effettivamente (isomorfo a) l'insieme definito sopra. Si ricorda che per definizione
+\begin{equation*}
+\mathcal{G}^{+}(U) =  \set{s: U \to \coprod_{p \in U} \mathcal{G}_{p} \mid
+s(p) \in \mathcal{G}_{p},\
+\forall  p \in U\ \exists V \subseteq U \ \exists f \in \mathcal{G}(V):\
+\forall q \in V\ s(q)=[f]_{q}
+}
+\end{equation*}
+dove \(\mathcal{G}_{p}\) è la \href{20250325183434-spiga_di_un_prefascio.org}{spiga di \(\mathcal{G}\) in \(p\)}.
+
+(\(\supseteq\)): Sia \(s \in \mathcal{F}(U)\) che soddisfi le condizioni di cui sopra. Si definisce
+\begin{align*}
+\tilde{s}: U &\longrightarrow \coprod_{p \in U}\mathcal{G}_{p}\\
+p &\longmapsto [\restriction{s}{W}]_{p}
+\end{align*}
+per \(p \in W \subseteq U\) tale che \(\restriction{s}{W} \in \mathcal{G}(W)\).
+
+È possibile scegliere i \(W\) in maniera tale che per ogni \(q \in W\), \(\tilde{s}(q) = [\restriction{s}{W}]_{q}\).
+
+Pertanto:
+\begin{itemize}
+\item \(\tilde{s}(p) = [\restriction{s}{W}]_{p} \in \mathcal{G}_{p}\) in quanto \(\restriction{s}{W} \in \mathcal{G}(W)\);
+\item per ogni \(p \in U\) esiste \(W \subseteq U\) ed esiste \(f=\restriction{s}{W} \in \mathcal{G}(W)\) tale che
+\begin{equation*}
+  \forall q \in W:\qquad \tilde{s}(q) = [\restriction{s}{W}]_{q}.
+\end{equation*}
+\end{itemize}
+
+Quindi \(\tilde{s} \in \mathcal{G}^{+}(U)\).
+
+(\(\subseteq\)): Sia \(s:U\to \coprod_{p \in U} \mathcal{G}_{p}\) in  \(\mathcal{G}^{+}(U)\).
+
+Per definizione, per ogni \(p \in U\) esiste \(V_{p} \subseteq U\) ed esiste \(f_{p} \in \mathcal{G}(V_{p}) \subseteq \mathcal{F}(V_{p})\) tali che \(s(q) = [f_{p}]_{q}\) per ogni \(q \in V_{p}\).
+
+\begin{itemize}
+\item Siano \(p_{1},p_{2} \in U\) tali che \(V_{p_{1}}\cap V_{p_{2}} \neq \emptyset\). Per ogni punto \(q \in V_{p_{1}}\cap V_{p_{2}}\), si ha che
+\begin{equation*}
+  [f_{p_{1}}]_{q} = s(q) = [f_{p_{2}}]_{q}
+\end{equation*}
+e pertanto si ha l'uguaglianza tra \href{20250325183434-spiga_di_un_prefascio.org}{germi}: \([f_{p_{1}}]_{q} = [f_{p_{2}}]_{q}\).
+
+Pertanto esiste \(W_{q} \subseteq V_{p_{1}}\cap V_{p_{2}}\) tale che
+\begin{equation*}
+  \restriction{(f_{p_{1}})}{W_{q}} = \restriction{(f_{p_{2}})}{W_{q}}
+\end{equation*}
+ovvero \(\restriction{(f_{p_{1}}-f_{p_{2}})}{W_{q}} = \restriction{\left(\restriction{(f_{p_{1}}-f_{p_{2}})}{V_{p_{1}}\cap V_{p_{2}}}\right)}{W_{q}}=0\)\footnote{Infatti i morfismi di restrizione sono \href{20241206115531-morfismo_di_gruppi.org}{morfismi di gruppo}.}.
+
+Siccome \(\set{W_{q}}_{q \in V_{p_{1}}\cap V_{p_{2}}}\) è un ricoprimento aperto di \(V_{p_{1}}\cap V_{p_{2}}\), per l'\href{20250324174728-fascio.org}{assioma di unicità}
+\begin{equation*}
+  \restriction{(f_{p_{1}}-f_{p_{2}})}{V_{p_{1}}\cap V_{p_{2}}} = 0
+\end{equation*}
+ovvero
+\begin{equation*}
+  \restriction{(f_{p_{1}})}{V_{p_{1}}\cap V_{p_{2}}} = \restriction{(f_{p_{2}})}{V_{p_{1}}\cap V_{p_{2}}}.
+\end{equation*}
+
+\item Siccome \(\set{V_{p}\cap U}_{p \in U}\) è un ricoprimento aperto di \(U\), allora per l'assioma di fascio esiste \(\sigma \in \mathcal{F}(U)\) tale che
+\begin{equation*}
+  \forall  p \in U:\qquad \restriction{\sigma}{V_{p}} = f_{p}.
+\end{equation*}
+\end{itemize}
+
+Questo \(\sigma\) soddisfa effettivamente le condizioni richieste: per ogni \(p \in U\), esiste \(V_{p} \subseteq U\) intorno aperto di \(p\) tale che
+\begin{equation*}
+\restriction{\sigma}{V_{p}} = f_{p} \in \mathcal{G}(V_{p}).%
+\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

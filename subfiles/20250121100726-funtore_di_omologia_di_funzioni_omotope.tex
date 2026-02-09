@@ -1,0 +1,48 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità, e siano \(\mathcal{C}_{\bullet},\mathcal{D}_{\bullet}\) due \href{20250120163114-complesso_di_catene.org}{complessi di catene} di \href{20241205141053-r_moduli.org}{\(R\)-moduli}:
+\begin{equation*}
+\mathcal{C}_{\bullet}=\set{(C_{n},\partial_{n}^{C})}_{n \in \Z},\qquad \mathcal{D}_{\bullet}=\set{(D_{n},\partial_{n}^{D})}_{n \in \Z}
+\end{equation*}
+e siano \(f_{\bullet},g_{\bullet}: \mathcal{C}_{\bullet}\to \mathcal{D}_{\bullet}\) due \href{20250120163759-categoria_complessi_di_catene.org}{morfismi},
+\begin{equation*}
+f_{\bullet} = \set{f_{n}:C_{n}\to D_{n}}_{n \in \Z},\qquad g_{\bullet} = \set{g_{n}: C_{n}\to D_{n}}_{n \in \Z}
+\end{equation*}
+\begin{prop}
+Se \(f_{\bullet}\sim g_{\bullet}\) sono \href{20250121094935-omotopia_tra_morfismi_di_complessi_di_catene.org}{omotope}, allora per ogni \(n \in \Z\), l'\(n\)-esimo \href{20250120165029-funtore_tra_chr_e_rmod.org}{funtore di omologia} è uguale:
+\begin{equation*}
+H_{n}(f_{\bullet}) = H_{n}(g_{\bullet}) : H_{n}(\mathcal{C}_{\bullet})\longrightarrow H_{n}(\mathcal{D}_{\bullet})
+\end{equation*}
+\end{prop}
+\begin{proof}
+Siano \(\set{s_{n}:C_{n}\longrightarrow D_{n+1}}_{n \in \Z}\) i morfismi che rendono \(f_{\bullet}\sim g_{\bullet}\)
+
+Ricordiamo che per ogni \([z_{n}] \in H_{n}(\mathcal{C}_{\bullet})\) \href{20250120165029-funtore_tra_chr_e_rmod.org}{il funtore agisce}:
+\begin{align*}
+H_{n}(f_{\bullet})[z_{n}] &= \left[f_{n}(z_{n})\right]\\
+H_{n}(g_{\bullet})[z_{n}] &= \left[g_{n}(z_{n})\right]
+\end{align*}
+
+Dunque, svolgendo il calcolo direttamente, fissato \([z_{n}] \in H_{n}(\mathcal{C}_{\bullet})\) (vedi anche \href{20241206142802-sottomoduli.org}{Quoziente di Moduli})
+\begin{align*}
+H_{n}(f_{\bullet})[z_{n}] - H_{n}(g_{\bullet})[z_{n}] &= \left[f_{n}(z_{n})\right] - \left[g_{n}(z_{n})\right]\\
+&= \left[(f_{n}-g_{n})(z_{n})\right]\\
+&= \left[(s_{n-1}\circ \partial_{n}^{C} + \partial_{n+1}^{D}\circ s_{n})(z_{n})\right]\\
+&= \left[s_{n-1}\circ \partial_{n}^{C}(z_{n})\right] +\left[ \partial_{n+1}^{D}\circ s_{n}(z_{n})\right]
+\end{align*}
+Ma \(z_{n} \in Z_{n}(\mathcal{C}_{\bullet})\)\footnote{Vedi ``\href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{Modulo di omologia dei complessi di catene}''}, e dunque \(\partial_{n}^{C}(z_{n}) = 0\), mentre \(\operatorname{Im}\partial_{n+1}^{D} = B_{n}(\mathcal{D}_{\bullet})\) e pertanto
+\begin{equation*}
+\left[\partial_{n+1}^{D}\circ s_{n}(z_{n})\right]=[0]
+\end{equation*}
+
+Si ottiene che, per ogni \([z_{n}] \in H_{n}(\mathcal{C}_{\bullet})\)
+\begin{equation*}
+H_{n}(f_{\bullet})[z_{n}] - H_{n}(g_{\bullet})[z_{n}]=0
+\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

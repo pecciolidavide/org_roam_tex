@@ -1,0 +1,93 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esercizio 3}
+\label{sec:orge6f7293}
+
+Let \(E\) be an equivalence relation on a Polish space \(X\). A \textbf{transversal} for \(E\) is a set \(T \subseteq X\) meeting every \(E\)-equivalence class in exactly one point. A \textbf{selector} for \(E\) is a map \(s: X \to X\) selecting one element from each \(E\)-equivalence class, that is, \(s(x) \in [x]_E\) and \(s(x) = s(y)\) if \(x \mathrel{E} y\). Show that if \(E\) is analytic, then the following are equivalent:
+
+\begin{enumerate}
+\item \(E\) admits an analytic transversal;
+\item \(E\) admits a Borel transversal;
+\item \(E\) admits a Borel selector.
+\end{enumerate}
+\subsection{Soluzione}
+\label{sec:orgf3c861b}
+
+\subsubsection{c. implica b.}
+\label{sec:org4df0486}
+
+Sia \(s:X\to X\) un selettore boreliano per \(E\) e sia \(T\coloneqq s(X)\).
+
+Allora \uline{\(T\) è trasversale}. Infatti incontra ogni classe di \(E\)-equivalenza esattamente una volta.
+\begin{itemize}
+\item \uline{Almeno una volta}: Per ogni \(x \in X\) esiste \(t \in T\) tale che \(x\mathrel{R}t\): \(t=s(x)\).
+\item \uline{Al più una volta}: Siano \(x\neq y \in T\) e siano \(x_{0},y_{0} \in X\) tali che
+\begin{equation*}
+  s(x_{0})=x,\quad s(y_{0})=y.
+\end{equation*}
+Per definizione \(x\mathrel{E}x_{0}\) e \(y\mathrel{E}y_{0}\). Se per assurdo \(x\mathrel{E}y\) allora \(x_{0}\mathrel{E}y_{0}\) per transitività di \(E\). Per definizione, allora
+\begin{equation*}
+  s(x_{0}) = s(y_{0})
+\end{equation*}
+ovvero \(x=y\). Assurdo.
+\end{itemize}
+
+Inoltre, sia
+\begin{align*}
+f: X &\longrightarrow X\times X\\
+x &\longmapsto \left(x,s(x)\right)
+\end{align*}
+Questa è una funzione boreliana, poiché \(s\) è boreliana: \(f=\operatorname{Id}_{X}\times s\) e per le proprietà di pag. 54, \(f\) è boreliana.
+
+Allora, detta \(D \subseteq X\times X\) la diagonale,
+\begin{equation*}
+D\coloneqq\set{(x,x)\mid x \in X}
+\end{equation*}
+si ha che \(D\) è chiuso, poiché \(X\) è metrizzabile e quindi Haussdorf. Inoltre \(T=f^{-1}(D)\)
+\begin{itemize}
+\item (\(\subseteq\)): Se \(t \in T\), allora \(s(t)=t\), poiché altrimenti \(s(t) \in T\) sarebbe un elemento distinto da \(t\) della classe \([t]_{E}\). Pertanto \(f(t) = \left(t,s(t)\right) = (t,t) \in D\).
+\item (\(\supseteq\)): Se \(t \in f^{-1}(D)\) allora \(s(t)=t\) e quindi \(t \in s(X) = T\).
+\end{itemize}
+
+Dunque, siccome \(f\) è boreliana e \(D\) è chiuso, \uline{\(T\) è un boreliano}.
+\subsubsection{b. implica a.}
+\label{sec:org8450c5a}
+
+Questo è ovvio, poiché \(\bm{{\operatorname{Bor}}}(X) \subseteq \bm{\Sigma}_{1}^{1}(X)\) per il Corollario 3.1.4.
+\subsubsection{a. implica c.}
+\label{sec:orgd086295}
+
+Sia \(T \subseteq X\) un insieme analitico trasversale per \(E\).
+
+Siccome \(T\) è trasversale per \(E\), allora è ben definita la funzione
+\begin{align*}
+\varphi: X/E &\longrightarrow T\\
+[x]_{E} &\longmapsto t \in [x]_{E}.
+\end{align*}
+poiché per ogni classe di \(E\)-equivalenza esiste un unico elemento \(t \in T\) tale che \(t \in [x]_{E}\).
+
+Si definisce dunque la funzione \(s: X\to T: x\mapsto \varphi\left([x]_{E}\right)\). Questa è un \uline{selettore}, poiché:
+\begin{itemize}
+\item per ogni \(x \in X\): \(s(x) = \varphi\left([x]_{E}\right) = t \in [x]_{E}\);
+\item se \(x\mathrel{E}y\) allora \([x]_{E}= [y]_{E}\) e pertanto
+\begin{equation*}
+  s(x) = \varphi\left([x]_{E}\right) = \varphi\left([y]_{E}\right) = s(y).
+\end{equation*}
+\end{itemize}
+
+Resta da dimostrare che \(s\) sia Boreliana. Sfruttando il Teorema 3.2.4 è sufficiente dimostrare che \(\operatorname{graph}(s) \subseteq X\times X\) sia analitico. Si ha che
+\begin{equation*}
+\operatorname{graph}(s) = E\cap (X\times T)
+\end{equation*}
+infatti:
+\begin{itemize}
+\item se \((x,y) \in \operatorname{graph}(s)\) allora \(y=s(x)\), e poiché \(s\) è un selettore: \(x\mathrel{E} s(x)\) e quindi \((x,y) \in E\); inoltre \(x \in X\) e \(y=s(x) \in T\);
+\item viceversa, se \((x,y) \in E\cap (X\times T)\) allora \(y \in T\) e \(x\mathrel{E} y\); inoltre \(y\) è l'unico elemento di \(T\) tale che \(x\mathrel{E}y\), e pertanto, per definizione \(y=s(x)\).
+\end{itemize}
+
+Sia \(T\) che \(E\) sono analitici per ipotesi. Inoltre \(X\times T = \pi_{2}^{-1}(T)\) è analitico, in quanto retroimmagine continua di un analitico (per la Proposizione 3.1.5), e dunque \(\operatorname{graph}(s)\) è analitico.
+\end{document}

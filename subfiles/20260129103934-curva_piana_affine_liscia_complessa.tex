@@ -1,0 +1,84 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Curva Piana affine liscia complessa}
+\label{sec:org834cc62}
+Sia \(F \in \C[x,y]\)\footnote{Vedi ``\href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}''} \href{20260129120125-polinomio_irriducibile.org}{irriducibile}, e se ne consideri il \href{20241231112823-radici_polinomiali.org}{luogo degli zeri}:
+\begin{equation*}
+X\coloneqq \set{(x,y) \in \C^{2} \mid F(x,y) = 0} = V(F) \subseteq \C^{2}
+\end{equation*}
+\begin{itemize}
+\item Siccome \(F\) è irriducibile, \(X\) è connessa\footnote{Questo \textbf{non è affatto ovvio}.};
+\item \(X\) si dice \textbf{liscia} se per ogni \(p \in X\), il gradiente \(\nabla F (p) \neq \bm{0}\).
+\end{itemize}
+
+Sotto queste ipotesi, \href{20260129103901-superficie_di_riemann_definita_tramite_teorema_della_funzione_implicita.org}{quindi}, \(X\) è una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, ma non è \href{20250103163701-spazio_topologico_compatto.org}{compatta}.
+\subsection{Molteplicità dei punti di una Curva Piana affine liscia complessa}
+\label{sec:org96f778a}
+Si considerino la funzione
+\begin{align*}
+\pi: X &\longrightarrow \C\\
+(x,y) &\longmapsto x
+\end{align*}
+non costante, e la \href{20250114103236-derivata_parziale.org}{derivata parziale} \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa}
+\begin{equation*}
+\varphi: \C\to \C:\ (x,y) \mapsto \pd{F}{y}(x,y)
+\end{equation*}
+\begin{prop}
+Per ogni \(p \in X\), la \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{molteplicità} \(\mathrm{mult}_{p}\,\pi = \mathrm{ord}_{p}\varphi + 1\)\footnote{\(\mathrm{ord}_{p}\varphi\) è l'\href{20260128124105-ordine_di_una_funzione_olomorfa.org}{ordine di \(\varphi\)}.}
+\end{prop}
+
+\begin{proof}
+Trattiamo separatamente se \(p\) è uno zero o meno.
+\begin{itemize}
+\item Se \(\varphi(p) \neq 0\), allora per il \href{20260129103755-teorema_della_funzione_implicita_complesso.org}{Teorema della funzione implicita} localmente \(X\) è il \href{20250104112443-grafico_di_una_funzione.org}{grafico} di una \href{20260126110551-funzione_olomorfa.org}{funzione olomorfa} \(y=g(x)\), e quindi \(\pi\) è una \href{20260127112715-atlante_complesso.org}{carta locale}. Ovviamente \(\mathrm{mult}_{p}\, \pi = 1\), mentre \(\mathrm{ord}_{p} \varphi = 0\).
+\item Se \(\varphi(p) = 0\), allora \(\pd{F}{y}=0\), ma, poiché \(X\) è liscia, allora \(\pd{F}{x}(p) \neq 0\).
+
+Per il \href{20260129103755-teorema_della_funzione_implicita_complesso.org}{teorema della funzione implicita}, allora \(X\) è il \href{20250104112443-grafico_di_una_funzione.org}{grafico} di una \href{20260126110551-funzione_olomorfa.org}{funzione olomorfa} \(x=h(y)\), con \href{20250114110703-derivata.org}{derivata}
+\begin{equation*}
+  h'(y) = - \frac{\pd{F}{y}\big(h(y),y\big)}{\pd{F}{x}\big(h(y),y\big)}
+\end{equation*}
+In un intorno \(U\) di \(p\), quindi, \(\big(h(y),y\big)\) è una parametrizzazione di \(X\):
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&, row sep = tiny]
+        \C \&\& U \&\& \C \&\& \C \\
+        y \&\& {(x,y)} \&\& x \&\& {x-x_0} \\
+        y \&\& {\big(h(y),y\big)}
+        \arrow["{\tiny\text{mappa locale}}"', from=1-3, to=1-1]
+        \arrow["\pi", from=1-3, to=1-5]
+        \arrow["{x\mapsto (x-x_0)}", from=1-5, to=1-7]
+        \arrow[maps to, from=2-3, to=2-1]
+        \arrow[maps to, from=2-3, to=2-5]
+        \arrow[maps to, from=2-5, to=2-7]
+        \arrow[maps to, from=3-1, to=3-3]
+\end{tikzcd}
+\end{equation*}
+la scrittura locale di \(\pi\) centrata in \(p=(x_{0},y_{0})\) è quindi
+\begin{equation*}
+  h(y)-x_{0} \IMPLICA \mathrm{mult}_{p}\,\pi = \mathrm{ord}_{y_{0}}\, \big(h(y)-x_{0}).
+\end{equation*}
+Ma per le \href{20260128124105-ordine_di_una_funzione_olomorfa.org}{proprietà dell'ordine delle funzioni olomorfe},
+\begin{equation*}
+  \mathrm{mult}_{p}\,\pi = \mathrm{ord}_{y_{0}}\, \big(h(y)-x_{0}) = \bigg(\mathrm{ord}_{y_{0}}\, h'(y)\bigg) + 1
+\end{equation*}
+Inoltre, si consideri l'ordine di \(h'(y)\): per le \href{20260128144433-ordine_di_una_funzione_meromorfa.org}{proprietà dell'ordine delle funzioni meromorfe}:
+\begin{align*}
+  \mathrm{ord}_{y_{0}} h'(y) &= \mathrm{ord}_{y_{0}} \left(- \frac{\pd{F}{y}\big(h(y),y\big)}{\pd{F}{x}\big(h(y),y\big)}\right) \\[2ex]
+  &= \mathrm{ord}_{y_{0}}(-1) + \mathrm{ord}_{y_{0}}\dpd{F}{y}\big(h(y),y\big) - \mathrm{ord}_{y_{0}} \dpd{F}{x}\big(h(y), y\big)
+\end{align*}
+Ma \(\dpd{F}{y}\big(h(y),y\big)\) è la scrittura locale di \(\varphi\), e quindi per \href{20260128144450-ordine_di_una_funzione_meromorfa_su_una_superficie_di_riemann.org}{definizione}
+\begin{equation*}
+  \mathrm{ord}_{p} \varphi = \mathrm{ord}_{y_{0}}\dpd{F}{y}\big(h(y),y\big)
+\end{equation*}
+mentre \(-1\) e \(\dpd{F}{x}\big(h(y), y\big)\) sono entrambe funzioni olomorfe e non nulle in un intorno di \(p\), e pertanto hanno ordine \(0\). Segue la tesi:
+\begin{align*}
+  \mathrm{ord}_{y_{0}} h'(y) &= \mathrm{ord}_{y_{0}}\dpd{F}{y}\big(h(y),y\big) = \mathrm{ord}_{p} \varphi\\[2ex]
+  \mathrm{mult}_{p}\,\pi &= \mathrm{ord}_{p} \varphi+1.
+  \qedhere
+\end{align*}
+\end{itemize}
+\end{proof}
+\end{document}

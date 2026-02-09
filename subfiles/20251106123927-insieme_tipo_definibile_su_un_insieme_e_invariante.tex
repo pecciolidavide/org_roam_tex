@@ -1,0 +1,52 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\def\D{\mathcal{D}}
+\def\DD{\bm{\D}}
+\def\U{\mathcal{U}}
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+\def\L{\mathcal{L}}
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+\def\b{\bm{b}}
+
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+\section{Insieme tipo-definibile su un insieme è invariante}
+\label{sec:orgd7354a7}
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{notazione della Teoria dei Modelli}.
+
+Sia \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio}, \(T\) una \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123151-teoria_completa.org}{completa} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti e \(\U\) un \href{20250617095548-modello_lambda_saturo.org}{modello saturo} di \href{20241213101756-cardinalita.org}{cardinalità} \href{20250211123155-cardinale_limite_forte.org}{inaccessibile} \(\kappa>\card{\L}+ \omega\). \(\U\) è un \href{20250617102733-modello_mostro.org}{modello mostro}.
+\begin{prop}
+Se \(B \subseteq \U\) è \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo-definibile su \(A\)}, ovvero esiste \(p(x) \subseteq \L(A)\)\footnote{Vedi ``\href{20250212102927-enunciato_con_parametri.org}{Formula con parametri}'' e ``\href{20250212164424-tipo_teoria_dei_modelli.org}{Tipo - Teoria dei Modelli}''} tale che \(B= p(\U^{x})\)\footnote{Vedi ``\href{20250212164424-tipo_teoria_dei_modelli.org}{Soddisfazione di un tipo}''}, allora \(B\) è \href{20251020150308-insieme_invariante_su_un_insieme_in_un_modello_mostro.org}{invariante su \(A\)}.
+\end{prop}
+\begin{proof}
+Sia \(b \in B\) e sia \(f \in \Aut(\U/A)\).
+\begin{equation*}
+b \in p(\U^{x}) = \bigcap_{\varphi \in p} \varphi(\U^{x})
+\end{equation*}
+e quindi
+\begin{equation*}
+f(b) \in f[p(\U^{x})] = \bigcap_{\varphi \in p} f[\varphi(\U^{x})] = \bigcap_{\varphi \in p} \varphi(\U^{x}) = p(\U^{x})
+\end{equation*}
+come dimostrato in ``\href{20250617103021-insieme_definibil_e_automorfismi_in_un_modello_mostro.org}{Insieme definibile su un insieme è invariante}'' e ``\href{20251106125420-scambio_di_unioni_intersezioni_e_immagini_retroimmagini_di_funzione.org}{Scambio di unioni/intersezioni e immagini/retroimmagini di funzione}''.
+\end{proof}
+\end{document}

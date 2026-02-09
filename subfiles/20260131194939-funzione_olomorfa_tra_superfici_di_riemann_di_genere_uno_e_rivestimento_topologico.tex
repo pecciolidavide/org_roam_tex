@@ -1,0 +1,31 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\mult#1{\mathrm{mult}_{#1}\,}
+
+
+\begin{document}
+
+\section{Funzione olomorfa tra superfici di Riemann di genere uno è rivestimento topologico}
+\label{sec:orgcc878a9}
+Siano \(X,Y\) \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatte}, e sia \(F:X\to Y\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfismo} non costante.
+
+\begin{prop}
+Se il \href{20260127112828-superficie_di_riemann.org}{genere} di \(X\) e \(Y\):
+\begin{equation*}
+g(X) = g(Y) = 1
+\end{equation*}
+allora \(F\) non ha \href{20260129104340-punto_di_ramificazione_per_una_funzione_tra_superfici_di_riemann.org}{punti di ramificazione}, e \href{20260130172938-funzione_olomorfa_tra_superfici_di_riemann_compatte_induce_rivestimento_topologico.org}{quindi} è un \href{20250113175231-rivestimento.org}{rivestimento topologico}.
+\end{prop}
+\begin{proof}
+Infatti, per la \href{20260129171832-formula_di_hurewicz_superfici_di_riemann.org}{Formula di Hurwitz}:
+\begin{equation*}
+\cancel{2g(X)-2} = (\deg F)\cancel{\big(2g(Y)-2\big)} + \sum_{p \in X} (\mult{p}F-1)
+\end{equation*}
+e pertanto la somma delle \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{molteplicità}:
+\begin{equation*}
+\sum_{p \in X} (\mult{p}F-1) = 0
+\end{equation*}
+Ma per definizione \(\mult{p} F \ge 1\), e quindi devono tutti avere molteplicità 1.
+\end{proof}
+\end{document}

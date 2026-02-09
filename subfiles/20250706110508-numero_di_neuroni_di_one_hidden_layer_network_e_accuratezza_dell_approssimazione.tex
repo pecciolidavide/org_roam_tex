@@ -1,0 +1,39 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si consideri una \href{20250624155858-neurone_artificiale.org}{rete neurale} con un \href{20250624155858-neurone_artificiale.org}{layer nascosto} contenente \(N\) \href{20250624155858-neurone_artificiale.org}{neuroni}, che produce un output \(G(x)\), che vuole \href{20250630103725-funzioni_approssimate_da_una_rete_neurale.org}{approssimare} \(f\) in uno spazio funzionale quale\footnote{Sia \(I_{n}\coloneqq[0,1]^{n}\). Vedi
+\begin{itemize}
+\item ``\href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}'' e ``\href{20250706121659-ohldn_f_continue.org}{One Hidden Layer Discriminatory Network impara funzioni continue sul cubo}''.
+\item Si consideri \(C(I_{n})\) dotato della \href{20250103145124-topologia.org}{topologia} \href{20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+  d(f,g) \coloneqq \sup_{x \in I_{n}} |f(x)-g(x)| = \max_{x \in I_{n}}|f(x)-g(x)|.
+\end{equation*}
+\item ``\href{20250624162220-spazi_lp.org}{Spazi Lp}'' e
+\begin{itemize}
+\item ``\href{20250706121659-ohldnl1.org}{One Hidden Layer Discriminatory Network impara funzioni L1 sul cubo}''
+\item ``\href{20250706121659-ohldnl2.org}{One Hidden Layer Discriminatory Network impara funzioni L2 sul cubo}''
+\end{itemize}
+\end{itemize}}
+\begin{equation*}
+C(I_{n}),\quad L_{1}(I_{n}), \quad L_{2}(I_{n})
+\end{equation*}
+
+\uline{In che modo \(N\) influenza l'accuratezza dell'approssimazione?}
+\begin{prop}
+Sia \(f \in L^{2}(\R^{n})\) tale che, detta \(\norma{\bm{w}}_{1} \coloneqq |\bm{w}\cdot\bm{w}|^{1/2}\) e detta \(\hat{f}(\bm{w})\) la trasformata di Fourier di \(f\), si abbia
+\begin{equation*}
+C_{f} \coloneqq \int_{\R^{n}} \norma{\bm{w}}_{1}\hat{f}(\bm{w})\dif\bm{w}<\infty.
+\end{equation*}
+Allora esiste una combinazione lineare
+\begin{equation*}
+G(\bm{x}) = b_{0}+\sum_{k=1}^{N} \alpha_{k}\sigma(\bm{w}_{k}\cdot \bm{x} + \theta_{k})
+\end{equation*}
+tale che, per ogni \(r \in \R^{> 0}\) e per ogni misura di probabilità \(\mu_{r}\) sulla palla chiusa \(B_{r} \coloneqq \set{\bm{x} \in \R^{n}\mid \norma{\bm{x}}\le r}\):
+\begin{equation*}
+\norma{G-f}^{2}_{L^{2}(B_{r},\mu_{r})} = \int_{B_{r}} |G(\bm{x})-f(\bm{x})|^{2} \dif \mu_{r}(\bm{x})<\frac{(2r\,C_{f})^{2}}{N}.
+\end{equation*}
+\end{prop}
+\end{document}

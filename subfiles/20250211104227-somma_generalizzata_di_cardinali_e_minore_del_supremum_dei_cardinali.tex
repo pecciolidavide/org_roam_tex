@@ -1,0 +1,67 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Somma generalizzata di cardinali è minore del supremum dei cardinali}
+\label{sec:orgce55021}
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\begin{prop}
+Sia \(I\) un \href{20250130104331-insieme_mk.org}{insieme} \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile}, e sia \(\langle \kappa_{i}\ |\ i \in I\rangle\) una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \href{20250203161341-cardinali.org}{cardinali} tali che, per ogni \(i \in I\), \(\kappa\ge 1\) (vedi \href{20250203111003-ordinali.org}{Relazione d'ordine sugli ordinali}). Allora la \href{20250612151505-aritmetica_dei_cardinali.org}{somma}
+\begin{equation*}
+\sum_{i \in I}\kappa_{i} \le \card{I} \cdot \operatorname{sup}_{i \in I}\kappa_{i}
+\end{equation*}
+(vedi \href{20250612151505-aritmetica_dei_cardinali.org}{Prodotto di cardinali}, \href{20241213101756-cardinalita.org}{Cardinalità} e \href{20250203102516-massimo_e_minimo.org}{Infimum e supremum} e \href{20250203161341-cardinali.org}{Supremum di un insieme di cardinali è un cardinale})
+
+Inoltre se \(\operatorname{max}\left(\card{I}, \operatorname{sup}_{i \in I}\kappa_{i}\right)\ge \omega\) (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}) allora vale l'uguaglianza.
+\end{prop}
+\begin{proof}
+L'inclusione (vedi \href{20241219101956-funzione_iniettiva.org}{Classe si inietta MK})
+\begin{equation*}
+\bigcup_{i \in I}(\set{i}\times \kappa_{i}) \subseteq I\times \sup_{i \in I}\kappa_{i}
+\end{equation*}
+prova la disuguaglianza\footnote{Vedi \href{20241213101756-cardinalita.org}{Proprietà della cardinalità}, \href{20250612151505-aritmetica_dei_cardinali.org}{Prodotto di cardinali}. Vale in particolare perché \(I\asymp |I|\) (vedi \href{20250619101109-classi_equipotenti.org}{Classi equipotenti MK}) e dunque
+\begin{equation*}
+|I|\times \sup_{i \in I}\kappa \asymp I\times \sup_{i \in I}
+\end{equation*}
+Vedi anche \href{20250203111003-ordinali.org}{Proprietà degli ordinali}}. (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata})
+
+Per l'uguaglianza, si fissi un buon ordine \(\trianglelefteq\) su \(I\) (in quanto \(I\) ben ordinabile).
+
+Per ogni \(\alpha \in \sup_{i \in I}\kappa_{i} \in \operatorname{Ord}\) (vedi \href{20250203111003-ordinali.org}{Ordinali}) sia \(i(\alpha) \in I\) l'elemento \(\trianglelefteq\)-\href{20250203102516-massimo_e_minimo.org}{minimale} tale che
+\begin{equation*}
+\alpha \in \kappa_{i(\alpha)}
+\end{equation*}
+
+La funzione
+\begin{align*}
+\sup_{i \in I}\kappa_{i} &\longrightarrow \bigcup_{i \in I}(\set{i}\times \kappa_{i})\\
+\alpha &\longmapsto \left(i(\alpha),\alpha\right)
+\end{align*}
+è iniettiva, e \href{20241213101756-cardinalita.org}{pertanto}
+\begin{equation*}
+\sup_{i \in I}\kappa_{i}\le \sum_{i \in I}\kappa_{i}
+\end{equation*}
+Per \href{20250211145622-proprieta_di_prodotto_e_somma_generalizzata_di_cardinali.org}{monotonia}:
+\begin{equation*}
+\card{I} = \sum_{i \in \card{I}}1 \le \sum_{i \in \card{I}} \kappa_{i} \asymp \sum_{i \in I}\kappa_{i}
+\end{equation*}
+e \href{20241213101756-cardinalita.org}{quindi} \(\card{I}\le \sum_{i \in I}\kappa_{i}\). Pertanto
+\begin{equation*}
+\max\left(\card{I}, \sup_{i \in I}\kappa_{i}\right)\le \sum_{i \in I}\kappa_{i}
+\end{equation*}
+Pertanto si ha la seguente catena:
+\begin{equation*}
+\max\left(\card{I},\sup_{i \in I}\kappa_{i}\right) \le \sum_{i \in I}\kappa_{i} \le \card{I}\cdot \sup_{i \in I}\kappa_{i}
+\end{equation*}
+Ma se \(\omega\le \max\left(\card{I}, \sup_{i \in I}\kappa_{i}\right)\) \href{20250205181254-order_type_del_prodotto_cartesiano_di_un_cardinale_e_il_cardinale_stesso.org}{allora} (vedi \href{20250205120448-classe_finita_e_infinita_mk.org}{Classe finita e infinita MK})
+\begin{equation*}
+\max\left(\card{I},\sup_{i \in I}\kappa_{i}\right) = \card{I}\cdot \sup_{i \in I}\kappa_{i}
+\end{equation*}
+e pertanto
+\begin{equation*}
+\sum_{i \in I}\kappa_{i}\card{I}\cdot \sup_{i \in I}\kappa_{i}.
+\end{equation*}
+\end{proof}
+\end{document}

@@ -1,0 +1,42 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(L_{Q} \coloneqq \set{+,\cdot,S,0}\) il \href{20250608093604-aritmetica.org}{linguaggio dell'aritmetica di Robinson}, e sia \(L \supseteq L_{Q}\).
+\begin{definizione}
+Una \(L\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} \(T\) si dice \uline{\(\omega\)-coerente} se non esiste una \(L\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\varphi(x)\) tale che \(T\) \href{20250131123011-conseguenza_logica.org}{dimostri}
+\begin{equation*}
+T\vdash \exists\,x\ \varphi(x) \qquad\text{e allo stesso tempo}\qquad T\vdash \lnot\varphi(\overline{n})\text{ per ogni }n \in \N
+\end{equation*}
+dove \(\overline{n}\) è il \href{20250608093604-aritmetica.org}{numerale} associato a \(n\).
+
+Una teoria \(\omega\)-coerente è \href{20250609162657-teoria_coerente.org}{coerente}.
+\end{definizione}
+\section{Teoria omega-coerente determina l'appartenenza a sottoinsiemi semiricorsivi}
+\label{sec:orgd91ab1a}
+Sia \(L\supseteq L_{Q}\).
+
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità} nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
+\begin{prop}
+\begin{enumerate}
+\item Siano \(P \subseteq \N\) \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo} e \(R \subseteq \N^{2}\) tali che
+\begin{equation*}
+ P(x)\quad \iff\quad \exists\,y\ R(x,y)
+\end{equation*}
+con \(R\) \href{20250216173925-insieme_ricorsivo.org}{ricorsivo}. Sia \(\psi(x,y)\) una \href{20250131103317-formula_del_prim_ordine.org}{formula} che \href{20250608094213-insieme_rappresentato_da_una_formula.org}{rappresenta} \(R\) in una \(L\)-teoria \(T\). Detto \(\overline{n}\) il \href{20250608093604-aritmetica.org}{numerale} associato ad \(n \in \N\), si ha:
+\begin{itemize}
+\item Se \(n \in P\) allora \(T\vdash \exists\,y\ \psi(\overline{n},y)\).
+\item Se \(T\) è \(\omega\)-coerente, allora se per qualche \(n \in \N\) vale
+ \begin{equation*}
+T\vdash \exists\,y\ \psi(\overline{n},y)
+ \end{equation*}
+allora \(n \in P\).
+\end{itemize}
+\item Se \(\varphi(x)\) \href{20250608094213-insieme_rappresentato_da_una_formula.org}{rappresenta} un predicato \(P \subseteq \N\) in una \(L\)-teoria \(\omega\)-coerente \(T\) e \(\sigma\) è l'enunciato \(\exists\,x\ \varphi(x)\), allora \(T\vdash \sigma\) se e solo se \(\sigma\) è vero in \(\N\), ovvero se e solo se \(P \neq \emptyset\).
+\end{enumerate}
+\end{prop}
+\end{document}

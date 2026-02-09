@@ -1,0 +1,35 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Algebra Graduata}
+\label{sec:org1b5abae}
+\begin{definizione}
+Sia \(R\) un anello e sia \(V\) una \href{20250110175552-algebra_su_un_campo.org}{\(R\)-algebra} (dotata di un prodotto \(g:V\times V\to V\)). \(V\) si dice \uline{algebra graduata} se esistono \(V_{i}\) per \(i \in \N\) delle \(R\)-algebre tali che la \href{20241213095808-somma_diretta.org}{somma diretta (come \(R\)-moduli)}:
+\begin{equation*}
+V = \bigoplus_{i \in \N} V_{i}
+\end{equation*}
+e tali che, per ogni \(i,j \in \N\) le \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{immagini}:
+\begin{equation*}
+g[V_{i}\times V_{j}] \subseteq V_{i+j}.
+\end{equation*}
+\end{definizione}
+\section{Morfismo tra algebre graduate}
+\label{sec:org30ff7cd}
+\begin{definizione}
+Siano \(V=\bigoplus_{i \in \N} V_{i}\), \(W = \bigoplus_{j \in \N} W_{j}\) due \href{20250110175552-algebra_su_un_campo.org}{algebre} \hyperref[sec:org1b5abae]{graduate}.
+\begin{itemize}
+\item Un \uline{morfismo di algebre graduate} è \(F:V\to W\) \href{20250110175552-algebra_su_un_campo.org}{morfismo tra algebre} tale che, per ogni \(i \in \N\), l'\href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{immagine}:
+\begin{equation*}
+  F[V_{i}] \subseteq W_{i}.
+\end{equation*}
+\item Un \uline{isomorimorfismo tra algebre graduate} è un morfismo \href{20250104111707-funzione_biunivoca.org}{biiettivo} tale che la sua \href{20250111142446-funzione_inversa.org}{inversa} sia ancora un morfismo.
+\item Un \uline{morfismo graduato} di grado \(d\) è \(F:V\to W\) \href{20250110175552-algebra_su_un_campo.org}{morfismo tra algebre} tale che, per ogni \(i \in \N\), l'immagine:
+\begin{equation*}
+  F[V_{i}] \subseteq W_{i+d}.
+\end{equation*}
+\end{itemize}
+\end{definizione}
+\end{document}

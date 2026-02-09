@@ -1,0 +1,69 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory} + \href{20250206171508-axiom_of_choiche.org}{AC}
+\section{Teorema}
+\label{sec:org4d9858b}
+Se \(I\neq \emptyset\) (vedi \href{20250131161811-insieme_vuoto_mk.org}{Insieme vuoto MK}) e se \(\langle \kappa_{i}\ |\ i \in I\rangle\) e \(\langle \lambda_{i}\ |\ i \in I\rangle\) sono \href{20250206170922-sequenze_e_stringhe.org}{sequenze} di \href{20250203161341-cardinali.org}{cardinali} t.c. per ogni \(i \in I\) si ha \(\kappa_{i}<\lambda_{i}\) (vedi \href{20250203111003-ordinali.org}{Relazione d'ordine sugli ordinali}) allora
+\begin{equation*}
+\sum_{i \in I}\kappa_{i}< \prod_{i \in I}\lambda_{i}
+\end{equation*}
+(vedi \href{20250612151505-aritmetica_dei_cardinali.org}{Somma di cardinali} e \href{20250612151505-aritmetica_dei_cardinali.org}{Prodotto di cardinali})
+\subsection{Dimostrazione}
+\label{sec:org5bc334e}
+\href{20250203111003-ordinali.org}{È sufficiente} mostrare che
+\begin{equation*}
+\sum_{i \in I}\kappa_{i}\ge \prod_{i \in I}\lambda_{i}
+\end{equation*}
+ovvero che (vedi \href{20241213101756-cardinalita.org}{Cardinalità}, \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata} e \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano generalizzato}, \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano di classi MK})
+\begin{equation*}
+\card{\bigcup_{i \in I} (\set{i}\times \kappa_{i})}\ge \card{\bigtimes_{i \in I}\lambda_{i}}
+\end{equation*}
+
+Si dimostra quindi\footnote{Infatti la disuguaglianza \href{20241213101756-cardinalita.org}{sussiste sse}
+\begin{equation*}
+\bigtimes_{i \in I}\lambda_{i}\preceq \bigcup_{i \in I}(\set{i}\times\kappa_{i})
+\end{equation*}
+e vale \href{20250211173143-ac_implica_a_si_inietta_in_b_sse_b_si_surietta_su_a.org}{AC implica A si inietta in B sse B si surietta su A}} che non esiste alcuna funzione suriettiva
+\begin{equation*}
+F: \bigcup_{i \in I}(\set{i}\times \kappa_{i}) \to \bigtimes_{i \in I} \lambda_{i}
+\end{equation*}
+
+Sia quindi
+\begin{equation*}
+F: \bigcup_{i \in I}(\set{i}\times \kappa_{i}) \to \bigtimes_{i \in I} \lambda_{i}
+\end{equation*}
+qualsiasi.
+
+Per ogni \(i \in I\) l'insieme (vedi \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano generalizzato})
+\begin{equation*}
+\set{F(i,\alpha)(i)\ |\ \alpha \in \kappa_{i}} \asymp \kappa_{i}
+\end{equation*}
+ha \href{20241213101756-cardinalita.org}{cardinalità} \(\kappa_{i}\), minore di \(\lambda_{i}\), e \href{20241213101756-cardinalita.org}{quindi}
+\begin{equation*}
+\set{F(i,\alpha)(i)\ |\ \alpha \in \kappa_{i}} \subsetneqq \lambda_{i}
+\end{equation*}
+
+Possiamo definire la funzione \(f \in \bigtimes_{i \in I}\lambda_{i}\) (vedi \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano generalizzato}): per ogni \(i \in I\)
+\begin{equation*}
+f(i) \coloneqq \min\left(\lambda_{i}\setminus \set{F(i,\alpha)(i)\ |\ \alpha \in \kappa_{i}}\right)
+\end{equation*}
+rispetto all'\href{20250203111003-ordinali.org}{ordine sugli ordinali}: infatti, siccome \(\lambda_{i} \in \operatorname{Ord}\) \href{20250203111003-ordinali.org}{allora} \(\lambda_{i} \subseteq \operatorname{Ord}\) e quindi \(\emptyset\neq\lambda_{i}\setminus\set{F(i,\alpha)(i)\ |\ \alpha \in \kappa_{i}} \subseteq \operatorname{Ord}\), e dunque \href{20250203111003-ordinali.org}{esiste il minimo}. (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottrazione di classi MK} e \href{20250131161811-insieme_vuoto_mk.org}{Insieme vuoto MK})
+
+Verifichiamo che \(f\notin \operatorname{ran}F\). Se per assurdo \(f= F(i_{0},\alpha_{0})\) allora \(f(i_{0}) = F(i_{0},\alpha_{0})(i_{0})\), ma
+\begin{equation*}
+f(i_{0})\notin \set{F(i_{0},\alpha)(i_{0})\ |\ \alpha \in \kappa_{i_{0}}}
+\end{equation*}
+poiché \(f_{i_{0}} \in \lambda_{i_{0}}\setminus \set{F(i_{0},\alpha)(i_{0})\ |\ \alpha \in \kappa_{i_{0}}}\). Assurdo.
+
+Dunque \(f\notin\operatorname{ran}F\), e quindi \(F\) non è suriettiva.
+
+Pertanto, nessuna
+\begin{equation*}
+F: \bigcup_{i \in I}(\set{i}\times \kappa_{i}) \to \bigtimes_{i \in I} \lambda_{i}
+\end{equation*}
+è suriettiva.
+\end{document}

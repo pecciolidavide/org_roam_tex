@@ -1,0 +1,23 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si ricorda che lo \href{20250704104947-funzione_misurabile.org}{spazio delle funzioni misurabili} \(\mathcal{M}^{n}\) è dotato di una \href{20250301193511-spazio_metrico.org}{distanza} \(d_{\mu}\) per ogni \href{20250704163455-misura.org}{misura} \href{20250704105515-misura_di_probabilita.org}{di probabilità} \(\mu\) su \(\R^{n}\)\footnote{Vedi ``\href{20250704104537-spazio_delle_funzioni_misurabili_come_spazio_metrico.org}{Spazio delle funzioni misurabili come spazio metrico}''}.
+
+\begin{lem}
+Per ogni \(j \in \N\) sia \(f_{j} \in \mathcal{M}^{n}\), e sia \(g \in \mathcal{M}^{n}\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(d_{\mu}(f_{j},g)\to 0\) per \(j\to\infty\);
+\item per ogni \(\varepsilon>0\),
+\begin{equation*}
+ \mu\left(
+ 	\set{x \in \R^{n}\mid |f_{j}(x)-g(x)|>\varepsilon}
+ \right)\to 0\qquad j\to \infty;
+\end{equation*}
+\item \(\displaystyle \int_{\R^{n}} \min\left(|f_{j}(x)-g(x)|, 1\right) \dif x \to 0\) per \(j\to\infty\).
+\end{enumerate}
+\label{lem9.3.20}
+\end{lem}
+\end{document}

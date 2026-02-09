@@ -1,0 +1,61 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Modulo libero da torsione finitamente generato è libero}
+\label{sec:org84545a7}
+\begin{thm}
+Sia \(R\) un \href{20241219112842-pid.org}{PID}, e sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo}. Se \(M\) è \href{20250120103005-modulo_libero_da_torsione.org}{libero da torsione} e \href{20241213100845-modulo_finitamente_generato.org}{finitamente generato}, allora \(M\) è \href{20241213094625-modulo_libero.org}{libero}.
+\end{thm}
+\begin{cor}
+Sia \(R\) un \href{20241219112842-pid.org}{PID}, e sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo} \href{20241213100845-modulo_finitamente_generato.org}{finitamente generato}. Allora esistono \(L\) \href{20241213094625-modulo_libero.org}{modulo libero} e \(T\) \href{20250120103129-modulo_di_torsione.org}{modulo di torsione} tale che\footnote{Vedi ``\href{20241206115416-morfismi_r_moduli.org}{Isomorfismo tra R-Moduli}'' e ``\href{20241213095808-somma_diretta.org}{Somma Diretta}''}
+\begin{equation*}
+M\cong L\oplus T
+\end{equation*}
+
+In particolare\footnote{Vedi:
+\begin{itemize}
+\item \href{20241220000402-torsione_moduli.org}{Torsione}
+\item \href{20250120102645-torsione_di_moduli_su_un_dominio_di_integrita.org}{Torsione di moduli su un dominio di integrità è sottomodulo}
+\item \href{20241206142802-sottomoduli.org}{Quoziente di Moduli}
+\end{itemize}}
+\begin{equation*}
+M\cong M/\operatorname{Tor}_{R}(M)\oplus \operatorname{Tor}_{R}(M).
+\end{equation*}
+\label{cor_kjnskjdjjdjd}
+\end{cor}
+\begin{proof}
+(del Corollario~\ref{cor_kjnskjdjjdjd})
+\href{20241219112842-pid.org}{Siccome} \(R\) è un \href{20250103143950-dominio_di_integrita.org}{dominio di integrità}, \href{20250120102645-torsione_di_moduli_su_un_dominio_di_integrita.org}{allora} \(\operatorname{Tor}_{R}(M) \mathrel{\subseteq_{R}}M\) è un \href{20241206142802-sottomoduli.org}{sottomodulo}, e \href{20241206142802-sottomoduli.org}{pertanto}
+\begin{equation*}
+M'\coloneqq M/\operatorname{Tor}M
+\end{equation*}
+è un \href{20241205141053-r_moduli.org}{\(R\)-modulo}.
+
+\begin{itemize}
+\item \textbf{Claim: \(M'\) è \href{20250120103005-modulo_libero_da_torsione.org}{libero da torsione}.}
+
+Sia quindi \([m] \in \mathrm{Tor} M'\). Allora esiste \(r \in R \setminus\set{0}\) tale che
+\begin{equation*}
+  0 = r[m] = [rm]
+\end{equation*}
+ovvero, per definizione di quoziente, \(rm \in \mathrm{Tor} M\). Pertanto esiste \(s \in R\setminus\set{0}\) tale che
+\begin{equation*}
+  0 = s\cdot(rm) = (sr) m
+\end{equation*}
+con \(sr\neq 0\). Quindi \(m \in \mathrm{Tor} M\). Segue che \([m] = 0\).
+
+\item \textbf{\(M'\) è finitamente generato} \href{20250120121333-quoziente_di_modulo_fg_e_fg.org}{poiché} \(M\) è finitamente generato.
+\end{itemize}
+
+Per il Teorema, \(M'\) è \href{20241213094625-modulo_libero.org}{libero}, poiché libero da torsione.
+
+Per il \href{20241217101345-scomposizione_modulo_quozienti_liberi.org}{teorema di scomposizione}:
+\begin{equation*}
+ M\cong M/\operatorname{Tor}M \oplus \operatorname{Tor}M%
+ \qedhere
+\end{equation*}
+\end{proof}
+\end{document}

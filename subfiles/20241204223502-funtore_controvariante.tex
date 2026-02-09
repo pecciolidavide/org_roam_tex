@@ -1,0 +1,50 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\usepackage{stmaryrd}
+
+
+\begin{document}
+
+\begin{definizione}
+Siano \(\mathcal{C},\mathcal{C'}\) due \href{20241126100904-categoria.org}{categorie}. Un \textbf{funtore controvariante}
+\begin{equation*}
+F:\mathcal{C}\longrightarrow \mathcal{C'}
+\end{equation*}
+è una funzione tale che
+\begin{enumerate}
+\item per ogni \(X \in \operatorname{Ob}(\mathcal{C})\) si ha che \(F(X) \in \operatorname{Ob}(\mathcal{C'})\);
+\item per ogni \(f \in \operatorname{Hom}_{\mathcal{C}} (X,Y)\) si ha che
+\begin{equation*}
+F(f)\in \operatorname{Hom}_{\mathcal{C'}}\left(F(Y),F(X)\right)
+\end{equation*}
+\end{enumerate}
+
+tali che
+\begin{enumerate}
+\item \(F(f\circ g) = F(g)\circ F(f)\)
+\item \(F(\1_X)=\1_{F(X)}\)
+\end{enumerate}
+\end{definizione}
+\begin{esempio}
+Consideriamo il funtore \(\cat{Top} \longrightarrow \cat{Vect_{\R}}\)\footnote{Vedi:
+\begin{itemize}
+\item \href{20241205115600-categoria_top.org}{Categoria-Top}
+\item \href{20241205115727-categoria_vectr.org}{Categoria-VectR}
+\end{itemize}} tale che
+\begin{equation*}
+X \longrightarrow C^0(X) \coloneqq \set{\varphi: X \longrightarrow \R \text{ continua}}
+\end{equation*}
+e tale che \(X \dfreccia{f} Y\) venga mandata in
+\begin{align*}
+C^0(X)  &\longleftarrow C^0(Y) \\
+(X \dfreccia{\varphi\circ f} \R) &\longmapsfrom (Y \dfreccia{\varphi} \R)
+\end{align*}
+\end{esempio}
+\uline{Notazione}.
+Se \(F\)  è un funtore \textbf{controvariante} e \(X \dfreccia{f} Y\) allora
+\begin{equation*}
+F(X)\sfreccia{F(f)}F(Y)
+\end{equation*}
+e si indica con \(f^* \coloneqq F(f)\). \(f^*\) si dice \textbf{pull back} di \(f\) tramite \(F\).
+\end{document}

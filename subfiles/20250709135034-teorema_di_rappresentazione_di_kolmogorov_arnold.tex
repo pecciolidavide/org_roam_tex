@@ -1,0 +1,29 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{thm}
+Ogni \href{20250103103252-funzione_continua.org}{funzione continua} \(f:[0,1]^{n}\to \R\), per \(n\ge 2\), può essere scritta come
+\begin{equation*}
+f(x_{1},\dots,x_{n}) = \sum_{j=1}^{2n+1}\chi_{j}\left(\sum_{i=1}^{n}\psi_{ij}(x_{i})\right)
+\end{equation*}
+dove \(\chi_{j}\) e \(\psi_{ij}\) sono \href{20250103103252-funzione_continua.org}{funzioni continue} in una variabile, e \(\psi_{ij}\) sono \href{20250203132953-funzione_monotona.org}{funzioni monotone} che non dipendono da \(f\).
+\label{thm10.3.1}
+\end{thm}
+\begin{thm}
+Per ogni \(n\ge {2}\) esiste una \href{20250203132953-funzione_monotona.org}{funzione crescente} \(\psi:[0,1]\to \R\) tale che \(\psi\left([0,1]\right)=[0,1]\), dipendente da \(n\), con la seguente proprietà: per ogni \(\delta>0\) esiste \(\varepsilon \in \Q\), con \(0<\varepsilon<\delta\), tale che ogni \(f:[0,1]^{n}\to \R\) può essere scritta come
+\begin{equation*}
+f(x_{1},\dots,x_{n}) = \sum_{j=1}^{2n+1} \chi\left(
+\sum_{i=1}^{n}\lambda^{i}\psi(x_{i}+\varepsilon(j-1)) +j-1
+\right)
+\end{equation*}
+dove \(\chi:\R\to \R\) è continua e \(\lambda \in \R\) è indipendente da \(f\).
+\label{thm10.3.2}
+\end{thm}
+\section{Applicazione alle reti neurali}
+\label{sec:orgef04c0c}
+
+This result is important to the field of \href{20250624155858-neurone_artificiale.org}{neural networks} because it states that any \href{20250103103252-funzione_continua.org}{continuous function} on \([0,1]^{n}\) can be \href{20250708122736-exact_learning_machine_learning.org}{represented exactly} by a \href{20250624155858-neurone_artificiale.org}{neural network} with two \href{20250624155858-neurone_artificiale.org}{hidden layers}. The \href{20250624155858-neurone_artificiale.org}{activation function} for the first hidden layer is \(\psi\) and for the second hidden layer is \(\chi\).
+\end{document}

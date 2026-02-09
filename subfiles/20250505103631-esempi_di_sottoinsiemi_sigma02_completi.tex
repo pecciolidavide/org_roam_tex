@@ -1,0 +1,95 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esercizio 4}
+\label{sec:org56092b6}
+
+Prove that for any \(0 < p < \infty\) the set
+\[
+\ell^p \cap [0,1]^\omega =
+\set{(x_n)_{n \in \omega} \in [0,1]^\omega
+\mid
+\|x\|_p = \left( \sum_{n=0}^\infty |x_n|^p \right)^{1/p} < \infty}
+\]
+is \(\bm{\Sigma}^0_2\)-complete.
+
+\emph{Hint.} Recall that a series of positive terms converges if and only if the sequence of partial sums is bounded from above. For the hardness part, compare this set with the \(\bm{\Sigma}^0_2\)-complete set \(Q_2\) from the notes.
+\subsection{Soluzione}
+\label{sec:orgf26c1aa}
+
+\subsubsection{Insieme \(\mathbf{\Sigma}^{0}_{2}\)}
+\label{sec:org11b8918}
+
+Sia \(x=(x_{j})_{j \in \omega} \in [0,1]^{\omega}\).
+
+Si ha che \((x_{j})_{j \in \omega} \in \ell^{p}\cap[0,1]^{\omega}\) se e solo se
+\begin{equation*}
+\norma{x}_{p} = \left(\sum_{n=0}^{\infty}|x_{n}|^{p}\right)^{1/p}<\infty
+\end{equation*}
+se e solo se
+\begin{equation*}
+(\norma{x}_{p})^{p} = \sum_{n=0}^{\infty}|x_{n}|^{p} < \infty
+\end{equation*}
+se e solo se, sfruttando l'hint,
+\begin{equation*}
+\exists\, L \in \Q^{+}\ \forall\, N \in \N \ \left(\sum_{n=0}^{N} |x_{n}|^{p}\right) \le L
+\end{equation*}
+
+Sia dunque
+\begin{align*}
+G_{N}^{p}: [0,1]^{\omega} &\longrightarrow \R\\
+(x_{j})_{j \in \omega} &\longmapsto \sum_{n=0}^{N} |x_{n}|^{p}
+\end{align*}
+Questa è una mappa continua, poiché composizione di mappe continue (proiezioni, continue per la definizione di topologia prodotto, e somma finita ed elevamento a potenza) e pertanto il seguente è un insieme chiuso:
+\begin{equation*}
+V_{L}^{N} \coloneqq \set{(x_{j})_{j \in \omega} \in [0,1]^{\omega}\mid \left(\sum_{n=0}^{N} |x_{n}|^{p}\right) \le L} = (G_{N}^{p})^{-1}\left([0,L]\right).
+\end{equation*}
+
+In definitiva
+\begin{align*}
+V_{L}^{N} &\in \bm{\Pi}_{1}^{0}\\
+\bigcap_{N \in \N} V_{L}^{N} &\in \bm{\Pi}_{1}^{0}\\
+\ell^{p}\cap[0,1]^{\omega} = \bigcup_{L \in \Q}\bigcap_{N \in \N} V_{L}^{N} &\in \bm{\Sigma}_{2}^{0}.
+\end{align*}
+\subsubsection{Insieme \(\mathbf{\Sigma}^{0}_{2}\)-hard}
+\label{sec:org2e11133}
+
+È noto che l'insieme
+\begin{equation*}
+Q_{2}\coloneqq \set{x \in 2^{\omega}\mid
+\exists\, n \in \N\ \forall\, k \ge n\ \left(x(k) = 0\right)
+}
+\end{equation*}
+sia \(\bm{\Sigma}_{2}^{0}\)-hard.
+
+Si vuole quindi trovare una funzione continua
+\begin{equation*}
+F: 2^{\omega} \longrightarrow [0,1]^{\omega}
+\end{equation*}
+tale che \(F^{-1}\left(\ell^{p}\cap[0,1]^{\omega}\right)=Q_{2}\). Questo, per il Lemma 2.1.23, garantisce che \(\ell^{p}\cap[0,1]^{\omega}\) sia \(\bm{\Sigma}_{2}^{0}\)-hard, e quindi \(\bm{\Sigma}_{2}^{0}\)-completo.
+
+\begin{itemize}
+\item Considerando che \(2=\set{0,1} \subseteq [0,1]\), si può definire \(F\) come l'inclusione, ovvero
+\begin{align*}
+  F: 2^{\omega} &\longrightarrow [0,1]^{\omega}\\
+  (x_{j})_{j \in \omega} &\longmapsto (x_{j})_{j \in \omega}
+\end{align*}
+\item Questa è una funzione continua, poiché è continua su ciascuna componente (infatti \(\set{0,1}\) ha la topologia di sottospazio rispetto a \([0,1]\), e per definizione quindi l'inclusione è continua).
+\item Inoltre, \(F^{-1}\left(\ell^{p}\cap[0,1]^{\omega}\right) = Q_{2}\). In particolare, si dimostra che \(\alpha \in Q_{2}\) sse \(F(\alpha) \in \ell^{p}\cap[0,1]^{\omega}\)
+\begin{itemize}
+\item Sia \(\alpha = (x_{j})_{j \in \omega} \in Q_{2}\). Allora esiste \(N \in \N\) tale che \(x_{j}=0\) per ogni \(j>N\), e pertanto
+\begin{equation*}
+	\left(\sum_{j=0}^{\infty}|x_{j}|^{p}\right)^{1/p} = \left(\sum_{j=0}^{N} |x_{j}|^{p}\right)^{1/p}<\infty
+\end{equation*}
+Pertanto \(F(\alpha) \in \ell^{p}\cap[0,1]^{\omega}\).
+\item Sia \(\alpha = (x_{j})_{j \in \omega} \notin Q_{2}\). Allora per ogni \(n \in \N\) esiste \(k_{n}\ge n\) tale che \(x_{k_{n}} = 1\). Pertanto, per ogni \(n \in \N\), esiste un numero infinito di indici \(j\) tali che \(x_{j}=1\), e dunque \(\lim_{j\to\infty} x_{j}\neq 0\) e dunque la serie
+\begin{equation*}
+	\sum_{j=0}^{\infty} |x_{j}|^{p}
+\end{equation*}
+diverge. Pertanto \(F(\alpha)\notin \ell^{p}\cap[0,1]^{\omega}\).\qed
+\end{itemize}
+\end{itemize}
+\end{document}

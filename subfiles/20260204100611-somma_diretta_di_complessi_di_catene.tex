@@ -1,0 +1,43 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Somma diretta di complessi di catene}
+\label{sec:org4107c28}
+Sia \(R\) un \href{20241205141119-anello.org}{anello commutativo con unità}.
+
+\begin{definizione}
+Sia \(\{\mathcal{C}_{\bullet}^{\alpha}\}_{\alpha \in A}\) una famiglia di \href{20250120163114-complesso_di_catene.org}{complessi di catene} di \href{20241205141053-r_moduli.org}{\(R\)-moduli}, dove \(\mathcal{C}_{\bullet}^{\alpha} = \set{(C_{n}^{\alpha}, \partial_{n}^{\alpha})}_{n \in \Z}\).
+La \textbf{\textbf{somma diretta}} dei complessi, denotata con \(\bigoplus_{\alpha \in A} \mathcal{C}_{\bullet}^{\alpha}\), è il complesso di catene \(\mathcal{S}_{\bullet} = \set{(S_{n}, \partial_{n})}_{n \in \Z}\) definito come segue:
+\begin{itemize}
+\item L'\(n\)-esimo modulo è la \href{20241213095808-somma_diretta.org}{somma diretta dei moduli} della famiglia:
+\begin{equation*}
+S_{n} = \bigoplus_{\alpha \in A} C_{n}^{\alpha}
+\end{equation*}
+\item Il differenziale \(\partial_{n}: S_{n} \longrightarrow S_{n-1}\) agisce componente per componente:
+\begin{equation*}
+\partial_{n}((x_{\alpha})_{\alpha}) = (\partial_{n}^{\alpha}(x_{\alpha}))_{\alpha}
+\end{equation*}
+\end{itemize}
+Nel caso di due complessi \(\mathcal{A}_{\bullet}\) e \(\mathcal{B}_{\bullet}\), la somma diretta si denota con \(\mathcal{A}_{\bullet} \oplus \mathcal{B}_{\bullet}\).
+\end{definizione}
+\subsection{Somma diretta di morfismi tra complessi di catene}
+\label{sec:orgcd6ad94}
+\begin{definizione}
+Siano \(\{\mathcal{C}_{\bullet}^{\alpha}\}_{\alpha \in I}\) e \(\{\mathcal{D}_{\bullet}^{\alpha}\}_{\alpha \in I}\) due famiglie di \href{20250120163114-complesso_di_catene.org}{complessi di catene} di \href{20241206115416-morfismi_r_moduli.org}{\(R\)-moduli} indicizzate da un insieme \(I\).
+Sia \(\{F_{\bullet}^{\alpha}: \mathcal{C}_{\bullet}^{\alpha} \longrightarrow \mathcal{D}_{\bullet}^{\alpha}\}_{\alpha \in I}\) una famiglia di \href{20250120163759-categoria_complessi_di_catene.org}{morfismi di complessi di catene}.
+
+Il morfismo somma diretta, denotato con \(\bigoplus_{\alpha \in I} F_{\bullet}^{\alpha}\), è la mappa tra le \hyperref[sec:org4107c28]{somme dirette dei complessi}:
+\begin{equation*}
+\Phi_{\bullet} = \bigoplus_{\alpha \in I} F_{\bullet}^{\alpha} : \bigoplus_{\alpha \in I} \mathcal{C}_{\bullet}^{\alpha} \longrightarrow \bigoplus_{\alpha \in I} \mathcal{D}_{\bullet}^{\alpha}
+\end{equation*}
+definita, per ogni grado \(n \in \Z\), come la \href{20241213095808-somma_diretta.org}{somma diretta dei morfismi} di moduli \(n\)-esimi:
+\begin{equation*}
+\Phi_{n} = \bigoplus_{\alpha \in I} F_{n}^{\alpha} : \bigoplus_{\alpha \in I} C_{n}^{\alpha} \longrightarrow \bigoplus_{\alpha \in I} D_{n}^{\alpha}
+\end{equation*}
+\end{definizione}
+
+Questo definisce un morfismo di complessi poiché, per la definizione di differenziale nella somma diretta, si ha la commutatività con i differenziali componente per componente.
+\end{document}

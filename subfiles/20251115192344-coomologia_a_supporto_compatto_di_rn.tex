@@ -1,0 +1,35 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Coomologia a supporto compatto di Rn}
+\label{sec:org59eaa2b}
+\begin{thm}
+(Lemma di Poincaré a supporto compatto).
+Se \(H^{k}_{\text{c}}\) indica la \href{20251115192241-coomologia_a_supporto_compatto.org}{coomologia a supporto compatto}, allora
+\begin{equation*}
+H^{k}_{\text{c}}(\R^{n}) = %
+\begin{cases}
+\R & k = n\\
+0 & \text{altrimenti}.
+\end{cases}
+\end{equation*}
+\end{thm}
+
+\begin{oss}
+Consideriamo \(e : \R \to \R^{+}\) \href{20250113125602-classe_c_di_una_funzione.org}{funzione \(C^{\infty}\)} a \href{20250701115005-supporto_di_una_funzione.org}{supporto} \href{20250103163701-spazio_topologico_compatto.org}{compatto}, tale che
+\begin{equation*}
+\int_{\R} e \dif t = 1.
+\end{equation*}
+Sia \(\varepsilon \in A^{n}_{\text{c}}(\R^{n})\) una \href{20251115155511-forma_differenziale_in_un_punto.org}{\(n\)-forma differenziale} a \href{20251223153341-supporto_di_una_forma_differenziale.org}{supporto} \href{20250103163701-spazio_topologico_compatto.org}{compatto}:
+\begin{equation*}
+\varepsilon \coloneqq %
+	e(x^{1}) \cdot \dots \cdot e(x^{n}) %
+	\dif x^{1} \wedge \dots \wedge \dif x^{n},
+\qquad [\varepsilon] \in H^{n}_{\text{c}}(\R^{n}).
+\end{equation*}
+Allora l'\href{20251115185654-integrazione_di_forme_su_varieta_differenziabile_orientata.org}{integrale} \(\int_{\R^{n}} \varepsilon = 1\) e pertanto \([\varepsilon] \in H^{n}_{\text{c}}(\R^{n})\) lo genera.
+\end{oss}
+\end{document}

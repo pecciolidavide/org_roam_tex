@@ -1,0 +1,27 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{L}\) un linguaggio del prim'ordine
+
+Una \href{20241126100904-categoria.org}{categoria} di modelli e morfismi parziali è l'\href{20250113175700-unione_disgiunta.org}{unione disgiunta} di due \href{20250130104320-classe_mk.org}{classi}:
+\begin{equation*}
+\mathcal{M} = \mathcal{M}_{\text{ob}} \cup \mathcal{M}_{\text{hom}}
+\end{equation*}
+\section{Oggetti di una categoria di modelli}
+\label{sec:orge146806}
+\(\mathcal{M}_{\text{ob}}\) è la classe degli oggetti, e contiene delle \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{strutture}, chiamate \uline{modelli};
+\section{Morfismi di una categoria di modelli}
+\label{sec:org052afce}
+\(\mathcal{M}_{\text{hom}}\) è la ``classe dei morfismi'', e contiene \href{20250213105339-funzione_parziale.org}{funzioni parziali} \uline{qualsiasi} tra le \(\mathcal{L}\)-strutture di \(\mathcal{M}_{\text{ob}}\).
+
+In particolare:
+\begin{itemize}
+\item per ogni \(M \in \mathcal{M}_{\text{ob}}\): \(\Id_{M} \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(f,g \in \mathcal{M}_{\text{hom}}\), la \href{20250202170607-classe_relazione_binaria.org}{composizione} (quando ha senso): \(f\circ g \in \mathcal{M}_{\text{hom}}\).
+\end{itemize}
+
+Per \(M, N \in \mathcal{M}_{\text{ob}}\) fissati, scriviamo \(\mathcal{M}_{\text{hom}}(M,N) \subseteq \mathcal{M}_{\text{hom}}\) per indicare le funzioni \(f:M\partialto N\), \(f \in \mathcal{M}_{\text{hom}}\).
+\end{document}

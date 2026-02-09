@@ -1,0 +1,29 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema}
+\label{sec:org2949d89}
+Sia \(G\) uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250109155715-spazio_topologico_di_hausdorff.org}{di Hausdorff} e sia \(Y \subseteq G\) un \href{20250301193045-sottoinsieme_denso.org}{sottoinsieme denso}.
+Se \(g: G\to Y\) è una \href{20250103103252-funzione_continua.org}{funzione continua} tale che la \href{20250205170515-restrizione_di_una_classe.org}{restrizione} \(g\upharpoonright Y = \id_{Y}\) è la \href{20250310111151-funzione_identita.org}{funzione identità}, allora \(g= \id_{G}\).
+
+Segue che \(Y=G\).
+\subsection{Dimostrazione}
+\label{sec:org76618d5}
+Se \(Y \subseteq G\) è \href{20250301193045-sottoinsieme_denso.org}{denso}, allora la sua \href{20250103144944-chiusura_topologica.org}{chiusura} è \(\overline{Y} = G\).
+
+Sia ora \(x \in G\). \href{20250303121451-caratterizzazione_della_chiusura_in_termini_di_successioni.org}{Allora} esiste una \href{20250115100904-successione.org}{successione} \(\set{x_{n}}_{n \in \N} \subseteq Y\) tale che \(x_{n}\to x\).
+
+Poiché \(g\) è \href{20250103103252-funzione_continua.org}{continua}, \href{20250304142114-funzione_continua_e_continua_per_successioni.org}{allora} è \href{20250310112816-funzione_continua_per_successioni.org}{continua per successioni}, e quindi
+\begin{equation*}
+g(x_{n})\to g(x)
+\end{equation*}
+
+Poiché \(x_{n} \in Y\) e \(g\upharpoonright Y = \id_{Y}\) si ha che \(g(x_{n}) = x_{n}\).
+
+Per \href{20250304162602-unicita_del_limite.org}{unicità del limite}, \(g(x)=x\), e quindi \(g=\id_{G}\).
+
+Inoltre, siccome \(G=\operatorname{rng}(g) \subseteq Y\) si ha che \(G=Y\). (vedi \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Dominio, Range e Campo di una Classe Relazione})
+\end{document}

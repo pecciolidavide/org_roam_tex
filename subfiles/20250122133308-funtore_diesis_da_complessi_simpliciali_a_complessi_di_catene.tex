@@ -1,0 +1,98 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID} e siano \(K,L\) due complessi simpliciali totalmente ordinati. Si considerino i due \href{20250120163114-complesso_di_catene.org}{complessi di catene} \href{20250121160600-complesso_di_catene_simpliciali.org}{simpliciali}
+\begin{align*}
+\mathcal{C}_{\bullet}(K) &= \set{\left(C_{n}(K), \partial_{n}^{K}\right)}_{n}\\
+\mathcal{C}_{\bullet}(L) &= \set{\left(C_{n}(L), \partial_{n}^{L}\right)}_{n}.
+\end{align*}
+dove \(C_{n}(K) = R^{(K^{n})}\) e \(C_{n}(L) = R^{(L^{n})}\)\footnote{Vedi ``\href{20241213095808-somma_diretta.org}{Somma Diretta}''.}.
+\begin{definizione}
+Una \href{20250122133125-mappa_simpliciale.org}{mappa simpliciale} \(\varphi:K \longrightarrow L\) induce un \href{20250120163759-categoria_complessi_di_catene.org}{morfismo}
+\begin{equation*}
+\varphi_{\diesis}: \mathcal{C}_{\bullet}(K)\longrightarrow \mathcal{C}_{\bullet}(L),\qquad \varphi_{\diesis} = \set{\left(\varphi_{\diesis}\right)_{n} :  C_{n}(K)\longrightarrow C_{n}(L)}
+\end{equation*}
+tale che, per ogni \href{20250121121923-simplessi.org}{simplesso} \([p_{0},\dots,p_{n}] \in K^{n}\)\footnote{\(K^{n}\) è il \href{20250121124310-scheletro_di_un_complesso_simpliciale.org}{\(n\)-scheletro di \(K\)}.}
+\begin{equation*}
+\left(\varphi_{\diesis}\right)_{n} [p_{0},\dots,p_{n}] = \begin{cases}
+\left[\varphi_{0}(p_{0}),\dots,\varphi_{0}(p_{n})\right] & \restriction{\varphi_{0}}{\set{p_{0},\dots,p_{n}}}\text{ è iniettiva}\\
+0 &\text{altrimenti}
+\end{cases}
+\end{equation*}
+Questo è un \href{20241206115416-morfismi_r_moduli.org}{morfismo di moduli}\footnote{Questa cosa non è stata dimostrata.}.
+\end{definizione}
+\begin{prop}
+La mappa \(\varphi_{\diesis}\) così definita è un \href{20250120163759-categoria_complessi_di_catene.org}{morfismo} \href{20250120163759-categoria_complessi_di_catene.org}{in \(\cat{Ch}_{R}\)}, ovvero il seguente diagramma commuta
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,sep=large]
+	\cdots \& {C_{n+1}(K)} \& {C_n(K)} \& {C_{n-1}(K)} \& \cdots \\
+	\cdots \& {C_{n+1}(L)} \& {C_n(L)} \& {C_{n-1}(L)} \& \cdots
+	\arrow["{\partial^K_{n+2}}", from=1-1, to=1-2]
+	\arrow["{\partial^K_{n+1}}", from=1-2, to=1-3]
+	\arrow["{\left(\varphi_{\diesis}\right)_{n+1}}", from=1-2, to=2-2]
+	\arrow["{\partial^K_{n}}", from=1-3, to=1-4]
+	\arrow["{\left(\varphi_{\diesis}\right)_{n}}", from=1-3, to=2-3]
+	\arrow["{\partial^K_{n-1}}", from=1-4, to=1-5]
+	\arrow["{\left(\varphi_{\diesis}\right)_{n-1}}", from=1-4, to=2-4]
+	\arrow["{\partial^L_{n+2}}"', from=2-1, to=2-2]
+	\arrow["{\partial^L_{n+1}}"', from=2-2, to=2-3]
+	\arrow["{\partial^L_{n}}"', from=2-3, to=2-4]
+	\arrow["{\partial^L_{n-1}}"', from=2-4, to=2-5]
+\end{tikzcd}
+\end{equation*}
+dove i \(\partial_{n}\) sono i \href{20250121132856-mappe_di_bordo_tra_moduli_di_catene_simpliciali.org}{morfismi di bordo}.
+\end{prop}
+
+\begin{proof}
+Si fissi \([p_{0},\dots,p_{n}] \in K^{n} \subseteq C_{n}(K)\).
+\begin{enumerate}
+\item Se \(\varphi_{0}\) è \href{20241219101956-funzione_iniettiva.org}{iniettiva} su \(\set{p_{0},\dots,p_{n}}\), allora
+\begin{align*}
+ (\varphi_{\diesis})_{n-1} \circ \partial_{n}^{K} [p_{0},\dots,p_{n}] &=
+ (\varphi_{\diesis})_{n-1} \bigg(
+ 	\sum_{i=0}^{n} (-1)^{i} [p_{0},\dots,\hat{p}_{i},\dots,p_{n}]
+ \bigg)\\
+ &= \sum_{i=0}^{n} (-1)^{i} (\varphi_{\diesis})_{n-1}[p_{0},\dots,\hat{p}_{i},\dots,p_{n}]\\
+ &= \sum_{i=0}^{n} (-1)^{i} [\varphi_{0}(p_{0}),\dots,\widehat{\varphi_{0}(p_{i})},\dots,\varphi_{0}(p_{n})]\\
+ &= \partial_{n}^{L} [\varphi_{0}(p_{0}),\dots,\varphi_{0}(p_{n})]\\
+ &= \partial_{n}^{L}\circ (\varphi_{\diesis})_{n} [p_{0},\dots,p_{n}].
+\end{align*}
+\item Se \(\varphi_{0}\) non è \href{20241219101956-funzione_iniettiva.org}{iniettiva} su \(\set{p_{0},\dots,p_{n}}\), allora
+\((\varphi_{\diesis})_{n} [p_{0},\dots,p_{n}] = 0\), e quindi
+\begin{equation*}
+ \partial_{n}^{L}\circ (\varphi_{\diesis})_{n} [p_{0},\dots,p_{n}] = 0
+\end{equation*}
+Si calcola quindi
+\begin{align*}
+ (\varphi_{\diesis})_{n-1} \circ \partial_{n}^{K} [p_{0},\dots,p_{n}] &=
+ (\varphi_{\diesis})_{n-1} \bigg(
+ 	\sum_{i=0}^{n} (-1)^{i} [p_{0},\dots,\hat{p}_{i},\dots,p_{n}]
+ \bigg)\\
+ &= \sum_{i=0}^{n} (-1)^{i} \parentesi{=0}{(\varphi_{\diesis})_{n-1}[p_{0},\dots,\hat{p}_{i},\dots,p_{n}]} = 0 %
+ \qedhere
+\end{align*}
+\end{enumerate}
+\end{proof}
+\begin{cor}
+La mappa
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,column sep=large,row sep=tiny]
+	K \& {\mathcal{C}_{\bullet}(K)} \\
+	{K\xrightarrow{f}L} \& {\mathcal{C}_{\bullet}(K) \xrightarrow{f_{\diesis}} \mathcal{C}_{\bullet}(L)}
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, maps to, from=1-1, to=1-2]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, maps to, from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+è un \href{20241205131958-funtore.org}{funtore}\footnote{Vedi:
+\begin{itemize}
+\item \href{20250122133147-categoria_di_complessi_e_mappe_simpliciali.org}{Categoria-Pl}
+\item \href{20250120163759-categoria_complessi_di_catene.org}{Categoria-ChR}
+\end{itemize}}
+\begin{equation*}
+(\mathcal{C}_{\bullet}, \diesis): \cat{Pl}\longrightarrow \cat{Ch}_{R}
+\end{equation*}
+\end{cor}
+\end{document}

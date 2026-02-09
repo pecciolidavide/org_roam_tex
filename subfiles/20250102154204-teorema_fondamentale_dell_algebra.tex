@@ -1,0 +1,44 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema Fondamentale dell'Algebra}
+\label{sec:orgd98c560}
+\begin{thm}
+Sia \(f(z)\) un \href{20241231112750-polinomio.org}{polinomio} \href{20241219113434-anello_dei_polinomi.org}{in \(\C[z]\)} di \href{20241231124742-grado_polinomi.org}{grado} \(\ge 1\).
+
+Allora esiste \(z_{0} \in \C\) tale che \(f(z_{0}) = 0\)
+\end{thm}
+
+\begin{proof}
+WLOG sia \(f(z) = z^{n} + a_{n-1}\, z^{n-1} + \dots + a_{1}\,z + a_{0}\). Supponiamo per assurdo che \(\forall z \in \C\): \(f(z) \neq 0\).
+
+Allora è ben definita la funzione\footnote{Vedi ``\href{20260128152203-modulo_di_un_numero_complesso.org}{Modulo di un numero complesso}''}, considerata \(\mathds{S}^{1} \subseteq \C\):
+\begin{align*}
+f_{1}: \mathds{S}^{1} &\longrightarrow \mathds{S}^{1}\\
+z &\longmapsto \frac{f(z)}{|f(z)|}
+\end{align*}
+\begin{itemize}
+\item \(f_{1}\) è \href{20250121094654-omotopia_tra_funzioni_continue.org}{omotopa alla funzione costante}:
+\begin{align*}
+H_{0}: \mathds{S}^{1}\times[0,1] &\longrightarrow \mathds{S}^{1}\\
+(z,t) &\longmapsto \frac{f(z\cdot t)}{|f(z\cdot t)|}
+\end{align*}
+dove \(H(z,1) = f_{1}(z)\), \(H(z,0) = \frac{a_{0}}{|a_{0}|}\). \href{20250129170910-grado_di_un_endomorfismo_della_sfera.org}{Quindi \(f_1\) ha grado 0}
+\item \(f_{1}\) è \href{20250121094654-omotopia_tra_funzioni_continue.org}{omotopa a \(z^{n}\)}: considero infatti la \href{20250103103252-funzione_continua.org}{funzione continua}
+\begin{align*}
+H_{0}: \mathds{S}^{1}\times[0,1] &\longrightarrow \mathds{S}^{1}\\
+(z,t) &\longmapsto \frac{f(z/t)}{|f(z/t)|}
+\end{align*}
+dove \(\frac{f(z/t)}{|f(z/t)|}\) è solo un ``memo'' per identificare la funzione: definita per ogni \(t \in [0,1]\):
+\begin{equation*}
+  \frac{f(z/t)}{|f(z/t)|} \coloneqq \frac{z^{n} + a_{n-1}\,z^{n-1} t + \dots + a_{1}\, z t^{n-1}}{\big|z^{n} + a_{n-1}\,z^{n-1} t + \dots + a_{1}\, z t^{n-1}\big|}.
+\end{equation*}
+Allora \(H_{1}(z,1) = f_{1}(z)\), mentre \(H_{1}(z,0) = \frac{z^{n}}{\norma{z^{n}}} = z^{n}\), e pertanto \(\deg f_{1} = n \neq 0\).
+\end{itemize}
+
+Assurdo.
+\end{proof}
+\end{document}

@@ -1,0 +1,43 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Sia \(A \subseteq \R^{n}\) aperto e sia \(f \in C^{2}(A)\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Funzione di classe Ck}''}. Sia \(c\) un \href{20250702101346-punto_critico_di_una_funzione_reale.org}{punto critico} per \(f\). Sia \(H_{f}(c)\) l'\href{20250627161731-matrice_hessiana.org}{Hessiana} di \(f\) calcolata nel punto \(c\).
+\begin{itemize}
+\item Se \(H_{f}(c)\) è \href{20250702102213-matrice_definita_positiva.org}{definita positiva}, allora \(c\) è un punto di \href{20250627153543-massimo_e_minimo_di_una_funzione_reale.org}{minimo locale forte}.
+\item Se \(H_{f}(c)\) è \href{20250702102213-matrice_definita_positiva.org}{definita negativa}, allora \(c\) è un punto di \href{20250627153543-massimo_e_minimo_di_una_funzione_reale.org}{massimo locale forte}.
+\item Se \(H_{f}(c)\) è \href{20250702102213-matrice_definita_positiva.org}{indefinita}, allora \(c\) è un punto di \href{20250702102107-punto_di_sella.org}{sella}.
+\end{itemize}
+\end{prop}
+
+\begin{proof}
+Si dimostra che se \(H_{f}(c)\) è definita positiva, allora \(c\) è un punto di minimo locale.
+
+Sia \(\gamma:[-\varepsilon,\varepsilon]\to A\) una curva di classe \(C^{2}\) tale che \(\gamma(0) = c\) e \(\norma{\gamma'(0)} = 1\). Sia \(\bm{v} \coloneqq \gamma'(0)\). Sia \(g(t) \coloneqq f\circ\gamma(t)\).
+\begin{itemize}
+\item \(g'(0) = 0\). Infatti, applicando la \href{20250702114407-chain_rule.org}{chain rule}:\footnote{Vedi ``\href{20250624171244-gradiente_di_una_funzione.org}{Gradiente di una funzione}''}
+\begin{align*}
+  g'(0) &= \nabla f (\gamma(0)) \cdot \gamma'(0)\\
+  &= \nabla f(c) \cdot \bm{v} = 0\cdot \bm{v}=0.
+\end{align*}
+\item \(g''(0) >0\). Infatti, si noti che\footnote{Vedi ``\href{20250702114642-derivata_direzionale.org}{Derivata direzionale}''}
+\begin{equation*}
+  g''(0) = D_{\bm{v}}\left(D_{\bm{v}} f\right)(c)
+\end{equation*}
+Inoltre, siccome \(f\) è differenziabile, si ha che \(D_{\bm{v}} f(x) = \nabla f (x)\cdot \bm{v}\).
+
+Anche \(D_{\bm{v}}f\) è differenziabile, e pertanto <
+\begin{equation*}
+  D_{\bm{v}}\left(D_{\bm{v}} f\right)(x) = \nabla (D_{\bm{w}}f) (x)\cdot \bm{v}
+\end{equation*}
+Ma
+\begin{equation*}
+  \nabla(\nabla f (x)\cdot \bm{v}) = H_{f}(x) \bm{v}
+\end{equation*}
+e pertanto \(g''(0) = H_{f}(c)\bm{v}\cdot\bm{v}>0\).\qedhere
+\end{itemize}
+\end{proof}
+\end{document}

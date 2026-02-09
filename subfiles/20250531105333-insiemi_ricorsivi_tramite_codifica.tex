@@ -1,0 +1,23 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Definizione}
+\label{sec:orga5d6e9a}
+Siano \(\varphi: D\to \N\) e \(\psi:E\to \N\) due codifiche ricorsive per gli insiemi numerabili \(E,D\).
+\begin{itemize}
+\item \(A \subseteq D\) si dice (\uline{semi}) \uline{ricorsivo} rispetto alla codifica \(\varphi\), se \(\varphi(A) \subseteq \N\) è (\href{20250520113238-insieme_semiricorsivo.org}{semi}) \href{20250216173925-insieme_ricorsivo.org}{ricorsivo}.
+\item Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \(f:D^{k}\to E\) si dice ricorsiva (\href{20250213105339-funzione_parziale.org}{parziale}) rispetto alle codifiche \(\varphi,\psi\) se è \href{20250215151458-funzioni_ricorsive.org}{ricorsiva} la funzione (\href{20250213105339-funzione_parziale.org}{parziale})
+\begin{align*}
+f_{\varphi,\psi}: \N^{k} &\longrightarrow \N\\
+(x_{1},\dots,x_{k}) &\longmapsto \psi\left[f\left(\varphi^{-1}(x_{1}),\dots,\varphi^{-1}(x_{k})\right)\right]
+\end{align*}
+\end{itemize}
+\section{Esempi}
+\label{sec:org48d4bbe}
+\begin{enumerate}
+\item Le funzioni \(\bm{J}^{k}\) forniscono una codifica ricorsiva dell'insieme \(\N^{k}\), che coincide con la nozione di ricorsività.
+\end{enumerate}
+\end{document}

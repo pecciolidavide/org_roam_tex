@@ -1,0 +1,97 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Anello}
+\label{sec:org175bac9}
+\subsection{Morfismo di Anelli}
+\label{sec:org89194bc}
+\section{Anello commutativo}
+\label{sec:org58e6ac4}
+\section{Anello unitario}
+\label{sec:orge3355fa}
+\section{Anello commutativo con unità}
+\label{sec:orga95e912}
+\begin{definizione}
+Un \uline{anello commutativo con unità} è una struttura algebrica \(\langle A, +,\cdot\rangle\) tale che
+\begin{enumerate}
+\item \(\langle A, +\rangle\) è un \href{20250127093245-gruppo_abeliano.org}{gruppo abeliano} con elemento neutro \(0\) o \(0_{A}\); l'inverso additivo si chiamerà \uline{opposto};
+\item \(\cdot\) è associativa, commutativa e con elemento neutro \(1_{A}\), \(1\) (\(1_{A}\) sarà detto unità di \(A\));
+\item proprietà distributiva di \(\cdot\) rispetto a \(+\):
+\begin{equation*}
+ \forall a,b,c \in A\ a\cdot (b+c) = ab+ac.
+\end{equation*}
+\end{enumerate}
+\end{definizione}
+\subsection{Esempi di anelli commutativi con unità}
+\label{sec:orgd574f9b}
+\begin{esempio}
+Sono esempi di anelli commutativi con unità:
+\begin{itemize}
+\item \(\Z,\Q,\R,\C,\Z_{n}, A[X]\)\footnote{Vedi ``\href{20250103103252-funzione_continua.org}{Funzione Continua}''.\label{org379a0f7}};
+\item \(F(S,A) = \set{\text{insieme delle funzioni tra }S\text{ insieme e } A \text{ anello}}\), dove
+\begin{equation*}
+  (f+g)(s)=f(s)+g(s),\qquad (f\cdot g)(s)=f(s)\cdot g(s)
+\end{equation*}
+e inoltre \(1_{F(S,A)}\) è la funzione costante \(1_{A}\).
+\item \(C(X, \R)\coloneqq\set{f:X\to \R\text{ continua}}\)\textsuperscript{\ref{org379a0f7}} per \(X\) \href{20250103145124-topologia.org}{spazio topologico}; sottoanello di \(F(X,\R)\).
+\end{itemize}
+\end{esempio}
+\subsection{Sottoanello commutativo con unità}
+\label{sec:org8ae027e}
+\begin{definizione}
+Se \(\langle A, +,\cdot\rangle\) è un \hyperref[sec:orga95e912]{anello commutativo con unità}, un sottoinsieme \(B \subseteq A\) è detto \uline{sottoanello} se:
+\begin{itemize}
+\item \(B\) è chiuso rispetto alle operazioni di \(\langle A, +,\cdot\rangle\);
+\item \(1_{A} \in B\), con \(1_{B}=1_{A}\).
+\end{itemize}
+\end{definizione}
+\begin{esempio}
+Consideriamo \(\Z \subseteq \Q\): \(\Z\) è un sottoanello di \(\Q\).
+
+Viceversa, \(2\Z\subseteq \Z\) è sottoinsieme chiuso rispetto alle operazioni, ma non è sottoanello in quanto non contiene l'unità.
+
+Si consideri invece \(B \subseteq \Z\times \Z\),
+\begin{equation*}
+B \coloneqq \set{(a,0)\mid a \in \Z}
+\end{equation*}
+\(B\) è un anello commutativo con unità (è chiuso per le operazioni, ha una sua unità \(1_{B}\coloneqq(1,0)\)), ma non è un sottoanello, in quanto \(1_{B}\neq 1_{\Z\times \Z} =(1,1)\notin B\).
+\end{esempio}
+\subsection{Omomorfismo di anelli commutativi con unità}
+\label{sec:org65dc407}
+\begin{definizione}
+Se \(A,B\) sono \hyperref[sec:orga95e912]{anelli commutativi con unità}, un \uline{omomorfismo di anelli} è una \href{20250202170607-classe_relazione_binaria.org}{funzione}
+\begin{equation*}
+f:A\to B
+\end{equation*}
+tale che, per ogni \(a_{1},a_{2} \in A\)
+\begin{enumerate}
+\item \(f(a_{1}+a_{2}) = f(a_{1})+f(a_{2})\);
+\item \(f(a_{1}\cdot a_{2}) = f(a_{1})\cdot f(a_{2})\);
+\item \(f(1_{A}) = 1_{B}\).
+\end{enumerate}
+\end{definizione}
+\begin{oss}
+Se \(A \subseteq B\) è \hyperref[sec:org8ae027e]{sottoanello}, e
+\begin{align*}
+\iota: A &\hookrightarrow B\\
+x &\mapsto x
+\end{align*}
+è un omomorfismo di anelli.
+\end{oss}
+\begin{definizione}
+Un \uline{isomorfismo di anelli} è un omomorfismo di anelli \href{20250104111707-funzione_biunivoca.org}{biiettivo}.
+\end{definizione}
+\begin{oss}
+La condizione di cui sopra è sufficiente affinché l'inversa di un isomorfismo sia ancora un omomorfismo.
+\end{oss}
+\begin{prop}
+Si ha:
+\begin{itemize}
+\item composizione di omomorfismi è un omomorfismo;
+\item se \(f:A\to B\) è un isomorfismo, allora \(f^{-1}:B\to A\) è un isomorfismo.
+\end{itemize}
+\end{prop}
+\end{document}

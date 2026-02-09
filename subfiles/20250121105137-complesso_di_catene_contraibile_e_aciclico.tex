@@ -1,0 +1,40 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità e sia \(\mathcal{C}_{\bullet}\) un \href{20250120163114-complesso_di_catene.org}{complesso di catene},
+\begin{equation*}
+\mathcal{C}_{\bullet}=\set{(C_{n},\partial_{n})}_{n \in \Z}
+\end{equation*}
+\begin{prop}
+Se \(\mathcal{C}_{\bullet}\) è \href{20250121104453-complesso_di_catene_contraibile.org}{contraibile}, allora è \href{20250121104306-complesso_di_catene_aciclico.org}{aciclico}.
+\end{prop}
+\begin{proof}
+Siano \(\1_{\mathcal{C}_{\bullet}}, \mathds{O}_{\mathcal{C}_{\bullet}} : \mathcal{C}_{\bullet}\to \mathcal{C}_{\bullet}\) i due \href{20250120163759-categoria_complessi_di_catene.org}{morfismi}:
+\begin{align*}
+\1_{\mathcal{C}_{\bullet}} &= \set{\1_{n}:C_{n}\to C_{n}: c\mapsto c}_{n \in \Z}\\
+\mathds{O}_{\mathcal{C}_{\bullet}} &= \set{\mathds{O}_{n}: C_{n}\to C_{n}: c\mapsto 0}_{n \in \Z}
+\end{align*}
+Per ipotesi, questi sono \href{20250121094935-omotopia_tra_morfismi_di_complessi_di_catene.org}{omotopiche}:
+\begin{equation*}
+\1_{\mathcal{C}_{\bullet}} \sim \mathds{O}_{\mathcal{C}_{\bullet}}
+\end{equation*}
+
+Sia \(n\) fissato, e sia \(H_{n}(\mathcal{C}_{\bullet})\) l'\(n\)-esimo \href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{modulo di omologia} di \(\mathcal{C}_{\bullet}\). Per la \href{20241205131958-funtore.org}{funtorialità} di \(H_{n}\)\footnote{\(H_{n}\) è il \href{20250120165029-funtore_tra_chr_e_rmod.org}{funtore di omologia}.}
+\begin{equation*}
+H_{n}(\1_{\mathcal{C}_{\bullet}}) = \1_{H_{n}(\mathcal{C}_{\bullet})}.
+\end{equation*}
+
+Sia ora \([z] \in H_{n}(\mathcal{C}_{\bullet})\).
+\begin{equation*}
+[z]= \1_{H_{n}(\mathcal{C}_{\bullet})}[z] = H_{n}(\1_{\mathcal{C}_{\bullet}})[z] = H_{n}(\mathds{O}_{\mathcal{C}_{\bullet}})[z]
+\end{equation*}
+
+dove l'ultima uguaglianza vale \href{20250121100726-funtore_di_omologia_di_funzioni_omotope.org}{poiché le due funzioni sono omotopiche}; ma
+\begin{equation*}
+ H_{n}(\mathds{O}_{\mathcal{C}_{\bullet}})[z] =  \left[\mathds{O}_{n}(z)\right] = [0].\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

@@ -1,0 +1,97 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:org12c90c6}
+Prove that the map
+\[
+\omega^\omega \rightarrow 2^\omega, \quad x \mapsto \underbrace{0 \ldots 0}_{x(0)} 1 \underbrace{0 \ldots 0}_{x(1)} 1 \underbrace{0 \ldots 0}_{x(2)} 1 \ldots
+\]
+is a (topological) \href{20250331122739-immersione_topologica.org}{embedding}, and argue that this provides an alternative proof of the fact that
+\[
+\left\{x \in 2^\omega \mid x(n)=1 \text { for infinitely many } n \in \omega\right\}
+\]
+is a \href{20250301193045-sottoinsieme_denso.org}{dense} \href{20250301194013-spazio_polacco.org}{Polish} \href{20250103163814-sottospazio_topologico.org}{subspace} of \(2^\omega\). In contrast, show that \(2^\omega\) cannot be embedded as a dense subset in \(\omega^\omega\).
+
+{[}Hint. Use compactness.]
+\subsection{Dimostrazione}
+\label{sec:org615062a}
+
+\subsubsection{Prima parte}
+\label{sec:org65f679d}
+Sia \(f:\omega^{\omega}\to 2^{\omega}\) la funzione descritta. Sia, per ogni \(s \in \omega^{<\omega}\):
+\begin{equation*}
+\bm{N}_{s} \coloneqq \set{x \in \omega^{\omega}\mid x\upharpoonright s =s }
+\end{equation*}
+Si costruisce quindi l'\$\(\omega\)\$-schema associato ad \(f\):
+\begin{align*}
+\mathcal{S} &\coloneqq \set{B_{s}\mid s \in \omega^{<\omega}}\\
+B_{s} &\coloneqq f(\bm{N}_{s})
+\end{align*}
+
+Si applica il lemma 1.3.9.
+\begin{itemize}
+\item Si ha che \(B_{s}\) è aperto in \(2^{\omega}\), per definizione di \href{20250109154723-topologia_prodotto.org}{topologia prodotto} (sono insiemi con un numero finito di componenti fissate).
+\item Sia \(s \in \omega^{<\omega}\) e siano \(x,y \in \omega\), \(x\neq y\). Supponiamo per assurdo che \(B_{s\concat x} \cap B_{s\concat y} \neq \emptyset\), ovvero
+\begin{equation*}
+  f(\bm{N}_{s\concat x}) \cap f(\bm{N}_{s\concat y})\neq \emptyset.
+\end{equation*}
+Dunque esistono \(a \in \bm{N}_{s\concat x}\), \(b \in \bm{N}_{s\concat y}\) tali che \(f(a)=f(b)\). Siccome \(f\) è \href{20241219101956-funzione_iniettiva.org}{iniettiva}, \(a=b\), ma \(\bm{N}_{s\concat x}\cap \bm{N}_{s\concat y}=\emptyset\). Assurdo.
+\end{itemize}
+Per il punto (c) si ha che \(f\) è una immersione topologica.
+\subsubsection{Seconda parte}
+\label{sec:org92bf21e}
+Sia
+\begin{equation*}
+A\coloneqq \set{x \in 2^{\omega}\mid x(n)=1\text{ per un numero infinito di }n \in\omega}
+\end{equation*}
+
+Si ha che \(A=f(\omega^{\omega})\). Infatti, l'inclusione ``\(\supseteq\)'' è ovvia. Per il viceversa, si definisce per ogni \(y \in A\), l'insieme
+\begin{equation*}
+Z_{y} \coloneqq \set{n \in \omega\mid y(n) = 1} \subseteq \omega
+\end{equation*}
+Si ordina \(Z_{y}\) in maniera crescente, \(Z_{y} \coloneqq (y_{i})_{i \in \omega}\).
+
+Si definisce \(x \in \omega^{\omega}\) come:
+\begin{equation*}
+x(i) \coloneqq\begin{cases}
+y_{0} & i=0\\
+y_{i} - y_{i-1} - 1& i>0
+\end{cases}
+\end{equation*}
+e si ottiene che \(y=f(x)\).
+
+Questo dimostra che \(A\) è un sottospazio polacco di \(2^{\omega}\), \href{20250303115241-proprieta_di_chiusura_degli_spazi_polacchi.org}{poiché} \href{20250111142332-omeomorfismo.org}{omeomorfo} a \(\omega^{\omega}\) spazio polacco.
+
+Inoltre, sia \(y \in 2^{\omega}\), e sia, per ogni \(n \in \omega\):
+\begin{equation*}
+x_{n}(i) \coloneqq \begin{cases}
+y(i) & i\le n\\
+1 & i >n
+\end{cases}
+\end{equation*}
+
+Allora \(x_{n} \in A\) e \(x_{n}\to y\), in quanto, considerata la distanza su \(2^{\omega}\):
+\begin{equation*}
+d(\eta,\tau) \coloneqq \begin{cases}
+0 & \eta=\tau\\
+2^{-(n+1)} & \eta\neq \tau \text{ e }n\text{ è il più piccolo t.c. }\eta(n)\neq \tau(n)
+\end{cases}
+\end{equation*}
+per ogni \(\varepsilon>0\) esiste \(N \in \omega\), \(N\coloneqq \lceil -\ln_{2}(\varepsilon)-1\rceil\) tale che per ogni \(n>N\): \(d(x_{n}, y)<\varepsilon\). Quindi \(A\) è denso in \(2^{\omega}\), per la \href{20250303121451-caratterizzazione_della_chiusura_in_termini_di_successioni.org}{caratterizzazione della chiusura per successioni}.
+\subsubsection{Terza parte}
+\label{sec:org9ceb583}
+Lo spazio \(\omega^{\omega}\) è \href{20250301193401-spazio_topologico_metrizzabile.org}{metrizzabile}, e pertanto \href{20250109155715-spazio_topologico_di_hausdorff.org}{T2}.
+
+Supponiamo che per assurdo esista \(\iota: 2^{\omega}\to \omega^{\omega}\) immersione topologica tale che \(\iota(2^{\omega})\eqqcolon X\) sia denso in \(\omega^{\omega}\).
+
+Siccome \(2^{\omega}\) è compatto, allora \(X\) è compatto, ed inoltre \(\operatorname{Cl}(X) = \omega^{\omega}\). Ma in uno spazio di Hausdorff \href{20250331174140-compatto_in_un_haussdorf_e_chiuso.org}{i compatti sono chiusi}, e \href{20250103144944-chiusura_topologica.org}{pertanto}
+\begin{equation*}
+X=\operatorname{Cl}(X)=\omega^{\omega}
+\end{equation*}
+
+Questo è un assurdo, poiché \(\omega^{\omega}\) non è compatto.
+\end{document}

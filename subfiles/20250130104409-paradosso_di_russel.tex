@@ -1,0 +1,38 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Paradosso di Russel}
+\label{sec:org2347b2f}
+
+Si consideri l'insieme
+\begin{equation*}
+R=\set{x : x \notin x}
+\end{equation*}
+\begin{itemize}
+\item Se \(R \in R\), allora \(R\notin R\);
+\item Se \(R\notin R\), allora \(R \in R\).
+\end{itemize}
+
+Questo è assurdo.
+\subsection{Soluzione nell'ambito di MK}
+\label{sec:orgbfe6574}
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+
+La classe
+\begin{equation*}
+R = \set{x\,|\, x \notin x}
+\end{equation*}
+esiste per l'assioma di Comprehension, e contiene tutti gli \href{20250130104331-insieme_mk.org}{insiemi} \(x\) tali che \(x\notin x\).
+
+Se \(R \in R\), allora \(R\notin R\), assurdo.
+Se invece \(R\notin R\), allora
+\begin{itemize}
+\item se \(R\) è un \href{20250130104331-insieme_mk.org}{insieme}, si ha la contraddizione che \(R \in R\).
+\item se \(R\) è una \href{20250130104320-classe_mk.org}{classe propria}, allora non vi è alcuna contraddizione.
+\end{itemize}
+
+Quindi \(R\) è una classe propria, tale che \(R\notin R\).
+\end{document}

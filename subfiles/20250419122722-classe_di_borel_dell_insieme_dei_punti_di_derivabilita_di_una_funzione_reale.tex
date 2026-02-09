@@ -1,0 +1,96 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proprietà}
+\label{sec:orga8906ef}
+
+Given a continuous function \(f : [0, 1] \to \mathbb{R}\), let
+\[
+D_f = \set{ x \in [0, 1] \mid f' \text{ exists}}.
+\]
+(At endpoints we take one-sided derivatives.) Prove that \(D_f \in \bm{\Pi}^{0}_{3}\left([0,1]\right)\).
+\subsection{Dimostrazione}
+\label{sec:org7c78cd1}
+
+Si ha che \(x \in D_{f}\) se e solo se \(x \in [0,1]\) e per ogni \(\varepsilon \in \R^{+}\) esiste \(\delta \in \R^{ +}\) tale che per ogni \(p, q \in [0,1]\):
+\begin{equation*}
+0<|p-x|,|q-x|< \delta
+\quad\implies\quad
+\left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon
+\end{equation*}
+se e solo se \(x \in [0,1]\) e per ogni \(\varepsilon \in \Q^{+}\) esiste \(\delta \in \Q^{ +}\) tale che per ogni \(p, q \in [0,1]\cap \Q\):
+\begin{equation*}
+0<|p-x|,|q-x|< \delta
+\quad\implies\quad
+\left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon
+\end{equation*}
+ovvero
+\begin{equation*}
+\left(
+\begin{aligned}
+0<|p-x| \,&\mathord{\wedge}\,|p-x|< \delta\\
+&\mathord{\wedge}\\
+0<|q-x| \,&\mathord{\wedge}\,|q-x|<\delta
+\end{aligned}
+\right)
+\quad\implies\quad
+\left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon
+\end{equation*}
+ovvero
+\begin{equation*}
+\lnot\,\left(
+\begin{aligned}
+0<|p-x| \,&\mathord{\wedge}\,|p-x|< \delta\\
+&\mathord{\wedge}\\
+0<|q-x| \,&\mathord{\wedge}\,|q-x|<\delta
+\end{aligned}
+\right)
+\,\lor\,
+\left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon
+\end{equation*}
+ovvero
+\begin{multline*}
+0\ge |p-x| \,\lor\, |p-x|\ge \delta \,\lor\, 0\ge|q-x| \,\lor\,\\  \,\lor\, |q-x|\ge \delta
+\,\lor\, \left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon.
+\end{multline*}
+
+Siano quindi
+\begin{align*}
+A_{p} &\coloneqq \set{x \in [0,1]\,\tc\, |p-x|=0} = \set{p}\\
+B_{p,\delta} &\coloneqq \set{x \in [0,1]\,\tc\, |p-x|\ge \delta}\\
+C_{q} &\coloneqq \set{x \in [0,1]\,\tc\, |q-x|=0} = \set{q}\\
+D_{q,\delta} &\coloneqq \set{x \in [0,1]\,\tc\, |q-x|\ge \delta}\\
+E_{p,q}^{\varepsilon} &\coloneqq \set{x \in [0,1]\,\tc\,\left|\frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}\right|\le\varepsilon}
+\end{align*}
+
+Vale dunque l'uguaglianza
+\begin{equation*}
+D_{f} = \bigcap_{\varepsilon \in \Q^{+}} \bigcup_{\delta \in \Q^{ +}} \bigcap_{p,q \in [0,1]\cap \Q } A_{p}\cup B_{p,\delta}\cup C_{q}\cup D_{q,\delta}\cup E_{p,q}^{\varepsilon},
+\end{equation*}
+e pertanto:
+\begin{itemize}
+\item l'insieme \(V_{p,q}^{\varepsilon,\delta} \coloneqq A_{p}\cup B_{p,\delta}\cup C_{q}\cup D_{q,\delta}\cup E_{p,q}^{\varepsilon}\) è chiuso:
+\begin{itemize}
+\item i \(B_{p,\delta}\) e \(D_{q,\delta}\) sono chiusi;
+\item si consideri ora la funzione continua:
+\begin{align*}
+	F: [0,1]\setminus\set{p,q} &\longrightarrow \R\\
+	x&\longmapsto \frac{f(p)-f(x)}{p-x}-\frac{f(q)-f(x)}{q-x}
+\end{align*}
+pertanto \(E_{p,q}^{\varepsilon} = F^{-1}\left([-\varepsilon,\varepsilon]\right)\) è un chiuso di \([0,1]\setminus\set{p,q}\); esiste pertanto un \textbf{\textbf{chiuso}} \(W\) di \([0,1]\) tale che
+\begin{equation*}
+	E_{p,q}^{\varepsilon} = \left([0,1]\setminus\set{p,q}\right) \cap W = W\setminus\set{p,q}
+\end{equation*}
+e pertanto
+\begin{equation*}
+	W= E_{p,q}^{\varepsilon} \cup\set{p,q} = E_{p,q}^{\varepsilon} \cup A_{p}\cup C_{q};
+\end{equation*}
+\end{itemize}
+\item l'insieme \(\bigcap_{p,q \in [0,1]\cap \Q} V_{p,q}^{\varepsilon,\delta}\) è chiuso, poiché intersezione di chiusi;
+\item l'insieme \(\bigcup_{\delta \in \Q^{ +}} \bigcap_{p,q \in [0,1]\cap \Q } V_{p,q}^{\varepsilon,\delta}\) è un \(\bm{\Sigma}^0_2(X)\), poiché unione numerabile di chiusi;
+\item l'insieme \(D_{f}\) è un \(\bm{\Pi}^0_3(X)\) poiché è intersezione numerabile di \(\bm{\Sigma}^0_2(X)\).\qed
+\end{itemize}
+\end{document}

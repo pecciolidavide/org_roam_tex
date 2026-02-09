@@ -1,0 +1,82 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione TEORIA DEI MODELLI}.
+
+Sia \(\mathcal{M} = \mathcal{M}_{\text{ob}}\cup \mathcal{M}_{\text{hom}}\) una \href{20241126100904-categoria.org}{categoria} \href{20250213142026-categorie_di_modelli_e_morfismi_parziali.org}{di modelli e morfismi parziali} di \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} \(\mathcal{L}\) tale che
+\begin{enumerate}
+\item per ogni \(M \in \mathcal{M}_{\text{ob}}\) e per ogni \(A \subseteq M\), \(\id_{A} : M\partialto M\) è \(\id_{A} \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(M,N \in \mathcal{M}_{\text{ob}}\), e \(k:M\partialto N\) \href{20250213105339-funzione_parziale.org}{funzione parziale}, se per ogni \(k' \subseteq k\) \href{20250205120448-classe_finita_e_infinita_mk.org}{finito} si ha \(k' \in \mathcal{M}_{\text{hom}}\), allora \(k \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(k \in \mathcal{M}_{\text{hom}}\), \(k\) è \href{20250111142446-funzione_inversa.org}{invertibile} e la sua \href{20250111142446-funzione_inversa.org}{inversa} \(k^{-1} \in \mathcal{M}_{\text{hom}}\);
+\item gli elementi di \(\mathcal{M}_{\text{hom}}\) \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{preservano la verità} delle \href{20250131103317-formula_del_prim_ordine.org}{formule atomiche};
+\item se \(M \in \mathcal{M}_{\text{ob}}\) e \(N\) è una \href{20250131103035-struttura_del_prim_ordine.org}{struttura} \href{20250131123208-teorie_elementarmente_equivalente.org}{elementarmente equivalente} a \(M\), \(M\equiv N\), allora \(N \in \mathcal{M}_{\text{ob}}\).
+\item per ogni \(M, N \in \mathcal{M}_{\text{ob}}\), se \(h:M\partialto N\) è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappa elementare}, allora \(h \in \mathcal{M}_{\text{hom}}\).
+\end{enumerate}
+\section{Teorema}
+\label{sec:org42a0ae9}
+
+\begin{thm}
+Sia \(N \in \mathcal{M}_{\text{ob}}\) tale che la sua cardinalità  \(\card{N}\ge \card{\mathcal{L}}\)
+
+Sono fatti equivalenti;
+\begin{enumerate}
+\item \(N\) è \href{20250213151902-modello_lambda_ricco.org}{ricco};
+\item \(N\) è \href{20250213152011-modello_lambda_omogeneo.org}{omogeneo} e \href{20250213151951-modello_lambda_universale.org}{universale}.
+\end{enumerate}
+\end{thm}
+\subsection{Dimostrazione}
+\label{sec:org54c1086}
+\subsubsection{2. \(\implies\) 1.}
+\label{sec:org4f62b36}
+
+Sia \(M \in \mathcal{M}_{\text{ob}}\) e sia \(k \in \mathcal{M}_{\text{hom}}(M,N)\) tali che \(\card{M}\le\card{N}\) e tale che \(\card{k}<\card{N}\). Dimostriamo che esiste una immersione \(\tilde{k}:M\hookrightarrow N\), \(\tilde{k} \in \mathcal{M}_{\text{hom}}(M,N)\) tale che \(k \subseteq\tilde{k}\). Questo per la \href{20250213162407-caratterizzazione_di_modello_lambda_ricco.org}{caratterizzazione} dei modelli \(\lambda\)-\href{20250213151902-modello_lambda_ricco.org}{ricchi}.
+
+Siccome \(N\) è \href{20250213151951-modello_lambda_universale.org}{universale}, allora esiste una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{immersione} \(f:M\hookrightarrow N\) tale che \(k \subseteq f\), \(f \in \mathcal{M}_{\text{hom}}(M,N)\)
+
+Per la 3. esiste \(f^{-1} \in \mathcal{M}_{\text{hom}}(N,M)\) e per categoricità, \(k\circ f^{-1} \in \mathcal{M}_{\text{hom}}\).
+
+La seguente \href{20250213105339-funzione_parziale.org}{funzione parziale}, quindi
+\begin{equation*}
+k\circ f^{-1}: N\to N
+\end{equation*}
+ha cardinalità \(\card{k}<\card{N}\).
+
+Per \href{20250213152011-modello_lambda_omogeneo.org}{omogeneicità}, esiste una funzione \(h:N\to N\) totale e \href{20250104111707-funzione_biunivoca.org}{biiettiva} tale che \(k\circ f^{-1} \subseteq h\), e tale che \(h \in \mathcal{M}_{\text{hom}}\).
+
+Per la proprietà 4., questa è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo tra strutture del prim'ordine}.
+
+Sia dunque \(\tilde{k} \coloneqq h\circ f\). Questa è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{immersione} e \(\tilde{k} \in \mathcal{M}_{\text{hom}}(M,N)\) poiché composizione di morfismi.
+
+Inoltre, \(k \subseteq \tilde{k}\), infatti, per ogni \(a \in \operatorname{dom}k\) (vedi \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Dominio, Range e Campo di una Classe Relazione}),
+\begin{equation*}
+\tilde{k}(a) = h\circ f (a) = k\circ f^{-1} \circ f(a) = k(a)
+\end{equation*}
+poiché \(f(a) \in\dom f^{-1}\).
+\subsubsection{1. \(\implies\) 2.}
+\label{sec:org0414921}
+
+La \href{20250213162407-caratterizzazione_di_modello_lambda_ricco.org}{Caratterizzazione di modello lambda-ricco} garantisce che \(N\) sia \href{20250213151951-modello_lambda_universale.org}{universale}, grazie alla definizione di \href{20250213153736-componente_connessa_di_una_categoria_di_modelli_e_morfismi_parziali.org}{Componente connessa di una categoria di modelli e morfismi parziali}.
+
+Il \href{20250214101844-lemma_di_estensione_di_morfismi_tra_modelli_ricchi.org}{Lemma di estensione di morfismi tra modelli ricchi} garantisce che \(N\) sia \href{20250213152011-modello_lambda_omogeneo.org}{omogeneo}.\qed
+\section{Versione alternativa}
+\label{sec:org0351e2b}
+
+Sia \(\lambda\) un \href{20250203161341-cardinali.org}{cardinale}, e sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} tale che \(\card{\mathcal{L}}<\lambda\).
+
+Sia \(\mathcal{M}\) la \href{20250213142026-categorie_di_modelli_e_morfismi_parziali.org}{categoria} che consiste delle \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{strutture} e delle \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappe elementari} tra di loro.
+
+Sia \(N\) una \(\mathcal{L}\)-struttura.
+
+\begin{thm}
+Sono fatti equivalenti:
+\begin{enumerate}
+\item \(N\) è \href{20250617095548-modello_lambda_saturo.org}{saturo};
+\item \(N\) è \href{20250213152011-modello_lambda_omogeneo.org}{omogeneo} e \href{20250213151951-modello_lambda_universale.org}{universale}.
+\end{enumerate}
+\end{thm}
+
+Questo è in virtù de ``\href{20250617102704-modello_lambda_saturo_sse_lambda_ricco.org}{Modello lambda saturo sse lambda ricco}''
+\end{document}

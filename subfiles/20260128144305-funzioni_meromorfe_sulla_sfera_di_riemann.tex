@@ -1,0 +1,88 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funzioni meromorfe sulla sfera di Riemann}
+\label{sec:org4a445c7}
+Sia \(\C_{\infty}\) la \href{20260127112905-sfera_di_riemann.org}{sfera di Riemann}.
+
+\begin{prop}
+Sia \(U \subseteq \C\) un \href{20250111142313-intorno.org}{intorno} di \(\infty\) in \(\C_{\infty}\), e \(f\) una funzione complessa definita su \(U\). \(f\) è \href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{meromorfa} in \(\infty\) se e solo se \(f(1/z)\) è \href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{meromorfa} in \(z = 0\).
+\label{prop_scambio1suzconw}
+\end{prop}
+
+Sia \(\mathcal{M}_{\C_{\infty}}\) il \href{20260128144151-fascio_delle_funzioni_meromorfe_su_una_superficie_di_riemann.org}{fascio delle funzioni meromorfe} e sia \(\C(z)\) il seguente insieme:
+\begin{equation*}
+\C(z) \coloneqq \set{\frac{p(z)}{q(z)} \mid p,q \in \C[z]}
+\end{equation*}
+dove \(\C[z]\) indica l'\href{20241219113434-anello_dei_polinomi.org}{anello dei polinomi di variabile \(z\)}.
+
+\begin{thm}
+Si ha che
+\begin{equation*}
+\mathcal{M}_{\C_{\infty}}(\C_{\infty}) = \C(z).
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+(\(\supseteq\)): Sia \(f(z) \in \C(z)\): allora, siccome \(\C\) è un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}, esistono \(c \in \C\), \(\lambda_{i} \in \C\), \(e_{i} \in \Z\setminus\set{0}\) tali che
+\begin{equation*}
+f(z) = c \prod_{i=1}^{r} (z-\lambda_{i})^{e_{i}}
+\end{equation*}
+e quindi \(f\) è \href{20260126110551-funzione_olomorfa.org}{olomorfa} e non nulla in \(\C\setminus\set{\lambda_{1},\dots,\lambda_{r}}\), e inoltre \(\mathrm{ord}_{\lambda_{i}} f = e_{i}\)\footnote{Vedi ``\href{20260128144450-ordine_di_una_funzione_meromorfa_su_una_superficie_di_riemann.org}{Ordine di una funzione meromorfa su una superficie di Riemann}'' e ``\href{20260128144433-ordine_di_una_funzione_meromorfa.org}{Ordine di una funzione meromorfa}''}. Allora \(f(z)\) è meromorfa su \(\C\).
+
+Per mostrare che \(f\) sia meromorfa ad \(\infty\), consideriamo
+\begin{align*}
+g(w) \coloneqq f\left(\frac{1}{w}\right) &= c \prod_{i=1}^{r} \left(\frac{1}{w}-\lambda_{i}\right)^{e_{i}} = c \prod_{i=1}^{r} \frac{(1-\lambda_{i}w)^{e_{i}}}{w^{e_{i}}}\\
+&= c\cdot\frac{\prod_{i=1}^{r} (1-\lambda_{i} w)^{e_{i}}}{w^{\Sigma_{i}\, e_{i}}}
+\end{align*}
+Allora in \(w=0\) si ha che \(g\) è meromorfa e
+\begin{equation*}
+\mathrm{ord}_{0} g = \mathrm{ord}_{\infty} f = -\sum e_{i}.
+\end{equation*}
+
+Per la Proposizione~\ref{prop_scambio1suzconw}, \(f\) è meromorfa in \(\C_{\infty}\).
+\end{proof}
+
+\begin{oss}
+Si noti che, per \(f(z) = \frac{p(z)}{g(z)}\), scritti come nella prima parte della dimostrazione, si ha che
+\begin{equation*}
+\sum_{i=1}^{r} e_{i} = \deg p - \deg q.
+\end{equation*}
+Inoltre, si ha che
+\begin{gather*}
+\sum_{p \in \C_{\infty}} \mathrm{ord}_{p} f = \mathrm{ord}_{\infty} f + \sum_{p \in \C} \mathrm{ord}_{p} f = - \sum e_{i} +\sum e_{i} = 0;\\
+\mathrm{ord}_{\infty} f = - \sum e_{i} = \deg q - \deg p.
+\end{gather*}
+\end{oss}
+
+\begin{proof}
+(\(\subseteq\)): Sia \(f \in \mathcal{M}_{\C_{\infty}}(\C_{\infty})\): \(f\) non è identicamente nulla e \(\C_{\infty}\) è compatto, \href{20260128172415-sottoinsieme_discreto_in_un_compatto.org}{quindi} si ha che l'insieme di tutti gli zeri e i poli di \(f\) in \(\C \subseteq \C_{\infty}\) è:
+\begin{equation*}
+\set{\lambda_{1},\dots,\lambda_{r}}
+\end{equation*}
+
+Sia quindi \(e_{i} \coloneqq \mathrm{ord}_{\lambda_{i}} f \in \Z\), e consideriamo
+\begin{equation*}
+g(z) = \prod_{i=1}^{r} (z-\lambda_{i})^{e_{i}} \in \mathcal{M}_{\C_{\infty}}(\C_{\infty})
+\end{equation*}
+per il punto precedente. Si consideri quindi \(h(z) \coloneqq \frac{f(z)}{g(z)}\): in quanto rapporto di funzioni meromorfe, è meromorfa, e inoltre, per ogni \(z_{0} \in \C\):
+\begin{equation*}
+\mathrm{ord}_{z_{0}} h = \mathrm{ord}_{z_{0}} f - \mathrm{ord}_{z_{0}} g = 0
+\end{equation*}
+per costruzione di \(g\): segue che \(h:\C\to \C\) è olomorfa e non nulla. In \(\C\) si ha che
+\begin{equation*}
+h(z) = \sum_{n\ge 0} a_{n} z^{n}.
+\end{equation*}
+
+Ma \(h\) è meromorfa in \(\infty\), quindi \(k(w) \coloneqq h(1/w)\) è meromorfa in \(w=0\):
+\begin{equation*}
+k(w) = \sum_{n\ge 0} \frac{a_{n}}{w_{n}}
+\end{equation*}
+Pertanto \(w=0\) è un \href{20260128154601-singolarita_isolata_analisi_complessa.org}{polo}, perciò deve esistere \(N \in \N\) tale che per ogni \(n>N\): \(a_{n} = 0\).
+
+Pertanto \(h(z)\) è un polinomio mai nullo su \(\C\), e pertanto\footnote{Per il \href{20250102154204-teorema_fondamentale_dell_algebra.org}{Teorema Fondamentale dell'Algebra}, con \(\C\) campo algebricamente chiuso.} deve essere costante. Quindi \(f= k\cdot g\) per \(k \in \C\), ed è razionale.
+\end{proof}
+\end{document}

@@ -1,0 +1,98 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\renewcommand{\href}[2]{#2}
+
+
+\begin{document}
+
+\section*{Legge di Hook}
+\label{sec:org74b9575}
+La legge di Hook asserisce che, data una molla sottoposta ad un allungamento \(\Delta\, x\), questa agisca con una \href{20250315151443-forza.org}{forza} di richiamo \href{20250315151458-proporzionalita_diretta.org}{direttamente proporzionale} all'allungamento:
+\begin{equation*}
+F_{\text{el}} = k\cdot\Delta\, x
+\end{equation*}
+La costante \(k\) è caratteristica della molla, e viene chiamata \textbf{costante elastica}.
+\subsection*{Molle in Serie}
+\label{sec:orgfe486d6}
+Si considerino \(N\) molle, di costanti elastiche \(k_{1},\dots,k_{N}\), collegate come segue, alla cui estremità è applicata una forza \(\vec{F}\).
+\begin{equation*}
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\normalsize]
+\draw  (0.75,15) rectangle (1.5,12.5);
+\draw (1.5,13.75) to[L ] (2.75,13.75);
+\draw (2.75,13.75) to[L ] (4,13.75);
+\draw (4,13.75) to[L ] (5.25,13.75);
+\draw (6.5,13.75) to[L ] (7.75,13.75);
+\node at (2.75,13.75) [circ] {};
+\node at (4,13.75) [circ] {};
+\node at (5.25,13.75) [circ] {};
+\node at (6.5,13.75) [circ] {};
+\node at (7.75,13.75) [circ] {};
+\draw [dashed] (5.25,13.75) -- (6.5,13.75);
+\draw [ color={rgb,255:red,255; green,0; blue,0}, ->, >=Stealth] (7.75,13.75) -- (8.75,13.75);
+\node [font=\normalsize, color={rgb,255:red,255; green,0; blue,0}] at (8.25,14) {$\vec{F}$};
+\node [font=\normalsize] at (2.25,14.5) {$k_1$};
+\node [font=\normalsize] at (3.5,14.5) {$k_2$};
+\node [font=\normalsize] at (4.5,14.5) {$k_3$};
+\node [font=\normalsize] at (7,14.5) {$k_N$};
+\node [font=\normalsize] at (2.75,13.5) {$1$};
+\node [font=\normalsize] at (4,13.5) {$2$};
+\node [font=\normalsize] at (5.25,13.5) {$3$};
+\node [font=\normalsize] at (6.5,13.5) {$N-1$};
+\node [font=\normalsize] at (7.75,13.5) {$N$};
+\end{circuitikz}
+\end{equation*}
+
+La forza causerà un allungamento del sistema, pari a \(x\). Siano \(x_{1},\dots,x_{N}\) gli allungamenti di ciascuna singola molla, ovvero tali che
+\begin{equation*}
+x_{1} + \dots + x_{N} = x.
+\end{equation*}
+
+Si vuole determinare la costante elastica \(k_{\text{serie}}\) di una molla che si comporti nello stesso modo del sistema raffigurato sopra, ovvero tale che
+\begin{equation}
+F=k_{\text{serie}}\, x = k_{\text{serie}}\,(x_{1}+\dots+x_{N})\label{eq:20250315151142uno}
+\end{equation}
+
+Siccome il sistema è in \href{20250315153915-equilibrio_cinematico.org}{equilibrio} ciascun nodo è fermo, ed in particolare la somma delle forze in ciascun nodo è uguale a \(0\).
+
+Consideriamo il nodo 1. Su questo agirà una forza rivolta verso sinistra di intensità pari a \(k_{1}\, x_{1}\) (data dalla molla di costante elastica \(k_{1}\)), ed una forza rivolta verso destra di intensità pari a \(k_{2}\, x_{2}\) (data dalla molla di costante elastica \(k_{2}\)). Siccome il sistema è in equilibrio
+\begin{equation*}
+k_{1}\,x_{1}=k_{2}\,x_{2}
+\end{equation*}
+
+
+In un generico nodo \(i\) agirà una forza rivolta verso sinistra di intensità pari a \(k_{i}\, x_{i}\) (data dalla molla di costante elastica \(k_{i}\)), ed una forza rivolta verso destra di intensità pari a \(k_{i+1}\, x_{i+1}\) (data dalla molla di costante elastica \(k_{i+1}\)). Siccome il sistema è in equilibrio
+\begin{equation*}
+k_{i}\,x_{i}=k_{i+1}\,x_{i+1}
+\end{equation*}
+
+Nel nodo \(N\), infinite, agirà una forza rivolta verso sinistra di intensità pari a \(k_{N}\,x_{N}\) (data dall'ultima molla), e la forza \(\vec{F}\) rivolta verso destra.
+
+Si è quindi stabilito che
+\begin{equation*}
+F=k_{1}\,x_{1} = k_{2}\,x_{2} = \dots = k_{N}\, x_{N}.
+\end{equation*}
+In particolare
+\begin{equation*}
+x_{1}=\frac{F}{k_{1}},\quad x_{2}=\frac{F}{k_{2}},\quad\cdots,\quad x_{N}=\frac{F}{k_{N}}
+\end{equation*}
+e quindi, sostituendo nella equazione \eqref{eq:20250315151142uno} si ha che
+\begin{align*}
+F&=k_{\text{serie}}\left(\frac{F}{k_{1}}+\frac{F}{k_{2}}+ \dots + \frac{F}{k_{N}}\right)\\
+&= k_{\text{serie}}\, F\,\left(\frac{1}{k_{1}}+\frac{1}{k_{2}}+\dots+\frac{1}{k_{N}}\right).
+\end{align*}
+
+In definitiva:
+\begin{gather*}
+F = k_{\text{serie}}\, F\, \left(\frac{1}{k_{1}}+\frac{1}{k_{2}}+\dots+\frac{1}{k_{N}}\right)\\
+\cancel{F} = k_{\text{serie}}\, \cancel{F}\, \left(\frac{1}{k_{1}}+\frac{1}{k_{2}}+\dots+\frac{1}{k_{N}}\right)\\
+1 = k_{\text{serie}}\, \left(\frac{1}{k_{1}}+\frac{1}{k_{2}}+\dots+\frac{1}{k_{N}}\right)\\
+\frac{1}{k_{\text{serie}}} = \left(\frac{1}{k_{1}}+\frac{1}{k_{2}}+\dots+\frac{1}{k_{N}}\right)
+\end{gather*}
+
+Questa è la formula cercata:
+\begin{equation*}
+\frac{1}{k_{\text{serie}}} = \left(\frac{1}{k_{1}}+\frac{1}{k_{2}}+\dots+\frac{1}{k_{N}}\right)
+\end{equation*}
+\end{document}

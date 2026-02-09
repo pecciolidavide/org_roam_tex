@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+\begin{itemize}
+\item Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}
+\item Sia \(\Delta\) un insieme di \href{20250131103317-formula_del_prim_ordine.org}{formule} chiuso per sostituzione di variaibli e che contenga la formula ``\(x=y\)''.
+\item Se \(C \subseteq \set{\forall , \exists , \land,\lor,\lnot}\) è un insieme di connettivi, \(C\Delta\) denota la chiusura di \(\Delta\) per i connettivi in \(C\). \(\Delta^{\pm} \coloneqq \set{\lnot}\Delta\). Vedi ``\href{20251021120818-chiusura_di_un_insieme_di_formule_rispetto_a_connettivi_logici.org}{Chiusura di un insieme di formule rispetto a connettivi logici}''
+\end{itemize}
+
+\begin{thm}
+Sia \(\varphi(x) \in \mathcal{L}\). Sono fatti equivalenti:
+\begin{enumerate}
+\item esiste \(\psi(x) \in \set{\exists ,\land , \lor}\!\Delta\) tale che \(T\vdash \forall x\ (\varphi(x)\iff\psi(x))\);
+\item \(\varphi(x)\) è \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{preservata} da \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismi} \href{20250213105339-funzione_parziale.org}{totali} tra \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} di \(T\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+Si noti che, siccome \(\Delta\) contiene \(x=y\), allora\footnote{\href{20250515141706-da_finire.org}{DA FINIRE}} \(1.\Leftrightarrow 1'.\), dove \(1'.\) è
+\begin{quote}
+esiste \(\psi(x) \in \set{\land,\lor}\set{\exists}\!\Delta\) tale che \(T\vdash \forall x\ (\varphi(x)\iff\psi(x))\).
+\end{quote}
+
+(\(1'.\Rightarrow 2.\)): Sia \(k:M\to N\) un \(\Delta\)-morfismo totale. Per ``\href{20251020170439-caratterizzazione_delta_morfismi_estendibili_a_delta_morfismi_totali.org}{Caratterizzazione delta-morfismi estendibili a delta-morfismi totali}'', \(k\) è un \(\set{\exists ,\land}\!\Delta\)-morfismo ed in particolare un \(\set{\exists }\!\Delta\)-morfismo.
+
+Quindi per il \href{20251020153459-lyndon_robinson_lemma.org}{Lyndon-Robinson Lemma} allora \(k\) preserva \(\varphi(x)\).
+
+(\(2.\Rightarrow 1'.\)): Per assurdo, si neghi \(1'.\)
+Allora per il \href{20251020153459-lyndon_robinson_lemma.org}{Lyndon-Robinson Lemma} esiste un \(\set{\exists }\!\Delta\)-morfismo \(k:M\to N\) che non preserva \(\varphi(x)\). Questo sarà in particolare un \(\set{\exists ,\land}\!\Delta\)-morfismo\footnote{\href{20251021120818-chiusura_di_un_insieme_di_formule_rispetto_a_connettivi_logici.org}{Siccome} \(\set{\exists ,\land}\!\Delta = \set{\land}\set{\exists }\!\Delta\) è sufficiente applicare l'\href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{osservazione che segue la definizione di \(\Delta\)-morfismo}.}.
+
+Per ``\href{20251020170439-caratterizzazione_delta_morfismi_estendibili_a_delta_morfismi_totali.org}{Caratterizzazione delta-morfismi estendibili a delta-morfismi totali}'', esiste \(h:M\to N\) \(\Delta\)-morfismo totale tra modelli di \(T\) che non preserva \(\varphi\) (poiché \(h\) estende \(k\) e \(k\) non preserva \(\varphi\)).
+\end{proof}
+\end{document}

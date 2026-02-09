@@ -1,0 +1,28 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Siano \(K,L\) due \href{20250121124147-complesso_simpliciale.org}{complessi simpliciali}.
+
+\begin{definizione}
+Una \textbf{mappa simpliciale} \(\varphi:K \longrightarrow L\) è una mappa tra gli \href{20250121124310-scheletro_di_un_complesso_simpliciale.org}{\(0\)-scheletri}:
+\begin{equation*}
+\varphi_{0}:K^{0}\longrightarrow L^{0}
+\end{equation*}
+tale che per ogni \href{20250121121923-simplessi.org}{simplesso} \([p_{0},\dots,p_{q}] \in K\)
+\begin{equation*}
+\mathrm{ConvexHull} \big(\varphi_{0}(p_{0}),\dots,\varphi_{0}(p_{q})\big) = \set{t_{0}\, \varphi_{0}(p_{0}) + \dots +t_{q}\, \varphi_{0}(p_{q}) \mid t_{i} \in[0,1], \sum t_{i} = 1} \in L
+\end{equation*}
+e si pone \(\varphi[p_{0},\dots,p_{q}] \coloneqq \mathrm{ConvexHull} \big(\varphi_{0}(p_{0}),\dots,\varphi_{0}(p_{q})\big)\)
+\end{definizione}
+
+\begin{oss}
+Notiamo che l'insieme di cui sopra \textbf{non è} necessariamente il simplesso  \([\varphi_{0}(p_{0}),\dots,\varphi_{0}(p_{q})]\), poiché \(\varphi_{0}\) potrebbe non essere \href{20241219101956-funzione_iniettiva.org}{iniettiva}.
+\end{oss}
+
+\begin{oss}
+Sicuramente \(\dim\varphi(\sigma)\le\dim\sigma\) e si ha l'uguaglianza quando \(\restriction{\varphi_{0}}{\set{{p_{0},\dots,p_{q}}}}\) è \href{20241219101956-funzione_iniettiva.org}{iniettiva}.
+\end{oss}
+\end{document}

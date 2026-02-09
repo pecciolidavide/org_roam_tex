@@ -1,0 +1,43 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{L}=\set{r}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} con un \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di relazione} \href{20250130162057-linguaggio_del_prim_ordine.org}{binaria}.
+
+La \uline{teoria dei grafi} \(T_{\text{gph}}\) è la \href{20250130114950-teoria_del_prim_ordine.org}{teoria del prim'ordine} dotata dei seguenti \href{20250131123109-insieme_di_assiomi_per_una_teoria.org}{assiomi}:
+\begin{itemize}
+\item \uline{irriflessiva}: \(\forall\,x\ \lnot\,r(x,x)\);
+\item \uline{simmetrica}: \(\forall\,x \forall\, y\ \left[r(x,y)\,\implies\, r(y,x)\right]\).
+\end{itemize}
+\section{Grafo}
+\label{sec:org648fbd6}
+Un \uline{grafo} è un \href{20250131122945-modello_di_un_insieme_di_formule.org}{modello} \(M\) di \(T_{\text{gph}}\).
+\subsection{Vertice di un grafo}
+\label{sec:orgc00073c}
+Gli elementi di \(M\) sono detti \uline{vertici} o \uline{nodi del grafo}
+\subsection{Lato di un grafo}
+\label{sec:org47727e1}
+Un \uline{lato} di \(M\) è una coppia non ordinata \(\set{a,b} \subseteq M\) tale che
+\begin{equation*}
+M\vDash r(a,b)
+\end{equation*}
+(vedi \href{20250131122913-soddisfazione_di_una_formula.org}{Soddisfazione di una formula})
+\section{Teoria dei grafi aleatori}
+\label{sec:org32d4d65}
+La \uline{teoria dei grafi aleatori} è la \(\mathcal{L}\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria}: \(T_{\text{rg}} \coloneqq T_{\text{gph}}\cup\set{\operatorname{nt}}\cup \set{ \operatorname{r}_{n}\ |\ n \in \N\setminus\set{0}}\), dove
+\begin{align*}
+\operatorname{nt}&: & &\exists\,x\exists\, y\ (x\neq y)\\
+\operatorname{r}_{n} &: & &\left(\bigwedge_{i,j = 1}^{n} x_{i}\neq y_{j}\right)\,\implies\, \exists\,z \ \left[
+\bigwedge_{i = 1}^{n} \left[
+r(x_{i},z) \,\land\, \lnot\,r(z,y_{i}) \,\land\, z\neq y_{i}
+\right]
+\right]
+\end{align*}
+
+L'assioma \(r_{n}\) garantisce che per ogni coppia di insiemi di vertici \(A\), \(B\), disgiunti e di cardinalità minore di \(n\), esista un elemento \(z\) collegato a tutti i vertici di \(A\) e a nessun vertice di \(B\); inoltre, si richiede che \(z\) non sia in \(B\) (il fatto che \(z\) non sia in \(A\) segue dal fatto che \(z\) sia collegato a tutti i suoi elementi).
+\subsection{Grafo aleatorio}
+\label{sec:org4f5c8cf}
+Un \uline{grafo aleatorio} è un \href{20250131122945-modello_di_un_insieme_di_formule.org}{modello} di \(T_{\text{rg}}\).
+\end{document}

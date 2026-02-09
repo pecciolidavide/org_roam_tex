@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+\section{Teorema}
+\label{sec:orgd30d732}
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, e sia \(M\) una \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} infinita. Se \(p(x)\) è un tipo di \href{20250212112324-estensione_di_un_linguaggio_del_prim_ordine.org}{\(\mathcal{L}(M)\)}-\href{20250131103317-formula_del_prim_ordine.org}{formule} \href{20250212164424-tipo_teoria_dei_modelli.org}{finitamente soddisfacibile in \(M\)}, è \href{20250212164424-tipo_teoria_dei_modelli.org}{realizzato} in una \href{20250212102253-sottostruttura_elementare.org}{estensione elementare} di \(M\).
+\subsection{Dimostrazione}
+\label{sec:org7b09199}
+Sia \(a\) una \href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{enumerazione} di \(M\). Siccome \(p(x)\) è composto da \(\mathcal{L}(M)\)-formule, lo si può considerare come il tipo \(p(x;a)\), dove \(p(x,z)\) è il tipo di \(\mathcal{L}\)-formule.
+
+Sia \(q(z)\) il \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo} \(\operatorname{tp}_{M}(a)\) (vedi \href{20250212164424-tipo_teoria_dei_modelli.org}{Tipo di una tupla in una struttura}). Chiaramente \(p(x;z)\cup q(z)\) è \href{20250212164424-tipo_teoria_dei_modelli.org}{finitamente soddisfacibile} (rappresentante di questo è \(M\)).
+
+\href{20250212165544-tipo_finitamente_consistente_e_consistente.org}{Allora} \(p(x;z)\cup q(z)\) è \href{20250212164424-tipo_teoria_dei_modelli.org}{soddisfacibile}, e pertanto esiste una \(\mathcal{L}\)-struttura \(N'\) che soddisfi:
+\begin{equation*}
+N'\vDash p(c';a')\cup q(a')
+\end{equation*}
+per qualche \(c' \in (N')^{x}\) e \(a' \in (N')^{z}\). Ovviamente \(N'\vDash p(c';a')\).
+
+Detti quindi \(a=(a_{i})\) e \(a'=(a_{i}')\), questi sono di lunghezza diversa per definizione, e si pone
+\begin{align*}
+h: M &\longrightarrow N'\\
+a_{i} &\longmapsto a_{i}'
+\end{align*}
+Questa è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{immersione elementare}, poiché \(N'\vDash q(a')\).
+
+\href{20250212185030-immersione_elementare_induce_isomorfismo.org}{Allora} il suo \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{range} \(h[M]\) è \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfo} ad \(M\) ed è una \href{20250212102253-sottostruttura_elementare.org}{sottostruttura elementare} di \(N'\): \(h[M]\preceq N'\).  Inoltre \(h\) si estende ad un isomorfismo \(h:N\to N'\), con \(M\preceq N\), e pertanto esiste \(c \in N^{x}\) tale che \(hc=c'\), e pertanto
+\begin{equation*}
+N\vDash p(c;a)
+\end{equation*}
+e dunque \(N\) realizza \(p(x;a)\).
+\end{document}

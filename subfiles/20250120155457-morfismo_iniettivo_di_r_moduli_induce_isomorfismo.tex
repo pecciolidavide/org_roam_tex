@@ -1,0 +1,85 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Primo Teorema di Isomorfismo}
+\label{sec:org60343b0}
+
+\subsection{Primo Teorema di Isomorfismo (Teoria dei Gruppi)}
+\label{sec:org0a3b8ea}
+\begin{thm}
+Sia \(\phi: G \to H\) un \href{20241206115531-morfismo_di_gruppi.org}{omomorfismo} di \href{20241205141146-gruppo_abeliano.org}{gruppi}. Allora il \href{20241213105201-kernel.org}{nucleo} \(\ker(\phi)\) è un \href{20241206143051-sottogruppo.org}{sottogruppo} \href{20241206143051-sottogruppo.org}{normale} di \(G\) e vi è un \href{20241206115531-morfismo_di_gruppi.org}{isomorfismo}:\footnote{Vedi ``\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}''}
+\begin{equation*}
+G / \ker(\phi) \cong \mathrm{im}(\phi)
+\end{equation*}
+dato da
+\begin{align*}
+G/\ker(\phi) &\longrightarrow \mathrm{im}(\phi)\\
+g + \ker(\phi) &\longmapsto \phi(g).
+\end{align*}
+\end{thm}
+
+\begin{oss}
+Pertanto, se \(\phi:G\to H\) è \href{20241219101956-funzione_iniettiva.org}{iniettivo}, allora \(G \cong \phi[G]\).
+\end{oss}
+\subsection{Primo Teorema di Isomorfismo (Moduli)}
+\label{sec:org90f6c7d}
+\begin{thm}
+Sia \(\psi: M \to N\) un \href{20241206115416-morfismi_r_moduli.org}{omomorfismo} di \href{20241205141053-r_moduli.org}{\(R\)-moduli}. Allora:
+\begin{equation*}
+M / \ker(\psi) \cong \text{im}(\psi)
+\end{equation*}
+\end{thm}
+\subsection{Primo Teorema di Isomorfismo (Anelli)}
+\label{sec:org0cf4fb9}
+\begin{thm}
+Sia \(f: R \to S\) un \href{20241205141119-anello.org}{omomorfismo} di \href{20241205141119-anello.org}{anelli}. Allora \(\ker(f)\) è un \href{20241219112955-ideale.org}{ideale} di \(R\) e:
+\begin{equation*}
+R / \ker(f) \cong \text{im}(f)
+\end{equation*}
+\end{thm}
+\section{Secondo Teorema di Isomorfismo}
+\label{sec:orgb122e2e}
+\subsection{Secondo Teorema di Isomorfismo (Teoria dei Gruppi)}
+\label{sec:org9f5f5df}
+\subsection{Secondo Teorema di Isomorfismo (Moduli)}
+\label{sec:orgf0f2bba}
+\subsection{Secondo Teorema di Isomorfismo (Anelli)}
+\label{sec:orgb2e402d}
+\section{Terzo Teorema di Isomorfismo}
+\label{sec:orge83227a}
+\subsection{Terzo Teorema di Isomorfsimo (Teoria dei Gruppi)}
+\label{sec:org4bcd778}
+\subsection{Terzo Teorema di Isomorfismo (Moduli)}
+\label{sec:orgd40261e}
+\subsection{Terzo Teorema di Isomorfismo (Anelli)}
+\label{sec:org5eacb7c}
+\section{Teoremi di Isomorfismo per complessi di catene}
+\label{sec:orge5a7d28}
+
+\begin{thm}
+Siano \(\mathcal{A}_{\bullet}, \mathcal{B}_{\bullet}, \mathcal{C}_{\bullet}\) complessi di catene di \(R\)-moduli. Valgono i seguenti teoremi di isomorfismo:
+
+\begin{enumerate}
+\item \textbf{\textbf{Primo Teorema di Isomorfismo}}:
+Sia \(f_{\bullet}: \mathcal{A}_{\bullet} \longrightarrow \mathcal{B}_{\bullet}\) un morfismo di complessi. Allora esiste un isomorfismo di complessi di catene:
+\begin{equation*}
+\mathcal{A}_{\bullet} / \ker(f_{\bullet}) \cong \operatorname{Im}(f_{\bullet})
+\end{equation*}
+
+\item \textbf{\textbf{Secondo Teorema di Isomorfismo}}:
+Siano \(\mathcal{S}_{\bullet}\) e \(\mathcal{T}_{\bullet}\) sottocomplessi di \(\mathcal{C}_{\bullet}\). Allora esiste un isomorfismo:
+\begin{equation*}
+(\mathcal{S}_{\bullet} + \mathcal{T}_{\bullet}) / \mathcal{T}_{\bullet} \cong \mathcal{S}_{\bullet} / (\mathcal{S}_{\bullet} \cap \mathcal{T}_{\bullet})
+\end{equation*}
+
+\item \textbf{\textbf{Terzo Teorema di Isomorfismo}}:
+Siano \(\mathcal{S}_{\bullet} \subseteq \mathcal{T}_{\bullet} \subseteq \mathcal{C}_{\bullet}\) sottocomplessi. Allora esiste un isomorfismo:
+\begin{equation*}
+(\mathcal{C}_{\bullet} / \mathcal{S}_{\bullet}) / (\mathcal{T}_{\bullet} / \mathcal{S}_{\bullet}) \cong \mathcal{C}_{\bullet} / \mathcal{T}_{\bullet}
+\end{equation*}
+\end{enumerate}
+\end{thm}
+\end{document}

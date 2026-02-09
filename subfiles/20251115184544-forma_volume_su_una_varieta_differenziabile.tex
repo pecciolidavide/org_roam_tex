@@ -1,0 +1,35 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Forma volume su una varietà differenziabile}
+\label{sec:org5ea2049}
+\begin{definizione}
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} \(n\)-dimensionale. Una \uline{forma volume} è una \href{20251115155511-forma_differenziale_in_un_punto.org}{\(n\)-forma} mai nulla \(\nu\).
+\end{definizione}
+\begin{esempio}
+Su \((U,x^{1},\dots,x^{n})\) \href{20250113103136-atlante_topologico_differenziabile.org}{carta locale},
+\begin{equation*}
+\dif x^{1} \wedge \dots \wedge \dif x^{n}
+\end{equation*}
+è una \(n\)-forma mai nulla su \(V\).
+\end{esempio}
+
+\begin{oss}
+Se \(\nu\) è una forma volume su \(M\), allora esiste \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{una \(f \in C^{\infty} (U)\)} tale che\footnote{Vedi ``\href{20251201155413-restrizione_di_una_forma_ad_una_sottovarieta.org}{Restrizione di una forma ad una sottovarietà}''}
+\begin{equation*}
+f \cdot \restriction{\nu}{U} = \dif x^{1}\wedge \dots \wedge \dif x^{n},\qquad f>0.
+\end{equation*}
+\end{oss}
+\begin{prop}
+Se \(\nu\) è una forma volume su \(M\), allora l'\href{20251115185654-integrazione_di_forme_su_varieta_differenziabile_orientata.org}{integrale} è positivo:
+\begin{equation*}
+\int_{M} \nu > 0.
+\end{equation*}
+\end{prop}
+\begin{proof}
+Vedi Osservazione~4.3.6 
+\end{proof}
+\end{document}

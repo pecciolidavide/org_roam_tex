@@ -1,0 +1,55 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Processo di apprendimento di una rete neurale}
+\label{sec:orgae5a361}
+L'apprendimento di una \href{20250624155858-neurone_artificiale.org}{rete neurale} è il processo di ricerca dei parametri ottimali per approssimare la funzione target. Questo è un processo iterativo algoritmico, che genera una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} \((w_{t})\) di parametri. Poiché si parla di numeri immensi di elementi in questa sequenza, spesso ci si riferisce a \(t\) come una sorta di variabile temporale continua.
+
+Si vuole allenare un modello per replicare una funzione target di cui si conoscono \(N\) valori: \(\set{(x_{i},z_{i})}\), minimizzando la funzione costo \(C(\bm{w})\).
+
+Questo insieme è diviso in \uline{tre parti}:
+\begin{itemize}
+\item \uline{training set \(\mathscr{T}\)} (c.a. 70\% dei dati);
+\item \uline{test set \(\mathrm{T}\)} (c.a. 20\% dei dati);
+\item \uline{validation set \(\mathcal{V}\)} (c.a. 10\% dei dati).
+\end{itemize}
+
+Si suppone che siano identicamente distribuiti, e che siano indipendenti. Si ottengono quindi tre errori:
+\begin{itemize}
+\item \uline{errore di training \(C_{\mathscr{T}}(\bm{w})\)}: è il valore della funzione costo utilizzando i valori della funzione target presi dal training set;
+\item \uline{errore di test \(C_{\mathrm{T}}(\bm{w})\)}: è il valore della funzione costo utilizzando i valori della funzione target presi dal test set;
+\item \uline{validation error \(C_{\mathcal{V}}(\bm{w})\)}: è il valore della funzione costo utilizzando i valori della funzione target presi dal validation set.
+\end{itemize}
+\subsection{Errori di Training e di Test}
+\label{sec:org5c2fccb}
+Con un qualche algoritmo si trova il valore \(\bm{w}^{*}\) che minimizza \(C_{\mathscr{T}}\). Successivamente, si calcola \(C_{\mathrm{T}}(\bm{w}^{*})\), e generalmente vale:
+\begin{equation*}
+	C_{\mathscr{T}}(\bm{w}^{*}) \le C_{\mathrm{T}}(\bm{w}^{*})
+\end{equation*}
+Ci sono tre possibili scenari, a questo punto:
+\begin{itemize}
+\item sia \(C_{\mathscr{T}}(\bm{w}^{*})\) che \(C_{\mathrm{T}}(\bm{w}^{*})\) sono piccoli: questo è lo scenario desiderato;
+\item \(C_{\mathscr{T}}(\bm{w}^{*})\) è piccolo, ma \(C_{\mathrm{T}}(\bm{w}^{*})\) è grande: questo è un fenomeno di \uline{overfitting}; questo significa che la rete neurale sta ``memorizzando'' il training set, e non riesce a generalizzare bene; probabilmente bisogna rivedere l'architettura della rete neurale, probabilmente diminuendo i parametri;
+\item sia \(C_{\mathscr{T}}(\bm{w}^{*})\) che \(C_{\mathrm{T}}(\bm{w}^{*})\) sono grandi: questo è un fenomeno di \uline{underfitting}; bisogna rivedere l'architettura della rete neurale, probabilmente aumentando i parametri.
+\end{itemize}
+
+Pertanto si utilizza il \uline{test set} per verificare che i valori dei parametri trovati sul training set siano sufficientemente generalizzabili.
+\subsection{Iperparametri di un processo di apprendimento}
+\label{sec:org129104d}
+L'algoritmo di apprendimento dipende da un insieme di parametri \uline{diversi} da quelli della rete neurale. Questi sono detti \uline{iperparametri}.
+
+Si utilizza la mimimizzazione del \uline{validation error} proprio per regolare gli iperparametri.
+\subsection{Alcuni esempi di algoritmi di apprendimento}
+\label{sec:org6cd59c3}
+
+Altri algoritmi sono:
+\begin{itemize}
+\item \href{20250710102223-percettrone.org}{Perceptron Learning Algorithm}.
+\item \href{20250711122823-algoritmo_di_gradient_descent.org}{Algoritmo di Gradient Descent}.
+\item Può essere implementato il \href{20250711122823-metodo_del_subgradiente.org}{Metodo del subgradiente}
+\item \href{20250713215224-backpropagation_per_una_rete_neurale.org}{Gradient Descent con Backpropagation per una RNFF}
+\end{itemize}
+\end{document}

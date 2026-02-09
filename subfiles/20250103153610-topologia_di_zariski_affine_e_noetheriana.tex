@@ -1,0 +1,35 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
+\section{Proposizione}
+\label{sec:orgf642d3c}
+La \href{20250103101459-topologia_di_zariski_affine.org}{Topologia di Zariski affine} è \href{20250103152646-spazio_topologico_noetheriano.org}{noetheriana}.
+\subsection{Dimostrazione}
+\label{sec:org39dea76}
+Sia
+\begin{equation*}
+Y_{1}\supseteq \dots \supseteq Y_{n}\supseteq \cdots
+\end{equation*}
+una \href{20250102120836-catena.org}{catena} discendente di \href{20250103145124-topologia.org}{chiusi} di \(\A^{n}\) (vedi \href{20241231114009-spazio_affine.org}{Spazio Affine}). Ciascuno di questi è una \href{20241231114256-varieta_algebrica_affine.org}{Varietà Algebrica Affine}, ovvero \href{20241231112823-radici_polinomiali.org}{Luogo di zeri} di un \href{20241219112955-ideale.org}{Ideale} dell'\href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}:
+Considero la catena
+\begin{equation*}
+I(Y_{1}) \subseteq I(Y_{2}) \subseteq\dots\subseteq I(Y_{n}) \subseteq\dots
+\end{equation*}
+(si veda \href{20250103144124-ideale_di_un_sottoinsieme.org}{Ideale di un sottoinsieme}) dentro a \(\K[x_{1},\dots,x_{n}]\). Siccome l'\href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi} è \href{20250102115942-anello_noetheriano.org}{Anello Noetheriano} (per il \href{20250102165420-teorema_della_base_di_hilbert.org}{Teorema della Base di Hilbert}), questa catena è \href{20250102120655-catena_stazionaria.org}{stazionaria} e pertanto esiste \(k\) tale per cui
+\begin{equation*}
+I(Y_{k})=I(Y_{k+1}=\dots=I(Y_{k+h})
+\end{equation*}
+Dunque si ha che
+\begin{equation*}
+V\left(I(Y_{k})\right)=V\left(I(Y_{k+1})\right)=\dots=V\left(I(Y_{k+h})\right)=\dots
+\end{equation*}
+e, siccome gli \(Y_{j}\) sono chiusi \href{20250103145915-zeri_di_un_ideale_di_un_sottoinsieme_affine.org}{si ha che}
+\begin{equation*}
+Y_{k}=Y_{k+1}=\dots=Y_{k+h}=\dots
+\end{equation*}
+e pertanto la catena iniziale è stazionaria.
+\end{document}

@@ -1,0 +1,37 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione TEORIA DEI MODELLI}.
+
+Sia \(\mathcal{M} = \mathcal{M}_{\text{ob}}\cup \mathcal{M}_{\text{hom}}\) una \href{20241126100904-categoria.org}{categoria} \href{20250213142026-categorie_di_modelli_e_morfismi_parziali.org}{di modelli e morfismi parziali} di \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} \(\mathcal{L}\) tale che
+\begin{enumerate}
+\item per ogni \(M \in \mathcal{M}_{\text{ob}}\) e per ogni \(A \subseteq M\), \(\id_{A} : M\partialto M\) è \(\id_{A} \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(M,N \in \mathcal{M}_{\text{ob}}\), e \(k:M\partialto N\) \href{20250213105339-funzione_parziale.org}{funzione parziale}, se per ogni \(k' \subseteq k\) \href{20250205120448-classe_finita_e_infinita_mk.org}{finito} si ha \(k' \in \mathcal{M}_{\text{hom}}\), allora \(k \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(k \in \mathcal{M}_{\text{hom}}\), \(k\) è \href{20250111142446-funzione_inversa.org}{invertibile} e la sua \href{20250111142446-funzione_inversa.org}{inversa} \(k^{-1} \in \mathcal{M}_{\text{hom}}\);
+\item gli elementi di \(\mathcal{M}_{\text{hom}}\) \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{preservano la verità} delle \href{20250131103317-formula_del_prim_ordine.org}{formule atomiche};
+\item se \(M \in \mathcal{M}_{\text{ob}}\) e \(N\) è una \href{20250131103035-struttura_del_prim_ordine.org}{struttura} \href{20250131123208-teorie_elementarmente_equivalente.org}{elementarmente equivalente} a \(M\), \(M\equiv N\), allora \(N \in \mathcal{M}_{\text{ob}}\).
+\item per ogni \(M, N \in \mathcal{M}_{\text{ob}}\), se \(h:M\partialto N\) è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappa elementare}, allora \(h \in \mathcal{M}_{\text{hom}}\).
+\end{enumerate}
+
+Sia \(\lambda\) un \href{20250203161341-cardinali.org}{cardinale} tale che \(\card{\mathcal{L}}\le\lambda\)
+\section{Proposizione}
+\label{sec:orgecf5356}
+\(N \in \mathcal{M}_{\text{ob}}\) è \(\lambda\)-\href{20250213151902-modello_lambda_ricco.org}{ricco} se e solo se per ogni \(M \in \mathcal{M}_{\text{ob}}\) di \href{20241213101756-cardinalita.org}{cardinalità} \(\card{M}\le \lambda\) e per ogni \((k:M\partialto N) \in \mathcal{M}_{\text{hom}}\) di \href{20241213101756-cardinalita.org}{cardinalità} \(\card{k}<\lambda\), esiste una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{immersione} \(h:M\hookrightarrow N\) tale che \(k \subseteq h\) e \(h \in \mathcal{M}_{\text{hom}}(M,N)\).
+\subsection{Dimostrazione}
+\label{sec:org006643a}
+
+(\(\implies\)): Segue banalmente dal fatto che \(N\) sia \(\lambda\)-ricco e che \(\card{M}\le \lambda\); è possibile aggiungere tutti i punti di \(M\) al dominio di \(k\); per l'ipotesi 2. si ottiene che l'unione di tutte queste mappe sia ancora in \(\mathcal{M}_{\text{hom}}\); poiché inoltre preserva la verità, allora è una immersione.
+
+(\(\impliedby\)): Sia \(M' \in \mathcal{M}_{\text{ob}}\) qualsiasi. Se \(\card{M}\le\lambda\) allora per ipotesi si ha la tesi.
+
+Se invece \(\card{M'}>\lambda\), sia \(k \in \mathcal{M}_{\text{hom}}(M',N)\) con \(\card{k}<\lambda\) e sia \(b \in M\) fissato. Allora esiste una \href{20250212102253-sottostruttura_elementare.org}{sottostruttura elementare} \(M\preceq M'\) tale che
+\begin{equation*}
+\operatorname{dom}k\cup\set{b} \subseteq M
+\end{equation*}
+per il \href{20250212115524-teorema_di_lowenheim_skolem_all_ingiu.org}{Teorema di Löwenheim-Skolem all'ingiù}: \(\card{M}\le \lambda\).
+
+In particolare, per l'ipotesi 5., \(M \in \mathcal{M}_{\text{ob}}\), e \(k \in \mathcal{M}_{\text{hom}}\). Dunque per ipotesi esiste \(h:M\hookrightarrow N\) immersione che estende \(k\) a \(b\), ed inoltre \(h:M'\partialto N\).\qed
+\end{document}

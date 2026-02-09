@@ -1,0 +1,233 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Zig-Zag Lemma (per complessi di cocatene)}
+\label{sec:orge466d71}
+\begin{prop}
+Sia
+\begin{equation*}
+\begin{tikzcd}
+0 \arrow[r] & A^\bullet \arrow[r, "F^\bullet"] & B^\bullet \arrow[r, "G^\bullet"] & C^\bullet \arrow[r] & 0 \qquad (*)
+\end{tikzcd}
+\end{equation*}
+una \href{20251115182707-sec_di_complessi_di_cocatene.org}{SEC} di \href{20251115182320-complesso_di_cocatene.org}{complessi di cocatene}. Allora esiste \(\delta\), detto ``morfismo di connessione'', tale che\footnote{Nota:
+\begin{equation*}
+H^k(C^\bullet) = \frac{\ker d_C^k}{\operatorname{Im} d_C^{k-1}}
+\end{equation*}
+Questa è la \href{20251115182537-coomologia_di_un_complesso_di_cocatene.org}{Coomologia di un complesso di cocatene}.}
+\begin{equation*}
+\begin{tikzcd}[row sep=large, column sep=large]
+H^k(A^\bullet) \arrow[r, "{F^{*}}"] & H^k(B^\bullet) \arrow[r, "{G^{*}}"]
+    \arrow[phantom, d, ""{coordinate, name=Z}]
+    & H^k(C^\bullet) \arrow[dll, "\delta", out=-30, in=150, overlay] \\
+H^{k+1}(A^\bullet) \arrow[r, "{F^{*}}"] & H^{k+1}(B^\bullet) \arrow[r, "{G^{*}}"] & H^{k+1}(C^\bullet)
+\end{tikzcd}
+\end{equation*}
+è una \href{20251115182707-sec_di_complessi_di_cocatene.org}{successione esatta lunga}.
+\end{prop}
+
+
+\begin{proof}
+La dimostrazione si svolge in due fasi:
+\begin{enumerate}
+\item Devo trovare \(\delta\) (buona def + applicazione lineare).
+\item Esattezza della successione (solo \(\ker F^* = \operatorname{Im} \delta\)).
+\end{enumerate}
+
+\textbf{FASE 1.}
+
+Se \(*\) è SEC, allora il seguente è diagramma commutativo a righe esatte.
+\begin{equation*}
+\begin{tikzcd}[sep=small]
+	& \vdots && \vdots && \vdots \\
+	0 & {A^{k+1}} && {B^{k+1}} && {C^{k+1}} & 0 \\
+	&&&& {(1)} \\
+	0 & {A^k} && {B^k} && {C^k} & 0 \\
+	& \vdots && \vdots && \vdots
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=1-2]
+	\arrow["{F_{k+1}}", from=2-2, to=2-4]
+	\arrow[from=2-4, to=1-4]
+	\arrow["{G_{k+1}}", from=2-4, to=2-6]
+	\arrow[from=2-6, to=1-6]
+	\arrow[from=2-6, to=2-7]
+	\arrow[from=4-1, to=4-2]
+	\arrow["{d_A^k}", from=4-2, to=2-2]
+	\arrow["{F_k}", from=4-2, to=4-4]
+	\arrow["{d_B^k}"', from=4-4, to=2-4]
+	\arrow["{G_k}", from=4-4, to=4-6]
+	\arrow["{d_C^k}", from=4-6, to=2-6]
+	\arrow["{G_k}", from=4-6, to=4-7]
+	\arrow[from=5-2, to=4-2]
+	\arrow[from=5-4, to=4-4]
+	\arrow[from=5-6, to=4-6]
+\end{tikzcd}
+\end{equation*}
+
+Sia quindi \([c] \in H^k(C^\bullet)\) (i.e. \(c \in C^k\) t.c. \(dc = 0\)).
+
+Poiché la seconda riga è esatta allora \(G^k\) è \href{20241213105600-funzione_suriettiva.org}{suriettiva}, e pertanto esiste \(b \in B^k\) t.c.
+\begin{equation*}
+G b = c.
+\end{equation*}
+
+Considero ora \(\operatorname{d}_B^k(b)\) (abbreviato \(\dif b\)).
+\begin{equation*}
+G \dif b = \dif G b =\dif c = 0
+\end{equation*}
+\emph{(per commutatività di (1))}
+
+Segue quindi che
+\begin{equation*}
+\dif b \in \ker G^{k+1} = \operatorname{Im} F^{k+1}
+\end{equation*}
+dove l'ultima uguaglianza sussiste per esattezza della prima riga.
+Pertanto esiste \(a \in A^{k+1}\) t.c.
+\begin{equation*}
+F a = b' \coloneqq \dif b
+\end{equation*}
+
+Questo \(a\) è unico poiché \(F\) iniettiva (per esattezza della I\textsuperscript{a} riga).
+Inoltre
+\begin{equation*}
+F \dif a = \dif Fa = \dif\dif b = 0 \IMPLICA \dif a = 0.
+\end{equation*}
+
+Definisco quindi
+\begin{equation*}
+\boxed{ \delta([c]) := [a] }
+\end{equation*}
+
+Abbiamo fatto:
+\begin{equation*}
+\begin{tikzcd}
+	a & {\dif b} \\
+	& b & c
+	\arrow["F", maps to, from=1-1, to=1-2]
+	\arrow["{\operatorname{d}}", maps to, from=2-2, to=1-2]
+	\arrow["G", maps to, from=2-2, to=2-3]
+\end{tikzcd}
+\end{equation*}
+
+Resta da dimostrare:
+\begin{enumerate}
+\item Che l'unica scelta fatta (ovvero \(b\)) non influisce sulla definizione.
+\item Che \(\delta\) è ben definita (rispetto al quoziente).
+\item Che \(\delta\) è lineare.
+\end{enumerate}
+
+\textbf{1.} Siano \(b, b' \in B^k\) tali che
+\begin{equation*}
+G^k(b) = G^k(b') = c.
+\end{equation*}
+e sia \(a, a' \in A^{k+1}\) t.c. \(F a = \dif b\), \(F a' = \dif b'\). Allora
+\begin{equation*}
+0 = G(b) - G(b') = G(b - b')
+\end{equation*}
+e pertanto (per esattezza della seconda riga) esiste \(\tilde{a} \in A^k\) t.c.
+\begin{align*}
+b - b' &= F \tilde{a}\\
+\operatorname{d}(b - b') &= \dif F \tilde{a}\\
+\dif b - \dif b' &= F \dif \tilde{a}
+\end{align*}
+Pertanto, ricordando che \(Fa = \dif b\):
+\begin{align*}
+Fa %
+	&= \dif b = \dif b' + F \dif \tilde{a}\\
+	&= F a' + F\dif \tilde{a}\\
+	&= F (a' +\dif \tilde{a})
+\end{align*}
+e, poiché \(F\) è iniettiva, segue che:
+\begin{equation*}
+a = a' + \dif \tilde{a} \IMPLICA [a] = [a'].
+\end{equation*}
+
+\textbf{2.} Sia \(c \in \operatorname{Im} d^{k-1}\). Dimostriamo \(a \in \operatorname{Im} d^k\), dove la nomenclatura è la solita:
+\begin{equation*}
+\begin{tikzcd}
+	a & {\dif b} \\
+	& b & c
+	\arrow["F", maps to, from=1-1, to=1-2]
+	\arrow["{\operatorname{d}}", maps to, from=2-2, to=1-2]
+	\arrow["G", maps to, from=2-2, to=2-3]
+\end{tikzcd}
+\end{equation*}
+
+Sia quindi \(c = \dif \gamma\). Per esattezza \(G\) suriettiva, e quindi \(\gamma = G \beta\).
+\begin{equation*}
+c = \dif G \beta = G (\dif \beta).
+\end{equation*}
+
+Per il punto precedente, la scelta di \(b\) è ininfluente, pertanto pongo
+\begin{equation*}
+b := \dif \beta, \quad \text{e } G(\dif \dif\beta) = c
+\end{equation*}
+La situazione quindi è la seguente:
+\begin{equation*}
+\begin{tikzcd}
+	a & {\dif b} \\
+	& b & c \\
+	& \beta & \gamma
+	\arrow["F", maps to, from=1-1, to=1-2]
+	\arrow["{\operatorname{d}}", maps to, from=2-2, to=1-2]
+	\arrow["G", maps to, from=2-2, to=2-3]
+	\arrow["{\operatorname{d}}", maps to, from=3-2, to=2-2]
+	\arrow["G"', maps to, from=3-2, to=3-3]
+	\arrow["{\operatorname{d}}"', maps to, from=3-3, to=2-3]
+\end{tikzcd}
+\end{equation*}
+
+Segue che \(F(a) = \dif b = \dif\dif \beta = 0\) e dunque, per iniettività, \(a=0\).
+Siccome \(0 \in \operatorname{Im} d^k\), la tesi.
+
+\textbf{3.} \(\delta\) è lineare poiché ?
+
+\textbf{FASE 2.}
+
+Resta da dimostrare l'esattezza. Noi dimostriamo soltanto
+\begin{equation*}
+\ker F^* = \operatorname{Im} \delta.
+\end{equation*}
+
+(\(\supseteq\)): Sia \([a] = \delta^*[c] \in \operatorname{Im} \delta^*\):
+\begin{equation*}
+\begin{tikzcd}
+	a & {\dif b} \\
+	& b & c
+	\arrow["F", maps to, from=1-1, to=1-2]
+	\arrow["{\operatorname{d}}", maps to, from=2-2, to=1-2]
+	\arrow["G", maps to, from=2-2, to=2-3]
+\end{tikzcd}
+\end{equation*}
+
+Quindi si ha che
+\begin{equation*}
+Fa = \dif b \IMPLICA [Fa] = 0
+\end{equation*}
+Ma \(0 = [Fa] \eqqcolon F^*[a]\) e quindi \([a] \in \ker F^*\).
+
+(\(\subseteq\)): Sia \([a]\) t.c. \(F^*[a] = 0\), \([a] \in \ker F^{*}\).
+i.e. \(Fa = \dif b\).
+
+Detto quindi \(c = G b\)
+\begin{equation*}
+\dif c = \dif G b = G \dif b = G F a = 0
+\end{equation*}
+\emph{(righe esatte: \(GF = 0\))}
+
+Pertanto, è possibile utilizzare la costruzione di prima:
+\begin{equation*}
+\begin{tikzcd}
+	a & {\dif b} \\
+	& b & c
+	\arrow["F", maps to, from=1-1, to=1-2]
+	\arrow["{\operatorname{d}}", maps to, from=2-2, to=1-2]
+	\arrow["G", maps to, from=2-2, to=2-3]
+\end{tikzcd}
+\end{equation*}
+ottenendo \(\delta[c]=[a]\). Segue che \([a] \in\operatorname{Im}\delta\).
+\end{proof}
+\end{document}

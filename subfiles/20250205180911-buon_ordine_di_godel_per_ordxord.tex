@@ -1,0 +1,33 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Buon ordine di Godel per OrdxOrd}
+\label{sec:org198131e}
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+
+Si consideri la \href{20250130104320-classe_mk.org}{classe} degli \href{20250203111003-ordinali.org}{ordinali} \(\operatorname{Ord}\), su cui è definito l'\href{20250203101604-ordine.org}{ordine} \(<\) \href{20250203111003-ordinali.org}{tra ordinali}, e il \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{prodotto cartesiano} \(\operatorname{Ord}\times \operatorname{Ord}\), su cui è definito l'\href{20250206100734-ordine_lessicografico_per_classi.org}{ordine lessicografico} \(\le_{\text{lex}}\)
+
+Si definisce il \href{20250203104134-buon_ordine_mk.org}{buon ordine} di Godel \(<_{G}\) su \(\operatorname{Ord}\times \operatorname{Ord}\):
+\((\alpha,\beta)\mathrel{<_{G}}(\gamma,\delta)\) se e solo se
+\begin{equation*}
+\max(\alpha,\beta) < \max(\delta,\gamma) \,\lor\, \left(
+\max(\alpha,\beta) = \max(\gamma,\delta) \,\land\, (\alpha,\beta)\mathrel{<_{\text{lex}}}(\gamma,\delta)
+\right)
+\end{equation*}
+(vedi \href{20250203102516-massimo_e_minimo.org}{Massimo e minimo})
+
+Si ha che:
+\begin{itemize}
+\item Se \(\alpha<\beta\) allora \(\alpha\times\alpha\) è un \href{20250206120526-segmento_iniziale_per_un_ordine.org}{segmento iniziale} di \(\beta\times\beta\).
+\item La classe funzione \(\nu\mapsto\operatorname{ot}(\nu\times\nu,<_{G})\) è \href{20250203132953-funzione_monotona.org}{crescente} e \href{20250203161326-topologia_sugli_ordinali.org}{continua}.
+\end{itemize}
+
+Inoltre, se \(F:\operatorname{Ord}\times\operatorname{Ord}\to \operatorname{Ord}\) è l'isomorfismo tra \(\langle \operatorname{Ord}\times\operatorname{Ord},<_{G}\rangle\) e \(\langle \operatorname{Ord},\in\rangle\) (\href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{che esiste}) allora per ogni \(\alpha,\beta \in \operatorname{Ord}\)
+\begin{itemize}
+\item \(F(\alpha,\beta)\ge \max(\alpha,\beta)\);
+\item se \(F(\alpha,\beta)=\max(\alpha,\beta)\) allora \(\alpha=0\) e \((\beta \in \set{0,1} \,\lor\, \beta\text{ è limite})\).
+\end{itemize}
+\end{document}

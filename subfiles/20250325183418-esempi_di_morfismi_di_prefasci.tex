@@ -1,0 +1,61 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esempi di morfismi di prefasci}
+\label{sec:orgb421919}
+\subsection{Inclusioni di sottoprefasci sono morfismi di fasci}
+\label{sec:org79855c3}
+\begin{prop}
+Se \(\mathcal{F}, \mathcal{G}\) sono \href{20250324165349-prefascio.org}{prefasci} e \(\mathcal{F} \subseteq \mathcal{G}\) è \href{20250325150647-sottoprefascio.org}{sottoprefascio}, allora l'inclusione \(i:\mathcal{F} \to \mathcal{G}\) è un \href{20250325180613-morfismo_di_prefasci.org}{morfismo}.
+\end{prop}
+\subsection{Differenziale di una forma è morfismo di fasci}
+\label{sec:orgfbbb09b}
+\begin{prop}
+Se \(X\) è \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} e \(\mathcal{A}_{X}^{p}\), \(\mathcal{A}_{X}^{p+1}\) sono i \href{20250324174728-fascio.org}{fasci} \href{20250324175845-esempi_di_prefasci.org}{delle \(p\)-forme differenziali su \(X\)}\footnote{Vedi ``\href{20251115155511-forma_differenziale_in_un_punto.org}{Forma differenziale}''}, allora il \href{20251115160537-differenziale_di_una_forma.org}{differenziale \(\dif\)} è un \href{20250325180613-morfismo_di_prefasci.org}{morfismo di fasci}: per ogni \(U \subseteq X\):
+\begin{align*}
+\mathrm{d}_{U}: \mathcal{A}_{X}^{p}(U) &\longrightarrow \mathcal{A}_{X}^{p+1}(U)\\
+\omega &\longmapsto \dif\omega.
+\end{align*}
+\end{prop}
+
+\begin{oss}
+Se \(p=0\), allora il \href{20250327114922-fascio_nucleo.org}{fascio nucleo} \(\ker\mathrm{d} = \uline{\R}\) \href{20250325171002-fascio_di_gruppo_localmente_costante.org}{fascio localmente costante}.
+
+Se \(p\ge 1\), allora il fascio nucleo è composto dalle \href{20251115155511-forma_differenziale_in_un_punto.org}{\(p\)-forme} \href{20251115172517-forma_differenziale_chiusa.org}{chiuse} su \(X\).
+\end{oss}
+\subsection{Valutazione in un punto}
+\label{sec:org37d2e53}
+
+Sia \(X\) spazio topologico, e si considerino:
+\begin{itemize}
+\item \(\mathcal{C}_{X}\) il fascio delle funzioni continue a valori in \(\R\)\footnote{Si trova in ``\href{20250324175845-esempi_di_prefasci.org}{Esempi di Fasci}''}.
+\item \(\R_{p}\) il \href{20250325171249-fascio_grattacielo.org}{fascio grattacielo concentrato in \(p \in X\)}.
+\end{itemize}
+
+\begin{prop}
+La mappa \(e_{p}: \mathcal{C}_{X} \to \R_{p}\), definita come, per ogni \(U \subseteq X\) aperto:
+\begin{itemize}
+\item se \(p \notin U\) allora \((e_{p})_{U} : \mathcal{C}_{X}(U) \to \set{0}\) mappa nulla;
+\item se \(p \in U\) allora
+\begin{align*}
+(e_{p})_{U}: \mathcal{C}_{X}(U) &\longrightarrow \R\\
+f &\longmapsto f(p)
+\end{align*}
+\end{itemize}
+è detta \uline{valutazione in \(p\)} ed è un \href{20250325180613-morfismo_di_prefasci.org}{morfismo di fasci}.
+\end{prop}
+
+\begin{oss}
+Il \href{20250327114922-fascio_nucleo.org}{nucleo} di questo morfismo è
+\begin{equation*}
+\ker e_{p} = \set{f: X\to \R \mid f(p) = 0,\ f\text{ continua}}.
+\end{equation*}
+\end{oss}
+\subsection{Mappa esponenziale tra fasci di funzioni olomorfe}
+\label{sec:org8ebe275}
+
+Vedi \href{20260127095157-kkk.org}{Mappa esponenziale tra fasci di funzioni olomorfe}
+\end{document}

@@ -1,0 +1,60 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Prefascio}
+\label{sec:org2278b8f}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}.
+
+\begin{definizione}
+Sia \(\mathcal{C}\) una \href{20241126100904-categoria.org}{categoria}. Un \uline{prefascio} \(\mathcal{F}\) su \(X\) a valori in \(\mathcal{C}\) è il dato di:
+\begin{enumerate}
+\item per ogni \(U \subseteq X\) \href{20250103145124-topologia.org}{aperto}, un oggetto \(\mathcal{F}(U) \in \mathcal{C}\) (a volte si indica anche con \(\Gamma(\mathcal{F},U)\));
+\item per ogni \(V \subseteq U \subseteq X\) aperti, un \href{20241126100904-categoria.org}{morfismo} \(\rho_{V}^{U} \in \mathcal{C}\)
+\begin{equation*}
+ \rho_{V}^{U}: \mathcal{F}(U)\to \mathcal{F}(V)
+\end{equation*}
+tale che:
+\begin{enumerate}
+\item \(\mathcal{F}(\emptyset)\) è l'\href{20250324174714-oggetto_terminale_di_una_categoria.org}{oggetto terminale} di \(\mathcal{C}\);
+\item per ogni \(U \subseteq X\) aperto: \(\rho_{U}^{U} = \Id_{\mathcal{F}(U)}\);
+\item per ogni \(W \subseteq V \subseteq U \subseteq X\) aperti:
+  \begin{equation*}
+\rho_{W}^{U} = \rho_{W}^{V}\circ \rho_{V}^{U}
+  \end{equation*}
+\end{enumerate}
+\end{enumerate}
+\end{definizione}
+\uline{Nomenclatura}:
+\begin{itemize}
+\item Gli elementi di \(\mathcal{F}(U)\) si dicono \uline{sezioni di \(\mathcal{F}\) su \(U\)}.
+\item Gli elementi di \(\mathcal{F}(X)\) si dicono \uline{sezioni globali} di \(\mathcal{F}\).
+\item I morfismi \(\rho_{V}^{U}\) si dicono \uline{morfismi di restrizione} e per ogni \(s \in \mathcal{F}(U)\) si denota:
+\begin{equation*}
+  \rho_{V}^{U}(s) \eqqcolon \restriction{s}{V}
+\end{equation*}
+\end{itemize}
+\subsection{Prefascio di gruppi}
+\label{sec:org4ce0819}
+\begin{definizione}
+Un \uline{prefascio} \(\mathcal{F}\) di \href{20241205141146-gruppo_abeliano.org}{gruppi} su \(X\) è il dato di:
+\begin{enumerate}
+\item per ogni \(U \subseteq X\) \href{20250103145124-topologia.org}{aperto}, un \uline{gruppo} denotato con \(\mathcal{F}(U)\);
+\item per ogni \(V \subseteq U \subseteq X\) aperti, un \href{20241206115531-morfismo_di_gruppi.org}{morfismo di gruppi}:
+\begin{equation*}
+ \rho_{V}^{U}: \mathcal{F}(U)\to \mathcal{F}(V)
+\end{equation*}
+tale che:
+\begin{enumerate}
+\item \(\mathcal{F}(\emptyset)=\set{0}\) è il \href{20250324165859-gruppo_banale.org}{gruppo banale};
+\item per ogni \(U \subseteq X\) aperto: \(\rho_{U}^{U} = \Id_{\mathcal{F}(U)}\)\footnote{\(\Id\) è la \href{20250310111151-funzione_identita.org}{funzione identità}};
+\item per ogni \(W \subseteq V \subseteq U \subseteq X\) aperti:\footnote{Vedi anche ``\href{20250310111151-funzione_identita.org}{Funzione identità}''}
+  \begin{equation*}
+\rho_{W}^{U} = \rho_{W}^{V}\circ \rho_{V}^{U}.
+  \end{equation*}
+\end{enumerate}
+\end{enumerate}
+\end{definizione}
+\end{document}

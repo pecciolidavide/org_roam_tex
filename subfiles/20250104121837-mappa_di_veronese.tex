@@ -1,0 +1,117 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
+Si consideri \(\mathds{P}^{n}\) con coordinate \([x_{0}:\dots:x_{n}]\) (si veda \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo}).
+
+Sia \(S=\K[x_{0},\dots,x_{n}]\) l'\href{20241219113434-anello_dei_polinomi.org}{anello dei polinomi}, e si \(S_{d} \subseteq S\) l'insieme dei \href{20241231121125-polinomi_omogenei.org}{polinomi omogenei} di \href{20241231124742-grado_polinomi.org}{grado} \(d\). Sia \(N\coloneqq \dim S_{d}-1\) (vedi \href{20241231121125-polinomi_omogenei.org}{Dimensione di \(S_{d}\) come spazio vettoriale}):
+\begin{equation*}
+N=\binom{n+d}{d}-1
+\end{equation*}
+
+Consideriamo \(I=(i_{0},\dots,i_{n})\) un \href{20250105122522-multi_indice.org}{multi-indice}; definiamo \(x^{I} \in S\) come
+\begin{equation*}
+x^{I}\coloneqq x_{0}^{i_{0}}\cdot \dots\cdot x_{n}^{i_{n}}
+\end{equation*}
+Su \(\mathds{P}^{N}\) usiamo le coordinate \(\set{z_{I}}_{I \in D}\), dove
+\begin{equation*}
+D=\set{I=(i_{0},\dots,i_{n}): \sum_{j=0}^{n}i_{j}=d,\ i_{j}\ge 0}
+\end{equation*}
+ordinate in ordine lessicografico. Questo è semplicemente il ``nome'' della coordinata, per semplicità.
+Ad esempio, se \(n=d=2\) e \(N=5\), le coordinate di \(\mathds{P}^{5}\) saranno
+\begin{equation*}
+[z_{(0,0,2)}: z_{(0,1,1)}: z_{(0,2,0)}:z_{(1,0,1)}: z_{(1,1,0)}: z_{(2,0,0)}]
+\end{equation*}
+I multiindici sono sono soltanto un ``nome'' per le coordinate di \(\mathds{P}^{N}\).
+
+Si definisce la \textbf{mappa di Veronese}
+\begin{align*}
+\nu_{n,d}: \mathds{P}^{n} &\longrightarrow \mathds{P}^{N}=\mathds{P}(S_{d}^{*})\\
+[x_{0}:\dots:x_{n}] &\longmapsto [\dots:x^{I}:\dots]
+\end{align*}
+(vedi \href{20250105124008-spazio_vettoriale_duale.org}{Spazio vettoriale duale})
+
+Questa mappa è un \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{morfismo} tra \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà algebriche proiettive}, con una definizione globale sul suo dominio.
+\section{Varietà di Veronese}
+\label{sec:orgd01e511}
+L'immagine \(V_{n,d}\coloneqq\nu_{n,d}(\mathds{P}^{n})\) è detta \textbf{varietà di Veronese} di tipo \((n,d)\).
+\subsection{Dimostrazione che sia realmente una varietà}
+\label{sec:org483e7a8}
+Per \(I,J \in D\), poniamo \(I+J=(i_{0}+j_{0},\dots,i_{n}+j_{n})\).
+
+Posto \(Y\) il \href{20241231112823-radici_polinomiali.org}{luogo delle soluzioni} delle equazioni quadratiche
+\begin{equation*}
+z_{I}z_{J}=z_{K}z_{L}\qquad \forall\, I,J,K,L: \ I+J=K+L
+\end{equation*}
+si ha che \(V_{n,d}=Y\).
+\subsubsection{\(V_{n,d} \subseteq Y\)}
+\label{sec:orga4f8cab}
+Sia \(p=[p_{0}:\dots:p_{n}] \in \mathds{P}^{n}\), e consideriamo \(\nu_{n,d}(p)=[\dots:P_{I}:\dots]\) con le coordinate di cui sopra. Siano
+\begin{align*}
+I&=(i_{0},\dots,i_{n}) & i_{0}+\dots+i_{n}&=d\\
+J&=(j_{0},\dots,j_{n}) & j_{0}+\dots+j_{n}&=d\\
+K&=(k_{0},\dots,k_{n}) & k_{0}+\dots+k_{n}&=d\\
+L&=(l_{0},\dots,l_{n}) & l_{0}+\dots+l_{n}&=d
+\end{align*}
+tali che \(I+J=K+L\).
+\begin{align*}
+P_{I}P_{J}&=(x_{0})^{i_{0}}\dots (x_{n})^{i_{n}} \cdot (x_{0})^{j_{0}}\dots(x_{n})^{j_{n}}\\
+&= (x_{0})^{i_{0}+j_{0}}\dots(x_{n})^{i_{n}+j_{n}}\\
+&= (x_{0})^{k_{0}+l_{0}}\dots(x_{n})^{k_{n}+l_{n}}\\
+&= (x_{0})^{k_{0}}\dots(x_{n})^{k_{n}} \cdot (x_{0})^{l_{0}}\dots(x_{n})^{l_{n}} = P_{K}P_{L}
+\end{align*}
+\subsubsection{\(Y \subseteq V_{n,d}\)}
+\label{sec:org0877463}
+Sia \(K_{\ell}\) il multi-indice composto da soli zeri, ma con \(d\) nella posizione \(\ell\)-esima:
+\begin{equation*}
+K_{\ell}=(0,\dots,0,d,0,\dots,0)
+\end{equation*}
+per \(0\le \ell\le n\).
+
+Sia dunque \(P=[\dots:P_{I}:\dots] \in Y\).
+\paragraph{Claim: esiste \(\ell_{0}\) tale \(P_{K_{\ell_{0}}}\neq 0\)}
+\label{sec:org6254999}
+Sia \(i_{\max}\) il massimo indice che compare tra tutti i multiindici \(I\) tali che \(P_{I}\neq 0\). La tesi è dimostrare che \(i_{\max}=d\).
+
+Sia \(P_{(\dots:i_{\max}:\dots)}\neq 0\). Se \(i_{\max}\le d-1\), allora esiste un indice \(j>0\) nel multiindice \((\dots:i_{\max}:\dots)\). Sia dunque \(I\) questo multiindice:
+\begin{equation*}
+I=(\dots:i_{\max}:\dots:j:\dots)
+\end{equation*}
+Siccome \(j\ge 0\) e \(i_{\max}\le d-1\), entrambi questi indici sono elementi di \(D\):
+\begin{align*}
+J&= (\dots,i_{\max}+1,\dots,j-1,\dots)\\
+K&= (\dots,i_{\max}-1,\dots,j+1,\dots)
+\end{align*}
+e inoltre \(J+K=I+I\). Dunque è soddisfatta l'equazione
+\begin{equation*}
+P_{I}^{2}=P_{J}P_{K}
+\end{equation*}
+Siccome \(P_{I}\neq 0\) , necessariamente \(P_{J}\neq 0 \neq P_{K}\), e pertanto è presente un indice \(>i_{\max}\). Assurdo.
+
+Dunque \(i_{\max}=d\), e la tesi è dimostrata.
+\paragraph{{\bfseries\sffamily TODO} \(P \in V_{n,d}\)\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\label{sec:org78d61c5}
+Supponiamo che \(P_{K_{0}}\neq 0\). Siano:
+\begin{align*}
+q_{0}&\coloneqq P_{(d,0,\dots,0)} = P_{K_{0}}\neq 0\\
+q_{1} &\coloneqq P_{(d-1,1,0,\dots,0)}\\
+\vdots&\\
+q_{i}&\coloneqq P_{(d-1,0,\dots,1,\dots,0)}
+\end{align*}
+
+dove ad \(q_{i}\), il multiindice è composto da \(d-1\) in posizione zero, \(1\) in posizione \(i\), e \(0\) altrove.
+
+Sicuramente \([q_{0}:\dots:q_{n}] \in \mathds{P}^{n}\), siccome \(q_{0}\neq 0\) per ipotesi.
+
+Sia \(\nu_{n,d}\left([q_{0}:\dots:q_{n}]\right)=Q \coloneqq [\dots:Q_{I}:\dots]\)
+Vale che \(P=Q\). Infatti, se \(I=(i_{0},\dots,i_{n})\):
+\begin{align*}
+Q_{I}&=(q_{0})^{i_{0}}\ \dots\ (q_{n})^{i_{n}}\\
+&= (P_{(d,0,\dots,0)})^{i_{0}}\ (P_{(d-1,1,0,\dots,0)})^{i_{1}}\ \dots\ (P_{(d-1,0,\dots,0,1)})^{i_{n}}
+\end{align*}
+\section{{\bfseries\sffamily TODO} \(\nu_{n,d}\) è un \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{Isomorfismo tra varietà algebriche proiettive}\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\label{sec:org02ffb58}
+\end{document}

@@ -1,0 +1,80 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Omologia della somma diretta di complessi di catene}
+\label{sec:org3f3418b}
+\begin{thm}
+L'omologia della somma diretta di complessi di catene è isomorfa alla somma diretta delle omologie dei singoli complessi.
+Per ogni \(n \in \Z\), vale l'isomorfismo naturale:
+\begin{equation*}
+H_{n}\left( \bigoplus_{\alpha \in I} \mathcal{C}_{\bullet}^{\alpha} \right) \cong \bigoplus_{\alpha \in I} H_{n}(\mathcal{C}_{\bullet}^{\alpha})
+\end{equation*}
+In altre parole, il funtore omologia \(H_{n}(-)\) commuta con le somme dirette.
+\end{thm}
+
+\begin{proof}
+Sia \(\mathcal{S}_{\bullet} = \bigoplus_{\alpha \in I} \mathcal{C}_{\bullet}^{\alpha}\) il complesso somma diretta.
+Ricordiamo che il differenziale \(\partial_{n}^{\mathcal{S}}: \bigoplus C_{n}^{\alpha} \to \bigoplus C_{n-1}^{\alpha}\) è definito componente per componente:
+\begin{equation*}
+\partial_{n}^{\mathcal{S}}((x_{\alpha})_{\alpha}) = (\partial_{n}^{\alpha}(x_{\alpha}))_{\alpha}
+\end{equation*}
+
+Analizziamo i moduli dei cicli \(Z_{n}\) e dei bordi \(B_{n}\) del complesso somma diretta.
+
+\begin{enumerate}
+\item \textbf{\textbf{Cicli (Kernel)}}:
+Un elemento \(x = (x_{\alpha})_{\alpha} \in \bigoplus C_{n}^{\alpha}\) è un ciclo se e solo se \(\partial_{n}^{\mathcal{S}}(x) = 0\). Poiché l'operazione è componente per componente, questo equivale a dire che \(\partial_{n}^{\alpha}(x_{\alpha}) = 0\) per ogni \(\alpha\).
+Pertanto, il modulo dei cicli della somma diretta è la somma diretta dei cicli:
+\begin{equation*}
+Z_{n}(\mathcal{S}_{\bullet}) = \ker\left(\bigoplus \partial_{n}^{\alpha}\right) = \bigoplus_{\alpha \in I} \ker(\partial_{n}^{\alpha}) = \bigoplus_{\alpha \in I} Z_{n}(\mathcal{C}_{\bullet}^{\alpha})
+\end{equation*}
+
+\item \textbf{\textbf{Bordi (Immagine)}}:
+Un elemento \(x = (x_{\alpha})_{\alpha}\) è un bordo se esiste \(y = (y_{\alpha})_{\alpha} \in \bigoplus C_{n+1}^{\alpha}\) tale che \(\partial_{n+1}^{\mathcal{S}}(y) = x\).
+Questo equivale a richiedere che \(\partial_{n+1}^{\alpha}(y_{\alpha}) = x_{\alpha}\) per ogni \(\alpha\), ovvero che ogni componente \(x_{\alpha}\) sia un bordo nel rispettivo complesso \(\mathcal{C}_{\bullet}^{\alpha}\).
+Pertanto, il modulo dei bordi della somma diretta è la somma diretta dei bordi:
+\begin{equation*}
+B_{n}(\mathcal{S}_{\bullet}) = \operatorname{Im}\left(\bigoplus \partial_{n+1}^{\alpha}\right) = \bigoplus_{\alpha \in I} \operatorname{Im}(\partial_{n+1}^{\alpha}) = \bigoplus_{\alpha \in I} B_{n}(\mathcal{C}_{\bullet}^{\alpha})
+\end{equation*}
+
+\item \textbf{\textbf{Conclusione}}:
+Per definizione di omologia, abbiamo:
+\begin{equation*}
+H_{n}(\mathcal{S}_{\bullet}) = \frac{Z_{n}(\mathcal{S}_{\bullet})}{B_{n}(\mathcal{S}_{\bullet})} = \frac{\bigoplus_{\alpha \in I} Z_{n}(\mathcal{C}_{\bullet}^{\alpha})}{\bigoplus_{\alpha \in I} B_{n}(\mathcal{C}_{\bullet}^{\alpha})}
+\end{equation*}
+Poiché per ogni \(\alpha\), \(B_{n}(\mathcal{C}_{\bullet}^{\alpha}) \subseteq Z_{n}(\mathcal{C}_{\bullet}^{\alpha})\), possiamo applicare la proposizione sulla commutatività del quoziente con la somma diretta (\href{20250122122650-quoziente_di_somma_diretta_di_moduli.org}{Quoziente di somma diretta di moduli}):
+\begin{equation*}
+\frac{\bigoplus_{\alpha \in I} Z_{n}(\mathcal{C}_{\bullet}^{\alpha})}{\bigoplus_{\alpha \in I} B_{n}(\mathcal{C}_{\bullet}^{\alpha})} \cong \bigoplus_{\alpha \in I} \frac{Z_{n}(\mathcal{C}_{\bullet}^{\alpha})}{B_{n}(\mathcal{C}_{\bullet}^{\alpha})} = \bigoplus_{\alpha \in I} H_{n}(\mathcal{C}_{\bullet}^{\alpha})
+\end{equation*}
+\end{enumerate}
+\end{proof}
+
+\begin{oss}
+L'isomorfismo naturale dimostrato nel teorema precedente, che lega la somma diretta delle omologie all'omologia della somma diretta, è indotto dalla mappa che ``assembla'' le classi di omologia componenti.
+
+Definiamo l'applicazione:
+\begin{equation*}
+\Phi: \bigoplus_{\alpha \in I} H_{n}(\mathcal{C}_{\bullet}^{\alpha}) \longrightarrow H_{n}\left( \bigoplus_{\alpha \in I} \mathcal{C}_{\bullet}^{\alpha} \right)
+\end{equation*}
+
+Sia \(x \in \bigoplus_{\alpha} H_{n}(\mathcal{C}_{\bullet}^{\alpha})\). L'elemento \(x\) è una famiglia \(([z_{\alpha}])_{\alpha \in I}\) dove:
+\begin{itemize}
+\item \(z_{\alpha} \in Z_{n}(\mathcal{C}_{\bullet}^{\alpha})\) è un ciclo rappresentante per la classe \([z_{\alpha}]\);
+\item \([z_{\alpha}] = 0\) per quasi tutti gli \(\alpha\) (ovvero la famiglia è a supporto finito).
+\end{itemize}
+
+L'isomorfismo \(\Phi\) agisce mandando la famiglia di classi nella classe della famiglia dei cicli:
+\begin{equation*}
+\Phi\left( ([z_{\alpha}])_{\alpha \in I} \right) = \left[ (z_{\alpha})_{\alpha \in I} \right]
+\end{equation*}
+
+La mappa inversa \(\Phi^{-1}\) ``smonta'' una classe di omologia della somma diretta nelle classi componenti:
+\begin{equation*}
+\Phi^{-1}\left( \left[ (c_{\alpha})_{\alpha \in I} \right] \right) = ([c_{\alpha}])_{\alpha \in I}
+\end{equation*}
+dove \((c_{\alpha})_{\alpha}\) è un ciclo in \(\bigoplus \mathcal{C}_{\bullet}^{\alpha}\) (e quindi ogni \(c_{\alpha}\) è un ciclo in \(\mathcal{C}_{\bullet}^{\alpha}\)).
+\end{oss}
+\end{document}

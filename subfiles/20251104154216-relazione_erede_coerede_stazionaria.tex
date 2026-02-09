@@ -1,0 +1,81 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+%% Alcuni simboli
+\def\nonforkSymbol{\mathbin{\raise1.8ex\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$} } }
+\def\defaultnonforkmodel{M}
+\newcommand{\nonfork}[1][\defaultnonforkmodel]{\mathrel{\nonforkSymbol_{#1}}}
+%% Leggibilità
+%
+\def\L{\mathcal{L}} % Il linguaggio
+\def\U{\mathcal{U}} % Modello mostro
+\def\orbita{\mathcal{O}} % Le orbite
+\def\restricted{\upharpoonright} % Restrizione
+\def\equivalentover #1 {\mathrel{\equiv_{#1}}}
+\section{Relazione erede-coerede stazionaria}
+\label{sec:orgea4a719}
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+
+Sia \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio}, \(T\) una \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123151-teoria_completa.org}{completa} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti e \(\U\) un \href{20250617095548-modello_lambda_saturo.org}{modello saturo} di \href{20241213101756-cardinalita.org}{cardinalità} \href{20250211123155-cardinale_limite_forte.org}{inaccessibile} \(\kappa>\card{\L}+ \omega\). \(\U\) è un \href{20250617102733-modello_mostro.org}{modello mostro}.
+
+Sia \(M \preceq \U\) un \href{20250131103035-struttura_del_prim_ordine.org}{modello}.
+
+\begin{definizione}
+La \href{20251029154447-tuple_indipendenti_rispetto_ad_un_modello_monster_model.org}{relazione eredi-coeredi} \(\nonfork\) si dice \uline{stazionaria} se per ogni \(a,b \in \U^{x}\) tuple finite:
+\begin{equation*}
+a \equivalentover{M} x \nonfork b
+\end{equation*}
+è un \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo} \href{20251029152405-tipo_completo.org}{completo} su \(M,b\).
+\end{definizione}
+
+\begin{definizione}
+La \href{20251029154447-tuple_indipendenti_rispetto_ad_un_modello_monster_model.org}{relazione eredi-coeredi} \(\nonfork\) si dice \uline{\(n\)-stazionaria} se per \(\card{x}=n\) si ha:
+\begin{equation*}
+a \equivalentover{M} x \nonfork b
+\end{equation*}
+è un \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo} \href{20251029152405-tipo_completo.org}{completo} su \(M,b\).
+\end{definizione}
+
+\begin{oss}
+Se \(\nonfork\) è \(1\)-stazionaria e \(\card{x} = 1\) allora per ogni
+\(a, a', b\):
+\begin{equation*}
+\big(a \nonfork b \quad \land \quad a' \equivalentover{M} a \big) %
+\IMPLICA %
+\big(a' \nonfork b \quad\land\quad a' \equivalentover{M,b} a\big).
+\end{equation*}
+\end{oss}
+\begin{proof}
+\href{20250515141706-da_finire.org}{DA FINIRE}
+\end{proof}
+
+\href{20250515141706-da_finire.org}{DA FINIRE}
+
+\begin{prop}
+Se per ogni \(\varphi(x) \in \L(\U)\) esiste \(\psi(x) \in \L(M)\) tale che
+\begin{equation*}
+\varphi(M^{x}) = \psi(M^{x}),
+\end{equation*}
+\uline{allora} \(\nonfork[M]\) è \hyperref[sec:orgea4a719]{stazionaria}, ovvero:
+\begin{equation*}
+a \equivalentover{M} x \nonfork[M] b.
+\end{equation*}
+è un \href{20251029152405-tipo_completo.org}{tipo completo} su \(M,b\).
+\end{prop}
+\begin{proof}
+Sia \(\varphi(x) = \varphi(x;b)\) per \(\varphi(x;z) \in \L\) e \(b \in \U^{z}\).
+
+Siano \(a_{1},a_{2} \in \U^{x}\) tali che
+\(a_{1} \equivalentover{M} a_{2}\) e \(a_{1} \nonfork b\), \(a_{2} \nonfork b\).
+Voglio mostrare che \(\varphi(a_{1},b) \iff \varphi (a_{2},b)\).
+
+Sappiamo che \(\varphi(a_{i},b) \iff \psi(a_{i})\) perché \(\varphi(M^{x}) = \psi(M^{x})\).
+
+Siccome \(a_{1}\equivalentover{M} a_{2}\) allora \(\psi(a_{1}) \iff \psi(a_{2})\).
+\end{proof}
+
+AGGIUNGERE Remark~14.12 di 
+\end{document}

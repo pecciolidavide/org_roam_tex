@@ -1,0 +1,46 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Divisore effettivo di una superficie di Riemann}
+\label{sec:org4bb934c}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, e si indichi con \(\operatorname{Div}(X)\) il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{gruppo dei divisori di \(X\)}.
+
+\begin{definizione}
+Un divisore \(D \in \operatorname{Div}(X)\) si dice \textbf{effettivo} (e si indica \(D\ge 0\)) se
+\begin{equation*}
+\forall  p \in X:\qquad D(p) \ge 0.
+\end{equation*}
+\end{definizione}
+
+\uline{Notazione}:
+\begin{itemize}
+\item Si scrive che \(D>0\) se \(D\ge 0\) e \(D\neq 0\).
+\item Analogamente, diciamo che
+\begin{align*}
+  D_{1}&\ge D_{2}\ \text{ se } D_{1}-D_{2} \ge 0\\
+  D_{1}&> D_{2}\ \text{ se } D_{1}-D_{2} > 0\\
+\end{align*}
+e quest'ultima è una \href{20250203101604-ordine.org}{relazione d'ordine parziale} su \(\operatorname{Div}(X)\).
+\end{itemize}
+
+\begin{oss}
+Se \(X\) è \href{20250103163701-spazio_topologico_compatto.org}{compatta}, allora vale, per il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{grado}:
+\begin{align*}
+D\ge 0 &\IMPLICA \deg D \ge 0\\
+D > 0 &\IMPLICA \deg D \gneqq 0
+\end{align*}
+\end{oss}
+\begin{oss}
+Ogni \(D \in \operatorname{Div}(X)\) si scrive in maniera unica come
+\begin{equation*}
+D = P - N
+\end{equation*}
+con \(P\ge 0\), \(N\ge 0\), tali che l'\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{intersezione} dei loro \href{20260201235333-gruppo_delle_funzioni_in_z.org}{supporti} sia \href{20250131161811-insieme_vuoto_mk.org}{vuota}:
+\begin{equation*}
+(\operatorname{supp} P) \cap (\operatorname{supp} N) = \emptyset.
+\end{equation*}
+\end{oss}
+\end{document}

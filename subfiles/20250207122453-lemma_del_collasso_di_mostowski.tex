@@ -1,0 +1,127 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Proposizione}
+\label{sec:orgacddc8d}
+Sia \(X\) una classe, e sia \(R \subseteq X\times X\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK} e \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano di classi MK}) una \href{20250202170607-classe_relazione_binaria.org}{relazione} \href{20250619161501-caratteristiche_delle_relazioni_binarie.org}{irriflessiva}, \href{20250203095749-relazione_left_narrow_mk.org}{left-narrow} e \href{20250203100901-relazione_well_founded_mk.org}{well-founded}.
+\begin{enumerate}
+\item Se \(R\) è \href{20250207122435-relazione_estensionale.org}{estensionale} su \(X\), allora il \href{20250207122542-collasso_di_mostowski.org}{collasso di Mostowski} \(\bm{\pi}_{R,X}\) è \href{20241219101956-funzione_iniettiva.org}{iniettiva} e
+\begin{equation*}
+ \bm{\pi}_{R,X}: \langle X, R\rangle \to \langle\overline{X},\in\rangle
+\end{equation*}
+è un \href{20241128162125-isomorfismo.org}{isomorfismo} (vedi \href{20250207122542-collasso_di_mostowski.org}{Collasso transitivo})
+\item Se \(R\) è un \href{20250203104134-buon_ordine_mk.org}{buon ordine} \href{20250203101604-ordine.org}{stretto} su \(X\) allora \(\bm{\pi}_{R,X}\) e \(\bm{\varrho}_{R,X}\) coincidono (vedi \href{20250207122234-rango_di_una_relazione_well_founded.org}{Rango di una relazione well-founded}).
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:orgb3b47cf}
+
+\subsubsection{Punto a.}
+\label{sec:org16a140c}
+
+\uline{\(\bm{\pi}_{R,X}\) è iniettiva.}
+
+Per assurdo supponiamo che \(\overline{x}\) sia l'elemento \(R\)-\href{20250203102516-massimo_e_minimo.org}{minimale} tale che, per qualche \(\overline{y}\neq \overline{x}\):
+\begin{equation*}
+\bm{\pi}_{R,X}(\overline{x}) = \bm{\pi}_{R,X}(\overline{y})
+\end{equation*}
+
+\begin{itemize}
+\item Sia ora \(z\mathrel{R}\overline{x}\). Per costruzione, \(\bm{\pi}_{R,X}(z) \in \bm{\pi}_{R,X}(\overline{x}) = \bm{\pi}_{R,X}(\overline{y})\). Siccome
+\begin{equation*}
+  \bm{\pi}_{R,X}(\overline{y}) = \set{ \bm{\pi}_{R,X}(k)\ |\ k\mathrel{R}\overline{y}}
+\end{equation*}
+si ha che esiste \(w\mathrel{R}\overline{y}\) tale che \(\bm{\pi}_{R,X}(z) =\bm{\pi}_{R,X}(w)\). Per minimalità di \(\overline{x}\), \(z=w\), e quindi \(z\mathrel{R}\overline{y}\).
+Dunque
+\begin{equation*}
+  \forall\,z\ (z\mathrel{R}\overline{x}\,\implies\, z\mathrel{R}\overline{y}).
+\end{equation*}
+
+\item Sia ora \(z\mathrel{R}\overline{y}\). Per costruzione, \(\bm{\pi}_{R,X}(z) \in \bm{\pi}_{R,X}(\overline{y}) = \bm{\pi}_{R,X}(\overline{x})\). Siccome
+\begin{equation*}
+  \bm{\pi}_{R,X}(\overline{x}) = \set{\bm{\pi}_{R,X}(k)\ |\ k\mathrel{R}\overline{x}}
+\end{equation*}
+si ha che esiste \(w\mathrel{R}\overline{x}\) tale che \(\bm{\pi}_{R,X}(z) = \bm{\pi}_{R,X}(w)\). Per minimalità di \(\overline{x}\), \(z=w\) e quindi \(z\mathrel{R}\overline{x}\)
+Dunque
+\begin{equation*}
+  \forall\,z\ (z\mathrel{R}\overline{y}\,\implies\, z\mathrel{R}\overline{x}).
+\end{equation*}
+\end{itemize}
+
+Quindi si è dimostrato che
+\begin{equation*}
+\forall\,z \in X\ (z\mathrel{R}\overline{x}\,\iff\, z\mathrel{R}\overline{y})
+\end{equation*}
+Dunque, per \href{20250207122435-relazione_estensionale.org}{estensionalità} di \(R\), si ha che \(\overline{x}=\overline{y}\). Assurdo
+
+\uline{\(\bm{\pi}_{R,X}\) biiettiva}.
+
+Siccome \(\overline{X}=\operatorname{ran}(\bm{\pi}_{R,X})\)\footnote{vedi \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Dominio, Range e Campo di una Classe Relazione}}, allora \(\bm{\pi}_{R,X}\) è \href{20250104111707-funzione_biunivoca.org}{biiettiva} tra \(X\) e \(\overline{X}\).
+
+\uline{\(\bm{\pi}_{R,X}\) è un isomorfismo}.
+
+Per definizione, se \(\bm{\pi}_{R,X}(x) \in \bm{\pi}_{R,X}(y)\) allora esiste \(z\mathrel{R}y\) tale che
+\begin{equation*}
+\bm{\pi}_{R,X}(x) = \bm{\pi}_{R,X}(z)
+\end{equation*}
+ma, per iniettività, si ha che \(x=z\) e quindi \(x\mathrel{R}y\).
+
+Se viceversa \(x\mathrel{R}y\) allora, per definizione, \(\bm{\pi}_{R,X}(x) \in \bm{\pi}_{R,X}(y)\). Si è dimostrato quindi che
+\begin{equation*}
+\bm{\pi}_{R,X}: X\to \overline{X}
+\end{equation*}
+è un isomorfismo.
+\subsubsection{Punto b.}
+\label{sec:org2192cd6}
+Si osservi che banalmente, se \(x\) è \(R\)-minimale allora
+\begin{equation*}
+\bm{\pi}_{R,X}(x) = \bm{\rho}_{R,X}(x) = 0
+\end{equation*}
+
+
+Supponiamo che \(\forall\, y\) se \(y\mathrel{R}x\) allora \(\bm{\pi}_{R,X}(y)=\bm{\varrho}_{R,X}(y)\). Consideriamo quindi
+\begin{equation*}
+\bm{\pi}_{R,X}(x) = \set{\bm{\pi}_{R,X}(y)\ |\ y\mathrel{R}x} = \set{\bm{\varrho}_{R,X}(y)\ |\ y\mathrel{R}x}
+\end{equation*}
+\href{20250207122234-rango_di_una_relazione_well_founded.org}{Siccome} \(\bm{\rho}_{R,X}(y) \in \operatorname{Ord}\), allora\(\bm{\pi}_{R,X}(x)\) è un \href{20250130104331-insieme_mk.org}{insieme} di \href{20250203111003-ordinali.org}{ordinali}, e quindi tutti i suoi elementi sono \href{20250203110714-classe_transitiva.org}{transitivi}.
+
+Inoltre, \(\bm{\pi}_{R,X}(x)\) è un insieme \href{20250203110714-classe_transitiva.org}{transitivo}: se
+\begin{equation*}
+\bm{\pi}_{R,X}(z) \in \bm{\pi}_{R,X}(y) \in \bm{\pi}_{R,X}(x)
+\end{equation*}
+allora, per il punto precedente, \(z\mathrel{R}y\mathrel{R}x\) e quindi, siccome \(R\) è un \href{20250203104134-buon_ordine_mk.org}{buon ordine}, si ha
+\begin{equation*}
+z\mathrel{R}x
+\end{equation*}
+e quindi, sempre per il punto precedente, \(\bm{\pi}_{R,X}(z) \in \bm{\pi}_{R,X}(x)\). (Osserviamo che questo discorso ha senso perché tutti gli elementi di \(\bm{\pi}_{R,X}(\eta)\) sono nella forma \(\bm{\pi}_{R,X}(\xi)\) per definizione).
+
+Si è stabilito dunque che \(\bm{\pi}_{R,X}(x) \in \operatorname{Ord}\).
+
+Siccome \(R\) è \href{20250203095749-relazione_left_narrow_mk.org}{left-narrow}, allora \(\set{\operatorname{S}\left(\bm{\pi}_{R,X}(y)\right)\ |\ y\mathrel{R}x}\) è un \href{20250130104331-insieme_mk.org}{insieme} \href{20250203111003-ordinali.org}{di ordinali}, e vale
+\begin{equation*}
+\bm{\pi}_{R,X}(x) = \bigcup\set{\operatorname{S}(\bm{\pi}_{R,X}(y))\mid \bm{\pi}_{R,X}(y) \in \bm{\pi}_{R,X}(x)} = \bigcup\set{\operatorname{S}\left(\bm{\pi}_{R,X}(y)\right)\ |\ y\mathrel{R}x}
+\end{equation*}
+\href{20250203111003-ordinali.org}{Quindi}
+\begin{equation*}
+\bm{\pi}_{R,X}(x) = \bigcup\set{\operatorname{S}\left(\bm{\pi}_{R,X}(y)\right)\ |\ y\mathrel{R}x} = \bigcup\set{\operatorname{S}\left(\bm{\varrho}_{R,X}(y)\right)\ |\ y\mathrel{R}x} = \bm{\varrho}_{R,X}(x)
+\end{equation*}
+
+Applicando l'\href{20250208172824-induzione_transfinita_per_le_relazioni_well_founded.org}{induzione transfinita}, si ottiene che
+\begin{equation*}
+\forall\,x \in X\ \bm{\pi}_{R,X}(x) = \bm{\varrho}_{R,X}(x)
+\end{equation*}
+\section{Osservazione}
+\label{sec:org6852876}
+Si è dimostrato che se \(R\) è un buon ordine stretto su \(X\) allora per ogni \(x \in X\) si ha che
+\begin{equation*}
+\bm{\pi}_{R,X}(x) \in \operatorname{Ord}
+\end{equation*}
+ed inoltre
+\begin{equation*}
+\bm{\pi}_{R,X}(x) = \operatorname{sup}\set{\operatorname{S}\left(\bm{\pi}_{R,X}(y)\right)\ |\ y\mathrel{R}x}
+\end{equation*}
+rispetto alla relazione d'ordine \(\in\) su \(\operatorname{Ord}\).
+\end{document}

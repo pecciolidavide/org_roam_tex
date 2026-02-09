@@ -1,0 +1,104 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section[Teorema]{Teorema\footnote{Vedi
+\begin{itemize}
+\item \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale Omega}
+\item \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano}
+\item \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme}
+\end{itemize}}}
+\label{sec:orge5bd42f}
+Sia \(A\) una \href{20250130104320-classe_mk.org}{classe}, e sia \(\overline{a} \in A\). Sia \(F:\omega\times A \to A\) una \href{20250202170607-classe_relazione_binaria.org}{relazione funzionale}.
+
+Allora esiste un'unica \href{20250202170607-classe_relazione_binaria.org}{funzione} \(G:\omega\to A\) tale che
+\begin{equation*}
+\begin{cases}
+G(0) = \overline{a}\\
+G\left(\operatorname{S}(n)\right) = F\left(n, G(n)\right).
+\end{cases}
+\end{equation*}
+\subsection{Dimostrazione}
+\label{sec:org65c422c}
+
+Sia
+\begin{align*}
+\mathcal{G} &= \left\{
+p\ |\ \exists\,m \in \omega\ \left[ p: m\to A \,\land\,  (0<m\,\implies\, p(0) = \overline{a})
+\right.\right.\\
+&\qquad\qquad\left.\left.
+\,\land\,  \forall\, n\ \left( \operatorname{S}(n)<m\,\implies\, p\left(\operatorname{S}(n)\right) = F\left(n,p(n)\right)
+\right)
+\right]\right\}
+\end{align*}
+ovvero l'insieme di tutte le \href{20250202170607-classe_relazione_binaria.org}{funzioni} da un numero naturale in \(A\) tali che, quando si resta nel loro dominio,
+\begin{equation*}
+\begin{cases}
+p(0) = \overline{a}\\
+p\left(\operatorname{S}(n)\right) = F\left(n, p(n)\right)
+\end{cases}
+\end{equation*}
+\subsubsection{Claim}
+\label{sec:org12652e5}
+Se \(p,q \in \mathcal{G}\) allora \(p\cup q\) è una \href{20250202170607-classe_relazione_binaria.org}{funzione}, e dunque \(p\cup q \in \mathcal{G}\).
+\subsubsection{Dimostrazione del claim}
+\label{sec:orga4283e4}
+Se per assurdo \(p\cup q\) non è una funzione, allora esiste un \href{20250203102516-massimo_e_minimo.org}{minimo} \(n \in \operatorname{dom}(p)\cap \operatorname{dom}(q)\) tale che
+\begin{equation*}
+p(n)\neq q(n)
+\end{equation*}
+
+Necessariamente \(n\neq 0\), poiché \(p(0) = \overline{a}= q(0)\), e pertanto \(n=\operatorname{S}(k)\) per qualche \(k \in \N\). Dunque
+\begin{equation*}
+p(n) = F\left(k, p(k)\right) = F\left(k,q(k)\right)=q(n)
+\end{equation*}
+dove, siccome \(k<n\), allora \(p(k)=q(k)\) per minimalità di \(n\). Assurdo.
+\subsubsection{Costruzione della funzione G}
+\label{sec:org54d28d7}
+Grazie al claim \href{20250202180416-unione_di_relazioni_funzionali_mk.org}{si ottiene che} l'\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{unione} di \(\mathcal{G}\)
+\begin{equation*}
+G\coloneqq\bigcup \mathcal{G}
+\end{equation*}
+è una \href{20250202170607-classe_relazione_binaria.org}{relazione funzionale}.
+
+Siccome \(G \subseteq\omega\times A\) allora\footnote{Per l'Axiom of Power set, vedi ``\href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano}''} \(G\) è un insieme, e pertanto una \href{20250202170607-classe_relazione_binaria.org}{funzione}.
+\begin{itemize}
+\item Siccome \(\set{(0,\overline{a})} \in \mathcal{G}\), allora \(G\neq \emptyset\) e \(G(0)=\overline{a}\).
+\item Inoltre, se \(\operatorname{S}(n) \in \operatorname{dom}G\) è nel \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} per qualche \(n\in \omega\) allora
+\begin{equation*}
+  G\left(\operatorname{S}(n)\right) = p\left(\operatorname{S}(n)\right)
+\end{equation*}
+per qualche \(p \in \mathcal{G}\), con\footnote{Infatti, se \(p:m\to A\) allora  \(\operatorname{S}(n) \in \operatorname{dom}p\) se e solo se \(\operatorname{S(n)}<m\). Ma \(n<\operatorname{S}(n)<m\) e dunque \(n \in \operatorname{dom}p\), e dunque \(\left(n,p(n)\right) \in G\). Siccome è funzione, \(G(n) = p(n)\)} \(G(n)=p\), e dunque
+\begin{equation*}
+  G\left(\operatorname{S}(n)\right) = p\left(\operatorname{S}(n)\right) = F\left(n,p(n)\right) = F\left(n,G(n)\right)
+\end{equation*}
+\end{itemize}
+
+Dunque \(G\) è una funzione (eventualmente parziale) che soddisfa le ipotesi.
+\subsubsection{Si deve dimostrare che è una funzione totale.}
+\label{sec:orgbb8c2a0}
+Si dimostra che \(\operatorname{dom}G = \omega\).
+Supponiamo per assurdo che \(\operatorname{dom}G\subsetneqq\omega\), e sia \(\overline{n}\) sia il \href{20250203102516-massimo_e_minimo.org}{minimo} tale che \(\overline{n}\notin \operatorname{dom}G\). Dal momento che \(0 \in \operatorname{dom}G\), allora \(\overline{n}=\operatorname{S}(\overline{m})\) per qualche \(\overline{m} \in \omega\).
+
+Si definisce
+\begin{equation*}
+\overline{p} = G\cup \set{\left(\overline{n}, F\left(\overline{m}, G(\overline{m})\right)\right)}
+\end{equation*}
+Si ha che \(\overline{p} \in \mathcal{G}\). (Ovvio poiché \(\overline{n}\) è il minimo \(\notin \operatorname{dom}G\), e quindi \(\overline{p}:\overline{n}\to A\)).
+
+Ma dunque \(\overline{p} \subseteq G\) e dunque \(\overline{n} \in \operatorname{dom}G\). Assurdo.
+\subsubsection{Unicità della funzione G}
+\label{sec:orgd5427ed}
+Sia \(G'\) un'altra funzione che soddisfa il teorema, e sia \(\overline{n}\) il più piccolo tale che
+\begin{equation*}
+G(\overline{n})\neq G'(\overline{n})
+\end{equation*}
+Necessariamente \(\overline{n}\neq 0\) poiché \(G(0)=G'(0)=\overline{a}\). \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Allora} \(\overline{n}=\operatorname{S}(\overline{m})\) e pertanto
+\begin{equation*}
+G(\overline{n})= F\left(\overline{m},G(\overline{m})\right) = F\left(\overline{m}, G'(\overline{m})\right) = G'(\overline{n})
+\end{equation*}
+in quanto \(\overline{m}<\overline{n}\) e dunque, per minimalità di \(\overline{n}\), \(G(\overline{m}) = G'(\overline{m})\). Assurdo\qed
+\end{document}

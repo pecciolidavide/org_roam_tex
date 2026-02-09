@@ -1,0 +1,54 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:orgf33bb8f}
+Prove that for every topological space \(X\), the following are equivalent:
+\begin{enumerate}
+\item Every nonempty open subset of \(X\) is non-meager.
+\item Every comeager set in \(X\) is dense.
+\item The intersection of countably many dense open subsets of \(X\) is dense.
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:org1004caa}
+
+\subsubsection{a. implica b.}
+\label{sec:org7367909}
+
+Sia \(A \subseteq X\) un insieme comagro: pertanto \(X\setminus A\) è magro. Se per assurdo \(A\) non è denso, allora esiste \(U \subseteq X\) aperto tale che \(A\cap U = \emptyset\), ovvero \(U \subseteq X\setminus A\).
+
+Dunque \(U\) è sottoinsieme di un magro, e pertanto è magro. Assurdo.
+\subsubsection{b. implica c.}
+\label{sec:org11c898e}
+
+Sia \(\set{U_{n}\mid n \in \omega}\) una collezione di aperti densi di \(X\), e sia, per ogni \(n \in\omega\), \(F_{n} \coloneqq X\setminus U_{n}\).
+
+Per la caratterizzazione di cui sopra, gli \(F_{n}\) sono mai densi, e pertanto \(\bigcup_{n \in \omega} F_{n}\) è magro per definizione
+
+Siccome
+\[
+X \setminus \bigcap_{n \in \omega} U_n = \bigcup_{n \in \omega} F_n
+\]
+allora \(\bigcap_{n \in \omega} U_{n}\) è comagro, e quindi è denso.
+\subsubsection{c. implica a.}
+\label{sec:orgd4c6ff1}
+
+Sia \(U \subseteq X\) aperto, magro. Per definizione, allora, esistono, per ogni \(n \in\omega\), \(A_{n} \subseteq X\) mai densi tali che
+\begin{equation*}
+U = \bigcup_{n \in \omega} A_{n}.
+\end{equation*}
+
+Sia quindi \(B_{n} \coloneqq X\setminus \operatorname{Cl}_{X}(A_{n})\): questo è aperto poiché complementare di un chiuso, ed è denso, in quanto il suo complementare ha interno vuoto (per la caratterizzazione dell'esercizio precedente).
+
+Pertanto \(\bigcap_{n \in \omega} B_{n}\) è denso. Inoltre
+\begin{equation*}
+\bigcap_{n \in \omega} B_{n} = X\setminus \bigcup_{n \in\omega} \operatorname{Cl}_{X}(A_{n}) \subseteq X\setminus A_{n} = X\setminus U
+\end{equation*}
+
+Pertanto \(U\cap \left(\bigcap_{n \in \omega} B_{n}\right) = \emptyset\). Siccome \(\bigcap_{n \in\omega} B_{n}\) è denso, allora \(U=\emptyset\).
+
+Segie che ogni aperto non vuoto di \(X\) è non magro.\qed
+\end{document}

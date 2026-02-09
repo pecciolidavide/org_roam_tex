@@ -1,0 +1,64 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\N\) l'\href{20250202130045-insieme_dei_numeri_naturali_mk.org}{insieme dei numeri naturali}, e sia \(\langle \N,+,\codt,\rangle\) il \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard dell'aritmetica}.
+\begin{thm}
+Ogni \href{20250202170607-classe_relazione_binaria.org}{funzione} (\href{20250213105339-funzione_parziale.org}{parziale}) \(f:\N^{k}\to \N\) \href{20250215151458-funzioni_ricorsive.org}{ricorsiva} è \(\Sigma_{1}\)-\href{20250603170634-insieme_definibile_nel_modello_standard.org}{definibile} nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} \(\langle \N,+,\cdot\rangle\).
+\end{thm}
+\begin{proof}
+Partendo dalla \href{20250215151458-funzioni_ricorsive.org}{definizione equivalente di funzioni ricorsive} si osserva che le funzioni \(\set{U_{i}^{k}, +,\cdot}\) sono \(\Delta_{0}\)-definibili  poiché
+\begin{align*}
+	``U_{i}^{k}(x_{1},\dots,x_{k}) = y"\qquad &\iff\qquad \varphi(x_{1},\dots,x_{k},y):\ x_{i}=y\\
+	``x+y=z"\qquad &\iff\qquad x+y=z\\
+	``x\cdot y = z" \qquad &\iff\quad x\cdot y=z
+\end{align*}
+e quindi sono anche \(\Sigma_{1}\)-definibili.
+
+Inoltre anche \(\chi_{\le}\) è \(\Sigma_{1}\)-definibile, poiché, se \(\varphi_{\le}\) è la \(\Delta_{0}\)-formula \href{20250603170634-insieme_definibile_nel_modello_standard.org}{che definisce \(\le\)}:
+\begin{equation*}
+\chi_{\le}(x,y)=z\quad \iff\quad \left(``z=1" \,\land\, \varphi_{\le}(x,y)\right) \,\lor\, \left(``z=0" \,\land\, \varphi_{\le}(y,z)\right)
+\end{equation*}
+
+Resta da dimostrare che la classe delle funzioni \(\Sigma_{1}\)-definibili è chiusa per \href{20250215151458-funzioni_ricorsive.org}{composizione} e \href{20250215151440-operatore_di_minimizzazione_non_limitato.org}{applicazioni di \(\mu\)} a \href{20250213105339-funzione_parziale.org}{funzioni totali}.
+\begin{itemize}
+\item Siano \(f(y_{1},\dots,y_{\ell})\), \(g_{1}(x_{1},\dots,x_{k}),\dots,g_{\ell}(x_{1},\dots,x_{k})\) funzioni \(\Sigma_{1}\)-definibili. Allora
+\begin{multline*}
+  ``z = f\left(g_{1}(x_{1},\dots,x_{k}),\dots,g_{\ell}(x_{1},\dots,x_{k})\right)"\quad \iff\\
+  &\iff\quad \exists\,z_{1}\, \dots\, \exists\, z_{\ell}\ \left(``z=f(z_{1},\dots,z_{\ell})" \,\land\, \bigwedge_{i=1}^{\ell} ``g_{i}(x_{1},\dots,x_{k}) = z_{i}"\right).
+\end{multline*}
+\item Sia \(h(x_{1},\dots,x_{k},z)\) una funzione \(\Sigma_{1}\)-definibile, e sia
+\begin{equation*}
+  f(x_{1},\dots,x_{k}) = \minim{z}{h(x_{1},\dots,x_{k},z)=0}.
+\end{equation*}
+Allora
+\begin{multline*}
+  ``f(x_{1},\dots,x_{k}) = y"\quad\iff\\
+  \iff\quad ``h(x_{1},\dots,x_{k}, y) = 0" \,\land\, \forall\, z\le y\ \left(\exists\,w\ \left(\lnot ``w = 0" \,\land\,  ``h(x_{1},\dots,x_{k}, y) =w"\right)\right)\qedd
+\end{multline*}
+\end{itemize}
+\end{proof}
+\begin{cor}
+Un insieme \(P \subseteq \N^{k}\) è \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo} se e solo se è \(\Sigma_{1}\)-\href{20250603170634-insieme_definibile_nel_modello_standard.org}{definibile} nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} \(\langle \N,+,\cdot\rangle\).
+
+In particolare, una funzione (parziale) è \(\Sigma_{1}\)-definibile se e solo se il suo \href{20250104112443-grafico_di_una_funzione.org}{grafo} è semiricorsivo.
+\end{cor}
+\begin{cor}
+Un insieme è \href{20250216173925-insieme_ricorsivo.org}{ricorsivo} se e solo se è \(\Delta_{1}\)-\href{20250603170634-insieme_definibile_nel_modello_standard.org}{definibile} nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} \(\langle \N,+,\cdot\rangle\).
+\end{cor}
+\begin{cor}
+Sia \(n\ge 1\). Un insieme è rispettivamente {[}BROKEN LINK: a6dd5cae-c225-49d4-8945-602100951278] se e solo se è rispettivamente \(\Sigma_{n}\), \(\Pi_{n}\), \(\Delta_{n}\)-\href{20250603170634-insieme_definibile_nel_modello_standard.org}{definibile} nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} \(\langle \N,+,\cdot\rangle\).
+\end{cor}
+\begin{cor}
+Per ogni \href{20250202170607-classe_relazione_binaria.org}{funzione} (\href{20250213105339-funzione_parziale.org}{parziale}) \(f:\N^{k}\to \N\) sono fatti equivalenti:
+\begin{enumerate}
+\item \(f\) è ricorsiva;
+\item \(f\) è \(\Sigma_{1}\)-\href{20250603170634-insieme_definibile_nel_modello_standard.org}{definibile};
+\item \(f\) è \(\Pi_{1}\)-\href{20250603170634-insieme_definibile_nel_modello_standard.org}{definibile};
+\end{enumerate}
+
+Questo segue banalmente da ``\href{20250601162421-funzioni_ricorsive_e_loro_grafico.org}{Caratterizzazione funzioni ricorsive tramite grafico}''.
+\end{cor}
+\end{document}

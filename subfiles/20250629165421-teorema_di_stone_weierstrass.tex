@@ -1,0 +1,66 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{thm}
+Sia \(K \subseteq \R^{n}\) \href{20250103163701-spazio_topologico_compatto.org}{compatto}, e sia \(\mathcal{A} \subseteq C(K)\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''\label{org6caba49}} una \href{20250629165520-algebra_di_funzioni_reali.org}{\(\R\)-algebra}. Se
+\begin{enumerate}
+\item \(\mathcal{A}\) separa i punti di \(K\);
+\item \(\mathcal{A}\) contiene le funzioni costanti;
+\end{enumerate}
+allora \(\mathcal{A}\) è un \href{20250301193045-sottoinsieme_denso.org}{sottoinsieme denso} di \(C(K)\) munito della \href{20250103145124-topologia.org}{topologia} \href{20250301193530-topologia_indotta_da_una_distanza.org}{indotta dalla metrica}\footnote{Tale massimo esiste per il \href{20250627153319-teorema_di_weierstrass.org}{Teorema di Weierstrass}\label{org536e03e}}:
+\begin{equation*}
+\forall f,g \in C(K):\quad d(f,g) \coloneqq \max_{x \in K} |f(x)-g(x)|.
+\end{equation*}
+\end{thm}
+\section{Corollari del teorema}
+\label{sec:orgd5b90a6}
+
+\begin{prop}
+Sia \([a,b] \subseteq \R\), e si consideri \(C([a,b])\)\textsuperscript{\ref{org6caba49}} munito della \href{20250103145124-topologia.org}{topologia} \href{20250301193530-topologia_indotta_da_una_distanza.org}{indotta dalla metrica}\textsuperscript{\ref{org536e03e}}:
+\begin{equation*}
+\forall f,g \in C(K):\quad d(f,g) \coloneqq \max_{x \in [a,b]} |f(x)-g(x)|.
+\end{equation*}
+Sia:
+\begin{equation*}
+\mathcal{A} \coloneqq \set{\restriction{f}{[a,b]}\mid f(x) = \sum_{k=0}^{n} a_{k}x^{k}; a_{k} \in \R, n \in \N}.
+\end{equation*}
+
+Allora \(\mathcal{A}\) è \href{20250301193045-sottoinsieme_denso.org}{denso} in \(C([a,b])\), ovvero: per ogni \(f:[a,b]\to \R\) \href{20250103103252-funzione_continua.org}{continua} e per ogni \(\varepsilon>0\) esiste \(g \in \mathcal{A}\) tale che
+\begin{equation*}
+\max_{x \in [a,b]} |f(x)-g(x)|<\varepsilon
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+\(\mathcal{A}\) è una \href{20250629165520-algebra_di_funzioni_reali.org}{\(\R\)-algebra} che \href{20250629151420-algebra_di_funzioni_separa_i_punti.org}{separa i punti} e contiene le funzioni costanti.
+\end{proof}
+\begin{prop}
+Sia \(f:[a,b]\times[c,d]\to \R\) una funzione continua. Allora, per ogni \(\varepsilon>0\) esiste \(N\ge 1\) ed esistono, per ogni \(i=1,\dots,N\), delle \(g_{i} \in C([a,b])\)\textsuperscript{\ref{org6caba49}} e \(h_{i} \in C([c,d])\) tali che
+\begin{equation*}
+\max_{\substack{
+x \in [a,b]\\
+y \in [c,d]}}
+\bigg\lvert
+f(x,y)-\sum_{i=1}^{N}g_{i}(x)h_{i}(y)
+\bigg\rvert<\varepsilon
+\end{equation*}
+\end{prop}
+\begin{proof}
+Si consideri
+\begin{equation*}
+\mathcal{A}\coloneqq \set{
+G(x,y) = \sum_{i=1}^{N} g_{i}(x)h_{i}(y)\mid g_{i} \in C([a,b]), h_{i} \in C([c,d]), N = 1,2,\dots
+}
+\end{equation*}
+Si osserva facilmente che \(\mathcal{A}\) è chiuso per somme, prodotti e prodotti per scalari, ovvero è una \href{20250629165520-algebra_di_funzioni_reali.org}{\(\R\)-algebra}. Inoltre contiene le funzioni costanti.
+
+Se \((x_{0},y_{0})\neq (x_{1},y_{1})\):
+\begin{itemize}
+\item se \(x_{0}\neq x_{1}\) allora \(G(x,y) = x\cdot 1 \in \mathcal{A}\) \href{20250629151420-algebra_di_funzioni_separa_i_punti.org}{separa i due punti};
+\item se \((y_{0}\neq y_{1})\) allora \(G(x,y) = 1\cdot y \in \mathcal{A}\) \href{20250629151420-algebra_di_funzioni_separa_i_punti.org}{separa i due punti}.\qedhere
+\end{itemize}
+\end{proof}
+\end{document}

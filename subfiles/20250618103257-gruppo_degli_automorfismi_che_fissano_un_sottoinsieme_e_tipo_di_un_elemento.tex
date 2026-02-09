@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{notazione della Teoria dei Modelli}.
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} fissato, \(T\) una \(\mathcal{L}\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123151-teoria_completa.org}{completa} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti, ed un modello \(\mathcal{U}\) di \href{20241213101756-cardinalita.org}{cardinalità} \(\kappa>\card{\mathcal{L}}\), con \(\kappa\) \href{20250211123155-cardinale_limite_forte.org}{inaccessibile}. Si lavora nell'ambito di un \href{20250617102733-modello_mostro.org}{MODELLO MOSTRO}.
+\section{Proposizione}
+\label{sec:org4aa7cee}
+
+Fissato \(a \in \mathcal{U}^{x}\) e \(A \subseteq \mathcal{U}\), si definisce il \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo} \href{20250212164424-tipo_teoria_dei_modelli.org}{\(p(x) = \operatorname{tp}(a/A)\)}, ovvero
+\begin{equation*}
+p(x) = \set{\varphi(x) \in \mathcal{L}(A)\mid \mathcal{U}\vDash \varphi[a]}.
+\end{equation*}
+(vedi ``\href{20250131122913-soddisfazione_di_una_formula.org}{Soddisfazione di una formula}'')
+
+Allora, detto \(\operatorname{o}(a/A) \coloneqq \set{fa\mid f \in \operatorname{Aut}(\mathcal{U}) \text{ e }\Id_{A} \subseteq f}\) l'\href{20251020151126-insieme_degli_automorfismi_di_una_struttura_del_prim_ordine.org}{orbita di \(a\) rispetto all'azione di gruppo di \(\operatorname{Aut}(\mathcal{U}/A)\)}, si ha
+\begin{equation*}
+\operatorname{o}(a/A) = p(\mathcal{U}^{x}).
+\end{equation*}
+(vedi \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{Automorfismo di una struttura del prim'ordine})
+
+\begin{oss}
+Pertanto, se \(a \equivalentover{A} b\), allora
+\begin{equation*}
+\tp(a/A) = \tp(b/A)
+\end{equation*}
+e quindi
+\begin{equation*}
+a \in \operatorname{o}(a/A) = \operatorname{o}(b/A)
+\end{equation*}
+e quindi esiste \(f \in \operatorname{Aut}(\mathcal{U}/A)\) tale che \(fb=a\).
+\end{oss}
+\end{document}

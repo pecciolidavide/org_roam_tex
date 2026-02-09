@@ -1,0 +1,51 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Differenziale di una forma}
+\label{sec:org270d8c7}
+\def\d{\operatorname{d}}
+
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile}, e si indichi con \(\Omega^{k}(M)\) l'insieme delle \href{20251115155511-forma_differenziale_in_un_punto.org}{\(k\)-forme differenziali} su \(M\).
+
+\begin{definizione}
+Il \uline{differenziale} è una funzione
+\(\dif :\Omega^{k}(M) \to \Omega^{k+1}(M)\) definita come segue:
+\begin{itemize}
+\item se \(k = 0\), allora \(\Omega^{0}(M) = C^{\infty}(M)\)\footnote{Questo è l'\href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{anello delle funzioni \(C^{\infty}\) da una varietà ai reali}.} e quindi, localmente,
+\begin{equation*}
+  \dif f = \dpd{f}{{x^{i}}}\dif x^{i}
+\end{equation*}
+dove si è utilizzata la \href{20250114105957-notazione_di_einstein.org}{notazione di Einstein};
+\item se \(k > 0\), allora localmente \(\omega = f_{I} \dif x^{I}\), e si definisce
+\begin{equation*}
+  \dif \omega = \dpd{f_{I}}{{x^{j}}} \dif x^{j} \wedge \dif x^{I}.
+\end{equation*}
+dove \(I=(i_{1},\dots,i_{k}) \in \set{1,\dots, n}^{k}\) è un multi-indice di elementi diversi, e
+\begin{equation*}
+  \dif x^{I} \coloneqq %
+  \dif x^{i_{1}} \wedge \dif x^{i_{2}} \wedge \dots \wedge \dif x^{i_{k}}.
+\end{equation*}
+\end{itemize}
+\end{definizione}
+\section{Proprietà del differenziale di forme}
+\label{sec:org2e5f1a0}
+\def\d{\operatorname{d}}
+
+\begin{prop}
+Valgono le seguenti proprietà:
+\begin{enumerate}
+\item \(\d\) è lineare;
+\item \(\displaystyle  \d(\Omega^{k}(M)) \subseteq \Omega^{k+1}(M)\);
+\item \(\d\circ\d = 0\);
+\item per \(\omega \in \Omega^{k}(M)\) e \(\varphi \in \Omega^{p}(M)\):
+\(\d(\omega\wedge\varphi) = %
+   (\dif\omega) \wedge \varphi + (-1)^{k}\, \omega \wedge (\dif\varphi)\)
+\end{enumerate}
+\end{prop}
+\begin{oss}
+Se \(M\) è una varietà \(n\)-dimensionale e \(\omega \in \Omega^{n}(M)\), allora \(\dif \omega= 0\).
+\end{oss}
+\end{document}

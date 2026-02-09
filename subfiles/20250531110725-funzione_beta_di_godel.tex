@@ -1,0 +1,31 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Si definisce la funzione \(\beta: \N^{2}\to \N\) come segue:
+\begin{equation*}
+\beta(m,i) \coloneqq \operatorname{Res}\left((m)_{0}, (i+1)\cdot (m)_{1}+1\right)
+\end{equation*}
+dove \((\cdot)_{0}, (\cdot)_{1}\) sono le \href{20250215151413-biiezione_canonica_tra_n_e_n2.org}{inverse della biiezione} \(\bm{J}: \N^{2}\to \N\), e il \href{20250108174027-divisione.org}{resto}:
+\begin{equation*}
+\operatorname{Res}(a,b) \coloneqq \begin{cases}
+a & b=0\\
+a \mathrel{\operatorname{mod}} b & b>0
+\end{cases}
+\end{equation*}
+\end{definizione}
+
+Questa è una \href{20250215141024-funzioni_primitive_ricordive.org}{funzione ricorsiva primitiva}, poiché \href{20250215141024-funzioni_primitive_ricordive.org}{composizione} \href{20250215141024-funzioni_primitive_ricordive.org}{di funzioni ricorsive primitive}.
+
+Si osservi inoltre che per ogni \(m,i \in \N\) si ha
+\begin{equation*}
+\beta(m,i)\le(m)_{0}\le m
+\end{equation*}
+ed inoltre, se \(m\neq 0\)
+\begin{equation*}
+\beta(m,i)< m.
+\end{equation*}
+\end{document}

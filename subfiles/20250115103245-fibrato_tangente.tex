@@ -1,0 +1,38 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} di dimensione \(n\).
+\section{Definizione}
+\label{sec:org95e275b}
+Si definisce il \textbf{fibrato tangente} \(\operatorname{T}M\):
+\begin{equation*}
+\operatorname{T}M \coloneqq \coprod_{p \in M} \operatorname{T}_{p} M
+\end{equation*}
+(vedi \href{20250113175700-unione_disgiunta.org}{Unione disgiunta} e \href{20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Spazio tangente ad un punto di una varietà differenziabile}) dotato di una naturale proiezione sulla varietà,
+\begin{align*}
+\pi: \operatorname{T}M &\longrightarrow M\\
+v \in \operatorname{T}_{p} M &\longmapsto p
+\end{align*}
+\subsection{Esercizio}
+\label{sec:orgcf0e3f9}
+La funzione \(\pi:\operatorname{T}M\longrightarrow M\) è una \href{20250115105535-sommersione_di_varieta_differenziabili.org}{sommersione}
+\section{Struttura di varietà differenziabile}
+\label{sec:orgaf221e3}
+Se \((U,\varphi)\) è una \href{20250111092123-varieta_topologica.org}{carta} di \(M\), definisco
+\begin{equation*}
+\tilde{U} \coloneqq \pi^{-1}(U) = \coprod_{p \in U} \operatorname{T}_{p} U
+\end{equation*}
+e una funzione
+\begin{align*}
+\tilde{\varphi}: \tilde{U} &\longrightarrow \varphi(U) \times \R^{n}\\
+v &\longmapsto \left(\varphi\circ\pi(v), \restriction{\varphi_{\star}}{\pi(v)}(v)\right)
+\end{align*}
+(vedi \href{20250114111331-differenziale_di_una_funzione_tra_varieta_differenziabili.org}{Differenziale di una funzione tra varietà differenziabili})
+
+L'insieme \(\set{(\tilde{U},\tilde{\varphi})}\) è un \href{20250113103136-atlante_topologico_differenziabile.org}{atlante differenziabile} di \(\operatorname{T}M\).
+\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\label{sec:orged16a0b}
+\end{document}

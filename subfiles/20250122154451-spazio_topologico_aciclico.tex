@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}.
+
+\begin{definizione}
+Uno \href{20250103145124-topologia.org}{spazio topologico} \(X\) \href{20250113103025-spazio_topologico_connesso_per_archi.org}{cpa} è detto \textbf{aciclico} se vale una delle seguenti condizioni equivalenti:
+\begin{enumerate}
+\item per ogni \(q\), l'\href{20250122133631-omologia_singolare.org}{omologia singolare} di \(X\) è
+\begin{equation*}
+ \forall\,q>0\quad H_{q}(X) = 0, \qquad H_{0}(X) = R
+\end{equation*}
+\item per ogni \(q\), l'\href{20250122154406-omologia_singolare_ridotta.org}{omologia singolare ridotta} di \(X\) è nulla:
+\begin{equation*}
+ \tilde{H}_{q}(X) = 0
+\end{equation*}
+\item il \href{20250120163114-complesso_di_catene.org}{complesso di catene} \href{20250122154349-complesso_di_catene_singolare_augmentato.org}{singolari augmentato} \(\mathcal{\tilde{S}}_{\bullet}(X)\) è \href{20250121104306-complesso_di_catene_aciclico.org}{aciclico};
+\item il complesso di catene singolari augmentato \(\mathcal{\tilde{S}}_{\bullet}(X)\) è \href{20250121104453-complesso_di_catene_contraibile.org}{contraibile}.
+\end{enumerate}
+\end{definizione}
+\end{document}

@@ -1,0 +1,101 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Caratterizzazione sequenza di coeredi}
+\label{sec:orge66a38a}
+%% Alcuni simboli
+\def\nonforkSymbol{\mathbin{\raise1.8ex\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$} } }
+\newcommand{\nonfork}[1][M]{\mathrel{\nonforkSymbol_{#1}}}
+%% Leggibilità
+%
+\def\L{\mathcal{L}} % Il linguaggio
+\def\U{\mathcal{U}} % Modello mostro
+\def\orbita{\mathcal{O}} % Le orbite
+\def\restricted{\upharpoonright} % Restrizione
+\def\equivalentover#1{\mathrel{\equiv_{#1}}}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+
+Sia \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio}, \(T\) una \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123151-teoria_completa.org}{completa} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti e \(\U\) un \href{20250617095548-modello_lambda_saturo.org}{modello saturo} di \href{20241213101756-cardinalita.org}{cardinalità} \href{20250211123155-cardinale_limite_forte.org}{inaccessibile} \(\kappa>\card{\L}+ \omega\). \(\U\) è un \href{20250617102733-modello_mostro.org}{modello mostro}.
+
+\begin{lem}
+LSASE:
+\begin{enumerate}
+\item \(\overline{c} = \langle c_{i} : i<\omega \rangle\) è \href{20251026211057-sequenza_di_coeredi.org}{sequenza di coeredi su \(M\)} (rispetto a qualche \(p(x) \in S(\U)\)\footnote{Con \(S(\U)\) si intende l'insieme dei tipi globali (notazione propria del \href{20250617102733-modello_mostro.org}{Modello MOSTRO})});
+\item \(c_{i} \nonfork (c \restricted i)\)\footnote{La relazione \(\nonfork\) è la relazione di indipendenza; vedi ``\href{20251029154447-tuple_indipendenti_rispetto_ad_un_modello_monster_model.org}{Tuple indipendenti rispetto ad un modello (Monster Model)}''} e \(c_{i+1} \equivalentover{M, c \restricted i} c_{i}\)\footnote{La relazione \(\equivalentover{A}\) è quella di \href{20250212164424-tipo_teoria_dei_modelli.org}{equivalenza sull'insieme di parametri \(A\)}.};
+\item \(c_{i} \nonfork (c \restricted i)\) e \(c_{j} \equivalentover{M, c \restricted i} c_{i}\) per ogni \(j>i\).
+\end{enumerate}
+\end{lem}
+
+Le condizioni 2. e 3. sono banalmente equivalenti, e pertanto saranno utilizzate in maniera interscambiabile.
+
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Sia \(p(x) \in S(\U)\) \href{20250212164424-tipo_teoria_dei_modelli.org}{finitamente soddisfacibile in \(M\)} tale che \(\overline{c}\) sia sequenza di coeredi rispetto a \(p\).
+
+\uline{Si dimostra \(c_{i} \nonfork (c \restricted i)\)}.
+
+Sia \(\varphi(x, z_{0},\dots,z_{i-1}) \in \L(M)\) tale che \(\varphi(c_{i}, c \restricted i)\).
+
+Poiché \(p(x)\) è completo e \(c_{i}\vDash p(x) \restricted {\scriptstyle M, (c\restricted i)}\) allora:
+\begin{equation*}
+\varphi(x; c \restricted i) \in p(x) \restricted {\scriptstyle M, (c\restricted i)}.
+\end{equation*}
+dove con \(p(x)\upharpoonright A\) si intende la \href{20251029160457-restrizione_di_un_tipo_ad_un_insieme_di_parametri.org}{restrizione di un tipo ad un insieme di parametri}.
+
+Siccome \(p(x)\) finitamente soddisfacibile in \(M\) allora \(\varphi(M^{x}; c \restricted i) \neq \emptyset\)\footnote{Con questa notazione si intende l'\href{20250131122913-soddisfazione_di_una_formula.org}{insieme di verità} di \(\varphi(x; c\restricted{i})\) nel modello \(M\).}. Per definizione questo significa che
+\begin{equation*}
+c_{i} \nonfork (c \restricted i).
+\end{equation*}
+
+\uline{Si dimostra l'equivalenza elementare}.
+
+Per definizione si ha che
+\begin{equation*}
+c_{i}\vDash p(x) \restricted{\scriptstyle M, (c\restricted{i})},\qquad c_{i+1}\vDash p(x) \restricted{\scriptstyle M, (c\restricted{i+1})}
+\end{equation*}
+In particolare, dalla seconda relazione, segue che
+\begin{equation*}
+c_{i+1}\vDash p(x) \restricted{\scriptstyle M, (c\restricted i)} \subseteq p(x) \restricted{\scriptstyle M, (c\restricted{i+1})}
+\end{equation*}
+
+Per la completezza di \(p(x)\) segue \(c_{i} \equivalentover{M, c\restricted i} c_{i+1}\).
+
+(\(2.\Rightarrow 1.\)):
+Sia \(q(x) = \set{\varphi(x) \in \L(M, \overline{c}) \mid
+\null\vDash\varphi(c_{i})\text{ per infiniti }i<\omega}\).
+È evidente che in realtà
+\begin{equation*}
+q(x)
+= \set{\varphi(x) \in \L(M, \overline{c}) \mid
+\null \vDash\varphi(c_{i})\text{ per cofiniti }i<\omega}.
+\end{equation*}
+Infatti ``\(\supseteq\)'' è ovvio, mentre per il viceversa, se per infiniti \(c_{i}\) vale \(\varphi(c_{i})\), allora in particolare esisterà \(I \in \N\) tale che
+\begin{equation*}
+\varphi(x) \in \L(M, c\restricted I),\qquad \varphi(c_{I})
+\end{equation*}
+e allora vale anche \(\varphi(c_{j})\) per ogni \(j>I\), in quanto
+\begin{equation*}
+c_{j} \equivalentover{M, c \restricted I} c_{I}
+\end{equation*}
+per ogni \(j>I\).
+
+In particolare \(q(x)\) è chiuso per congiunzioni e finitamente soddisfacibile (ne sono testimoni i \(c_{i}\)).
+
+Quindi \(q(x)\) è finitamente soddisfacibile in \(M\) (poiché \(M\) è \href{20250212102253-sottostruttura_elementare.org}{sottostruttura elementare} di \(\U\)).
+
+Sia quindi \(p(x)\supseteq q(x)\), \(p(x) \in S(\U)\)\footnote{\(p(x)\) è l'\href{20251026195832-estensione_tipo_finitamente_soddisfacibile_in_un_insieme_a_tipo_massimale_e_completo.org}{estensione di \(q\) ad un tipo completo}.}. Questo è finitamente soddisfacibile in \(M\) in quanto lo è in \(\U\).
+
+\uline{\(\overline{c} = \langle c_{i} : i<\omega \rangle\) è sequenza di Morley di \(p(x)\) su \(M\)}
+
+Si deve dimostrare che \(c_{i}\vDash p(x) \restricted {\scriptstyle M, (c \restricted i)}\) per ogni \(i \in \omega\).
+
+Se per qualche \(c_{i}\) e per qualche \(\varphi(x; c \restricted i) \in  p(x) \restricted {\scriptstyle M, (c \restricted i)}\) si avesse \(\lnot \varphi(c_{i}; c \restricted i)\), allora per ogni \(j>i\) si avrebbe (siccome \(c_{j} \equivalentover{M, (c\restricted i)} c_{i}\))
+\begin{equation*}
+\lnot\varphi(c_{j}; c \restricted i)
+\end{equation*}
+e pertanto \(\lnot\varphi(x; c\restricted i) \in q(x)\). Assurdo perché \(q(x) \subseteq p(x)\) e \(p(x)\) finitamente soddisfacibile.
+\end{proof}
+\end{document}

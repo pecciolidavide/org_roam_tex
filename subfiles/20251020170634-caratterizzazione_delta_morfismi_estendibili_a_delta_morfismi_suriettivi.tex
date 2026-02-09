@@ -1,0 +1,23 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+\begin{itemize}
+\item Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}
+\item Sia \(\Delta\) un insieme di formule chiuso per sostituzione di variaibli e che contenga la formula ``\(x=y\)''.
+\item Se \(C \subseteq \set{\forall , \exists , \land,\lor,\lnot}\) è un insieme di connettivi, \(C\Delta\) denota la chiusura di \(\Delta\) per i connettivi in \(C\). \(\Delta^{\pm} \coloneqq \set{\lnot}\Delta\).
+\end{itemize}
+
+\begin{cor}
+Siano \(M,N\) due \href{20250131103035-struttura_del_prim_ordine.org}{\(\mathcal{L}\)-strutture}, con \(N\) \href{20250617095548-modello_lambda_saturo.org}{\(\omega\)-saturo},  \(\card{M}=\omega\) e \(k:N\to M\) un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismo} di \href{20241213101756-cardinalita.org}{cardinalità} \(\card{k}<\omega\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(k\) è un \(\set{\forall ,\lor}\!\Delta\)-morfismo.
+\item \(k\) si estende ad un \(\Delta\)-morfismo \href{20241213105600-funzione_suriettiva.org}{suriettivo} (\href{20250213105339-funzione_parziale.org}{parziale}).
+\end{enumerate}
+\end{cor}
+
+Questo è banale corollario de ``\href{20251020164754-estendere_dominio_e_codominio_di_un_delta_morfismo.org}{Estendere dominio e codominio di un delta-morfismo}''
+\end{document}

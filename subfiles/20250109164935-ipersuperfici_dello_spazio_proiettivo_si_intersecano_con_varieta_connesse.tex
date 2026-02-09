@@ -1,0 +1,26 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Corollario del \href{20250109141249-morfismo_da_varieta_proiettiva_a_varieta_qp_e_chiuso.org}{TEOREMA}. Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
+\section{Corollario}
+\label{sec:org6582e2a}
+Sia \(X \subseteq \mathds{P}^{n}\) (vedi \href{20241231115051-spazio_proiettivo.org}{spazio proiettivo}) una \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà algebrica proiettiva} \href{20250103165325-spazio_topologico_connesso.org}{connessa}, \(X\neq \set{p}\) per qualche \(p\).
+Sia \(Y \subseteq \mathds{P}^{n}\) una \href{20250110103632-varieta_algebrica_ipersuperficie.org}{ipersuperficie}.
+Allora \(X\cap Y \neq \emptyset\)
+\subsection{Dimostrazione}
+\label{sec:orga84590b}
+Sia \(F \in \K[x_{0},\dots,x_{n}]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}) \href{20241231121125-polinomi_omogenei.org}{omogeneo} tale che \(Y=V(F)\). (vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri}).
+
+Se \(X\cap Y = \emptyset\), allora per ogni \(x \in X\) si ha che \(F(x) \neq 0\).
+
+Pertanto, se \(d=\deg F\) (vedi \href{20241231124742-grado_polinomi.org}{Grado-Polinomi}), allora le funzioni
+\begin{equation*}
+f_{i}[x_{0}:\dots:x_{n}]\coloneqq \frac{x_{i}^{d}}{F[x_{0}:\dots:x_{n}]}
+\end{equation*}
+sono \href{20250107112412-morfismo_tra_varieta_algebriche_qp.org}{morfismi} \(X \longrightarrow \A^{1}\).
+
+Per il \href{20250109164824-morfismo_da_varieta_proiettiva_connessa_allo_spazio_affine_unidimensionale_e_costante.org}{corollario precedente}, tutte queste funzioni sono costanti su \(X\). Dunque \(X\) è composto da un unico punto. Assurdo.
+\end{document}

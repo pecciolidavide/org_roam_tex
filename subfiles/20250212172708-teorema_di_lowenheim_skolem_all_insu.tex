@@ -1,0 +1,27 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}.
+\section{Teorema}
+\label{sec:org94ef627}
+Per ogni \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} \(M\) \href{20250205120448-classe_finita_e_infinita_mk.org}{infinita}, e per ogni \href{20250203161341-cardinali.org}{cardinale} \(\lambda\), esiste una \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} \(N\) tale che
+\begin{enumerate}
+\item \(M\preceq N\) (vedi \href{20250212102253-sottostruttura_elementare.org}{Sottostruttura elementare});
+\item \(\card{N}>\lambda\) (vedi \href{20241213101756-cardinalita.org}{Cardinalità} e \href{20250203111003-ordinali.org}{Relazione d'ordine sugli ordinali}).
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:orgc56029f}
+Sia \(x=\langle x_{i}\ |\ i<\lambda\rangle\) una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \href{20250130162057-linguaggio_del_prim_ordine.org}{variabili} distinte.
+Il \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo}
+\begin{equation*}
+p(x) = \set{x_{i}\neq x_{j}\ |\ i<j<\lambda}
+\end{equation*}
+è \href{20250212164424-tipo_teoria_dei_modelli.org}{finitamente soddisfacibile} su \(M\), in quanto struttura infinita\footnote{Infatti, se la struttura è infinita allora esiste un numero arbitrariamente grande di elementi a due a due distinti.}.
+
+Applicando il \href{20250212171043-teorema_di_compattezza_per_tipi.org}{Teorema di Compattezza per tipi}, si ottiene che esiste \(N\) tale che \(M\preceq N\) e tale che \href{20250212164424-tipo_teoria_dei_modelli.org}{soddisfa} \(p(x)\).
+
+Pertanto, \(\card{N}\ge \lambda\), in quanto contiene almeno \(\lambda\) elementi distinti.
+\end{document}

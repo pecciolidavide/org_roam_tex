@@ -1,0 +1,58 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{CW-complesso}
+\label{sec:org7c18d9d}
+\begin{definizione}
+Un \textbf{CW-complesso} è uno \href{20250103145124-topologia.org}{spazio topologico} \(X\) dato dall'unione:
+\begin{equation*}
+X=\bigcup_{n \in \N} X_{n}
+\end{equation*}
+tale che:
+\begin{itemize}
+\item \(X_{0}\) è \href{20260128123515-sottoinsieme_discreto.org}{discreto} e finito;
+\item per ogni \(k\): esiste una famiglia \(\set{e_{\alpha}^{k+1}}_{\alpha \in A^{k+1}}\) di \href{20250215122759-export.org_archive}{\((k+1)\)-celle} ed una famiglia di funzioni \href{20250103103252-funzione_continua.org}{continue} dal \href{20250129161026-bordo.org}{bordo} \(\varphi_{\alpha}^{k+1}: \partial e_{\alpha}^{k+1} \to X_{k}\); tali che \(X_{k+1}\) sia dato dal \href{20250215122759-export.org_archive}{seguente attaccamento}:
+\begin{equation*}
+X_{k+1} \coloneqq X_{k} \mathrel{\cup_{\set{\varphi_{\alpha}^{k+1}}}} \left(
+  \coprod_{\alpha \in A^{k+1}} e_{\alpha}^{k+1}
+\right)
+\end{equation*}
+\end{itemize}
+Lo spazio \(X_{n}\) si dice \(n\)-scheletro.
+\end{definizione}
+
+\begin{oss}
+Se \(\Phi_{\alpha}^{n}\) sono le mappe caratteristiche per \(e_{\alpha}^{n}\), allora il seguente diagramma commuta
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,column sep=scriptsize]
+	{\coprod_{\alpha} e_\alpha^n} \&\& {X_n} \\
+	\\
+	{\coprod_{\alpha} \partial e_\alpha^n} \&\& {X_{n-1}}
+	\arrow["{\coprod_\alpha \Phi_\alpha^n}", from=1-1, to=1-3]
+	\arrow[hook, from=3-1, to=1-1]
+	\arrow["{\coprod_\alpha \varphi_\alpha^n}"', from=3-1, to=3-3]
+	\arrow[hook, from=3-3, to=1-3]
+\end{tikzcd}
+\end{equation*}
+dove \(\amalg\) indica l'\href{20250113175700-unione_disgiunta.org}{unione disgiunta}.
+\end{oss}
+
+\begin{oss}
+Per ogni \(n\), \((X_{n+1}, X_{n})\) è una \href{20250129183256-coppia_topologica_buona.org}{coppia topologica buona}.
+\end{oss}
+
+\begin{esempio}
+La \href{20250115150754-sfera_n_dimensionale.org}{sfera \(\mathds{S}^{n}\)} ha una naturale struttura di CW-complesso. Infatti, fissato \(p \in \mathds{S}^{n}\), siano
+\begin{equation*}
+X_{0} = X_{1} =\dots = X_{n-1} \coloneqq \set{p}
+\end{equation*}
+e si definisca \(X_{n} = \set{p} \mathrel{\cup_{\varphi}} e^n_{1}\), dove
+\begin{align*}
+\varphi: \partial e^{n}_{1} &\longrightarrow X_{n-1}\\
+x &\longmapsto p
+\end{align*}
+\end{esempio}
+\end{document}

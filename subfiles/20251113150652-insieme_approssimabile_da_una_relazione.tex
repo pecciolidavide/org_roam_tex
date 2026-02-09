@@ -1,0 +1,64 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+\def\X{\mathcal{X}}
+\def\Z{\mathcal{Z}}
+\def\D{\mathcal{D}}
+%
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+\section{Insieme approssimabile da una relazione}
+\label{sec:org10b595c}
+Siano \(\X, \Z\) due \href{20250130104331-insieme_mk.org}{insiemi} arbitrari, e sia \(\pi \subseteq \X\times \Z\) una \href{20250202170607-classe_relazione_binaria.org}{relazione} binaria. Si scriverà indifferentemente
+\begin{equation*}
+(x,z) \in \pi,\qquad \pi(x,z).
+\end{equation*}
+
+\begin{definizione}
+\(\D \subseteq \Z\) è \uline{approssimabile da \(\pi\)} se per ogni
+\(B \subseteq \Z\) finito esiste \(a \in \X\) tale che
+\begin{equation*}
+\pi(a;B) =\set{b \in B\mid \pi(a,b)} = \D \cap B.
+\end{equation*}
+\end{definizione}
+\begin{oss}
+Considero \href{20250130104245-morse_kelly_set_theory.org}{\(\parti{\Z}\)} come \href{20250103145124-topologia.org}{spazio topologico}, \href{20251113174453-cardinalita_insieme_delle_parti.org}{identificandolo} \href{20250202192030-classe_delle_classi_funzioni.org}{con \(2^{\Z}\)} con la \href{20250109154723-topologia_prodotto.org}{topologia prodotto}.\footnote{Vedi in particolare \href{20251113174136-topologia_di_2_x.org}{Topologia di 2\textsuperscript{X}}}
+Quindi gli intorni di base di \(\parti{\Z}\) hanno la forma, per \(B\) finito e \(C \subseteq B\)
+\begin{equation*}
+\set{A \in \parti{\Z} \mid A\cap B = C}.
+\end{equation*}
+
+\(\D\) è approssimabile da \(\pi\) sse \(\D\) è nella chiusura topologica di
+\begin{equation*}
+\set{\pi(a; \Z) \mid a \in X}
+\end{equation*}
+dove come al solito \(\pi(a; \Z) = \set{b \in \Z \mid \pi(a;b)}\).
+\end{oss}
+\end{document}

@@ -1,0 +1,45 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Varietà Complessa}
+\label{sec:org5c3b464}
+\begin{definizione}
+Si dice che \(X\) \href{20250103145124-topologia.org}{spazio topologico} di \href{20250109155715-spazio_topologico_di_hausdorff.org}{Hausdorff}, \href{20250103165325-spazio_topologico_connesso.org}{connesso} e \href{20250111142303-spazio_topologico_a_base_numerabile.org}{a base numerabile} è una \textbf{varietà complessa} se ha una \href{20260127112733-struttura_complessa.org}{struttura complessa} fissata.
+\end{definizione}
+
+\begin{oss}
+Sia quindi \(X\) una varietà complessa.
+\begin{itemize}
+\item \(X\) è una \href{20250111092123-varieta_topologica.org}{varietà topologica di dimensione \(2n\)}.
+\item \(X\) è una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile reale \(C^{\infty}\) di dimensione \(2n\)}.
+\item \(X\), come varietà differenziabile, è sempre \href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile}. Infatti, se \(\psi:U\to V\) è un biolomorfismo tra aperti di \(\C^{n}\), che induce \(F:U\to V\) diffeomorfismo \(C^{\infty}\) tra aperti di \(\R^{2n}\), si ha che\footnote{Vedi:
+\begin{itemize}
+\item \href{20250104111751-determinante_di_una_matrice.org}{Determinante di una matrice}
+\item \href{20250114123754-matrice_jacobiana.org}{Matrice Jacobiana}
+\end{itemize}}
+\begin{equation*}
+  \det J_{F} = |\det J_{\psi} |^{2}
+\end{equation*}
+
+Nel caso \(n=1\), se \(\psi = u+iv\) olomorfa, allora \(F=(u,v)\), e
+\begin{equation*}
+  J_{F} = \begin{pmatrix}
+  	u_{x} & u_{y}\\
+  	v_{x} & v_{y}
+  \end{pmatrix}
+\end{equation*}
+Per \href{20260127134302-equazioni_di_cauchy_riemann.org}{Cauchy-Riemann}:
+\begin{align*}
+  v_{y} &= u_{x}\\
+  v_{x} &= -u_{y}
+\end{align*}
+e quindi
+\begin{equation*}
+  \det J_{F} = u_{x}^{2}+u_{y}^{2} = |\psi'|^{2} = |\det J_{\psi}|^{2}.
+\end{equation*}
+\end{itemize}
+\end{oss}
+\end{document}

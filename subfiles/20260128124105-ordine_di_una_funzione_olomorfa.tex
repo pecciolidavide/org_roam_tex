@@ -1,0 +1,32 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Ordine di una funzione olomorfa}
+\label{sec:org9cdce02}
+\begin{definizione}
+Sia \(U \subseteq \C\) \href{20250103145124-topologia.org}{aperto}, \(f:U\to \C\) \href{20260126110551-funzione_olomorfa.org}{olomorfa}, \(z_{0} \in U\) tale che \(f(z_{0}) = 0\). L'\textbf{ordine di \(f\) in \(z_{0}\)} è\footnote{Con \(f^{(k)}\) si intende la \href{20250114110703-derivata.org}{derivata} \(k\)-esima.}
+\begin{equation*}
+\mathrm{ord}_{z_{0}} f = \begin{cases}
+\min\set{k\ge 0 \mid f^{(k)}(z_{0}) \neq 0} & \text{se esiste}\\
++ \infty & \text{se \(f\) è nulla in un intorno di \(z_{0}\)}.
+\end{cases}
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Si ha che
+\begin{equation*}
+\mathrm{ord}_{z_{0}} f > 0 \IFF f(z_{0}) = 0.
+\end{equation*}
+\end{oss}
+
+\begin{prop}
+Se \(\mathrm{ord}_{z_{0}} f\) esiste ed è \(<+\infty\), allora per il \href{20260128124510-teorema_di_analicita_delle_funzioni_olomorfe.org}{Teorema di analicità delle funzioni olomorfe},
+\begin{equation*}
+f(z) = \sum_{n \ge m} a_{n} (z-z_{0})^{n},\qquad a_{m}\neq 0.
+\end{equation*}
+\end{prop}
+\end{document}

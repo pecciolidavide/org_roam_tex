@@ -1,0 +1,109 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\mult#1{\mathrm{mult}_{#1}\,}
+
+
+\begin{document}
+
+\section{Teorema del Grado per olomorfismi tra superfici di Riemannn}
+\label{sec:orgfcccf50}
+Siano \(X,Y\) \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatte}, e sia \(F:X\to Y\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfismo} non costante.
+
+\begin{definizione}
+Per ogni \(y \in Y\) si definisce\footnote{La somma è finita per il \href{20260128144016-principio_di_identita_per_funzioni_olomorfe_su_superfici_di_riemann.org}{Principio di identità} (poiché \href{20260128172415-sottoinsieme_discreto_in_un_compatto.org}{sottinsiemi discreti in un compatto sono finiti}), mentre \(\mathrm{mult}_{p}\, F\) è la \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{molteplicità}.}
+\begin{equation*}
+\operatorname{d}(y) \coloneqq \sum_{p \in F^{-1}(y)} \mathrm{mult}_{p}\, F
+\end{equation*}
+\end{definizione}
+
+\begin{thm}
+\(\operatorname{d}(y)\) non dipende da \(y\).
+\end{thm}
+\begin{proof}
+Si fissi \(y_{0} \in Y\), e sia
+\begin{equation*}
+F^{-1}(y_{0}) \coloneqq \set{x_{1},\dots,x_{h}},\qquad m_{i} \coloneqq \mult{x_{i}} F.
+\end{equation*}
+Allora \(\operatorname{d}(y_{0}) = m_{1}+\dots+m_{h}\).
+
+Consideriamo ora:
+\begin{itemize}
+\item su \(Y\) la carta locale \(w\), centrata in \(y_{0}\)\footnote{Ovvero \(w\) è definita su un intorno aperto di \(y_{0}\), e \(w(y_{0})=0\).};
+\item su \(X\), le carte locali \(z_{i}\), centrate in \(x_{i}\), tali per cui l'espressione locale di \(F\) è
+\begin{equation*}
+  w = z_{i}^{m_{i}}.
+\end{equation*}
+A meno di restringermi, considero tutti i domini disgiunti.
+\end{itemize}
+Queste esistono per il \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{Teorema di Forma Normale}.
+
+Si consideri ora, per ogni \(\varepsilon>0\), l'insieme
+\begin{equation*}
+D(0;\varepsilon) \coloneqq \set{|z| < \varepsilon} \subseteq \C
+\end{equation*}
+e si definiscano:
+\begin{align*}
+\Delta_{\varepsilon}&\coloneqq w^{-1}\big(D(0;\varepsilon)\big) \subseteq Y\\
+\Delta_{x_{i}} &\coloneqq z_{i}^{-1}\bigg(D(0;\varepsilon^{1/m_{i}})\bigg) \subseteq X
+\end{align*}
+
+A meno di restringere \(\varepsilon\), si può supporre che \(w\) e \(z_{i}\) siano degli omeomorfismi su \(\Delta_{\varepsilon}\) e \(\Delta_{x_{i}}\).
+
+Si ha che, per ogni \(i\), \(F(\Delta_{x_{i}}) = \Delta_{\varepsilon}\)
+\begin{itemize}
+\item Per ogni \(y \in \Delta_{\varepsilon} \setminus \set{y_{0}}\), ci sono \(m_{i}\) \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{retroimmagini} in \(\Delta_{x_{i}}\), ciascuna di \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{molteplicità} 1.
+
+Infatti, ci sono esattamente \(m_{i}\) radici \(\eta_{1},\dots,\eta_{m_{i}} \in D(0;\varepsilon^{1/m_{i}})\) tali che
+\begin{equation*}
+(\eta_{\ell})^{m_{i}} = w(y) \in D(0; \varepsilon)
+\end{equation*}
+e siccome \(z_{i}\) è un omeomorfismo, ne esistono altrettanti in \(\Delta_{x_{i}}\).
+
+I punti sono di molteplicità \(1\) poiché la funzione \(z\mapsto z^{m}\) \href{20260130094844-funzione_z_m.org}{è iniettiva in un intorno di ogni punto \(z\neq 0\)}, e questa cosa si trasmette ad \(F\).
+\end{itemize}
+
+Per le proprietà delle retroimmagini si ha la seguente inclusione
+\begin{equation*}
+\bigcup_{i=1}^{h} \Delta_{x_{i}} \subseteq F^{-1}(\Delta_{\varepsilon}).
+\end{equation*}
+\begin{itemize}
+\item Se vale l'uguaglianza: \(\bigcup_{i=1}^{h} \Delta_{x_{i}} = F^{-1}(\Delta_{\varepsilon})\), allora per ogni \(y \in \Delta_{\varepsilon}\setminus \set{y_{0}}\)
+\begin{equation*}
+  \operatorname{d}(y) = m_{1}+\dots+m_{h} = \operatorname{d}(y_{0})
+\end{equation*}
+e quindi \(\operatorname{d}\) è \href{20250325153824-funzione_localmente_costante.org}{localmente costante}, con \(Y\) \href{20250103165325-spazio_topologico_connesso.org}{connesso}: \href{20250325154046-funzione_localmente_costante_sse_costante_sulle_componenti_connesse.org}{vale che \(\operatorname{d}\) è costante}.
+
+\item \uline{A meno di restringere \(\varepsilon\), si ottiene l'uguaglianza}.
+
+Per assurdo, supponiamo che per ogni \(\varepsilon > 0\) ammissibile\footnote{Si erano poste delle restrizioni sul valore massimo che potesse assumere \(\varepsilon\).}, si abbia \(\bigcup_{i=1}^{h} \Delta_{x_{i}} \subsetneqq F^{-1}(\Delta_{\varepsilon})\).
+
+Allora, esiste un certo \(n_{0}\) tale per cui, per ogni \(n>n_{0}\), esiste \(y_{n} \in \Delta_{1/n}\) tale che
+\begin{equation*}
+  F^{-1}(y_{n}) \setminus \bigcup_{i=1}^{h} \Delta_{x_{i}} \neq \emptyset
+\end{equation*}
+e sia \(x_{n} \in F^{-1}(y_{n}) \setminus \bigcup_{i=1}^{h} \Delta_{x_{i}}\).
+
+Si hanno due \href{20250115100904-successione.org}{successioni} \(\set{x_{n}}\), \(\set{y_{n}}\) tali per cui \(F(x_{n}) = y_{n}\), e inoltre \(y_{n} \to y\) in \(Y\)\footnote{Vedi ``\href{20260130103009-successione_in_uno_spazio_topologico.org}{Successione in uno spazio topologico}''}.
+
+Poiché \(X\) è compatto, \(x_{n}\) ha una \href{20250115100916-sottosuccessione.org}{sottosuccessione} \(\set{x_{n_{k}}}\) convergente ad \(\tilde{x} \in X\), e siccome \(F\) è continua (e \href{20250304142114-funzione_continua_e_continua_per_successioni.org}{quindi} \href{20250310112816-funzione_continua_per_successioni.org}{continua per successioni})
+\begin{equation*}
+  F(\tilde{x}) = y_{0}
+\end{equation*}
+ovvero \(\tilde{x} \in F^{-1}(y_{0}) = \set{x_{1},\dots,x_{h}}\).
+
+Quindi, se \(\tilde{x} = x_{j}\), allora esiste \(k_{0}\) tale che per ogni \(k>k_{0}\): \(x_{n_{k}} \in \Delta_{x_{j}}\). Questo contraddice il fatto che
+\begin{equation*}
+  x_{n_{k}} \in F^{-1}(y_{n_{k}}) \setminus \bigcup_{i=1}^{h} \Delta_{x_{i}} \IMPLICA x_{n_{k}} \notin \Delta_{x_{j}}.
+\end{equation*}
+Assurdo.\qedhere
+\end{itemize}
+\end{proof}
+
+\begin{definizione}
+Si definisce il \textbf{grado di \(F\)} come:
+\begin{equation*}
+\deg F \coloneqq \operatorname{d}(y),\qquad y \in Y.
+\end{equation*}
+\end{definizione}
+\end{document}

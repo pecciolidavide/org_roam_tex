@@ -1,0 +1,443 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+%% Leggibilità
+\def\D{\mathcal{D}}
+\def\DD{\bm{\D}}
+\def\U{\mathcal{U}}
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+\def\L{\mathcal{L}}
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+\def\b{\bm{b}}
+
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+\section{Estensione semigruppo a Modello Mostro}
+\label{sec:org4ed5446}
+\def\defaultnonforkmodel{S}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{notazione della Teoria dei Modelli}.
+\begin{itemize}
+\item Sia \(S\) un \href{20251104163738-semigruppo.org}{semigruppo}, \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} che estende il linguaggio dei gruppi \(\set{\cdot}\), con \(\cdot\) funzione binaria.
+\item Sia \(\U \succeq S\) un \(\L\)-\href{20250617102733-modello_mostro.org}{modello mostro}, ovvero \(\U\) un \href{20250617095548-modello_lambda_saturo.org}{modello saturo} di \href{20241213101756-cardinalita.org}{cardinalità} \href{20250211123155-cardinale_limite_forte.org}{inaccessibile} \(\kappa>\card{\L}+ \omega\).
+\item Pertanto anche \(\U\) è un semigruppo.
+\end{itemize}
+\subsection{Operazione di semigruppo}
+\label{sec:orgcd26ec3}
+
+\begin{definizione}
+Per due insiemi \(A,B \subseteq \U\) si definisce
+\begin{equation*}
+A*B \coloneqq \set{a\cdot b \tc a \in A,\, b \in B,\, a \nonfork b}.
+\end{equation*}
+dove \(\nonfork\) è la \href{20251029154447-tuple_indipendenti_rispetto_ad_un_modello_monster_model.org}{relazione eredi-coeredi}.
+\end{definizione}
+
+\uline{Notazione}: per \(a,b \in \U\), ricordando la definizione di \href{20251020151126-insieme_degli_automorfismi_di_una_struttura_del_prim_ordine.org}{orbita} \(\orbita(a/S)\):
+\begin{equation*}
+\orbita(a/S) = \set{fa \tc f \in \Aut(\U/S)}
+\end{equation*}
+si scrive
+\begin{align*}
+A*b &\coloneqq A*\orbita(b/S)\\
+a*B &\coloneqq \orbita(a/S)*B\\
+a*b &\coloneqq \orbita(a/S)* \orbita(b/S)
+\end{align*}
+
+\begin{oss}
+Se \(A' \subseteq A\), \(B' \subseteq B\), allora
+\begin{equation*}
+A' * B' \subseteq A * B.
+\end{equation*}
+Inoltre, se \(B\) è invariante su \(S\) allora per ogni \(b \in B\) si ha
+\begin{equation*}
+\orbita(b/S) \subseteq B
+\end{equation*}
+e quindi
+\begin{equation*}
+A * b \subseteq A * B.
+\end{equation*}
+\end{oss}
+
+\begin{prop}
+Siano \(A,B \subseteq \U\) piccoli, \(b \in \U\).
+\begin{itemize}
+\item Se \(A,B\) sono sono \href{20251020150308-insieme_invariante_su_un_insieme_in_un_modello_mostro.org}{invarianti su \(S\)}, allora \(A*B\) è invariante su \(S\).
+\item Se \(A\) è \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo-definibile (su \(S\))} allora \(A*b\) è tipo-definibile.
+\end{itemize}
+\label{prop:prodottiprop}
+\end{prop}
+\begin{lem}
+Se \(A,B,C\) sono invarianti su \(S\) allora
+\begin{equation*}
+A*(B*C) \subseteq (A*B)*C.
+\end{equation*}
+\end{lem}
+\begin{proof}
+Sia \(a\cdot b\cdot c \in A*(B*C)\). Allora
+\begin{equation*}
+b \nonfork c, \qquad
+a \nonfork b\cdot c
+\end{equation*}
+
+Per il \href{20251029154447-tuple_indipendenti_rispetto_ad_un_modello_monster_model.org}{Lemma(4)} trovo \(a'\) tale che\footnote{Con ``\(\equivalentover{S,\, b \cdot c}\)'' si intende ``\href{20250212164424-tipo_teoria_dei_modelli.org}{Tuple elementarmente equivalenti su un insieme di parametri}''}
+\begin{equation}
+a \equivalentover{S,b\cdot c} a',\quad %
+a' \nonfork b\cdot c,\, b,c %
+\label{eq:aprimo}
+\end{equation}
+\begin{itemize}
+\item Siccome \(A\) è \href{20251020150308-insieme_invariante_su_un_insieme_in_un_modello_mostro.org}{\(S\)-invariante}, allora \(a' \in A\).
+
+Infatti se \(a' \equivalentover{S} a\) allora
+\begin{equation*}
+  a' \in \orbita(a'/S) = \orbita(a/S)
+\end{equation*}
+ed in particolare \(a' = fa\) per qualche \(f \in \Aut(\U/S)\).
+
+\item La \eqref{eq:aprimo} implica che \(a'\nonfork b,c\); unito al fatto che \(b \nonfork c\) per il \href{20251029154447-tuple_indipendenti_rispetto_ad_un_modello_monster_model.org}{Lemma(3)} si ottiene che \(a',b \nonfork c\). Questo implica che\footnote{Infatti sia \(\varphi(x;y) \in\L(S)\) tale che
+\(\U\vDash \varphi(a'\cdot b, c)\).
+Allora si ha che
+\begin{equation*}
+\psi(w;z;y) \coloneqq \varphi(w\cdot z, y) \in \L(S),\qquad %
+\U\vDash \psi(a',b,c).
+\end{equation*}
+Pertanto esistono \(a'',b' \in S\) tali che \(\U \vDash \psi(a'',b',c)\), ovvero
+\begin{equation*}
+\U \vDash \varphi(a'' \cdot b', c).
+\end{equation*}}
+\begin{equation}
+  a'\cdot b \nonfork c.%
+\label{eq:ipotesi1}
+\end{equation}
+
+\item Inoltre la \eqref{eq:aprimo} implica anche che
+\begin{equation}
+  a' \nonfork b %
+\label{eq:ipotesi2}
+\end{equation}
+\end{itemize}
+
+Siccome \(a \equivalentover{S,b\cdot c} a'\) allora \(a\cdot b\cdot c \equivalentover{S} a'\cdot b \cdot c\).
+
+Infatti, se \(\varphi(y) \in \L(S)\) è tale che
+\(\vDash \varphi(a \cdot b\cdot c)\) allora, detta
+\begin{equation*}
+\psi(x) \coloneqq \varphi(x \cdot b \cdot c) \in \L(S,\, b\cdot c)
+\end{equation*}
+si ottiene che \(\vDash \psi(a)\) e, per ipotesi, \(\vDash \psi(a')\), ovvero
+\begin{equation*}
+\vDash \varphi(a' \cdot b \cdot c).
+\end{equation*}
+Per simmetria si ha la tesi, ovvero
+\begin{equation}
+a\cdot b\cdot c \equivalentover{S} a'\cdot b \cdot c. %
+\label{eq:ipotesi3}
+\end{equation}
+
+Quindi, combinando la~\eqref{eq:ipotesi1} e la~\eqref{eq:ipotesi2} si ottiene che
+\begin{equation*}
+a' \cdot b \cdot c \in (A*B)*C.
+\end{equation*}
+Inoltre, per la~\eqref{eq:ipotesi3} si ha che
+\begin{equation*}
+\orbita(a' \cdot b \cdot c/S) = \orbita(a \cdot b \cdot c/S) \ni a \cdot b \cdot c
+\end{equation*}
+e pertanto
+\begin{equation*}
+a \cdot b \cdot c = g (a' \cdot b \cdot c)
+\end{equation*}
+per qualche \(g \in \Aut(\U/S)\). Siccome \((A*B)*C\) è \(S\)-invariante e \(a' \cdot b \cdot c \in (A*B)*C\) allora
+\begin{equation*}
+a \cdot b \cdot c \in (A*B)*C. %
+\qedhere
+\end{equation*}
+\end{proof}
+
+\begin{prop}
+Sia \(\nonfork\) 1-\href{20251104154216-relazione_erede_coerede_stazionaria.org}{stazionaria}.
+\begin{enumerate}
+\item Se \(a \nonfork b\) e \(a' \equivalentover{S} a\) allora
+\(a\cdot b \equivalentover{S} a' \cdot b\).
+\item Se \(a \nonfork b\), \(a' \nonfork b'\),
+\(a' \equivalentover{S} a\), \(b' \equivalentover{S} b\)
+allora
+\(a\cdot b \equivalentover{S} a'\cdot b'\).
+\item Per ogni \(a,b \in \U\) tali che \(a \nonfork b\) si ha che
+\begin{equation*}
+ a*b = \orbita(a \cdot b / S).
+\end{equation*}
+\end{enumerate}
+\label{prop:lemmastazionaria}
+\end{prop}
+
+\begin{proof}
+Per definizione
+\begin{equation*}
+a \equivalentover{S} x \nonfork b
+\end{equation*}
+è un \href{20251029152405-tipo_completo.org}{tipo completo su \(S\)}.
+\begin{enumerate}
+\item Se \(a \nonfork b\) e \(a' \equivalentover{S} a\), allora
+\(a \equivalentover{S,b} a'\), e pertanto \(a,b \equivalentover{S} a',b\). Segue la tesi.
+\item Supponiamo per assurdo che
+\(a \cdot b \not\equivalentover{S} a' \cdot b'\).
+
+Sia \(f \in \Aut(\U/S)\) tale che \(fb' = b\) (poiché \(b'\equivalentover{S} b\) allora \(b' \in \orbita(b/S)\)).
+
+Allora \(a\cdot b \not\equivalentover{S} f(a'\cdot b')\) in quanto
+\begin{equation*}
+ \orbita\big(f(a'\cdot b') / S\big) = \orbita(a'\cdot b / S) \neq \orbita(a\cdot b / S).
+\end{equation*}
+Ma siccome \(f\) è morfismo di semigruppi allora
+\(f(a'\cdot b') = f(a') \cdot f(b') = a'' \cdot b\)
+per qualche
+\(a'' \in \orbita(a' / S) = \orbita(a / S)\), \(a'' \equivalentover{S} a\).
+
+Quindi si ottiene che \(a \cdot b \not\equivalentover{S} a'' \cdot b\). Questo è assurdo in quanto contraddice il punto 1.
+\item Si deve dimostrare che
+\begin{equation*}
+ \orbita(a \cdot b / S) = a*b %
+ \coloneqq \orbita(a / S) *  \orbita(b / S)
+\end{equation*}
+dove, per definizione di \(*\):
+\begin{equation*}
+ \orbita(a / S) *  \orbita(b / S) %
+ = \set{a' \cdot b' \mid
+ 	a' = fa,\,
+ 	b' = gb,\,
+ 	a' \nonfork b',\,
+ 	f,g \in \Aut(\U/S)}.
+\end{equation*}
+(\(\subseteq\)): Se \(d \in \orbita(a\cdot b / S)\) allora
+\(d = f(a \cdot b)\) per \(d \in \Aut(\U/S)\). Posto \(a'=fa\), \(b'=fb\) si ha \(d \in a*b\).
+
+(\(\supseteq\)): Sia \(a'\cdot b' \in a*b\). Allora
+\begin{equation*}
+ a' \equivalentover{S} a, \quad b' \equivalentover{S} b,\quad a' \nonfork b'
+\end{equation*}
+e pertanto, per il punto 2., si ha che \(a'\cdot b' \equivalentover{S} a \cdot b\), ovvero
+\(a' \cdot b' \in \orbita(a\cdot b /S)\).\qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{thm}
+Se \(\nonfork\) è 1-stazionaria, e \(A,B,C\) sono invarianti su \(S\) allora
+\begin{equation*}
+A*(B*C) = (A*B)*C.
+\end{equation*}
+\label{thm:assoperorbite}
+\end{thm}
+\begin{proof}
+Considero
+\begin{equation*}
+A= \orbita(a/S); \quad %
+B= \orbita(b/S); \quad %
+C= \orbita(c/S).
+\end{equation*}
+Allora si ha che \(a \nonfork b\cdot c\) e \(b \nonfork c\).
+
+\href{20250515141706-da_finire.org}{DA FINIRE}
+\end{proof}
+\subsection{Semigruppo di Ellis}
+\label{sec:orgc5e435f}
+\href{20250515141706-da_finire.org}{DA FINIRE}
+
+Vedi anche \href{20250922171928-teoria_dei_modelli_corso.org}{Teoria dei modelli [CORSO]​}/Lezione 15
+\subsection{Insiemi idempotenti e Teorema di Ellis}
+\label{sec:org685b50b}
+
+\begin{definizione}
+Sia \(\emptyset \neq A \subseteq \U\). \(A\) è \uline{idempotente} se
+\begin{equation*}
+A*A \subseteq A.
+\end{equation*}
+\end{definizione}
+\begin{oss}
+Se \(A\) è idempotente e \(B \subseteq A\) allora \(A*B\) è idempotente:
+\begin{equation*}
+(A*B) * (A*B) \subseteq (A*A) * (A*A) \subseteq A * A \subseteq A.
+\end{equation*}
+\end{oss}
+\def\defaultnonforkmodel{S}
+\begin{thm}
+(Ellis).
+Si suppona \(\nonfork\) \href{20251104154216-relazione_erede_coerede_stazionaria.org}{1-stazionaria}.
+Se \(A\) è \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo-definibile} su \(S\) e idempotente, allora esiste \(b \in A\) tale che \(\orbita(b/S)\) è idempotente.
+\end{thm}
+\begin{proof}
+Sia \(B \subseteq A\) un \href{20250203102516-massimo_e_minimo.org}{\(\subseteq\)-minimale} tra gli idempotenti tipo-definibili su \(S\)\footnote{Questo esiste per il \href{20250210104633-lemma_di_zorn.org}{lemma di Zorn}. Infatti, sia
+\begin{equation*}
+\set{\emptyset \neq B_{i} \subseteq A \mid i<\alpha}
+\end{equation*}
+una catena di idempotenti tipo-definibili, \(B_{i} \coloneqq p_{i}(\U)\) per qualche \href{20250203111003-ordinali.org}{ordinale} \(\alpha\).
+Allora \(\bigcap_{i <\alpha} B_{i}\) è un idempotente tipo-definibile contenuto in ogni \(B_{i}\) e pertanto, per il lemma di Zorn, esiste un elemento \(\subseteq\)-minimale.
+\begin{itemize}
+\item \(\bigcap_{i<\alpha} B_{i}\) è tipo definibile, definito da
+\begin{equation*}
+  p(x) \coloneqq \bigcup_{i<\alpha} p_{i}(x)
+\end{equation*}
+tipo piccolo.
+\item \(\bigcap_{i<\alpha} B_{i} \neq \emptyset\) poiché, per saturazione di \(\U\), \(p(\U) \neq \emptyset\).
+\item Siano \(a_{1}\cdot a_{2} \in \big(\bigcap_{i<\alpha} B_{i}\big)*\big(\bigcap_{i<\alpha} B_{i}\big)\),
+\(a_{1} \nonfork a_{2}\).
+In particolare, per ogni \(i<\alpha\):
+\begin{equation*}
+a_{1} \in B_{i}, a_{2} \in B_{i} \IMPLICA a_{1}\cdot a_{2} \in B_{i}*B_{i} \subseteq B_{i}
+\end{equation*}
+e dunque \(a_{1}\cdot a_{2} \in B_{i}\) per ogni \(i<\alpha\).
+\end{itemize}}.
+
+Prendiamo \(b \in B\). Allora:
+\begin{itemize}
+\item \(B*b\) è tipo definibile su \(S\) per la Proposizione~\ref{prop:prodottiprop};
+\item Siccome \(B\) è tipo-definibile su \(S\), \href{20251106123927-insieme_tipo_definibile_su_un_insieme_e_invariante.org}{allora} \(B\) è \href{20251020150308-insieme_invariante_su_un_insieme_in_un_modello_mostro.org}{invariante su \(S\)},  e pertanto
+\begin{equation*}
+  B*b \subseteq B* B \subseteq B.
+\end{equation*}
+\item Inoltre
+\begin{equation*}
+  (B*b) * (B*b) \subseteq B * (B*b) = (B*B)*b \subseteq B*b
+\end{equation*}
+e pertanto \(B*b\) idempotente.
+(L'uguaglianza è in virtù del Teorema~\ref{thm:assoperorbite})
+\end{itemize}
+
+Per minimalità di \(B\) si ha che \(B*b=B\).
+
+Sia ora
+\begin{equation*}
+B'\coloneqq
+\set{a \in B \mid a \nonfork b,\, a \cdot b \equivalentover{S} b} \subseteq B.
+\end{equation*}
+Questo insieme è tipo-definibile su \(S,b\)\footnote{Se
+\begin{align*}
+p(x) &= x \nonfork b \subseteq \L(S,b)\\
+q(y) &= \tp(b/S)
+\end{align*}
+allora \(B'\) è definito da \(p(x) \cup q(x \cdot b)\).}, ed è invariante su \(S\): sia \(a \in B'\) e \(f \in \Aut(\U/S)\):
+\begin{itemize}
+\item \(fa \in B\) in quanto \(B\) è \(S\)-invariante;
+\item ovviamente \(fa \equivalentover{S} a\), e inoltre \(a \nonfork b\), quindi per la Proposizione~\ref{prop:lemmastazionaria}(1)
+\begin{equation*}
+  fa \cdot b \equivalentover{S} a \cdot b \equivalentover{S} b;
+\end{equation*}
+\item \(fa \nonfork b\) poiché \href{20251104154216-relazione_erede_coerede_stazionaria.org}{\(\nonfork\) è 1-stazionaria} e \(fa \equivalentover{S} a\) e \(a \nonfork b\).
+\end{itemize}
+quindi \(fa \in B'\), ovvero \(B'\) è \(S\)-invariante. \href{20251020150315-caratterizzazione_insiemi_invarianti_su_un_insieme_in_un_modello_mostro.org}{Pertanto} \(B'\) è tipo-definibile su \(S\).
+
+Si ha che \(B' \neq \emptyset\):
+\begin{itemize}
+\item siccome \(B*b = B\), allora in particolare esiste \(f \in \Aut(\U/S)\) ed esiste \(a \in B\) tale che
+\begin{equation*}
+  a \cdot fb = b,\qquad a \nonfork fb
+\end{equation*}
+ovvero, per \(f^{-1} \in \Aut(\U/B)\) e il \href{20251029154447-tuple_indipendenti_rispetto_ad_un_modello_monster_model.org}{Lemma(1)}:
+\begin{equation*}
+  f^{-1}a \cdot b = f^{-1} b \equivalentover{S} b,\qquad f^{-1} a \nonfork b
+\end{equation*}
+\item inoltre, \(f^{-1}a \in B\), in quanto \(B\) è \(A\)-invariante;
+\item quindi \(f^{-1}(a) \in B'\).
+\end{itemize}
+
+Inoltre \(B'\) è idempotente. Infatti, sia \(a_{1}\cdot a_{2} \in B'*B'\):
+\begin{equation*}
+a_{1} \nonfork a_{2}, \qquad%
+a_{1} \cdot b \equivalentover{S} b \equivalentover{S} a_{2} \cdot b, \qquad %
+a_{1} \nonfork b, \qquad %
+a_{2} \nonfork b.
+\end{equation*}
+\begin{itemize}
+\item Siccome \(a_{1} \nonfork a_{2}\) allora per il \href{20251029154447-tuple_indipendenti_rispetto_ad_un_modello_monster_model.org}{Lemma(4)} esiste
+\(a_{1}' \equivalentover{S, a_{2}} a_{1}\) tale che
+\begin{equation*}
+  	a_{1}' \nonfork a_{2}, b.
+\end{equation*}
+Poiché \href{20251104154216-relazione_erede_coerede_stazionaria.org}{\(\nonfork\) è 1-stazionaria} ed in particolare \(a_{1}' \equivalentover{S} a_{1}\) allora
+\begin{equation*}
+  	a_{1} \nonfork a_{2},b.
+\end{equation*}
+Per ipotesi inoltre \(a_{2} \nonfork b\) e dunque, per il \href{20251029154447-tuple_indipendenti_rispetto_ad_un_modello_monster_model.org}{Lemma(3)}
+\(a_{1},a_{2} \nonfork b\) e pertanto
+\begin{equation*}
+  	a_{1}\cdot a_{2} \nonfork b.
+\end{equation*}
+
+\item Si consideri pertanto la seguente uguaglianza, valida per il Teorema~\ref{thm:assoperorbite}
+\begin{equation*}
+\orbita(a_{1}/S) * \big(\orbita(a_{2}/S) * \orbita(b/S)\big) = \big(\orbita(a_{1}/S) * \orbita(a_{2}/S) \big)* \orbita(b/S)
+\end{equation*}
+Espandendo la parte a sinistra dell'uguale si ottiene:
+\begin{align*}
+\orbita(a_{1}/S) * \big(\orbita(a_{2}/S) * \orbita(b/S)\big) %
+	&= \orbita(a_{1}/S) * \orbita(a_{2}\cdot b / S) %
+		& &\text{poiché } a_{2} \nonfork b\\
+	&= \orbita(a_{1}/S) * \orbita(b / S ) %
+		& &\text{poiché } a_{2}\cdot b \equivalentover{S} b\\
+	&= \orbita(a_{1} \cdot b / S) %
+		& &\text{poiché } a_{2} \nonfork b\\
+	&= \orbita(b/S) %
+		& &\text{poiché } a_{1}\cdot b \equivalentover{S} b\\
+\end{align*}
+dove si è fortemente utilizzata la
+Proposizione~\ref{prop:lemmastazionaria}(3).
+
+Espandendo invece la parte a destra dell'uguale si ottiene:
+\begin{align*}
+\big(\orbita(a_{1}/S) * \orbita(a_{2}/S) \big)* \orbita(b/S) %
+        &= \orbita(a_{1}\cdot a_{2} / S) * \orbita(b / S) %
+                & &\text{poiché } a_{1} \nonfork a_{2}\\
+        &= \orbita(a_{1} \cdot a_{2} \cdot b / S) %
+                & &\text{poiché } a_{1} \cdot a_{2} \nonfork b.
+\end{align*}
+
+Pertanto si ha che
+\(\orbita(b/S) = \orbita(a_{1}\cdot a_{2}\cdot b /S)\)
+ovvero che
+\begin{equation*}
+a_{1} \cdot a_{2} \cdot b \equivalentover{S} b.
+\end{equation*}
+
+\item I due punti precedenti affermano che \(a_{1}\cdot a_{2} \in B'\), ovvero che
+\begin{equation*}
+  B' * B' \subseteq B'.
+\end{equation*}
+\end{itemize}
+
+
+
+Quindi, per minimalità di \(B\) si ha \(B'=B\), ovvero che \(b \in B'\):
+\begin{equation*}
+b \nonfork b,\qquad b\cdot b \equivalentover{S} b
+\end{equation*}
+e la Proposizione~\ref{prop:lemmastazionaria}(3) si ha che
+\begin{equation*}
+\orbita(b/S)*\orbita(b/S) = \orbita(b\cdot b/S) = \orbita(b/S)
+\end{equation*}
+Pertanto \(\orbita(b/S)\) è idempotente.
+\end{proof}
+\subsection{Gruppo di Ellis}
+\label{sec:org7f34b07}
+\href{20250515141706-da_finire.org}{DA FINIRE}
+
+Vedi anche \href{20250922171928-teoria_dei_modelli_corso.org}{Teoria dei modelli [CORSO]​}/Lezione 15
+\end{document}

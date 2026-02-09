@@ -1,0 +1,71 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{lem}
+La \href{20250624155858-neurone_artificiale.org}{funzione di attivazione} \emph{\href{20250624155858-neurone_artificiale.org}{softplus}} \(\operatorname{sp}(x)\) è data dalla \href{20250703105424-prodotto_di_convoluzione.org}{convoluzione}:\footnote{Vedi la \href{20250624155858-neurone_artificiale.org}{funzione \(\operatorname{ReLU}\)}}
+\begin{equation*}
+\operatorname{sp}(x) = \convolution{\operatorname{ReLU}}{K}(x) = \int_{-\infty}^{+\infty} \operatorname{ReLU}(\tau) K(x-\tau)\dif\tau
+\end{equation*}
+dove \(K(x) = \frac{1}{(1+e^{x})(1+e^{-x})} = \sigma'(x)\)\footnote{Dove \(\sigma(x)\) è la \href{20250624155858-neurone_artificiale.org}{Funzione Logistica}.}.
+\end{lem}
+\begin{lem}
+Sia \(K(x) \coloneqq \frac{1}{(1+e^{x})(1+e^{-x})}\). Allora
+\begin{enumerate}
+\item \(K(x)\) è una \href{20250703142106-densita_di_probabilita.org}{densità di probabilità} simmetrica;
+\item Sia \(K_{\alpha}\coloneqq \frac{1}{\alpha}K(x/\alpha)\) e si consideri la misura \(\mu_{\alpha}\) tale che
+\begin{equation*}
+ \dif \mu_{\alpha} \coloneqq K_{\alpha}(x)\dif x.
+\end{equation*}
+Allora \(\int_{-\infty}^{+\infty} K_{\alpha}(x)\dif x= 1\) e \(\mu_{\alpha}\to \delta\)\footnote{\(\delta\) è la \href{20250625100133-delta_di_dirac.org}{Delta di Dirac}} in senso debole.
+\end{enumerate}
+\end{lem}
+
+\begin{lem}
+Si definisca ora la \href{20250624155858-neurone_artificiale.org}{funzione softplus} scalata:
+\begin{equation*}
+\varphi_{\alpha}(x) \coloneqq \alpha \operatorname{sp}\left(\frac{x}{\alpha}\right) = \alpha\ln(1
++ e^{x/\alpha})
+\end{equation*}
+Si ha che
+\begin{equation*}
+\varphi_{\alpha}''(x) = \frac{1}{\alpha}\operatorname{sp}''(x/\alpha) = \frac{1}{\alpha}K(x/\alpha)=K_{\alpha}(x)
+\end{equation*}
+poiché \(\operatorname{sp}'(x)=\sigma(x)\) e \(\sigma'(x) = K(x)\).
+\end{lem}
+\begin{lem}
+Si consideri la \href{20250703105424-prodotto_di_convoluzione.org}{convoluzione} \(G_{\alpha}\coloneqq G\conv K_{\alpha}\), dove
+\begin{equation*}
+G(x) = \sum_{j=0}^{N-1} \alpha_{j} \operatorname{ReLU}(x-x_{j})+\beta
+\end{equation*}
+per qualche \(N \in \N\), \(\alpha_{j}, x_{j}, \beta \in \R\).
+
+Allora esistono \(c_{j}, w, \theta_{j} \in \R\), che dipendono dagli \(\alpha_{j}, x_{j}\) tali che
+\begin{equation*}
+G_{\alpha}(x) = \sum_{j=0}^{N-1}c_{j}\operatorname{sp}(wx-\theta_{j}) + \beta
+\end{equation*}
+\end{lem}
+\begin{lem}
+Per ogni \(\varepsilon>0\) esiste \(\eta>0\) tale per cui, se \(\alpha<\eta\) allora
+\begin{equation*}
+\forall x \in [0,1]\qquad |G(x)-G_{\alpha}(x)|<\varepsilon
+\end{equation*}
+ovvero \(G_{\alpha}\) \href{20250629105745-convergenza_uniforme.org}{converge uniformemente} a \(G\) su \([0,1]\).
+\end{lem}
+
+\begin{proof}
+Banale applicazione del Teorema del Dini dopo aver notato che
+\begin{equation*}
+\varphi_{\alpha}(x)\to \operatorname{ReLU}(x).
+\end{equation*}
+puntualmente, e \(\varphi_{\alpha}<\varphi_{\beta}\) se \(\alpha>\beta\).
+\end{proof}
+\begin{thm}
+Sia \(g \in C[0,1]\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''}. Allora per ogni \(\varepsilon>0\) esiste \(N \in \N\) ed esistono, per ogni \(i=0,\dots,N-1\), degli \(c_{j},w,\theta_{j},\beta \in \R\) tali che
+\begin{equation*}
+\forall x \in [0,1]\qquad \bigg\lvert g(x)-\sum_{j=0}^{N-1}c_{j}\operatorname{sp}(wx-\theta_{j})-\beta\bigg\rvert<\varepsilon.
+\end{equation*}
+\end{thm}
+\end{document}

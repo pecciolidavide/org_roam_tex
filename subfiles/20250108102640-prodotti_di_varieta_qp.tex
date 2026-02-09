@@ -1,0 +1,98 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
+\section{Caso \href{20241231115051-spazio_proiettivo.org}{proiettivo}}
+\label{sec:org7c3f57e}
+
+Siano \(X \subseteq \mathds{P}^{n}_{x}\), \(Y \subseteq \mathds{P}^{m}_{y}\) due \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà algebriche proiettive},
+\begin{align*}
+X&=V(F_{1},\dots,F_{k})\\
+Y&=V(G_{1},\dots,G_{l})
+\end{align*}
+con \(F_{i} \in \K[x_{0},\dots,x_{n}]\), \(G_{j} \in \K[y_{0},\dots,y_{n}]\). (Vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri}, \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}).
+
+Posto \(d_{i} \coloneqq \deg F_{i}\), \(e_{j}\coloneqq \deg G_{j}\) (vedi \href{20241231124742-grado_polinomi.org}{Grado-Polinomi}), poiché
+\begin{align*}
+\K[x_{0},\dots,x_{n}] & \subseteq \K[x_{0},\dots,x_{n};y_{0},\dots,y_{m}] \\
+\K[y_{0},\dots,y_{m}] & \subseteq \K[x_{0},\dots,x_{n};y_{0},\dots,y_{m}]
+\end{align*}
+si ha che
+\begin{align*}
+\operatorname{bideg}_{x,y} F_{i} &= (d_{i}, 0)\\
+\operatorname{bideg}_{x,y} G_{j} &= (0,e_{j})
+\end{align*}
+(vedi \href{20250107172249-bigrado_di_un_polinomio.org}{Bigrado di un polinomio})
+
+Pertanto, tutti gli \(F_{i}, G_{j}\) sono \href{20250107172231-polinomi_biomogenei.org}{polinomi biomogenei}, e \href{20250107170928-varieta_proiettiva_dentro_prodotti_di_spazi_proiettivi.org}{quindi}
+\begin{align*}
+V(F_{1},\dots,F_{k}) &\subseteq \mathds{P}^{n}\times \mathds{P}^{m}\\
+V(G_{1},\dots,G_{l})&\subseteq \mathds{P}^{n}\times \mathds{P}^{m}
+\end{align*}
+sono \href{20250104190620-mappa_di_segre.org}{varietà algebriche di }\(\mathds{P}^{n}\times \mathds{P}^{m}\). In particolare
+\begin{align*}
+V(F_{1},\dots,F_{k}) &= X\times \mathds{P}^{m}\\
+V(G_{1},\dots,G_{l}) &= \mathds{P}^n\times Y
+\end{align*}
+\subsection{Definizione}
+\label{sec:org27d9491}
+Si definisce il prodotto tra \(X\) e \(Y\) come
+\begin{equation*}
+X\times Y \coloneqq (X\times \mathds{P}^{m})\cap (\mathds{P}^{n}\times Y) = V(F_{1},\dots,F_{k},G_{1},\dots,G_{l})
+\end{equation*}
+\href{20241231123223-varieta_algebrica_proiettiva.org}{sottovarietà} di \(\mathds{P}^{n}\times \mathds{P}^{m}\).
+\subsection{Proposizione}
+\label{sec:org5b259ce}
+È rispettata la \href{20250108103928-proprieta_universale_del_prodotto.org}{proprietà universale del prodotto} per la tripla \((X\times Y, \pi_{1},\pi_{2})\), dove \(\pi_{1},\pi_{2}\) sono le proiezioni.
+\subsubsection{Dimostrazione}
+\label{sec:org0b9bf22}
+Sia \(W\) una \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà algebrica proiettiva}, e siano \(F:W \longrightarrow X\) e \(G:W\longrightarrow Y\) due \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{morfismi}. Dimostriamo che esiste un unico \(H: W \longrightarrow X\times Y\) morfismo che fa commutare il diagramma,
+$\backslash$[
+\begin{tikzcd}[ampersand replacement=\&]
+	W \\
+	\& {X\times Y} \&\& {Y \subseteq \mathds{P}^m} \\
+	\& {X \subseteq \mathds{P}^n}
+	\arrow["H"', dashed, from=1-1, to=2-2]
+	\arrow["G", bend left=19, from=1-1, to=2-4]
+	\arrow["F"', bend right=19, from=1-1, to=3-2]
+	\arrow["{\pi_2}"', from=2-2, to=2-4]
+	\arrow["{\pi_1}", from=2-2, to=3-2]
+\end{tikzcd}
+$\backslash$]
+ovvero
+\begin{equation*}
+\pi_{1}\circ H=F,\qquad \pi_{2}\circ H=G.
+\end{equation*}
+\paragraph{Esistenza di \(H\)}
+\label{sec:org1123d81}
+Si definisce
+\begin{align*}
+H: W &\longrightarrow X\times Y \subseteq \mathds{P}^{n}\times \mathds{P}^{m}\\
+w &\longmapsto \left(F(w),G(w)\right)
+\end{align*}
+È ovvio che la funzione rispetti le condizioni citate. È però necessario che sia un morfismo. \(H\) è un morfismo se e solo se \(\sigma\circ H\) è un morfismo, dove \(\sigma\) è la \href{20250104190620-mappa_di_segre.org}{mappa di Segre} della giusta dimensione (per \href{20250104190620-mappa_di_segre.org}{definizione}).
+
+Sia \(p \in W\):
+\begin{itemize}
+\item poiché \(F\) è un morfismo, esiste un intorno \(U \subseteq W\) di \(p\) tale che \(F\) sia localmente polinomiale, ovvero
+\begin{equation*}
+  \restriction{F}{U}=[F_{0}:\dots:F_{n}]
+\end{equation*}
+\item poiché \(G\) è un morfismo, esiste un intorno \(V \subseteq W\) di \(p\) tale che \(G\) sia localmente polinomiale, ovvero
+\begin{equation*}
+  \restriction{G}{V}=[G_{0}:\dots:G_{m}]
+\end{equation*}
+
+Dunque in \(U\cap V\) si ha che
+\begin{equation*}
+  \sigma\circ H=[\dots:F_{i}G_{j}:\dots]
+\end{equation*}
+che è un morfismo.
+\end{itemize}
+\paragraph{Unicità di H}
+\label{sec:org2e6f219}
+Segue dal fatto che i morfismi sono realmente funzioni.
+\end{document}

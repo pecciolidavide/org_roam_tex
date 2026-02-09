@@ -1,0 +1,66 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+\def\X{\mathcal{X}}
+\def\Z{\mathcal{Z}}
+%
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+\section{Relazione stabile}
+\label{sec:org7932244}
+Siano \(\X, \Z\) due \href{20250130104331-insieme_mk.org}{insiemi} arbitrari, e sia \(\pi \subseteq \X\times \Z\) una \href{20250202170607-classe_relazione_binaria.org}{relazione} binaria. Si scriverà indifferentemente
+\begin{equation*}
+(x,z) \in \pi,\qquad \pi(x,z).
+\end{equation*}
+
+\begin{definizione}
+\(\pi\) è \uline{instabile} (o ha la \emph{order property}) se per ogni \(m<\omega\) esiste una \href{20250206170922-sequenze_e_stringhe.org}{sequenza}
+\(\< (a_{i},\, b_{i}) : i<m \>\), \((a_{i},b_{i}) \in \X\times\Z\)
+tale che
+\begin{equation*}
+i<j<m \IMPLICA \pi(a_{i}, b_{j}) \land \lnot\pi(a_{j}, b_{i}).
+\end{equation*}
+Questa sequenza prende il nome di \uline{scaletta di lunghezza \(m\) per \(\pi\)} (o \emph{ladder sequence}).
+\end{definizione}
+
+\begin{prop}
+LSASE:
+\begin{enumerate}
+\item \(\pi\) è instabile;
+\item per ogni \(m<\omega\) esiste \(B \subseteq \Z\) e
+\(\< a_{i} \mid i < m \>\) (con  \(a_{i} \in \X\))
+tale che
+\begin{equation*}
+ \pi(a_{0}, B) \subsetneq \pi(a_{1}, B) \subsetneq \dots \subsetneq \pi(a_{m-1},B).
+\end{equation*}
+dove \(\pi(a, B) \coloneqq \set{b \in B \mid \pi(a,b)}\).
+\end{enumerate}
+\end{prop}
+\end{document}

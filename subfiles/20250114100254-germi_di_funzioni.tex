@@ -1,0 +1,27 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} di dimensione \(n\), e sia \(p \in M\). Si definisce
+\begin{equation*}
+\mathscr{F}_{p} \coloneqq \set{f:U \longrightarrow \R\ : U \subseteq M\text{ aperto},\ f \text{ è }C^{\infty}}
+\end{equation*}
+(vedi \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{Funzioni Cinfinito tra varietà differenziabili})
+
+In \(\mathscr{F}_{p}\) si definisce una \href{20250113110148-relazione_di_equivalenza.org}{relazione d'equivalenza} \(\sim\):
+\begin{equation*}
+f\sim g\quad \iff\quad \exists\, U \subseteq M: \ \restriction{f}{U} = \restriction{g}{U}
+\end{equation*}
+con \(U\) \href{20250111142313-intorno.org}{intorno} di \(p\).
+
+Si indica quindi con
+\begin{equation*}
+C^{\infty}_{p} \coloneqq \mathscr{F}_{p}/\sim
+\end{equation*}
+il \href{20250114100810-quoziente_rispetto_a_relazione_di_equivalenza.org}{quoziente}. Se \(f \in \mathscr{F}_{p}\) si indica con \(f_{p} \in C^{\infty}_{p}\) la sua \href{20250113110148-relazione_di_equivalenza.org}{classe d'equivalenza}. \(f_p\) si dice il \textbf{germe di \(f\)} in \(p\).
+\section{Osservazione}
+\label{sec:org746fe3b}
+Se \(f_{p} \in C^{\infty}_{p}\) allora ha senso chiedersi il valore \(f_{p}(p)\), poiché tutti i rappresentanti di \(f_{p}\) hanno lo stesso valore in \(p\).
+\end{document}

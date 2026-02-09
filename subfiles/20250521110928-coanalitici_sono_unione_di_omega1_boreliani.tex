@@ -1,0 +1,170 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esercizio 4}
+\label{sec:org2991974}
+
+Prove the following theorem:
+\begin{quote}
+Let \(X\) be a Polish space. Then every \(A \in \bm{\Pi}^1_1(X)\) can be written as \(A = \bigcup_{\xi < \omega_1} A_\xi\), where \(A_\xi\) is Borel for every \(\xi < \omega_1\).
+\end{quote}
+by completing the details of the following steps:
+
+\begin{enumerate}
+\item First prove the theorem for \(X = \mathrm{LO}\) and \(A = \mathrm{WO}\) as follows:
+\begin{itemize}
+\item Given \(\omega \leq \xi < \omega_1\), let \(\mathrm{WO}_\xi\) be the set of codes for well-orders of \(\omega\) with order type \(\leq \xi\). Show that each \(\mathrm{WO}_\xi\) is analytic.
+\item Argue that there is a Borel set \(A_\xi\) such that \(\mathrm{WO}_\xi \subseteq A_\xi \subseteq \mathrm{WO}\).
+
+\emph{Optional}: Show that \(\mathrm{WO}_\xi\) itself is Borel by showing that its complement is analytic as well.
+\item Conclude that \(\mathrm{WO} = \bigcup_{\xi < \omega_1} A_\xi\).
+\end{itemize}
+
+\item Use the fact that \(\mathrm{WO}\) is \(\bm{\Pi}^1_1\)-complete to prove the theorem for \(X = \omega^\omega\) and an arbitrary \(A \in \bm{\Pi}^1_1(\omega^\omega)\).
+
+\item Use the Borel isomorphism theorem for Polish spaces to transfer the result to an arbitrary uncountable Polish space \(X\).
+
+\item What happens if \(X\) is a countable Polish space?
+\end{enumerate}
+\subsection{Soluzione}
+\label{sec:orgced53fd}
+
+\subsubsection{Parte a.}
+\label{sec:org0889b3a}
+
+Si consideri lo spazio polacco \(X\coloneqq\mathrm{LO} \subseteq 2^{\omega\times\omega}\) e si adotti la notazione dell'Esempio 3.1.8: l'insieme \(\mathrm{NWO}\) è analitico, mentre l'insieme \(\mathrm{WO}\) è coanalitico. È dunque possibile porre
+\begin{equation*}
+A\coloneqq \mathrm{WO} \in \bm{\Pi}_{1}^{1}(\mathrm{LO}).
+\end{equation*}
+
+
+\begin{itemize}
+\item Sia \(\omega\le\xi< \omega_{1}\) fissato. Sia \(\mathrm{WO}_{\xi}\) l'insieme di tutti gli elementi di \(\mathrm{WO}\) con order type \(\le \xi\): un buon ordine \(\langle A, \preceq\rangle\) ha order type \(\xi'\) se e solo se esiste una biiezione \(f:A\to \xi'\) tale che, per ogni \(a,b \in A\)
+\begin{equation*}
+  	a\preceq b\quad \iff\quad f(a)< f(b)
+\end{equation*}
+
+Dunque \(x \in \mathrm{WO}\) ha order type \(\xi'\) se e solo se esiste una funzione biiettiva \(f:\omega \to\xi'\) tale che per ogni \(m,n \in \omega\):
+\begin{equation*}
+  	x(m,n) = 1\quad\iff\quad f(m)< f(n)
+\end{equation*}
+
+Si consideri quindi \(\mathrm{WO}^{=\xi'}\) l'insieme di tutti gli elementi di \(\mathrm{WO}\) con order type \uline{esattamente} \(\xi'\): per ogni \(x \in \mathrm{WO}\):
+\begin{equation*}
+  	x \in \mathrm{WO}^{=\xi'} \quad \iff \quad\exists\, f \in (\xi')^{\omega}\text{ biiettiva}\ \forall\, m,n \in\omega\ \left(x(m,n)=1\,\iff\, f(m)<f(n)\right).
+\end{equation*}
+
+Inoltre, se \(x \in \mathrm{LO}\), la condizione di destra garantisce che \(x \in \mathrm{WO}\), poiché la biiezione \(f\) è un isomorfismo di ordini e \(\xi'\) è ben ordinato (in quanto ordinale). Pertanto, per ogni \(x \in \mathrm{LO}\):
+\begin{equation*}
+  	x \in \mathrm{WO}^{=\xi'} \quad \iff \quad\exists\, f \in (\xi')^{\omega}\text{ biiettiva}\ \forall\, m,n \in\omega\ \left(x(m,n)=1\,\iff\, f(m)<f(n)\right).
+\end{equation*}
+
+\uline{Osservazione 1}: per ogni \(\xi' < \omega_{1}=\omega^{+}\), si ha che \(\card{\xi} =\aleph_{0}\), e pertanto \(\xi'\) è numerabile.
+
+\uline{Osservazione 2}: per ogni \(\xi'<\omega_{1}\), \(\xi'\) è uno spazio polacco; infatti ogni ordinale numerabile è omeomorfo ad un sottoinsieme chiuso e numerabile di \(\R\) e pertanto è polacco. Quindi \((\xi')^{\omega}\) è ancora uno spazio polacco.
+
+Si definisce quindi:
+\begin{equation*}
+  	A_{m,n} \coloneqq \set{(x, f) \in \mathrm{LO}\times (\xi')^{\omega }\mid \left(x(m,n)=1 \,\iff\, f(m)<f(n)\right) \,\land\, f\text{ biiettiva}}
+\end{equation*}
+Questo è un insieme \(\bm{{\operatorname{Bor}}}\left(\mathrm{LO}\times(\xi')^{\omega}\right)\), poiché tutte le condizioni sono Boreliane:
+\begin{align*}
+  	(x,f) \in A_{m,n}\quad \iff\quad &\left[x(m,n)=1 \,\iff\, f(m)<f(n)\right] \,\land\\
+  	&\land\, \left[\forall\, \lambda,\mu \in \omega\ \left(f(\lambda)= f(\mu)\right) \,\implies\,(\lambda = \mu)\right] \,\land\\
+  	&\land\, \left[\forall\,\lambda<\xi'\ \exists\, k \in \omega\ \left(f(k)=\lambda\right)\right]
+\end{align*}
+Le quantificazioni sono tutte numerabili in virtù dell'Osservazione 1.
+
+Pertanto
+\begin{equation*}
+A_{m,n} \in \bm{{\operatorname{Bor}}}\left(\mathrm{LO}\times(\xi')^{\omega}\right) \subseteq \bm{\Sigma}_{1}^{1}\left(\mathrm{LO}\times(\xi')^{\omega}\right),
+\end{equation*}
+e dunque anche \(\bigcap_{m,n \in \omega} A_{m,n}\) è \(\bm{\Sigma}_{1}^{1}\left(\mathrm{LO}\times(\xi')^{\omega}\right)\).
+
+Definita
+\begin{equation*}
+  	\pi_{\mathrm{LO}}: \mathrm{LO} \times (\xi')^{\omega} \to \mathrm{LO}
+\end{equation*}
+la proiezione sul primo fattore, allora
+\begin{equation*}
+  	\mathrm{WO}^{=\xi'} = \pi_{\mathrm{LO}}\left(\bigcap_{m,n \in \omega} A_{m,n}\right).
+\end{equation*}
+Dunque applicando la Proposizione 3.1.5 (per l'osservazione precedente \((\xi')^{\omega}\) è Polacco) si ottiene che \(\mathrm{WO}^{=\xi'}\) è \(\bm{\Sigma}_{1}^{1}(\mathrm{LO})\).
+
+Inoltre,
+\begin{equation*}
+  	\mathrm{WO}_{\xi} = \bigcup_{\xi'\le \xi} \mathrm{WO}^{=\xi'}
+\end{equation*}
+e pertanto \uline{questo dimostra che \(\mathrm{WO}_{\xi} \in \bm{\Sigma}_{1}^{1}(\mathrm{LO})\)}, poiché \(\bm{\Sigma}_{1}^{1}\) è chiuso per unioni numerabili (per la Proposizione 3.1.5).
+
+\item Sia \(\omega\le\xi< \omega_{1}\) fissato. È possibile applicare il Teorema 3.2.1 a \(\mathrm{WO}_{\xi}\)  e \(\mathrm{NWO}\) (infatti sono entrambi analitici e \(\mathrm{WO}_{\xi} \cap \mathrm{NWO} \subseteq \mathrm{WO} \cap \mathrm{NWO} =\emptyset\)): esiste \(A_{\xi}\) \uline{Boreliano} tale che:
+\begin{equation*}
+  \mathrm{WO}_{\xi} \subseteq A_{\xi}, \qquad A_{\xi} \cap \mathrm{NWO} = \emptyset
+\end{equation*}
+Siccome \(\mathrm{NWO} = X\setminus\mathrm{WO}\) si ha che \(A_{\xi} \subseteq \mathrm{WO}\):
+\begin{equation*}
+  \mathrm{WO}_{\xi} \subseteq A_{\xi} \subseteq \mathrm{WO}.
+\end{equation*}
+
+Per ogni \(\xi<\omega\) si pone \(A_{\xi} =\emptyset \in \bm{{\operatorname{Bor}}}(\mathrm{LO})\).
+\item Vale la seguente uguaglianza: \(\mathrm{WO} = \bigcup_{\omega\le \xi<\omega_{1}} \mathrm{WO}_{\xi}\). (\(\supseteq\)): è ovvio, poiché per ogni \(\omega\le\xi<\omega_{1}\) si ha \(\mathrm{WO}_{\xi} \subseteq \mathrm{WO}\). (\(\subseteq\)): ciascun buon ordine lineare ha order type minore di \(\omega_{1}\), e pertanto se \(x \in \mathrm{WO}\) allora esiste \(\xi<\omega_{1}\) tale che \(x \in \mathrm{WO}_{\xi}\).
+
+Pertanto si ha che
+\begin{equation*}
+  	\mathrm{WO} = \bigcup_{\omega\le \xi<\omega_{1}} \mathrm{WO}_{\xi} \subseteq \bigcup_{\omega\le \xi<\omega_{1}} A_{\xi} = \bigcup_{\xi<\omega_{1}} A_{\xi}
+\end{equation*}
+ed inoltre, per ogni \(\xi<\omega_{1}\), \(A_{\xi} \subseteq \mathrm{WO}\) e dunque
+\begin{equation*}
+  	\bigcup_{\xi<\omega_{1}} A_{\xi} \subseteq \mathrm{WO}
+\end{equation*}
+
+Per doppia inclusione si ha proprio \(\mathrm{WO} = \bigcup_{\xi<\omega_{1}} A_{\xi}\).
+\end{itemize}
+\subsubsection{Parte b.}
+\label{sec:orgd51b05b}
+
+Sia \(X\coloneqq\omega^{\omega}\) e \(A \in \bm{\Pi}_{1}^{1}(X)\).
+
+Siccome \(\mathrm{WO}\) è \(\bm{\Pi}_{1}^{1}\)-completo, allora esiste una funzione continua
+\begin{equation*}
+f: \omega^{\omega}\to \mathrm{LO}
+\end{equation*}
+tale che \(f^{-1}(\mathrm{WO}) = A\).
+
+Per il punto precedente è possibile scrivere \(\mathrm{WO} = \bigcup_{\xi<\omega_{1}} B_{\xi}\) con \(B_{\xi} \in \bm{{\operatorname{Bor}}}(\mathrm{LO})\), e quindi
+\begin{equation*}
+A = f^{-1}(\mathrm{WO}) = f^{-1}\left(\bigcup_{\xi<\omega_{1}} B_{\xi}\right) = \bigcup_{\xi<\omega_{1}} f^{-1}(B_{\xi}).
+\end{equation*}
+Posto \(A_{\xi}\coloneqq f^{-1}(B_{\xi})\), si ha che \(A_{\xi} \in \bm{{\operatorname{Bor}}}(X)\) poiché \(B_{\xi} \in \bm{{\operatorname{Bor}}}(\mathrm{LO})\) e \(f\) continua. Pertanto
+\begin{equation*}
+A=\bigcup_{\xi<\omega_{1}} A_{\xi}
+\end{equation*}
+con \(A_{\xi}\) boreliani.
+\subsubsection{Parte c.}
+\label{sec:org3f6666a}
+
+Sia \(X\) uno spazio polacco non numerabile, e sia \(A \in \bm{\Pi}_{1}^1(X)\). Per il Teorema 3.2.9 esiste un isomorfismo Boreliano:
+\begin{equation*}
+F: \omega^{\omega}\to X
+\end{equation*}
+
+In particolare \(B\coloneqq F^{-1}(A) \in \bm{\Pi}_{1}^{1}(X)\) per il Corollario 3.1.16, poiché \(F\) è Boreliana. Per il punto precedente,
+\begin{equation*}
+B=\bigcup_{\xi<\omega_{1}} B_{\xi}
+\end{equation*}
+con \(B_{\xi} \in \bm{{\operatorname{Bor}}}(\omega^{\omega})\)
+
+Siccome \(F\) è una biiezione, allora \(A=F(B)\):
+\begin{equation*}
+A= F(B) = F\left(\bigcup_{\xi<\omega_{1}} B_{\xi}\right) = \bigcup_{\xi<\omega_{1}} F(B_{\xi}).
+\end{equation*}
+
+Posto ora \(A_{\xi} \coloneqq F(B_{\xi})\), questi sono Boreliani per il Corollario 3.2.7, poiché \(F\) Boreliana iniettiva e \(B_{\xi}\) Boreliano.
+\subsubsection{Parte d.}
+\label{sec:orgcd7171b}
+
+Se \(X\) è numerabile allora il teorema è banale: ogni sottoinsieme di \(X\) è unione numerabile di singoletti, che sono chiusi, e pertanto ogni sottoinsieme di \(X\) è un Boreliano.\qed
+\end{document}

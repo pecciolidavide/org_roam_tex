@@ -1,0 +1,87 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Metodo del subgradiente}
+\label{sec:orgf456601}
+Sia \(f:\R^{n}\to \R\) una funzione \href{20250711142403-funzione_convessa.org}{convessa}, con \href{20250627153543-massimo_e_minimo_di_una_funzione_reale.org}{minimo globale} in \(\bm{x}^{*}\), con valore di minimo \(f^{*}\coloneqq f(\bm{x}^{*})\)
+
+Questo algoritmo serve per trovare il minimo di \(f\).
+\begin{itemize}
+\item Sia \((\alpha_{k})_{k \in \N}\) una successione di \href{20250627110009-training_error_and_test_error.org}{iperparametri};
+\item Sia \(\bm{x}^{(0)} \in \R^{n}\); si definisce iterativamente una \href{20250115100904-successione.org}{successione} \((\bm{x}^{(k)})_{k \in \N}\) come segue:
+\begin{equation*}
+  \bm{x}^{(k+1)} = \bm{x}^{(k)}-\alpha_{k}\bm{g}^{(k)}
+\end{equation*}
+dove \(\bm{g}^{(k)}\) è un \href{20250711122025-subderivata.org}{subgradiente} qualsiasi di \(f\) in \(\bm{x}^{(k)}\).
+\item Si tiene traccia dei valori minimi trovati nelle prime \(k\) iterazioni:
+\begin{equation*}
+  f^{(k)}_{\text{best}} \coloneqq \min\set{f(\bm{x}^{(0)}), f(\bm{x}^{(1)}),\dots,f(\bm{x}^{(k)})} = \min \set{f^{(k-1)}_{\text{best}}, f(\bm{x}^{(k)})}
+\end{equation*}
+\end{itemize}
+
+\begin{thm}
+Si ponga per ogni \(k \in \N\) \(\alpha_{k}\coloneqq\alpha\).
+
+Se esiste \(G \in \R\) tale per cui
+\begin{equation*}
+\forall k \in \N:\quad \norma{\bm{g}^{(k)}}\le G
+\end{equation*}
+allora
+\begin{equation*}
+\lim_{k\to\infty}f^{(k)}_{\text{best}}-f^{*}\le\frac{\alpha G^{2}}{2}.
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+Si consideri la seguente catena di disuguaglianze.
+\begin{align*}
+0&\le\norma{\bm{x}^{(k+1)}-\bm{x}^{*}}^{2} = \norma{
+\bm{x}^{(k)} - \alpha_{k}\bm{g}^{(k)} - \bm{x}^{*}
+}^{2}\\
+&= \norma{\bm{x}^{(k)}-\bm{x}^{*}}^{2} + \alpha_{k}^{2} \norma{\bm{g}^{(k)}}^{2} - 2 \alpha_{k}\bm{g}^{(k)}\cdot (\bm{x}^{(k)}-\bm{x}^{*})\\
+&= \norma{\bm{x}^{(k)}-\bm{x}^{*}}^{2} + \alpha_{k}^{2} \norma{\bm{g}^{(k)}}^{2} + 2 \alpha_{k} \bm{g}^{(k)}\cdot (\bm{x}^{*}-\bm{x}^{(k)})\\
+&\le \norma{\bm{x}^{(k)}-\bm{x}^{*}}^{2} + \alpha_{k}^{2} \norma{\bm{g}^{(k)}}^{2} + 2 \alpha_{k} \left[f(\bm{x}^{*})-f(\bm{x}^{(k)})\right]\\
+&= \norma{\bm{x}^{(k)}-\bm{x}^{*}}^{2} + \alpha_{k}^{2} \norma{\bm{g}^{(k)}}^{2} - 2 \alpha_{k} \left[f(\bm{x}^{(k)})-f(\bm{x}^{*})\right]\\
+&\le \norma{\bm{x}^{(1)}-\bm{x}^{*}}^{2} + \sum_{j=1}^{k}\left[
+\alpha_{j}^{2} \norma{\bm{g}^{(j)}}^{2} - 2 \alpha_{j} \left[f(\bm{x}^{(j)})-f(\bm{x}^{*})\right]
+\right]\\
+&=\norma{\bm{x}^{(1)}-\bm{x}^{*}}^{2} + \sum_{j=1}^{k}
+\alpha_{j}^{2} \norma{\bm{g}^{(j)}}^{2} - 2 \sum_{j=1}^{k} \alpha_{j} \left[f(\bm{x}^{(j)})-f(\bm{x}^{*})\right]
+\end{align*}
+Si ottiene quindi
+\begin{equation}
+2 \sum_{j=1}^{k} \alpha_{j} \left[f(\bm{x}^{(j)})-f(\bm{x}^{*})\right]\le\norma{\bm{x}^{(1)}-\bm{x}^{*}}^{2} + \sum_{j=1}^{k}
+\alpha_{j}^{2} \norma{\bm{g}^{(j)}}^{2} \label{subgradiente:dis:1}
+\end{equation}
+Si osservi inoltre che per ogni \(j\le k\),
+\begin{equation*}
+f(\bm{x}^{(j)})\ge \min\set{f(\bm{x}^{(0)}),\dots,f(\bm{x}^{(k)})} = f^{(k)}_{\text{best}}
+\end{equation*}
+e pertanto
+\begin{equation*}
+\sum_{j=1}^{k} \alpha_{j} \left[f(\bm{x}^{(j)})-f(\bm{x}^{*})\right] \ge \left(f^{(k)}_{\text{best}}-f(\bm{x}^{*})\right)\cdot \sum_{j=1}^{k}\alpha_{j}
+\end{equation*}
+e dunque, applicandolo a \eqref{subgradiente:dis:1} si ottiene
+\begin{equation*}
+(f^{(k)}_{\text{best}}-f^{*})\cdot 2\sum_{j=1}^{k} \alpha_{j}\le \norma{\bm{x}^{(1)}-\bm{x}^{*}}^{2} + \sum_{j=1}^{k}
+\alpha_{j}^{2} \norma{\bm{g}^{(j)}}^{2}.
+\end{equation*}
+Posto quindi \(R\coloneqq \norma{\bm{x}^{(1)}-\bm{x}^{*}}\), ricordando che \(\norma{\bm{g}^{(j)}}\le G\) e che \(\alpha_{j}=\alpha\), si ottiene
+\begin{equation*}
+f^{(k)}_{\text{best}}-f^{*} \le \frac{R^{2} + G^{2} \sum_{j=1}^{k}
+\alpha_{j}^{2}}{2\sum_{j=1}^{k}
+\alpha_{j}} = \frac{R^{2} + G^{2}k\alpha^{2}}{2k\alpha}.
+\end{equation*}
+Prendendone il limite, si ottiene proprio
+\begin{equation*}
+\lim_{k\to\infty} f^{(k)}_{\text{best}}-f^{*} \le \frac{G^{2}\alpha}{2}\qedhere
+\end{equation*}
+\end{proof}
+
+\begin{oss}
+Se \(f\) è Lipschitziana i \href{20250711122025-subderivata.org}{subgradienti} sono limitati, e pertanto è possibile approssimare ad una precisione arbitraria \(f^{*}\).
+\end{oss}
+\end{document}

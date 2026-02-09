@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Vedi: \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}
+\begin{prop}
+Sia \(f: \N\to \N\) una \href{20250213105339-funzione_parziale.org}{funzione totale} \href{20241219101956-funzione_iniettiva.org}{iniettiva}. Se \(f\) è una \href{20250207104855-funzione_ricorsiva.org}{funzione ricorsiva}, allora la \href{20250213105339-funzione_parziale.org}{funzione parziale} \(f^{-1}: \N\to \N\) è \href{20250207104855-funzione_ricorsiva.org}{ricorsiva}.
+\end{prop}
+\begin{proof}
+Sia
+\begin{align*}
+h: \N^{2} &\longrightarrow \N\\
+(x,y) &\longmapsto |f(y)-x|
+\end{align*}
+che è una funzione ricorsiva poiché la \href{20250215141024-funzioni_primitive_ricordive.org}{distanza} è una \href{20250215141024-funzioni_primitive_ricordive.org}{funzione ricorsiva primitiva}, a cui è applicato lo \href{20250215151458-funzioni_ricorsive.org}{schema di composizione}.
+
+Allora\footnote{Vedi \href{20250215151458-funzioni_ricorsive.org}{Schema di minimizzazione}}
+\begin{equation*}
+f^{-1}(x) = \minim{y}{h(x,y)=0}
+\end{equation*}
+\end{proof}
+\end{document}

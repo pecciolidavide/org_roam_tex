@@ -1,0 +1,76 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso} e siano \(X \subseteq \A^{n}\), \(Y \subseteq \A^{m}\) \href{20241231114256-varieta_algebrica_affine.org}{varietà algebriche affini}. (Vedi \href{20241231114009-spazio_affine.org}{Spazio Affine})
+\section{Definizione}
+\label{sec:org7642db6}
+Una funzione \(f: X \longrightarrow Y\) è un \textbf{morfismo tra varietà affini} se esiste una mappa polinomiale
+\begin{equation*}
+\overline{f}: \A^{n} \longrightarrow \A^{m}
+\end{equation*}
+tale che, per ogni \(x \in X\), \(f(x)=\overline{f}(x)\).
+\subsection{Precisazione}
+\label{sec:orge9da42b}
+Per mappa polinomiale si intende
+\begin{equation*}
+\overline{f}(x_{1},\dots,x_{n}) = \left(f_{1}(x_{1},\dots,x_{n}),\dots,f_{m}(x_{1},\dots,x_{n})\right)
+\end{equation*}
+con \(f_{i} \in \K[x_{1},\dots,x_{n}]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}).
+\subsection{Osservazione}
+\label{sec:orgfcf8b6e}
+La definizione richiede che \(\overline{f}(X) \subseteq Y\), pertanto non tutti i polinomi di \(\K[x_{1},\dots,x_{n}]\) danno luogo a morfismi da \(X\longrightarrow Y\).
+\section{Isomorfismo tra varietà algebriche affini}
+\label{sec:org29f5eed}
+\subsection{Definizione}
+\label{sec:orgc3530f1}
+Un morfismo \(F: X \longrightarrow Y\) è un \href{20241128162125-isomorfismo.org}{isomorfismo} se
+\begin{itemize}
+\item \(F\) è \href{20250104111707-funzione_biunivoca.org}{biunivoca} (e quindi esiste \(F^{-1}\));
+\item \(F^{-1}\) è un morfismo.
+\end{itemize}
+\section{Esempi di morfismi}
+\label{sec:orgd5f6f4f}
+
+\subsection{Esempio 1}
+\label{sec:org360d66b}
+
+Sia \(A \in \K^{n,n}\) (vedi \href{20250104111539-spazio_delle_matrici.org}{Spazio delle matrici}) e sia \(B \in \K^{n}\).
+\begin{align*}
+F: \A^{n} &\longrightarrow \A^{n}\\
+x &\longmapsto Ax+B
+\end{align*}
+è un morfismo, poiché è polinomiale (data da polinomi di primo grado).
+
+Inoltre, \(F\) è invertibile se e solo se \(A\) è \href{20250104111735-matrice_invertibile.org}{invertibile} (ovver sse \(\det A \neq 0\), vedi \href{20250104111751-determinante_di_una_matrice.org}{Determinante di una matrice}).
+\subsection{Esempio 2}
+\label{sec:org15a4f67}
+Sia \(n>m\), e consideriamo
+\begin{align*}
+\pi: \A^{n} &\longrightarrow \A^{m}\\
+(x_{1},\dots,x_{m},x_{m+1},\dots,x_{n}) &\longmapsto (x_{1},\dots,x_{m})
+\end{align*}
+la proiezione sulle prime \(m\) coordinate.
+
+Evidentemente è un morfismo, poiché le mappe sono polinomiali. Allo stesso tempo è evidente che non sia un isomorfismo.
+\subsection{Esempio 3}
+\label{sec:org46ce77a}
+Sia \(f \in \K[x]\), e sia \(g(x,y) = y-f(x)\), \(g \in \K[x,y]\)
+Consideriamo \(X=V(g) \subseteq \A^{2}\) (vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri}). \(X\) è il \href{20250104112443-grafico_di_una_funzione.org}{grafico} di \(f\).
+
+Si hanno le mappe
+\begin{align*}
+F: \A^{1} &\longrightarrow X\\
+t &\longmapsto \left(t,f(t)\right)
+\end{align*}
+che è un morfismo poiché polinomiale, e la sua inversa
+\begin{align*}
+F^{-1}: X &\longrightarrow \A^{1}\\
+(x,y) &\longmapsto x
+\end{align*}
+che è morfismo per l'esempio precedente, poiché proiezione sul primo fattore.
+
+Dunque \(F\) è un \hyperref[sec:org29f5eed]{isomorfismo}.
+\end{document}

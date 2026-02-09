@@ -1,0 +1,128 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}. La curva razionale normale è una generalizzazione della \href{20250102104043-cubica_gobba.org}{Cubica Gobba}.
+
+Si definisce
+\begin{align*}
+\nu_{d}: \mathds{P}^{1} &\longrightarrow \mathds{P}^{d}_{[z_{0}:\dots:z_{d}]}\\
+[x_{0}:x_{1}] &\longmapsto [x_{0}^{d}:x_{0}^{d-1}x_{1}:\dots:x_{1}^{d}]
+\end{align*}
+(vedi \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo} e \href{20241231123223-varieta_algebrica_proiettiva.org}{Varietà Algebrica Proiettiva})
+
+Ovviamente \(\nu_{d}\) è un \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{morfismo}. Sia \(C\coloneqq\nu_{d}(\mathds{P}^{1})\). \(C\) è la curva razionale normale.
+\section{\(C\) è una \href{20241231123223-varieta_algebrica_proiettiva.org}{Varietà Algebrica Proiettiva}.}
+\label{sec:org1551dec}
+
+Sia \(A\) la \href{20250104111539-spazio_delle_matrici.org}{matrice}:
+\begin{equation*}
+A=\begin{bmatrix}
+z_{0} & z_{1} & \dots & z_{d-1}\\
+z_{1} & z_{2} & \dots & z_{d}
+\end{bmatrix}
+\end{equation*}
+e sia \(Y=V(\operatorname{rank} A -1)\) (vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri} e \href{20250104170945-rango_di_una_matrice.org}{Rango di una matrice}). Questa è una espressione polinoimale, infatti \(\operatorname{rank}A=1\) se e solo se tutti i \href{20250104171415-minori_di_una_matrice.org}{minori} \(2\times 2\) di \(A\) hannp determinante nullo. Pertanto \(Y\) è il luogo delle soluzioni del seguente sistema
+\begin{equation*}
+\begin{cases}
+z_{0}z_{2}=z_{1}^{2}\\
+z_{1}z_{3}=z_{2}^{2}\\
+\vdots\\
+z_{d-2}z_{d}=z_{d-1}^{2}
+\end{cases}
+\end{equation*}
+Si ha che \(C=Y\).
+\subsection{\(C \subseteq Y\)}
+\label{sec:org0fbf1f6}
+Questa inclusione è ovvia: se \(p = [p_{0}:p_{1}] \in \mathds{P}^{1}\) e \(q=[q_{0}:\dots:q_{d}]=\nu_{d}(p)\), allora
+\begin{equation*}
+q=[p_{0}^{d}:p_{0}^{d-1}p_{1}:\dots:p_{1}^{d}]
+\end{equation*}
+Facendo i calcoli si ha
+\begin{align*}
+q_{0}q_{2} &= p_{0}^{d}p_{0}^{d-2}p_{1}^{2} = p_{0}^{2d-2}p_{1}^{2} = (p_{0}^{d-1}p_{1})^{2}=q_{3}^{2}\\
+&\vdots\\
+q_{i}q_{i+2} &= (p_{0}^{d-i}p_{1}^{i})\ (p_{0}^{d-i-2}p_{1}^{i+2}) = p_{0}^{d-i+d-i-2}p_{1}^{2i+2}\\
+&= p_{0}^{2(d-i-1)}p_{1}^{2(i+1)} = (p_{0}^{d-i-1}p_{1}^{i+1})^{2} = q_{i+1}^{2}
+\end{align*}
+
+e dunque i punti di \(C\) sono soluzioni del sistema.
+\subsection{\(Y \subseteq C\)}
+\label{sec:orgf5aca6d}
+Sia \(p \in Y\), \(p=[p_{0}:\dots:p_{d}]\). \(p\) risolve il sistema di equazioni.
+
+Se \(p_{0}=0\) allora \(p_{1}=0\) (applicando la prima equazione).
+Se \(p_{1}=0\) allora \(p_{2}=0\) (applicando la seconda equazione).
+In generale, se \(p_{i}=0\) per \(i\le d-2\) si ha che \(p_{i+1}=0\) applicando la \(i+1\)-esima equazione.
+
+Dunque, se \(p_{0}=0\) allora \(\forall\, i =1,\dots,d-1\) si ha che \(p_{i}=0\). Ovviamente \(p_{d}=1\), altrimenti \(p\notin \mathds{P}^{d}\).
+
+Allo stesso modo, se \(p_{d}=0\), allora \(\forall\, i = 2,\dots,d-1\) si ha che \(p_{i}=0\). Ovviamente \(p_{0}=1\), altrimenti \(p \notin \mathds{P}^{d}\).
+
+Quindi almeno uno tra \(p_{0}\) e \(p_{d}\) è non nullo.
+
+Suppongo \(p_{0}\neq 0\). Allora posso scrivere
+\begin{equation*}
+p = [1:t_{1}:\dots:t_{d}]
+\end{equation*}
+tali che
+\begin{equation*}
+\begin{cases}
+t_{2}=t_{1}^{2}\\
+t_{1}\cdot t_{3}=t_{2}^{2}\\
+t_{2}\cdot t_{4}=t_{3}^{2}\\
+\vdots
+\end{cases}\quad \implies\quad \begin{cases}
+t_{2}=t_{1}^{2}\\
+t_{3}=t_{2}^{2}/t_{1} = t_{1}^{3}\\
+t_{4} = t_{3}^{2}/t_{2} = t_{1}^{4}\\
+\vdots\\
+t_{i} = t_{1}^{i}
+\end{cases}
+\end{equation*}
+e dunque \(p =\nu_{d}\left([1:t_{1}]\right)\), e \(p \in C\).
+\section{\(\nu_{d}\) è un isomorfismo}
+\label{sec:org324b661}
+
+Consideriamo la corestrizione
+\begin{align*}
+\nu_{d}: \mathds{P}^{1} &\longrightarrow C \subseteq \mathds{P}^{d}_{[z_{0}:\dots:z_{d}]}\\
+[x_{0}:x_{1}] &\longmapsto [x_{0}^{d}:x_{0}^{d-1}x_{1}:\dots:x_{1}^{d}]
+\end{align*}
+Questa mappa è un \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{isomorfismo}. Per dimostrarlo, si scrive esplicitamente l'inversa.
+
+Fissiamo \(p \in C\).
+
+Sia \(H_{i} = V(z_{i})\) per ogni \(i=0,\dots,d\). Per l'argomento visto sopra, \(p\notin H_{0}\cap H_{d}\) e dunque \(p \in U_{0}\cup U_{d}\), dove
+\begin{equation*}
+U_{i} = \set{z_{i}\neq 0}
+\end{equation*}
+
+È possibile dunque definire l'inversa come:
+\begin{equation*}
+\nu_{d}^{-1}(z) = \begin{cases}
+[z_{0}:z_{1}] & z\in C\cap U_{0}\\
+[z_{d-1}:z_{d}] & z\in C\cap U_{d}
+\end{cases}
+\end{equation*}
+\subsection{\(\nu_{d}^{-1}\) è veramente l'inversa}
+\label{sec:org6942697}
+
+Sia \(p = \nu_{d}[x_{0}:x_{1}]\), quindi
+\begin{equation*}
+p = [x_{0}^{d}:x_{0}^{d-1}x_{1}:\dots:x_{0}x_{1}^{d-1}:x_1^{d}]
+\end{equation*}
+
+Se \(p \in U_{0}\), si ha che \(\nu_{d}^{-1}(p)=[x_{0}^{d}:x_{0}^{d-1}x_{1}]=x_{0}^{d-1}[x_{0}:x_{1}] = [x_{0}:x_{1}]\).
+Se \(p \in U_{d}\), si ha che \(\nu_{d}^{-1}(p)=[x_{0}x_{1}^{d-1}:x_{1}^{d}]=x_{1}^{d-1}[x_{0}:x_{1}]=[x_{0}:x_{1}]\).
+\subsection{\(\nu_{d}^{-1}\) è ben definito.}
+\label{sec:org8affe97}
+
+Sia ora \(z \in C\cap U_{0}\cap U_{d}\), \(z=\nu_{d}[x_{0}:x_{1}]\)
+\begin{equation*}
+\frac{z_{1}}{z_{0}} = \frac{x_{0}^{d-1}x_{1}}{x_{0}^{d}}=\frac{x_{1}}{x_{0}}=\frac{x_{1}\ x_{1}^{d-1}}{x_{0}x_{1}^{d-1}} = \frac{z_{d}}{z_{d-1}}
+\end{equation*}
+e dunque \([z_{0}:z_{1}]=[z_{d-1}:z_{d}]\).
+\end{document}

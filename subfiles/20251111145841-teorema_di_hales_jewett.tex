@@ -1,0 +1,88 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema di Hales-Jewett}
+\label{sec:org0f30861}
+\def\D{\mathcal{D}}
+\def\DD{\bm{\D}}
+\def\U{\mathcal{U}}
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+\def\L{\mathcal{L}}
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+\def\b{\bm{b}}
+
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+\begin{thm}
+Sia \(S\) un \href{20251104163738-semigruppo.org}{semigruppo} e sia \(C \subseteq S\) un sotto-semigruppo tale che per ogni \(a\cdot b \in C\) si ha \(a \in C\) e \(b \in C\)\footnote{Diremo che il sottosemigruppo è \emph{nice}.}.
+
+Dato \(k \in \omega\) sia\footnote{Vedi ``\href{20251104163738-semigruppo.org}{Omomorfismo di semigruppi}''}
+\begin{equation*}
+\Sigma\coloneqq \set{%
+\sigma_{i}: S\to C \text{ omomorfismo}%
+\mid \sigma_{i} \restricted{C} = \Id_{C},\, i<k}
+\end{equation*}
+Per ogni \href{20251111150142-colorazione.org}{colorazione} finita di \(C\) esiste \(a \in S\setminus C\) tale che
+\(\set{\sigma_{i}(a) \mid i < k}\)
+è \href{20251111150142-colorazione.org}{monocromatico}.
+\end{thm}
+
+Una dimostrazione di questo può essere prodotta utilizzando gli strumenti della \href{20250612143636-notazione_teoria_dei_modelli.org}{Teoria dei Modelli}, sfruttando il \href{20251104154427-estensione_di_un_semigruppo_ad_un_modello_mostro.org}{Semigruppo di Ellis}. Se ne lascia qui una traccia:
+
+\def\C{\mathcal{C}}
+\begin{proof}
+Sia \(\L=\set{\cdot}\cup\parti{S}\cup \Sigma\). Sia \(\U\succeq S\) \href{20250617102733-modello_mostro.org}{modello mostro}, e sia \(\C = \phi(\U^{x})\), dove
+\begin{equation*}
+\phi(x):\qquad x \in C.
+\end{equation*}
+\begin{itemize}
+\item Dal momento che la proprietà \emph{nice} è esprimibile al prim'ordine, anche \(\mathcal{C}\) è \emph{nice}. Pertanto \(\U\setminus\C\) è ideale sinistro.
+\item Sia \(M \subseteq \U\setminus\C\) ideale sinistro \href{20250203102516-massimo_e_minimo.org}{minimale} \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo-definibile}, e sia \(N \subseteq \C\) ideale sinistro di \(\C\) minimale tipo-definibile.
+\item Sia \(v \in N\) idempotente, e sia \(u \in v*M*v\) idempotente.
+\item Per ogni \(\sigma \in \Sigma\)
+\begin{equation}
+\sigma(u) \in \sigma(v)*\sigma(M)*\sigma(v) = v*\sigma(M)*v %
+\label{eq:vsigmaMv}
+\end{equation}
+con \(\sigma(u)\) idempotente.
+\item \(\sigma(M)\) è ideale sinistro di \(\C\), in quanto \(\sigma\) è l'identità su \(\C\):
+\begin{equation*}
+\C*\sigma(M) = \sigma(\C*M) \subseteq \sigma(M).
+\end{equation*}
+\item Si ha che \(\sigma(M)*v \subseteq N\) e per minimalità di \(N\):
+\begin{equation*}
+\sigma(M)*v = N.
+\end{equation*}
+\item Applicando alla~\eqref{eq:vsigmaMv}: \(\sigma(u) \in v*N\), ma per un lemma già visto \(v*N\) è un gruppo con identità \(v\), e quindi \(\sigma(u) \equivalentover{S} v\) per ogni \(\sigma \in \Sigma\).
+\end{itemize}
+
+Dunque
+\begin{equation*}
+\U\vDash \exists x \in (\U\setminus\C)\ %
+\bigg[ %
+\bigwedge_{\sigma \in \Sigma}%
+\text{``}\sigma(x)\text{ ha colore 1''}%
+\bigg].
+\end{equation*}
+e pertanto vale anche per \(S\).
+\end{proof}
+\end{document}

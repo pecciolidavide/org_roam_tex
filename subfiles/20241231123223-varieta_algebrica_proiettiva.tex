@@ -1,0 +1,56 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{Campo Algebricamente Chiuso}, sia \(S=\K[x_{1},\dots,x_{n}]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}) e sia \(T \subseteq S^{h}\) (vedi \href{20241231121125-polinomi_omogenei.org}{Polinomi Omogenei}). Una \textbf{varietà algebrica proiettiva} è il \href{20241231112823-radici_polinomiali.org}{luogo degli zeri} di \(T\).
+\begin{equation*}
+X=V(T) \coloneqq \set{p \in \mathds{P}^{n}: f(p)=0\ \forall\, f \in T}
+\end{equation*}
+(Vedi \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo})
+\end{definizione}
+
+In virtù della definizione di \href{20250102183523-luogo_di_zeri_di_un_ideale_omogeneo.org}{Luogo di zeri di un ideale omogeneo} e della \href{20250102182726-ideale_di_polinomi_omogeneo.org}{caratterizzazione degli ideali omogenei}, si ha che, siccome \(T \subseteq S^{h}\),
+\begin{equation*}
+V(T)=V\left(\langle T\rangle\right)
+\end{equation*}
+
+Dunque, una varietà proeittiva è il luogo di zeri di un ideale omogeneo.
+\uline{Notazione}: In \(\mathds{P}^{n}\) siano, per ogni \(i=0,\dots,n\)
+\begin{equation*}
+U_{i}\coloneqq = \set{[x_{0}:\dots:x_{n}]\in \mathds{P}^{n}: x_{i}\neq 0}
+\end{equation*}
+\begin{oss}
+Sia \(X \subseteq \mathds{P}^{n}\) una varietà algebrica proiettiva, e sia \(T \subseteq S^{h}\) tale che \(X=V(T)\).
+Definendo
+\begin{equation*}
+X_{i}\coloneqq X \cap U_{i} \subseteq U_{i}\subseteq \A^{n}
+\end{equation*}
+si ha che \(X_{i}\) è una \href{20241231114256-varieta_algebrica_affine.org}{Varietà Algebrica Affine}. Infatti, se \(T=\set{F_{\alpha}}_{\alpha}\), definendo per ogni \(\alpha\)
+\begin{equation*}
+f_{\alpha}^{i}(y_{1},\dots,y_{n}) \coloneqq F_{\alpha} (y_{1}:\dots:1:\dots:y_{n})
+\end{equation*}
+dove \(1\) è all'\(i\)-esima posizione (vedi \href{20241231124828-deomogenizzazione.org}{Deomogenizzazione}), si ha che
+\begin{equation*}
+X_{i} = V\left(\set{f_{\alpha}^{i}}_{\alpha}\right)
+\end{equation*}
+Dunque, ogni varietà algebrica proiettiva può essere vista come unione di varietà algebriche affini.
+\end{oss}
+\begin{oss}
+Sia \(Y \subseteq \A^{n}\) una varietà affine, e sia \(T=\set{f_{\alpha}}_{\alpha} \subseteq S\) tale che \(Y=V(T)\).
+\begin{equation*}
+Y \subseteq \A^{n} = U_{0}\subseteq \mathds{P}^{n}
+\end{equation*}
+Se per ogni \(\alpha\) si definisce
+\begin{equation*}
+F_{\alpha}(x_{0}:\dots:x_{n})\coloneqq x_{0}^{\operatorname{deg}f_{\alpha}}f_{\alpha}\left(\frac{x_{1}}{x_{0}},\dots,\frac{x_{n}}{x_{0}}\right)
+\end{equation*}
+(vedi \href{20241231124230-omogenizzazione.org}{Omogenizzazione}), se \(X= V\left(\set{F_{\alpha}}_{\alpha}\right)\) allora
+n\begin{equation*}
+Y=U\textsubscript{0}\(\cap\) X.
+\end{equation*}
+\end{oss}
+\uline{Esempio}: \href{20250102104043-cubica_gobba.org}{Cubica Gobba}
+\end{document}

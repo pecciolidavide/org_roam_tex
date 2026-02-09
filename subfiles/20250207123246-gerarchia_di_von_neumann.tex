@@ -1,0 +1,60 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Gerarchia di Von Neumann}
+\label{sec:org9f0d4af}
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\begin{definizione}
+Sia \(\alpha\) un \href{20250203111003-ordinali.org}{ordinale}. Si definisce \(V_{\alpha}\) come
+\begin{equation*}
+V_{\alpha} \coloneqq \set{x\mid \operatorname{rank}(x) <\alpha}
+\end{equation*}
+dove \(\rank\) è il \href{20250207123105-rango_di_un_insieme.org}{rango di \(x\)}. La \uline{gerarchia di Von Neumann} è la \href{20250202170607-classe_relazione_binaria.org}{classe funzione} da \(\operatorname{Ord}\) a \(\operatorname{V}\)\footnote{\(\operatorname{V}\) è la \href{20250203104513-classe_totale.org}{classe totale}.} che ad \(\alpha\) associa \(V_{\alpha}\).
+\end{definizione}
+
+Si noti che \(V_{\alpha}\cap \operatorname{Ord} = \alpha\).
+\begin{thm}
+Per ogni ordinale \(\alpha\), \(V_{\alpha}\) è
+\begin{enumerate}
+\item un insieme
+\item transitivo
+\item e vale\footnote{Vedi:
+\begin{itemize}
+\item \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Unione generalizzata}
+\item \href{20250130104245-morse_kelly_set_theory.org}{Insieme delle parti per MK}
+\end{itemize}}
+\begin{equation*}
+ V_{\alpha} = \bigcup_{\beta<\alpha} \parti{V_{\alpha}}.
+\end{equation*}
+\end{enumerate}
+\end{thm}
+\begin{cor}
+Si ha che
+\begin{enumerate}
+\item \(V_{0} = \emptyset\);
+\item Se \(\alpha<\beta\) allora \(V_{\alpha} \in V_{\beta}\) e \(V_{\alpha} \subseteq V_{\beta}\);
+\item \(V_{\operatorname{S}(\alpha)} = \parti{V_{\alpha}}\)\footnote{\(\operatorname{S}\) è il \href{20250202124648-successore_di_un_insieme_mk.org}{successore}.}
+\item se \(\lambda\) è \href{20250203161132-ordinale_limite.org}{limite}, allora
+\begin{equation*}
+ V_{\lambda}=\bigcup_{\alpha<\lambda} V_{\alpha};
+\end{equation*}
+\item \(\operatorname{V} = \bigcup_{\alpha \in \operatorname{Ord}} V_{\alpha}\).
+\end{enumerate}
+\end{cor}
+\begin{oss}
+Siccome si ha che\footnote{\(\card{\cdot}\) indica la \href{20241213101756-cardinalita.org}{cardinalità}} \(\card{V_{n+1}} = 2^{n}\) per ogni \(n \in \omega\)\footnote{Vedi ``\href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale Omega}''}, si ha che \(V_{\omega} \asymp \omega\)\footnote{\(\asymp\) indica due \href{20250619101109-classi_equipotenti.org}{insiemi in biiezione}.} e \(V_{\omega+1}\asymp \parti{\omega}\asymp \R\).
+\end{oss}
+\begin{prop}
+Se \(x,y \in V_{\alpha}\) allora
+\begin{align*}
+\set{x,y} &\in \parti{V_{\alpha}} = V_{\alpha+1}\\
+(x,y) = \set{\set{x},\set{x,y}} &\in\parti{\parti{V_{\alpha}}} = V_{\alpha+1}.
+\end{align*}
+\end{prop}
+\begin{oss}
+Segue che \(\N\times\N \subseteq V_{\omega}\), poiché ogni \(n \in \N\) è in \(V_{n+1}\) e \href{20250203161110-numeri_naturali_sono_ordinali.org}{\(\omega\) è limite}.
+\end{oss}
+\end{document}

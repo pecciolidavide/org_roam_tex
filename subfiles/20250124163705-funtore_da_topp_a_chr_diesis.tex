@@ -1,0 +1,25 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si definisce il \href{20241205131958-funtore.org}{funtore}
+\begin{equation*}
+(\mathcal{S}_{\bullet}, \overline{\diesis}) : \cat{TopP}\to \cat{Ch}_{R}
+\end{equation*}
+tra la \href{20250122160145-categoria_topp.org}{categoria \(\cat{TopP}\)} e la \href{20250120163759-categoria_complessi_di_catene.org}{categoria \(\cat{Ch}_{R}\)}.
+\begin{itemize}
+\item \textbf{Oggetti}:
+Alla \href{20250122154728-coppia_topologica.org}{coppia topologica} \((X,A)\) si associa il \href{20250120163114-complesso_di_catene.org}{complesso di catene} \href{20250122154809-complesso_di_catene_singolari_relative.org}{singolare relativo} \(\mathcal{S}_{\bullet}(X,A)\).
+\item \textbf{Morfismi}:
+Al \href{20250122160145-categoria_topp.org}{morfismo} \((X,A) \xrightarrow{\hphantom{int}f\hphantom{int}} (Y,B)\) si associa il \href{20250120163759-categoria_complessi_di_catene.org}{morfismo} \(\overline{f_{\diesis}} = \set{(\overline{f_{\diesis}})_{q} : S_{q}(X,A)\to S_{q}(Y,B)}\):
+\begin{align*}
+(\overline{f_{\diesis}})_{q}: S_{q}(X,A) &\longrightarrow S_{q}(Y,B)\\
+c_{q} + S_{q}(A) &\longmapsto f_{\diesis} (c_{q}) + S_{q}(B)
+\end{align*}
+dove \(f_{\diesis}\) si ottiene da \(f\) applicando il \href{20250122154136-funtorialita_dell_omologia_singolare.org}{funtore \((\mathcal{S}_{\bullet},\diesis): \cat{Top}\to \cat{Ch}_{R}\)}.
+\end{itemize}
+
+(È da dimostrare che \(\overline{f_{\star}}\) sia ben definita e definsica un morfismo di complessi di catene.)
+\end{document}

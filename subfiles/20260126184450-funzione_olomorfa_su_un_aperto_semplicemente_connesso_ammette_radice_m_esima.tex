@@ -1,0 +1,21 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funzione olomorfa su un aperto semplicemente connesso ammette radice m-esima}
+\label{sec:org32e8053}
+\begin{prop}
+Se \(U \subseteq \C\) è un \href{20250103145124-topologia.org}{aperto} \href{20250113100451-spazio_topologico_semplicemente_connesso.org}{semplicemente connesso} e \(f:U\to \C\) tale che \(f(x) \neq 0\), allora per ogni \(m \in \N\) esiste \(g:U\to \C\) tale che \(g(x)\neq 0\) tale che
+\begin{equation*}
+[g(z)]^{m} = f(z).
+\end{equation*}
+\end{prop}
+\begin{proof}
+Se \(h(z)\) è \href{20260126184347-logaritmo_complesso_e_olomorfo_su_un_aperto_semplicemente_connesso.org}{logaritmo per \(f(z)\)}, è sufficiente porre
+\begin{equation*}
+g(z)\coloneqq e^{\frac{1}{m}h(z)}.\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

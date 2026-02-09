@@ -1,0 +1,197 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\def\D{\mathcal{D}}
+\def\DD{\bm{\D}}
+\def\U{\mathcal{U}}
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+\def\L{\mathcal{L}}
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+\def\b{\bm{b}}
+
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+\section{Relazione eredi-coeredi}
+\label{sec:org75839ee}
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+
+Sia \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio}, \(T\) una \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123151-teoria_completa.org}{completa} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti e \(\U\) un \href{20250617095548-modello_lambda_saturo.org}{modello saturo} di \href{20241213101756-cardinalita.org}{cardinalità} \href{20250211123155-cardinale_limite_forte.org}{inaccessibile} \(\kappa>\card{\L}+ \omega\). \(\U\) è un \href{20250617102733-modello_mostro.org}{modello mostro}.
+
+Sia \(M\preceq \U\) un \href{20250131103035-struttura_del_prim_ordine.org}{modello}.
+
+\begin{definizione}
+Siano \(a \in \mathcal{U}^{x}\), \(b \in \mathcal{U}^{z}\). \(a\) è \uline{indipendente da \(b\)} su \(M\), e si scrive
+\begin{equation*}
+a \nonfork b
+\end{equation*}
+se il \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo} \href{20250212164424-tipo_teoria_dei_modelli.org}{\(\tp(a/M,b)\)} è \href{20250212164424-tipo_teoria_dei_modelli.org}{finitamente soddisfacibile in \(M\)}\footnote{Questa definizione è propria del \href{20250617102733-modello_mostro.org}{Modello MOSTRO}}.
+\end{definizione}
+\begin{oss}
+LSASE:
+\begin{enumerate}
+\item \(a\nonfork b\);
+\item per ogni \(\varphi(x;z) \in \mathcal{L}(M)\)
+\begin{equation*}
+\varphi(a;b) \IMPLICA \varphi(m;b)\text{ per qualche }m \in M^{x};
+\end{equation*}
+\item \(a\) appartiene alla \href{20250103144944-chiusura_topologica.org}{chiusura (topologica)} di \(M^{x}\) nella \href{20250617102733-modello_mostro.org}{\((M,b)\)-topologia di \(\U^{x}\)}.
+\end{enumerate}
+\end{oss}
+\begin{oss}
+Si definisce il tipo
+\begin{equation*}
+x\nonfork  b =
+\set{\lnot \varphi(x,b) \mid
+\varphi(x;z) \in \mathcal{L}(M),\,%
+\varphi(M^{x},b)= \emptyset}
+\end{equation*}
+\href{20250212164424-tipo_teoria_dei_modelli.org}{soddisfatto} da tutti i seguenti elementi:
+\begin{equation*}
+a\vDash x\nonfork  b \IFF a\nonfork  b.
+\end{equation*}
+
+Invece \(a \nonfork z\) non è un tipo. Vedi Remark~14.7 e Esercizio~14.13 di .
+\end{oss}
+\begin{lem}
+Valgono le seguenti proprietà.
+\begin{enumerate}
+\item Se \(a\nonfork  b\) allora \(fa\nonfork  fb\) per ogni \href{20251020151126-insieme_degli_automorfismi_di_una_struttura_del_prim_ordine.org}{\(f \in \operatorname{Aut}(\mathcal{U}/M)\)}. \hfill(invarianza)
+\item \(a\nonfork b\) sse \(a_{0}\nonfork b_{0}\) per ogni \(a_{0} \subseteq a\), \(b_{0} \subseteq b\) sottotuple finite.
+\hfill(carattere finito)
+\item Se \(a\nonfork  b, c\) e \(c\nonfork  b\) allora \(a,c\nonfork  b\).
+\hfill(transitività)
+\item Se \(a\nonfork b\), per ogni \(c\) esiste \(a'\equivalentover{M,b}a\) e \(a'\nonfork b,c\).
+\hfill(\emph{coheir extension})
+\item Se \(a\nonfork b_{1},b_{2}\) e \(b_{1} \equivalentover{M} b_{2}\) allora \(b_{1}\equivalentover{M,a}b_{2}\).
+\hfill(\emph{non-splitting})
+\end{enumerate}
+\label{lem:propfork}
+\end{lem}
+\begin{proof}
+\begin{enumerate}
+\item Se \(a \nonfork[A] b\) allora \(fa \nonfork[A] fb\) per ogni \(f \in \Aut(\U/A)\).
+
+\emph{dim}.
+Sia \(\varphi(x;z) \in \L(A)\) tale che \(\U \vDash \varphi(fa,fb)\);
+allora \(\U \vDash \varphi(a;b)\) poiché \(f\) automorfismo.
+
+Dunque, per ipotesi, \(\varphi(\U^{x}; b)\cap A^{x} \neq \emptyset\) e pertanto
+\begin{equation*}
+ \varphi(\U^{x}; fb) \cap A^{x}\neq \emptyset
+\end{equation*}
+poiché \(\varphi(\U^{x}; fb) = f[\varphi(\U^{x};b)]\) in quanto \(f \in \Aut(\U/A)\); quindi
+\begin{equation*}
+ \varphi(\U^{x}; fb) \cap A^{x}
+ = f[\varphi(\U^{x};b)] \cap A^{x}
+  = \varphi(\U^{x};b) \cap A^{x} \neq \emptyset.
+\end{equation*}
+
+\item \(a \nonfork[A] b\) sse \(a_{0} \nonfork[A] b_{0}\) per ogni \(a_{0} \subseteq a\), \(b_{0} \subseteq b\) finiti.
+
+\emph{dim}.
+(\(\Rightarrow\)):
+Sia \(\varphi(x_{0};z_{0}) \in \L(A)\) tale che \(\U \vDash \varphi(a_{0};b_{0})\)
+(con \(\card{x_{0}} = \card{a_{0}}, \card{z_{0}} = \card{b_{0}}\)).
+Inoltre, \(\varphi(x_{0},z_{0}) = \varphi(x;z)\),
+con \(\card{x} = \card{a}\) e \(\card{z} = \card{b}\), e pertanto
+\begin{equation*}
+ \U\vDash \varphi(a;b).
+\end{equation*}
+Per ipotesi, quindi, \(\varphi(\U^{x}; b)\cap A^{x} \neq \emptyset\) e dunque anche \(\varphi(\U^{x}; b_{0})\cap A^{x} \neq \emptyset\).
+Proiettando un elemento di \(\varphi(\U^{x}; b_{0})\cap A^{x}\) in \(A^{x_{0}}\) si ottiene che
+\(\varphi(\U^{x_{0}};b_{0}) \cap A^{x_{0}} \neq \emptyset\).
+
+(\(\Leftarrow\)):
+Sia \(\varphi(x;z) \in \L(A)\) tale che \(\U\vDash \varphi(a;b)\).
+
+Siano \(a_{0} \subseteq a\), \(b_{0} \subseteq b\) le sottostringhe finite che compaiono in \(\varphi(a;b)\),
+sicché si abbia
+\begin{equation*}
+ \U\vDash\varphi(a_{0},b_{0}).
+\end{equation*}
+Allora, per ipotesi, \(\varphi(\U^{x_{0}};b_{0})\cap A^{x_{0}} \neq \emptyset\).
+Dunque \(\varphi(\U^{x_{0}};b)\cap A^{x_{0}} \neq \emptyset\).
+
+In particolare, sia \(v_{0} \in A^{x_{0}}\) tale che \(\U\vDash \varphi(v_{0};b)\).
+È possibile estendere naturalmente \(v_{0}\) ad un elemento \(v \in A^{x}\) tale che \(\U\vDash\varphi(v;b)\) e pertanto
+\begin{equation*}
+ \varphi(\U^{x};b)\cap A^{x} \neq \emptyset.
+\end{equation*}
+
+\item Se \(a \nonfork[A] c,b\) e \(c \nonfork[A] b\) allora \(a,c \nonfork[A] b\).
+
+\emph{dim}.
+Con (\emph{i}) si indica l'ipotesi \(a \nonfork[A] c,b\); con (\emph{ii}) l'ipotesi \(c \nonfork[A] b\).
+
+Sia \(\varphi(x;y;z) \in \L(A)\) tale che \(\vDash \varphi(a;c;b)\).
+Allora per (\emph{i}) si ha che
+\begin{equation*}
+ \varphi(\U^{x};c;b) \cap A^{x} \neq \emptyset
+\end{equation*}
+e quindi esiste \(a' \in A^{x}\) tale che \(\vDash \varphi(a';c;b)\).
+Inoltre \(\varphi(a';y;z) \in \L(A)\).
+
+Per (\emph{ii}) si ha quindi che
+\begin{equation*}
+ \varphi(a'; \U^{y}; b) \cap A^{y}\neq \emptyset
+\end{equation*}
+e dunque esiste \(c' \in \mathcal{A}^{y}\) tale che \(\vDash \varphi(a';c';b)\).
+
+Pertanto \(\varphi(\U^{x};\U^{y};b)\cap A^{x;y}\neq \emptyset\) (ne è rappresentante \((a',c')\)) e quindi \(a,c \nonfork[A] b\).
+
+\item Se \(a \nonfork[A] b\) allora esiste \(a' \equivalentover{A,b} a\) tale che \(a' \nonfork[A] b,c\)
+
+\emph{dim}.
+Per ipotesi \(\tp(a/A,b)\) è finitamente soddisfacibile in \(A\), allora (Prop.~14.3) esiste \(p(x)\) tipo globale finitamente soddisfacibile in \(A\) che lo estende.
+
+ Allora un qualsiasi \(a'\vDash p(x)\restricted{A,b,c}\) soddisfa la tesi.
+Tale \(a'\) esiste poiché \(p(x)\restricted{A,b,c}\) è un tipo piccolo.
+
+\(a'\) soddisfa la tesi poiché \(\tp(a/A,b) \subseteq p(x)\restricted{A,b,c}\) e dunque \(a' \equivalentover{A,b} a\) ed inoltre, se \(\varphi(x;y;z) \in \L(A)\) è tale che
+\begin{equation*}
+ \U\vDash \varphi(a',b,c)
+\end{equation*}
+allora per completezza di \(p\) si ha
+\(\varphi(x;b;c) \in p(x) \cap \L(M,b,c)  = p(x)\restricted{A,b,c}\):
+per finita soddisfacibilità di \(p(x)\restricted{A,b,c}\) in \(A\) segue che \(\varphi(\U^{x};b;c) \cap A^{x} \neq \emptyset\) (e quindi \(a' \nonfork[A] b,c\)).
+
+\item Se \(a \nonfork[A] b_{1},b_{2}\) e \(b_{1} \equivalentover{A} b_{2}\) allora \(b_{1} \equivalentover{A,a} b_{2}\).
+
+\emph{dim}.
+Sia \(p(x)\) tipo globale finitamente soddisfacibile in \(A\) che estende \(\tp(a/A,b_{1},b_{2})\).
+
+Allora per ogni \(c \vDash p(x) \restricted{A,b_{1},b_{2}}\) si ha \(b_{1}\equivalentover{A,c} b_{2}\).
+
+Infatti, sia \(\varphi(x;y) \in \L(A)\) tale che \(\varphi(c;b_{1})\) (ovvero \(\varphi(c;y) \in \tp(b_{1}/A,c)\)). Siccome \(\varphi(x;b_{1}) \in p(x)\)\footnote{Se per assurdo \(\varphi(x;b_{1}) \notin p(x)\) allora \(\lnot\varphi(x;b_{1}) \in p(x)\) (poiché \(p\) tipo completo) e pertanto \(\lnot\varphi(x;b_{1}) \in p(x) \restricted{A,b_{1},b_{2}}\). Quindi vale \(\varphi(c;b_{1})\) e \(\lnot\varphi(c;b_{1})\). Assurdo.} allora \(\varphi(x;b_{2}) \in p(x)\).
+
+Se per assurdo \(\varphi(x;b_{2}) \notin p(x)\) allora \(\lnot\varphi(x;b_{2}) \in p(x)\). Per finita soddisfacibilità di \(p(x)\) in \(A\), esiste \(d \in A\) tale che
+\begin{equation*}
+ \varphi(d;b_{1}) \land \lnot\varphi(d,b_{2}).
+\end{equation*}
+Assurdo poiché \(b_{1} \equivalentover{A} b_{2}\).
+
+Pertanto, dato che \(\varphi(x;b_{2}) \in p(x)\) allora \(\varphi(x;b_{2}) \in p(x) \restricted{A,b_{1},b_{2}}\) e dunque \(\varphi(c;b_{2})\) ovvero \(\varphi(c;y) \in \tp(b_{2}/A,c)\). Per simmetria quindi \(b_{1}\equivalentover{A,c} b_{2}\).
+
+In particolare, se \(a \nonfork[A] b_{1},b_{2}\) allora \(a\vDash p(x)\restricted{A,b_{1},b_{2}} \supseteq \tp(a/A,b_{1},b_{2})\).\qedhere
+\end{enumerate}
+\end{proof}
+\end{document}

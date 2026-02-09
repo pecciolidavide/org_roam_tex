@@ -1,0 +1,29 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Spazi topologici omotopicamente equivalenti}
+\label{sec:orgb5afe09}
+Due \href{20250103145124-topologia.org}{spazi topologici} \(X,Y\) si dicono \textbf{omotopicamente equivalenti} se esistono due \href{20250103103252-funzione_continua.org}{funzioni continue}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,column sep=3.15em]
+	X \& Y
+	\arrow["f", shift left=2, from=1-1, to=1-2]
+	\arrow["g", shift left=2, from=1-2, to=1-1]
+\end{tikzcd}
+\end{equation*}
+tali che le loro composizioni siano \href{20250121094654-omotopia_tra_funzioni_continue.org}{omotope} all'identità:
+\begin{equation*}
+g\circ f\sim \operatorname{Id}_{X},\qquad f\circ g \sim \operatorname{Id}_{Y}
+\end{equation*}
+ovvero esistono continue
+\begin{align*}
+G: X\times(0,1) &\longrightarrow X & H: Y\times(0,1)&\longrightarrow Y\\
+(x,0) &\longmapsto g\circ f(x) & (y,0) & \longmapsto f\circ g(y)\\
+(x,1) &\longmapsto x & (y,1) & \longmapsto y.
+\end{align*}
+
+Le due funzioni\(f,g\) si dicono equivalenze omotopiche
+\end{document}

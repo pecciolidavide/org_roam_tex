@@ -1,0 +1,112 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Struttura di CW-complesso per spazio proiettivo reale}
+\label{sec:orga108019}
+\begin{lem}
+Si consideri lo \href{20241231115051-spazio_proiettivo.org}{spazio proiettivo} reale \(\R\mathds{P}^{n}\) come \href{20250129155316-spazio_topologico_quoziente.org}{quoziente} sulla \href{20250115150754-sfera_n_dimensionale.org}{sfera}, e la mappa:
+\begin{align*}
+h: \mathds{S}^{n-1} &\longrightarrow\R\mathds{P}^{n-1} \\
+p &\longmapsto [p]
+\end{align*}
+Allora si ha il seguente \href{20250111142332-omeomorfismo.org}{omeomorfismo} con l'\href{20250215122759-export.org_archive}{attaccamento} del \href{20250127170831-disco_n_dimensionale.org}{disco \(\mathds{D}^{n}\)}:
+\begin{equation*}
+\R\mathds{P}^{n} \cong \R\mathds{P}^{n-1} \mathrel{\cup_{h}} \mathds{D}^{n}
+\end{equation*}
+\end{lem}
+\begin{proof}
+Definiamo la funzione
+\begin{equation*}
+f: \R\mathds{P}^{n-1} \amalg \mathds{D}^{n} \longrightarrow \R\mathds{P}^{n}
+\end{equation*}
+come segue:
+\begin{itemize}
+\item per \([x_{0},\dots,x_{n-1}] \in \R\mathds{P}^{n-1}\): \(f[x_{0},\dots,x_{n-1}]= [x_{0},\dots,x_{n-1},0]\);
+\item per \(\bm{x} = (x_{0},\dots,x_{n-1}) \in \mathds{D}^{n}\): \(f(\bm{x}) = \left[x_{0},\dots,x_{n-1}, \sqrt{1-\norma{\bm{x}}^{2}}\right]\), dove \(\norma{\cdot}\) è la \href{20250625123506-spazio_normato.org}{norma euclidea di \(\R^{n}\)}.
+\end{itemize}
+
+Si ha che \textbf{\(f\) è suriettiva}. Infatti, sia \([x_{0},\dots,x_{n}] \in \R\mathds{P}^{n}\).
+\begin{itemize}
+\item Se \(x_{n} = 0\), allora \([x_{0},\dots,x_{n}] = f\parentesi{\null\in \R\mathds{P}^{n-1}}{[x_{0},\dots,x_{n-1}]}\).
+\item Se \(x_{n} \neq 0\), allora, siccome \(\R\mathds{P}^{n}\) è quoziente sulla sfera:
+\begin{equation*}
+  \sum_{i = 0}^{n-1}x_{i}^{2} + x_{n}^{2} = 1%
+  \IMPLICA%
+  x_{n}^{2} = 1- \sum x_{i}^{2}.
+\end{equation*}
+\begin{itemize}
+\item Se \(x_{n} > 0\), allora \([x_{0},\dots,x_{n}] = f(\bm{x})\), con
+\begin{equation*}
+\bm{x} = (x_{0},\dots,x_{n-1}) \in \mathds{D}^{n}
+\end{equation*}
+\item Se \(x_{n} < 0\), allora \([x_{0},\dots,x_{n}] = [-x_{0},\dots,-x_{n}]\) e si ricade nel caso precedente.
+\end{itemize}
+\end{itemize}
+
+Inoltre \textbf{\(f\) è chiusa}: infatti, sia \(C \subseteq \R\mathds{P}^{n-1}\amalg \mathds{D}^{n}\) un chiuso. Siccome \(\R\mathds{P}^{n-1}\amalg \mathds{D}^{n}\) è \href{20250103163701-spazio_topologico_compatto.org}{compatto} (in quanto \href{20260207173708-unione_finita_di_compatti_e_compatta.org}{unione di compatti}), \href{20250401125136-chiuso_in_un_compatto_e_compatto.org}{allora} \(C\) è \href{20250103163701-spazio_topologico_compatto.org}{compatto}. \href{20251229125103-immagine_continua_di_spazio_compatto_e_compatto.org}{Pertanto}, l'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine} \(f(C) \subseteq \R\mathds{P}^{n}\) è compatto, con \(\R\mathds{P}^{n}\) di \href{20250109155715-spazio_topologico_di_hausdorff.org}{Hausdorff}. Ma un \href{20250331174140-compatto_in_un_haussdorf_e_chiuso.org}{compatto in un Hausdorff è chiuso}, e quindi \(f(C)\) è chiuso.
+
+Si consideri ora la \href{20250215122759-export.org_archive}{proiezione al quoziente \(\pi: \R\mathds{P}^{n-1} \amalg \mathds{D}^{n} \longrightarrow \R\mathds{P}^{n-1}\mathrel{\cup_{h}} \mathds{D}^{n}\)}. Si dimostra che \(f\) \href{20250129155316-spazio_topologico_quoziente.org}{fattorizza} con \(\pi\). Siano quindi \(p,q \in \R\mathds{P}^{n-1} \amalg \mathds{D}^{n}\) tali che \(\pi(p) = \pi(q)\).
+\begin{itemize}
+\item Se \(p \in \partial \mathds{D}^{n}\) e \(q \in \R\mathds{P}^{n-1}\) sono tali che \(h(p) = q\)
+\begin{align*}
+  p &= (x_{0},\dots,x_{n-1}) & &\leadsto & f(p)&= [x_{0},\dots,x_{n-1},0]\\
+  q&= [y_{0},\dots,y_{n-1}] & &\leadsto & f(q)&= [y_{0},\dots,y_{n-1}, 0]
+\end{align*}
+e si ha che
+\begin{equation*}
+[x_{0},\dots,x_{n-1}] = [y_{0},\dots,y_{n-1}].
+\end{equation*}
+Quindi \(f(p)=f(q)\).
+\item se \(p,q \in \partial\mathds{D}^{n}\) tali che \(h(p) = h(q)\):
+\begin{align*}
+  p &= (x_{0},\dots,x_{n-1}) & &\leadsto & f(p)&= [x_{0},\dots,x_{n-1},0]\\
+  q&= (y_{0},\dots,y_{n-1}) & &\leadsto & f(q)&= [y_{0},\dots,y_{n-1}, 0]
+\end{align*}
+e si ha che
+\begin{equation*}
+[x_{0},\dots,x_{n-1}] = [y_{0},\dots,y_{n-1}]
+\end{equation*}
+Quindi \(f(p)=f(q)\).
+\end{itemize}
+
+Per la \href{20250129155316-spazio_topologico_quoziente.org}{proprietà universale della topologia quoziente}, esiste \(\bar{f}\) tale che
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\R\mathds{P}^{n-1}\amalg \mathds{D}^n} \&\& {\R\mathds{P}^n} \\
+	\\
+	{\R\mathds{P}^{n-1} \mathrel{\cup_h} \mathds{D}^n}
+	\arrow["f", from=1-1, to=1-3]
+	\arrow[from=1-1, to=3-1]
+	\arrow["{\bar{f}}"', from=3-1, to=1-3]
+\end{tikzcd}
+\end{equation*}
+commuti, e in particolare \(\bar{f}\) è un \href{20250111142332-omeomorfismo.org}{omeomorfismo}.
+\end{proof}
+
+\begin{cor}
+\(\R\mathds{P}^{n}\) ha una struttura di \href{20260205161432-cw_complesso.org}{CW-complesso}: al passo \(k\) si aggiunge una \href{20250215122759-export.org_archive}{cella} di dimensione \(k\), per ogni \(k \in \set{0,\dots,n}\):
+\begin{equation*}
+\R\mathds{P}^{n} = \bigg(\big((\mathds{D}^{0} \mathrel{\cup_{h}} \mathds{D}^{1}) \mathrel{\cup_{h}} \mathds{D}^{2}\big) \mathrel{\cup_{h}} \dots \bigg) \mathrel{\cup_{h}} \mathds{D}^{n}
+\end{equation*}
+\end{cor}
+\section{Struttura di CW-complesso per spazio proiettivo complesso}
+\label{sec:orgc5003b2}
+\begin{lem}
+Si consideri lo \href{20241231115051-spazio_proiettivo.org}{spazio proiettivo} complesso \(\C\mathds{P}^{n}\) come \href{20250129155316-spazio_topologico_quoziente.org}{quoziente} sulla \href{20250115150754-sfera_n_dimensionale.org}{sfera}, e la mappa:
+\begin{align*}
+h: \mathds{S}^{2n-1} &\longrightarrow\R\mathds{P}^{n-1} \\
+p &\longmapsto [p]
+\end{align*}
+Allora si ha il seguente \href{20250111142332-omeomorfismo.org}{omeomorfismo} con l'\href{20250215122759-export.org_archive}{attaccamento} del \href{20250127170831-disco_n_dimensionale.org}{disco \(\mathds{D}^{n}\)}:
+\begin{equation*}
+\C\mathds{P}^{n} \cong \C\mathds{P}^{n-1} \mathrel{\cup_{h}} \mathds{D}^{2n}
+\end{equation*}
+\end{lem}
+
+\begin{cor}
+\(\C\mathds{P}^{n}\) ha una struttura di \href{20260205161432-cw_complesso.org}{CW-complesso}: al passo \(k\) si aggiunge una \href{20250215122759-export.org_archive}{cella} di dimensione \(2k\), per ogni \(k \in \set{0,\dots,n}\).
+\end{cor}
+\end{document}

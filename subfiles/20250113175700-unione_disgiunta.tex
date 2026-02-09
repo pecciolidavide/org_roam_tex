@@ -1,0 +1,53 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\use{upgreek}
+\def\tau{\uptau}
+
+
+\begin{document}
+
+\section{Unione disgiunta di insiemi}
+\label{sec:org6715598}
+
+Dati due \href{20250130104331-insieme_mk.org}{insiemi} \(A,B\), la loro \uline{unione disgiunta}, indicata con \(A\amalg B\) o con \(A\uplus B\) è
+\begin{equation*}
+A\amalg B =A\uplus B = (\set{0}\times A)\cup (\set{1}\times B)
+\end{equation*}
+(vedi \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano} e \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Unione})
+\section{Unione disgiunta di spazi topologici}
+\label{sec:orgd554458}
+\begin{definizione}
+Sia \(\{(X_i, \tau_i)\}_{i \in I}\) una famiglia indicizzata di \href{20250103145124-topologia.org}{spazi topologici}.
+L'\textbf{\textbf{unione disgiunta}} (o somma topologica) è l'insieme \(X\) definito come l'\href{20250113175700-unione_disgiunta.org}{unione disgiunta insiemistica}:
+\begin{equation*}
+X = \coprod_{i \in I} X_i := \bigcup_{i \in I} (X_i \times \{i\})
+\end{equation*}
+dotato della \textbf{\textbf{topologia dell'unione disgiunta}} \(\tau\).
+Un sottoinsieme \(U \subseteq X\) è definito aperto in \(X\) (cioè \(U \in \tau\)) se e solo se la sua intersezione con ogni spazio componente è aperta nella topologia originale di quello spazio. Formalmente:
+\begin{equation*}
+U \in \tau \iff \forall i \in I, \quad U \cap X_i \in \tau_i
+\end{equation*}
+dove identifichiamo \(X_i\) con la sua immagine canonica in \(X\).
+\end{definizione}
+
+\begin{oss}
+Questa topologia è \href{20260128102226-topologia_piu_fine.org}{la più fine} (la più grande) che rende \href{20250103103252-funzione_continua.org}{continue} tutte le iniezioni canoniche \(\iota_j : X_j \to X\).
+Inoltre, in questa topologia, ogni \(X_i\) è sia un sottoinsieme aperto che un sottoinsieme chiuso di \(X\).
+\end{oss}
+
+\begin{prop}
+Sia \(X = \coprod_{i \in I} X_i\) l'unione disgiunta della famiglia di spazi topologici \(\{(X_i, \tau_i)\}_{i \in I}\) e siano \(\iota_j: X_j \to X\) le iniezioni canoniche per ogni \(j \in I\).
+Per ogni spazio topologico \(Z\) e per ogni famiglia di funzioni continue \(\{f_i: X_i \to Z\}_{i \in I}\), esiste un'unica funzione continua \(f: X \to Z\) tale che il seguente diagramma commuti per ogni \(i \in I\):
+\begin{equation*}
+f \circ \iota_i = f_i
+\end{equation*}
+La funzione \(f\) è definita puntualmente come:
+\begin{equation*}
+f(x) = f_i(x) \quad \text{se } x \in X_i
+\end{equation*}
+e si indica con \(f = \coprod_{i \in I} f_{i}\).
+
+In termini categoriali, questo caratterizza l'unione disgiunta come il \textbf{\textbf{\href{20250122154457-coprodotto.org}{coprodotto}}} nella \href{20241205115600-categoria_top.org}{categoria degli spazi topologici \(\cat{Top}\)}.
+\end{prop}
+\end{document}

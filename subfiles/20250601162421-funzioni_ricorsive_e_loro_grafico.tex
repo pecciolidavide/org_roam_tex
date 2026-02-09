@@ -1,0 +1,45 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
+\section{Grafico di una funzione ricorsiva totale è ricorsivo}
+\label{sec:orgad58595}
+\begin{enumerate}
+\item Sia \(f:\N^{k}\to \N\) una \href{20250207104855-funzione_ricorsiva.org}{funzione ricorsiva} (\href{20250215141024-funzioni_primitive_ricordive.org}{primitiva}) \href{20250213105339-funzione_parziale.org}{totale}. Allora il suo \href{20250104112443-grafico_di_una_funzione.org}{grafico} \(\operatorname{graph}(f) \subseteq \N^{k+1}\) è \href{20250216173925-insieme_ricorsivo.org}{ricorsivo} (\href{20250216174510-insieme_ricorsivo_primitivo.org}{primitivo}). \footnote{L'ipotesi di totalità della funzione è dovuta al fatto che se \(f\) non fosse totale, allora nella dimostrazione del punto 1. non si sarebbe definita una funzione caratteristica, poiché tutte le funzioni caratteristiche \uline{sono totali}.}
+\item Sia \(f:\N^{k}\to \N\) una \href{20250213105339-funzione_parziale.org}{funzione parziale}. Se \(\operatorname{graph}(f)\) è ricorsivo, allora \(f\) è ricorsiva.
+
+\item Una funzione totale \(f:\N^{k}\to \N\) è ricorsiva sse lo è il suo grafico.
+\end{enumerate}
+\section{Funzioni parziali con grafico semiricorsivo sono ricorsive}
+\label{sec:orgb912893}
+Sia \(f: \N^{k}\to \N\) una \href{20250213105339-funzione_parziale.org}{funzione parziale}. Se il suo \href{20250104112443-grafico_di_una_funzione.org}{grafico} \(\operatorname{graph}(f)\) è \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo}, allora:
+\begin{enumerate}
+\item \(f\) è una \href{20250207104855-funzione_ricorsiva.org}{funzione ricorsiva};
+\item il suo dominio \(\operatorname{dom}(f)\) è \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo}.
+\end{enumerate}
+\section{Grafico di una funzione ricorsiva parziale è semiricorsivo}
+\label{sec:org455e5d9}
+Se \(f:\N^{k}\to \N\) è una funzione \href{20250213105339-funzione_parziale.org}{parziale} \href{20250207104855-funzione_ricorsiva.org}{ricorsiva}, allora il suo \href{20250104112443-grafico_di_una_funzione.org}{grafico}
+\begin{equation*}
+\operatorname{graph}(f) \subseteq \N^{k+1}
+\end{equation*}
+è \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo}. Inoltre anche il \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} \(\operatorname{dom}(f)\) è \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo}.
+
+Questa dimostrazione necessita del \href{20250601162102-teorema_di_forma_normale_di_kleene.org}{Teorema di Forma Normale di Kleene}.
+\section{Funzione ricorsiva sse il suo grafico è semiricorsivo}
+\label{sec:org03fe879}
+Sia \(f:\N^{k}\to \N\) è una funzione \href{20250213105339-funzione_parziale.org}{parziale}. \(f\) è \href{20250207104855-funzione_ricorsiva.org}{ricorsiva} sse \(\operatorname{graph}(f)\) è \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo}.
+\section{Caratterizzazione funzioni ricorsive tramite grafico}
+\label{sec:org214484e}
+Sia \(f:\N^{k}\to \N\) tale che il suo \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} \(\operatorname{dom}(f)\) è \href{20250216173925-insieme_ricorsivo.org}{ricorsivo}. Le seguenti affermazioni sono equivalenti:
+\begin{enumerate}
+\item \(f\) è \href{20250207104855-funzione_ricorsiva.org}{ricorsiva};
+\item \(\operatorname{graph}(f)\) è \href{20250216173925-insieme_ricorsivo.org}{ricorsivo};
+\item \(\operatorname{graph}(f)\) è \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo}.
+\end{enumerate}
+\end{document}

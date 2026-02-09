@@ -1,0 +1,53 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Coomologia di De Rham di \(\R\).}
+\label{sec:org881e885}
+
+\def\d{\operatorname{d}}
+\def\H{\operatorname{H}_{\text{dR}}}
+
+\(\R\) è una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} di dimensione \(1\). Pertanto esistono \href{20251115155511-forma_differenziale_in_un_punto.org}{\(k\)-forme} solo per \(k=0,1\). Pertanto dobbiamo calcolare solo la \href{20251115172442-gruppo_di_coomologia_di_de_rham.org}{Coomologia di De Rham}:
+\begin{equation*}
+\H^{0}(\R),\qquad \H^{1}(\R)
+\end{equation*}
+mentre tutti gli altri saranno lo \href{20241205142027-spazio_vettoriale.org}{spazio vettoriale} banale \(O\).
+\begin{itemize}
+\item \(\boxed{\H^{0}(\R)}\)
+
+Si ha che
+\begin{equation*}
+  \H^{0}(\R) = \frac{\ker \d^{0} }{O} \cong \ker \d^{0}
+\end{equation*}
+Sia quindi \(f \in \Omega^{0}(\R) = C^{\infty}(\R)\)\footnote{Questo è l'\href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{anello delle funzioni \(C^{\infty}\)}.} tale che \(\dif f = 0\), \(\dif f = 0\) sse \(f' = 0\) sse \(f\) è costante (poiché il dominio è connesso).
+
+Pertanto \(\ker\d^{0} \cong \R\), e \(\H^{0}(\R) \cong \R\).
+\item \(\boxed{\H^{1}(\R)}\)
+
+Se \(\omega \in \Omega^{1}(\R)\), allora \(\omega= f \dif x\) per \(f \in C^{\infty}(\R)\).
+\begin{itemize}
+\item Sicuramente \(\dif \omega = \d ( f\dif x) = f (\d\circ \d)(x) = 0\), e pertanto \(\Omega^{1}(\R) = \ker \d^{1}\).
+
+\item Invece, se considero \(g = \int_{0}^{x} f(\tau) \dif \tau \in C^{\infty}(\R)\), allora
+\begin{equation*}
+\dif g = \omega
+\end{equation*}
+e pertanto \(\operatorname{rng}\d^{0}=\Omega^{1}(\R)\).
+\end{itemize}
+Segue che
+\begin{equation*}
+  \H^{1}(\R) = \frac{\ker \d^{1}}{\operatorname{rng}\d^{0}} = \frac{\Omega^{1}(\R)}{\Omega^{1}(\R)} = O.
+\end{equation*}
+\end{itemize}
+
+Pertanto, in definitiva, si ha che
+\begin{equation*}
+\H^{k}(\R) = \begin{cases}
+\R & k = 0\\
+O & k \ge 1.
+\end{cases}
+\end{equation*}
+\end{document}

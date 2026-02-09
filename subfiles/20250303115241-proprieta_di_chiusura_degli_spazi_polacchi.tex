@@ -1,0 +1,144 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\renewcommand{\href}[2]{#2}
+
+
+\begin{document}
+
+\section{Chiusura per omeomorfismi}
+\label{sec:org7b9e2a7}
+Se \(X\) uno \href{20250301194013-spazio_polacco.org}{spazio polacco} e \(r: X\to Y\) è un \href{20250111142332-omeomorfismo.org}{omeomorfismo}, allora \(Y\) è uno \href{20250301194013-spazio_polacco.org}{spazio polacco}.
+\section{Chiusura per sottoinsiemi chiusi}
+\label{sec:org7d5432c}
+Se \(X\) uno \href{20250301194013-spazio_polacco.org}{spazio polacco} e \(C \subseteq X\) è un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \href{20250103145124-topologia.org}{chiuso}, allora \(C\) è uno \href{20250301194013-spazio_polacco.org}{spazio polacco} con la \href{20250103163814-sottospazio_topologico.org}{topologia di sottospazio}.
+\subsection{Dimostrazione}
+\label{sec:org0a78ce6}
+Segue dalla \href{20250303120747-caratterizzazione_dei_chiusi_in_termini_di_successioni.org}{caratterizzazione dei chiusi in termini di successioni}.
+\section{Chiusura per prodotto cartesiano numerabile}
+\label{sec:orgfcb7662}
+Se \(\langle X_{n}\rangle_{n \in \omega}\) è una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \href{20250301194013-spazio_polacco.org}{spazi polacchi} (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}), allora il \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{prodotto}
+\begin{equation*}
+\prod_{n \in \omega} X_{n}
+\end{equation*}
+è uno spazio polacco con la \href{20250109154723-topologia_prodotto.org}{topologia prodotto}.
+\subsection{{\bfseries\sffamily TODO} Dimostrazione}
+\label{sec:org9782ddf}
+\section{Chiusura per unione disgiunta numerabile}
+\label{sec:org12b0a9b}
+Se \(\langle X_{n}\rangle_{n \in \omega}\) è una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \href{20250301194013-spazio_polacco.org}{spazi polacchi} (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}), allora l'\href{20250113175700-unione_disgiunta.org}{unione disgiunta}
+\begin{equation*}
+\coprod_{n \in \omega} X_{n}
+\end{equation*}
+è uno \href{20250301194013-spazio_polacco.org}{spazio polacco}
+\subsection{{\bfseries\sffamily TODO} Dimostrazione}
+\label{sec:org4283013}
+\section{Chisura per intersezione numerabile}
+\label{sec:org481ffe5}
+Sia \(X\) uno \href{20250301194013-spazio_polacco.org}{spazio polacco} e sia \(\langle Y_{n}\rangle_{n \in \omega}\) una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \href{20250301194013-spazio_polacco.org}{spazi polacchi}, \(Y_{n} \subseteq X\) (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega} e \href{20250103163814-sottospazio_topologico.org}{Sottospazio topologico}).
+
+Allora \(Y\coloneqq\bigcap_{n \in\omega} Y_{i}\) è uno spazio polacco dotato della \href{20250103163814-sottospazio_topologico.org}{topologia di sottospazio} (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Intersezione di classi MK}).
+\subsection{{\bfseries\sffamily TODO} Dimostrazione}
+\label{sec:org51a748d}
+\section{Sottoinsiemi aperti di spazi polacchi sono polacchi}
+\label{sec:org402c64d}
+Sia \(X\) uno \href{20250301194013-spazio_polacco.org}{spazio polacco} e sia \(Y \subseteq X\) un \href{20250103163814-sottospazio_topologico.org}{sottoinsieme} \href{20250103145124-topologia.org}{aperto}. Allora \(Y\) è \href{20250301194013-spazio_polacco.org}{polacco} con la \href{20250103163814-sottospazio_topologico.org}{topologia di sottospazio}.
+\subsection{Dimostrazione}
+\label{sec:org738f263}
+Sicuramente \(Y\) è \href{20250111142303-spazio_topologico_a_base_numerabile.org}{secondo numerabile}, e pertanto è necessario mostrare solamente che sia \href{20250301193401-spazio_topologico_metrizzabile.org}{completamente metrizzabile}.
+
+Sia \(d: X\times X\to \R\) una \href{20250301193511-spazio_metrico.org}{distanza} su \(X\) tale che \((X,d)\) sia uno \href{20250301194153-spazio_metrico_completo.org}{spazio metrico completo}, e tale che \href{20250301193530-topologia_indotta_da_una_distanza.org}{induca} la topologia di \(X\).
+Si supponga \(d\) limitata\footnote{Questo si può sempre fare, vedi l'osservazione di \href{20250301193401-spazio_topologico_metrizzabile.org}{Spazio topologico metrizzabile}}
+
+Sia \(F\coloneqq X\setminus Y\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottrazione di classi MK}) e per ogni \(x \in X\) si ponga (vedi \href{20250203102516-massimo_e_minimo.org}{Estremo superiore ed inferiore})
+\begin{equation*}
+d(x, F) \coloneqq \operatorname{inf}\set{d(x,y)\ |\ y \in F}
+\end{equation*}
+e si definisca su \(Y\):
+\begin{equation*}
+d'(x,y) \coloneqq d(x,y) + \left|\frac{1}{d(x,F)} - \frac{1}{d(y,F)}\right|
+\end{equation*}
+
+Osserviamo\footnote{Sarebbe da dimostrare questa continuità\label{orgda77937}} che \(d(\cdot, F): X\to [0,1]\) è una funzione \href{20250103103252-funzione_continua.org}{continua}.
+\subsubsection{\(d\) e \(d'\) inducono la stessa topologia su \(Y\)}
+\label{sec:orgb16c289}
+Per definizione di \(d'\), si ha che, \(\forall\, x,y \in Y\):
+\begin{equation*}
+d'(x,y) \le d(x,y)
+\end{equation*}
+e pertanto, posti
+\begin{align*}
+B_{d}(x,\varepsilon) &\coloneqq \set{y \in X\ |\ d(x,y)<\varepsilon}\\
+B_{d'}(x,\varepsilon') &\coloneqq \set{y \in Y\ |\ d'(x,y)<\varepsilon'}
+\end{align*}
+
+Si ha che, per ogni \(x \in Y\) e per ogni \(\varepsilon>0\):
+\begin{equation*}
+B_{d'}(x,\varepsilon) \subseteq B_{d}(x,\varepsilon)\cap Y.
+\end{equation*}
+È sufficiente dimostrare che per ogni \(x \in Y\) e per ogni \(\varepsilon>0\) esiste \(\varepsilon'>0\) tale che
+\begin{equation*}
+B_{d}(x,\varepsilon')\cap Y \subseteq B_{d'}(x,\varepsilon)
+\end{equation*}
+
+Siano \(x \in Y\) e \(\varepsilon>0\) fissati.
+Esiste\footnote{Infatti \(d(\cdot, F): Y\to (0, 1]\) è continua e  \(\frac{1}{\cdot}: (0,1]\to [1,+\infty)\) è continua, e pertanto
+\begin{equation*}
+\frac{1}{d(\cdot, F)}: Y\to [1,+\infty)
+\end{equation*}
+è continua e dunque, per ogni \(x \in Y\) e \(\varepsilon>0\) esiste \(\varepsilon'>0\) tale che per ogni \(y \in Y\cap B_{d}(x,\varepsilon')\) si ha
+\begin{equation*}
+\left|\frac{1}{d(x,F)}-\frac{1}{d(y,F)}\right|<\frac{\varepsilon}{2}
+\end{equation*}
+Senza perdità di generalità si può porre \(\varepsilon'<\frac{\varepsilon}{2}\).} \(\varepsilon'>0\) tale che: \(\varepsilon'<\frac{\varepsilon}{2}\) e per ogni \(y \in Y\cap B_{d}(x,\varepsilon')\):
+\begin{equation*}
+\left|\frac{1}{d(x,F)}-\frac{1}{d(y,F)}\right|<\frac{\varepsilon}{2}
+\end{equation*}
+
+Allora, per ogni \(y \in Y\cap B_{d}(x,\varepsilon')\) si ha
+\begin{equation*}
+d'(x,y) = d(x,y) + \left|\frac{1}{d(x,F)}-\frac{1}{d(y,F)}\right|<\varepsilon'+\frac{\varepsilon}{2} < \varepsilon
+\end{equation*}
+e quindi \(y \in B_{d'}(x,\varepsilon)\).
+\subsubsection{\((Y,d')\) è uno spazio metrico completo.}
+\label{sec:org1a0939f}
+Siccome \(d\) e \(d'\) \href{20250301193530-topologia_indotta_da_una_distanza.org}{inducono} la stessa topologia, allora ogni \href{20250115100904-successione.org}{successione} di \(d'\)-\href{20250303134529-successione_di_cauchy.org}{Cauchy} è \(d\)-Cauchy.
+
+Sia dunque \((y_{i})_{i \in \N} \subseteq Y\) una successione di \(d'\)-Cauchy. Allora\footnote{Infatti \(d'\)-Cauchy implica \(d\)-Cauchy, ma \((X,d)\) è uno \href{20250301194153-spazio_metrico_completo.org}{spazio metrico completo}, e quindi (per definizione) ogni successione di Cauchy è convergente.} \(y_{i}\to y\) \href{20250115100930-convergenza_per_una_successione.org}{converge} a qualche \(y \in X\).
+
+Consideriamo ora la successione \(\left(\frac{1}{d(y_{i},F)}\right)_{i \in \N}\): questa è di Cauchy in \(\R\), infatti per ogni \(i,j\)
+\begin{align*}
+\left|\frac{1}{d(y_{i},F)}-\frac{1}{d(y_{j}, F)}\right| &= \left|d'(y_{i}, y_{j})- d(y_{i}, y_{j})\right|\\
+&=\le \left|d'(y_{i},y_{j})\right|+\left|d(y_{i},y_{j})\right|
+\end{align*}
+e \((y_{i})_{i \in \N}\) è sia \(d\)-Cauchy che \(d'\)-Cauchy, per cui si ha la tesi.
+
+Siccome \(\left(\frac{1}{d(y_{i},F)}\right)_{i \in \N}\) è di Cauchy in \(\R\), allora converge a \(\ell \in \R\).
+\begin{itemize}
+\item Poiché \(y_{i} \in Y\), allora \(d(y_{i}, F) \neq 0\) per ogni \(i \in \N\), dunque la successione esiste per ogni \(i\); dunque per ogni \(i \in \N\):
+\begin{equation*}
+  d(y_{i}, F) >0
+\end{equation*}
+Necessariamente \(\ell\ge 0\), per il \href{20250304161634-teorema_di_permanenza_del_segno.org}{Teorema di permanenza del segno}.
+\item Poiché \(d\) è limitata, allora \(\ell \neq 0\).
+\end{itemize}
+
+Quindi \(\ell > 0\).
+
+Poiché
+\begin{align*}
+f: (0,+\infty) &\longrightarrow (0,+\infty)\\
+t &\longmapsto \frac{1}{t}
+\end{align*}
+è continua, \href{20250304142114-funzione_continua_e_continua_per_successioni.org}{allora} è \href{20250304142114-funzione_continua_e_continua_per_successioni.org}{continua per successioni}, e pertanto
+\begin{equation*}
+d(y_{i}, F)\to \frac{1}{\ell}\neq 0
+\end{equation*}
+
+Per \href{20250103103252-funzione_continua.org}{continuità}\textsuperscript{\ref{orgda77937}} di \(d(\cdot, F)\) (vedi \href{20250304142114-funzione_continua_e_continua_per_successioni.org}{Funzione continua è continua per successioni})
+\begin{equation*}
+d(y_{i}, F)\to d(y,F)
+\end{equation*}
+
+Per l'\href{20250304162602-unicita_del_limite.org}{unicità del limite}, \(d(y,F)=1/\ell\neq 0\), e quindi \(y \notin F\) e quindi \(y \in Y\).
+\end{document}

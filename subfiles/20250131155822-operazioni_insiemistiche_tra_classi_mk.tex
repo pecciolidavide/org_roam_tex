@@ -1,0 +1,93 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Unione}
+\label{sec:org5458193}
+\subsection{Unione generalizzata}
+\label{sec:org76db5cc}
+\section{Intersezione}
+\label{sec:org426f2da}
+\section{Sottrazione insiemistica}
+\label{sec:org299d85f}
+\section{Differenza simmetrica tra due insiemi}
+\label{sec:org898c240}
+\section{Sottoinsieme}
+\label{sec:org03a0556}
+\section{Generalizzazione nell'ambito MK}
+\label{sec:orgc2d0a72}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+
+Siano \(A,B\) due classi. Prr l'assioma di Comprehension, possiamo scrivere
+\subsection{Unione di classi MK}
+\label{sec:orgede3c82}
+\begin{equation*}
+A\cup B \coloneqq \set{x\,|\, x \in A \,\land\,  x \in B}
+\end{equation*}
+
+Per l'Axiom of Extensionality, è commutativa.
+\subsubsection{Classe Unione Generalizzata MK}
+\label{sec:orgecf548b}
+Sia \(A\) una \href{20250130104320-classe_mk.org}{classe}.
+Si definisce la classe unione:
+\begin{equation*}
+\bigcup A = \bigcup_{x \in A} x \coloneqq \set{y\,|\, \exists\,x (x \in A \,\land\, y \in x)}
+\end{equation*}
+Questa è una classe per l'Axiom of Comprehension
+
+Se \(x,y\) sono insiemi, allora per l'Axiom of pairing \(\set{x,y}\) è un insieme, e si ha che
+\begin{equation*}
+x\cup y = \bigcup\set{x,y}
+\end{equation*}
+\subsection{Intersezione di classi MK}
+\label{sec:org8eb3ce4}
+\begin{equation*}
+A\cap B \coloneqq \set{x\,|\, x \in A \,\lor\, x \in B}
+\end{equation*}
+
+Per l'Axiom of Extensionality, è commutativa.
+\subsubsection{Classe Intersezione Generalizzata}
+\label{sec:orgf6111d0}
+Sia \(A\) una \href{20250130104320-classe_mk.org}{classe}.
+Si definisce la classe intersezione
+\begin{itemize}
+\item se \(A\neq \emptyset\) (vedi \href{20250131161811-insieme_vuoto_mk.org}{Insieme vuoto MK})
+\end{itemize}
+\begin{equation*}
+\bigcap A = \bigcap_{x \in A} x \coloneqq \set{y\, |\, \forall\,x\ (x \in A \,\implies y \in x)}
+\end{equation*}
+tale classe esiste per l'Axiom of Comprehension.
+\begin{itemize}
+\item se \(A=\emptyset\) allora \(\bigcap A = \emptyset\).
+\end{itemize}
+
+La classe intersezione è sempre un \href{20250130104331-insieme_mk.org}{insieme}, \href{20250131160822-ogni_sottoclasse_di_un_insieme_e_un_insieme_mk.org}{poiché} per ogni \(x \in A\) si ha che
+\begin{equation*}
+\bigcap A \subseteq x
+\end{equation*}
+e \(x\) è un insieme.
+\subsection{Sottrazione di classi MK}
+\label{sec:orgd08eb9f}
+\begin{equation*}
+A\setminus B \coloneqq \set{x\,|\, x \in A \,\land\,  x \notin B}
+\end{equation*}
+
+Per l'Axiom of Extensionality, è commutativa.
+\subsection{Differenza simmetrica di classi MK}
+\label{sec:org1ba90f6}
+\begin{equation*}
+A\mathrel{\triangle} B\coloneqq (A\setminus B)\cup(B\setminus A)
+\end{equation*}
+
+Per l'Axiom of Extensionality, è commutativa.
+\subsection{Sottoclasse MK}
+\label{sec:orge7be09b}
+Scriveremo \(A \subseteq B\) (e diremo che \(A\) è una sottoclasse di \(B\)) se e solo se
+\begin{equation*}
+\forall\,x \left(x \in A\,\implies\, x \in B\right)
+\end{equation*}
+Se \(A \neq B\) allora diremo che \(A\) è una sottoclasse propria di \(B\), e scriveremo \(A \subset B\).
+\end{document}

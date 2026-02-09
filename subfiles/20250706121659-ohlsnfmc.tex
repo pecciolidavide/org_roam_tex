@@ -1,0 +1,46 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{thm}
+Sia \(\sigma:\R\to\R\) una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250103103252-funzione_continua.org}{continua} e \href{20250625110110-funzione_sigmoidale.org}{sigmoidale}. Allora l'insieme
+\begin{equation*}
+\mathcal{G} =\set{
+G(\bm{x}) = \sum_{j=1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j},\theta_{j} \in \R
+}
+\end{equation*}
+è uniformemente \href{20250301193045-sottoinsieme_denso.org}{denso} sui compatti in \(C(\R^{n})\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''. Si considera \(C(\R^{n})\) dotato della \href{20250103145124-topologia.org}{topologia} \href{20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in \R^{n}} |f(x)-g(x)|.
+\end{equation*}}, ovvero per ogni \(f \in C(\R^{n})\) esiste una successione di funzioni \((G_{m})_{m} \subseteq \mathcal{G}\) tale che \(G_{m}\to f\) \href{20250706121659-convergenza_uniforme_sui_compatti.org}{uniformemente} su ogni \href{20250103163701-spazio_topologico_compatto.org}{compatto} \(K \subseteq \R^{n}\), per \(m\to\infty\).
+\label{thm9.3.22}
+\end{thm}
+
+\begin{proof}
+\begin{enumerate}
+\item Si applica il \href{20250706121659-ohldn_f_continue.org}{Teorema di Cybenko}, che vale per ogni \(K\) compatto di \(\R^{n}\), costruendo per ogni \(f \in C(K)\) una successione
+\begin{equation*}
+ G_{j}^{(K)}\to f\text{ uniformemente su }K
+\end{equation*}
+\textbf{\textbf{tale che \(\sup_{x \in K}|G_{j}^{(K)}(x)-f(x)|<1/j\)}}.
+\item Si costruisce una successione crescente di compatti \(K_{j}\to \R^{n}\).
+\item Per ogni \(f \in C(\R^{n}) \subseteq C(K_{i})\) si ottengono applicando 1. \(\omega\) successioni \(G_{j}^{(i)}\to f\) uniformemente per \(j\to \infty\) su \(K_{i}\).
+
+La successione \(G_{m}\coloneqq G_{m}^{(m)}\) è quella cercata.
+\end{enumerate}
+\end{proof}
+\begin{thm}
+Sia \(\sigma:\R\to\R\) una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250103103252-funzione_continua.org}{continua} e \href{20250625110110-funzione_sigmoidale.org}{sigmoidale}. Allora l'insieme
+\begin{equation*}
+\mathcal{G} =\set{
+G(\bm{x}) = \sum_{j=1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j},\theta_{j} \in \R
+}
+\end{equation*}
+è, per ogni \href{20250704105515-misura_di_probabilita.org}{misura di probabilità} \(\mu\) su \(\R^{n}\), \href{20250301193045-sottoinsieme_denso.org}{denso} nello \href{20250704104947-funzione_misurabile.org}{spazio delle funzioni misurabili} \(\mathcal{M}^{n}\)\footnote{Si considera \(\mathcal{M}^{n}\) dotato della \href{20250103145124-topologia.org}{topologia} \href{20250301193530-topologia_indotta_da_una_distanza.org}{indotta dalla metrica} \href{20250704104537-spazio_delle_funzioni_misurabili_come_spazio_metrico.org}{indotta da \(\mu\)}.}.
+\label{thm9.3.24}
+\end{thm}
+
+Questo segue banalmente dal fatto che \(C(\R^{n})\) sia denso in \(\mathcal{M}^{n}\).
+\end{document}

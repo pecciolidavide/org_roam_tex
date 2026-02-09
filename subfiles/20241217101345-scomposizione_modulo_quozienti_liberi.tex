@@ -1,0 +1,84 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello abeliano con unità}, e sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo}.
+\begin{prop}
+Se \(N \subseteq_{R} M\)\footnote{Vedi ``\href{20241206142802-sottomoduli.org}{Sottomodulo}''} è tale che \(M/N\) è \href{20241213094625-modulo_libero.org}{libero}, allora esiste \(P \subseteq_R M\) tale che
+\begin{equation*}
+P\cong M/N,\qquad M \cong P \oplus N.
+\end{equation*}
+\end{prop}
+\begin{proof}
+Sia
+\begin{align*}
+\pi: M &\longrightarrow M/N\\
+m&\longmapsto m+N
+\end{align*}
+la proiezione sul \href{20241206142802-sottomoduli.org}{quoziente}, e sia \(E=\set{e_1,\dots,e_n}\) una \href{20241213094625-modulo_libero.org}{base} di \(M/N\).
+
+Per ogni \(e_i\), fissiamo \(\tilde{e_i} \in \pi^{-1}(e_i)\), \(\tilde{e_{i}} \in M\). L'insieme
+\begin{equation*}
+\tilde{E}\coloneqq \set{\tilde{e}_1,\dots,\tilde{e}_n}
+\end{equation*}
+è \href{20241212142019-insiemi_linearmente_indipendenti.org}{linearmente indipendente}, poiché \(\pi\) è un \href{20241206115416-morfismi_r_moduli.org}{morfismo}. Sia \(P\) il \href{20241212141101-generatori_modulo.org}{modulo generato da \(\tilde{E}\)}, ovvero
+\begin{equation*}
+P = \set{\sum_{i=1}^n a_i \tilde{e}_i : a_i \in R
+}
+\end{equation*}
+\begin{itemize}
+\item \textbf{Claim}: \(P\cap N = \set{0}\).
+
+Se \(m \in P \cap N\) allora \(m \in P\), dunque
+\begin{equation*}
+m = \sum_{i=1}^k a_i\tilde{e}_i
+\end{equation*}
+ma \(m \in N\), e quindi \(\pi(m)=0\), dunque
+\begin{equation*}
+0 = \pi(m) = \sum_{i=1}^k a_i e_i
+\end{equation*}
+dove l'ultima uguaglianza vale poiché \(\pi\) è un \href{20241206115416-morfismi_r_moduli.org}{morfismo}.
+
+Siccome \(E\) è \href{20241212142019-insiemi_linearmente_indipendenti.org}{linearmente indipendente}, allora \(\forall\,i,\ a_i=0\), e dunque \(m = 0\).
+
+\item \textbf{Claim}: \(M \cong P\oplus N\).
+
+Sia \(\psi : P\oplus N \longrightarrow M\), definita come
+\begin{equation*}
+\psi(p,n) \coloneqq  p+n
+\end{equation*}
+Si verifica facilmente che \(\psi\) sia un \href{20241206115416-morfismi_r_moduli.org}{morfismo}. Inoltre
+\begin{itemize}
+\item \(\psi\) è \href{20241213105600-funzione_suriettiva.org}{suriettiva}: infatti \(\forall\, m \in M\) scriviamo
+\begin{equation*}
+\pi(m) = \sum_{i = 1}^n a_i e_i
+\end{equation*}
+Sia dunque \(p \coloneqq  \sum_{i=1}^n a_i \tilde{e_i} \in P\) e sia \(n \coloneqq  m-p\).
+
+Allora \(n \in N\), siccome
+\begin{equation*}
+\pi(n) = \pi(m-p) = \pi(m)-\pi(p) = \bigg(\sum_{i=1}^n a_i e_i\bigg) - \bigg(\sum_{i=1}^n a_i \parentesi{=e_{i}}{\pi(\tilde{e_i})}\bigg) = 0.
+\end{equation*}
+Inoltre \(\psi (p,n) = p + n = p + (m - p) = m\).
+\item \(\psi\) è \href{20241219101956-funzione_iniettiva.org}{iniettiva}: se \(\psi(p,n) = 0\) allora \(n=-p\) e siccome sia \(N\) che \(P\) sono \href{20241206142802-sottomoduli.org}{sottomoduli} allora
+\begin{equation*}
+n,p \in P\cap N =\set{0}
+\end{equation*}
+e pertanto \(n = p = 0\) e \((n,p)=(0,0)\).
+\end{itemize}
+\item \textbf{Claim}: \(P\cong M/N\):
+
+Consideriamo la restrizione \(\restriction{\pi}{P} : P \longrightarrow M/N\), che è morfismo.
+
+Inoltre, la funzione
+\begin{align*}
+\sigma: M/N &\longrightarrow P\\
+\sum_{i=1}^n a_i \ e_i &\longmapsto \sum_{i=1}^n a_i\ \tilde{e}_i
+\end{align*}
+è il morfismo inverso.
+\qedhere
+\end{itemize}
+\end{proof}
+\end{document}

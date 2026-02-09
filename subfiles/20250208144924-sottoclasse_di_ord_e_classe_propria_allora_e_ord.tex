@@ -1,0 +1,26 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Proposizione}
+\label{sec:org90aff3f}
+Sia \(\operatorname{Ord}\) la \href{20250130104320-classe_mk.org}{classe} degli \href{20250203111003-ordinali.org}{ordinali}, e sia \(C \subseteq \operatorname{Ord}\) una \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoclasse}.
+Se \(C\) è una \href{20250130104320-classe_mk.org}{classe propria} e \href{20250203110714-classe_transitiva.org}{transitiva} allora \(C=\operatorname{Ord}\).
+\subsection{Dimostrazione\hfill{}\textsc{IdL:matematica\_lm}}
+\label{sec:org99205ea}
+Per assurdo, sia \(\alpha \in \operatorname{Ord}\) tale che \(\alpha\notin C\).
+
+Per ogni \(\beta \in C \subseteq \operatorname{Ord}\) \href{20250203111003-ordinali.org}{si ha che} una delle tre è verificata:
+\begin{equation*}
+\alpha \in \beta;\quad \alpha=\beta; \quad \beta \in \alpha
+\end{equation*}
+\begin{itemize}
+\item Se \(\alpha \in \beta \in C\), siccome \(C\) è transitiva, allora \(\alpha \in C\). Assurdo.
+\item Se \(\alpha = \beta \in C\) allora \(\alpha \in C\). Assurdo
+\end{itemize}
+
+Dunque \(\beta \in \alpha\), e pertanto \(C \subseteq \alpha\). \href{20250131160822-ogni_sottoclasse_di_un_insieme_e_un_insieme_mk.org}{Quindi} \(C\) è un \href{20250130104331-insieme_mk.org}{insieme}. Assurdo.
+\end{document}

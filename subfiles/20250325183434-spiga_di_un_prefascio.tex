@@ -1,0 +1,65 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Spiga di un fascio di gruppi}
+\label{sec:org7f22005}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}, e sia \(\mathcal{F}\) un \href{20250324165349-prefascio.org}{prefascio} di \href{20241205141146-gruppo_abeliano.org}{gruppi}.
+Sia \(p \in X\) fissato e sia
+\begin{equation*}
+I(p) \coloneqq \set{U \subseteq X\mid U\text{ intorno aperto di } p}
+\end{equation*}
+l'insieme degli \href{20250111142313-intorno.org}{intorni} \href{20250103145124-topologia.org}{aperti} di \(p\).
+
+Posta l'\href{20250113175700-unione_disgiunta.org}{unione disgiunta} insiemistica:
+\begin{equation*}
+S\coloneqq \coprod_{U \in I(p)} \mathcal{F}(U)
+\end{equation*}
+si pone su \(S\) una \href{20250113110148-relazione_di_equivalenza.org}{relazione di equivalenza}: siano \(f,g \in S\); allora \(f \in \mathcal{F}(U), g \in \mathcal{F}(V)\) e \(p \in U\cap V\).
+\begin{itemize}
+\item \(f\sim g\) se e solo se esiste \(W \in I(p)\), \(W \subseteq U\cap V\) tale che \(\restriction{f}{W} = \restriction{g}{W}\) in \(\mathcal{F}(W)\).
+\end{itemize}
+\begin{definizione}
+La \uline{spiga di \(\mathcal{F}\) in \(p\)} è l'insieme \href{20250114100810-quoziente_rispetto_a_relazione_di_equivalenza.org}{quoziente}:
+\begin{equation*}
+\mathcal{F}_{p} \coloneqq S/\sim
+\end{equation*}
+Per indicare la classe di equivalenza di \(f \in S\) dentro a \(\mathcal{F}_{p}\) si scriverà \([f]_{p}\): questo è il \uline{germe} di \(f\) in \(p\).
+\end{definizione}
+\begin{oss}
+La spiga eredita una naturale struttura di \href{20241205141146-gruppo_abeliano.org}{gruppo}: se \(s_{1},s_{2} \in \mathcal{F}_{p}\), allora esiste \(U \in I(p)\) ed esistono \(f_{1},f_{2} \in \mathcal{F}(U)\) tali che
+\begin{equation*}
+s_{1}=[f_{1}]_{p},\qquad s_{2}=[f_{2}]_{p}
+\end{equation*}
+
+Si definisce: \(s_{1}+s_{2}\coloneqq [f_{1}+f_{2}]_{p}\).
+\end{oss}
+
+\begin{prop}
+Per ogni \(U \in I(p)\), la seguente mappa è un \href{20241206115531-morfismo_di_gruppi.org}{omomorfismo di gruppi}:
+\begin{align*}
+\mathcal{F}(U) &\longrightarrow \mathcal{F}_{p}\\
+f &\longmapsto [f]_{p}
+\end{align*}
+\end{prop}
+\begin{prop}
+Si ha che \([f]_{p} = 0\) se e solo se per qualche \(W \in I(p)\) si ha \(\restriction{f}{W} = 0\).
+\end{prop}
+\begin{prop}
+Se \(\mathcal{F}\) è un \href{20250324174728-fascio.org}{fascio}, \(U \subseteq X\) aperto, \(f \in \mathcal{F}(U)\).
+\begin{quote}
+\(f=0\) se e solo se, per ogni \(p \in U\), \([f]_{p} = 0\).
+\end{quote}
+\end{prop}
+
+\begin{proof}
+(\(\Rightarrow\)): siccome \(f\mapsto [f]_{p}\) è omomorfismo di gruppi, segue la tesi.
+
+(\(\Leftarrow\)):
+Sia \(f \in \mathcal{F}(U)\) tale che, per ogni \(p \in U\), \([f]_{p} =0\). Allora, per ogni \(p \in U\), esiste \(V_{p}' \in I(p)\) tale che \(\restriction{f}{V_{p}'} = 0\).
+
+Allora, posto \(V_{p} \coloneqq V_{p}'\cap U\), \(\set{V_{p}}_{p \in U}\) è un \href{20250103164252-ricoprimento.org}{ricoprimento} aperto di \(U\), e \(\restriction{f}{V_{p}} = 0\). Per l'\href{20250324174728-fascio.org}{assioma di unicità di fascio}, \(f = 0\) in \(\mathcal{F}(U)\).
+\end{proof}
+\end{document}

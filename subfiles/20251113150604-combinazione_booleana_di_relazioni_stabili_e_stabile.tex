@@ -1,0 +1,118 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+\def\X{\mathcal{X}}
+\def\Z{\mathcal{Z}}
+%
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+\section{Combinazione booleana di relazioni stabili è stabile}
+\label{sec:org088e740}
+\begin{prop}
+Combinazioni Booleane di \href{20251113150354-relazione_stabile.org}{relazioni stabili} sono stabili.
+\end{prop}
+\begin{proof}
+Siano \(\X, \Z\) due \href{20250130104331-insieme_mk.org}{insiemi} arbitrari, e siano \(\pi,\sigma \subseteq \X\times \Z\) due \href{20250202170607-classe_relazione_binaria.org}{relazioni} binaria. Si scriverà indifferentemente
+\begin{equation*}
+(x,z) \in \pi,\qquad \pi(x,z).
+\end{equation*}
+
+(\(\lnot\)): Se \(\pi\) è stabile allora \(\lnot\pi \coloneqq \X\times\Z\setminus\pi\) è stabile.
+
+Infatti, se  \(\< (a_{i},\, b_{i}) \mid i<m \>\) è una scaletta per \(\pi\)
+\begin{equation*}
+i<j<m \IMPLICA \pi(a_{i}, b_{j}) \land \lnot\pi(a_{j}, b_{i}). %
+\end{equation*}
+allora \(\< (a_{m-i+1},\, b_{m-i+1}) \mid i<m \>\) è una scaletta per \(\lnot \pi\).
+
+(\(\land\)):
+\begin{itemize}
+\item \uline{Caso facile}: Con la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI} in un modello mostro
+
+Sia \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio}, \(T\) una \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123151-teoria_completa.org}{completa} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti e \(\U\) un \href{20250617095548-modello_lambda_saturo.org}{modello saturo} di \href{20241213101756-cardinalita.org}{cardinalità} \href{20250211123155-cardinale_limite_forte.org}{inaccessibile} \(\kappa>\card{\L}+ \omega\). \(\U\) è un \href{20250617102733-modello_mostro.org}{modello mostro}.
+
+Siano \(\X=\U^{x}\) e \(\Z=\U^{z}\) e siano \(\pi(x;z), \sigma(x;z) \in \L(A)\).
+Si dimostra che
+\begin{equation*}
+\pi(x;z), \sigma(x;z) \text{ stabili} \IMPLICA
+\pi(x;z)\land\sigma(x;z)\text{ stabile}
+\end{equation*}
+ovvero
+\begin{equation*}
+\pi(x;z)\land\sigma(x;z)\text{ instabile} \IMPLICA
+\pi(x;z) \text{ instabile}\lor \sigma(x;z) \text{ instabile}.
+\end{equation*}
+
+Si supponga che \(\< a_{i}, b_{i} \mid i<\omega \>\) sequenza di \(A\) indiscernibili tali che
+\begin{equation*}
+\pi(a_{0},b_{1}) \land \sigma(a_{0},b_{1}) \land
+\lnot\big[\pi(a_{1},b_{0}) \land \sigma(a_{1},b_{0})\big]
+\end{equation*}
+ovvero
+\begin{equation*}
+\pi(a_{0},b_{1}) \land \sigma(a_{0},b_{1}) \land
+\big[\lnot\pi(a_{1},b_{0}) \lor \lnot\sigma(a_{1},b_{0})\big]
+\end{equation*}
+\begin{itemize}
+\item Se \(\lnot\pi(a_{1},b_{0})\) è vera, allora \(\pi\) è instabile;
+\item se \(\lnot\sigma(a_{1},b_{0})\) è vera, allora \(\sigma\) è instabile.
+\end{itemize}
+
+\item \uline{Caso generale}. Siano \(\pi,\sigma\) relazioni arbitrarie.
+Si vuole dimostrare
+\begin{equation*}
+\pi(x;z)\land\sigma(x;z)\text{ instabile} \IMPLICA
+\pi(x;z) \text{ instabile}\lor \sigma(x;z) \text{ instabile}.
+\end{equation*}
+Sia \(\< a_{i}, b_{i} \mid i<k \>\) scaletta per
+\(\pi(x;z)\land\sigma(x;z)\),
+con \(k\) ``abbastanza grande'', ovvero se \(i<j<k\) si ha
+\begin{equation*}
+\pi(a_{i},b_{j}) \land \sigma(a_{i},b_{j}) \land
+\big[\lnot\pi(a_{j},b_{i}) \lor \lnot\sigma(a_{j},b_{i})\big].
+\end{equation*}
+\begin{itemize}
+\item Coloro \(i<j\) di verde se \(\lnot\pi(a_{j},b_{i})\);
+\item Coloro \(i<j\) di blu se \(\lnot\sigma(a_{j},b_{i})\).
+\end{itemize}
+
+Per il \href{20251029171516-teorema_di_ramsey.org}{Teorema di Ramsey} per ogni \(m\) esiste \(k\) (ovvero quel \(k\) abbastanza grande) tale che per ogni \href{20251111150142-colorazione.org}{colorazione} di \(\set{0,\dots,k-1}^{(2)}\) esiste \(H \subseteq \set{0,\dots,k-1}\) tale che \(\card{H}\ge m\) e \(H^{(2)}\) è \href{20251111150142-colorazione.org}{monocromatico}.
+\begin{itemize}
+\item Se \(H^{(2)}\) è blu, allora \(\sigma\) ammette scaletta di lunghezza \(m\);
+\item se \(H^{(2)}\) è verde, allora \(\pi\) ammette scaletta di lunghezza \(m\).
+\end{itemize}
+Segue che almeno una dei due è instabile.
+Infatti, se \(\sigma\) non ammette scalette di lunghezza \(m'\), allora non ammette scalette di lunghezza \(m>m'\).
+Pertanto, per ogni \(m>m'\) si ha che \(\pi\) ammette scaletta di lunghezza \(m\).
+Segue che \(\pi\) ammette scalette di lunghezza \(m\) per ogni \(m<\omega\).
+\qedhere
+\end{itemize}
+\end{proof}
+\end{document}

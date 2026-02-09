@@ -1,0 +1,40 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema della mappa aperta (superfici di Riemann)}
+\label{sec:org9267143}
+Siano \(X, Y\) due \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann}.
+
+\begin{thm}
+Se \(F:X\to Y\) è una \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{funzione olomorfa} non costante, allora \(F\) è \href{20250104114559-funzione_chiusa.org}{aperta}.
+\end{thm}
+
+\begin{proof}
+Sia \(U \subseteq X\) aperto, e sia \(x_{0} \in U\). Mostriamo che \(F(x_{0})\) è \href{20250122181431-parte_interna.org}{interno} a \(F(U)\)\footnote{Vedi ``\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}'' .}.
+
+Si scelgano due carte locali:
+\begin{itemize}
+\item \(U_{1} \subseteq U\) connesso, \(x_{0} \in U_{1}\):
+\begin{equation*}
+  \varphi_{1}:U_{1}\to V_{1}.
+\end{equation*}
+\item \(\varphi_{2}: U_{2} \to V_{2}\), con \(F(x_{0}) \in U_{2}\).
+\end{itemize}
+
+Si definisce \(f\coloneqq \varphi_{2}\circ F\circ \varphi_{1}^{-1} : V_{1}\to \C\), \href{20260126110551-funzione_olomorfa.org}{olomorfa} per definizione, con \(V_{1}\) \href{20250103165325-spazio_topologico_connesso.org}{connesso} perché \href{20250111142332-omeomorfismo.org}{omeomorfo} ad \(U_{1}\).
+
+Quindi, per il \href{20260128182932-teorema_della_mappa_aperta_analisi_complessa.org}{teorema della mappa aperta}, \(f\) è costante oppure \(f\) è aperta.
+\begin{itemize}
+\item Se \(f\) è costante, allora\footnote{Perché \(\varphi_{2}\) è una biiezione.} \(F\) è costante in \(U_{1}\), e quindi per il \href{20260128144016-principio_di_identita_per_funzioni_olomorfe_su_superfici_di_riemann.org}{Principio di identità} \(F\) è costante in \(X\). Assurdo.
+\end{itemize}
+
+Quindi \(f\) è aperta, e pertanto \(f[V_{1}]\) aperto in \(\C\), con \(f(\varphi_{1}(x_{0})) \in f[V_{1}]\). Quindi
+\begin{equation*}
+U_{2}\supseteq \varphi_{2}^{-1}[f[V_{1}]] = F[\varphi_{1}^{-1}[V_{1}]] = F[U_{1}]
+\end{equation*}
+è aperto in \(U_{2}\) e contiene \(F(x_{0})\).
+\end{proof}
+\end{document}

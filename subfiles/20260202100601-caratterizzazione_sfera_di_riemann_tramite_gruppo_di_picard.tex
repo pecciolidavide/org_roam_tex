@@ -1,0 +1,48 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Caratterizzazione sfera di Riemann tramite gruppo di Picard}
+\label{sec:orge466332}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, e si indichi con \(\operatorname{Pic}(X)\) il \href{20260202100511-gruppo_di_picard_di_una_superficie_di_riemann.org}{gruppo di Picard di \(X\)}.
+
+\begin{prop}
+Se \(X\) è compatta, allora sono fatti equivalenti:
+\begin{enumerate}
+\item il \href{20260202100511-gruppo_di_picard_di_una_superficie_di_riemann.org}{grado} \(\deg:\operatorname{Pic}(X)\to \Z\) è un \href{20241206115531-morfismo_di_gruppi.org}{isomorfismo};
+\item \(X \cong \mathds{P}^{1}_{\C}\cong \C_{\infty}\) sono \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfe}\footnote{Con \(\mathds{P}^{1}_{\C}\) si indica la \href{20260127112924-esempi_fondamentali_di_varieta_complesse.org}{retta proiettiva complessa}, mentre con \(\C_{\infty}\) si indica la \href{20260127112905-sfera_di_riemann.org}{sfera di Riemann}; queste sono \href{20260128181135-sfera_di_riemann_biolomorfa_al_piano_proiettivo_complesso.org}{biolomorfe}.}.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Si noti che \(\deg:\operatorname{Pic}(X) \to \Z\) è \href{20241219101956-funzione_iniettiva.org}{iniettivo} se e solo se ogni \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{divisore} di grado 0 è \href{20260202095650-divisore_di_una_funzione_meromorfa.org}{principale}.
+
+(\(2.\Rightarrow 1.\)): Si consideri \(X= \C_{\infty}\). È sufficiente mostrare che \(\deg\) sia iniettivo.
+
+Sia quindi \(D = \sum_{i=1}^{n} e_{i}\,\lambda_{i} + e_{0}\infty\) un generico divisore di \(X\),
+\begin{equation*}
+e_{0} + \sum_{i=1}^{n} e_{i} = 0.
+\end{equation*}
+\href{20260128144305-funzioni_meromorfe_sulla_sfera_di_riemann.org}{Allora} la funzione \(f(z) \coloneqq \prod_{i=1}^{n} (z-\lambda_{i})^{e_{i}}\) è \href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{meromorfa}, e testimone del fatto che \(D\) sia principale.
+
+(\(1.\Rightarrow 2.\)): Siano \(p,q \in X\), \(p\neq q\), e sia \(D = p-q\). Allora \(\deg D = 0\), e pertanto \(D\) è principale.
+
+Quindi esiste \(f \in \mathcal{M}(X)\setminus\set{0}\)\footnote{Con \(\mathcal{M}\) si indica il \href{20260128144151-fascio_delle_funzioni_meromorfe_su_una_superficie_di_riemann.org}{fascio delle funzioni meromorfe}.} tale che il \href{20260202095650-divisore_di_una_funzione_meromorfa.org}{divisore} di \(f\) è \(D\):
+\begin{equation*}
+\operatorname{div}f = D = p-q
+\end{equation*}
+\href{20260128144433-ordine_di_una_funzione_meromorfa.org}{Pertanto} \(f \in \mathcal{O}(X\setminus\set{q})\)\footnote{Con \(\mathcal{O}\) si indica il \href{20260128143847-fascio_delle_funzioni_olomorfe_su_una_superficie_di_riemann.org}{fascio delle funzioni olomorfe}} e in \(q\) la funzione ha un \href{20260128154601-singolarita_isolata_analisi_complessa.org}{polo di ordine \(1\)}.
+
+Dunque \(f\) \href{20260128183731-corrispondenza_funzioni_meromorfe_su_una_superficie_di_riemann_e_funzioni_olomorfe_sulla_sfera_di_riemann.org}{induce} \(F:X\to \mathds{P}^{1}_{\C}\) di \href{20260129171444-teorema_del_grado_per_olomorfismi_tra_superfici_di_riemannn.org}{grado} 1, \href{20260129171557-caratterizzazione_isomorfismo_tra_superfici_di_riemann_tramite_grado.org}{che è} un \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfismo}.
+\end{proof}
+
+\begin{oss}
+Abbiamo dimostrato che:
+\begin{enumerate}
+\item su \(\mathds{P}^{1}\) due punti sono sempre \href{20260202100443-divisori_linearmente_equivalenti_di_una_superficie_di_riemann.org}{linearmente equivalenti};
+\item se su \(X\) compatto esistono \(p,q\) distinti tali che \(p\sim q\), allora \(X\cong \mathds{P}^{1}\).
+\end{enumerate}
+\end{oss}
+\end{document}

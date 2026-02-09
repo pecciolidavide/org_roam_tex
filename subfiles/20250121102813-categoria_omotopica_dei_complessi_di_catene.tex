@@ -1,0 +1,31 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità.
+
+Sia \(\sim\) è la \href{20250113110148-relazione_di_equivalenza.org}{relazione di equivalenza} di \href{20250121094935-omotopia_tra_morfismi_di_complessi_di_catene.org}{omotopia} tra \href{20250120163759-categoria_complessi_di_catene.org}{morfismi} di \href{20250120163114-complesso_di_catene.org}{complessi di catene}.
+\begin{definizione}
+Si definisce la \href{20241126100904-categoria.org}{categoria} \(\cat{h\text{-}Ch}_{R}\) data da:
+\begin{enumerate}
+\item \(\operatorname{Ob}(\cat{h\text{-}Ch}_{R}) = \operatorname{Ob}(\cat{Ch}_{R})\)\footnote{\(\cat{Ch}_{R}\) è la \href{20250120163759-categoria_complessi_di_catene.org}{categoria dei complessi di catene di \(R\)-moduli}};
+\item Per ogni \(\mathcal{C}_{\bullet}, \mathcal{D}_{\bullet} \in \operatorname{Ob}(\cat{h\text{-}Ch}_{R})\) si definisce il \href{20250114100810-quoziente_rispetto_a_relazione_di_equivalenza.org}{quoziente}:
+\begin{equation*}
+ \operatorname{Hom}_{\cat{h\text{-}Ch}_{R}} (\mathcal{C}_{\bullet},\mathcal{D}_{\bullet}) = \operatorname{Hom}_{\cat{Ch}_{R}}(\mathcal{C}_{\bullet},\mathcal{D}_{\bullet})/\sim.
+\end{equation*}
+\end{enumerate}
+\end{definizione}
+\section{Funtore da h-ChR a RMod - di omologia}
+\label{sec:org7ccec66}
+Inoltre, il \href{20241205131958-funtore.org}{funtore} \href{20250120165029-funtore_tra_chr_e_rmod.org}{di omologia}:
+\begin{equation*}
+H_{n} : \cat{Ch}_{R}\to \cat{RMod}
+\end{equation*}
+induce un funtore
+\begin{equation*}
+H_{n}: \cat{h\text{-}Ch}_{R}\to \cat{RMod}
+\end{equation*}
+nella \href{20241206115740-categoria_degli_r_moduli.org}{categoria degli \(R\)-moduli}.
+\end{document}

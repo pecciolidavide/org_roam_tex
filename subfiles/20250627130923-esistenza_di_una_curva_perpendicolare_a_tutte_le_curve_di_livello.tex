@@ -1,0 +1,19 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(f:D \subseteq \R^{n}\to \R\) una funzione continua, tale che \(x^{*} \in D\) sia un punto di minimo locale, e sia \(z^{*}\coloneqq f(x^{*})\).
+
+Allora esiste \(x^{*} \in\mathcal{V} \subseteq D\) tale che per ogni \(x \in \mathcal{V}\setminus\set{x^{*}}\)\footnote{Vedi ``\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottrazione insiemistica}''}: \(f(x^{*})< f(x)\), ed esiste \(\varepsilon >0\) tale che\footnote{\(\mathcal{S}_{c}\) indica una \href{20250627131207-curva_di_livello.org}{curva di livello}.}  per ogni \(c \in [z^{*},z^{*}+\varepsilon)\) si ha \(\mathcal{S}_{c} \subseteq \mathcal{V}\). Inoltre \(\mathcal{S}_{z^{*}} = \set{x^{*}}\).
+
+\begin{thm}
+Se il gradiente \(\nabla f\) è lipschitziano, allora esiste \(\varepsilon>0\) tale che, per ogni \(x_{0} \in \operatorname{B}_{\varepsilon}(x^{*})\)\footnote{\(\operatorname{B}_{\varepsilon}(x^{*})\) indica la \href{20250301193511-spazio_metrico.org}{palla} aperta di raggio \(\varepsilon\) centrata in \(x^{*}\).} esiste una \href{20250716183001-curva.org}{curva} \(\gamma:[0,\delta]\to D\) tale che
+\begin{enumerate}
+\item \(\gamma(0) = x_{0}\);
+\item \(\gamma(\delta)= x^{*}\);
+\item per ogni \(t \in [0,\delta]\), \(\gamma'(t)\) è \href{20250716183127-vettori_perpendicolari.org}{perpendicolare} a \(\mathcal{S}_{f(\gamma(t))}\).
+\end{enumerate}
+\end{thm}
+\end{document}

@@ -1,0 +1,74 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\S{\operatorname{S}}
+\def\Ord{\operatorname{Ord}}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\begin{definizione}
+Se \(X\) è un \href{20250130104331-insieme_mk.org}{insieme} \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile}, la \textbf{cardinalità} di \(X\) è il più \href{20250203111003-ordinali.org}{piccolo} \href{20250203111003-ordinali.org}{ordinale} \(|X|\) in \href{20250104111707-funzione_biunivoca.org}{biiezione} con \(X\).
+\end{definizione}
+
+\begin{oss}
+In particolare, se \(\alpha \in \Ord\), allora \(|\alpha|\) è il più piccolo ordinale \href{20250619101109-classi_equipotenti.org}{\(\beta \asymp \alpha\)}: \(|\alpha|\le\alpha\).
+\end{oss}
+\begin{oss}
+La cardinalità di un insieme, quando esiste, è un \href{20250203161341-cardinali.org}{cardinale}.
+\end{oss}
+\begin{prop}
+Siano \(\alpha,\beta\) due \href{20250203161110-numeri_naturali_sono_ordinali.org}{ordinali} e si consideri l'\href{20250203111003-ordinali.org}{ordinale} \href{20250203161110-numeri_naturali_sono_ordinali.org}{omega}: \(\omega\)
+\begin{enumerate}
+\item Se \(\alpha\ge\omega\) (vedi \href{20250203111003-ordinali.org}{Relazione d'ordine sugli ordinali}), allora
+\begin{equation*}
+ |\alpha|=|\operatorname{S}(\alpha)|
+\end{equation*}
+(vedi \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme MK})
+\item Se \(|\alpha|\le\beta\le\alpha\) allora \(|\alpha|=|\beta|\).
+\item \(|\alpha|=|\beta|\) se e solo se \(\alpha\asymp\beta\) (vedi \href{20250619101109-classi_equipotenti.org}{Classi equipotenti MK})
+\item \(|\alpha|<|\beta|\) se e solo se \(\alpha\preceq\beta\).
+\end{enumerate}
+
+In particolare, se \(X,Y\) sono due \href{20250130104320-classe_mk.org}{classi} \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabili}, allora
+\begin{itemize}
+\item \(|X|\le|Y|\) se e solo se \(X\preceq Y\) (vedi \href{20241219101956-funzione_iniettiva.org}{Classe si inietta MK})
+\item \(|X|=|Y|\) se e solo se \(X\asymp Y\) (vedi \href{20250619101109-classi_equipotenti.org}{Classi equipotenti MK})
+\end{itemize}
+\end{prop}
+\begin{proof}
+\begin{enumerate}
+\item Consideriamo
+\begin{equation*}
+f:\operatorname{S}(\alpha) \to \alpha: \qquad \beta \mapsto\begin{cases}
+\operatorname{S}(\beta) & \beta < \omega\\
+\beta & \omega\le \beta< \alpha\\
+0 & \beta = \alpha
+\end{cases}
+\end{equation*}
+
+Questa è una biiezione, e pertanto \(\alpha\asymp\S (\alpha)\) (vedi \href{20250619101109-classi_equipotenti.org}{Classi equipotenti MK})
+\href{20250203161341-cardinali.org}{e quindi} \(|\alpha|=|\S (\alpha)|\)
+
+\item Sia \(f:\alpha\to|\alpha|\) una biiezione. Dunque, siccome \(|\alpha|\le \beta\)
+\begin{equation*}
+f:\alpha\to\beta
+\end{equation*}
+è \href{20241219101956-funzione_iniettiva.org}{iniettiva}. Inoltre se \(\beta\le\alpha\) allora \(\beta \subseteq \alpha\) (vedi \href{20250203111003-ordinali.org}{Proprietà degli ordinali}) e dunque l'identità
+\begin{equation*}
+i:\beta \to \alpha
+\end{equation*}
+è \href{20241219101956-funzione_iniettiva.org}{iniettiva}. Per il \href{20250205150457-teorema_di_cantor_bernstein_schroder.org}{Teorema di Cantor-Bernstein-Schröder}, \(\alpha\asymp\beta\).
+
+\item Ovvia conseguenza delle \href{20250203161341-cardinali.org}{proprietà dei cardinali}.
+
+\item Ovvia conseguenza delle \href{20250203161341-cardinali.org}{proprietà dei cardinali}.
+\end{enumerate}
+\end{proof}
+\section{Definizione senza AC}
+\label{sec:orgc3cdabe}
+La definizione precedente è valida per ogni insieme se si assume \href{20250206171508-axiom_of_choiche.org}{AC}, \href{20250210104534-ac_e_classi_ben_ordinabili.org}{poiché AC implica che ogni insieme sia ben ordinabile}..
+
+\uline{Senza assumere} \href{20250206171508-axiom_of_choiche.org}{AC} si può definire la cardinalità di un insieme \(X\) come segue: \href{20250515141706-da_finire.org}{DA FINIRE}
+\end{document}

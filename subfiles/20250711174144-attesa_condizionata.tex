@@ -1,0 +1,62 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Attesa condizionata}
+\label{sec:org2471a03}
+\begin{definizione}
+Sia \((\Omega, \mathcal{F}, \mathds{P})\) uno \href{20250711175559-spazio_di_probabilita.org}{spazio di probabilità}, e sia \(X \in L^{2}(\Omega, \mathcal{F}, \mathds{P})\)\footnote{Vedi ``\href{20250624162220-spazi_lp.org}{Spazi Lp}''}. Sia \(\mathcal{G}\subseteq \mathcal{F}\) una sotto-\href{20250526100313-sigma_algebra.org}{\(\sigma\)-algebra}.
+
+Si definisce l'\uline{attesa condizionata} di \(X\) dato \(\mathcal{G}\)
+\begin{equation*}
+Z = \media [X\mid\mathcal{G}]
+\end{equation*}
+\begin{enumerate}
+\item \(Z\) è \(\mathcal{G}\)-\href{20250704104947-funzione_misurabile.org}{misurabile};
+\item per ogni \(\Lambda \in \mathcal{G}\)
+\begin{equation*}
+ \int_{\Lambda} Z\dif\mathds{P} = \int_{\Lambda} X\dif\mathds{P}
+\end{equation*}
+o, equivalentemente, detta \(\mathds{1}_{\Lambda}\) la \href{20250215160218-funzione_caratteristica.org}{funzione caratteristica} di \(\Lambda\)
+\begin{equation*}
+ \int \mathds{1}_{\Lambda} Z\dif\mathds{P} = \int \mathds{1}_{\Lambda} X\dif\mathds{P}.
+\end{equation*}
+\end{enumerate}
+\end{definizione}
+
+Se \(Y\) è una \href{20250711175937-variabile_aleatoria.org}{variabile aleatoria}, detta \(\sigma(Y) \coloneqq \set{Y^{-1}(B)\mid B \in \bm{{\operatorname{Bor}}}(\R)}\)\footnote{Si indica con \(\bm{{\operatorname{Bor}}}(\R)\) l'insieme dei \href{20250419121450-gerarchia_di_borel.org}{Boreliani} di \(\R\).}, si denota con
+\begin{equation*}
+\media[X\mid Y] \coloneqq \media[X\mid\sigma(Y)].
+\end{equation*}
+\section{Probabilità condizionata}
+\label{sec:org2d1aa55}
+Se \(A,B \in  \mathcal{F}\), con \(\mathds{P}(B)\neq \emptyset\), la \uline{probabilità condizionata} è
+\begin{equation*}
+\mathds{P}(A\mid B)\coloneqq\frac{\mathds{P}(A\cap B)}{\mathds{P}(B)}.
+\end{equation*}
+
+Si generalizza questo concetto, e si definisce la \uline{probabilità condizionata}, per \(A \in  \mathcal{F}\) e \(Y\) \href{20250711175937-variabile_aleatoria.org}{variabile aleatoria}
+\begin{equation*}
+\mathds{P}(A\mid Y) \coloneqq \media[\mathds{1}_{A}\mid Y].
+\end{equation*}
+\begin{prop}
+Sia \((\Omega, \mathcal{F}, \mathds{P})\) uno \href{20250711175559-spazio_di_probabilita.org}{spazio di probabilità}. Se \(X\) è una \href{20250711175937-variabile_aleatoria.org}{variabile aleatoria discreta} e \(A \in  \mathcal{F}\) allora
+\begin{equation*}
+\mathds{P}(A\mid X) = \sum_{n=1}^{+\infty} \mathds{P}(A\mid X=x_{n})\cdot\mathds{1}_{(X=x_{n})}.
+\end{equation*}
+\end{prop}
+\begin{oss}
+Si noti quindi che \(\mathds{P}(A\mid X) = f(X)\), poiché
+\begin{equation*}
+\mathds{P}(A\mid X) = \begin{cases}
+\mathds{P}(A\mid X=x_{1}) &\text{se }X=x_{1}\\
+\mathds{P}(A\mid X=x_{2}) &\text{se }X=x_{2}\\
+\mathds{P}(A\mid X=x_{3}) &\text{se }X=x_{3}\\
+\vdots
+\end{cases}
+\end{equation*}
+ed inoltre \(\mathds{P}(A\mid X = x) = f(x)\).
+\end{oss}
+\end{document}

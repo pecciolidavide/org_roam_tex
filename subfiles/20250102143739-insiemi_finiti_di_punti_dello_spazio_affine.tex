@@ -1,0 +1,25 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso} e sia \(\Gamma=\set{p_{1},\dots,p_{d}}\subseteq \A^{2}\) (vedi \href{20241231114009-spazio_affine.org}{Spazio Affine}). Allora esistono \(F_{1},F_{2} \in \K[x,y]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}) tali che \(\Gamma=V(F_{1},F_{2})\) (vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri}).
+\end{prop}
+Questa proposizione è una variazione di \href{20250102141936-insiemi_finiti_di_punti_dello_spazio_proiettivo.org}{Fatto 4}
+\begin{proof}
+Si scelga una \href{20250102163502-base_di_uno_spazio_vettoriale.org}{base} di \(\A^{2}\) tale per cui tutte le coordiate \(x\) dei punti \(p_{1},\dots,p_{d}\) siano distinte. Questo è sempre possibile farlo poiché i punti sono finiti, mentre i versori \(y\) sono infiniti.
+
+Sia quindi \(p_{i} = (a_{i},b_{i})\). Posto
+\begin{align*}
+F_{1}:\quad &\prod_{i=1}^{d} (x-a_{i})\\
+F_{2}: \quad &y-f(x)
+\end{align*}
+se \(f(x)\) è un polinomio tale che, \(\forall\, i\) valga
+\begin{equation*}
+f(a_{i})=b_{i}
+\end{equation*}
+allora \(\Gamma=V(F_{1},F_{2})\). Ma \(f(x)\) esiste, poiché per \(a_{i}\neq a_{j}, \forall\, i \neq j\) si può applicare la formula del \href{20250102163844-polinomio_di_lagrange.org}{Polinomio di Lagrange}.
+\end{proof}
+\end{document}

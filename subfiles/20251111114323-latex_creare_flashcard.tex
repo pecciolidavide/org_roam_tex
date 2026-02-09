@@ -1,0 +1,49 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Utilizzando il pacchetto \texttt{flashcard} è possibile creare delle flashcard in
+\LaTeX
+(si rimanda alla documentazione\footnote{\url{https://ctan.mirror.garr.it/mirrors/ctan/macros/latex/contrib/flashcards/flashcards.pdf}}): si consigliano le seguenti impostazioni
+\begin{verbatim}
+   \documentclass[avery5388, frame]{flashcards}
+   \renewcommand{\cardpaper}{a4paper}
+\end{verbatim}
+
+In particolare un MWE di Header
+\begin{verbatim}
+   \documentclass[avery5388, frame]{flashcards}
+   \renewcommand{\cardpaper}{a4paper}
+
+   % pacchetti fondamentali
+   \usepackage[T1]{fontenc}
+   \usepackage[utf8]{inputenc}
+   \usepackage[italian]{babel}
+   \usepackage[babel]{csquotes}
+   \usepackage{microtype}
+
+   % pacchetti utili
+   \usepackage{lipsum}
+   \usepackage{amsmath}
+
+   % Sostituisce il comando \section
+   \let\oldsection\section
+   \makeatletter
+   \def\section#1{\end{flashcard}\begin{flashcard}{#1}}
+   \makeatother
+
+   % Riscrive begin{document} e end{document}
+   % così da ovviare allo sfasamento
+   \let\olddocument\document
+   \let\oldenddocument\enddocument
+   \renewenvironment{document}%
+   {%
+     \olddocument\begin{flashcard}{Prima}\tiny\lipsum[1]
+   }{%
+     \end{flashcard}\oldenddocument
+   }
+\end{verbatim}
+può essere aggiunto in un file sufficientemente ben formato e sostituisce le sezioni del documento con delle flashcard.
+\end{document}

@@ -1,0 +1,29 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Sia \(g:\R^{r}\to \R\) una \href{20250202170607-classe_relazione_binaria.org}{funzione} qualsiasi e sia \(S=\set{\bm{x}_{1},\dots,\bm{x}_{n}} \subseteq \R^{r}\). Allora esiste
+\begin{equation*}
+G(\bm{x}) = \sum_{j=1}^{n} \alpha_{j} \, H(\bm{w}_{j}\cdot \bm{x}-\theta_{i}),
+\end{equation*}
+dove \(H\) è la \href{20250624161413-funzione_di_heaviside.org}{funzione di Heaviside}, \(\alpha_{j},\theta_{j} \in \R\) e \(\bm{w}_{j} \in \R^{r}\), tale che
+\begin{equation*}
+\forall i=1,\dots,n:\qquad G(x_{i}) = g(x_{i}).
+\end{equation*}
+\label{prop10.1.1}
+\end{prop}
+\begin{cor}
+Dati \(\set{(x_{i}, y_{i})\mid i =1,\dots,n} \subseteq \R^{r}\times \R\) esiste
+\begin{equation*}
+G(\bm{x}) = \sum_{j=1}^{n} \alpha_{j} \, H(\bm{w}_{j}\cdot \bm{x}-\theta_{i}),
+\end{equation*}
+dove \(H\) è la \href{20250624161413-funzione_di_heaviside.org}{funzione di Heaviside}, \(\alpha_{j},\theta_{j} \in \R\) e \(\bm{w}_{j} \in \R^{r}\), tale che
+\begin{equation*}
+\forall i=1,\dots,n:\qquad G(x_{i}) = y_{i}.
+\end{equation*}
+\label{cor10.1.3}
+\end{cor}
+\end{document}

@@ -1,0 +1,32 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Rango di un insieme}
+\label{sec:orgc29afb5}
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\begin{definizione}
+Sia \(V\) la \href{20250203104513-classe_totale.org}{classe totale}, \href{20250203101604-ordine.org}{ordinata} con l'inclusione \(\in\). Si definisce il \uline{rango di \(x \in V\)} come il \href{20250207122234-rango_di_una_relazione_well_founded.org}{rango} di \(\in\) rispetto a \(V\): \(\bm{\varrho}_{\in,V}(x)\):\footnote{Si veda:
+\begin{itemize}
+\item \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Unione generalizzata}
+\item \href{20250203111003-ordinali.org}{Ordinali}
+\end{itemize}}
+\begin{equation*}
+\operatorname{rank}(x)\coloneqq \bm{\varrho}_{\in,V}(x) = \bigcup\set{\operatorname{S}(\rank(y))\mid y \in x} \in \operatorname{Ord}
+\end{equation*}
+dove \(\operatorname{S}\) è il \href{20250202124648-successore_di_un_insieme_mk.org}{successore}.
+\end{definizione}
+\begin{prop}
+Dalla definizione segue banalmente che
+\begin{equation*}
+x \in y \implies \operatorname{rank}(x)<\operatorname{rank}(y),\qquad x \subseteq y\implies \operatorname{rank}(x) \le \operatorname{rank}(y).
+\end{equation*}
+e per induzione si verifica che per ogni ordinale \(\alpha\): \(\operatorname{rank}(\alpha)=\alpha\). Inoltre:
+\begin{enumerate}
+\item \(\operatorname{rank}(\parti{x}) = \operatorname{S}(\operatorname{rank}(x))\)\footnote{\(\parti{x}\) indica l'\href{20250130104245-morse_kelly_set_theory.org}{insieme delle parti}, e \(\operatorname{S}\) il \href{20250202124648-successore_di_un_insieme_mk.org}{successore}.};
+\item \(\operatorname{rank}\big(\bigcup x\big) = \sup\set{\operatorname{rank}(y) \mid y \in x}\)\footnote{Vedi ``\href{20250203102516-massimo_e_minimo.org}{Supremum}'' e ``\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Unione generalizzata}''}.
+\end{enumerate}
+\end{prop}
+\end{document}

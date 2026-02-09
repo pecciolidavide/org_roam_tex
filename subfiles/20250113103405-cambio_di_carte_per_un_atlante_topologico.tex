@@ -1,0 +1,25 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(M\) una varietà topologica, e sia \(\mathcal{U} = \set{(U_{\alpha},\varphi_{\alpha})}\) un atlante topologico.
+
+Per ogni \(\alpha, \beta\) tali che \(U_{\alpha}\cap U_{\beta} \neq \emptyset\) si considera
+\begin{equation*}
+\varphi_{\beta}\circ \varphi_{\alpha}^{-1} : \varphi_{\alpha}(U_{\alpha}\cap U_{\beta}) \longrightarrow \varphi_{\beta}(U_{\alpha}\cap U_{\beta})
+\end{equation*}
+\href{20250111142332-omeomorfismo.org}{omeomorfismo} tra \href{20250103145124-topologia.org}{aperti} di \(\R^{n}\), detto \textbf{\textbf{cambio di carte}}.
+
+Se \(\varphi_{\alpha}:U_{\alpha}\longrightarrow V_{\alpha}\), allora il diagramma è il \href{https://q.uiver.app/\#q=WzAsMyxbMSwwLCJVX3tcXGFscGhhfVxcY2FwIFVfe1xcYmV0YX0iXSxbMCwxLCJWX3tcXGFscGhhfVxcc3Vwc2V0ZXFcXHZhcnBoaV97XFxhbHBoYX0oVV97XFxhbHBoYX1cXGNhcCBVX3tcXGJldGF9KSJdLFsyLDEsIlxcdmFycGhpX3tcXGJldGF9KFVfe1xcYWxwaGF9XFxjYXAgVV97XFxiZXRhfSlcXHN1YnNldGVxIFZfe1xcYmV0YX0iXSxbMCwxLCJcXHZhcnBoaV97XFxhbHBoYX0iLDJdLFswLDIsIlxcdmFycGhpX3tcXGJldGF9Il0sWzEsMiwiXFx2YXJwaGlfe1xcYmV0YX1cXGNpcmNcXHZhcnBoaV97XFxhbHBoYX1eey0xfSIsMl1d}{seguente}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	\& {U_{\alpha}\cap U_{\beta}} \\
+	{V_{\alpha}\supseteq\varphi_{\alpha}(U_{\alpha}\cap U_{\beta})} \&\& {\varphi_{\beta}(U_{\alpha}\cap U_{\beta})\subseteq V_{\beta}}
+	\arrow["{\varphi_{\alpha}}"', from=1-2, to=2-1]
+	\arrow["{\varphi_{\beta}}", from=1-2, to=2-3]
+	\arrow["{\varphi_{\beta}\circ\varphi_{\alpha}^{-1}}"', from=2-1, to=2-3]
+\end{tikzcd}
+\end{equation*}
+\end{document}

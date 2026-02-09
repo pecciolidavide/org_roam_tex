@@ -1,0 +1,96 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\mult#1{\mathrm{mult}_{#1}\,}
+
+
+\begin{document}
+
+\section{Formula di Hurwitz (Superfici di Riemann)}
+\label{sec:org5df4cb0}
+Siano \(X,Y\) \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatte}, e sia \(F:X\to Y\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfismo} non costante.
+
+\begin{thm}
+Le \href{20260129171755-caratteristica_di_eulero_poincare.org}{caratteristiche di Eulero di \(X\) e \(Y\)} sono legate da questa formula:\footnote{Con \(\mult{p} F\) si indica la \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{molteplicità}.}
+\begin{equation*}
+\chi(X) = (\deg F) \cdot \chi(Y) - \parentesi{\mathrm{K}\coloneqq}{\sum_{p \in X} (\mult{p}F-1)}
+\end{equation*}
+dove \(\deg F\) è il \href{20260129171444-teorema_del_grado_per_olomorfismi_tra_superfici_di_riemannn.org}{grado di \(F\)}. Indicando invece con \(g(X), g(Y)\) i generi topologici, si ha equivalentemente:
+\begin{equation*}
+2g(X)-2 = (\deg F)\big(2g(Y)-2\big) + \sum_{p \in X} (\mult{p}F-1).
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+
+
+La dimostrazione di articola in due passi. Si indichi con \(d\coloneqq\deg F\).
+\begin{enumerate}
+\item \uline{Costruzione della triangolazione}
+
+Costruiamo una \href{20260130154758-triangolazione_di_una_superficie_topologica.org}{triangolazione} di \(Y\) avente come vertici i \href{20260129104340-punto_di_ramificazione_per_una_funzione_tra_superfici_di_riemann.org}{punti di diramazione di \(F\) in \(Y\)}: siccome \(Y\) è compatto, sono in numero finito. Sappiamo che
+\begin{equation*}
+ \chi(Y) = \mathrm{V} - \mathrm{L} + \mathrm{F} = 2-2g(Y).
+\end{equation*}
+
+\item \uline{Sollevare la triangolazione}
+
+Portiamo la triangolazione su \(Y\) ad una su \(Y\) tramite \(F\).
+
+\begin{itemize}
+\item Vertici: i vertici sono le controimmagini dei vertici in \(Y\);
+
+\item Lati: se \(L \subseteq Y\) è lato aperto, allora \(L \mathrel{\overset{omeo}{\approx}} (0,1)\)\footnote{Ovvero sono \href{20250111142332-omeomorfismo.org}{omeomorfi}.}, e non contiene punti di diramazione. \href{20260130172938-funzione_olomorfa_tra_superfici_di_riemann_compatte_induce_rivestimento_topologico.org}{Allora}
+\begin{align*}
+\restriction{F}{F^{-1}(L)}: F^{-1}(L) &\longrightarrow L\\
+\end{align*}
+è un \href{20250113175231-rivestimento.org}{rivestimento topologico} di grado \(d = \deg F\). Pertanto è una \href{20250113175700-unione_disgiunta.org}{unione disgiunta}
+ \begin{equation*}
+F^{-1}(L) = L_{1} \sqcup L_{2} \sqcup \dots \sqcup L_{d}
+ \end{equation*}
+dove \(\restriction{F}{L_{i}} : L_{i} \to L\) è un omeomorfismo.
+
+\item Facce: Se \(T \subseteq Y\) è l'interno del triangolo, allora \(T\) non contiene punti di diramazione, e
+\begin{align*}
+\restriction{F}{F^{-1}(T)}: F^{-1}(T) &\longrightarrow T\\
+\end{align*}
+è un rivestimento topologico di grado \(d = \deg F\). Pertanto è una \href{20250113175700-unione_disgiunta.org}{unione disgiunta}
+ \begin{equation*}
+F^{-1}(T) = T_{1} \sqcup T_{2} \sqcup \dots \sqcup T_{d}
+ \end{equation*}
+dove \(\restriction{F}{T_{i}} : T_{i} \to T\) è un omeomorfismo.
+\end{itemize}
+
+\item \uline{Calcolo di \(\chi(X)\)}-
+
+Indicati con \(\mathrm{V}',\mathrm{L}', \mathrm{F}'\) i numeri della triangolazione di \(X\), si ha
+\begin{equation*}
+ \mathrm{L}' = d\cdot \mathrm{L},\qquad \mathrm{F}'=d\cdot \mathrm{F},\qquad \mathrm{V}' < d\cdot \mathrm{V}.
+\end{equation*}
+L'uguaglianza per lati e facce segue dal fatto che su tutto \(X\setminus F^{-1}(\set{\text{vertici}})\) la funzione \(F\) sia un rivestimento topologico di grado \(d\).
+
+Se \(q \in Y\) è un vertice, allora la \href{20241213101756-cardinalita.org}{cardinalità} della \href{20250113175231-rivestimento.org}{fibra} è:
+\begin{align*}
+ \card{F^{-1}(q)} &= %
+ \sum_{ p \in F^{-1}(q)} 1 = \sum_{p \in F^{-1}(q)} 1 -d + d \\
+ &= \sum_{p \in F^{-1}(q)} 1 - \sum_{p \in F^{-1}(q)} \mathrm{mult}_{p}\, F + d =%
+ d - \sum_{p \in F^{-1}(q)} (\mathrm{mult}_{p}\, F - 1)
+\end{align*}
+applicando il \href{20260129171444-teorema_del_grado_per_olomorfismi_tra_superfici_di_riemannn.org}{Teorema del Grado}. Per costruzione, il numero di vertici è:
+\begin{align*}
+ \mathrm{V}' &= \sum_{q\text{ vertici}} \card{F^{-1}(q)} = %
+ \sum_{q\text{ vertici}} \Bigg[ d - \sum_{p \in F^{-1}(q)} (\mathrm{mult}_{p}\, F - 1) \Bigg] \\[2ex]
+ &= d \cdot \mathrm{V} - \sum_{\parbox{3em}{\scriptsize\centering\(p\) vertice in \(X\)}} (\mathrm{mult}_{p}\, F - 1) = d \cdot \mathrm{V} - \parentesi{\mathrm{K}\coloneqq}{\sum_{p \in X} (\mathrm{mult}_{p}\, F - 1)}
+\end{align*}
+dove l'ultima uguaglianza segue dal fatto che se \(p \in X\) non è \href{20260129104340-punto_di_ramificazione_per_una_funzione_tra_superfici_di_riemann.org}{di ramificazione}, allora la molteplicità \(\mathrm{mult}_{p}\, F = 1\).
+\end{enumerate}
+
+Concludendo, si ha che
+\begin{align*}
+2 g(X) - 2 &= -\chi(X) = - \mathrm{V}' +\mathrm{L}' - \mathrm{F}' \\
+&= - d \cdot (\mathrm{V}-\mathrm{L} + \mathrm{F}) + \mathrm{K} = - d \cdot \chi(Y) + \mathrm{K}\\
+&= + (\deg F) \cdot \big(2g(Y)-2\big) + \mathrm{K}.
+\qedhere
+\end{align*}
+\end{proof}
+\end{document}

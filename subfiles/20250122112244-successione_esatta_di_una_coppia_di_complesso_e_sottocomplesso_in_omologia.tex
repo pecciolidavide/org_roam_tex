@@ -1,0 +1,74 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}, \(K\) un \href{20250121124147-complesso_simpliciale.org}{complesso simpliciale} \href{20250121131005-complesso_simpliciale_totalmente_ordinato.org}{totalmente ordinato} e \(L \subseteq K\) un \href{20250121124213-sottocomplesso_simpliciale.org}{sottocomplesso}. Questi danno luogo a tre \href{20250120163114-complesso_di_catene.org}{complessi di catene}:\footnote{Sono:
+\begin{itemize}
+\item i due \href{20250121160600-complesso_di_catene_simpliciali.org}{complessi di catene simpliciali};
+\item un \href{20250122111953-complesso_di_catene_relative.org}{complesso di catene relative}.
+\end{itemize}}
+\begin{align*}
+\mathcal{C}_{\bullet}(K) &= \set{\left(C_{q}(K), \partial_{q}^{K}\right)}_{q}\\
+\mathcal{C}_{\bullet}(L) &= \set{\left(C_{q}(L), \partial_{q}^{L}\right)}_{q}\\
+\mathcal{C}_{\bullet}(K,L) &= \set{\left(C_{q}(K,L), \overline{\partial}_{q}\right)}_{q}
+\end{align*}
+
+Le righe del seguente diagramma sono \href{20250120131527-sec.org}{SEC}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=large]
+	0 \& {C_q(L)} \& {C_q(K)} \& {C_q(K)/C_q(L) = C_q(K,L)} \& 0 \\
+	0 \& {C_{q-1}(L)} \& {C_{q-1}(K)} \& {C_{q-1}(K)/C_{q-1}(L)=C_{q-1}(K,L)} \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{i_q}", hook, from=1-2, to=1-3]
+	\arrow["{\partial_q^L}"', from=1-2, to=2-2]
+	\arrow["{\pi_q}", two heads, from=1-3, to=1-4]
+	\arrow["{\partial_q^K}"', from=1-3, to=2-3]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{\overline{\partial}_q}"', from=1-4, to=2-4]
+	\arrow[from=2-1, to=2-2]
+	\arrow["{i_{q-1}}"', hook, from=2-2, to=2-3]
+	\arrow["{\pi_{q-1}}"', two heads, from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}
+\end{equation*}
+per la \href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{corretta caratterizzazione}, quindi, dette
+\(i_{\bullet} \coloneqq \set{i_{q}: C_{q}(L)\longrightarrow C_{q}(K)}_{q}\) e \(\pi_{\bullet} = \set{\pi_{q}:C_{q}(K)\longrightarrow C_{q}(K,L)}_{q}\), allora si ha la seguente \href{20250120183640-sec_di_complessi_di_catene.org}{SEC}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,sep=large]
+	0 \& {\mathcal{C}_{\bullet}(L)} \& {\mathcal{C}_{\bullet}(K)} \& {\mathcal{C}_{\bullet}(K,L)} \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{i_{\bullet}}", from=1-2, to=1-3]
+	\arrow["{\pi_{\bullet}}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+
+È dunque possibile applicare lo \href{20250120164938-zig_zag_lemma.org}{Zig Zag Lemma,} ottenendo la successione esatta in \href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{omologia}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=large]
+	\cdots \& {H_q\left(\mathcal{C}_{\bullet}(L)\right)} \& {H_q\left(\mathcal{C}_{\bullet}(K)\right)} \& {H_q\left(\mathcal{C}_{\bullet}(K,L)\right)} \\
+	\& {H_{q-1}\left(\mathcal{C}_{\bullet}(L)\right)} \& {H_{q-1}\left(\mathcal{C}_{\bullet}(K)\right)} \& \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{{\partial_{\star}}}"', from=1-4, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+\end{tikzcd}
+\end{equation*}
+che, per definizione di \href{20250121160827-omologia_simpliciale.org}{omologia simpliciale} e \href{20250122112115-omologia_simpliciale_relativa.org}{omologia simpliciale relativa} diventa
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=large]
+	\cdots \& {H_q\left(L\right)} \& {H_q\left(K\right)} \& {H_q\left(K,L\right)} \\
+	\& {H_{q-1}\left(L\right)} \& {H_{q-1}\left(K\right)} \& \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{\partial_{\star}}"', from=1-4, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+\end{tikzcd}
+\end{equation*}
+\end{document}

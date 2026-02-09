@@ -1,0 +1,49 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Successione di fasci esatta}
+\label{sec:org0e26a2c}
+\begin{definizione}
+Data una \href{20250327122142-successione_di_una_categoria.org}{successione} di \href{20250325180613-morfismo_di_prefasci.org}{morfismi} di \href{20250324174728-fascio.org}{fasci}
+\begin{equation*}
+\mathcal{F} \xrightarrow{\varphi} \mathcal{G} \xrightarrow{\psi} \mathcal{H}
+\end{equation*}
+diciamo che la \textbf{successione è esatta in \(\mathcal{G}\)} se\footnote{Vedi:
+\begin{itemize}
+\item \href{20250327114937-fascio_immagine.org}{Fascio immagine}
+\item \href{20250327114922-fascio_nucleo.org}{Fascio nucleo}
+\end{itemize}}
+\begin{equation*}
+\operatorname{Im} \varphi = \ker \psi.
+\end{equation*}
+\end{definizione}
+\subsection{Caratterizzazione morfismo di fasci iniettivo tramite successione esatta}
+\label{sec:org3fa0f44}
+\begin{prop}
+Un \href{20250325180613-morfismo_di_prefasci.org}{morfismo} di \href{20250324174728-fascio.org}{fasci} \(\varphi:\mathcal{F}\to \mathcal{G}\) è \href{20250327115206-morfismo_di_fasci_iniettivo.org}{iniettivo} sse la successione
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	0 \& {\mathcal{F}} \& {\mathcal{G}}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\varphi", from=1-2, to=1-3]
+\end{tikzcd}
+\end{equation*}
+è \hyperref[sec:org0e26a2c]{esatta}.
+\end{prop}
+\subsection{Caratterizzazione morfismo di fasci suriettivo tramite successione esatta}
+\label{sec:org67f2b1e}
+\begin{prop}
+Un \href{20250325180613-morfismo_di_prefasci.org}{morfismo} di \href{20250324174728-fascio.org}{fasci} \(\psi:\mathcal{G}\to \mathcal{H}\) è \href{20250327115214-morfismo_di_fasci_suriettivo.org}{suriettivo} sse la successione
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\mathcal{G}} \& {\mathcal{H}} \& 0
+	\arrow["\psi", from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+\end{tikzcd}
+\end{equation*}
+è \hyperref[sec:org0e26a2c]{esatta}.
+\end{prop}
+\end{document}

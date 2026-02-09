@@ -1,0 +1,20 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità, e sia \(\set{M_{i}}_{i \in I}\) una famiglia di \href{20241205141053-r_moduli.org}{\(R\)-moduli}.
+\begin{prop}
+Se per ogni \(i \in I\), \(N_{i} \mathrel{\subseteq_{R}} M_{i}\) è un \href{20241206142802-sottomoduli.org}{sottomodulo}, allora il \href{20241206142802-sottomoduli.org}{quoziente} della somma diretta è isomorfo alla somma diretta dei quozienti:
+\begin{equation*}
+\frac{\bigoplus_{i \in I} M_{i}}{\bigoplus_{i \in I} N_{i}} \cong \bigoplus_{i \in I} M_{i}/N_{i}
+\end{equation*}
+\end{prop}
+\begin{cor}
+Se \(M\coloneqq\bigoplus_{i \in I} M_{i}\) è la \href{20241213095808-somma_diretta.org}{somma diretta} e, per \(J \subseteq I\) si definisce \(N\coloneqq\bigoplus_{j \in J} M_{j}\), allora il \href{20241206142802-sottomoduli.org}{quoziente}:
+\begin{equation*}
+M/N \cong \bigoplus_{i \in I\setminus J} M_{i}
+\end{equation*}
+\end{cor}
+\end{document}

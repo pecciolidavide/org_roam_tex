@@ -1,0 +1,649 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Il cubo di Hilbert è uno spazio polacco}
+\label{sec:org0a50f38}
+Il \href{20250310122026-cubo_di_hilbert.org}{cubo di Hilbert}: \([0,1]^{\N}\) (vedi \href{20250202192030-classe_delle_classi_funzioni.org}{Classe delle Classi-Funzioni} e anche \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano generalizzato}) è uno \href{20250301194013-spazio_polacco.org}{spazio polacco} quando dotato della \href{20250109154723-topologia_prodotto.org}{topologia prodotto}.
+\section{Esercizi TDI - Foglio 1}
+\label{sec:org8130bea}
+\subsection{Esercizio 1}
+\label{sec:orgdbfae09}
+
+Prove that the following are Polish subspaces of the \href{20250313194836-spazio_di_baire.org}{Baire space} \(\omega^\omega\):
+\begin{align*}
+A &= \{x \in \omega^\omega \mid x \text{ has infinite range} \}\\
+B &= \{x \in \omega^\omega \mid x^{-1}(n) \text{ is infinite, for every } n \in \omega \}.
+\end{align*}
+
+In contrast, show that
+\begin{align*}
+C &= \{x \in \omega^\omega \mid x \text{ is not surjective} \}\\
+D &= \{x \in \omega^\omega \mid x \text{ has finite range} \}
+\end{align*}
+are \uline{not} Polish. (Use the fact that \href{20250313194245-sottospazi_di_spazi_polacchi_fsigma_densi_e_codensi_non_sono_gdelta.org}{in a Polish space \(X\), if \(A \subseteq X\) is \(\bm{F}_\sigma\) and both dense and codense, then \(A\) is not \(\bm{G}_\delta\)}.)
+\subsubsection{Soluzione}
+\label{sec:org8430998}
+
+Si fissa una \href{20250301194153-spazio_metrico_completo.org}{metrica completa} \(d\) su \(\omega^{\omega}\): per ogni \(x,y \in \omega^{\omega}\)
+\begin{equation*}
+d(x,y) \coloneqq \sum_{i \in \omega} 2^{-i}\ \frac{|x(i)-y(i)|}{|x(i)-y(i)|+1}
+\end{equation*}
+\paragraph{Insieme \(A\)}
+\label{sec:org585e954}
+
+Si vuole dimostrare che \(A\) sia un \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{insieme \(\bm{G}_{\delta}\)}, visto il \href{20250306134632-caratterizzazione_dei_sottoinsiemi_polacchi_di_uno_spazio_polacco.org}{Teorema di caratterizzazione}.
+
+Consideriamo, per ogni \(n \in \omega\):
+\begin{equation*}
+A_{n} \coloneqq\set{x \in \omega^{\omega}\ |\ \card{x(\omega)}>n} \subseteq \omega^{\omega}
+\end{equation*}
+dove con \(\card{\cdot}\) si intende la \href{20241213101756-cardinalita.org}{cardinalità}.
+
+Allora \(A = \bigcap_{n \in \omega} A_{n}\). È sufficiente dimostrare che gli \(A_{n}\) siano \href{20250103145124-topologia.org}{aperti} nella \href{20250109154723-topologia_prodotto.org}{topologia prodotto}.
+
+Sia \(x \in A_{n}\) fissato, e sia \(N \in \omega\) tale che \(\card{\operatorname{ran}(x\upharpoonright N )}>n\). Allora
+\begin{equation*}
+x \in \set{x(0)}\times \set{x(1)}\times \dots\times \set{x(N)}\times \omega\times \cdots \eqqcolon A_{x}
+\end{equation*}
+e \(A_{x}\) aperto della \href{20250109154723-topologia_prodotto.org}{topologia prodotto}. Inoltre, \(A_{x} \subseteq A_{n}\), quindi \(A_{n}\) è \href{20250111142313-intorno.org}{intorno} di ogni suo punto, e \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{pertanto} aperto.
+\paragraph{Insieme \(B\)}
+\label{sec:orgaf2d624}
+
+Si vuole dimostrare che \(B\) sia un \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{insieme \(\bm{G}_{\delta}\)}, visto il \href{20250306134632-caratterizzazione_dei_sottoinsiemi_polacchi_di_uno_spazio_polacco.org}{Teorema di caratterizzazione}.
+
+Sia, per ogni \(n,m \in \omega\):
+\begin{equation*}
+B_{n,m} \coloneqq  \set{x \in \omega^{\omega} \ |\ \card{x^{-1}(n)}>m} \subseteq \omega^{\omega}
+\end{equation*}
+dove con \(\card{\cdot}\) si intende la \href{20241213101756-cardinalita.org}{cardinalità}.
+
+Allora
+\begin{equation*}
+B=\bigcap_{(n,m) \in \omega^{2}}\! B_{n,m}
+\end{equation*}
+dove \(\omega\) e \(\omega^{2}\) \href{20250215151413-biiezione_canonica_tra_n_e_n2.org}{sono} \href{20250619101109-classi_equipotenti.org}{equipotenti}: \(\omega\asymp \omega^{2}\). È quindi sufficiente dimostrare che i \(B_{n,m}\) sono aperti.
+
+Sia \(x \in B_{n,m}\) e sia \(N \in \omega\) tale che
+\begin{equation*}
+\card{\set{i \le N\ |\ x(i) = n}}>m
+\end{equation*}
+Allora
+\begin{equation*}
+x \in \set{x(0)}\times \set{x(1)}\times \dots\times \set{x(N)}\times \omega\times \cdots \eqqcolon B_{x}
+\end{equation*}
+e \(B_{x}\) aperto della \href{20250109154723-topologia_prodotto.org}{topologia prodotto}. Inoltre, \(B_{x} \subseteq B_{n,m}\), quindi \(B_{n,m}\) è \href{20250111142313-intorno.org}{intorno} di ogni suo punto, e \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{pertanto} aperto.
+\paragraph{Insiemi \(C\) e \(D\)}
+\label{sec:org56523a4}
+
+Sfruttando il suggerimento, bisogna dimostrare che:
+\begin{itemize}
+\item \(C\) e \(D\) sono \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{insiemi \(\bm{F}_{\sigma}\)};
+\item \(C\) e \(D\) sono \href{20250301193045-sottoinsieme_denso.org}{densi} in \(\omega^{\omega}\);
+\item \(C\) e \(D\) sono \href{20250301193045-sottoinsieme_denso.org}{codensi} in \(\omega^{\omega}\).
+\end{itemize}
+
+Siccome \(D \subseteq C \subseteq \omega^{\omega}\), si ha che \(\omega^{\omega}\setminus C \subseteq \omega^{\omega}\setminus D \subseteq \omega^{\omega}\). Pertanto, basta dimostrare che:
+\begin{itemize}
+\item \(C\) e \(D\) sono insiemi \(\bm{F}_{\sigma}\);
+\item \(D\) è denso in \(\omega^{\omega}\);
+\item \(C\) è codenso in \(\omega^{\omega}\).
+\end{itemize}
+\begin{enumerate}
+\item Insiemi \(\bm{F}_{\sigma}\)
+\label{sec:orgf8c5164}
+
+Posto \(C_{n}\coloneqq\set{x\in \omega^{\omega}\ |\ n\notin x(\omega)}\), è possibile scrivere
+\begin{equation*}
+C = \bigcup_{n \in \omega}\set{x\in \omega^{\omega}\ |\ n\notin x(\omega)}
+\end{equation*}
+I \(C_{n}\) sono chiusi. Infatti, sfruttando la \href{20250303120747-caratterizzazione_dei_chiusi_in_termini_di_successioni.org}{caratterizzazione dei chiusi per successioni}, sia \((x_{k})_{k \in \omega}\) una \href{20250115100904-successione.org}{successione} \href{20250115100930-convergenza_per_una_successione.org}{convergente} di elementi di \(C_{n}\), \(x_{k}\to x\). Se per assurdo \(x \notin C_{n}\), allora esiste \(i_{0} \in \omega\) tale che \(x(i_{0})=n\). Allora, per ogni \(k \in \omega\),
+\begin{equation*}
+|x_{k}(i_{0})-x(i_{0})| = \varepsilon_{0}\ge 1
+\end{equation*}
+e quindi, per ogni \(k \in \omega\)
+\begin{equation*}
+d(x_{k},x) = \sum_{j \in \omega} 2^{-j}\ \frac{|x_{k}(i_{0})-x(i_{0})|}{1+|x_{k}(i_{0})-x(i_{0})|}\ge 2^{-i_{0}}\ \frac{\varepsilon_{0}}{\varepsilon_{0}+1}
+\end{equation*}
+Questo è assurdo poiché la successione converge e la distanza induce la topologia.
+
+L'insieme \(D\), invece, è il \href{20250317100425-complementare_di_un_insieme.org}{complementare} di \(A\) e \(A\) è un insieme \(\bm{G}_{\delta}\). Pertanto \(D\) è un insieme \(\bm{F}_{\sigma}\).
+\item \(D\) è denso
+\label{sec:orga529c64}
+
+\href{20250303121451-caratterizzazione_della_chiusura_in_termini_di_successioni.org}{Si dimostra che} per ogni \(x \in \omega^{\omega}\) esiste una \href{20250115100904-successione.org}{successione} \href{20250115100930-convergenza_per_una_successione.org}{convergente}
+\begin{equation*}
+(x_{n})_{n \in \omega} \subseteq D
+\end{equation*}
+tale che \(x_{n}\to x\).
+
+Sia \(x \in \omega^{\omega}\) fissato e sia, per ogni \(n \in \omega\):
+\begin{equation*}
+x_{n} \coloneqq (x\upharpoonright n)\cup\set{(m,0)\ |\ n<m<\omega}
+\end{equation*}
+Allora \(x_{n} \in \omega^{\omega}\) e in particolare \(x_{n} \in D\), poiché ha \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{range} di \href{20241213101756-cardinalita.org}{cardinalità} minore di \(n+2\).
+
+Inoltre, \(x_{n}\to x\). \href{20250317125810-successioni_in_spazio_metrico_hanno_lo_stesso_limite_sse_limite_delle_distanze_e_nullo.org}{Infatti} la successione delle distanze tende a \(0\):
+\begin{align*}
+d(x_{n},x) &= \sum_{j \in \omega} 2^{-j}\ \frac{|x_{n}(j)-x(j)|}{1+|x_{n}(j)-x(j)|}\\
+&= \sum_{j\ge n} 2^{-j}\ \frac{x(j)}{1+x(j)} \le \sum_{j\ge n} 2^{-j} = 2^{1-n} \to 0
+\end{align*}
+\item \(C\) è codenso
+\label{sec:org20e9181}
+
+\href{20250303121451-caratterizzazione_della_chiusura_in_termini_di_successioni.org}{Si dimostra che} per ogni \(x \in \omega^{\omega}\) esiste una \href{20250115100904-successione.org}{successione} \href{20250115100930-convergenza_per_una_successione.org}{convergente}
+\begin{equation*}
+(x_{n})_{n \in \omega} \subseteq \omega^{\omega}\setminus C
+\end{equation*}
+tale che \(x_{n}\to x\).
+
+Sia \(x \in \omega^{\omega}\) fissato, e sia, per ogni \(n \in \omega\):
+\begin{equation*}
+x_{n} \coloneqq (x\upharpoonright n) \cup \set{(m,m-n)\ |\ n\le m <\omega}
+\end{equation*}
+Ciascuna \(x_{n}\notin \omega^{\omega}\setminus C\), in quanto \(x_{n}\) è suriettiva. Inoltre, \(x_{n}\to x\). \href{20250317125810-successioni_in_spazio_metrico_hanno_lo_stesso_limite_sse_limite_delle_distanze_e_nullo.org}{Infatti} la successione delle distanze tende a \(0\):
+\begin{align*}
+d(x_{n},x) &= \sum_{j \in \omega} 2^{-j}\ \frac{|x_{n}(j)-x(j)|}{1+|x_{n}(j)-x(j)|}\\
+&= \sum_{j \ge n}  2^{-j}\ \frac{|x_{n}(j)-x(j)|}{1+|x_{n}(j)-x(j)|}\\
+&\le \sum_{j\ge n} 2^{-j} = 2^{1-n}\to 0
+\end{align*}
+\end{enumerate}
+\subsection{Esercizio 2}
+\label{sec:orgac841a0}
+
+Let \(2^{(\omega^{<\omega})}\) be endowed with the \href{20250109154723-topologia_prodotto.org}{product} over the \href{20250111143651-insieme_numerabile.org}{countable} index set \(\omega^{<\omega}\) of the \href{20250317165247-topologia_discreta.org}{discrete topology} on \(2 =\set{0, 1}\). Let \(\operatorname{Tr} \subseteq 2^{(\omega^{<\omega})}\) be the set consisting of all \href{20250215160218-funzione_caratteristica.org}{characteristic functions} of trees on \(\omega\). Show that \(\operatorname{Tr}\) is closed in \(2^{(\omega^{<\omega})}\) and thus it is a \href{20250301194013-spazio_polacco.org}{Polish space}. Show also that the set \(\operatorname{PTr} \subseteq \operatorname{Tr}\) of (the characteristic functions of) pruned trees is \(\bm{G}_{\delta}\) and thus Polish as well. Finally, prove that \(\operatorname{Tr}\setminus \operatorname{PTr}\) is not a Polish space.
+\subsubsection{Soluzione}
+\label{sec:orge66529c}
+
+La topologia prodotto di \(2^{(\omega^{<\omega})}\) è generata dai seguenti aperti:
+\begin{equation*}
+\mathscr{B}\coloneqq\set{
+	\prod_{\eta \in \omega^{<\omega}} U_{\eta} \ \left|\
+		\parbox{16.5em}{
+			$U_{\eta} \subseteq 2$\\ $U_{\eta}\neq 2$ per un numero finito di indici
+		}\right.
+}.
+\end{equation*}
+Data la topologia discreta di \(2\), infatti, \(U_{\eta} \subseteq 2\) è sempre aperto. In particolare, \(\mathscr{B}\) è esattamente la topologia di \(2^{(\omega^{<\omega})}\), in quanto:
+\begin{itemize}
+\item \(\mathscr{B}\) è chiuso per intersezioni finite;
+\item \(\mathscr{B}\) è chiuso per unioni arbitrarie.
+\end{itemize}
+\paragraph{\(\operatorname{Tr}\) è chiuso in \(2^{(\omega^{<\omega})}\)}
+\label{sec:org7c05962}
+Per la definizione di albero, per ogni \(f \in 2^{(\omega^{<\omega})}\), \(f\notin \operatorname{Tr}\) se e solo se esiste \(s \in \omega^{<\omega}\) tale che
+\begin{equation*}
+f(s)=1;\qquad f\left(s\upharpoonright (\operatorname{lh}(s)-1)\right) = 0
+\end{equation*}
+Si denoti per questa prima parte dell'esercizio: \(s\upharpoonright (\operatorname{lh}(s)-1) \eqqcolon s^{*}\).
+
+In previsione di sfruttare la \href{20250303120747-caratterizzazione_dei_chiusi_in_termini_di_successioni.org}{caratterizzazione dei chiusi per successioni}, sia \((\chi_{n})_{n \in \omega} \subseteq \operatorname{Tr}\) una \href{20250115100904-successione.org}{successione} \href{20250115100930-convergenza_per_una_successione.org}{convergente}:
+\begin{equation*}
+\chi_{n}\to \chi
+\end{equation*}
+
+Si supponga per assurdo che \(\chi\notin \operatorname{Tr}\). Allora esiste \(s \in \omega^{<\omega}\) tale che
+\begin{equation*}
+\chi(s) = 1;\qquad \chi(s^{*}) = 0
+\end{equation*}
+Allora \(\chi\) appartiene all'aperto \(V\coloneqq \prod_{\eta \in \omega^{\omega}} V_{\eta}\), con
+\begin{equation*}
+V_{\eta} \coloneqq \begin{cases}
+2 & \eta\neq s,s^{*}\\
+\set{1} & \eta=s\\
+\set{0} & \eta = s^{*}
+\end{cases}
+\end{equation*}
+e pertanto esiste \(N \in \omega\) tale che \(\chi_{N} \in V\). Assurdo, poiché questo implica che \(\chi_{N}\notin \operatorname{Tr}\).
+
+Pertanto \(\chi \in \operatorname{Tr}\) e dunque \(\operatorname{Tr}\) chiuso.
+\paragraph{\(\operatorname{PTr}\) è uno spazio polacco}
+\label{sec:org3dc8dca}
+
+Per definizione di albero potato, si ha che \(\chi \in \operatorname{PTr}\) se e solo se \(\chi \in \operatorname{Tr}\) e per ogni \(s \in \omega^{<\omega}\):
+\begin{equation*}
+\chi(s) = 1\,\implies\, \exists\,m \in \omega\mid \chi\left(s\concat m\right)=1
+\end{equation*}
+
+Si definisce, per ogni \((\eta, j) \in \omega^{<\omega}\times \omega\)
+\begin{equation*}
+\Lambda_{\eta,j}' \coloneqq \set{\chi \in \omega^{<\omega}\mid \chi(\eta)=1 \,\land\, \chi(\eta\concat j) = 1 }
+\end{equation*}
+Questi sono aperti in \(\omega^{<\omega}\) e pertanto i \(\Lambda_{\eta,j} \coloneqq \Lambda_{\eta,j}'\cap \operatorname{Tr}\) sono aperti in \(\operatorname{Tr}\) con la topologia di sottospazio. Si può considerare ulteriormente
+\begin{equation*}
+\Theta_{\eta} \coloneqq \set{\chi \in \omega^{<\omega}\mid \chi(\eta) = 0}\cap \operatorname{Tr}
+\end{equation*}
+anche questo aperto in \(\operatorname{Tr}\).
+
+Si considerino ora gli aperti:
+\begin{equation*}
+\Gamma_{\eta} \coloneqq \Theta_{\eta} \cup \bigcup_{j \in \omega} \Lambda_{\eta,j}
+\end{equation*}
+Si ha che \(\operatorname{PTr} = \bigcap_{\eta \in \omega^{<\omega}} \Gamma_{\eta}\). Infatti:
+\begin{itemize}
+\item se \(\chi \in \operatorname{PTr}\) allora per ogni \(\eta \in \omega^{<\omega}\):
+\begin{itemize}
+\item se \(\chi(\eta) = 1\) allora esiste \(j \in \omega\) tale che \(\chi(\eta\concat j) =1\), e allora \(\chi \in \Lambda_{\eta,j}\) e dunque \(\chi \in \Gamma_{\eta}\)
+\item se \(\chi(\eta) = 0\) allora \(\chi \in \Theta_{\eta}\) e dunque \(\chi \in \Gamma_{\eta}\);
+\end{itemize}
+pertanto \(\chi \in \bigcap_{\eta \in \omega^{<\omega}}\Gamma_{\eta}\);
+\item se, viceversa, \(\chi \in \bigcap_{\eta \in \omega^{<\omega}}\Gamma_{\eta}\), allora
+\begin{itemize}
+\item \(\chi \in \operatorname{Tr}\);
+\item per ogni \(\eta \in \omega^{<\omega}\), \(\chi \in \Gamma_{\eta}\) e pertanto, se \(\chi(\eta) = 1\) allora esiste \(j \in \omega\) tale che \(\chi(\eta\concat j) = 1\)
+\end{itemize}
+pertanto \(\chi \in \operatorname{PTr}\).
+\end{itemize}
+
+Siccome \(\omega^{<\omega}\) è numerabile, si è dimostrata la tesi.
+\paragraph{\(\operatorname{Tr}\setminus\operatorname{PTr}\) non è uno spazio polacco}
+\label{sec:org4174667}
+
+L'insieme \(\operatorname{Tr}\setminus\operatorname{PTr}\) è \(\bm{F}_{\sigma}\), poiché \(\operatorname{PTr}\) è polacco. Sfruttando il fatto che sottoinsiemi \(\bm{F}_{\sigma}\) di un polacco, densi e codensi, non possono essere \(\bm{G}_{\delta}\), si dimostra che \(\operatorname{Tr}\setminus \operatorname{PTr}\) sia denso e codenso.
+
+\begin{itemize}
+\item \(\operatorname{Tr}\setminus \operatorname{PTr}\) è denso. Infatti, sia \(\chi \in \operatorname{Tr}\). Se \(\chi \notin\operatorname{PTr}\), allora la successione costante \((\chi)_{n \in \omega}\) converge a \(\chi\).
+
+Se invece \(\chi \in \operatorname{PTr}\), sia \(A \in \omega^{\omega}\) tale che, per ogni \(n \in \N\), \(\chi(A\upharpoonright n) = 1\). Si definisce allora \(\chi_{n} \in \operatorname{Tr}\setminus \operatorname{PTr}\), per ogni \(s \in \omega^{<\omega}\)
+
+\begin{equation*}
+  \chi_{n}(s) \coloneqq \begin{cases}
+  	0 & \operatorname{lh}(s) \ge n \,\land\, s = A\upharpoonright \operatorname{lh}(s)\\
+  	\chi(s) & \text{altrimenti}
+      \end{cases}
+\end{equation*}
+
+Chiaramente \(\chi_{n} \in \operatorname{Tr}\setminus \operatorname{PTr}\), ed inoltre \(\chi_{n}\to \chi\). Infatti, sia \(\emptyset \neq U \subseteq 2^{(\omega^{<\omega})}\) aperto, tale che \(\chi \in U\) con \(U\neq \emptyset\):
+\begin{equation*}
+  U = \operatorname{Tr}\cap \prod_{\eta \in \omega^{<\omega}} U_{\eta}
+\end{equation*}
+con \(\emptyset\neq U_{\eta} \subseteq 2\) tali che un numero finito di \(U_{\eta}\neq 2\).
+
+Sia quindi:
+\begin{equation*}
+  N \coloneqq \max\set{\operatorname{lh}(\eta)\mid U_{\eta} \neq 2}
+\end{equation*}
+
+Allora, per ogni \(n>N\), \(\chi_{n} \in U\). Infatti, se per assurdo \(\chi_{n}\notin U\), allora esiste \(s \in \omega^{<\omega}\) tale che \(\chi_{n}(s) \notin U_{s}\):
+\begin{itemize}
+\item se \(\operatorname{lh}(s)<n\), allora \(\chi_{n}(s)=\chi(s)\), ma \(\chi \in U\) e pertanto \(\chi(s) \in U_{s}\); assurdo;
+\item se \(\operatorname{lh}(s)\ge n\), allora \(\operatorname{lh}(s) > N\), e per massimalità quindi \(U_{s}= 2\); pertanto \(\chi_{n}(s) \in U_{s}\). Assurdo.
+\end{itemize}
+
+\item \(\operatorname{PTr}\) è denso. Infatti, se per assurdo non lo fosse, allora esisterebbe \(U \subseteq \operatorname{Tr}\) non vuoto, aperto, e tale che \(U\cap \operatorname{PTr} =\emptyset\).
+
+Allora
+\begin{equation*}
+  U = \operatorname{Tr}\cap \prod_{\eta \in \omega^{<\omega}} U_{\eta}
+\end{equation*}
+con \(\emptyset\neq U_{\eta} \subseteq 2\) tali che un numero finito di \(U_{\eta}\neq 2\). Siano \(\set{\eta_{1},\dots,\eta_{k}} \subseteq \omega^{<\omega}\) tali che \(U_{\eta_{i}} = \set{1}\), per \(i=1,\dots,k\), e siano \(\set{\theta_{1},\dots,\theta_{h}} \subseteq \omega^{<\omega}\) tali che \(U_{\theta_{j}} = \set{0}\), per \(j=1,\dots,h\). Necessariamente, per ogni \(j = 1,\dots,h\), e per ogni \(i=1,\dots,k\):
+\begin{equation*}
+  \forall\, \ell\le \operatorname{lh}(\eta_{i}),\qquad \eta_{i}\upharpoonright \ell \neq \theta_{j}
+\end{equation*}
+altrimenti \(U \subseteq \operatorname{Tr}\) sarebbe l'insieme vuoto.
+
+Allora si definisce \(\chi \in \operatorname{Tr}\) tale che, per ogni \(s \in\omega^{<\omega}\):
+\begin{itemize}
+\item se \(s = \eta_{i}\upharpoonright \ell\) per qualche \(i=1,\dots,k\) e per qualche \(\ell \le \operatorname{lh}(\eta_{i})\), allora \(\chi(s) = 1\)
+\item se \(s \in \set{\theta_{1},\dots,\theta_{h}}\), allora \(\chi(s) = 0\).
+\item Si costruisce ricorsivamente un insieme \(\Lambda \subseteq \omega^{<\omega}\) tale che \(\set{\eta_{1},\dots,\eta_{k}} \subseteq \Lambda\), e tale che, se \(\eta \in \Lambda\), allora anche \(\eta\concat \ell \in\Lambda\), dove \(\ell \in \omega\) è il più piccolo naturale tale che \(\eta\concat \ell \notin \set{\theta_{1},\dots,\theta_{h}}\); tale \(\ell\) esiste sempre, poiché \(\set{\theta_{1},\dots,\theta_{h}}\) è un insieme finito. Per ogni \(s \in \Lambda\), \(\chi(s)=1\).
+\item Per tutti gli altri \(s \in \omega^{<\omega}\), \(\chi(s) = 0\).
+\end{itemize}
+
+Si mostra che \(\chi\) genera un assurdo.
+\begin{itemize}
+\item \(\chi\) è ben definita, poiché i quattro casi considerati sono disgiunti.
+\item \(\chi \in \operatorname{Tr}\), in quanto, se \(\chi(s) = 1\), allora per ogni \(\ell \le \operatorname{lh}(s)\), \(\chi(s\upharpoonright \ell) = 1\).
+\item \(\chi \in \operatorname{PTr}\), in quanto, se \(\chi(s) = 1\), allora esiste sempre \(\eta\) che estende \(s\) tale che \(\chi(\eta)=1\).
+\end{itemize}
+\end{itemize}
+
+Quindi \(\chi \in U\cap \operatorname{PTr} =\emptyset\). Assurdo.
+\subsection{Esercizio 3}
+\label{sec:org10ef062}
+
+Let
+\[
+\mathscr{L} = \{ R_i \mid i < I \} \cup \{ f_j \mid j < J \} \cup \{ a_k \mid k < K \}
+\]
+with \(I, J, K \leq \omega\) be an at most \href{20250111143651-insieme_numerabile.org}{countable} \href{20250130162057-linguaggio_del_prim_ordine.org}{first-order language}, and let \(M\) be a \href{20250111143651-insieme_numerabile.org}{countable} \(\mathscr{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{structure}. Without loss of generality, we may assume that the \href{20250131103035-struttura_del_prim_ordine.org}{domain} of \(M\) is \(\omega\) itself. Prove that the \href{20241205141146-gruppo_abeliano.org}{group} of \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{automorphisms} \(\operatorname{Aut}(M)\) of \(M\) is a \href{20250304151924-gruppo_polacco.org}{Polish} \href{20241206143051-sottogruppo.org}{subgroup} of \(S_\infty\).
+\subsubsection{Soluzione}
+\label{sec:org5b23e6d}
+
+Si fissi su \(\omega^{\omega}\supseteq S_{\infty}\) la \href{20250301194153-spazio_metrico_completo.org}{metrica completa} \(d\):
+\begin{equation*}
+d(x,y) =  \begin{cases}
+0 & x=y\\
+2^{-(n+1)} & x\neq y\text{ e }n\text{ il più piccolo naturale tale che }x(n)\neq y(n)
+\end{cases}
+\end{equation*}
+e si denoti con
+\begin{equation*}
+B_{d}(x,\varepsilon) \coloneqq \set{y \in \omega^{\omega}\mid d(x,y)<\varepsilon}
+\end{equation*}
+la palla aperta.
+\paragraph{\(\operatorname{Aut}(M)\) è uno spazio polacco}
+\label{sec:org743e996}
+
+È possibile scrivere \(\operatorname{Aut}(M)\) come intersezione (numerabile) dei seguenti insiemi:
+\begin{itemize}
+\item per ogni \(i<I\): \(\set{f \in S_{\infty}\mid (a_{1},\dots,a_{\operatorname{ar}(R_{i})}) \in R_{i}\text{ sse }\left(f(a_{1}),\dots,f(a_{\operatorname{ar}(R_{i})})\right) \in R}\);
+\item per ogni \(j < J\): \(\set{f \in S_{\infty}\mid f\left(f_{j}(a_{1},\dots,a_{\operatorname{ar}(f_{j})})\right) = f_{j}\left(f(a_{1}),\dots,f(a_{\operatorname{ar}(f_{j})})\right)}\);
+\item per ogni \(k<K\): \(\set{f \in S_{\infty}\mid f(a_{k}) = a_{k}}\).
+\end{itemize}
+
+Volendo dimostrare che \(\operatorname{Aut}(M)\) sia polacco, si sfrutta la caratterizzazione, dimostrando che sia \(\bm{G}_{\delta}\), ovvero che tutti gli insiemi elencati sopra siano aperti, o, al più, \(\bm{G}_{\delta}\).
+
+\begin{itemize}
+\item Sia \(R \in \set{R_{i}\mid i<I}\) di arietà \(n\). L'insieme
+\begin{equation*}
+  \mathscr{R}_{R} \coloneqq \set{f \in S_{\infty}\mid (a_{1},\dots,a_{n}) \in R \text{ sse }\left(f(a_{1}),\dots,f(a_{n})\right) \in R,\, \forall\, a_{i} \in\omega}
+\end{equation*}
+è un \(\bm{G}_{\delta}\).
+
+Infatti, posto
+\begin{equation*}
+  \mathscr{R}_{R,m} \coloneqq  \set{f \in S_{\infty}\mid (a_{1},\dots,a_{n}) \in R \text{ sse }\left(f(a_{1}),\dots,f(a_{n})\right) \in R,\, \forall\, a_{i} < m}
+\end{equation*}
+questo è un aperto.
+\begin{itemize}
+\item Presa \(f \in \mathscr{R}_{R,m}\), sia \(L_{f} \coloneqq \max_{a_{i}<m}\set{a_{1},\dots,a_{n}}\), e sia \(\varepsilon_{f} \coloneqq 2^{-(L_{f}+2)}\).
+
+Allora \(f \in B_{d}(f, \varepsilon_{f}) \cap S_{\infty} \eqqcolon V\), e \(V \subseteq \mathscr{R}_{R,m}\). Se \(g \in V\) e \(g\neq f\), allora il più piccolo \(L\) tale che \(f(L)\neq g(L)\) è tale che
+\begin{equation*}
+2^{-(L+1)}<2^{-(L_{f}+2)}\,\implies\, L>L_{f}+1
+\end{equation*}
+e dunque, per ogni \(n<L\), compresi tutti gli \(a_{1},\dots,a_{n}\), si ha \(g(n) = f(n)\), e pertanto
+\begin{align*}
+(a_{1},\dots, a_n) \in R\,&\text{ sse }\, \left(f(a_{1}),\dots,f(a_{n})\right) \in R\\
+&\text{ sse }\, \left(g(a_{1}),\dots,g(a_{n})\right) \in R
+\end{align*}
+\end{itemize}
+
+Allora \(\mathscr{R}_{R} = \bigcap_{m \in\omega} \mathscr{R}_{R,m}\) e pertanto è un insieme \(\bm{G}_{\delta}\).
+
+\item Sia \(G \in \set{F_{j}\mid j<J}\) di arietà \(n\). L'insieme
+\begin{equation*}
+  \mathscr{F}_{G}\coloneqq\set{f \in S_{\infty}\mid f\left(G(a_{1},\dots,a_{n})\right) = G\left(f(a_{1}),\dots,f(a_{n})\right),\, \forall\, a_{i} \in\omega}
+\end{equation*}
+è un \(\bm{G}_{\delta}\).
+
+Infatti, posto
+\begin{equation*}
+  \mathscr{F}_{G, m} \coloneqq \set{f \in S_{\infty}\mid f\left(G(a_{1},\dots,a_{n})\right) = G\left(f(a_{1}),\dots,f(a_{n})\right),\, \forall\, a_{i} <m}
+\end{equation*}
+questo è un aperto.
+\begin{itemize}
+\item Preso \(f \in \mathscr{F}_{G,m}\), sia \(L_{f} \coloneqq \max_{a_{i}<m}\set{G(a_{1},\dots,a_{n}), a_{1},\dots,a_{n}}\), e sia \(\varepsilon_{f} \coloneqq 2^{-(L_{f}+2)}\).
+
+Allora \(f \in B_{d}(f, \varepsilon_{f}) \cap S_{\infty} \eqqcolon V\), e \(V \subseteq \mathscr{F}_{G,m}\). Se \(g \in V\) e \(g\neq f\), allora il più piccolo \(L\) tale che \(f(L)\neq g(L)\) è tale che
+\begin{equation*}
+2^{-(L+1)}<2^{-(L_{f}+2)}\,\implies\, L>L_{f}+1
+\end{equation*}
+e dunque, per ogni \(n<L\), compresi tutti gli \(G(a_{1},\dots,a_{n}), a_{1},\dots,a_{n}\), vale \(g(n) = f(n)\), e pertanto
+\begin{align*}
+g\left(G(a_{1},\dots,a_{n})\right) &= f\left(G(a_{1},\dots,a_{n})\right)\\
+&= G\left(f(a_{1}),\dots,f(a_{n})\right) = G\left(g(a_{1}),\dots,g(a_{n})\right)
+\end{align*}
+e quindi \(g \in \mathscr{F}_{G,m}\).
+\end{itemize}
+
+Siccome
+\begin{equation*}
+  \mathscr{F}_{G} = \bigcap_{m \in \omega} \mathscr{F}_{G,m}
+\end{equation*}
+allora \(\mathscr{F}_{G}\) è \(\bm{G}_{\delta}\).
+
+\item Sia \(a \in \set{a_{k}\mid k<K}\). L'insieme
+\begin{equation*}
+  \mathscr{C}_{a} \coloneqq\set{f \in S_{\infty}\mid a = f(a)}
+\end{equation*}
+è aperto.
+
+Infatti, per ogni \(f \in \mathscr{C}_{a}\), si ha che
+\begin{equation*}
+  f \in S_{\infty} \cap B_{d}(f, 2^{-(a+2)}) \eqqcolon V
+\end{equation*}
+ed inoltre \(V \subseteq \mathscr{C}_{a}\). Infatti, sia \(g \in V\). Allora \(d(f,g)<2^{-(a+2)}\) e quindi, se \(f\neq g\), allora
+\begin{equation*}
+  2^{-(n+1)} < 2^{-(a+2)} \, \implies\, n > a+1
+\end{equation*}
+dove \(n\) è il più piccolo naturale t.c. \(f(n)\neq g(n)\). Pertanto \(a=f(a)=g(a)\) e quindi \(g \in \mathscr{C}_{a}\).
+\end{itemize}
+\paragraph{\(\operatorname{Aut}(M)\) è sottogruppo di \(S_{\infty}\)}
+\label{sec:org1fcdb5f}
+
+Visto che \(\operatorname{Aut}(M)\) è intersezione dei seguenti insiemi
+\begin{itemize}
+\item per ogni \(i<I\): \(\set{f \in S_{\infty}\mid (a_{1},\dots,a_{\operatorname{ar}(R_{i})}) \in R_{i}\text{ sse }\left(f(a_{1}),\dots,f(a_{\operatorname{ar}(R_{i})})\right) \in R}\);
+\item per ogni \(j < J\): \(\set{f \in S_{\infty}\mid f\left(f_{j}(a_{1},\dots,a_{\operatorname{ar}(f_{j})})\right) = f_{j}\left(f(a_{1}),\dots,f(a_{\operatorname{ar}(f_{j})})\right)}\);
+\item per ogni \(k<K\): \(\set{f \in S_{\infty}\mid f(a_{k}) = a_{k}}\);
+\end{itemize}
+è sufficiente mostrare che ciascuno di questi sia chiuso per composizione di funzioni e per inversa.
+
+Consideriamo gli insiemi \(\mathscr{F}_{G}, \mathscr{R}_{R}, \mathscr{C}_{a}\) come sopra.
+\begin{itemize}
+\item Siano \(f,g \in \mathscr{F}_{G}\). Per ogni \(a_{1},\dots,a_{n} \in \omega\)
+\begin{align*}
+  	f\circ g \left(G(a_{1},\dots,a_{n})\right) &= f\left[g\left(G(a_{1},\dots,a_{n})\right)\right]\\
+  	&= f\left[G\left(g(a_{1}),\dots,g(a_{n})\right)\right]\\
+  	&= G\left(f\circ g(a_{1}),\dots,f\circ g(a_{n})\right)
+        \end{align*}
+e pertanto \(f\circ g \in \mathscr{F}_{G}\).
+\item Sia \(f \in \mathscr{F}_{G}\). Per ogni \(a_{1},\dots,a_{n} \in \omega\)
+\begin{align*}
+  G(a_{1},\dots,a_{n}) &= G\left[f\circ f^{-1}(a_{1}),\dots,f\circ f^{-1}(a_{n})\right]\\
+  &= f\left[G\left(f^{-1}(a_{1}),\dots,f^{-1}(a_{n})\right)\right]
+\end{align*}
+e quindi
+\begin{equation*}
+  f^{-1}\left[G(a_{1},\dots,a_{n})\right] = G\left(f^{-1}(a_{1}),\dots,f^{-1}(a_{n})\right).
+\end{equation*}
+Pertanto \(f^{-1} \in \mathscr{F}_{G}\).
+
+\item Siano \(f,g \in \mathscr{R}_{R}\). Per ogni \(a_{1},\dots,a_{n} \in \omega\)
+\begin{align*}
+  (a_{1},\dots, a_{n}) \in R \,&\,\text{ sse }\, \left(g(a_{1}),\dots,g(a_{n})\right) \in R\\
+  &\,\text{ sse }\,\left(f\circ g(a_{1}),\dots,f\circ g(a_{n})\right) \in R
+\end{align*}
+e pertanto \(f\circ g \in \mathscr{R}_{R}\).
+\item Sia \(f \in \mathscr{R}_{R}\). Per ogni \(a_{1},\dots,a_{n} \in\omega\),
+\begin{align*}
+  (a_{1},\dots,a_{n}) \in R &\,\text{ sse }\, \left(f\circ f^{-1}(a_{1}),\dots,f\circ f^{-1}(a_{n})\right) \in R\\
+  &\,\text{ sse }\, \left(f^{-1}(a_{1}),\dots,f^{-1}(a_{n})\right) \in R,
+\end{align*}
+e quindi \(f^{-1} \in \mathscr{R}_{R}\).
+
+\item Siano \(f,g \in \mathscr{C}_{a}\). Allora \(f\circ g (a) = f\left(g(a)\right) = f(a) = a\), e quindi \(f\circ g \in \mathscr{C}_{a}\).
+\item Sia \(f \in \mathscr{C}_{a}\). Allora \(f(a)=a\) e pertanto \(f^{-1}(a)=a\), quindi \(f^{-1} \in \mathscr{C}_{a}\).\qed
+\end{itemize}
+\subsection{Esercizio 4}
+\label{sec:org61662f3}
+
+Consider the \href{20250301194013-spazio_polacco.org}{Polish space} \(X = \omega^{\omega \times \omega} \times \omega\). Let \(\operatorname{Gp}\) be the space of those \((f,a) \in X\) such that \(\langle \omega, f, a \rangle\) is a \href{20241205141146-gruppo_abeliano.org}{group} with operation \(f\) and neutral element \(a\).
+\begin{enumerate}
+\item Prove that \(\operatorname{Gp}\) is a Polish subspace of \(X\).
+\item Prove that the subspace of \(\operatorname{Gp}\) consisting of \href{20250127093245-gruppo_abeliano.org}{Abelian groups} is Polish, and similarly for the subspace of non-Abelian groups.
+\item Prove that the subspace of \(\operatorname{Gp}\) consisting of \href{20250320150051-gruppo_archimedeo.org}{Archimedean groups} is Polish.
+\end{enumerate}
+\subsubsection{Soluzione}
+\label{sec:orgf2f30fe}
+
+\paragraph{Parte a.}
+\label{sec:org0fc3845}
+Posti:
+\begin{align*}
+A_{x,y,z} &= \set{(f,a) \in X\mid f\left(f(x,y),z\right) = f\left(x,f(y,z)\right)}\\
+N_{x} &= \set{(f,a) \in X\mid f(x,a)=f(a,x) = a}\\
+I_{x,y} &= \set{(f,a) \in X\mid f(x,y) = f(y,x) = a}\\
+I_{x} &= \bigcup_{y \in \omega} I_{x,y}
+\end{align*}
+allora, per definizione di gruppo, si ha che:
+\begin{equation*}
+\operatorname{Gp} = \bigcap_{x,y,z \in\omega} A_{x,y,z} \cap \bigcap_{x \in \omega} {N_{x}}\cap \bigcap_{x \in \omega} I_{x}.
+\end{equation*}
+
+È dunque necessario dimostrare che ciascuno degli insiemi \(A_{x,y,z}, N_{x}, I_{x}\) siano degli \href{20250103145124-topologia.org}{aperti}, o almeno dei \(\bm{G}_{\delta}\). Questo implica che \(\operatorname{Gp}\) sia un \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{insieme \(\bm{G}_{\delta}\)} di \(\omega^{\omega\times \omega}\times \omega\) (che è un \href{20250301194013-spazio_polacco.org}{polacco}) \href{20250306134632-caratterizzazione_dei_sottoinsiemi_polacchi_di_uno_spazio_polacco.org}{e quindi} uno spazio polacco.
+
+\begin{itemize}
+\item \(A_{x,y,z}\) è aperto.
+
+Siano, per ogni \(x,y,z,\mu,\lambda,\gamma \in\omega\):
+\begin{equation*}
+  A_{x,y,z}^{\mu,\lambda,\gamma} \coloneqq \set{
+  	(f,a) \in X\mid f(x,y)=\mu, f(y,z) = \lambda, f(\mu, z) = \gamma, f(x,\lambda)=\gamma
+  }
+\end{equation*}
+Allora \(A_{x,y,z} = \bigcup_{\mu,\lambda,\gamma} A_{x,y,z}^{\mu,\lambda,\gamma}\).
+
+Inoltre, sia \((f,a) \in A_{x,y,z}^{\mu,\lambda,\gamma}\), e si consideri l'aperto \(U_{(f,a)} \subseteq \omega^{\omega\times\omega}\times\omega\)
+\begin{equation*}
+  U_{(f,a)} \coloneqq \prod_{(i,j) \in \omega\times\omega} U_{ij} \times V
+\end{equation*}
+con \(U_{xy} = \set{\mu}\), \(U_{yz} = \set{\lambda}\), \(U_{\mu z}=\set{\gamma} = U_{x\lambda}\) e \(V = \set{a}\), e tutti gli altri \(U_{ij} = \omega\).
+
+Allora \((f,a) \in U_{(f,a)}\) e \(U_{(f,a)} \subseteq A_{x,y,z}^{\mu,\lambda,\gamma}\). Dunque \(A_{x,y,z}^{\mu,\lambda,\gamma}\) è \href{20250111142313-intorno.org}{intorno} di ogni suo punto, \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{e quindi} \href{20250103145124-topologia.org}{aperto}.
+
+Segue che \(A_{x,y,z}\) è unione di aperti, e pertanto aperto.
+
+\item \(N_{x}\) è aperto. Sia \((f,a) \in N_{x}\), e si consideri l'aperto \(U_{(f,a)} \subseteq \omega^{\omega\times\omega}\times\omega\):
+\begin{equation*}
+  U_{(f,a)} \coloneqq \prod_{(i,j) \in \omega\times\omega} U_{ij} \times V
+\end{equation*}
+con \(U_{ax} = U_{xa} = \set{x}\) e \(V = \set{a}\), e tutti gli altri \(U_{ij} = \omega\).
+
+Allora \((f,a) \in U_{(f,a)}\) e \(U_{(f,a)} \subseteq N_{x}\). Dunque \(N_{x}\) è \href{20250111142313-intorno.org}{intorno} di ogni suo punto, \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{e quindi} \href{20250103145124-topologia.org}{aperto}.
+
+\item \(I_{x}\) è aperto. Infatti \(I_{x,y}\) sono aperti, e unione numerabile di aperti è aperta. Sia \((f,a) \in I_{x,y}\) e si consideri l'aperto \(U_{(f,a)} \subseteq \omega^{\omega\times\omega}\times\omega\):
+\begin{equation*}
+  U_{(f,a)} \coloneqq \prod_{(i,j) \in \omega\times\omega} U_{ij} \times V
+\end{equation*}
+con \(V=U_{xy} = U_{yx} = \set{a}\), e tutti gli altri \(U_{ij} =\omega\).
+
+Allora \((f,a) \in U_{(f,a)}\) e \(U_{(f,a)} \subseteq I_{x,y}\). Dunque \(I_{x,y}\) è \href{20250111142313-intorno.org}{intorno} di ogni suo punto, \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{e quindi} \href{20250103145124-topologia.org}{aperto}.
+\end{itemize}
+\paragraph{Parte b.}
+\label{sec:orgf67818a}
+
+\((f,a) \in X\) descrive un gruppo abeliano se e solo se:
+\begin{itemize}
+\item \((f,a) \in \operatorname{Gp}\);
+\item per ogni \(x,y \in \omega\), \(f(x,y) = f(y,x)\).
+\end{itemize}
+
+Si denoti con \(\operatorname{Ab}, \operatorname{NAb} \subseteq \operatorname{Gp}\) gli insiemi, rispettivamente, dei gruppi abeliani e dei gruppi non abeliani. Vale
+\begin{equation*}
+\operatorname{Ab} = \operatorname{Gp}\setminus \operatorname{NAb}
+\end{equation*}
+
+Sia quindi, per ogni \(x,y,\lambda,\mu \in\omega\):
+\begin{equation*}
+C_{x,y}^{\lambda,\mu} = \set{(f,a) \in X\mid f(x,y)=\lambda, f(y,x) = \mu}.
+\end{equation*}
+Questo è un aperto. Infatti, sia \((f,a) \in C_{x,y}^{\lambda,\mu}\) e si consideri l'aperto \(U_{(f,a)}\):
+\begin{equation*}
+	U_{(f,a)} \coloneqq \prod_{(i,j) \in \omega\times\omega} U_{ij} \times V
+\end{equation*}
+con \(U_{xy}=\set{\lambda}\), \(U_{yx} =\set{\mu}\) e con \(V=\set{a}\), e tutti gli altri \(U_{ij}=\omega\).
+
+Allora \((f,a) \in U_{(f,a)}\) e \(U_{(f,a)} \subseteq C_{x,y}^{\lambda,\mu}\), quindi \(C_{x,y}^{\lambda,\mu}\) è \href{20250111142313-intorno.org}{intorno} di ogni suo punto, \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{e quindi} \href{20250103145124-topologia.org}{aperto}.
+
+Si consideri ora l'aperto (in quanto unione di aperti):
+\begin{equation*}
+\operatorname{NAb}_{x,y} \coloneqq \bigcup_{\lambda\neq\mu} C_{x,y}^{\lambda,\mu} = \set{(f,a) \in X\mid f(x,y) \neq f(y,x)}.
+\end{equation*}
+
+L'insieme \(\operatorname{NAb} \subseteq \operatorname{Gp}\) è dato da
+\begin{equation*}
+\operatorname{NAb} = \operatorname{Gp}\cap \bigcup_{x,y \in \omega} \operatorname{NAb}_{x,y}
+\end{equation*}
+e quindi è un aperto in \(\operatorname{Gp}\). Pertanto, \(\operatorname{NAb}\) è uno spazio polacco. Inoltre \(\operatorname{Ab} = \operatorname{Gp}\setminus \operatorname{NAb}\) è un chiuso di \(\operatorname{Gp}\) e pertanto è uno spazio polacco.
+\paragraph{Parte c.}
+\label{sec:orgbbcc758}
+Si consideri ora lo spazio topologico \(Y \coloneqq X\times 2^{\omega\times \omega}\), e le due proiezioni continue per definizione di topologia prodotto:
+\begin{align*}
+\pi_{X}: Y&\to X\\
+\pi_{2^{\omega\times\omega}} : Y &\to 2^{\omega\times\omega}
+\end{align*}
+
+Si consideri l'insieme \(\operatorname{OGp}\) delle triple \((f,a,\le)\) tali che \(\langle \omega,f,a,\le\rangle\) sia un \href{20250320184931-gruppo_ordinato.org}{gruppo ordinato}, e quindi \(\le\) un \href{20250203101604-ordine.org}{ordine totale}. Si dimostra che l'insieme seguente è uno spazio polacco:
+\begin{equation*}
+\operatorname{Ar} \coloneqq \set{(f,a, \le) \in \operatorname{OGp}\mid \forall\, x \in\omega \ \exists\, n \in \omega: x\le f^{(n)}(a)}
+\end{equation*}
+dove con \(f^{(n)}(a)\) si intende, per ricorsione:
+\begin{align*}
+f^{(2)} (a) &\coloneqq f(a,a)\\
+f^{(n+1)}(a) &\coloneqq f\left(f^{(n)}(a), a\right).
+\end{align*}
+
+\begin{itemize}
+\item \(\operatorname{OGp}\) è uno spazio polacco.
+
+Infatti, si considerino gli insiemi, per \(x,y,z,\mu,\lambda,\delta,\gamma \in \omega\)
+\begin{align*}
+  G_{x,y,z}^{\mu,\lambda, \delta, \gamma} &\coloneqq \set{(f,a,\le) \in Y\mid f(x,z) = \mu \,\land\, f(y,z) = \lambda \,\land\, f(z,x) = \delta \,\land\, f(z,y) = \gamma \,\land\, \mu\le \lambda \,\land\, \delta\le \gamma}\\
+  G_{x,y,z}^{2} &\coloneqq \set{(f,a,\le) \in Y\mid x\le y}
+\end{align*}
+Questi sono entrambi aperti.
+\begin{itemize}
+\item Se \((f,a,\le) \in G_{x,y,z}^{\mu,\lambda,\delta,\gamma}\), sia \(U_{(f,a,\le)}\) un aperto,
+\begin{equation*}
+U_{(f,a,\le)} \coloneqq \prod_{(i,j) \in \omega\times\omega} U_{ij} \times \tilde{U} \times \prod_{(s,t) \in\omega\times\omega} W_{st}
+\end{equation*}
+con \(U_{xz}=\set{\mu}\), \(U_{yz} = \set{\lambda}\), \(U_{zx} = \set{\delta}\), \(U_{zy} = \set{\gamma}\), \(W_{\mu\lambda} = \set{1}\) e infine \(W_{\delta\gamma}=\set{1}\). Tutti gli altri \(U_{ij} = \omega\), \(\tilde{U} = \omega\) e i restanti \(W_{st} = 2\).
+
+Allora \((f,a,\le) \in U_{(f,a,\le)}\), ed inoltre \(U_{(f,a,\le)} \subseteq G_{x,y,z}^{\mu,\lambda,\delta,\gamma}\). Quindi \(G_{x,y,z}^{\mu,\lambda,\delta,\gamma}\) è \href{20250111142313-intorno.org}{intorno} di ogni suo punto, \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{e pertanto} \href{20250103145124-topologia.org}{aperto}.
+\item Se \((f,a,\le) \in G^{2}_{x,y,z}\), sia \(V_{(f,a,\le)}\) un aperto,
+\begin{equation*}
+V_{(f,a,\le)} \coloneqq \prod_{(i,j) \in\omega\times\omega} V_{ij}\times \tilde{V} \times \prod_{(s,t) \in \omega\times\omega} W_{st}
+\end{equation*}
+con \(\tilde{V}= V_{ij} = \omega\) per ogni \(i,j\), e con \(W_{xy} =\set{1}\). Per tutti gli altri \(W_{st} =2\).
+
+Allora \((f,a,\le) \in V_{(f,a,\le)}\), ed inoltre \(V_{(f,a,\le)} \subseteq G_{x,y,z}^{2}\). Quindi \(G_{x,y,z}^{2}\) è \href{20250111142313-intorno.org}{intorno} di ogni suo punto, \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{e pertanto} \href{20250103145124-topologia.org}{aperto}.
+\end{itemize}
+
+È inoltre aperto l'insieme \(G_{x,y,z}^{1} \coloneqq \set{(f,a,\le) \in Y\mid f(x,z)\le f(y,z) \,\land\, f(z,x)\le f(z,y)}\), in quanto
+\begin{equation*}
+  G^{1}_{x,y,z} = \bigcup_{\mu,\lambda,\delta,\gamma \in \omega} G_{x,y,z}^{\mu,\lambda,\delta,\gamma}.
+\end{equation*}
+
+Segue che l'insieme \(G_{x,y,z} \coloneqq G^{1}_{x,y,z} \cup \left[Y\setminus G_{x,y,z}^{2}\right]\) sia un \(\bm{G}_{\delta}\), in quanto unione di un aperto e di un chiuso (i chiusi negli spazi polacchi sono \(\bm{G}_{\delta}\)).
+
+Inoltre, si è dimostrato che \(\operatorname{Gp} \subseteq X\) è un insieme \(\bm{G}_{\delta}\) (nel punto precedente) e che l'insieme degli ordini \(\operatorname{LO} \subseteq 2^{\omega\times\omega}\) è un insieme \(\bm{G}_{\delta}\) (a lezione). Pertanto, siccome la preimmagine continua di \(\bm{G}_{\delta}\) è ancora \(\bm{G}_{\delta}\), si ha che sono \(\bm{G}_{\delta}\) di \(Y\) i seguenti insiemi:
+\begin{equation*}
+  \pi_{X}^{-1}(\operatorname{Gp}),\quad \pi_{2^{\omega\times\omega}}^{-1} (\operatorname{LO}).
+\end{equation*}
+
+Siccome vale questa uguaglianza
+\begin{equation*}
+  \operatorname{OGp} = \pi_{X}^{-1}(\operatorname{Gp}) \cap \pi_{2^{\omega\times\omega}}^{-1} (\operatorname{LO}) \cap \bigcap_{x,y,z \in \omega} G_{x,y,z}
+\end{equation*}
+si è scritto \(\operatorname{OGp}\) come intersezione numerabile di \(\bm{G}_{\delta}\).Quindi \(\operatorname{OGp}\) è uno spazio polacco, in quanto sottoinsieme \(\bm{G}_{\delta}\) dello spazio polacco \(Y\).
+
+\item L'insieme:
+\begin{equation*}
+\tilde{\operatorname{Ar}}_{x}^{n} \coloneqq \set{(f,a, \le) \in Y\mid x\le f^{(n)}(a)}
+\end{equation*}
+è aperto. Infatti, si consideri
+\begin{equation*}
+  \Gamma_{x,n}^{\lambda_{2},\dots,\lambda_{n}} \coloneqq \set{
+  	(f,a,\le) \in Y\mid f(a,a) = \lambda_{2} \,\land\, f(\lambda_{2},a) = \lambda_{3} \,\land\, \dots \,\land\, f(\lambda_{n-1}, a) = \lambda_{n} \,\land\, x\le \lambda_{n}
+  }
+\end{equation*}
+Ciascun \(\Gamma_{x,n}^{\lambda_{2},\dots,\lambda_{n}}\) è aperto, poiché, presa \((f,a,\le) \in \Gamma_{x,n}^{\lambda_{2},\dots,\lambda_{n}}\), è possibile prendere l'aperto \(U_{(f,a,\le)}\):
+\begin{equation*}
+  U_{(f,a,\le)} \coloneqq \prod_{(i,j) \in \omega\times\omega} U_{ij} \times \tilde{U} \times \prod_{(s,t) \in\omega\times\omega} W_{st}
+\end{equation*}
+con \(\tilde{U} = \set{a}\), \(U_{aa}=\lambda_{2}\), per ogni \(i=2,\dots,n-1\): \(U_{\lambda_{i}a} = \set{\lambda_{i+1}}\), e \(W_{x\lambda_{n}} = \set{1}\). Si pongono tutti gli altri \(U_{ij} = \omega\)  e \(W_{st} = 2\). Si ha quindi che \((f,a,\le) \in U_{(f,a,\le)} \subseteq \Gamma_{x,n}^{\lambda_{2},\dots,\lambda_{n}}\), e pertanto \(\Gamma_{x,n}^{\lambda_{2},\dots,\lambda_{n}}\) è \href{20250111142313-intorno.org}{intorno} di ogni suo punto \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{e quindi} \href{20250103145124-topologia.org}{aperto}.
+
+Dunque \(\tilde{\operatorname{Ar}}_{x}^{n} = \bigcup_{\lambda_{2},\dots,\lambda_{n} \in \omega} \Gamma_{x,n}^{\lambda_{2},\dots,\lambda_{n}}\) è a sua volta aperto.
+\end{itemize}
+
+Allora \(\operatorname{Ar}_{x}^{n} = \tilde{\operatorname{Ar}}_{x}^{n} \cap \operatorname{OGp}\) è aperto in \(\operatorname{OGp}\). Quindi
+\begin{equation*}
+\operatorname{Ar} = \bigcap_{x \in \omega}\bigcup_{n \in \omega} \operatorname{Ar}_{x}^{n}
+\end{equation*}
+è un \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{insieme \(\bm{G}_{\delta}\)} di \(\operatorname{OGp}\), \href{20250306134632-caratterizzazione_dei_sottoinsiemi_polacchi_di_uno_spazio_polacco.org}{e quindi} uno \href{20250301194013-spazio_polacco.org}{spazio polacco}.\qed
+\end{document}

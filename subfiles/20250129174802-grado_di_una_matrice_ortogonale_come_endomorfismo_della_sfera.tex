@@ -1,0 +1,64 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Grado di una matrice ortogonale come endomorfismo della sfera}
+\label{sec:org2078b59}
+\begin{prop}
+Sia \(A \in \operatorname{O}(n)\) una \href{20250104111539-spazio_delle_matrici.org}{matrice} \href{20250113144228-gruppo_ortogonale.org}{ortogonale} (reale).
+Allora \(A:\mathds{S}^{n-1} \longrightarrow \mathds{S}^{n-1}\) e il suo \href{20250129170910-grado_di_un_endomorfismo_della_sfera.org}{grado} è uguale al suo \href{20250104111751-determinante_di_una_matrice.org}{determinante}:
+\begin{equation*}
+\operatorname{deg}A = \det A
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Se \(A\) è matrice ortogonale, allora \(A:\R^{n}\to \R^{n}\) ``preserva'' il \href{20250625095723-prodotto_scalare.org}{prodotto interno}:
+\begin{equation*}
+\langle Ax; Ay \rangle = \langle x; y \rangle
+\end{equation*}
+e quindi anche la \href{20250625123506-spazio_normato.org}{norma}:
+\begin{equation*}
+\norma{Ax}^{2} = \langle Ax; Ax \rangle = \langle x;x\rangle = \norma{x}^{2}.
+\end{equation*}
+Pertanto \(A: \mathds{S}^{n-1}\longrightarrow \mathds{S}^{n-1}\) è ben definita.
+
+Per costruzione, il \href{20250104111751-determinante_di_una_matrice.org}{determinante} \(\det A = \pm 1\).
+\begin{itemize}
+\item Se \(\det A = 1\), allora \(A \in \operatorname{SO}(n)\) \href{20250129175208-gruppo_ortogonale_speciale.org}{gruppo ortogonale speciale}, \href{20250129175123-gruppo_ortogonale_speciale_e_connesso_per_archi.org}{che è} \href{20250113103025-spazio_topologico_connesso_per_archi.org}{cpa}.
+
+Pertanto, esiste un cammino \href{20250103103252-funzione_continua.org}{continuo} da \(A\) a \(\1_{n}\) matrice identità:
+\begin{align*}
+A(t): [0,1] &\longrightarrow \operatorname{SO}(n)\\
+0 &\longmapsto A\\
+1 &\longmapsto \1_{n}
+\end{align*}
+e la mappa
+\begin{align*}
+H: [0,1]\times \mathds{S}^{n-1} &\longrightarrow \mathds{S}^{n-1}\\
+(t,p) &\longmapsto A(t)\cdot p
+\end{align*}
+è un'omotopia: \(H(0,p) = A\cdot p\) e \(H(1,p) = p = \1_{n} \cdot p\).
+
+Quindi \(A\sim \Id\) è \href{20250121094654-omotopia_tra_funzioni_continue.org}{omotopa}, e \(\deg A = 1 = \det A\).
+
+\item Se \(\det A = -1\), allora possiamo considerare
+\begin{equation*}
+  r \coloneqq \begin{pmatrix}
+  1 & 0 & \dots & 0\\
+  0 & 1 & 0 & \dots\\
+  \vdots\\
+  0 & \dots & 0 & -1
+  \end{pmatrix}
+\end{equation*}
+la matrice della \href{20250129170910-grado_di_un_endomorfismo_della_sfera.org}{mappa di riflessione}. \href{20250104111751-determinante_di_una_matrice.org}{Si ha che} \(A\cdot r \in \operatorname{SO}(n)\), \href{20250129170910-grado_di_un_endomorfismo_della_sfera.org}{quindi}
+\begin{equation*}
+  1 = \deg (A\cdot r) = \deg (A\circ r) = \deg A\cdot \deg r
+\end{equation*}
+\href{20250129170910-grado_di_un_endomorfismo_della_sfera.org}{e inoltre \(\deg r = -1\)}. Segue che \(\deg A = -1\).
+\qedhere
+\end{itemize}
+\end{proof}
+\end{document}

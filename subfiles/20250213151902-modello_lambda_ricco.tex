@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\lambda\) un \href{20250203161341-cardinali.org}{cardinale}.
+
+Sia \(\mathcal{M} = \mathcal{M}_{\text{ob}}\cup \mathcal{M}_{\text{hom}}\) una \href{20241126100904-categoria.org}{categoria} \href{20250213142026-categorie_di_modelli_e_morfismi_parziali.org}{di modelli e morfismi parziali} di \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} \(\mathcal{L}\) tale che
+\begin{enumerate}
+\item per ogni \(M \in \mathcal{M}_{\text{ob}}\) e per ogni \(A \subseteq M\), \(\id_{A} : M\partialto M\) è \(\id_{A} \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(M,N \in \mathcal{M}_{\text{ob}}\), e \(k:M\partialto N\) \href{20250213105339-funzione_parziale.org}{funzione parziale}, se per ogni \(k' \subseteq k\) \href{20250205120448-classe_finita_e_infinita_mk.org}{finito} si ha \(k' \in \mathcal{M}_{\text{hom}}\), allora \(k \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(k \in \mathcal{M}_{\text{hom}}\), \(k\) è \href{20250111142446-funzione_inversa.org}{invertibile} e la sua \href{20250111142446-funzione_inversa.org}{inversa} \(k^{-1} \in \mathcal{M}_{\text{hom}}\).
+\end{enumerate}
+\section{Definizione}
+\label{sec:orga9f54b2}
+Un modello \(N \in \mathcal{M}_{\text{ob}}\) si dice \uline{\(\lambda\)-ricco} se: per ogni \(M \in \mathcal{M}_{\text{ob}}\), per ogni \(b \in M\) e per ogni \(k \in \mathcal{M}_{\text{hom}}(M,N)\) di \href{20241213101756-cardinalita.org}{cardinalità} \(\card{\kappa}<\lambda\) esiste \(c \in N\) tale che
+\begin{equation*}
+k\cup\set{(b,c)} \in \mathcal{M}_{\text{hom}}(M,N)
+\end{equation*}
+\subsection{Modello ricco}
+\label{sec:org67c2f80}
+Diciamo che \(N\) è un \uline{modello ricco} se è \(\card{N}\)-ricco.
+\end{document}

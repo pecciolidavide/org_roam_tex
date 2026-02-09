@@ -1,0 +1,84 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}.
+Sia \(X\) una \href{20250130104320-classe_mk.org}{classe}, e sia \(R\) una \href{20250202170607-classe_relazione_binaria.org}{relazione} su \(X\).
+
+\begin{definizione}
+Se \(R\) è \href{20250619161501-caratteristiche_delle_relazioni_binarie.org}{irriflessiva}, \href{20250203095749-relazione_left_narrow_mk.org}{regolare} e \href{20250203100901-relazione_well_founded_mk.org}{ben fondata}, allora si definisce la \href{20250202170607-classe_relazione_binaria.org}{classe funzione} \uline{rango} \(\bm{\varrho}_{R,X}\) che a \(x \in X\) associa \footnote{Vedi:
+\begin{itemize}
+\item \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme}
+\item \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Unione}
+\end{itemize}}
+\begin{equation*}
+\bm{\varrho}_{R,X}(x) = \bigcup \set{\operatorname{S}\left(\bm{\varrho}_{R,X}(y)\right) \ |\ y\mathrel{R}x}
+\end{equation*}
+\end{definizione}
+
+Questa è ben definita per il \href{20250207121906-teorema_di_ricorsione.org}{Teorema di Ricorsione}.
+\begin{prop}
+\begin{enumerate}
+\item La classe \(\operatorname{ran}\left(\bm{\varrho}_{R,X}\right)\)\footnote{Vedi: ``\href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Range di una funzione}''} è un \href{20250206120526-segmento_iniziale_per_un_ordine.org}{segmento iniziale} di \(\operatorname{Ord}\)\footnote{Vedi: ``\href{20250203111003-ordinali.org}{Classe degli ordinali}''}, ovvero vale una delle seguenti.
+\begin{itemize}
+\item \(\operatorname{ran}\left(\bm{\varrho}_{R,X}\right) \in \operatorname{Ord}\);
+\item \(\operatorname{ran}\left(\bm{\varrho}_{R,X}\right) = \operatorname{Ord}\);
+\end{itemize}
+in entrambi i casi, per ogni \(x \in X\), si ha che \(\bm{\varrho}_{R,X}(x) \in \operatorname{Ord}\).
+\item Inoltre \(x\mathrel{R}y\) implica \(\bm{\varrho}_{R,X}(x) < \bm{\varrho}_{R,X}(y)\) e vale\footnote{Vedi: ``\href{20250203102516-massimo_e_minimo.org}{Infimum}''}
+\begin{equation*}
+\bm{\varrho}_{R,X}(x) = \inf\set{
+\alpha \in \operatorname{Ord}\ |\ \forall\, y\ \left(y\mathrel{R}x\,\implies\, \bm{\varrho}_{R,X}(y)<\alpha\right)
+}
+\end{equation*}
+\end{enumerate}
+\end{prop}
+Nella dimostrazione si mostrerà, in particolare, che se \(X\) è una classe propria, allora \(\operatorname{ran}(\bm{\varrho}_{R,X}) = \operatorname{Ord}\).
+\begin{oss}
+Si ha che \(\bm{\varrho}_{R,X}(x) = 0\) se e solo se \(x\) è \(R\)-\href{20250203102516-massimo_e_minimo.org}{minimale} in \(X\), e inoltre \(\bm{\varrho}_{R,X}(x) = \alpha\) se e solo se \(x\) è \(R\)-minimale rispetto a
+\begin{equation*}
+X\setminus\set{
+y \in X\ |\ \bm{\varrho}_{R,X}(y)< \alpha
+}
+\end{equation*}
+\end{oss}
+\begin{esempio}
+Si consideri la relazione \(R\) indicata in figura~\ref{fig:rangorelazione} sull'insieme \(X=\set{a,b,c,d,e,f,g}\), dove \(x\to y\) indica che \(x\mathrel{R}y\). Per semplicità, si scrive \(\bm{\varrho}(x)\) in luogo di \(\bm{\varrho}_{R,X}(x)\).
+\begin{align*}
+\bm{\varrho}(a) &= \bigcup\set{\operatorname{S}(\bm{\varrho}(y))\mid y\mathrel{R}a} = \bigcup \emptyset= \emptyset=0.\\
+\bm{\varrho}(c) &= 0.\\
+\bm{\varrho}(f) &= 0.\\
+\bm{\varrho}(b) &= \bigcup\set{\operatorname{S}(\bm{\varrho}(y)) \mid y\mathrel{R}b}= \bigcup\set{\operatorname{S}(\bm{\varrho}(c))}=\\
+&= \bigcup\set{\operatorname{S}(\emptyset)} = \bigcup\set{\set{\emptyset}} =  \set{\emptyset} = 1.\\
+\bm{\varrho}(e) &= 1\\
+\bm{\varrho}(d) &= \bigcup\set{
+\operatorname{S}(\bm{\varrho}(e))
+} = \bigcup\set{2} = 2.\\
+\bm{\varrho}(g) &=\bigcup\set{\operatorname{S}(\bm{\varrho}(a)),\operatorname{S}(\bm{\varrho}(b)),\operatorname{S}(\bm{\varrho}(d))} = \bigcup\set{1,2,3}=3.
+\end{align*}
+Si ricorda inoltre la definizione di \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{numeri naturali}:
+\begin{equation*}
+0\coloneqq\emptyset,\qquad 0\neq n\coloneqq\set{0,1,\dots,n-1}
+\end{equation*}
+\end{esempio}
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	\& g \\
+	a \& b \& d \\
+	\& c \&\& e \\
+	\&\&\& f
+	\arrow[from=2-1, to=1-2]
+	\arrow[from=2-2, to=1-2]
+	\arrow[from=2-3, to=1-2]
+	\arrow[from=3-2, to=2-2]
+	\arrow[from=3-4, to=2-3]
+	\arrow[from=4-4, to=3-4]
+\end{tikzcd}
+\end{equation*}
+\caption{\label{fig:rangorelazione}Esempio di relazione sull'insieme \(X=\set{a,b,c,d,e,f,g}\)}
+\end{figure}
+\end{document}

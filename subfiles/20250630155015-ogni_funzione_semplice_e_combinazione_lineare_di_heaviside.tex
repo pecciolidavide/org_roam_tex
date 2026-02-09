@@ -1,0 +1,26 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Sia \(0=x_{0}<x_{1}<\dots<x_{N}=1\) una partizione di \([0,1]\), e sia\footnote{Con \(\chi_{A}\) si intende la \href{20250215160218-funzione_caratteristica.org}{funzione caratteristica} di \(A\).}
+\begin{equation*}
+c(x) = \sum_{i=0}^{N-1}\alpha_{i}\chi_{[x_{i},x_{i+1})}
+\end{equation*}
+Allora \(c(x)\) può essere scritto come combinazione lineare di \href{20250624161413-funzione_di_heaviside.org}{Funzioni di Heaviside}:
+\begin{align*}
+\chi_{[x_{i},x_{i+1})} &= H(x-x_{i})-H(x-x_{i+1})
+;\\[1ex]
+c(x) &= \sum_{i=0}^{N-1}\left(\alpha_{i}H(x-x_{i})-\alpha_{i} H(x-x_{i+1})\right)\\
+&=\sum_{i=0}^{N} c_{i} H(x-x_{i}).
+\end{align*}
+\end{prop}
+\begin{prop}
+Se \(c(x)\) è come sopra, segue che la \href{20250701080039-derivata_distribuzioni.org}{derivata distribuzionale} di \(c\), \(c'(x)\), è\footnote{Con \(\delta(x)\) si intende la \href{20250625100133-delta_di_dirac.org}{Delta di Dirac}, e con \(\delta_{a}(x)\) si intende la Delta di Dirac centrata in \(a\).}
+\begin{equation*}
+c'(x) = \sum_{i=0}^{N} c_{i} H'(x-x_{i}) = \sum_{i=0}^{N} c_{i} \delta(x-x_{i}) = \sum_{i=0}^{N} c_{i} \delta_{x_{i}}(x)
+\end{equation*}
+\end{prop}
+\end{document}

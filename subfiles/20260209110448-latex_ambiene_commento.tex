@@ -1,0 +1,16 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Il seguente codice crea un ambiente \texttt{commento}, che funziona come un postit. Pur utilizzando ``todonotes'', non compare nella lista dei todo.
+\begin{verbatim}
+\usepackage{todonotes}
+\usepackage{environ} % Necessario per gestire il corpo dell'ambiente
+
+\NewEnviron{commento}{%
+    \todo[inline, color=yellow!50, nolist]{\BODY}%
+}
+\end{verbatim}
+\end{document}

@@ -1,0 +1,38 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Aritmetica degli ordinali}
+\label{sec:org688c01f}
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\begin{definizione}
+Tramite il \href{20250207121906-teorema_di_ricorsione.org}{Teorema di Ricorsione} è possibile definire le operazioni di somma, prodotto ed elevamento a potenza per gli \href{20250203111003-ordinali.org}{ordinali}. Si utilizzano simboli diversi per distinguerli dalle equivalenti \href{20250612151505-aritmetica_dei_cardinali.org}{operazioni} per i \href{20250203161341-cardinali.org}{cardinali}.\footnote{Vedi
+\begin{itemize}
+\item \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme} e \href{20250203161132-ordinale_limite.org}{Ordinale Successore}
+\item \href{20250203161132-ordinale_limite.org}{Ordinale Limite}
+\item \href{20250203102516-massimo_e_minimo.org}{Supremum}
+\end{itemize}}
+
+\begin{align*}
+\alpha\dotplus\beta &= \begin{cases}
+\alpha &\text{se }\beta=0\\
+\operatorname{S}(\alpha\dotplus\gamma) &\text{se }\beta=\operatorname{S}(\gamma)\\
+\sup_{\gamma<\beta}(\alpha\dotplus\gamma) &\text{se }\beta\text{ è limite}
+\end{cases}\\[1ex]
+\alpha\bigdot\beta &=\begin{cases}
+0 &\text{se }\beta=0\\
+(\alpha\bigdot\gamma)\dotplus\alpha &\text{se }\beta=\operatorname{S}(\gamma)\\
+\sup_{\gamma<\beta}(\alpha\bigdot\gamma) &\text{se }\beta\text{ è limite}
+\end{cases}\\[1ex]
+\alpha\dotexp{\beta} &=\begin{cases}
+1 &\text{se }\beta=0\\
+(\alpha\dotexp{\gamma})\bigdot\alpha &\text{se }\beta=\operatorname{S}(\gamma)\\
+\sup_{\gamma<\beta}(\alpha\dotexp\gamma) &\text{se }\beta\text{ è limite}
+\end{cases}
+\end{align*}
+\end{definizione}
+
+Quando \(\alpha,\beta \in \omega\), allora le definizioni si riducono alla \href{20250608093604-aritmetica.org}{definizione ricorsiva} di somma, prodotto ed esponente in \(\N\), e quindi sono \uline{commutative}. Questo non è però vero in generale.
+\end{document}

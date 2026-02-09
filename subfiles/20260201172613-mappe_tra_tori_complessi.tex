@@ -1,0 +1,180 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Mappe tra tori complessi}
+\label{sec:org9a3d4da}
+\begin{oss}
+Sia \(X\) un \href{20260127113001-toro_complesso.org}{toro complesso}, di dimensione \(1\):
+\begin{equation*}
+X = \C/L
+\end{equation*}
+\href{20250127093819-quoziente_di_gruppo_e_sottogruppo.org}{quoziente di gruppi} con \(L \subseteq \C\) reticolo e \(\pi:\C\to X\) proiezione.
+Alcune osservazioni:
+\begin{enumerate}
+\item Per ogni \(x_{0} \in X\), si consideri \(a \in \C\) tale che \(x_{0} = \pi(a)\), e le due funzioni (entrambi \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfismi})
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=tiny]
+        X \& X \&\& \C \& \C \\
+        x \& {x+x_0} \&\& z \& {z+a}
+        \arrow["{T_{x_0}}", from=1-1, to=1-2]
+        \arrow["{F_a}", from=1-4, to=1-5]
+        \arrow[maps to, from=2-1, to=2-2]
+        \arrow[maps to, from=2-4, to=2-5]
+\end{tikzcd}
+\end{equation*}
+Questo diagramma commuta:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,sep=large]
+        \C \& \C \\
+        X \& X
+        \arrow["{F_a}", from=1-1, to=1-2]
+        \arrow["\pi"', from=1-1, to=2-1]
+        \arrow["\pi", from=1-2, to=2-2]
+        \arrow["{T_{x_0}}"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+infatti
+\begin{equation*}
+ \pi\big(F_{a}(z)\big) = \pi(z+a) = \pi(z) + \pi(a) = T_{x_{0}}\big(\pi(z)\big).
+\end{equation*}
+\item \(\pi\) è un \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfismo} locale per ogni punto di \(\C\), ed è quindi un \href{20250113175231-rivestimento.org}{rivestimento topologico}.
+\item Per ogni diagramma commutativo:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,sep=large]
+        \C \& \C \\
+        X \& X
+        \arrow["f", from=1-1, to=1-2]
+        \arrow["\pi"', from=1-1, to=2-1]
+        \arrow["\pi", from=1-2, to=2-2]
+        \arrow["g"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+\(f\) è \href{20260126110551-funzione_olomorfa.org}{olomorfa} se e solo se \(g\) è \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa}.
+\end{enumerate}
+\end{oss}
+
+\begin{oss}
+Siano \(X\coloneqq \C/L\), \(Y\coloneqq \C/M\) due tori complessi, (L,M \subseteq \C$\backslash$) reticoli, con proiezioni
+\begin{equation*}
+\pi_{X}: \C\to X,\qquad \pi_{Y}: \C\to Y
+\end{equation*}
+Se esiste \(f:\C\to \C\) una funzione \(\C\)-\href{20250114101949-funzione_lineare.org}{lineare}\footnote{Ovvero tale che \(f(z) = \gamma\,z\) per qualche \(\gamma \in \C\setminus\set{0}\).} tale che l'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine} \(f(L) \subseteq M\), allora \(f\) passa al \href{20250127093819-quoziente_di_gruppo_e_sottogruppo.org}{quoziente}, inducendo un \href{20241206115531-morfismo_di_gruppi.org}{morfismo di gruppi \(F\)}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=tiny]
+	\C \&\& \C \\
+	\\
+	\\
+	\\
+	\\
+	\\
+	X \&\& Y \\
+	{[x]} \&\& {[f(x)]}
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["{\pi_X}"', from=1-1, to=7-1]
+	\arrow["{\pi_Y}", from=1-3, to=7-3]
+	\arrow["F"', dashed, from=7-1, to=7-3]
+	\arrow[dashed, from=8-1, to=8-3]
+\end{tikzcd}
+\end{equation*}
+\begin{itemize}
+\item Siccome \(f\) è \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfa} e \(\pi_{X},\pi_{Y}\) sono biolomorfismi locali, allora \(F\) è \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa}. in
+\item \(F\) non \href{20260129104340-punto_di_ramificazione_per_una_funzione_tra_superfici_di_riemann.org}{ramifica}, ovvero ha sempre \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{molteplicità} 1, perché in ogni punto è composizione di biolomorfismo locali. \href{20260130172938-funzione_olomorfa_tra_superfici_di_riemann_compatte_induce_rivestimento_topologico.org}{Pertanto} \(F\) è \href{20250113175231-rivestimento.org}{rivestimento topologico}.
+\item Il \href{20260129171444-teorema_del_grado_per_olomorfismi_tra_superfici_di_riemannn.org}{grado} di \(F\) è la \href{20241213101756-cardinalita.org}{cardinalità} del quoziente \(M/f(L)\).
+\end{itemize}
+\end{oss}
+
+\begin{prop}
+Siano \(X=\C/L\), \(Y=\C/M\) due tori complessi, e \(F:X\to Y\) funzione olomorfa non costante tale che \(F(0) = 0\).
+
+Allora esiste \(f:\C\to \C\), \(\C\)-lineare, tale che \(f(L) \subseteq M\) che induce \(F\).
+\end{prop}
+
+\begin{proof}
+Si hanno i seguenti rivestimenti:
+\begin{itemize}
+\item Si consideri la \href{20260129171832-formula_di_hurewicz_superfici_di_riemann.org}{Formula di Hurwitz}:\footnote{\(g(X)\) indica il \href{20260127112828-superficie_di_riemann.org}{genere topologico}, \(\deg F\) il \href{20260129171444-teorema_del_grado_per_olomorfismi_tra_superfici_di_riemannn.org}{grado} e \(\mathrm{mult}_{p}\) la \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{molteplicità}.}
+\begin{equation*}
+2g(X)-2 = \deg F \cdot \big(2g(Y)-2\big) + \sum_{p \in X} \mathrm{mult}_{p}\, F -1
+\end{equation*}
+Poiché \(g(X) = g(Y) = 1\) (in quanto tori), allora
+\begin{equation*}
+\sum_{p \in X} \mathrm{mult}_{p}\,F -1 = 0 \IMPLICA \mathrm{mult}_{p}\,F = 1.
+\end{equation*}
+Quindi \(F\) non ramifica, ed è un \href{20250113175231-rivestimento.org}{rivestimento topologico} di grado finito.
+\item \(\pi_{X}\) è un \href{20250113175231-rivestimento.org}{rivestimento topologico}.
+\item \(\pi_{Y}\) è un rivestimento topologico, ed inoltre è \href{20250114095243-teorema_del_rivestimento_universale.org}{rivestimento universale} per \(Y\)
+\end{itemize}
+
+Quindi \(F\circ \pi_{X} :  \C\to Y\) è \href{20250113175231-rivestimento.org}{rivestimento topologico} \href{20250114095243-teorema_del_rivestimento_universale.org}{universale}. Per il \href{20250114095243-teorema_del_rivestimento_universale.org}{Teorema del Rivestimento Universale}, questo è unico a meno di \href{20250111142332-omeomorfismo.org}{omeomorfismo}, e pertanto esiste \(f:\C\to \C\) omeomorfismo che fa commutare il diagramma:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	\C \&\& \C \\
+	\\
+	X \&\& Y
+	\arrow["f", dashed, from=1-1, to=1-3]
+	\arrow["{\pi_X}"', from=1-1, to=3-1]
+	\arrow["{\pi_Y}", from=1-3, to=3-3]
+	\arrow["F"', from=3-1, to=3-3]
+\end{tikzcd}
+\end{equation*}
+
+Siccome \(F(0) = 0\), allora \(f(0) \in M\). A meno di comporre \(f\) con la traslazione per \(-f(0)\) possiamo supporre che \(f(0) = 0\). Questo non varia né la commutatività del diagramma, né il fatto che sia un omeomorfismo.
+\begin{itemize}
+\item \(f\) è olomorfa, in quanto entrambe \(\pi_{X}, \pi_{Y}\) sono biolomorfismi locali.
+\item Siano quindi \(z \in \C\), \(\ell \in L\):
+\begin{equation*}
+\pi_{Y} \circ f(z) = F \circ \pi_{X}(z) = F\circ \pi_{X}(z+\ell) = \pi_{Y} \circ f(z+\ell)
+\end{equation*}
+e quindi esiste \(w(z,\ell) \in M\) tale che
+\begin{equation*}
+f(z+\ell) - f(z) = w(z,\ell).
+\end{equation*}
+
+Si fissi \(\ell \in L\) e si consideri \(\C\to \C: z\mapsto f(z+\ell)-f(z)\), questa funzione è \href{20250103103252-funzione_continua.org}{continua}, a valori in \(M\) \href{20260128123515-sottoinsieme_discreto.org}{discreto}, e a dominio \href{20250103165325-spazio_topologico_connesso.org}{connesso}. \href{20250325154046-funzione_localmente_costante_sse_costante_sulle_componenti_connesse.org}{Quindi è costante}: per ogni \(z \in \C\):
+\begin{equation*}
+f(z+\ell) - f(z) = w(\ell).
+\end{equation*}
+
+Siccome \(f\) è olomorfa, posso derivare, ottenendo che
+\begin{equation*}
+  \forall z \in \C:\qquad f'(z+\ell) = f'(z)
+\end{equation*}
+Dal momento che \(\ell \in L\), benché fissato, è arbitrario, si ha
+\begin{equation*}
+  \forall z \in \C,\ \forall \ell \in L:\qquad f'(z+\ell) = f'(z)
+\end{equation*}
+\item Se \(w_{1},w_{2} \in \C\) sono i generatori di \(L\), ovvero
+\begin{equation*}
+  L=\set{z_{1}\,w_{1}+z_{2}\,w_{2} \mid z_{1},z_{2} \in \Z}
+\end{equation*}
+allora si consideri \(P \subseteq \C\) parallelogramma chiuso di lati \(w_{1},w_{2}\). Per il punto precedente, le seguenti \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagini} sono uguali:
+\begin{equation*}
+  f'(\C) = f'(P).
+\end{equation*}
+Inoltre, \(P\) è \href{20250103163701-spazio_topologico_compatto.org}{compatto}, e dal momento che \(f'\) è continua, anche \(f'(\C)\) è compatto. Quindi \(f'\) è limitata.
+
+Per il \href{20260201200827-teorema_di_liouville.org}{Teorema di Liouville}, \(f'\) è costante, ovvero per ogni \(z \in \C\): \(f'(z) = a\) con \(a \in \C\) fissata.
+\end{itemize}
+
+Segue che \(f(z) = az+b\), ma siccome \(f(0) = 0\): \(b=0\), e
+\begin{equation*}
+\boxed{f(z) = a\cdot z.}
+\qedhere
+\end{equation*}
+\end{proof}
+
+\begin{cor}
+Siano \(X=\C/L\), \(Y=\C/M\) due tori complessi, e \(F:X\to Y\) funzione olomorfa non costante. Allora \(F\) è una composizione
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	X \& Y \& Y
+	\arrow["{\tilde{F}}", from=1-1, to=1-2]
+	\arrow["{T_{-F(0)}}", from=1-2, to=1-3]
+\end{tikzcd}
+\end{equation*}
+dove \(\tilde{F}\) è omomorfismo di gruppi indotto da una mappa \(\C\)-lineare.
+\end{cor}
+\end{document}

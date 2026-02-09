@@ -1,0 +1,22 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Isomorfismo tra tori complessi}
+\label{sec:org4111ce7}
+\begin{prop}
+Siano \(X = \C/L\), \(Y=\C/M\) \href{20260127113001-toro_complesso.org}{tori complessi}, \href{20250127093819-quoziente_di_gruppo_e_sottogruppo.org}{quozienti} con \(L, M \subseteq \C\) reticoli. Sono fatti equivalenti
+\begin{enumerate}
+\item \(X\cong Y\) sono \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{isomorfi};
+\item esiste \(\gamma \in \C\setminus\set{0}\) tale che \(\gamma\cdot L = M\).
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(\(2.\Rightarrow 1.\)): la funzione \(f:\C\to \C: z\mapsto \gamma z\) \href{20260201172613-mappe_tra_tori_complessi.org}{induce} un biolomorfismo \(F:X\to Y\).
+
+(\(1.\Rightarrow 2.\)): Sia \(F:X\to Y\) biolomorfismo. A meno di comporre per una traslazione in \(Y\), possiamo supporre che \(F(0) = 0\). \href{20260201172613-mappe_tra_tori_complessi.org}{Quindi} \(F\) è indotto da una \(f:\C\to \C\) lineare, con \(f(L) \subseteq M\). Siccome \(F\) è biunivoca, allora \(f(L) = M\).
+\end{proof}
+\end{document}

@@ -1,0 +1,45 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema del massimo modulo}
+\label{sec:org2e1ff78}
+\subsection{Versione complessa}
+\label{sec:org278b8ff}
+
+\begin{thm}
+Sia \(U \subseteq \C\) \href{20250103145124-topologia.org}{aperto} \href{20250103165325-spazio_topologico_connesso.org}{connesso}, \(f:U\to \C\) \href{20260126110551-funzione_olomorfa.org}{olomorfa} tale che il \href{20260128152203-modulo_di_un_numero_complesso.org}{modulo} \(|f|\) ha un \href{20250203102516-massimo_e_minimo.org}{massimo} in \(U\).
+Allora \(f\) è \href{20250325160105-funzione_costante.org}{costante}.
+\end{thm}
+\subsection{Per superfici di Riemann}
+\label{sec:orgbffdddb}
+
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}.
+
+\begin{thm}
+Sia \(U \subseteq X\) \href{20250103145124-topologia.org}{aperto} \href{20250103165325-spazio_topologico_connesso.org}{connesso}, \(f:U\to \C\) \href{20260126110551-funzione_olomorfa.org}{olomorfa} tale che il \href{20260128152203-modulo_di_un_numero_complesso.org}{modulo} \(|f|\) ha un \href{20250203102516-massimo_e_minimo.org}{massimo} in \(U\).
+Allora \(f\) è \href{20250325160105-funzione_costante.org}{costante}.
+\end{thm}
+
+\begin{proof}
+Sia \(z_{0} \in U\) il punto in cui \(|f|\) ha massimo, e sia \(\lambda_{0}\coloneqq f(z_{0})\). Consideriamo la retroimmagine \(f^{-1}(\lambda_{0})\):
+\begin{itemize}
+\item \(f^{-1}(\lambda_{0}) \neq \emptyset\), in quanto contiene \(z_{0}\);
+\item \(f^{-1}(\lambda_{0})\) è chiusa in \(U\), in quanto \(f\) continua e \(\C\) è di \href{20250211105133-formula_di_hausdorff.org}{Hausdorff}.
+\end{itemize}
+
+Sia quindi \(z_{1} \in f^{-1}(\lambda_{0})\), e sia \(U_{1} \subseteq U\) un intorno aperto connesso di \(z_{1}\) su cui sia definita una carta locale
+\begin{equation*}
+\varphi : U_{1} \xrightarrow{\hphantom{cc}\sim\hphantom{cc}} V \subseteq \C.
+\end{equation*}
+Allora \(V\) è connesso.
+
+Consideriamo quindi \(g\coloneqq f\circ \varphi^{-1}: V\to \C\) olomorfa. Siccome \(V\) è aperto connesso e \(|g|\) ha massimo in \(\varphi(z_{1}) \in V\), per il teorema del massimo modulo su \(\C\), \(g\) è costante in \(\lambda_{0}\).
+
+Quindi \(\restriction{f}{U_{1}}\) è costante in \(\lambda_{0}\), e pertanto \(U_{1} \subseteq f^{-1}(\lambda_{0})\).
+
+Segue che \(f^{-1}(\lambda_{0})\) è aperto in \(U\), e per connessione di \(U\), si ha la tesi.
+\end{proof}
+\end{document}

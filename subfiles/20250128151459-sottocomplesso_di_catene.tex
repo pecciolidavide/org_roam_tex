@@ -1,0 +1,30 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Sottocomplesso di catene}
+\label{sec:org856fa39}
+\subsection{Sottocomplesso di catene di \(R\)-moduli}
+\label{sec:org5b60e47}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità, e sia \(\mathcal{C}_{\bullet} = \set{(C_{n}, \partial_{n})}_{n \in \Z}\) un \href{20250120163114-complesso_di_catene.org}{complesso di catene di \(R\)-moduli}.
+
+\begin{definizione}
+Un \textbf{sottocomplesso} \(\mathcal{D}_{\bullet}\) di \(\mathcal{C}_{\bullet}\) è una \href{20250115100904-successione.org}{successione} di \href{20241206142802-sottomoduli.org}{sottomoduli} \(D_{n} \subseteq C_{n}\) tale che le \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagini}:
+\begin{equation*}
+\forall n \in \Z\qquad \partial_{n}[D_{n}] \subseteq D_{n-1}.
+\end{equation*}
+Il sottocomplesso \(\mathcal{D}_{\bullet}\) è esso stesso un \href{20250120163114-complesso_di_catene.org}{complesso di catene}
+\begin{equation*}
+\mathcal{D}_{\bullet} = \set{(D_{n}, \partial_{n}^{D})}_{n \in \Z}
+\end{equation*}
+con differenziali dati dalla \href{20250205170515-restrizione_di_una_classe.org}{restrizione} \(\partial_{n}^{D} \coloneqq \restriction{\partial_{n}}{S_{n}}\).
+\end{definizione}
+
+Un sottocomplesso dà luogo ad una naturale iniezione, ovvero al \href{20250120163759-categoria_complessi_di_catene.org}{morfismo di complessi di catene}
+\begin{equation*}
+i_{\bullet}: \mathcal{D}_{\bullet} \hookrightarrow \mathcal{C}_{\bullet},\qquad i_{\bullet} = \set{i_{n}:D_{n}\hookrightarrow C_{n}}_{n \in \Z}.
+\end{equation*}
+\end{document}

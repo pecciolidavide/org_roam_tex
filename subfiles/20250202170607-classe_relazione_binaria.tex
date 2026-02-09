@@ -1,0 +1,59 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Relazione Binaria}
+\label{sec:org2253a55}
+\section{Relazione inversa}
+\label{sec:org3f72641}
+\section{Funzione}
+\label{sec:org5755e3e}
+\section{Funzione inversa}
+\label{sec:org47a4ea3}
+\section{Composizione di funzioni}
+\label{sec:org86531a7}
+\section{Formalizzazione in MK}
+\label{sec:orge575cf0}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\subsection{Classe-Relazione Binaria MK}
+\label{sec:orge9a3a5d}
+Una \textbf{relazione binaria}, o più semplicemente una relazione, è una \href{20250130104320-classe_mk.org}{classe} i cui elementi sono \href{20250131162451-coppia_ordinata_mk.org}{coppie ordinate}.
+\subsection{Funzione}
+\label{sec:orgbdb8c0d}
+
+\subsubsection{Relazione Funzionale MK}
+\label{sec:org845f20c}
+Una relazione binaria \(R\) è \textbf{funzionale} (o Classe-Funzione) se \((x,y),(x,y') \in R\) implica che \(y=y'\)
+In tal caso, con \(R(x)\) indichiamo l'unico \(y\) tale che \((x,y) \in R\) (se esiste).
+\subsubsection{Funzione MK}
+\label{sec:org30754d5}
+Una \textbf{funzione} è una relazione funzionale che sia anche un \href{20250130104331-insieme_mk.org}{insieme}.
+\subsection{Composizione di relazioni binarie MK}
+\label{sec:orgd1a8c62}
+Se \(R\) ed \(S\) sono due relazioni binarie, allora la \textbf{composizione di \(R\) con \(S\)} è la classe
+\begin{equation*}
+R\circ S\coloneqq \set{(x,z)\, |\, \exists\, y \ \left((x,y) \in S \,\land\,  (y,z) \in R\right)}
+\end{equation*}
+Se in particolare \(R\) ed \(S\) sono relazioni funzionali, allora \(R\circ S\) è una relazione funzionale, e \(R\circ S (x) = R\left(S(x)\right)\).
+\subsection{Relazione inversa MK}
+\label{sec:orgad12ad4}
+Se \(R\) è una relazione binaria, si definisce la relazione inversa di \(R\):
+\begin{equation*}
+\breve{R} \coloneqq \set{(x,y)\,|\, (y,x) \in R}
+\end{equation*}
+\subsubsection{Classe-Funzione inversa MK}
+\label{sec:org9470ec8}
+Se \(F\) è una \hyperref[sec:org845f20c]{Classe-Funzione} \href{20241219101956-funzione_iniettiva.org}{iniettiva}, allora \(\breve{F}\) è una Classe-Funzione, denotata con \(F^{-1}\). Si dice che \(F\) è \uline{invertibile}. Vale che, per ogni elemento del \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio}, la \hyperref[sec:orgd1a8c62]{composizione} è l'identità:
+\begin{equation*}
+\forall\,x \in \operatorname{dom}(F)\ [(F^{-1}\circ F)(x) = x],\qquad \forall\,x \in \operatorname{rng}(F)\ [(F\circ F^{-1})(x) = x]
+\end{equation*}
+
+
+Inoltre, l'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine punto a punto} di \(A\) tramite \(F\) coincide con la \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{retroimmagine} di \(A\) tramite \(F^{-1}\), dunque la notazione seguente è priva di ambiguità:
+\begin{equation*}
+F^{-1}[A].
+\end{equation*}
+\end{document}

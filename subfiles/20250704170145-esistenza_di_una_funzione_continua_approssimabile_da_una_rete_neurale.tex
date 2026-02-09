@@ -1,0 +1,52 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{thm}
+Sia \(N\ge {1}\) un intero fissato, e si consideri una \href{20250624155858-neurone_artificiale.org}{rete neurale} con un \href{20250624155858-neurone_artificiale.org}{layer nascosto} tale che:
+\begin{enumerate}
+\item l'input della rete sia una variabile reale \(x \in [a,b]\);
+\item l'output della rete sia un \href{20250624155858-neurone_artificiale.org}{neurone} unidimensionale con \href{20250624155858-neurone_artificiale.org}{funzione di attivazione lineare} e zero bias;
+\item ci sono \(N\) neuroni nel layer nascosti con una funzione di attivazione differenziabile tale che \(|\sigma'|<\lambda<1\);
+\item i pesi soddisfano la condizione di \href{20250624155858-neurone_artificiale.org}{regolarizzazione}:
+\begin{equation*}
+ \sum_{j=1}^{N} (\alpha_{j}^{2} + w_{j}^{2})\le 1
+\end{equation*}
+dove i \(w_{j}\) sono i pesi per l'input al layer nascosto, e gli \(a_{j}\) sono i pesi dal layer nascosto all'output.
+\end{enumerate}
+
+Allora esiste una \href{20250103103252-funzione_continua.org}{funzione continua} \(g:[a,b]\to \R\) che può essere approssimata dalla rete.
+\end{thm}
+
+\begin{proof}
+È sufficiente mostrare che la famiglia di funzioni output del sistema sia composta da funzioni continue, e che sia \href{20250629113211-famiglia_di_funzioni_equicontinua.org}{equicontinua} e \href{20250629110306-funzioni_uniformemente_limitate.org}{uniformemente limitata}.
+
+Con una banale applicazione del \href{20250629120441-teorema_di_ascoli_arzela.org}{Teorema di Ascoli-Arzelà}, si ottiene che ogni \href{20250629105815-successione_di_funzioni.org}{successione} di funzioni output ammette una sottosuccessione \href{20250629105745-convergenza_uniforme.org}{convergente uniformemente} ad una funzione continua; quest'ultima, data la uniforme convergenza, viene approssimata dalla rete con un grado di accuratezza arbitrario.
+\end{proof}
+\begin{prop}
+Anche per una \href{20250624155858-neurone_artificiale.org}{rete neurale} composta da un unico \href{20250624155858-neurone_artificiale.org}{neurone}, con output
+\begin{equation*}
+f_{\bm{w},b}(\bm{x}) = \sigma(\bm{w}\cdot\bm{x} + b)
+\end{equation*}
+dove \(\sigma\) è la \href{20250624155858-neurone_artificiale.org}{funzione logistica}, con pesi \(\bm{w} \in \R^{n}, b \in \R\) e input \(\bm{x} \in I_{n} \coloneqq [0,1]^{n}\), esiste una \href{20250103103252-funzione_continua.org}{funzione continua} \(g:I^{n}\to \R\) che può essere approssimata. Si supponga che \(\norma{\bm{w}}\le 1\).
+\end{prop}
+
+
+\begin{proof}
+Infatti, la famiglia di funzioni continue
+\begin{equation*}
+\mathcal{F} \coloneqq \set{f_{\bm{w},b}\mid \norma{\bm{w}}\le 1, b \in \R}
+\end{equation*}
+è \href{20250629110306-funzioni_uniformemente_limitate.org}{uniformemente limitata} poiché \(|f_{\bm{w},b}|< 1\), ed inoltre è equicontinua, in quanto, per il \href{20250629143200-teorema_di_lagrange.org}{Teorema di Lagrange}
+\begin{align*}
+|f_{\bm{w},b}(\bm{x})-f_{\bm{w},b}(\bm{y}) | &= \big\lvert \sigma(\bm{w}\cdot\bm{x} + b) - \sigma(\bm{w}\cdot\bm{y} + b)\big\rvert\\
+&\le \max|\sigma'|\ |\bm{w}\cdot\bm{x} + b - \bm{w}\cdot\bm{y} - b|\\
+&= \frac{1}{4} |\bm{w}\cdot(\bm{x}-\bm{y})| \le \frac{1}{4} \norma{\bm{w}}\cdot \norma{\bm{x}-\bm{y}} \\
+&\le \frac{1}{4}\norma{\bm{x}-\bm{y}}.
+\end{align*}
+
+Con una banale applicazione del \href{20250629120441-teorema_di_ascoli_arzela.org}{Teorema di Ascoli-Arzelà}, si ottiene che ogni \href{20250629105815-successione_di_funzioni.org}{successione} di funzioni output ammette una sottosuccessione \href{20250629105745-convergenza_uniforme.org}{convergente uniformemente} ad una funzione continua; quest'ultima, data la uniforme convergenza, viene approssimata dalla rete con un grado di accuratezza arbitrario.
+\end{proof}
+\end{document}

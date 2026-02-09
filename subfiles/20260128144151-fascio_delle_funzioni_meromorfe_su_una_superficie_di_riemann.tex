@@ -1,0 +1,44 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Fascio delle funzioni meromorfe su una superficie di Riemann}
+\label{sec:org4627713}
+\begin{definizione}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}. Il \uline{\href{20250324174728-fascio.org}{fascio} delle funzioni meromorfe} su \(X\), denotato con \(\mathcal{M}_{X}\), è definito come:
+\begin{itemize}
+\item per ogni \(U \subseteq X\): \(\mathcal{M}_{X}(U) = \set{f\text{ meromorfa su }U}\) l'\href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{insieme delle funzioni meromorfe}
+\item le \href{20250205170515-restrizione_di_una_classe.org}{restrizioni ovvie}.
+\end{itemize}
+\end{definizione}
+
+\begin{oss}
+Per ogni \(U \subseteq X\), \(\mathcal{M}_{X}(U)\) è una \(C\)-algebra.
+\end{oss}
+
+\begin{oss}
+Il \href{20260128143847-fascio_delle_funzioni_olomorfe_su_una_superficie_di_riemann.org}{fascio \(\mathcal{O}_{X}\)} è un \href{20250325150647-sottoprefascio.org}{sottofascio} di \(\mathcal{M}_{X}\).
+\end{oss}
+
+\begin{prop}
+Se \(U\) è connesso, allora \(\mathcal{M}_{X}(U)\) è un \href{20241205142049-campo.org}{campo}.
+\end{prop}
+
+\begin{proof}
+Infatti, sia \(\mathcal{M}_{X}(U)\), \(f\not\equiv 0\). Si definisca
+\begin{align*}
+Z&\coloneqq \set{\text{zeri di \(f\)}}\\
+S&\coloneqq \set{\text{poli di \(f\)}}
+\end{align*}
+
+Allora \(f: U \setminus (Z\cup S) \to \C\) è olomorfa mai nulla, e pertanto
+\begin{equation*}
+\frac{1}{f}:  U \setminus (Z\cup S) \to \C
+\end{equation*}
+è olomorfa, con \(Z\cup S\) discreto.
+
+Allora \(\frac{1}{f}\) ha zeri in \(S\) e poli in \(Z\)\footnote{Questo lo si vede con la \href{20260128130443-comportamento_locale_di_una_funzione_analitica.org}{scrittura locale in serie di potenze}.}, e quindi è meromorfa.
+\end{proof}
+\end{document}

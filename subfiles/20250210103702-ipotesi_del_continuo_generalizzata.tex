@@ -1,0 +1,43 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Ipotesi del continuo generalizzata}
+\label{sec:org5662b1f}
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\begin{definizione}
+\begin{description}
+\item[{Assumento \href{20250206171508-axiom_of_choiche.org}{AC}:}] L'\uline{ipotesi del continuo generalizzata} è\footnote{Vedi:
+\begin{itemize}
+\item \href{20250203111003-ordinali.org}{Ordinali}
+\item \href{20250207123015-aritmentica_per_gli_ordinali.org}{Aritmetica per gli ordinali}
+\item \href{20250207122627-funzione_aleph.org}{Funzione Aleph}
+\item \href{20250612151505-aritmetica_dei_cardinali.org}{Elevamento a potenza di cardinali}
+\end{itemize}}
+\begin{equation*}
+  \forall\alpha \in \operatorname{Ord}\ (2^{\aleph_{\alpha}} = \aleph_{\alpha\dotplus 1}).
+\end{equation*}
+
+Equivalentemente, significa che\footnote{Vedi:
+\begin{itemize}
+\item \href{20241213101756-cardinalita.org}{Cardinalità}
+\end{itemize}}
+\begin{equation*}
+  \forall X \subseteq \parti{\aleph_{\alpha}}\ (\card{X} \le \aleph_{\alpha} \lor \card{X} = \card{\parti{\aleph_{\alpha}}})
+\end{equation*}
+
+\item[{Senza \href{20250206171508-axiom_of_choiche.org}{AC}:}] L'ipotesi del continua generalizzata diventa:\footnote{Vedi:
+\begin{itemize}
+\item \href{20250130104245-morse_kelly_set_theory.org}{Insieme delle parti per MK}
+\item ``\(\embeds\)'': \href{20241219101956-funzione_iniettiva.org}{Classe si inietta}
+\item ``\(\equipotenti\)'': \href{20250619101109-classi_equipotenti.org}{Classi equipotenti MK}
+\end{itemize}}
+\begin{equation*}
+  \forall X\ \forall A \subseteq \parti{X}\ (\card{A} \embeds X \lor A \equipotenti \parti{X})
+\end{equation*}
+e quando descritta in questo modo \textbf{implica \href{20250206171508-axiom_of_choiche.org}{AC}}.
+\end{description}
+\end{definizione}
+\end{document}

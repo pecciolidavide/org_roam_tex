@@ -1,0 +1,102 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Fascio associato ad un divisore su una superficie di Riemann}
+\label{sec:org4b2a165}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, e sia \(\operatorname{Div}(X)\) il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{gruppo dei divisori di \(X\)}. Fissiamo \(D \in \operatorname{Div}(X)\)
+
+\uline{Notazione}:
+Se \(U \subseteq X\) è un aperto, denotiamo con \(\restriction{D}{U}\) la restrizione di \(D\) a \(U\):
+\begin{equation*}
+\restriction{D}{U}:U\to \Z
+\end{equation*}
+a \href{20260201235333-gruppo_delle_funzioni_in_z.org}{supporto} \href{20260128123515-sottoinsieme_discreto.org}{discreto}.
+
+\begin{definizione}
+Si definisce il \href{20250324174728-fascio.org}{fascio} associato a \(D\), \(\mathcal{O}_{X}(D)\):
+\begin{itemize}
+\item per ogni \(U \subseteq X\) aperto:\footnote{Alcune note:
+\begin{itemize}
+\item \(\mathcal{M}_{X}\) indica il \href{20260128144151-fascio_delle_funzioni_meromorfe_su_una_superficie_di_riemann.org}{fascio delle funzioni meromorfe};
+\item \(\operatorname{div}f\) è il divisore di \(f\);
+\item ``\(\ge 0\)'' indica che è un \href{20260202100903-divisore_effettivo_di_una_superficie_di_riemann.org}{divisore effettivo};
+\item \(\mathrm{ord}_{p}\,f\) indica l'\href{20260128144450-ordine_di_una_funzione_meromorfa_su_una_superficie_di_riemann.org}{ordine di \(f\) in \(p\)}.
+\end{itemize}}
+\begin{align*}
+  \mathcal{O}_{X}(D)(U) &\coloneqq
+  \set{%
+  	f \in \mathcal{M}_{X}(U) \mid %
+  	\operatorname{div} f + \restriction{D}{U} \ge 0 %
+  }\\
+  &= \set{
+  	f \in \mathcal{M}_{X}(U) \mid %
+  	\forall  p \in U:\ \mathrm{ord}_{p}\, f \ge - D(p)
+  }
+\end{align*}
+
+\item le \href{20250205170515-restrizione_di_una_classe.org}{restrizioni ovvie}.
+\end{itemize}
+
+Questo è un fascio di spazi vettoriali.
+\end{definizione}
+
+Si noti che nella definizione di \(\mathcal{O}_{X}(D)(U)\) si è fatto un piccolo abuso di notazione:
+\begin{equation*}
+\operatorname{div}f + \restriction{D}{U} \ge 0
+\end{equation*}
+è ben definita solo nelle componenti connesse di \(U\) dove \(f\not\equiv 0\), e pertanto viene imposta solo lì.
+
+\begin{prop}
+Siano \(p \in U \subseteq X\) e \(f \in \mathcal{O}_{X}(D)(U)\).
+\begin{enumerate}
+\item Se \(D(p) = 0\), ovvero \(p\notin \operatorname{supp}D\), \href{20260128144433-ordine_di_una_funzione_meromorfa.org}{allora} \(f\) è olomorfa in \(p\). Pertanto\footnote{Si indica con \(\mathcal{O}_{X}\) il \href{20260128143847-fascio_delle_funzioni_olomorfe_su_una_superficie_di_riemann.org}{fascio delle funzioni olomorfe}.}
+\begin{equation*}
+\mathcal{O}_{X}(D)(U) \subseteq \mathcal{O}_{X}(U\setminus\operatorname{supp}D)
+\end{equation*}
+\item Se \(D(p)<0\), allora \(f \in \mathcal{O}_{X}(D)(U)\) è \href{20260126110551-funzione_olomorfa.org}{olomorfa} e nulla in \(p\), con uno zero di \href{20260128124105-ordine_di_una_funzione_olomorfa.org}{ordine} almeno \(|D(p)|\).
+\item Se \(D(p)>0\) allora \(f\) può avere un \href{20260128154601-singolarita_isolata_analisi_complessa.org}{polo} in \(p\) di ordine al più \(D(p)\).
+\end{enumerate}
+\end{prop}
+
+\begin{esempio}
+In particolare, se \(D = -p\), allora \(\mathcal{O}_{X}(-p)\) è il fascio delle funzioni olomorfe e nulle in \(p\), \(\mathcal{O}_{X}(-p) \subseteq \mathcal{O}_{X}\).
+\end{esempio}
+
+\begin{prop}
+Indicato con \(\mathcal{M}_{X}\) il \href{20260128144151-fascio_delle_funzioni_meromorfe_su_una_superficie_di_riemann.org}{fascio delle funzioni meromorfe}, si ha che
+\begin{enumerate}
+\item Per ogni \(U \subseteq X\):
+\begin{equation*}
+ \mathcal{O}_{X}(D)(U) \subseteq \mathcal{M}_{X}(U)
+\end{equation*}
+è \href{20250114103118-sottospazio_vettoriale.org}{\(\C\)-sottospazio vettoriale};
+\item \(\mathcal{O}_{X}(D) \subseteq \mathcal{M}_{X}\) è \href{20250325150647-sottoprefascio.org}{sottoprefascio}.
+\item \(\mathcal{O}_{X}(D) \subseteq \mathcal{M}_{X}\) è \href{20250325150647-sottoprefascio.org}{sottofascio}.
+\end{enumerate}
+\end{prop}
+
+
+\begin{prop}
+Siano \(D, D_{1}, D_{2} \in \operatorname{Div}(X)\).
+\begin{enumerate}
+\item Se \(D=0\), allora \(\mathcal{O}_{X}(D)=\mathcal{O}_{X}\) \href{20260128143847-fascio_delle_funzioni_olomorfe_su_una_superficie_di_riemann.org}{fascio delle funzioni olomorfe}.
+\item Se \(D \ge 0\)\footnote{Ovvero \(D\) è \href{20260202100903-divisore_effettivo_di_una_superficie_di_riemann.org}{effettivo}}, allora \(\mathcal{O}_{X} \subseteq \mathcal{O}_{X}(D)\) (in quanto non si stanno imponendo zeri).
+\item Se \(D_{1}\le D_{2}\)\footnote{Vedi la \href{20260202100903-divisore_effettivo_di_una_superficie_di_riemann.org}{relazione d'ordine tra divisori}.}, allora \(\mathcal{O}_{X}(D_{1}) \subseteq \mathcal{O}_{X}(D_{2})\) è \href{20250325150647-sottoprefascio.org}{sottofascio}.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+La 3. è l'unica che necessita una dimostrazione. Se \(D_{1} \le D_{2}\), allora per ogni \(p \in X\):
+\begin{align*}
+D_{1}(p) &\le D_{2}(p)\\
+-D_{1}(p) &\ge -D_{2}(p)
+\end{align*}
+e dunque se \(f \in \mathcal{O}_{X}(D_{1})(U)\): per ogni \(p \in U\) l'\href{20260128144450-ordine_di_una_funzione_meromorfa_su_una_superficie_di_riemann.org}{ordine} è
+\begin{equation*}
+\mathrm{ord}_{p} \, f \ge - D_{1}(p) \ge -D_{2}(p)
+\end{equation*}
+e quindi \(f \in \mathcal{O}_{X}(D_{2})\).
+\end{proof}
+\end{document}

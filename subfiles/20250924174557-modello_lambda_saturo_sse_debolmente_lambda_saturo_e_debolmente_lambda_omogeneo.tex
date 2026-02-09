@@ -1,0 +1,43 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Let \(\card{\mathcal{L}}<\lambda\). Prove that the following are equivalent:
+\begin{enumerate}
+\item \(N\) is \href{20250617095548-modello_lambda_saturo.org}{\(\lambda\)-saturated};
+\item \(N\) is weakly \(\lambda\)-saturated and weakly \(\lambda\)-homogeneous.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Un modello \(\lambda\)-saturo è ovviamente debolmente \(\lambda\)-saturo, per la caratterizzazione data dal Teorema~9.5.
+
+Per dimostrare che \(N\) sia debolmente \(\lambda\)-omogeneo, sia \(f:N\to N\) con \(\card{f}<\lambda\), e sia \(b \in N\). Denotato con \(a\) una enumerazione di \(\dom f\), \(\card{a}<\lambda\).
+
+Sia quindi \(p(x;z)\) il tipo \(\operatorname{tp}_{N}(b;a)\): il tipo \(p(x;a)\) è finitamente soddisfacibile (ne è testimone \(b\)), quindi è finitamente soddisfacibile il tipo \(p(x;fa)\). Siccome \(p(x;fa) \subseteq \mathcal{L}(fa)\), con \(\card{fa}=\card{a}<\lambda\), per \(\lambda\)-saturazione esiste \(c \in N\) tale che \(N,c\vDash p(x;fa)\).
+
+Pertanto \(f\cup\set{\langle b,c\rangle}\) è una mappa elementare, e \(N\) è debolmente \(\lambda\)-omogenea.
+
+(\(2.\Rightarrow 1.\)): Si consideri il tipo finitamente soddisfacibile in una variabile \(p(x) \subseteq \mathcal{L}(A)\), \(\card{A}<\lambda\).
+
+Sia \(a\) una enumerazione di \(A\), e sia \(q(x;z) \subseteq \mathcal{L}(\emptyset)\) il tipo con \(\card{z}=\card{a}<\lambda\) tale che
+\begin{equation*}
+p(x) = q(x;a).
+\end{equation*}
+In particolare, \(\card{x;z}\le \lambda\). Si consideri inoltre \(r(z) = \operatorname{tp}_{N}(a) \subseteq \mathcal{L}(\emptyset)\).
+
+Allora il tipo \(s(x;z) \coloneqq q(x;z)\cup r(z) \subseteq \mathcal{L}(\emptyset)\) ha variabile \(\card{x;z}\le\lambda\), e inoltre è finitamente soddisfacibile, poiché \(p(x)\) è finitamente soddisfacibile.
+
+Per debole \(\lambda\)-saturazione esistono \(b \in N\), \(a' \in N^{z}\) tali che
+\begin{equation*}
+N, (b;a')\vDash s(x;z)
+\end{equation*}
+e pertanto, in particolare, \(f:a'\mapsto a\) è una mappa elementare, \(\card{f}<\lambda\). Per debole \(\lambda\)-omogeneità, esiste \(c \in N\) tale che \(f\cup\set{\langle b,c\rangle}\) sia una mappa elementare, e dunque
+\begin{equation*}
+N, (c;a)\vDash s(x;z)
+\end{equation*}
+e per definizione di \(s\) questo significa che \(N,c\vDash p(x)\).
+\end{proof}
+\end{document}

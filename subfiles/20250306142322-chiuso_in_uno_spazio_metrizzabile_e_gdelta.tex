@@ -1,0 +1,27 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:org4770e9c}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250301193401-spazio_topologico_metrizzabile.org}{metrizzabile}, e sia \(F \subseteq X\) un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \href{20250103145124-topologia.org}{chiuso}.
+Allora \(F\) è un \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{insieme \(\bm{G}_{\delta}\)}.
+\subsection{Dimostrazione}
+\label{sec:org7bed116}
+Sia \(d\) una \href{20250301193511-spazio_metrico.org}{metrica} \href{20250301193530-topologia_indotta_da_una_distanza.org}{compatibile} su \(X\).
+
+Si denoti con
+\begin{equation*}
+B_{d}(x,\varepsilon) \coloneqq \set{y \in X\ |\ d(x,y)<\varepsilon}
+\end{equation*}
+
+Per ogni \(n \in \N\) si definisce
+\begin{equation*}
+U_{n} \coloneqq \bigcup_{x \in F} B_{d}(x, 2^{-n})
+\end{equation*}
+(vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata})
+
+Allora \(F= \bigcap_{n \in \N} U_{n}\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Intersezione Generalizzata}).
+\end{document}

@@ -1,0 +1,22 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Morfismo di fasci induce omomorfismo tra spighe}
+\label{sec:org4042b19}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}, \(\mathcal{F}, \mathcal{G}\) due (\href{20250324165349-prefascio.org}{pre})\href{20250324174728-fascio.org}{fasci} di \href{20241205141146-gruppo_abeliano.org}{gruppi} su \(X\) e \(f:\mathcal{F}\to\mathcal{G}\) un morfismo di (\href{20250325180613-morfismo_di_prefasci.org}{pre})\href{20250325180613-morfismo_di_prefasci.org}{fasci}.
+
+Allora, per ogni \(p \in X\), \(f\) induce un \href{20241206115531-morfismo_di_gruppi.org}{morfismo di gruppi} tra le \href{20250325183434-spiga_di_un_prefascio.org}{spighe} corrispondenti\footnote{Infatti \href{20250325183434-spiga_di_un_prefascio.org}{le spighe hanno struttura di gruppo}}
+\begin{align*}
+f_{p}: \mathcal{F}_{p} &\longrightarrow \mathcal{G}_{p}\\
+s &\longmapsto [f_{U}(\psi)]_{p}
+\end{align*}
+dove \(U\) e \(\psi\) sono come segue: per \(s \in \mathcal{F}_{p}\), esiste \(U \ni p\) \href{20250111142313-intorno.org}{intorno} \href{20250103145124-topologia.org}{aperto} ed esiste \(\psi \in \mathcal{F}(U)\) tale che
+\begin{equation*}
+s = [\psi]_{p}, \qquad f_{U}(\psi) \in \mathcal{G}(U).
+\end{equation*}
+
+\uline{Esercizio}: mostrare che sia ben definito e omomorfismo di gruppi.
+\end{document}

@@ -1,0 +1,124 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\begin{thm}
+Siano \(X,Z\) due \href{20250130104320-classe_mk.org}{classi}, e sia \(R \subseteq X\times X\) una \href{20250202170607-classe_relazione_binaria.org}{relazione} \href{20250619161501-caratteristiche_delle_relazioni_binarie.org}{irriflessiva}, \href{20250203095749-relazione_left_narrow_mk.org}{regolare} e \href{20250203100901-relazione_well_founded_mk.org}{ben fondata}. Sia \(V\) la \href{20250203104513-classe_totale.org}{classe di tutti gli insiemi}. Sia \(F:Z\times X\times V\to V\)\footnote{Vedi ``\href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano}''}.
+
+Allora vi è un'unica \href{20250202170607-classe_relazione_binaria.org}{classe-funzione} \(G:Z\times X\to V\) tale che per ogni \href{20250131162451-coppia_ordinata_mk.org}{coppia} \((z,x) \in Z\times X\)\footnote{Con ``\(\upharpoonright\)'' si intende la \href{20250205170515-restrizione_di_una_classe.org}{restrizione}.}
+\begin{equation*}
+G(z,x) = F\big(
+z,x,G\upharpoonright \set{(z,y)\ |\ y\mathrel{R} x}
+\big).
+\end{equation*}
+\end{thm}
+\begin{oss}
+Per \((z,x)\) fissati,
+\begin{equation*}
+G\upharpoonright \set{(z,y)\ |\ y\mathrel{R}x} \in V
+\end{equation*}
+per l'Axiom of Replacement, poiché \(R\) è left-narrow \(\set{(z,y)\ |\ y\mathrel{R}x} \in V\) e dunque \(G\upharpoonright \set{(z,y)\ |\ y\mathrel{R}x}\) si può scrivere come l'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine punto a punto} di \(\set{(z,y)\ |\ y\mathrel{R}x}\) tramite qualche \href{20250202170607-classe_relazione_binaria.org}{classe-funzione}.
+\end{oss}
+\section{Dimostrazione del Teorema}
+\label{sec:org382e8cd}
+
+\subsection{Unicità della classe funzione}
+\label{sec:org7f657dd}
+
+Siano \(G,G':Z\times X\to V\) che soddisfano la tesi del teorema, e tali che \(G\neq G'\).
+
+Sia \(\overline{z} \in Z\) fissato tale che
+\begin{equation*}
+Y \coloneqq \set{x \in X\ |\ G(\overline{z},x)\neq G'(\overline{z},x)} \neq \emptyset.
+\end{equation*}
+In particolare, \(Y \subseteq X\), e dunque, per la buona fondazione di \(R\), esiste un elemento \(R\)-minimale di \(Y\). Sia \(\overline{x} \in Y\).
+
+Allora
+\begin{equation*}
+G\upharpoonright \set{(\overline{z},y)\ |\ y\mathrel{R}\overline{x}} =G'\upharpoonright \set{(\overline{z},y)\ |\ y\mathrel{R}\overline{x}} \eqqcolon \overline{p}
+\end{equation*}
+
+Siccome \(R\) è left-narrow, allora \(\overline{p}\) è un \href{20250130104331-insieme_mk.org}{insieme} (per l'osservazione). Dunque ha senso scrivere
+\begin{align*}
+F(\overline{z},\overline{x},\overline{p}) &= G(\overline{z},\overline{x})\\
+ &= G'(\overline{z},\overline{x})
+\end{align*}
+
+Assurdo.
+\subsection{Esistenza}
+\label{sec:orgaaa9a31}
+
+Sia \(\mathcal{G}\) la classe di tutte le funzioni \(p\) tali che
+
+\begin{enumerate}
+\item \(\operatorname{dom}p \subseteq Z\times X\);
+\item \(\forall\,(z,x) \in \operatorname{dom}(p)\ \forall\, y \in X\ \left(y\mathrel{R}x\,\implies\, (z,y) \in \operatorname{dom}(p)\right)\).
+\item \(\forall\,(z,x) \in \operatorname{dom}(p)\ \left[p(z,x) = F\left(z,x,p\upharpoonright \set{(z,y)\ |\ y\mathrel{R}x}\right)\right]\)
+\end{enumerate}
+
+Inoltre, 2. è equivalente alla seguente 2'.
+\begin{equation*}
+\forall\,(z,x) \in \operatorname{dom}(p)\ \left[
+\set{z}\times \set{y \in X\ |\ y\mathrel{\tilde{R}}x} \subseteq \operatorname{dom}(p)
+\right]
+\end{equation*}
+\subsubsection{Claim}
+\label{sec:orge0c2e11}
+
+Se \(p,q \in \mathcal{G}\) allora \(p\cup q\) è una funzione, e inoltre \(p\cup q \in \mathcal{G}\).
+\subsubsection{Dimostrazione del claim}
+\label{sec:orge19e19e}
+
+Supponiamo che
+\begin{equation*}
+\set{x \in X\ |\ \exists\,z \in Z\ (z,x) \in \operatorname{dom}(p)\cap \operatorname{dom}q \,\land\, p(z,x)\neq q(z,x)} \subseteq X
+\end{equation*}
+sia non vuoto. Per la well-foundness di \(R\), sia \(\overline{x}\) l'elemento \(R\)-minimale della classe di cui sopra.
+
+Sia \(\overline{z} \in Z\) tale che \((\overline{z},\overline{x}) \in \operatorname{dom}(p)\cap \operatorname{dom}(q)\) e \(p(\overline{z},\overline{x})\neq q(\overline{z},\overline{x})\).
+
+Per la 2'. si ha che \(\set{(\overline{z},y)\ |\ y\mathrel{R}\overline{x}} \subseteq \operatorname{dom}(p)\cap \operatorname{dom}(q)\). Inoltre, per la \(R\)-minimalità di \(\overline{x}\):
+\begin{equation*}
+p\upharpoonright \set{(\overline{z},y)\ |\ y\mathrel{R}\overline{x}} = q\upharpoonright \set{(\overline{z},y)\ |\ y\mathrel{R}\overline{x}} \eqqcolon \overline{r}
+\end{equation*}
+e pertanto, per 3.
+\begin{equation*}
+p(\overline{z},\overline{x}) = F(\overline{z},\overline{x},\overline{r}) = q(\overline{z},\overline{x})
+\end{equation*}
+Assurdo.
+
+È facile verificare che \(p\cup q \in \mathcal{G}\).
+\subsubsection{Costruzione della classe funzione}
+\label{sec:org22820d3}
+
+Sia dunque \(G=\bigcup \mathcal{G}\)\footnote{Vedi ``\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Unione generalizzata}''}. Questa è una \href{20250202170607-classe_relazione_binaria.org}{classe funzione} grazie a \href{20250202180416-unione_di_relazioni_funzionali_mk.org}{Unione di funzioni MK} (tramite il claim), con dominio \(\subseteq Z\times X\). Inoltre, \(G\) soddisfa la tesi del thm per ogni \((z,x) \in \operatorname{dom}G\).
+\subsubsection{Dominio della classe funzione}
+\label{sec:orgc28fb74}
+
+Supponiamo per assurdo che \(Z\times X\setminus \operatorname{dom}(G)\neq \emptyset\)\footnote{Vedi ``\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottrazione insiemistica}'' e ``\href{20250131161811-insieme_vuoto_mk.org}{Insieme vuoto}''}.
+Sia allora \(\overline{x}\) l'elemento \(R\)-\href{20250203102516-massimo_e_minimo.org}{minimale} di
+\begin{equation*}
+\set{x \in X\ |\ \exists\,z \in Z\ (z,x)\notin \operatorname{dom}(G)} \subseteq X
+\end{equation*}
+che esiste per well-foundness di \(R\). Sia inoltre \(\overline{z} \in Z\) tale che \((\overline{z},\overline{x})\notin \operatorname{dom}(G)\).
+
+Per una \href{20250207121738-chiusura_transitiva_di_una_relazione_mk.org}{proposizione precedente} \(\tilde{R}\) è left-narrow, e pertanto \(\set{(\overline{z},y)\ |\ y\mathrel{\tilde{R}}\overline{x}}\) è un insieme, e dunque per l'osservazione si ha che
+\begin{equation*}
+\overline{p} \coloneqq G\upharpoonright \set{(\overline{z},y)\ |\ y\mathrel{\tilde{R}}\overline{x}} \in V
+\end{equation*}
+Inoltre \(\overline{p} \in\mathcal{G}\), e inoltre
+\begin{equation*}
+\overline{p}\cup \set{
+\left(
+(\overline{z},\overline{x}), F\left(
+\overline{z},\overline{x},\overline{p}
+\right)
+\right)
+} \in \mathcal{G}.
+\end{equation*}
+
+Dunque \((\overline{z},\overline{x}) \in \operatorname{dom} G\). Assurdo.\qed
+\end{document}

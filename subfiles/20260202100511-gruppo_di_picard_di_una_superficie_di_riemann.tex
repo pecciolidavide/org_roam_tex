@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Gruppo di Picard di una superficie di Riemann}
+\label{sec:orga541a50}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, e si indichi con \(\operatorname{Div}(X)\) il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{gruppo dei divisori} e con \(\operatorname{PDiv}(X)\) il \href{20241206143051-sottogruppo.org}{sottogruppo} dei \href{20260202095650-divisore_di_una_funzione_meromorfa.org}{divisori principali}.
+
+\begin{definizione}
+Il \textbf{gruppo di Picard di \(X\)} è il \href{20250127093819-quoziente_di_gruppo_e_sottogruppo.org}{quoziente}
+\begin{equation*}
+\operatorname{Pic}(X) \coloneqq \frac{\operatorname{Div}(X)}{\operatorname{PDiv}(X)}.
+\end{equation*}
+\end{definizione}
+\begin{oss}
+Questo è un \href{20250127093245-gruppo_abeliano.org}{gruppo abeliano}, e i suoi elementi sono \href{20250114100810-quoziente_rispetto_a_relazione_di_equivalenza.org}{classi} di \href{20260202100443-divisori_linearmente_equivalenti_di_una_superficie_di_riemann.org}{equivalenza lineare}.
+\end{oss}
+\subsection{Grado di un elemento del gruppo di Picard}
+\label{sec:orge7ce7fc}
+\begin{prop}
+Se \(X\) è \href{20250103163701-spazio_topologico_compatto.org}{compatta}, allora \(\deg\)\footnote{La funzione \(\deg\) indica il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{grado di un divisore}.} passa al quoziente e definisce un \href{20241206115531-morfismo_di_gruppi.org}{omomorfismo di gruppi} \href{20241213105600-funzione_suriettiva.org}{suriettivo}
+\begin{align*}
+\deg: \operatorname{Pic}(X) &\longrightarrow \Z\\
+[D] &\longmapsto \deg D.
+\end{align*}
+\end{prop}
+\begin{proof}
+Infatti, se \(f\) è \href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{meromorfa} e non nulla, \href{20260128144151-fascio_delle_funzioni_meromorfe_su_una_superficie_di_riemann.org}{\(f \in \mathcal{M}(X)\setminus\set{0}\)}, \href{20260129171638-somma_ordini_di_una_funzione_meromorfa_su_una_superficie_di_riemann_e_nulla.org}{allora}\footnote{Con \(\mathrm{ord}_{p}\) si indica l'\href{20260128144450-ordine_di_una_funzione_meromorfa_su_una_superficie_di_riemann.org}{ordine}.}
+\begin{equation*}
+\deg\big(\operatorname{div}f\big) = \sum_{p \in X} \operatorname{ord}_{p}\, f = 0.
+\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

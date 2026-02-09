@@ -1,0 +1,27 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Definizione}
+\label{sec:orgab43dce}
+Sia \(X\) una \href{20250130104320-classe_mk.org}{classe}, e sia \(R \subseteq X\times X\) una \href{20250202170607-classe_relazione_binaria.org}{relazione} \href{20250619161501-caratteristiche_delle_relazioni_binarie.org}{irriflessiva}, \href{20250203095749-relazione_left_narrow_mk.org}{left-narrow} e \href{20250203100901-relazione_well_founded_mk.org}{well-founded}.
+La \href{20250202170607-classe_relazione_binaria.org}{classe funzione} con \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} \(X\) definita come segue
+\begin{equation*}
+\bm{\pi}_{R,X}(x) = \set{\bm{\pi}_{R,X}(y)\ |\ y\mathrel{R}x}
+\end{equation*}
+è il \uline{collasso di Mostowski}. Questa è ben definita per il \href{20250207121906-teorema_di_ricorsione.org}{Teorema di Ricorsione}
+
+La classe
+\begin{equation*}
+\overline{X} \coloneqq \operatorname{ran}(\bm{\pi}_{R,X})
+\end{equation*}
+è detto \uline{collasso transitivo di \(R\) e \(X\)}.
+
+Si verifica facilmente che \(\overline{X}\) è \href{20250203110714-classe_transitiva.org}{transitivo}, e che
+\begin{equation*}
+\forall\,x,y \in X\ (y\mathrel{R}x\,\implies\, \bm{\pi}_{R,X}(y) \in \bm{\pi}_{R,X}(x))
+\end{equation*}
+\end{document}

@@ -1,0 +1,45 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Sia \(\varphi:\R\to \R\) tale che
+\begin{enumerate}
+\item \(\varphi\) sia \href{20250203132953-funzione_monotona.org}{crescente};
+\item \((\lim_{x\to+\infty}\varphi(x))-(\lim_{x\to-\infty}\varphi(x)) = 1\);
+\item \(\varphi\) sia \href{20250627155431-funzione_derivabile.org}{derivabile}, con \(|\varphi'(x)|\) limitata.
+\end{enumerate}
+
+Sia \(\varphi_{\varepsilon}(x) \coloneqq \varphi(x/\varepsilon)\) e sia \(\mu_{\varepsilon}\) la misura con densità \(\varphi_{\varepsilon}'\):
+\begin{equation*}
+\dif\mu_{\varepsilon}(x) = \varphi_{\varepsilon}'(x)\dif x.
+\end{equation*}
+Allora\footnote{\(\delta\) è la \href{20250625100133-delta_di_dirac.org}{Delta di Dirac}} \(\varphi_{\varepsilon}\to \delta\) in senso debole, per \(\varepsilon\to 0\), ovvero, per ogni \(g \in C^{\infty}(\R)\)\footnote{Vedi \href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}} a \href{20250701115005-supporto_di_una_funzione.org}{supporto} \href{20250103163701-spazio_topologico_compatto.org}{compatto}:
+\begin{equation*}
+\lim_{\varepsilon\to 0} \int_{\R} g(x)\dif \mu_{\varepsilon}(x) = \int_{\R} g(x)\delta(x)\dif x.
+\end{equation*}
+\end{prop}
+\begin{proof}
+Sia \(g \in C^{\infty}(\R)\) a supporto compatto.
+\begin{align*}
+\int_{\R}g(x)\dif\mu_{\varepsilon}(x) &= \int_{\R} g(x)\,\varphi_{\varepsilon}'(x)\dif x\\
+&= \int_{\R} g(x)\,\varphi'\left(\frac{x}{\varepsilon}\right)\frac{1}{\varepsilon}\dif x\\
+&= \int_{\R} g(\varepsilon y)\varphi'(y) \dif y & &\text{ponendo }y=\frac{x}{\varepsilon}
+\end{align*}
+Dunque, passando al limite:
+\begin{align*}
+\lim_{\varepsilon\to 0}\int_{\R}g(x)\dif\mu_{\varepsilon}(x) &= \lim_{\varepsilon\to {0}}\int_{\R}g(\varepsilon y)\varphi'(y)\dif y\\
+&= \int_{\R}g(0)\varphi'(y)\dif y & &\text{per Teorema di Convergenza Dominata}\\
+&= g(0) \int_{\R}\varphi'(y)\dif y = g(0) \cdot 1 & &\text{per l'ipotesi 2.}
+\end{align*}
+Siccome \(g(0)=\int_{\R}g(x)\delta(x)\dif x\), si ha la tesi.
+
+È necessario ancora dimostrare che sia possibile applicare il teorema di convergenza dominata (questo si può fare solo perché \(g\) ha supporto compatto, e quindi l'integrale viene svolto su un dominio limitato):
+\begin{equation*}
+|g(\varepsilon y)\,\varphi'(y)| \le \norma{g}_{\infty}\,|\varphi'(y)| < M \in \R
+\end{equation*}
+poiché \(g\) ha supporto compatto ed è \(C^{\infty}\), mentre \(|\varphi'(y)|\) è limitato per ipotesi.
+\end{proof}
+\end{document}

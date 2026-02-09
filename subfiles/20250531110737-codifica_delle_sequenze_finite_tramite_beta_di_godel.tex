@@ -1,0 +1,83 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+La \href{20250531110725-funzione_beta_di_godel.org}{funzione \(\beta\) di Godel} ha molte proprietà che garantiscono che si possa \href{20250531104048-codifica_di_un_insieme_numerabile.org}{codificare} ``bene'' l'\href{20250206170922-sequenze_e_stringhe.org}{insieme delle sequenze finite} di \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{numeri naturali}, \href{20250205182056-equipotenza_di_insiemi_di_funzioni.org}{che è numerabile}.
+\section{Lemma della Funzione di Godel}
+\label{sec:org97fc9cd}
+Sia quindi \(\beta:\N^{2}\to \N\) la funzione beta di Godel. Per ogni \(k \in \N\) e per ogni \((a_{0},\dots,a_{k}) \in \N^{k+1}\) esiste \(m \in \N\) tale che
+\begin{equation*}
+	\forall\, i\le k:\qquad \beta(m,i)=a_{i}.
+\end{equation*}
+Questo verte fortemente sul seguente Lemma:
+\begin{quote}
+Siano \(y,k \in \N\). Se per ogni \(1\le k'\le k\) si ha che \(k'\) \href{20250120122938-divisore.org}{divide} \(y\) allora, posti
+\begin{equation*}
+	\forall\,i\le k:\quad c_{i}\coloneqq (i+1)y+1
+\end{equation*}
+si ha che i \(c_{i}\) sono a due a due \href{20250531114007-numeri_naturali_coprimi.org}{coprimi}.
+\end{quote}
+
+Questo permette di definire la \href{20250531104048-codifica_di_un_insieme_numerabile.org}{codifica} \(\varphi:\N^{<\omega}\to \N\).
+\section{Definizione}
+\label{sec:org2aae0e6}
+
+Data la sequenza \(s=\langle a_{1},\dots,a_{k}\rangle\), si pone
+\begin{equation*}
+\varphi(s) = \godelcode{a_{1},\dots,a_{k}}
+\end{equation*}
+come \uline{il più piccolo} \(m \in \N\) tale che
+\begin{equation*}
+\beta(m,0) = k \,\land\,  \forall\, 1\le i\le k\ \left(\beta(m,i)=a_{i}\right).
+\end{equation*}
+Questo esiste per il lemma precedente.
+\section{Proprietà}
+\label{sec:org19e7ef1}
+\begin{itemize}
+\item Il range della codifica \(\mathrm{Seq} = \operatorname{rng}(\varphi)\) è ricorsivo primitivo, in quanto
+\begin{equation*}
+  \mathrm{Seq} = \set{m \in \N\mid
+  	\lnot\exists\,m'<m\ \left(
+  		\beta(m',0) = \beta(m,0) \,\land\, \forall\,1\le i\le \beta(m,0)\ \beta(m,i)=\beta(m',i)
+  	\right)
+  }
+\end{equation*}
+
+\item Si osservi che \(\godelcode{\null} = 0\), e inoltre, se \(k\le 1\):
+\begin{equation*}
+  \godelcode{a_{1},\dots,a_{k}} \ge a_{j}.
+\end{equation*}
+\end{itemize}
+\section{Funzioni Ausiliari alla codifica di Godel}
+\label{sec:org4bc076d}
+\begin{itemize}
+\item La funzione \(\ell(x) \coloneqq\beta(x,0)\) che indica la lunghezza di una stringa è \href{20250215141024-funzioni_primitive_ricordive.org}{ricorsiva primitiva}, \href{20250531110725-funzione_beta_di_godel.org}{in quanto lo è \(\beta\)}.
+\item La decodifica \((\!(i,x)\!) = \beta(x,i+1)\) è \href{20250215141024-funzioni_primitive_ricordive.org}{ricorsiva primitiva}. Si pone \(\godeldec{x}_{i} \coloneqq \godeldec{i,x}\).
+\item Esiste una funzione ricorsiva primitiva \(\mathrm{Conc}:\N^{2}\to \N\) tale che, per ogni \(m,n \in\mathrm{Seq}\)
+\begin{equation*}
+  \mathrm{Conc}(m,n) = \godelcode{\varphi^{-1}(m)\concat\varphi^{-1}(n)}
+\end{equation*}
+dove \(\concat\) è la \href{20250206170922-sequenze_e_stringhe.org}{concatenazione tra stringhe}. Questa funzione prende le codifiche di due stringhe e restituisce la codifica della stringa concatenata.
+
+È ininfluente il valore che questa funzione assuma al di fuori di \(\mathrm{Seq}\).
+\item Esiste una funzione ricorsiva primitiva \(\mathrm{IS}:\N^{2}\to \N\) tale che per, per ogni \(m \in \mathrm{Seq}\) e ogni \(\ell \in \N\):
+\begin{equation*}
+  \mathrm{IS}(m,\ell) = \godelcode{\varphi^{-1}(m)\upharpoonright \ell}
+\end{equation*}
+dove \(s\upharpoonright \ell\) indica il \href{20250206170922-sequenze_e_stringhe.org}{segmento iniziale} di \(s\). Quindi \(\mathrm{IS}(m,\ell)\) è il codice del segmento iniziale della stringa che codifica in \(m\).
+\end{itemize}
+\section{Proposizione}
+\label{sec:orgd27614e}
+\begin{enumerate}
+\item Esiste una funzione ricorsiva primitiva tale che, per gni \(a_{1},\dots,a_{k} \in \N\)
+\begin{equation*}
+ \godelcode{a_{1},\dots,a_{k}}\le B\left(k,\operatorname{max}\set{a_{1},\dots,a_{k}}\right)
+\end{equation*}
+\item Per ogni \(k\ge 1\) la \href{20250205170515-restrizione_di_una_classe.org}{restrizione} di \(\varphi\) a stringhe di lunghezza \(k\) è ricorsiva primitiva:
+\begin{equation*}
+ \varphi\upharpoonright \N^{k} : \N^{k}\to \N:(a_{1},\dots,a_{k})\to \godelcode{a_{1},\dots,a_{k}}.
+\end{equation*}
+\end{enumerate}
+\end{document}

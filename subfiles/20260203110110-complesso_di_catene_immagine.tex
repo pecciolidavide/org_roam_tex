@@ -1,0 +1,28 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Complesso di catene Nucleo e Immagine}
+\label{sec:org9f049d1}
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità, e siano
+\begin{align*}
+\mathcal{C}_{\bullet} &\coloneqq \set{(C_{n},\partial^{C}_{n})}_{n \in \Z}\\
+\mathcal{D}_{\bullet} &\coloneqq \set{(D_{n},\partial^{D}_{n})}_{n \in \Z}\\
+f_{\bullet} &\coloneqq \set{C_{n}\xrightarrow{f_{n}}D_{n}}_{n \in \Z}
+\end{align*}
+due \href{20250120163114-complesso_di_catene.org}{complessi di catene di \(R\)-moduli} e un \href{20250120163759-categoria_complessi_di_catene.org}{morfismo} tra loro
+
+\begin{definizione}
+Il \textbf{\textbf{Kernel}} (o Nucleo) di \(f_{\bullet}\), denotato con \(\ker(f_{\bullet})\), è il \href{20250128151459-sottocomplesso_di_catene.org}{sottocomplesso} di \(\mathcal{C}_{\bullet}\) definito termine a termine dal \href{20241213105201-kernel.org}{kernel}:
+\begin{equation*}
+(\ker f)_{n} = \ker(f_{n}) = \{ x \in C_{n} \mid f_{n}(x) = 0 \}
+\end{equation*}
+
+L'\textbf{\textbf{Immagine}} di \(f_{\bullet}\), denotata con \(\operatorname{Im}(f_{\bullet})\), è il \href{20250128151459-sottocomplesso_di_catene.org}{sottocomplesso} di \(\mathcal{D}_{\bullet}\) definito termine a termine dall'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine}:
+\begin{equation*}
+(\operatorname{Im} f)_{n} = \operatorname{Im}(f_{n}) = \{ f_{n}(x) \mid x \in C_{n} \}
+\end{equation*}
+\end{definizione}
+\end{document}

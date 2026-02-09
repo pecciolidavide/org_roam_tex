@@ -1,0 +1,65 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Rete Neurale che implementa lo XOR}
+\label{sec:org090fe31}
+Un rete neurale Feedforward come in Figura~\ref{fig:3neuroniimplementaXOR}, con \(\phi\) la \href{20250624161413-funzione_di_heaviside.org}{funzione di Heaviside}, è in grado implementare la funzione \href{20250710120916-xor_logico.org}{XOR}:
+\begin{center}
+\begin{tabular}{c c c}
+\hline
+\(x_{1}\) & \(x_{2}\) & XOR\\
+\hline
+0 & 0 & 0\\
+0 & 1 & 1\\
+1 & 0 & 1\\
+1 & 1 & 0\\
+\hline
+\end{tabular}
+\end{center}
+
+È sufficiente porre i pesi come segue:
+\begin{align*}
+\null^{\text{T}}W^{(1)} &\coloneqq \begin{pmatrix}
+w_{01}^{(1)} & w_{11}^{(1)} & w_{21}^{(1)}\\
+w_{02}^{(1)} & w_{12}^{(1)} & w_{22}^{(1)}
+\end{pmatrix} = \begin{pmatrix}
+-0.5 & 1 & 1\\
+-1.5 & 1 & 1
+\end{pmatrix} \\[1em]
+\null^{\text{T}}W^{(2)} &\coloneqq \begin{pmatrix}
+w_{01}^{(2)} & w_{11}^{(1)} & w_{21}^{(1)}
+\end{pmatrix} = \begin{pmatrix}
+-0.5 & 1 & -1\\
+\end{pmatrix}
+\end{align*}
+
+
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	\&\& {x_0^{(1)}=-1} \\
+	{x_0^{(0)} = -1} \\
+	{x_1^{(0)}=x_1} \&\& {\boxed{\Sigma, \phi}} \\
+	{x_2^{(0)}=x_2} \&\&\&\& {\boxed{\Sigma, \phi}} \& {y=x_1^{(2)}} \\
+	{x_0^{(0)} = -1} \\
+	{x_1^{(0)}=x_1} \&\& {\boxed{\Sigma,\phi}} \\
+	{x_2^{(0)}=x_2}
+	\arrow["{w_{01}^{(2)}}"{description}, from=1-3, to=4-5]
+	\arrow["{w^{(1)}_{01}}"{description}, from=2-1, to=3-3]
+	\arrow["{w^{(1)}_{11}}"{description}, from=3-1, to=3-3]
+	\arrow["{w^{(2)}_{11}}"{description}, from=3-3, to=4-5]
+	\arrow["{w^{(1)}_{21}}"{description}, from=4-1, to=3-3]
+	\arrow[from=4-5, to=4-6]
+	\arrow["{w^{(1)}_{02}}"{description}, from=5-1, to=6-3]
+	\arrow["{w^{(1)}_{12}}"{description}, from=6-1, to=6-3]
+	\arrow["{w^{(2)}_{21}}"{description}, from=6-3, to=4-5]
+	\arrow["{w^{(1)}_{22}}"{description}, from=7-1, to=6-3]
+\end{tikzcd}
+\end{equation*}
+\caption{\label{fig:3neuroniimplementaXOR}Rete Neurale con tre neuroni che implementa XOR}
+\end{figure}
+\end{document}

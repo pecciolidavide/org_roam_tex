@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Siano \(\mathcal{C}, \mathcal{D}\) due \href{20241126100904-categoria.org}{categorie} e siano
+\(F,G: \mathcal{C}\longrightarrow \mathcal{D}\)
+due \textbf{\href{20241204222455-funtore_covariante.org}{funtori covarianti}}. Una \textbf{trasformazione naturale} da \(F\) a \(G\)
+\begin{equation*}
+T: F \longrightarrow G
+\end{equation*}
+è l'insieme dei morfismi \(T=(T_{X})_{X \in \operatorname{Ob}(\mathcal{C})}\)
+\begin{equation*}
+T_X:F(X) \longrightarrow G(X)
+\end{equation*}
+per ogni \(X\) oggetto in \(\operatorname{\mathcal{C}}\) tali che, per ogni \(X \dfreccia{f}Y\) in \(\mathcal{C}\) il diagramma seguente commuti
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,sep=large]
+	{F(X)} \& {F(Y)} \\
+	{G(X)} \& {G(Y)}
+	\arrow["{F(f)}", from=1-1, to=1-2]
+	\arrow["{T_X}"', from=1-1, to=2-1]
+	\arrow["{T_Y}", from=1-2, to=2-2]
+	\arrow["{G(f)}", from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+ovvero
+\begin{equation*}
+T_Y \circ F(f) = G(f) \circ T_X.
+\end{equation*}
+\end{definizione}
+\end{document}

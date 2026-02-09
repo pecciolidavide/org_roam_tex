@@ -1,0 +1,137 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\mult#1{\mathrm{mult}_{#1}\,}
+
+
+\begin{document}
+
+\section{Genere topologico di un curva piana proiettiva liscia complessa}
+\label{sec:org6a26b22}
+Sia \(X \subseteq \mathds{P}^{2}_{\C}\)\footnote{\(\mathds{P}^{2}_{\C}\) indica il \href{20241231115051-spazio_proiettivo.org}{piano proiettivo complesso}.} una \href{20260129103947-curva_piana_proiettiva_liscia_complessa.org}{curva liscia di grado \(d\)}, e sia \(F(z_{0},z_{1},z_{2})\) \href{20241231121125-polinomi_omogenei.org}{polinomio omogeneo} (di grado \(d\)) di cui \(X\) è \href{20241231112823-radici_polinomiali.org}{luogo di zeri}.
+
+\begin{prop}
+Il \href{20260127112828-superficie_di_riemann.org}{genere topologico} di \(X\) è
+\begin{equation*}
+g(X) = \frac{(d-1)(d-2)}{2}
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Supponiamo che \((0:1:0) \notin X\)\footnote{A meno di proiettività è sempre vero. Le proiettività sono biolomorfismi.}. Allora
+\begin{equation*}
+F(0:1:0) \neq 0
+\end{equation*}
+e quindi \(z_{1}^{d}\) compare in \(F\). Consideriamo ora la funzione olomorfa e non costante:
+\begin{align*}
+\pi: X &\longrightarrow \mathds{P}^{1}\\
+(z_{0}:z_{1}:z_{2}) &\longmapsto (z_{0}:z_{2}).
+\end{align*}
+Per la \href{20260129171832-formula_di_hurewicz_superfici_di_riemann.org}{Formula di Hurwitz}, detto \(g\) il genere di \(X\):\footnote{Si noti che \(-2 = 2 g(\mathds{P}^{1}) - 2\), e \href{20260128181135-sfera_di_riemann_biolomorfa_al_piano_proiettivo_complesso.org}{\(\mathds{P}^{1}\cong \C_{\infty}\)}, e pertanto \(g(\mathds{P}^{1}) = 0\).
+Vedi anche:
+\begin{itemize}
+\item \href{20260127112905-sfera_di_riemann.org}{Sfera di Riemann}
+\item \href{20260130155105-teorema_di_classificazione_delle_superfici_topologiche.org}{Teorema di classificazione delle superfici topologiche}
+\item \href{20260129171444-teorema_del_grado_per_olomorfismi_tra_superfici_di_riemannn.org}{Grado di un olomorfismo tra superfici di Riemann}
+\end{itemize}}
+\begin{equation*}
+2g-2 = \deg\pi \cdot (-2) + \parentesi{r\coloneqq}{\sum_{p \in X}\big(\mult{p}\pi -1\big)}.
+\end{equation*}
+
+È necessario calcolare \(\deg\pi\) e \(r\).
+\begin{itemize}
+\item Consideriamo \(U_{2} = \set{z_{2} \neq 0} \subseteq \mathds{P}^{2}_{\C}\), \(U_{2} \cong \C_{x,y}^{2}\) per mezzo della mappa \(x=\frac{z_{0}}{z_{2}}\), \(y=\frac{z_{1}}{z_{2}}\), e sia \(X_{2} \coloneqq X\cap U_{2} \cong X_{2}' \subseteq \C_{x,y}^{2}\). Allora
+\begin{align*}
+\pi_{2}: X_{2}' &\longrightarrow \C\\
+(x,y) &\longmapsto x
+\end{align*}
+è scrittura in carte locali di \(\pi\), e pertanto per ogni \(p \in X_{2}\): \(\mult{p} \pi = \mult{p'} \pi_{2}\).
+
+Inoltre, \(X_{2}' \subseteq \C_{x,y}^{2}\) è il luogo di zeri
+\begin{equation*}
+  f(x,y) = 0,\qquad f(x,y) \coloneqq F(x,y,1)
+\end{equation*}
+e pertanto è una \href{20260129103934-curva_piana_affine_liscia_complessa.org}{curva piana liscia affine}: detta
+\begin{align*}
+\varphi: \C^{2} &\longrightarrow \C\\
+(x,y) &\longmapsto \pd{f}{y}(x,y)
+\end{align*}
+si ha che\footnote{Per la \href{20260129103934-curva_piana_affine_liscia_complessa.org}{molteplicità dei punti di una Curva Piana affine liscia complessa}.} per ogni \(p' \in X_{2}'\): \(\mult{p'}\pi_{2} = \mathrm{ord}_{p'}\, \varphi + 1\), e quindi
+\begin{equation*}
+  \boxed{\mult{p}\pi - 1 =  \mathrm{ord}_{p'}\, \varphi}
+\end{equation*}
+
+\item Si noti che \(f\) è un polinomio di grado al massimo \(d\), e \(y^{d}\) compare in \(f\), quindi per ogni \(x_{0} \in \C\): \(f(x_{0},y)\) è di grado \(d\).
+
+Si ha che
+\(\pi_{2}^{-1}(x_{0}) = \set{(x_{0},y) \in X_{2}' \mid f(x_{0},y) = 0}\),
+e \href{20250102154204-teorema_fondamentale_dell_algebra.org}{quindi} \(\pi_{2}^{-1}(x_{0})\) contiene \(d\) zeri contati con molteplicità. Ma la molteplicità \(m\) come zero di \(f(x_{0},y)\) è esattamente l'\href{20260128124105-ordine_di_una_funzione_olomorfa.org}{ordine} di \(\pd{f}{y}(x_{0},y) + 1\), e pertanto
+\begin{equation*}
+  d = \sum_{p' \in \pi_{2}^{-1}(x_{0})} m_{p'} = \sum_{p' \in \pi_{2}^{-1}(x_{0})} (\mathrm{ord}_{p'}\, \varphi + 1) = \sum_{p' \in \pi_{2}^{-1}(x_{0})} \mult{p'}\pi_{2} = \deg \pi_{2} =\deg \pi
+\end{equation*}
+L'ultima uguaglianza si ha perché \(\pi_{2}\) è la scrittura in carte locali di \(\pi\). Segue che \(\deg \pi = d\).
+
+\item Consideriamo adesso \(U_{0} = \set{z_{0} \neq 0} \subseteq \mathds{P}^{2}_{\C}\), \(U_{0} \cong \C^{2}_{u,v}\) per mezzo della mappa \(u = \frac{z_{1}}{z_{0}}\), \(v=\frac{z_{2}}{z_{0}}\), e sia \(X_{0}\coloneqq X\cap U_{0} \cong X_{0}' \subseteq \C^{2}_{u,v}\).
+
+\(X_{0}' \subseteq \C^{2}_{u,v}\) è luogo di zeri:
+\begin{equation*}
+  g(u,v) = 0,\qquad g(u,v) = F(1,u,v).
+\end{equation*}
+
+La scrittura in carte locali di \(\pi\) è
+\begin{align*}
+\pi_{0}: X_{0}' &\longrightarrow \C\\
+(u,v) &\longmapsto v
+\end{align*}
+e pertanto, detta
+\begin{align*}
+\psi: \C^{2} &\longrightarrow \C\\
+(u,v) &\longmapsto \pd{g}{u}
+\end{align*}
+si ha che, per ogni \(p \in X_{0}\):
+\begin{equation*}
+  \mult{p} \pi -1  = \mathrm{ord}_{p'}\,\psi.
+\end{equation*}
+
+\item Le funzioni \(\varphi\) e \(\psi\) sono olomorfe, e si ha
+\begin{align*}
+  \varphi(x,y) &= \dpd{f}{y} = \restriction{\dpd{F}{z_{1}}}{(x:y:1)}\\[2ex]
+  \psi(u,v) &= \dpd{g}{u} = \restriction{\dpd{F}{z_{1}}}{(1:u:v)}
+\end{align*}
+
+Sia ora \(p \in X\setminus X_{2}\): necessariamente \(p \in X_{0}\).
+
+Consideriamo la scrittura di \(\varphi\) per \(p' \in X_{0}'\):
+\begin{align*}
+  \tilde{\varphi} (u, v) &= \varphi\left(\frac{1}{v},\frac{u}{v}\right) = \dpd{F}{z_{1}} \left(\frac{1}{v},\frac{u}{v}, 1\right)\\
+  &= \left(\frac{1}{v}\right)^{d-1} \dpd{F}{z_{1}}(1,u,v) = \left(\frac{1}{v}\right)^{d-1} \psi(u,v).
+\end{align*}
+Quindi \(\tilde{\varphi}\) è \href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{meromorfa}, e per ogni \(p \in X\setminus X_{2}\): l'\href{20260128144433-ordine_di_una_funzione_meromorfa.org}{ordine}
+\begin{align*}
+  \mathrm{ord}_{p'}\,\varphi &= -(d-1)\mathrm{ord}_{p'} (v) + \mathrm{ord}_{p'} \psi \\
+  &= (\mult{p}\pi - 1) - (d-1) \mult{p} \pi
+\end{align*}
+
+Quindi, per ogni \(p \in X\setminus X_{2} = \pi^{-1}(1:0)\):
+\begin{equation*}
+  \boxed{%
+  	\mult{p} \pi - 1 = \mathrm{ord}_{p'} \varphi + (d-1)\, \mult{p}\pi %
+  }
+\end{equation*}
+\end{itemize}
+
+Calcolando infine \(r\), si ha
+\begin{align*}
+r &= \sum_{p \in X} (\mult{p}\pi -1) = \sum_{p \in X_{2}} (\mult{p}\pi-1) + \sum_{p \in \pi^{-1}(1:0)} (\mult{p}\pi - 1)\\
+&= \sum_{p \in X_{2}} \mathrm{ord}_{p'}\, \varphi + \sum_{p \in \pi^{-1}(1:0)} \left(\mathrm{ord}_{p'} \varphi + (d-1)\, \mult{p}\pi\right)\\
+&= \parentesi{= 0}{\sum_{p \in X} \mathrm{ord}_{p'}}\, \varphi + (d-1) \, \parentesi{\deg\pi=}{\sum_{p \in \pi^{-1}(1:0)} \mult{p}\pi}.
+\end{align*}
+dove lo zero è dato dal fatto che \href{20260129171638-somma_ordini_di_una_funzione_meromorfa_su_una_superficie_di_riemann_e_nulla.org}{la somma degli ordini è nulla}.
+
+Pertanto \(r=d\cdot (d-1)\), e quindi
+\begin{equation*}
+2g-2 = -2 d  + d\cdot (d-1) \IMPLICA g = \frac{(d-2)\,(d-1)}{2}.
+\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

@@ -1,0 +1,54 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:org76036a4}
+
+Let \(Y \subseteq X\) be Polish spaces. Show that for every \(\alpha \geq 3\),
+\[
+\bm{\Delta}^0_\alpha(Y) = \bm{\Delta}^0_\alpha(X) \upharpoonright Y,
+\]
+where as usual \(\bm{\Delta}^0_\alpha(X) \upharpoonright Y = \{ A \cap Y \mid A \in \Delta^0_\alpha(X) \}\).
+\subsection{Dimostrazione}
+\label{sec:orgd4c8020}
+
+Si richiama il Lemma 2.1.5(vi):
+\begin{align*}
+\bm{\Sigma}^{0}_{\alpha}(Y) &= \bm{\Sigma}^{0}_{\alpha}(X)\upharpoonright Y;\\
+\bm{\Pi}^{0}_{\alpha}(Y) &= \bm{\Pi}^{0}_{\alpha}(X)\upharpoonright Y.
+\end{align*}
+\subsubsection{Inclusione ``\(\subseteq\)''}
+\label{sec:org1ef95df}
+
+Sia \(A \in \bm{\Delta}^{0}_{\alpha}(Y) = \bm{\Sigma}^{0}_{\alpha}(Y) \cap \bm{\Pi}^{0}_{\alpha}(Y)\). Allora esistono \(B \in \bm{\Sigma}^{0}_{\alpha}(X)\) e \(C \in \bm{\Pi}^{0}_{\alpha}(X)\) tali che
+\begin{equation*}
+A = B\cap Y,\quad A= C\cap Y
+\end{equation*}
+
+Siccome \(Y \subseteq X\) è polacco, \href{20250306134632-caratterizzazione_dei_sottoinsiemi_polacchi_di_uno_spazio_polacco.org}{allora} \(Y\) è un \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{sottoinsieme \(\bm{G}_{\delta}\)} di \(X\), ovvero \(Y \in \bm{\Pi}^{0}_{2}(X)\). Poiché \(\alpha\ge 3\), \(\bm{\Pi}^{0}_{2}(X) \subseteq \bm{\Pi}^{0}_{\alpha}(X), \bm{\Sigma}^{0}_{\alpha}(X)\): \(Y \in \bm{\Sigma}^{0}_{\alpha}(X)\) e \(Y \in \bm{\Pi}^{0}_{\alpha}(X)\), e quindi, poiché entrambe le classi \(\bm{\Sigma}_{\alpha}^{0}(X), \bm{\Pi}^{0}_{\alpha}(X)\) sono chiuse per intersezioni finite:
+\begin{equation*}
+A=B\cap Y \in \bm{\Sigma}^{0}_{\alpha}(X),\qquad A=C\cap Y \in \bm{\Pi}^{0}_{\alpha}(X)
+\end{equation*}
+ovvero \(A \in \bm{\Delta}^{0}_{\alpha}(X)\). Inoltre \(A \subseteq Y\), e pertanto
+\begin{equation*}
+A = A\cap Y \in \bm{\Delta}^{0}_{\alpha}(X)\upharpoonright Y = \set{V\cap Y\mid V \in \bm{\Delta}^{0}_{\alpha}(X)}.
+\end{equation*}
+\subsubsection{Inclusione ``\(\supseteq\)''}
+\label{sec:org7add0f6}
+
+Sia \(A \in \bm{\Delta}^{0}_{\alpha}(X)\), ovvero \(A\cap Y \in \bm{\Delta}^{0}_{\alpha}(X)\upharpoonright Y\).
+
+Allora
+\begin{itemize}
+\item \(A \in \bm{\Sigma}^{0}_{\alpha}(X)\), e quindi \(A\cap Y \in \bm{\Sigma}^{0}_{\alpha}(Y)\);
+\item \(A \in \bm{\Pi}^{0}_{\alpha}(X)\), e quindi \(A\cap Y \in \bm{\Pi}^{0}_{\alpha}(Y)\).
+\end{itemize}
+
+Pertanto
+\begin{equation*}
+(A\cap Y) \in \bm{\Sigma}^{0}_{\alpha}(Y)\cap \bm{\Pi}^{0}_{\alpha}(Y) = \bm{\Delta}^{0}_{\alpha}(Y).\qedd
+\end{equation*}
+\end{document}

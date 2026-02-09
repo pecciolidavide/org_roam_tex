@@ -1,0 +1,21 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funzioni sigmoidali sono discriminatorie per le misure di Baire sul cubo unitario}
+\label{sec:org74ee9e1}
+\begin{prop}
+Ogni funzione \href{20250625110110-funzione_sigmoidale.org}{sigmoidale} \(\sigma:\R\to [0,1]\) è \href{20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.org}{discriminatoria per \(\mathcal{M}\)}, dove \(\mathcal{M}\) è l'insieme \href{20250625104200-misura_di_baire.org}{misure di Baire} sul cubo \(I^{n} \coloneqq [0,1]^{n}\), \href{20250625110016-misura_finita.org}{finite}, \href{20250625110024-misura_con_segno.org}{con segno} e \href{20250625110032-misura_regolare.org}{regolari}.
+
+Ovvero, se \(\sigma:\R\to [0,1]\) è tale che
+\begin{equation*}
+\lim_{x\to-\infty}\sigma(t) =0;\qquad \lim_{x\to+\infty}\sigma(t)=1
+\end{equation*}
+allora, per ogni \(\mu \in \mathcal{M}\),
+\begin{equation*}
+\left(\forall \bm{w} \in \R^{n},\, \forall \theta \in \R\quad \int_{I^{n}} f(\bm{w}\cdot\bm{x}) \dif \mu(\bm{x}) = 0\right)\implies \mu=0
+\end{equation*}
+\end{prop}
+\end{document}

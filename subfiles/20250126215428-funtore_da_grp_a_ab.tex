@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Consideriamo le \href{20241126100904-categoria.org}{categorie}
+\begin{itemize}
+\item \href{20241205115631-categoria_grp.org}{categoria \(\cat{Grp}\)} dei \href{20241205141146-gruppo_abeliano.org}{gruppi};
+\item \href{20250127095321-categoria_ab.org}{categoria \(\cat{Ab}\)} dei \href{20250127093245-gruppo_abeliano.org}{gruppi abeliani}.
+\end{itemize}
+
+Si definisce un funtore
+\begin{equation*}
+(\cdot)^{\operatorname{ab}}:\cat{Grp}\longrightarrow\cat{Ab}
+\end{equation*}
+che
+\begin{itemize}
+\item associa a ciascun \href{20241205141146-gruppo_abeliano.org}{gruppo} \(G\) il suo \href{20250127093652-gruppo_abelianizzato.org}{abelianizzato} \(G^{\operatorname{ab}}\), \href{20250127093245-gruppo_abeliano.org}{gruppo abeliano};
+\item per ciascun \href{20241206115531-morfismo_di_gruppi.org}{morfismo} \(f:G \longrightarrow H\), si considerano le proiezioni al \href{20250127093819-quoziente_di_gruppo_e_sottogruppo.org}{quoziente} \(\pi_{G},\pi_{H}\):
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,column sep=large,row sep=huge]
+  G \& H \\
+  {G^{\operatorname{ab}}} \& {H^{\operatorname{ab}}}
+  \arrow["f", from=1-1, to=1-2]
+  \arrow["{\pi_G}"', from=1-1, to=2-1]
+  \arrow["{\pi_H}", from=1-2, to=2-2]
+  \arrow[dashed, from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+ Allora \(\pi_{H}\circ f : G \longrightarrow H^{\operatorname{ab}}\) è un morfismo da un gruppo ad un gruppo abeliano, e \href{20250127093602-ogni_funzione_da_un_gruppo_ad_un_gruppo_abeliano_fattorizza_tramite_il_gruppo_abelianizzato.org}{pertanto} esiste un unico morfismo, che chiameremo \(f^{\operatorname{ab}}\) tale che il diagramma commuti.
+Il funtore associa ad \(f:G \longrightarrow H\) il morfismo \(f^{\operatorname{ab}}:G^{\operatorname{ab}}\longrightarrow H^{\operatorname{ab}}\).
+\end{itemize}
+\end{document}

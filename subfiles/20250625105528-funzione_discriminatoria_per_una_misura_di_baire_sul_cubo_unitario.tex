@@ -1,0 +1,50 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funzione discriminatoria (Machine Learning)}
+\label{sec:orged09d2f}
+\begin{definizione}
+Sia \(\mathcal{M}\) la famiglia delle \href{20250625104200-misura_di_baire.org}{misure di Baire} sul cubo \(I^{n} \coloneqq [0,1]^{n} \subseteq \R\), \href{20250625110016-misura_finita.org}{finite}, \href{20250625110024-misura_con_segno.org}{con segno} e \href{20250625110032-misura_regolare.org}{regolari}.
+
+Una funzione \(f: \R\to \R\) si dice \uline{discriminatoria} se per ogni \(\mu \in \mathcal{M}\):
+\begin{equation*}
+\left(\forall \bm{w} \in \R^{n},\, \forall \theta \in \R\quad \int_{I^{n}} f(\bm{w}\cdot\bm{x}) \dif \mu(\bm{x}) = 0\right)\implies \mu=0
+\end{equation*}
+\end{definizione}
+\begin{definizione}
+Una funzione \(\sigma:\R\to \R\) si dice \uline{discriminatoria in senso \(L^{2}\)} se:
+\begin{enumerate}
+\item \(\forall x \in \R\ 0\le \sigma(x)\le 1\);
+\item se \(g \in L^{2}(I_{n})\)\footnote{Con \(I_{n}\) si indica il cubo
+\begin{equation*}
+I_{n} = [0,1]\times \dots \times [0,1] = [0,1]^{n}.
+\end{equation*}
+Si vedano ``\href{20250624162220-spazi_lp.org}{Spazi Lp}''\label{org12c1c03}} e
+\begin{equation*}
+ \forall \bm{w} \in \R^{n}\ \forall \theta \in \R:\qquad\int_{I_{n}} \sigma(\bm{w}\cdot\bm{x} + \theta)g(\bm{x})\dif\bm{x} = 0
+\end{equation*}
+allora \(g=0\)
+\end{enumerate}
+\label{def9.3.10}
+\end{definizione}
+\begin{esempio}
+La funzione logistica \(\displaystyle\sigma(x) = \frac{1}{1+e^{-x}}\) è discriminatoria in senso \(L^{2}\).
+\label{ex9.3.15}
+\end{esempio}
+\begin{definizione}
+Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \(\sigma:\R\to \R\) si dice \uline{discriminatoria in senso \(L^{1}\)} se:
+\begin{enumerate}
+\item \(\sigma\) è \href{20250704104947-funzione_misurabile.org}{misurabile} e \href{20250704145518-funzione_limitata.org}{limitata};
+\item \(\sigma\) è \href{20250625110110-funzione_sigmoidale.org}{sigmoidale};
+\item se \(g \in L^{\infty}(I_{n})\)\textsuperscript{\ref{org12c1c03}} e
+\begin{equation*}
+ \forall \bm{w} \in \R^{n}\ \forall \theta \in \R:\qquad\int_{I_{n}} \sigma(\bm{w}\cdot\bm{x} + \theta)g(\bm{x})\dif\bm{x} = 0
+\end{equation*}
+allora \(g=0\)
+\end{enumerate}
+\label{def9.3.16}
+\end{definizione}
+\end{document}

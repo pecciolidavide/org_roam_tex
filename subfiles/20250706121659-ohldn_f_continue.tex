@@ -1,0 +1,57 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{One Hidden Layer Discriminatory Network impara funzioni continue sul cubo}
+\label{sec:orgc0b86d1}
+\begin{lem}
+Sia \(I_{n}\coloneqq[0,1]^{n}\), e si consideri \(C(I_{n})\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''\label{org43f1c9b}} dotato della \href{20250103145124-topologia.org}{topologia} \href{20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in I_{n}} |f(x)-g(x)| = \max_{x \in I_{n}}|f(x)-g(x)|.
+\end{equation*}
+Sia \(\mathcal{M}\) la famiglia delle \href{20250625104200-misura_di_baire.org}{misure di Baire} per \(\R^{n}\) sul cubo \(I^{n}\R\), \href{20250625110016-misura_finita.org}{finite}, \href{20250625110024-misura_con_segno.org}{con segno} e \href{20250625110032-misura_regolare.org}{regolari}.
+
+Sia \(\mathcal{U} \subseteq C(I_{n})\) un \href{20250114103118-sottospazio_vettoriale.org}{sottospazio vettoriale} non \href{20250301193045-sottoinsieme_denso.org}{denso}. Allora esiste una \href{20250704163455-misura.org}{misura} \(\mu \in \mathcal{M}\) tale che
+\begin{equation*}
+\forall  h \in \mathcal{U}:\qquad \int_{I_{n}} h(x)\dif\mu = 0
+\end{equation*}
+\label{lem:9.3.3}
+\end{lem}
+\begin{prop}
+Sia \(\sigma\) una \href{20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.org}{funzione discriminatoria} e \href{20250103103252-funzione_continua.org}{continua}. Allora l'insieme
+\begin{equation*}
+\set{G(x) = \sum_{i =1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j}, \theta_{j} \in \R}
+\end{equation*}
+è denso in \(C(I_{n})\)\textsuperscript{\ref{org43f1c9b}} dotato della \href{20250103145124-topologia.org}{topologia} \href{20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in I_{n}} |f(x)-g(x)| = \max_{x \in I_{n}}|f(x)-g(x)|.
+\end{equation*}
+\label{prop9.3.5}
+\end{prop}
+\begin{thm}
+Sia \(\sigma:\R\to [0,1]\) una funzione \href{20250625110110-funzione_sigmoidale.org}{sigmoidale}. Allora l'insieme
+\begin{equation*}
+\set{G(x) = \sum_{i =1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j}, \theta_{j} \in \R}
+\end{equation*}
+è denso in \(C(I_{n})\)\textsuperscript{\ref{org43f1c9b}} dotato della \href{20250103145124-topologia.org}{topologia} \href{20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in I_{n}} |f(x)-g(x)| = \max_{x \in I_{n}}|f(x)-g(x)|.
+\end{equation*}
+\label{teo9.3.6}
+\end{thm}
+
+Il teorema continua a valere anche in questa forma:
+\begin{thm}
+Sia \(\sigma:\R\to [0,1]\) una funzione \href{20250625110110-funzione_sigmoidale.org}{sigmoidale}. Allora l'insieme
+\begin{equation*}
+\set{G(x) = \sum_{i =1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j}, \theta_{j} \in \R}
+\end{equation*}
+è denso in \(C(K)\) dotato della \href{20250103145124-topologia.org}{topologia} \href{20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in K} |f(x)-g(x)| = \max_{x \in K}|f(x)-g(x)|,
+\end{equation*}
+per ogni \(K\) \href{20250103163701-spazio_topologico_compatto.org}{compatto} di \(\R^{n}\).
+\end{thm}
+\end{document}

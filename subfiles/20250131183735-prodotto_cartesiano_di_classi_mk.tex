@@ -1,0 +1,59 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Generalizzazione in MK}
+\label{sec:org707138b}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+
+Siano \(A,B\) due \href{20250130104320-classe_mk.org}{classi}.
+Si definisce il prodotto cartesiano di \(A\) e \(B\) come la classe
+\begin{equation*}
+A\times B \coloneqq \set{(x,y)\,|\, x \in A \,\land\, y \in B}
+\end{equation*}
+che esiste per l'Axiom of Comprehension (vedi \href{20250131162451-coppia_ordinata_mk.org}{Coppia ordinata MK})-
+\subsection{MK Prodotto di insiemi è un insieme}
+\label{sec:org3f26507}
+Se \(A\) e \(B\) sono \href{20250130104331-insieme_mk.org}{insiemi}, allora \(A\times B\) è un insieme.
+\subsubsection{Dimostrazione\hfill{}\textsc{IdL:matematica\_lm}}
+\label{sec:org8e42137}
+Se \(x \in A\) e \(y \in B\), allora \(\set{x},\set{x,y} \subseteq A\cup B\) e pertanto
+\begin{equation*}
+(x,y) = \set{\set{x},\set{x,y}} \subseteq \parti{A\cup B}
+\end{equation*}
+Dunque \(A\times B \subseteq \parti{\parti{A\cup B}}\) (vedi \href{20250130104245-morse_kelly_set_theory.org}{Insieme delle parti}), e \href{20250131160822-ogni_sottoclasse_di_un_insieme_e_un_insieme_mk.org}{pertanto} \(A\times B\) è un insieme, poiché l'insieme delle parti è un insieme per l'Axiom of Powerset.
+\section{Prodotto cartesiano generalizzato}
+\label{sec:orgf518111}
+Se \(I\) è un insieme e \(\langle A_{i}\mid i \in I\rangle\) è una sequenza di insiemi, allora il \uline{prodotto cartesiano generalizzato}:
+\begin{equation*}
+\prod_{i \in I} A_{i} \coloneqq \set{\langle a_{i}\mid i \in I\rangle\mid \forall\, i \in I\ (a_{i} \in A_{i})}
+\end{equation*}
+
+\uline{Nota 1}: Se \(A_{i_{0}} = \emptyset\), allora \(\prod_{i \in I} A_{i} = \emptyset\). Il viceversa, ovvero ``se \(I\neq \emptyset\) e ogni \(A_{i}\neq \emptyset\) allora \(\prod_{i \in I} A_{i} \neq \emptyset\)'', invece, è equivalente all'\href{20250206171508-axiom_of_choiche.org}{assioma della scelta}.
+
+\uline{Nota 2}: Nell'ambito della \uline{\href{20250130104245-morse_kelly_set_theory.org}{teoria degli insiemi di Morse e Kelly}} non si può generalizzare ulteriormente il risultato a \href{20250130104320-classe_mk.org}{classi proprie}: infatti, affinché sia possibile avere una \href{20250202170607-classe_relazione_binaria.org}{Classe-Funzione}, gli elementi del \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{range} dovranno essere degli \href{20250130104331-insieme_mk.org}{insiemi}.
+
+Se però per ogni \(i \in n\): \(A_{i} = A\), la situazione si semplifica.
+\subsection{Potenza di una classe}
+\label{sec:org89b5bc4}
+\textbf{\textbf{\uline{NOTA}: quando si parla di \uline{classi}, se ne parla nell'ambito della \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}; quando si parla di insiemi, il discorso ha validità più generale.}}
+
+Se \(X\) è un \href{20250130104331-insieme_mk.org}{insieme} (o una \href{20250130104320-classe_mk.org}{classe}), \(X\times X\) è l'insieme (o la classe) delle \href{20250131162451-coppia_ordinata_mk.org}{coppie ordinate} di elementi di \(X\). Questo genera un'ambiguità quando si parla di
+\begin{equation*}
+X^{3}, X^{4},\text{etc.}
+\end{equation*}
+in quanto \(X^{3}=X\times(X\times X)\) o \(X^{3}= (X\times X) \times X\)? Infatti, il \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{prodotto cartesiano} non è commutativo.
+
+Si sfrutta quindi la definizione di \hyperref[sec:orgf518111]{prodotto cartesiano generalizzato}, e si pone\footnote{Vedi: \href{20250206170922-sequenze_e_stringhe.org}{Stringa} e \href{20250202192030-classe_delle_classi_funzioni.org}{Insieme delle funzioni}}
+\begin{equation*}
+X^{n} \coloneqq \set{\langle a_{i}\mid i \in n\rangle \text{ sequenza finita}} = \null^{n}\!X = \prod_{i \in I} X
+\end{equation*}
+Questo rende privo di ambiguità la notazione per l'\href{20250202192030-classe_delle_classi_funzioni.org}{insieme delle funzioni}.
+
+\uline{Nota}: In questo caso se \(X\neq \emptyset\) allora \(X^{n} \neq \emptyset\) \uline{anche senza assumere \href{20250206171508-axiom_of_choiche.org}{AC}}.
+
+Si osservi che questa definizione è valida \uline{anche per le classi proprie}.
+\end{document}

@@ -1,0 +1,35 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}.
+
+Le funzioni \uline{possono essere} \href{20250213105339-funzione_parziale.org}{PARZIALI}
+\begin{definizione}
+È possibile espandere la definizione di \href{20250202170607-classe_relazione_binaria.org}{funzione} (\href{20250215141024-funzioni_primitive_ricordive.org}{primitiva}) \href{20250207104855-funzione_ricorsiva.org}{ricorsiva} alle funzioni
+\begin{equation*}
+f: \N^{k}\to \N^{\ell}: x\mapsto \left(f_{1}(x),\dots,f_{\ell}(x)\right)
+\end{equation*}
+con \(\ell>1\): infatti, diremo che tale funzione è (primitiva) ricorsiva sse lo sono tutte le \(f_{i}=f\circ U_{i}\) per \(i=1,\dots,\ell\).
+\end{definizione}
+\begin{oss}
+Si noti che:
+\begin{enumerate}
+\item Considerando la \href{20250215151413-biiezione_canonica_tra_n_e_n2.org}{biiezione canonica} \(\bm{J}^{\ell}: \N^{\ell}\to \N\) poiché le sue \href{20250111142446-funzione_inversa.org}{inverse} \((\cdot)^{\ell}_{i}\) per \(i=1,\dots,\ell\) sono \uline{ricorsive primitive}, si ha che
+\begin{equation*}
+ (\bm{J}^{\ell})^{-1}: \N\to \N^{\ell}: x\mapsto \left((x)^{\ell}_{1},\dots,(x)^{\ell}_{\ell}\right)
+\end{equation*}
+è una funzione ricorsiva primitiva.
+\item Equivalentemente, la funzione
+\begin{equation*}
+ f: \N^{k}\to \N^{\ell}: x\mapsto \left(f_{1}(x),\dots,f_{\ell}(x)\right)
+\end{equation*}
+è ricorsiva primitiva se e solo se lo è la funzione
+\begin{equation*}
+ \bm{J}^{\ell}\circ f: \N^{k}\to \N.
+\end{equation*}
+\end{enumerate}
+\end{oss}
+\end{document}

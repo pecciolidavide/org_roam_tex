@@ -1,0 +1,22 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Divisori linearmente equivalenti inducono fasci isomorfi}
+\label{sec:org8c1fe35}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, si indichi con \(\operatorname{Div}(X)\) il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{gruppo dei divisori di \(X\)}, e con \(\sim\) la \href{20250113110148-relazione_di_equivalenza.org}{relazione} di \href{20260202100443-divisori_linearmente_equivalenti_di_una_superficie_di_riemann.org}{equivalenza lineare}.
+
+\begin{prop}
+Se \(D_{1},D_{2} \in \operatorname{Div}(X)\), \(D_{1} \mathrel{\sim} D_{2}\), allora i due \href{20260202101128-fascio_associato_ad_un_divisore_su_una_superficie_di_riemann.org}{fasci indotti} sono \href{20250325180613-morfismo_di_prefasci.org}{isomorfi}:
+\begin{equation*}
+\mathcal{O}_{X}(D_{1}) \cong \mathcal{O}_{X}(D_{2})
+\end{equation*}
+Più precisamente, se \(D_{1}-D_{2} = \operatorname{div}(h)\) per qualche \(h \in\mathcal{M}_{X}(X)\setminus\set{0}\)\footnote{Con ``\(\mathcal{M}_{X}\)'' si indica il \href{20260128144151-fascio_delle_funzioni_meromorfe_su_una_superficie_di_riemann.org}{fascio delle funzioni meromorfe}.} allora per ogni \(U\subseteq X\) l'isomorfismo è dato da\footnote{Vedi anche ``\href{20250205170515-restrizione_di_una_classe.org}{Restrizione di una funzione}''}
+\begin{align*}
+\mathcal{O}_{X}(D_{1})(U) &\longrightarrow \mathcal{O}_{X}(D_{2})(U)\\
+f &\longmapsto f\cdot \restriction{h}{U}
+\end{align*}
+\end{prop}
+\end{document}

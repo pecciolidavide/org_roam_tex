@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
+\section{Proposizione}
+\label{sec:org3022938}
+
+Se \(P_{1},\dots,P_{k} \subseteq \N^{\ell}\) sono \href{20250216173925-insieme_ricorsivo.org}{insiemi ricorsivi} (\href{20250216174510-insieme_ricorsivo_primitivo.org}{primitivi}) a due a due \href{20250520110008-insiemi_disgiunti.org}{disgiunti}, e per ogni \(1\le i \le k\) le
+\begin{equation*}
+f_{i} : \N^{\ell}\to \N
+\end{equation*}
+sono \href{20250215151458-funzioni_ricorsive.org}{funzioni ricorsive} (\href{20250215141024-funzioni_primitive_ricordive.org}{primitive}) \uline{\href{20250213105339-funzione_parziale.org}{totali}}, allora la funzione \(f: \N^{\ell}\to \N\) definita come
+\begin{equation*}
+f(\oldvec{x}) = \begin{cases}
+f_{1}(\oldvec{x}) & P_{1}(\oldvec{x})\\
+f_{2}(\oldvec{x}) & P_{2}(\oldvec{x})\\
+\vdots\\
+f_{k}(\oldvec{x}) & P_{k}(\oldvec{x})\\
+0 &\text{altrimenti}
+\end{cases}
+\end{equation*}
+è ricorsiva (primitiva).
+\subsection{Dimostrazione}
+\label{sec:org6d7b783}
+\begin{equation*}
+f(\oldvec{x}) = \sum_{i=1}^{k} f_{i}(\oldvec{x})\cdot \chi_{P_{i}}(\oldvec{x}).
+\end{equation*}
+(\href{20250519112500-proprieta_di_chiusura_delle_funzioni_primitive_ricorsive.org}{Proprietà di chiusura delle funzioni primitive ricorsive} e \href{20250215151458-funzioni_ricorsive.org}{Funzioni ricorsive})
+\end{document}

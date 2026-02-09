@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(f:\N^{k+1}\to \N\) una \href{20250202170607-classe_relazione_binaria.org}{funzione} (anche \href{20250213105339-funzione_parziale.org}{parziale}), e sia \(\godelcode{\cdot}\) la \href{20250531110737-codifica_delle_sequenze_finite_tramite_beta_di_godel.org}{codifica} delle \href{20250206170922-sequenze_e_stringhe.org}{sequenze finite}.
+\section{Definizione}
+\label{sec:org01d40a7}
+
+Si definisce \(f^{\text{m}}: \N^{k+1}\to \N\) la \uline{funzione memoria} associata ad \(f\), definita come segue:
+\begin{equation*}
+f^{\text{m}}(\bm{x},y) = \godelcode{f(\bm{x},0),\dots,f(\bm{x},y)}.
+\end{equation*}
+Questa \uline{non è} una funzione totale, e per il suo \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} vale: \((\bm{x},y) \in \mathrm{dom}(f^{\text{m}})\) se e solo se, per ogni \(z\le y\), \((\bm{x},z) \in \mathrm{dom}(f)\).
+
+In particolare, \(\mathrm{dom}(f^{\text{m}}) = \mathrm{dom}(f)\) se e solo se \(\mathrm{dom}(f)\) è chiuso verso il basso rispetto all'ultima coordinata: questo accade, ad esempio, per le \href{20250215151458-funzioni_ricorsive.org}{funzioni definite per ricorsione}.
+\section{Lemma}
+\label{sec:orgb84af0e}
+
+Sia \(f:\N^{k+1}\to \N\) tale che se \((\bm{x},y) \in \mathrm{dom}(f)\) allora per ogni \(z\le y\): \((\bm{x},z) \in \mathrm{dom}(f)\) (cosicché \(\mathrm{dom}(f)=\mathrm{dom}(f^{\text{m}})\)).
+
+Allora \(f\) è \href{20250207104855-funzione_ricorsiva.org}{ricorsiva} (\href{20250215141024-funzioni_primitive_ricordive.org}{primitiva}) sse \(f^{\text{m}}\) è \href{20250207104855-funzione_ricorsiva.org}{ricorsiva} (\href{20250215141024-funzioni_primitive_ricordive.org}{primitiva}).
+\end{document}

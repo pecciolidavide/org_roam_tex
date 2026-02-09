@@ -1,0 +1,109 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}
+\section{Funzioni primitive ricorsive}
+\label{sec:org566ce78}
+Questa definizione può essere \href{20250216162850-funzioni_ricorsive_in_piu_dimensioni.org}{ampliata}
+
+L'\href{20250130104331-insieme_mk.org}{insieme} \(\mathcal{P}\) delle \textbf{\href{20250202170607-classe_relazione_binaria.org}{funzioni} primitive ricorsive} è la più piccola \href{20250130104320-classe_mk.org}{classe} contenente:
+\begin{itemize}
+\item la funzione costante nulla,
+\begin{equation*}
+  c_{0}:\N\to \N: x\mapsto 0
+\end{equation*}
+\item la \href{20250202124648-successore_di_un_insieme_mk.org}{funzione successore}:
+\begin{equation*}
+  S:\N\to \N: x\mapsto x+1
+\end{equation*}
+\item le funzioni proiezione \(U_{i}^{k}\), per ogni \(k \in \N^{+}\) e per ogni \(0<i \le k\):
+\begin{align*}
+  U_{i}^{k}: \N^{k} &\longrightarrow \N\\
+  (x_{1},\dots,x_{k})&\longmapsto x_{i}
+\end{align*}
+In particolare, la funzione \(U_{1}^{1}:\N\to \N\) è la funzione identità;
+\end{itemize}
+
+e chiusa per le seguenti:
+\subsection{Schema di Composizione di funzioni primitive ricorsive}
+\label{sec:org488023b}
+Siano \(k,\ell \in \N^{+}\). Se \(h: \N^{k}\to \N\) e per ogni \(1\le i\le k\): \(g_{i}: \N^{\ell}\to \N\) sono funzioni primitive ricorsive, allora la funzione \(f:\N^{\ell}\to \N\):
+\begin{equation*}
+f(x_{1},\dots,x_{\ell}) \coloneqq h\left(g_{1}(x_{1},\dots,x_{\ell}),\dots,g_{k}(x_{1},\dots,x_{\ell})\right)
+\end{equation*}
+è ricorsiva primitiva.
+\subsection{Schema di Ricorsione primitiva}
+\label{sec:org929e385}
+Sia \(k \in \N^{+}\). Se \(h:\N^{n +2}\to \N\) e \(g:\N^{ k}\to \N\) sono funzioni ricorsive primitive allora la funzione \(f:\N^{k+1}\to \N\) definita dalle condizioni
+\begin{equation*}
+\begin{cases}
+f(x_{1},\dots,x_{k},0) = g(x_{1},\dots,x_{k})\\
+f(x_{1},\dots,x_{n},y+1) = h\left(x_{1},\dots,x_{k}, y, f(x_{1},\dots,x_{n},y)\right)
+\end{cases}
+\end{equation*}
+è ricorsiva primitiva. Notiamo che questa funzione esiste per il \href{20250207121906-teorema_di_ricorsione.org}{Teorema di Ricorsione}.
+
+Vedi la \href{20250601161456-generalizzazione_schema_di_ricorsione.org}{generalizzazione}.
+\subsection{Osservazione}
+\label{sec:org5786334}
+Tutte le funzioni primitive ricorsive sono \uline{\href{20250213105339-funzione_parziale.org}{funzioni totali}}.
+\section{Altezza di una funzione ricorsiva primitiva}
+\label{sec:org68cb9fc}
+Ogni funzione in \(\mathcal{P}\) è ottenuta a partire dalle funzioni di base applicando composizione o ricorsione un numero finito di volte.
+
+Pertanto si è creata una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di famiglie di funzioni \(\langle \mathcal{P}_{n}\ |\ n \in \omega\rangle\) (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}), dove
+\begin{equation*}
+\mathcal{P}_{0} = \set{c_{0},S}\cup \set{U_{i}^{k}\ |\ 1\le i \le k}
+\end{equation*}
+e \(\mathcal{P}_{n+1}\) è l'\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{unione} di \(\mathcal{P}_{n}\) con tutte le funzioni che possono essere ottenute applicando una sola volta composizione o ricorsione a partire dalle funzioni \(\mathcal{P}_{n}\).
+
+Quindi \(\mathcal{P}_{n} \subseteq \mathcal{P}_{n+1}\) e \(\bigcup_{n \in \omega}\mathcal{P}_{n} = \mathcal{P}\).
+
+Si ha una nozione di altezza
+\begin{equation*}
+\operatorname{ht}: \mathcal{P} \to \N
+\end{equation*}
+e a ciascuna funzione primitiva ricorsiva \(f\) associa il \href{20250203102516-massimo_e_minimo.org}{più piccolo} \(n \in \N\) tale che \(f \in\mathcal{P}_{n}\).
+\section{Esempi di funzioni primitive ricorsive}
+\label{sec:org97984c8}
+Sono \hyperref[sec:org566ce78]{funzioni ricorsive ricorsive} le seguenti:
+\begin{itemize}
+\item le funzioni costanti \(c_{n}: \N\to \N: x\mapsto n\);
+\item la somma;
+\item il prodotto;
+\item l'esponenziale \((x,y)\mapsto x^{y}\);
+\item il fattoriale \(x\mapsto x!\);
+\item la funzione predecessore
+\begin{equation*}
+  \operatorname{pr}(x) \coloneqq \begin{cases}
+  	0 &\text{se }x =0\\
+  	x-1 &\text{altrimenti}
+      \end{cases}
+\end{equation*}
+\item la funzione differenza troncata
+\begin{equation*}
+  x\dotminus y \coloneqq \begin{cases}
+  	0 & \text{se }x<y\\
+  	x-y &\text{altrimenti}
+      \end{cases}
+\end{equation*}
+\item la funzione distanza: \((x,y)\mapsto |x-y|\);
+\item le funzioni massimo e minimo \(\max(x,y), \min(x,y)\) nonché le loro versioni per insiemi \href{20250205120448-classe_finita_e_infinita_mk.org}{finiti} di \href{20241213101756-cardinalita.org}{cardinalità} \(k>2\): \(\max\nolimits_{k},\min\nolimits_{k}\);
+\item la \href{20250215160218-funzione_caratteristica.org}{funzione caratteristica} \(\chi_{A}\) per \(A \in \set{\le, =, \ge,<,>}\).
+\end{itemize}
+\subsection{Funzione segno e segno segnato per i naturali}
+\label{sec:org34d250f}
+Sono funzioni ricorsive primite le
+\begin{equation*}
+\operatorname{sgn}(x) \coloneqq \begin{cases}
+0 & x=0\\
+1 &\text{altrimenti}
+\end{cases}\qquad\overline{\operatorname{sgn}}(x) \coloneqq \begin{cases}
+1 & x=0\\
+0 & \text{altrimenti}
+\end{cases}
+\end{equation*}
+\end{document}

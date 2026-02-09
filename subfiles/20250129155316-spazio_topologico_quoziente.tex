@@ -1,0 +1,57 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Spazio topologico quoziente}
+\label{sec:org4157896}
+\begin{definizione}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}, e \(Y\) un \href{20250130104331-insieme_mk.org}{insieme} qualsiasi. Data \(\pi:X\to Y\) \href{20241213105600-funzione_suriettiva.org}{suriettiva}, la \textbf{topologia quoziente su \(Y\)} è la \href{20250103145124-topologia.org}{topologia} \href{20260128102226-topologia_piu_fine.org}{più fine} che rende \(\pi\) \href{20250103103252-funzione_continua.org}{continua}.
+\end{definizione}
+\begin{thm}
+Sia \(\mathcal{T}\) la topologia quoziente su \(Y\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(A \in \mathcal{T}\);
+\item \(\pi^{-1}(A)\)\footnote{Vedi ``\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}''} è un \href{20250103145124-topologia.org}{aperto} di \(X\).
+\end{enumerate}
+\end{thm}
+
+\begin{oss}
+Se \(X\) è uno spazio topologico e \(\sim\) è una relazione di equivalenza, la topologia sul \href{20250114100810-quoziente_rispetto_a_relazione_di_equivalenza.org}{quoziente} \(X/\sim\) è la topologia quoziente indotta da
+\begin{align*}
+\pi: X &\longrightarrow X/\sim\\
+x &\longmapsto [x]_{\sim}.
+\end{align*}
+\end{oss}
+\subsection{Proprietà universale della topologia quoziente}
+\label{sec:org40acc7b}
+Siano \(X\) uno \href{20250103145124-topologia.org}{spazio topologici}, \(\pi: X\to Y\) \href{20241213105600-funzione_suriettiva.org}{suriettiva} e \(Y\) dotato della topologia quoziente rispetto a \(\pi\).
+
+\begin{thm}
+Per ogni \(\tilde{Y}\) spazio topologico e per ogni \(f:X\longrightarrow \tilde{Y}\) \href{20250103103252-funzione_continua.org}{funzione continua} tale che
+\begin{equation*}
+\forall x,y \in X:\qquad \pi(x) = \pi(y) \IMPLICA f(x)=f(y)
+\end{equation*}
+esiste un'unica \href{20250103103252-funzione_continua.org}{funzione continua} \(\bar{f}: Y \to \tilde{Y}\) tale che il seguente diagramma commuti:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	X \&\& {\tilde{Y}} \\
+	\\
+	Y
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["\pi"', from=1-1, to=3-1]
+	\arrow["{\exists !\, \bar{f}}"', dashed, from=3-1, to=1-3]
+\end{tikzcd}
+\end{equation*}
+\end{thm}
+
+\begin{prop}
+Le seguenti affermazioni sono equivalenti:
+\begin{enumerate}
+\item \(\bar{f}\) è un \href{20250111142332-omeomorfismo.org}{omeomorfismo};
+\item \(f\) è \href{20250103103252-funzione_continua.org}{continua}, \href{20241213105600-funzione_suriettiva.org}{suriettiva} e \href{20250104114559-funzione_chiusa.org}{aperta};
+\item \(f\) è \href{20250103103252-funzione_continua.org}{continua}, \href{20241213105600-funzione_suriettiva.org}{suriettiva} e \href{20250104114559-funzione_chiusa.org}{chiusa}.
+\end{enumerate}
+\end{prop}
+\end{document}

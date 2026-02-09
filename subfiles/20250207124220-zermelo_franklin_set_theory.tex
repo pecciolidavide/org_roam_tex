@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Zermelo Franklin Set Theory}
+\label{sec:orgb621d24}
+Ecco una lista di \href{20250131123109-insieme_di_assiomi_per_una_teoria.org}{assiomi} nella teoria \(\mathcal{L}_{\in}=\set{\in}\).
+\subsection[Assiomi di ZF]{Assiomi di ZF\footnote{Vedi:
+\begin{itemize}
+\item \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme}
+\end{itemize}}}
+\label{sec:orgefa638e}
+
+\begin{description}
+\item[{Extensionality}] \(\forall A\ \forall B\ \left(\left( \forall x\ (x \in A \iff x \in B)\right) \implies A = B\right)\);
+\item[{Foundation}] \(\forall A\ \left(A\neq \emptyset\implies \left(\exists B (B \in A \land A\cap B=\emptyset)\right)\right)\);
+\item[{Pairing}] \(\forall x\ \forall y\ \exists z\ (z=\set{x,y})\);
+\item[{Union}] \(\forall x\ \exists y\ \forall z\ (z \in y \iff \exists u\ (z \in u \in x))\);
+\item[{Power Set}] \(\forall x\ \exists y\ \forall z\ (z \in y\iff x \subseteq x)\);
+\item[{Infinity}] \(\exists x\ (\emptyset \in x \land \forall y\ (y \in x\implies\operatorname{S}(y) \in x))\);
+\item[{Separation (axiom schema)}] per ogni \(\varphi(x,B,y_{1},\dots,y_{n})\) tale che \(x\) occorra \href{20250131103429-variabile_libera_di_una_formula.org}{libera} in \(\varphi\), e per ogni \href{20250130162057-linguaggio_del_prim_ordine.org}{variabile} \(A\) diversa da \(x,B,y_{1},\dots,y_{n}\):
+\begin{equation*}
+  \forall y_{1}\dots\forall y_{n}\forall B\exists A\ (x \in A\iff x \in B \land \varphi(x,B,y_{1},\dots,y_{n}));
+\end{equation*}
+\item[{Replacement (axiom schema)}] per ogni \(\varphi(x,y, A, z_{1},\dots,z_{n})\) e per ogni \href{20250130162057-linguaggio_del_prim_ordine.org}{variabile} \(B\) diversa da \(x,y, A, z_{1},\dots,z_{n}\):
+\begin{multline*}
+  \forall A\ \forall z_{1}\dots\forall z_{n}\ (\forall x\ (x \in A\implies\exists!y\ \varphi(x,y,A,z_{1},\dots,z_{n}))\implies\\
+  \exists B\ \forall y\ (y \in B\iff \exists x \ (x \in A \land \varphi(x,y,A,z_{1},\dots,z_{n})) ));
+\end{multline*}
+\end{description}
+\subsection{ZFC}
+\label{sec:org099a14c}
+Se alla lista di cui sopra si aggiunge \href{20250206171508-axiom_of_choiche.org}{AC}, si ottiene la teoria ZFC.
+\end{document}

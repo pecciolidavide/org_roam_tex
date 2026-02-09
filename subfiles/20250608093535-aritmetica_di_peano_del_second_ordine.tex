@@ -1,0 +1,23 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+L'\uline{aritmetica di Peano del second'ordine} \(PA_{2}\) è la \href{20250608105738-logica_del_second_ordine.org}{teoria del second'ordine} nel linguaggio \(L_{2}\coloneqq\set{S,0}\), assiomatizzata come segue:
+\begin{description}
+\item[{(P1)}] \(\forall\,x\ \forall\, y\ \left(S(x)=S(y)\,\implies\, x=y\right)\)
+\item[{(P2)}] \(\forall\,x\ \lnot\left(S(x)=0\right)\)
+\item[{(P3)}] \(\forall\,P\ \left[\left(P(0) \,\land\, \forall\,u\ \left(P(u)\,\implies\, P \left(S(u)\right)\right)\right)\,\implies\, \left(\forall\,x\ P(x)\right)\right]\)
+\end{description}
+\end{definizione}
+\begin{thm}
+(Teorema di Dedekind) Tutti i modelli di \(PA_{2}\) sono isomorfi tra di loro.
+\end{thm}
+
+Questo Teorema, posto che esista un modello di \(PA_{2}\), garantisce che questo sia ``unico'', e possa essere identificato con il \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard}.
+\begin{oss}
+Questo approccio non è soddisfacente, poiché per la logica del secondo ordine non esiste un calcolo logico corretto e completo: non è possibile garantire che si possano dimostrare tutte le conseguenze logiche di \(PA_{2}\).
+\end{oss}
+\end{document}

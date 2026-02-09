@@ -1,0 +1,52 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\diff#1#2{\restriction{#1_{\star}}{#2}}
+\def\diff#1#2{\restriction{#1_{\star}}{#2}}
+
+
+\begin{document}
+
+\emph{Definizione 4.1.4 e Proposizione 4.1.5
+di }
+\section{Pullback di una funzione tra varietà differenziabili}
+\label{sec:org3eda402}
+Siano \(M,N\) due \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili}, \(F:M\to N\) una \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{funzione \(C^{\infty}\)}, e \(\omega \in \Omega^{n}(N)\) una \href{20251115155511-forma_differenziale_in_un_punto.org}{\(n\)-forma} su \(N\).
+
+\begin{definizione}
+Il \uline{pullback di \(\omega\) lungo \(F\)} è
+\(F^{*}\omega \in \Omega^{n}(M)\) che, per ogni
+\(v_{1},\dots,v_{n} \in \operatorname{T}_{p} N\)\footnote{Dove \(\operatorname{T}_{p} N\)  è lo \href{20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{spazio tangente} a \(N\) in \(p\), e \(\diff{F}{p}\) rappresenta il \href{20250114111331-differenziale_di_una_funzione_tra_varieta_differenziabili.org}{differenziale di \(F\) in \(p\)}.}:
+\begin{equation*}
+(F^{*}\omega)_{p} (v_{1},\dots,v_{n}) = %
+\omega_{F(p)} \big(\diff{F}{p}(v_{1}),\dots,\diff{F}{p}(v_{n})\big)
+\end{equation*}
+La funzione \(F^{*}: \Omega^{n}(N) \to \Omega^{n}(M)\) si dice \uline{pullback di \(F\)}.
+\end{definizione}
+\section{Proprietà del pullback di una funzione tra varietà differenziabili}
+\label{sec:org4353531}
+\begin{prop}
+Siano \(M,N\) due \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili}, \(F:M\to N\) una \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{funzione \(C^{\infty}\)}.
+\begin{enumerate}
+\item \(F^{*}:\Omega^{n}(N) \to \Omega^{n}({M})\)\footnote{\(\Omega^{n}(N)\) lo spazio delle \href{20251115155511-forma_differenziale_in_un_punto.org}{Forme differenziali} su \(N\).} è una \href{20250114101949-funzione_lineare.org}{funzione lineare} per ogni \(n\ge 0\), e induce per linearità una funzione
+\begin{equation*}
+ F^{*}:\Omega^{\bullet}(N) \to \Omega^{\bullet}(M).
+\end{equation*}
+\item Per ogni \(\omega, \psi \in \Omega^{\bullet}(N)\):\footnote{\(\wedge\) è il \href{20251115155511-forma_differenziale_in_un_punto.org}{Prodotto wedge tra forme differenziali}}
+\begin{equation*}
+ F^{*}(\omega \wedge \psi) = F^{*}\omega \wedge F^{*}\psi.
+\end{equation*}
+\item Per ogni \(\omega \in \Omega^{\bullet}(N)\):
+\begin{equation*}
+ F^{*}(\dif \omega) = \operatorname{d} \circ F^{*}\omega
+\end{equation*}
+dove \(\operatorname{d}\) è il \href{20251115160537-differenziale_di_una_forma.org}{differenziale di forme}.
+\item Se \(P\) è una varietà differenziabile, \(G: N \to P\) è una funzione \(C^{\infty}\), allora
+\begin{equation*}
+ (G\circ F)^{*} = F^{*}\circ G^{*}.
+\end{equation*}
+
+\item Se \(F\) è un \href{20250113172924-diffeomorfismo_tra_varieta_differenziabili.org}{diffeomorfismo} allora \(F^{*}: \Omega^{\bullet}(N) \to \Omega^{\bullet}(M)\) è un \href{20251201160758-isomorfismo_tra_algebre_graduate.org}{isomorfismo di algebre graduate}, e \((F^{*})^{-1} = (F^{-1})^{*}\)
+\end{enumerate}
+\end{prop}
+\end{document}

@@ -1,0 +1,39 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Subderivata}
+\label{sec:orgd742df1}
+\begin{definizione}
+Sia \(f:I \subseteq \R\to \R\), \(I\) \href{20250711141953-insieme_convesso.org}{convesso}. Per ogni \(x_{0} \in I\) si definisce \uline{subderivata di \(f\) in \(x_{0}\)} un numero reale \(c \in \R\) tale che
+\begin{equation*}
+\forall x \in I\quad f(x)-f(x_{0})\ge c(x-x_{0}).
+\end{equation*}
+\end{definizione}
+\section{Subdifferenziale}
+\label{sec:org2bcbe0e}
+\begin{definizione}
+Sia \(f:I \subseteq \R\to \R\), \(I\) \href{20250711141953-insieme_convesso.org}{convesso}. Il \uline{subdifferenziale} di \(f\) in \(x_{0}\) è l'insieme delle subderivate di \(f\) in \(x_{0}\).
+\end{definizione}
+
+Alcune proprietà.
+\begin{itemize}
+\item Se è non \href{20250131161811-insieme_vuoto_mk.org}{vuoto}, il subdifferenziale di \(f\) in \(x_{0}\) è un intervallo chiuso \([a,b]\), con
+\begin{align*}
+  a&\coloneqq\lim_{x\to x_{0}^{-}}\frac{f(x)-f(x_{0})}{x-x_{0}}\\
+  b&\coloneqq\lim_{x\to x_{0}^{+}}\frac{f(x)-f(x_{0})}{x-x_{0}}.
+\end{align*}
+\item Se \(f\) è \href{20250711142403-funzione_convessa.org}{convessa}, allora il subdifferenziale di \(f\) in \(x_{0}\) è non vuoto.
+\item \(f\) è \href{20250702101532-funzione_reale_differenziabile.org}{differenziabile} in \(x_{0}\) se e solo se il subdifferenziale di \(f\) in \(x_{0}\) contiene un solo punto.
+\end{itemize}
+\section{Subgradiente}
+\label{sec:org7a24337}
+\begin{definizione}
+Sia \(f:U \subseteq \R^{n}\to \R\), \(U\) convesso. Un vettore \(\bm{v} \in \R^{n}\) si dice \uline{subgradiente} di \(f\) in \(x_{0} \in U\) se
+\begin{equation*}
+\forall \bm{x} \in U:\qquad f(\bm{x})-f(\bm{x}_{0}) \ge \bm{v}\cdot(\bm{x}-\bm{x}_{0}).
+\end{equation*}
+\end{definizione}
+\end{document}

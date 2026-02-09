@@ -1,0 +1,79 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Significato geometrico del modulo di omologia singolare 0}
+\label{sec:orgc27a023}
+Sia \(R\) un \href{20241219112842-pid.org}{PID}.
+\begin{prop}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} e siano \(\set{X_{j}}_{j \in J}\) le sue \href{20250325160128-componente_connessa_di_uno_spazio_topologico.org}{componenti} \href{20250113103025-spazio_topologico_connesso_per_archi.org}{connesse per archi}. Allora:
+\begin{enumerate}
+\item Per ogni \(q\), l'\href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{omologia} \href{20250122133631-omologia_singolare.org}{singolare} di \(X\) è la \href{20241213095808-somma_diretta.org}{somma diretta} delle omologie di \(X_{j}\):
+\begin{equation*}
+ H_{q}(X) = \bigoplus_{j \in J}H_{q}(X_{j})
+\end{equation*}
+\item \(H_{0}(X_{j}) = R\) per ogni \(j \in J\)
+\end{enumerate}
+
+Pertanto, \(H_{0}(X) \cong R^{(J)}\)\footnote{Vedi:
+\begin{itemize}
+\item \href{20241206115416-morfismi_r_moduli.org}{Isomorfismo tra R-Moduli}
+\item \href{20241213095808-somma_diretta.org}{Somma Diretta}
+\end{itemize}}.
+\end{prop}
+\begin{proof}
+\begin{enumerate}
+\item Sia \(\Sigma_{q} = \set{\sigma:\Delta_{q}\to X}\)\footnote{Con \(\Delta_{q}\) si indica il \(q\)-\href{20250121122324-simplesso_standard.org}{Simplesso Standard}.} l'\href{20250122133435-simplesso_singolare.org}{insieme dei simplessi singolari} di \(X\), e sia
+\begin{equation*}
+ \Sigma_{q}' = \set{\sigma : \Delta_{q} \to X_{j} \subseteq X} \subseteq \Sigma_{q}
+\end{equation*}
+\begin{enumerate}
+\item Poiché \(X_{j}\) è componente connessa per archi e \(\sigma \in \Sigma_{q}\) è continua, allora necessariamente esiste \(j \in J\) tale che \(\sigma \in \Sigma_{q}^{j}\). Pertanto\footnote{Con \(\coprod\) si indica l'unione disgiunta di insiemi.}
+\begin{equation*}
+  \Sigma_{q} = \coprod_{j \in J} \Sigma_{q}^{j}
+\end{equation*}
+e pertanto\footnote{\(S_{q}(X)\) è il \href{20250122133435-simplesso_singolare.org}{modulo delle catene singolari}, e \href{20241213095808-somma_diretta.org}{\(R^{(A)}\) è la somma diretta di \(A\)-copie di \(R\)}.}
+\begin{equation*}
+  S_{q}(X) = R^{(\Sigma_{q})} = R^{\big(\coprod_{j \in J} \Sigma_{q}^{j}\big)} = \bigoplus_{j \in J} R^{(\Sigma_{q}^{j})} = \bigoplus_{j \in J} S_{q}(X_{j}).
+\end{equation*}
+\item Allo stesso modo, se \(\sigma \in \Sigma_{q}^{j}\), allora \(\partial_{q} \sigma \in S_{q-1}(X_{j})\).
+\end{enumerate}
+Pertanto, \href{20250122122650-quoziente_di_somma_diretta_di_moduli.org}{siccome somma diretta e quozienti commutano}, si ottiene che
+\begin{equation*}
+ H_{q}(X) = \bigoplus_{j \in J}H_{q}(X_{j})
+\end{equation*}
+\item WLOG sia \(X\) connesso per archi, e si consideri \(\partial_{-1}\):
+\begin{align*}
+\partial_{-1}: H_{0}(X) = \frac{S_{0}(X)}{\operatorname{Im}\partial_{1}} &\longrightarrow R\\
+\left[\sum_{i} r_{i}p_{i}\right] &\longmapsto \sum_{i} r_{i}
+\end{align*}
+dove \(p_{i} : \Delta_{0} \to X: * \mapsto p_{i} \in X\).
+
+\begin{itemize}
+\item \uline{\(\partial_{-1}\) è suriettiva}, in quanto considerato \(p \in X\) \(\partial_{-1}[p] = 1\).
+
+\item \uline{\(\partial_{-1}\) + iniettiva}. Sia \(\sum_{i} r_{i} p_{i} \in S_{0}(X)\) tale che \(\sum_{i} r_{i} = 0\). Sia \(p_{0} \in X\) fissato.
+\begin{equation*}
+   \sum_{i} r_{i} p_{i} = \sum_{i} r_{i} p_{i} - \big(\sum_{i} r_{i}\big) p_{0} = \sum_{i} r_{i} (p_{i} - p_{0}).
+\end{equation*}
+Se ora \(\sigma_{i}: \Delta_{1}\to X\) è una curva da \(p_{0}\) a \(p_{1}\) (che esiste in quanto \(X\) cpa), allora\footnote{Questo è il \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{morfismo di bordo}}
+\begin{equation*}
+   p_{i}-p_{0} = \partial_{1} \sigma_{i}
+\end{equation*}
+e quindi
+\begin{equation*}
+   \sum_{i} r_{i} p_{i} = \sum_{i} r_{i} \partial_{1} \sigma_{i} = \partial_{1} \left(\sum_{i} r_{i} \sigma_{i}\right).
+\end{equation*}
+e pertanto \(\sum_{i} r_{i} p_{i} \in \operatorname{Im} \partial_{1}\) e
+\begin{equation*}
+   \left[\sum_{i} r_{i} p_{i}\right] = 0.
+\end{equation*}
+\end{itemize}
+
+\href{20241206115416-morfismi_r_moduli.org}{Quindi \(\partial_{-1}\) è isomorfismo.}
+\qedhere
+\end{enumerate}
+\end{proof}
+\end{document}

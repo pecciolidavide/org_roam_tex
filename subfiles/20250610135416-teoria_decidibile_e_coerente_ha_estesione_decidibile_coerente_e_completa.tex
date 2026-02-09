@@ -1,0 +1,26 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si adotta la notazione di ``\href{20250609104647-buona_codifica_di_un_linguaggio.org}{Aritmetizzazione della sintassi}''
+
+Sia \(L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} \href{20250111143651-insieme_numerabile.org}{numerabile}. Sia \(\#\) una \href{20250609104647-buona_codifica_di_un_linguaggio.org}{buona codifica per \(L\)}.
+\section{Teorema}
+\label{sec:orgb4464bc}
+
+Ogni \(L\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250610134232-teoria_decidibile.org}{decidibile} e \href{20250609162657-teoria_coerente.org}{coerente} \(T\) ha un'\href{20250130114950-teoria_del_prim_ordine.org}{estensione} \href{20250610134232-teoria_decidibile.org}{decidibile}, \href{20250609162657-teoria_coerente.org}{coerente} e \href{20250131123151-teoria_completa.org}{completa}.
+\subsection{Idea di dimostrazione}
+\label{sec:orgc963033}
+
+Si costruisce per induzione \(T_{n}\):
+\begin{itemize}
+\item \(T_{0} = T\);
+\item \(T_{n+1} = T_{n} \cup\set{\sigma}\) se \(\termcode{\sigma} = n+1\) e \(T_{n}\not\vdash\lnot\sigma\).
+\end{itemize}
+
+Posto \(T_{\infty} \coloneqq \bigcup_{n \in \N} T_{n}\), questa è coerente, ed è inoltre completa.
+
+\textbf{\textbf{NON}} dimostriamo che \(T\) sia decidibile.
+\end{document}

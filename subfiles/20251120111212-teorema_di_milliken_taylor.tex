@@ -1,0 +1,186 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema di Milliken-Taylor}
+\label{sec:orge44e108}
+\def\fp{\operatorname{fp}}
+\begin{thm}
+For every finite coloring of \(\N^{(2)}\) there is an infinite sequence \(\overline{a} = \langle a_i:i<\omega\rangle\) in \(\N\) such that \(\operatorname{ocfp}(\overline{a}) \subseteq \fp(\overline{a})^{(2)}\) is monochromatic, where
+\begin{equation*}
+ \operatorname{ocfp}(\overline{a}) \coloneqq \set{%
+ 	\set{a_{i_{1}}+\dots+a_{i_{n}}, a_{j_{1}}+\dots+a_{j_{m}}} %
+ 		\in \fp(\overline{a})^{(2)} %
+ 	\mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m} %
+ }.
+\end{equation*}
+\end{thm}
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+\def\A{\mathcal{A}}
+%
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+\def\a{\overline{a}}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+
+\def\defaultnonforkmodel{\N}
+\def\fp{\operatorname{fp}}
+\def\ocfp{\operatorname{ocfp}}
+\def\b{\overline{b}}
+
+\begin{proof}
+Si dimostra la seguende affermazione:
+\begin{quote}
+For every finite coloring of \(\N^{(2)}\) there is an infinite sequence \(\overline{a} = \langle a_i:i<\omega\rangle\) in \(\N\) such that \(\operatorname{ocfp}(\overline{a}) \subseteq \fp(\overline{a})^{(2)}\) is monochromatic, where
+\begin{equation*}
+ \operatorname{ocfp}(\overline{a}) \coloneqq \set{%
+ 	\set{a_{i_{1}}+\dots+a_{i_{n}}, a_{j_{1}}+\dots+a_{j_{m}}} %
+ 		\in \fp(\overline{a})^{(2)} %
+ 	\mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m} %
+ }.
+\end{equation*}
+\end{quote}
+
+Sia \(\U\succeq \N\) modello saturo in un linguaggio \(\L\) che contiene un simbolo di relazione per ogni sottoinsieme proprio di \(\N\) e per ogni colore di \(\N^{(2)}\).
+Segue che \(\nonfork\) è 1-stazionaria
+
+Sia \(\A \coloneqq \set{a \in \U \mid a \neq 0}\). Questo è un insieme definibile ed è idempotente, pertanto esiste \(b_{0} \in \A\) tale che
+\(\orbita(b_{0}/\N)\)
+sia idempotente.
+
+Sia \(\b = \langle b_{i} \mid i <\omega \rangle\) una sequenza di coeredi su \(\N\).
+In particolare si ha:
+\begin{enumerate}
+\item per ogni \(i<\omega\): \(b_{i} \nonfork b\restricted{i}\) (e quindi \(b_{1} \nonfork b_{0}\) e \(b_{2} \nonfork b_{1},b_{0}\));
+\item per ogni \(i<\omega\): \(b_{i+1} \equivalentover{\N, b\restricted{i}} b_{i}\) (e quindi \(b_{1}\equivalentover{\N}b_{0}\));
+\item \(b_{1}+b_{0} \equivalentover{\N} b_{0}\), e
+\(b_{2}+b_{1} \equivalentover{\N, b_{0}} b_{1}\).
+\end{enumerate}
+
+Si costruisce induttivamente una sequenza \(\a=\langle a_{i} \mid i < \omega \rangle\) che soddisfi la tesi.
+
+Per ipotesi induttiva al passo \(h\) si supponga di aver costruito
+\(\a\restricted{h} = \langle a_{i} \mid i < h \rangle\) tale che
+\begin{equation*}
+\ocfp(\a\restricted{h}, b_{1}, b_{0})\text{ è monocromatico verde}.
+\end{equation*}
+\uline{Claim}: Questo implica che anche
+\(\ocfp(\a\restricted{h}, b_{2}, b_{1}, b_{0})\) sia monocromatico verde.
+
+Esiste una formula \(\varphi_{h}(\a\restricted{h}, b_{2}, b_{1},b_{0}) \in \L\) che afferma questa cosa.
+
+Siccome per 1. si ha che \(b_{2} \nonfork b_{1},b_{0}\), allora esiste \(a_{h} \in \N\) tale che
+\begin{equation*}
+\U\vDash\varphi_{h}(\a\restricted{h}, a_{h}, b_{1}, b_{0}).
+\end{equation*}
+ovvero \(\ocfp(\a\restricted{h+1}, b_{1}, b_{0})\) ha solo elementi verdi.
+
+Si è quindi costruita \(\a\) tale che \(\ocfp(\a,b_{1},b_{0})\) è monocromatico, e pertanto anche \(\ocfp(\a) \subseteq \fp(\a)^{(2)}\) lo~è.
+\end{proof}
+
+\uline{Claim}: \(\ocfp(\a\restricted{h}, b_{1}, b_{0})\) monocromatico verde implica che anche
+\(\ocfp(\a\restricted{h}, b_{2}, b_{1}, b_{0})\) sia monocromatico verde.
+
+\uline{Dimostrazione del Claim}: Infatti
+\begin{align}
+&\ocfp(\a\restricted{h},b_{2},b_{1},b_{0}) = \ocfp(\a\restricted{h},b_{1},b_{0}) \cup \notag\\
+	&\cup \set{\set{
+		a_{i_{1}} + \dots + a_{i_{n}}, a_{j_{1}} + \dots + a_{j_{m}} + b_{2} + b_{1} + b_{0}
+	} \mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m}<h}%
+	\label{eq:1_elementi}\\
+	&\cup \set{\set{
+		a_{i_{1}} + \dots + a_{i_{n}}, a_{j_{1}} + \dots + a_{j_{m}} + b_{2} + b_{1}
+	} \mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m}<h}%
+	\label{eq:2_elementi}\\
+	&\cup \set{\set{
+		a_{i_{1}} + \dots + a_{i_{n}}, a_{j_{1}} + \dots + a_{j_{m}} + b_{2}  + b_{0}
+	} \mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m}<h}%
+	\label{eq:3_elementi}\\
+&\cup \set{\set{
+		a_{i_{1}} + \dots + a_{i_{n}}, b_{2}  + b_{1} +b_{0}
+	} \mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m}<h}%
+	\label{eq:4_elementi}\\
+&\cup \set{\set{
+		a_{i_{1}} + \dots + a_{i_{n}} + b_{2}, b_{1} +b_{0}
+	} \mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m}<h}%
+	\label{eq:5_elementi}\\
+&\cup \set{\set{
+		a_{i_{1}} + \dots + a_{i_{n}} + b_{2} + b_{1}, b_{0}
+	} \mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m}<h}%
+	\label{eq:6_elementi}\\
+&\cup \set{\set{
+		a_{i_{1}} + \dots + a_{i_{n}}, b_{2}  + b_{1}
+	} \mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m}<h}%
+	\label{eq:7_elementi}\\
+&\cup \set{\set{
+		a_{i_{1}} + \dots + a_{i_{n}} + b_{2}, b_{1}
+	} \mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m}<h}%
+	\label{eq:8_elementi}\\
+&\cup \set{\set{
+		a_{i_{1}} + \dots + a_{i_{n}}, b_{2} +b_{0}
+	} \mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m}<h}%
+	\label{eq:9_elementi}\\
+&\cup \set{\set{
+		a_{i_{1}} + \dots + a_{i_{n}} + b_{2}, b_{0}
+	} \mid i_{1}<\dots<i_{n}<j_{1}<\dots<j_{m}<h}%
+	\label{eq:10_elementi}\end{align}
+\begin{itemize}
+\item Per gli elementi in
+\eqref{eq:1_elementi},
+\eqref{eq:2_elementi},
+\eqref{eq:4_elementi},
+\eqref{eq:6_elementi},
+\eqref{eq:7_elementi},
+per 3. \(b_{2}+b_{1} \equivalentover{\N, b_{0}} b_{1}\) e pertanto è possibile ricondursi ad un elemento di \(\ocfp(\a\restricted{h},b_{1},b_{0})\), insieme monocromatico verde.
+\item Per gli elementi in
+\eqref{eq:3_elementi},
+\eqref{eq:9_elementi},
+\eqref{eq:10_elementi},
+per 2. \(b_{2} \equivalentover{\N,b_{0}} b_{1}\) e pertanto è possibile ricondursi ad un elemento di \(\ocfp(\a\restricted{h},b_{1},b_{0})\), insieme monocromatico verde.
+\item Per \eqref{eq:8_elementi}, siccome \(\b\) è una sequenza di coeredi, allora è una sequenza di indiscernibili, e pertanto
+\((b_{2},b_{1}) \equivalentover{\N} (b_{1},b_{0})\)
+e dunque è possibile ricondursi ad un elemento di \(\ocfp(\a\restricted{h},b_{1},b_{0})\), insieme monocromatico verde.
+\item Sia
+\(\set{a_{i_{1}} + \dots + a_{i_{n}} + b_{2}, b_{1} +b_{0}}\)
+un elemento di \eqref{eq:5_elementi}.
+Siccome, per 1., \(b_{2} \nonfork b_{1},b_{0}\), allora \(b_{2} \nonfork b_{1}+b_{0}, b_{0}\) (questo segue banalmente).
+Inoltre, per 3., si ha che \(b_{1}+b_{0} \equivalentover{\N} b_{0}\).
+
+Per il Lemma~14.8(5) \emph{non-splitting}, allora
+\(b_{1}+b_{0} \equivalentover{\N,b_{2}} b_{0}\).
+Pertanto l'elemento considerato ha lo stesso colore di
+\begin{equation*}
+  \set{a_{i_{1}} + \dots + a_{i_{n}} + b_{2}, b_{0}}
+\end{equation*}
+che a sua volta, poiché \((b_{2},b_{0}) \equivalentover{\N} (b_{1},b_{0})\) come argomentato al punto precedente, ha lo stesso colore di
+\begin{equation*}
+  \set{a_{i_{1}} + \dots + a_{i_{n}} + b_{1}, b_{0}} \in%
+  \ocfp(\a\restricted{h},b_{1},b_{0})
+\end{equation*}
+che è verde per ipotesi.
+\end{itemize}
+\end{document}

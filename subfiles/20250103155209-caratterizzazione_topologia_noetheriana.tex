@@ -1,0 +1,28 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Lemma}
+\label{sec:org29f6f61}
+Uno \href{20250103145124-topologia.org}{spazio topologico} \(X\) è \href{20250103152646-spazio_topologico_noetheriano.org}{noetheriano} se e solo se ogni famiglia non vuota di \href{20250103145124-topologia.org}{chiusi} ha un \href{20250203102516-massimo_e_minimo.org}{elemento minimale} (rispetto a \(\subseteq\)). Equivalentemente, se ogni famiglia non vuota di aperti ha un elemento massimale.
+\subsection{Dimostrazione}
+\label{sec:orgfc88351}
+\subsubsection{``\(\implies\)''}
+\label{sec:orgbe2e7e6}
+
+Sia \(X\) uno spazio topologico noetheriano, e sia \(\mathscr{F}=\set{Y_{i}}_{i \in I}\) una famiglia di chiusi. Se per assurdo \(\mathscr{F}\) non ha elementi minimali, sia \(Y_{1} \in \mathscr{F}\).
+
+Allora esiste \(Y_{2} \in \mathscr{F}\) tale che \(Y_{2} \subsetneqq Y_{1}\), esiste \(Y_{3} \in \mathscr{F}\) tale che \(Y_{3}\subsetneqq Y_{2}\) e così via.
+
+Si è quindi creata una catena \(Y_{1}\supseteq Y_{2} \supseteq Y_{3} \supseteq\dots\) non stazionaria. Assurdo, poiché \(X\) noetheriano per hp.
+\subsubsection{``\(\impliedby\)''}
+\label{sec:orgdd5b1ac}
+
+Si consideri una catena discendente
+\begin{equation*}
+Y_{1} \supseteq Y_{2} \supseteq Y_{3} \supseteq \dots
+\end{equation*}
+di chiusi. La famiglia di chiusi \(\mathscr{F}\coloneqq\set{Y_{i}}\) ha un elemento minimale, e dunque la catena è stazionaria.
+\end{document}

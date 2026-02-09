@@ -1,0 +1,66 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Vedi: \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}
+\section{Caso base per n=2}
+\label{sec:orgc94d1e8}
+La biiezione
+\begin{align*}
+{\bm{J}}: \N^{2} &\longrightarrow \N\\
+(x,y) &\longmapsto \frac{1}{2}(x+y)(x+y+1) + x
+\end{align*}
+è \href{20250215141024-funzioni_primitive_ricordive.org}{ricorsiva primitiva}, poiché lo \href{20250215141024-funzioni_primitive_ricordive.org}{sono somma e prodotto}.
+
+Siano inoltre \((\cdot)_{0},(\cdot)_{1} : \N\to \N\) le \href{20250202170607-classe_relazione_binaria.org}{inverse}, ovvero tali che:
+\begin{equation*}
+\begin{aligned}
+\left({\bm{J}}(x,y)\right)_{0} &= x\\
+\left({\bm{J}}(x,y)\right)_{1} &= y
+\end{aligned}\qquad \bm{J}\left((\xi)_{0},(\xi)_{1}\right)=\xi
+\end{equation*}
+
+Queste sono \href{20250215141024-funzioni_primitive_ricordive.org}{funzioni ricorsive primitive} \footnote{È ovvio che \(\bm{J}\) sia ricorsiva primitiva ,\href{20250215171731-quoziente_e_resto_sono_funzioni_ricorsive_primitive.org}{sicché \(\operatorname{Quoz}\) è una funzione ricorsiva primitiva}.. Ora, si consideri a titolo esplicativo \((\cdot)_{0}\).
+\((\xi)_0 = x\) se e solo se \(\bm{J}\left(x,(\xi)_{1}\right) = \xi\), se e solo se \(\exists\,y\ \bm{J}(x,y)=\xi\). Infatti: (\(\Rightarrow\)) ovvio; (\(\Leftarrow\)) se esiste \(y_{0}\) tale che \(\bm{J}(x,y_{0})=\xi\), allora per definizione di funzione inversa
+\begin{equation*}
+\bm{J}(x,y_{0}) = \xi = \bm{J}\left((\xi)_{0},(\xi)_{1}\right)
+\end{equation*}
+Poiché \(\bm{J}\) è biiettiva (quindi iniettiva) allora \(x=(\xi)_{0}\).
+Pertanto
+\begin{equation*}
+(\xi)_{0}=\minim{x\le \xi}{\minim{y\le \xi}{\bm{J}(x,y)=\xi}}.
+\end{equation*}
+e quindi è ricorsiva primitiva, poiché questa classe di funzioni \href{20250519112500-proprieta_di_chiusura_delle_funzioni_primitive_ricorsive.org}{è chiusa per minimizzazioni limitiate}.}.
+\begin{oss}
+Si noti che \({\bm{J}}(x,y)\ge x,y\), ma in particolare, se \((x,y)\neq (0,0)\) e \((x,y) \neq(0,1)\) si ha
+\begin{equation*}
+{\bm{J}}(x,y)>x,y
+\end{equation*}
+\end{oss}
+\section{Generalizzazione}
+\label{sec:orgc51b871}
+Si definiscono le seguenti biiezioni, per ogni \(k \in \N^{+}\):
+\begin{equation*}
+{\bm{J}}^{k} : \N^{k}\to \N
+\end{equation*}
+come:
+\begin{align*}
+{\bm{J}}^{1}(x_{1}) = x_{1}\\
+{\bm{J}}^{k+1}(x_{1},\dots,x_{k+1}) &\coloneqq {\bm{J}}\left(x_{1}, {\bm{J}}^{k}(x_{2},\dots,x_{k+1})\right)
+\end{align*}
+
+Si hanno le conseguenti inverse \((\cdot)^{k}_{i}\) per \(1\le i\le k\), definite da, per ogni \(x \in \N\):
+\begin{equation*}
+{\bm{J}}^{k}\left((x)^{k}_{1}, (x)^{k}_{2},\dots, (x)^{k}_{k}\right)= x
+\end{equation*}
+
+È possibile dimostrare che queste siano \href{20250215141024-funzioni_primitive_ricordive.org}{funzioni ricorsive primitive}.
+
+Si noti, inoltre, che \href{20250216162903-funzioni_primitive_ricorsive_in_piu_dimensioni.org}{espanendo la definizione di funzione ricorsiva primitiva},
+\begin{equation*}
+(\bm{J}^{k})^{-1}: \N\to \N^{k}
+\end{equation*}
+è una funzione ricorsiva primitiva.
+\end{document}

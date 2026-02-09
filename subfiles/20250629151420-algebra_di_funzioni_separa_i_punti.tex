@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Sia \(\mathcal{A}\) una \(\R\)-\href{20250110175552-algebra_su_un_campo.org}{algebra} di funzioni di dominio \(K \subseteq \R^{n}\) a valori in \(\R\).
+
+Si dice che \(\mathcal{A}\) \uline{separa i punti} se per ogni \(x,y \in K\) esistono \(f,g \in \mathcal{A}\) tali che
+\begin{equation*}
+f(x) \neq f(y).
+\end{equation*}
+\end{definizione}
+\begin{esempio}
+Sia \(\mathcal{A}\) l'insieme dei polinomi definiti su \([a,b]\):
+\begin{equation*}
+\mathcal{A} \coloneqq \set{\restriction{f}{[a,b]}\mid f(x) = \sum_{k=0}^{n} c_{k}x^{k}\mid c_{k} \in \R, n \in \N}.
+\end{equation*}
+Ovviamente \(\mathcal{A}\) è una \(\R\)-\href{20250629165520-algebra_di_funzioni_reali.org}{algebra di funzioni}, e inoltre separa i punti, poiché \(f(x) = \Id_{[a,b]} \in \mathcal{A}\)\footnote{Vedi ``\href{20250310111151-funzione_identita.org}{Funzione identità}''}.
+
+Inoltre \(1 \in \mathcal{A}\), e pertanto \(\mathcal{A}\) contiene tutte le funzioni costanti.
+\end{esempio}
+\end{document}

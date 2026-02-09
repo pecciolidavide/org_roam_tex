@@ -1,0 +1,50 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\Im{\operatorname{Im}}
+
+
+\begin{document}
+
+\section{Successione di spazi vettoriali esatta}
+\label{sec:orgc80a1d7}
+\begin{definizione}
+Siano \(V,W,U\) degli spazi vettoriali, e siano \(f:V\to W\) e \(g:W\to U\) due funzioni lineari. La successione
+\begin{equation*}
+V \xrightarrow{f} W \xrightarrow{g} U
+\end{equation*}
+si dice \uline{esatta in \(W\)} se\footnote{Vedi:
+\begin{itemize}
+\item \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Range di una funzione}
+\item \href{20251121143525-kernel_di_una_funzione_tra_spazi_vettoriali.org}{Kernel di una funzione tra spazi vettoriali}
+\end{itemize}}
+\begin{equation*}
+\Im f = \ker g
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Se
+\begin{equation*}
+\begin{tikzcd}
+	0 & V & W & U & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+è una sucessione esatta in ogni suo termine, si chiama \uline{successione esatta corta} e si ha che
+\begin{itemize}
+\item \(f\) è iniettiva;
+\item \(g\) è suriettiva;
+\item \(\Im f = \ker g\).
+\end{itemize}
+\end{oss}
+\begin{oss}
+Data una successione di spazi vettoriali (di dimensione finita) esatta \(\big\langle (V^{k}, d^{k}) \big\rangle\), si ha che (dal teorema di nullità più rango), le \href{20241205142027-spazio_vettoriale.org}{dimensioni} rispettano:
+\begin{equation*}
+\sum (-1)^{i} \dim V^{i} = 0.
+\end{equation*}
+\end{oss}
+\end{document}

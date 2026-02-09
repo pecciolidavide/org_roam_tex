@@ -1,0 +1,38 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}. Siano considerino \href{20250115150754-sfera_n_dimensionale.org}{le sfere} e \href{20250127170831-disco_n_dimensionale.org}{i dischi} \(n\)-dimensionali:
+\begin{align*}
+\mathds{D}^{n}&=\set{x \in \R^{n} : \norma{x}\le 1}\\
+\mathds{S}^{n-1}&= \set{x \in \R^{n}: \norma{x}=1}
+\end{align*}
+
+Si vogliono calcolare i \href{20241205141053-r_moduli.org}{moduli} di \href{20250122133631-omologia_singolare.org}{omologia singolare} \(H_{q}(\mathds{S}^{n})\) e di \href{20250122154903-omologia_singolare_relativa.org}{omologia singolare relativa} \(H_{q}(\mathds{D}^{n},\mathds{S}^{n-1})\).
+
+\begin{prop}
+Si ha che,\footnote{``\(\oplus\)'' indica la \href{20241213095808-somma_diretta.org}{somma diretta}}
+\begin{equation*}
+H_{q}(\mathds{S}^{0}) = \begin{cases}
+R\oplus R & q= 0\\
+0 &\text{altrimenti}
+\end{cases}
+\end{equation*}
+mentre, per ogni \(n\ge 1\):
+\begin{equation*}
+H_{q}(\mathds{S}^{n}) = \begin{cases}
+R & q = 0, n\\
+0 & \text{altrimenti}
+\end{cases}\qquad
+H_{q}(\mathds{D}^{n};\mathds{S}^{n-1}) = \begin{cases}
+R & q=n\\
+0 & \text{altrimenti}.
+\end{cases}
+\end{equation*}
+\end{prop}
+\begin{proof}
+Vedi \emph{Dimostrazione 2}.
+\end{proof}
+\end{document}

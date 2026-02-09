@@ -1,0 +1,59 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funzioni Cinfinito tra varietà differenziabili}
+\label{sec:orgdf53eec}
+\begin{definizione}
+Siano \(M, N\) due \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili} (di dimensioni \(m,n\) rispettivamente) e sia \(F: M\longrightarrow N\).
+\(F\) si dice essere una \uline{funzione \(C^{\infty}\)} se per ogni \(p \in M\) esistono:
+\begin{itemize}
+\item \((U,\varphi)\) una \href{20250111092123-varieta_topologica.org}{carta} di \(M\) con \(p \in U\);
+\item \((V, \psi)\) una \href{20250111092123-varieta_topologica.org}{carta} di \(N\) con \(F(U) \subseteq V\);
+\end{itemize}
+
+tali che
+\begin{equation*}
+\psi \circ F\circ \varphi^{-1} : \varphi(U) \longrightarrow \psi(V)
+\end{equation*}
+è una \href{20250113125602-classe_c_di_una_funzione.org}{funzione \(C^{\infty}\) (come funzione reale)}.
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	\& {U \subseteq M} \&\& {N\supseteq V} \\
+	{\R^m\supseteq\varphi(U)} \&\&\&\& {\psi(U) \subseteq \R^m}
+	\arrow["F", from=1-2, to=1-4]
+	\arrow["\varphi"', from=1-2, to=2-1]
+	\arrow["\psi", from=1-4, to=2-5]
+	\arrow["{\psi\circ F\circ\varphi^{-1}}"', from=2-1, to=2-5]
+\end{tikzcd}
+\end{equation*}
+\end{definizione}
+
+\begin{prop}
+Le funzioni \(C^{\infty}\) tra varietà sono \href{20250103103252-funzione_continua.org}{continue}.
+\end{prop}
+\begin{oss}
+Se \(N = \R^{n}\), \(F: M \longrightarrow \R^{n}\) è \(C^{\infty}\) se per ogni \(p \in M\) esiste una carta di \(M\), \((U,\varphi)\), con \(p \in U\) tale che è \(C^{\infty}\) la seguente:
+\begin{equation*}
+F\circ \varphi^{-1}: \varphi(U) \longrightarrow \R^{n}
+\end{equation*}
+
+In particolare, se \(F:M\to \R\) è \(C^{\infty}\) si scrive \(F \in C^{\infty}(M)\).
+\end{oss}
+\subsection{Funzioni reali Cinfinito da una varietà differenziabile}
+\label{sec:org5294dc1}
+\begin{definizione}
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile}. Si definisce l'insieme
+\begin{equation*}
+\operatorname{C}^{\infty}(M) \coloneqq \set{f:M\longrightarrow \R: f \text{ è funzione } C^{\infty}}
+\end{equation*}
+(vedi \hyperref[sec:orgdf53eec]{Funzioni Cinfinito tra varietà differenziabili})
+\end{definizione}
+
+Questo è un \href{20241205141119-anello.org}{anello} con la somma e prodotto tra funzioni definiti puntualmente: per ogni \(f,g \in \operatorname{C}^{\infty}(M)\)
+\begin{equation*}
+(f+g)(p) \coloneqq f(p) + g(p);\qquad (f\cdot g)(p) \coloneqq f(p)\cdot g(p).
+\end{equation*}
+\end{document}

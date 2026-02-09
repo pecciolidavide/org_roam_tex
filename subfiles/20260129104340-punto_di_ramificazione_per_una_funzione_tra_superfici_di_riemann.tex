@@ -1,0 +1,79 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Punto di ramificazione per una funzione tra superfici di Riemann}
+\label{sec:org0cb8da2}
+Siano \(X,Y\) \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann}, \(F:X\to Y\) \href{20260126110551-funzione_olomorfa.org}{olomorfa} non costante.
+
+\begin{prop}
+L'insieme\footnote{Vedi ``\href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{Molteplicità di una funzione tra superfici di Riemann}''}
+\begin{equation*}
+R=\set{p \in X \mid \mathrm{molt}_{p}\,F > 1}
+\end{equation*}
+è un insieme \href{20250103145124-topologia.org}{chiuso} e \href{20260128123515-sottoinsieme_discreto.org}{discreto}.
+\end{prop}
+
+\begin{proof}
+\(R\) è un insieme chiuso in quanto \(R = X\setminus \set{p \in X \mid \mathrm{molt}_{p}\,F = 1}\).
+
+Sia ora \(p \in R\). Per il \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{Teorema di Forma Normale}, siano
+\begin{align*}
+\varphi_{1}: U_{1} &\to V_{1}\\
+\varphi_{2}: U_{2} &\to V_{2}
+\end{align*}
+le carte centrate in \(p\) e \(F(p)\) tali che
+\begin{equation*}
+\varphi_{2}\circ F\circ \varphi_{1}^{-1}(z) = z^{m}
+\end{equation*}
+con \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{\(m= \mathrm{molt}_{p}\,F\)}.
+
+Osserviamo che la \href{20260126110551-funzione_olomorfa.org}{funzione olomorfa} \(h(z) = z^{m}\) è iniettiva nell'intorno di ogni \(z_{0} \neq 0\).
+
+Siccome \(\varphi_{1},\varphi_{2}\) sono biiettiva, allora \(F\) è localmente iniettiva nell'intorno di ogni \(q \in U_{1}\), con \(q \neq 0\), e \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{quindi}
+\begin{equation*}
+\forall q \in U_{1}\setminus \set{p}:\qquad \mathrm{molt}_{p}\,F = 1
+\end{equation*}
+e pertanto \(U_{1} \cap R = \set{p}\). Allora \(p\) è un \href{20250403131856-punto_isolato.org}{punto isolato}.
+\end{proof}
+
+\begin{definizione}
+Un punto \(p \in X\) tale che \(\mathrm{molt}_{p}\,F > 1\) si dice \textbf{punto di ramificazione per \(F\)}, mentre \(q\coloneqq F(p) \in Y\) si dice \textbf{punto di diramazione}.
+\end{definizione}
+
+\begin{oss}
+Se \(X\) è \href{20250103163701-spazio_topologico_compatto.org}{compatto}, \href{20260128172415-sottoinsieme_discreto_in_un_compatto.org}{\(F\) ha un numero finito} di punti di ramificazione e di diramazione.
+\end{oss}
+
+\begin{oss}
+\uline{Come si trovano i punti di ramificazione?}
+
+Sia \(f:U \subseteq \C\to V \subseteq \C\) l'espressione di \(F\) in alcune carte locali. Si fissano le seguenti nomenclature:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=tiny]
+	{U \subseteq \C} \& {A \subseteq X} \\
+	{z_0 \in U} \& {p\in A} \\
+	{f(z_0) \in V} \& {F(p)}
+	\arrow[tail reversed, from=1-1, to=1-2]
+	\arrow[tail reversed, from=2-1, to=2-2]
+	\arrow[tail reversed, from=3-1, to=3-2]
+\end{tikzcd}
+\end{equation*}
+
+Applicando una traslazione, si ottiene che, per costruzione\footnote{Vedi ``\href{20260128124105-ordine_di_una_funzione_olomorfa.org}{Ordine di una funzione olomorfa}''}
+\begin{equation*}
+\mathrm{mult}_{p}\, F = \mathrm{ord}_{z_{0}} \big(f-f(z_{0})\big)
+\end{equation*}
+Siccome \(f-f(z_{0})\) è una funzione olomorfa, allora \href{20260128124105-ordine_di_una_funzione_olomorfa.org}{per costruzione}
+\begin{equation*}
+\mathrm{mult}_{p}\, F = \mathrm{ord}_{z_{0}} \big(f-f(z_{0})\big) =  \mathrm{ord}_{z_{0}} \left(\dod{}{z}\big(f-f(z_{0})\big)\right) +1 = [\mathrm{ord}_{z_{0}} f'] + 1
+\end{equation*}
+Segue che
+\begin{equation*}
+\mathrm{mult}_{p}\, F > 1 \IFF [\mathrm{ord}_{z_{0}} f'] > 0 \IFF f'(z_{0}) = 0
+\end{equation*}
+e pertanto i punti di ramificazione di \(F\) in \(A\) corrispondono agli zeri di \(f'(z)\) in \(U\).
+\end{oss}
+\end{document}

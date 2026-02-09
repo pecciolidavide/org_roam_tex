@@ -1,0 +1,66 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Costruzione del numero di Hartogs}
+\label{sec:org929d34b}
+
+Sia \(X\) un insieme qualsiasi, e sia\footnote{Vedi ``\href{20241219101956-funzione_iniettiva.org}{Funzione iniettiva}''}
+\begin{equation*}
+A\coloneqq\set{(\alpha,f)\mid \alpha \in \operatorname{Ord} \,\land\, f:\alpha\to X\text{ iniettiva}}
+\end{equation*}
+
+\begin{itemize}
+\item Si consideri la funzione
+\begin{align*}
+  \Phi: A &\longrightarrow \parti{X\times X}\\
+  (\alpha,f)&\longmapsto W_{(\alpha,f)}
+\end{align*}
+dove \(W_{(\alpha,f)}\) è il buon ordine indotto su \(\operatorname{ran}(f) \subseteq X\) da \(f\):
+\begin{equation*}
+  x\mathrel{W_{(\alpha,f)}}y \quad\iff\quad f^{-1}(x)\le f^{-1}(y)
+\end{equation*}
+
+Dunque \(f\) è un isomorfismo tra ordini: \(\rangle \alpha,\le\rangle\cong\langle \operatorname{ran}(f),W_{(\alpha,f)}\rangle\).
+\item \uline{\(\Phi\) è iniettiva}: infatti, se \(W_{(\alpha,f)} = W_{(\beta, g)}\) allora \(\operatorname{ran}(f)=\operatorname{ran}(g)\) e quindi
+\begin{equation*}
+  f^{-1}\circ g: \langle \beta,\le\rangle\to \langle \alpha,\le\rangle
+\end{equation*}
+è un isomorfismo. \href{20250203111003-ordinali.org}{Dunque} \(\alpha=\beta\) e \(f=g\).
+\end{itemize}
+
+Dunque si definisce
+\begin{equation*}
+\operatorname{Hrtg}(X) \coloneqq \set{\alpha \in \operatorname{Ord}\mid \exists\,f\ (\alpha,f) \in A}
+\end{equation*}
+\begin{itemize}
+\item Innanzitutto, \(\operatorname{Hrtg}(X)\) è un ordinale: se \(\alpha \in \beta \in \operatorname{Hrtg}(X)\) allora \((\beta,g) \in A\) e si ha
+\begin{equation*}
+  \alpha \subseteq \beta \xrightarrow{g} X
+\end{equation*}
+e dunque \(g\upharpoonright \alpha\) è testimone di \((\alpha,g\upharpoonright \alpha) \in A\). Quindi \(\operatorname{Hrtg}(X)\) è transitivo.
+\item Inoltre, \(\operatorname{Hrtg}(X)\) è il più piccolo ordinale che non si inietta in \(X\):
+\begin{itemize}
+\item Ovviamente \(\operatorname{Hrtg}(X)\) non si inietta in \(X\), poiché altrimenti \(\operatorname{Hrtg}(X) \in \operatorname{Hrtg}(X)\). \href{20250131180704-nessun_insieme_appartiene_a_se_stesso.org}{Assurdo}.
+\item Inoltre, se \(\lambda \in \operatorname{Ord}\) non si inietta in \(X\), allora per definizione non esiste alcuna \(f:\lambda\to X\) iniettiva, e pertanto \(\lambda\notin \operatorname{Hrtg}(X)\). Dunque
+\begin{equation*}
+\operatorname{Hrtg}(X)\le \lambda.
+\end{equation*}
+\end{itemize}
+\item \(\operatorname{Hrtg}(X)\) è un cardinale. Se per assurdo \(\card{\operatorname{Hrtg}(X)}<\operatorname{Hrtg}(X)\) allora \(\card{\operatorname{Hrtg}(X)} \in \operatorname{Hrtg}(X)\) e dunque (per definizione)
+\begin{equation*}
+  \operatorname{Hrtg}(X)\equipotenti\card{\operatorname{Hrtg}(X)} \embeds X
+\end{equation*}
+e pertanto \(\operatorname{Hrtg}(X)\embeds X\), ovvero \(\operatorname{Hrtg}(X) \in \operatorname{Hrtg}(X)\). Assurdo.
+\end{itemize}
+
+La suriezione \(\parti{X\times X}\to \operatorname{Hrtg}(X)\) è data da \(\pi_{\operatorname{Ord}}\circ \Phi^{-1}\).
+\section{Teorema}
+\label{sec:org5dfe023}
+Per ogni \href{20250130104331-insieme_mk.org}{insieme} \(X\), \(\operatorname{Hrtg}(X)\) è il \href{20250203111003-ordinali.org}{più piccolo} \href{20250203111003-ordinali.org}{ordinale} che non \href{20241219101956-funzione_iniettiva.org}{si inietta} su \(X\), ed è un \href{20250203161341-cardinali.org}{cardinale}.
+
+Inoltre \(\parti{X\times X}\) si \href{20241213105600-funzione_suriettiva.org}{surietta} su \(\operatorname{Hrtg}(X)\) (vedi \href{20250130104245-morse_kelly_set_theory.org}{Insieme delle parti MK})
+\end{document}

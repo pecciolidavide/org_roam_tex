@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}. Si considerino le categorie
+\begin{itemize}
+\item \href{20241205115600-categoria_top.org}{Categoria \(\cat{Top}\)};
+\item \href{20250120163759-categoria_complessi_di_catene.org}{Categoria \(\cat{Ch}_{R}\)};
+\item \href{20241206115740-categoria_degli_r_moduli.org}{Categoria \(R\text{-}\cat{Mod}\)}.
+\end{itemize}
+
+È definito il funtore
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=tiny]
+	{\cat{Top}} \& {\cat{Ch}_R} \& {R\text{-}\cat{Mod}} \\
+	X \& {\mathcal{S}_{\bullet}(X)} \& {H_q(X)} \\
+	{X\xrightarrow{f}Y} \& {\mathcal{S}_{\bullet}(X)\xrightarrow{f_{\diesis}} \mathcal{S}_{\bullet}(Y)} \& {H_q(X)\xrightarrow{\left((f_\diesis)_\star\right)_q} H_q(Y)}
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=1-1, to=1-2]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=1-2, to=1-3]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, maps to, from=2-1, to=2-2]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, maps to, from=2-2, to=2-3]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, maps to, from=3-1, to=3-2]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, maps to, from=3-2, to=3-3]
+\end{tikzcd}
+\end{equation*}
+come composizione del \href{20250122154136-funtorialita_dell_omologia_singolare.org}{funtore \((\mathcal{S}_{\bullet}, \diesis)\)} e del \href{20250120165029-funtore_tra_chr_e_rmod.org}{funtore \((H_{q}, \star)\)}.
+Ponendo \(f_{\star}\coloneqq \left((f_{\diesis})_{\star}\right)_{q}\), si ha
+\begin{equation*}
+(H_{q},\star) : \cat{Top}\longrightarrow R\text{-}\cat{Mod}
+\end{equation*}
+\section{Omologia singolare di spazi topologici omeomorfi}
+\label{sec:orgdc9d5d3}
+La funtorialità garantisce che spazi topologici omeomorfi abbiano omologia singolare isomorfa.
+\end{document}

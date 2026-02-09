@@ -1,0 +1,25 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Vedi: \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}
+\begin{definizione}
+L'operatore \(\mu\) di \uline{minimizzazione non limitato} porta una \href{20250202170607-classe_relazione_binaria.org}{funzione}, anche \href{20250213105339-funzione_parziale.org}{parziale}, \(h:\N^{k+1}\to \N\) nella \href{20250213105339-funzione_parziale.org}{funzione parziale} \(f: \N^{k}\to \N\):
+\begin{equation*}
+f(x_{1},\dots,x_{k}) = \minim{z}{h(x_{1},\dots,x_{k},z) = 0}
+\end{equation*}
+che ha per \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} tutti quei punti \((x_{1},\dots,x_{k}) \in \N^{k}\) per cui esiste \(z \in \N\) tale che
+\begin{enumerate}
+\item per ogni \(u\le z\), \((x_{1},\dots,x_{k}, u) \in \dom h\);
+\item \(h(x_{1},\dots,x_{k},z) = 0\).
+\end{enumerate}
+
+Per ogni punto del dominio \((x_{1},\dots,x_{n}) \in \dom f\),
+\begin{equation*}
+f(x_{1},\dots,x_{n}) = \min\set{z\ |\ h(x_{1},\dots,x_{k},z) = 0}
+\end{equation*}
+(vedi \href{20250203102516-massimo_e_minimo.org}{Elemento Minimo}).
+\end{definizione}
+\end{document}

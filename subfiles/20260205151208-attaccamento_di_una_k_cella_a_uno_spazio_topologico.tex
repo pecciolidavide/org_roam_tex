@@ -1,0 +1,192 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Attaccamento di una k-cella a uno spazio topologico}
+\label{sec:org1c7b728}
+\begin{definizione}
+Una \textbf{\(k\)-cella} (o cella di dimensione \(k\)), denotata solitamente con \(e^k\), è uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250111142332-omeomorfismo.org}{omeomorfo} alla \href{20250127170831-disco_n_dimensionale.org}{palla chiusa unitaria} in \(\R^k\):
+\begin{equation*}
+e^{k} \mathrel{\overset{\text{omeo}}{\sim}}\mathds{D}^k = \{ x \in \R^k : \|x\| \le 1 \}
+\end{equation*}
+Il \href{20250129161026-bordo.org}{bordo} \(\partial e^{k}\) è omeomorfo alla \href{20250115150754-sfera_n_dimensionale.org}{sfera} \(\mathds{S}^{k-1}\)
+\end{definizione}
+
+\begin{definizione}
+Un \textbf{collare} (o \(k\)-collare) di \(e^{k}\) è un sottoinsieme \(C \subseteq e^{k}\) tale che \(\partial e^{k} \subseteq C\) è un \href{20250129112659-retratto_di_deformazione_forte_di_uno_spazio_topologico.org}{retratto di deformazione forte}.
+\end{definizione}
+
+\begin{definizione}
+Dato uno \href{20250103145124-topologia.org}{spazio topologico} \(X\), \(e^{k}\) una \(k\)-cella e una \href{20250103103252-funzione_continua.org}{mappa continua} \(\varphi : \partial e^{k} \to X\), detta \emph{mappa di attaccamento}, l'\textbf{attaccamento di \(e^{k}\) ad \(X\) tramite \(\varphi\)} è lo spazio \href{20250114100810-quoziente_rispetto_a_relazione_di_equivalenza.org}{quoziente}:
+\begin{equation*}
+X \mathrel{\cup_{\varphi}} e^k \coloneqq (X \amalg e^k) / \sim
+\end{equation*}
+dove la \href{20250113110148-relazione_di_equivalenza.org}{relazione di equivalenza} \(\sim\):
+\begin{equation*}
+x\sim y \IFF%
+\begin{cases}
+x = y\\
+x \in \partial e^{k},\ y = \varphi(x)\\
+y \in \partial e^{k},\ x=\varphi(y)\\
+x,y \in \partial e^{k},\ \varphi(x)=\varphi(y).
+\end{cases}
+\end{equation*}
+
+La \href{20250103145124-topologia.org}{topologia} su \(X\mathrel{\cup_{\varphi}} e^k\) è la \href{20250129155316-spazio_topologico_quoziente.org}{topologia quoziente} rispetto alla proiezione \(\pi:X \amalg e^{k} \longrightarrow (X \amalg e^k) / \sim\).
+\end{definizione}
+
+\textbf{Mappe indotte.}
+Sia quindi \(\varphi: \partial e^{k}\to X\) fissata, \(Y\coloneqq X \mathrel{\cup_{\varphi}} e^k\). Questa definisce:
+\begin{enumerate}
+\item \(\varphi\) si chiama \uline{mappa di attaccamento};
+\item \(\Phi: e^{k}\longrightarrow Y\) è la \uline{mappa caratteristica} di \(e^{k}\):
+\begin{equation*}
+ e^{k} \hookrightarrow X \amalg e^{k} \xrightarrow{\ \pi\ } X \mathrel{\cup_{\varphi}} e^k.
+\end{equation*}
+\item \(j: X \hookrightarrow X \amalg e^{k} \xrightarrow{\ \pi\ } X \mathrel{\cup_{\varphi}} e^k\) è un omeomorfismo sull'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine}.
+\end{enumerate}
+
+\begin{oss}
+Si hanno le seguenti proprietà:
+\begin{enumerate}
+\item \(\Phi(\mathring{e}^{k})\) è aperto in \(Y\);
+\item se l'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine} \(\varphi(\partial e^{k})\) è chiusa in \(X\), allora \(j\big(X\setminus \varphi(\partial e^{k})\big)\) è aperto in \(Y\).
+\end{enumerate}
+\end{oss}
+
+\begin{prop}
+Sia \(X\) \href{20250103145124-topologia.org}{spazio topologico} di \href{20250109155715-spazio_topologico_di_hausdorff.org}{Haussdorff}, \(\varphi: \partial e^{k}\longrightarrow X\) mappa di attaccamento, \(Y\coloneqq X\mathrel{\cup_{\varphi}} e^k\). Allora
+\begin{enumerate}
+\item \(Y\) è di \href{20250109155715-spazio_topologico_di_hausdorff.org}{Hausdorff};
+\item Se \(C \subseteq e^{k}\) è un collare di \(\partial e^{k}\), allora
+\begin{equation*}
+ j(X) \subseteq j(X)\cup \Phi(C)
+\end{equation*}
+è un \href{20250129112659-retratto_di_deformazione_forte_di_uno_spazio_topologico.org}{retratto di deformazione forte}.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+\begin{enumerate}
+\item Siano \(x,y \in Y\), \(x\neq y\). Si studiano diversi casi.
+\begin{itemize}
+\item Se sono nella \href{20250122181431-parte_interna.org}{parte interna}:
+\begin{equation*}
+     x,y \in \Phi(\mathring{e}^{k})
+\end{equation*}
+allora esistono due aperti \(U_{x}, U_{y} \subseteq \mathring{e}^{k}\) disgiunti, tali che \(\Phi(U_{x}), \Phi(U_{y}) \subseteq \Phi(\mathring{e}^{k})\) sono intorni aperti disgiunti di \(x,y\). \href{20250103163814-sottospazio_topologico.org}{Segue} che lo sono in \(Y\).
+\item Se \(x,y \in j\big(X\setminus \varphi(\partial e^{k})\big)\):
+\begin{itemize}
+\item siccome \(X\) è \href{20250109155715-spazio_topologico_di_hausdorff.org}{Hausdorff} e \(\varphi(\partial e^{k})\) è \href{20250103163701-spazio_topologico_compatto.org}{compatto}\footnote{Infatti \href{20251229125103-immagine_continua_di_spazio_compatto_e_compatto.org}{immagine continua di un compatto è compatto}.}, \href{20250331174140-compatto_in_un_haussdorf_e_chiuso.org}{allora} \(\varphi(\partial e^{k})\) è chiuso;
+\item quindi \(j\big(X\setminus \varphi(\partial e^{k})\big)\) è aperto di \(Y\);
+\item come per il punto precedente, si trovano due intorni aperti disgiunti di \(x,y\) in \(j\big(X\setminus \varphi(\partial e^{k})\big)\), che lo sono anche per \(Y\).
+\end{itemize}
+\item Se \(x \in j\big(X\setminus \varphi(\partial e^{k})\big)\) e \(y \in \Phi(\mathring{e}^{k})\), per quanto detto nei punti precedenti
+ \begin{equation*}
+j\big(X\setminus \varphi(\partial e^{k})\big),\qquad %
+\Phi(\mathring{e}^{k})
+ \end{equation*}
+sono entrambi aperti, e disgiunti.
+\item Se \(x,y \in j\circ \varphi(\partial e^{k}) = \Phi(\partial e^{k})\): siano \(A_{x}, A_{y} \subseteq X\) intorni aperti disgiunti delle retroimmagini di \(x,y\), e consideriamo
+ \begin{equation*}
+V_{x}' \coloneqq \varphi^{-1}(A_{x}),\qquad V_{y}' \coloneqq \varphi^{-1}(A_{y}),\qquad V_{x}', V_{y}' \subseteq \partial e^{k}.
+ \end{equation*}
+Poiché \(A_{x}\) e \(A_{y}\) sono disgiunti, allora anche \(V_{x}, V_{y}\) sono disgiunti. Inoltre necessariamente esistono \(V_{x}, V_{y} \subseteq e^{k}\) aperti disgiunti tali che
+ \begin{equation*}
+V_{x}\cap \partial e^{k} = V_{x}',\qquad V_{y}\cap \partial e^{k} = V_{y}'.
+ \end{equation*}
+
+Gli aperti \(j(A_{x}) \cup \Phi(V_{x})\) e \(j(A_{y}) \cup \Phi(V_{y})\) sono quelli cercati.
+\end{itemize}
+
+\item Sia \(H: C\times [0,1] \longrightarrow C\) la mappa che rende \(\partial e^{k} \subseteq C\) un \href{20250129112659-retratto_di_deformazione_forte_di_uno_spazio_topologico.org}{retratto di deformazione forte}, \(r: C \longrightarrow \partial e^{k}\).
+
+Definiamo \(\hat{H}:X \amalg C \times [0,1] \longrightarrow X \amalg C\) come segue:
+\begin{equation*}
+ \hat{H}(x,t) = \begin{cases}
+ 	H(x,t) & x \in C\\
+ 	x & x \in X
+ \end{cases}
+\end{equation*}
+\begin{itemize}
+\item \uline{\(\hat{H}\) è passa al quoziente}: se \(x\sim y\), allora \(\hat{H}(x,t) \sim \hat{H}(y,t)\).
+\begin{itemize}
+\item se \(x \in X\) e \(y \in \partial e^{k}\) tali che \(x = \varphi(y)\), allora
+\begin{align*}
+ \hat{H}(x,t) &= x\\
+ \hat{H}(y,t) &= H(y,t) = y
+\end{align*}
+
+\item se \(x,y \in \partial e^{k}\) tali che \(\varphi(x)=\varphi(y)\), allora
+\begin{equation*}
+ \hat{H}(x,t) = x,\qquad \hat{H}(y,t) = y
+\end{equation*}
+\end{itemize}
+
+\item Lo spazio \((X\amalg C) / \sim\ =\ j(X) \cup \Phi(C)\).
+
+\item Posso quindi definire una funzione
+\begin{align*}
+\bm{H}: \big(j(X) \cup \Phi(C)\big) \times [0,1] &\longrightarrow j(X) \cup \Phi(C)\\
+\big([x]_{\sim},t\big) &\longmapsto \big[H(x,t)\big]_{\sim}
+\end{align*}
+che è l'identità su \(j(X)\).
+
+\item \(\bm{H}\) è una omotopia:
+ \begin{align*}
+\bm{H}(x,0) &= \begin{cases}
+	\Phi\big(H(\Phi^{-1}(x),0)\big) = x & x \in \Phi(C)\\
+	x & x \in j(X)
+\end{cases}\\[3ex]
+\bm{H}(x,1) &= \begin{cases}
+	\Phi\big(H(\Phi^{-1}(x),1)\big) & x \in \Phi(C)\\
+	x & x \in j(X)
+\end{cases}\\
+&= \begin{cases}
+	\Phi\big(r\big(\Phi^{-1}(x)\big)\big) & x \in \Phi(C)\\
+	x & x \in j(X)
+\end{cases}
+ \end{align*}
+e quindi \(\bm{H}(x,1) \in j(X)\), in quanto per ogni \(y \in \partial e^{k}\), \(\Phi(y) \in j(X)\).
+\qedhere
+\end{itemize}
+\end{enumerate}
+\end{proof}
+
+D'ora in avanti si potrà considerare che \(X \subseteq X\mathrel{\cup_{\varphi}} e^k\).
+\subsection{Attaccamento di una famiglia di k-celle ad uno spazio topologico}
+\label{sec:org6d097f5}
+\begin{definizione}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} e sia \(\{ e^k_\alpha \}_{\alpha \in A}\) una famiglia di \(k\)-\hyperref[sec:org1c7b728]{celle} indicizzata da un insieme \(A\).
+Per ogni \(\alpha \in A\), sia data una \href{20250103103252-funzione_continua.org}{mappa continua} dal \href{20250129161026-bordo.org}{bordo} di \(e^{k}_{\alpha}\) per ogni \(\alpha\): \(\varphi_\alpha: \partial e^k_\alpha \to X\).
+
+L'\textbf{attaccamento della famiglia di celle \(\{ e^k_\alpha \}\) ad \(X\)} è lo spazio \href{20250114100810-quoziente_rispetto_a_relazione_di_equivalenza.org}{quoziente}:
+\begin{equation*}
+Y= X \mathrel{\cup_{\{\varphi_\alpha\}}} \left( \coprod_{\alpha \in A} e^k_\alpha \right) \coloneqq \left( X \amalg \coprod_{\alpha \in A} e^k_\alpha \right) \bigg/ \sim
+\end{equation*}
+dove \(\amalg\) denota l'\href{20250113175700-unione_disgiunta.org}{unione disgiunta topologica} e la relazione \(\sim\) è data da
+\begin{equation*}
+x \sim y \IFF %
+\begin{cases}
+x = y \\[2ex]
+x \in \partial e^k_\alpha, \ y = \varphi_\alpha(x) \in X\\[2ex]
+y \in \partial e^k_\alpha, \ x = \varphi_\alpha(y) \in X\\[2ex]
+\exists \alpha, \beta \in A :\ x \in \partial e^k_\alpha, \ y \in \partial e^k_\beta \text{ e } \varphi_\alpha(x) = \varphi_\beta(y)
+\end{cases}
+\end{equation*}
+\end{definizione}
+
+Per ogni \(\alpha \in A\), è indotta la \uline{mappa caratteristica di \(e^{k}_{\alpha}\)}.
+\begin{equation*}
+	\Phi_{\alpha} :\qquad e^{k}_{\alpha} \hookrightarrow X \amalg \coprod_{\alpha \in A} e^k_\alpha \xrightarrow{\ \pi\ } \left( X \amalg \coprod_{\alpha \in A} e^k_\alpha \right) \bigg/ \sim.
+\end{equation*}
+
+La topologia su \(Y\) è la \href{20250129155316-spazio_topologico_quoziente.org}{topologia quoziente} indotta dalla proiezione
+\begin{equation*}
+\pi: \left(X \amalg \coprod_{\alpha \in A} e^k_\alpha \right) \longrightarrow \left( X \amalg \coprod_{\alpha \in A} e^k_\alpha \right) \bigg/ \sim
+\end{equation*}
+
+Si può considerare \(X \subseteq X \mathrel{\cup_{\{\varphi_\alpha\}}} \left( \coprod_{\alpha \in A} e^k_\alpha \right)\)
+\end{document}

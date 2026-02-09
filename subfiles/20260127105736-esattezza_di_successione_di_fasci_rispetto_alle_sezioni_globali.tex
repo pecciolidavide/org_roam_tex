@@ -1,0 +1,95 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esattezza di successione di fasci rispetto alle sezioni globali}
+\label{sec:org47394ac}
+Sia \(X\) uno spazio topologico.
+
+\begin{prop}
+Se \(\varphi:\mathcal{F}\to\mathcal{G}\) è un \href{20250325180613-morfismo_di_prefasci.org}{morfismo} di \href{20250324174728-fascio.org}{fasci} \href{20250327115206-morfismo_di_fasci_iniettivo.org}{iniettivo}, allora
+\begin{equation*}
+\varphi_{X}:\mathcal{F}(X)\to \mathcal{G}(X)
+\end{equation*}
+è \href{20241219101956-funzione_iniettiva.org}{iniettivo}.
+\end{prop}
+
+\begin{prop}
+Se la seguente è una \href{20250327150404-successione_di_fasci_esatta.org}{successione esatta di fasci},
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\mathcal{F}_1} \& {\mathcal{F}_2} \& \cdots \& {\mathcal{F}_r}
+	\arrow["{\varphi_1}", from=1-1, to=1-2]
+	\arrow["{\varphi_2}", from=1-2, to=1-3]
+	\arrow["{\varphi_{r-1}}", from=1-3, to=1-4]
+\end{tikzcd}
+\end{equation*}
+allora la \href{20250327122142-successione_di_una_categoria.org}{successione} sulle sezioni globali
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\mathcal{F}_1(X)} \& {\mathcal{F}_2(X)} \& \cdots \& {\mathcal{F}_r(X)}
+	\arrow["{\varphi_{1,X}}", from=1-1, to=1-2]
+	\arrow["{\varphi_{2,X}}", from=1-2, to=1-3]
+	\arrow["{\varphi_{r-1,X}}", from=1-3, to=1-4]
+\end{tikzcd}
+\end{equation*}
+è un \textbf{\href{20260127110049-complesso.org}{complesso}} (i.e. \(\varphi\circ\varphi=0\)) ma non è necessariamente una \href{20260127101935-successione_di_morfismi_esatta.org}{successione esatta}.
+\label{prop_doiujsoijsoij2}
+\end{prop}
+
+\begin{prop}
+Data la \href{20250327150404-successione_di_fasci_esatta.org}{successione esatta di fasci}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	0 \& {\mathcal{F}} \& {\mathcal{G}} \& {\mathcal{H}}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\varphi", from=1-2, to=1-3]
+	\arrow["\psi", from=1-3, to=1-4]
+\end{tikzcd}
+\end{equation*}
+allora la \href{20250327122142-successione_di_una_categoria.org}{successione} sulle sezioni globali:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	0 \& {\mathcal{F}(X)} \& {\mathcal{G}(X)} \& {\mathcal{H}(X)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\varphi_X}", from=1-2, to=1-3]
+	\arrow["{\psi_X}", from=1-3, to=1-4]
+\end{tikzcd}
+\end{equation*}
+è \href{20260127101935-successione_di_morfismi_esatta.org}{esatta}
+\end{prop}
+
+\begin{proof}
+\href{20260127104824-caratterizzazione_morfismo_di_fasci_iniettivo_tramite_spighe.org}{Sicuramente \(\varphi_{X}\) è iniettivo e \(\varphi_{U}\) è iniettivo per ogni \(U\subseteq X\)}, e per la Proposizione~\ref{prop_doiujsoijsoij2} \(\operatorname{Im}\varphi_{X} \subseteq \ker\psi_{X}\). Per dimostrare l'esattezza resta da dimostrare che
+\begin{equation*}
+\operatorname{Im}\varphi_{X} \supseteq \ker\psi_{X}
+\end{equation*}
+
+Sia quindi \(g \in\ker\psi_{X} \subseteq \mathcal{G}(X)\). Allora\footnote{Siccome la \href{20250327150404-successione_di_fasci_esatta.org}{successione di fasci è esatta}, per definizione di \href{20250327114922-fascio_nucleo.org}{fascio nucleo}:
+\begin{equation*}
+\ker\psi_{X} = (\ker \psi)(X) = (\operatorname{Im} \varphi) (X),
+\end{equation*}
+e quindi per \href{20250327114937-fascio_immagine.org}{definizione di fascio immagine} si ha la tesi} esiste \(\set{U_{i}}\) ricoprimento aperto di \(X\), esiste \(f_{i} \in \mathcal{F}(U_i)\) tali che
+\begin{equation*}
+\restriction{g}{U_{i}} = \varphi_{U_{i}}(f_{i}).
+\end{equation*}
+Denotando con \(U_{ij}\coloneqq U_{i}\cap U_{j}\), si ha
+\begin{align*}
+\restriction{g}{U_{ij}} &= \restriction{\varphi_{U_{i}}(f_{i})}{U_{ij}} = \varphi_{U_{ij}}(\restriction{f_{i}}{U_{ij}})\\
+&= \restriction{\varphi_{U_{j}}(f_{j})}{U_{ij}} = \varphi_{U_{ij}}(\restriction{f_{j}}{U_{ij}})
+\end{align*}
+Siccome \(\varphi_{U_{ij}}\) è iniettiva, allora \(\restriction{f_{i}}{U_{ij}} = \restriction{f_{j}}{U_{ij}}\).
+
+Per l'\href{20250324174728-fascio.org}{assioma di fascio} di \(\mathcal{F}\), esiste \(f \in \mathcal{F}(X)\) tale che \(\restriction{f}{U_{i}} = f_{i}\). Inoltre, per ogni \(i\):
+\begin{equation*}
+\restriction{\varphi_{X}(f)}{U_{i}} = \varphi_{U_{i}}(\restriction{f}{U_{i}}) = \varphi_{U_{i}}(f_{i}) = \restriction{g}{U_{i}}
+\end{equation*}
+e pertanto \(\restriction{\varphi_{X}(f)-g}{U_{i}} = 0\). Per l'\href{20250324174728-fascio.org}{assioma di fascio},
+\begin{equation*}
+\varphi_{X}f = g
+\end{equation*}
+e pertanto \(g \in \operatorname{Im}\varphi_{X}\).
+\end{proof}
+\end{document}

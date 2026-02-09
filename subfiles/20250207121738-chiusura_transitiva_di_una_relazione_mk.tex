@@ -1,0 +1,105 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\textbf{\textbf{\uline{NOTA}: quando si parla di \uline{classi}, se ne parla nell'ambito della \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}; quando si parla di insiemi, il discorso ha validità più generale.}}
+\section{Definizione}
+\label{sec:org1d3bce7}
+Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme} (o una \href{20250130104320-classe_mk.org}{classe}), e sia \(R\) una \href{20250202170607-classe_relazione_binaria.org}{relazione} su \(X\).
+
+La chiusura transitiva di \(R\) è la \href{20250202170607-classe_relazione_binaria.org}{relazione}:\footnote{Vedi:
+\begin{itemize}
+\item \href{20250131162451-coppia_ordinata_mk.org}{Coppia ordinata}
+\item \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano}
+\item \(\operatorname{S}(n)\): \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un numero naturale} e \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali}
+\item \(\prescript{\operatorname{S}(n)}{}{X}\): \href{20250202192030-classe_delle_classi_funzioni.org}{Insieme delle funzioni}
+\end{itemize}}
+\begin{align*}
+\tilde{R} &= \left\{
+(x,y) \in X\times X\ |\ \exists\, n>0\ \exists\, f \in \prescript{\operatorname{S}(n)}{}{X}\ \left[ x = f(0) \,\land\,
+\right.\right.\\ &\qquad\quad \left.\left.
+y = f(n) \,\land\,  \forall\, i < n\ \left[ f(i), f\left(\operatorname{S}(i)\right) \in R
+\right]\right]\right\}.
+\end{align*}
+
+In altre parole, \(x\mathrel{\tilde{R}}y\) se e solo se esistono \(x_{0},\dots,x_{n} \in X\) tali che
+\begin{equation*}
+x=x_{0}\mathrel{R}x_{1},\ x_{1}\mathrel{R}x_{2}\ \dots,\ x_{n-1}\mathrel{R}x_{n} = y
+\end{equation*}
+\subsection{Osservazione}
+\label{sec:org1adfd5f}
+Per costruzione \(\tilde{R}\) è la più piccola \href{20250202170607-classe_relazione_binaria.org}{relazione} \href{20250203110714-classe_transitiva.org}{transitiva} su \(X\) tale che\footnote{Vedi ``\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK}''} \(R \subseteq \tilde{R}\)
+\section{Proprietà}
+\label{sec:org3a81980}
+Sia \(X\) una \href{20250130104320-classe_mk.org}{classe}, e sia \(R\) una \href{20250202170607-classe_relazione_binaria.org}{relazione} su \(X\). Sia \(\tilde{R}\) la sua \href{20250207121738-chiusura_transitiva_di_una_relazione_mk.org}{chiusura transitiva}.
+
+\begin{enumerate}
+\item \(R\) è \href{20250203095749-relazione_left_narrow_mk.org}{regolare} su \(X\) se e solo se \(\tilde{R}\) è \href{20250203095749-relazione_left_narrow_mk.org}{regolare} su \(X\).
+\item \(R\) è \href{20250203100901-relazione_well_founded_mk.org}{ben fondata} su \(X\) se e solo se \(\tilde{R}\) è \href{20250203100901-relazione_well_founded_mk.org}{ben fondata} su \(X\).
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:org97f82ce}
+\subsubsection{Dimostrazione 1}
+\label{sec:orga0371d2}
+
+Siccome \(R \subseteq \tilde{R}\) è sufficiente dimostrare che \(\tilde{R}\) è left-narrow se lo è \(R\), dal momento che il viceversa è immediato.
+\paragraph{Claim}
+\label{sec:orgb6386d0}
+
+Sia \(\overline{x} \in X\) fissato. Esiste una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \href{20250130104331-insieme_mk.org}{insiemi} \(\langle Z_{n}\ |\ n \in \omega\rangle\) indicizzata da \href{20250203161110-numeri_naturali_sono_ordinali.org}{\(\omega\)} tali che:
+\begin{align*}
+Z_{0} &= \set{y \in X\ |\ y\mathrel{R}\overline{x}}\\
+Z_{n+1} &=  \set{y \in X\ |\ \exists\, z \in Z_{n}\ (y\mathrel{R}z)} = \bigcup_{z \in Z_{n}} \set{y \in X\ |\ y\mathrel{R}z}
+\end{align*}
+\paragraph{Dimostrazione del Claim}
+\label{sec:org0b787f5}
+
+Si applichi il \href{20250207121712-teorema_di_ricorsione_caso_speciale.org}{Teorema di ricorsione (caso speciale)}, con
+\begin{align*}
+A &= V\\
+\overline{a} &= Z_{0}\\
+F(n,a) &=\set{x \in X\ |\ \exists\, y \in a\ (x\mathrel{R}y)}
+\end{align*}
+ottenendo \(G(n) = Z_{n}\), dove \(V\) è la \href{20250203104513-classe_totale.org}{classe di tutti gli insiemi}.
+\paragraph{Fine della dimostrazione}
+\label{sec:orge088ff6}
+
+Tramite gli assiomi di Replacement e dell'Unione,
+\begin{equation*}
+\bigcup_{n \in \omega} Z_{n}
+\end{equation*}
+è un insieme, ed è uguale a \(\set{y \in X\ |\ y\mathrel{\tilde{R}}\overline{x}}\).
+\subsubsection{Dimostrazione 2}
+\label{sec:orgb3576fc}
+
+Siccome \(R \subseteq \tilde{R}\) è sufficiente dimostrare che \(\tilde{R}\) è well-founded se lo è \(R\), dal momento che il viceversa è immediato.
+
+Sia \(\emptyset \neq Y \subseteq X\) fissato. Si mostra che vi è un \(\tilde{R}\)-\href{20250203102516-massimo_e_minimo.org}{elemento minimale}.
+
+Si definisce \uline{percorso} da \(Y\) in se stesso come una \href{20250206170922-sequenze_e_stringhe.org}{sequenza finita} \(\langle z_{0},\dots,z_{n}\rangle\) di elementi di \(X\) tali che
+\begin{enumerate}
+\item \(z_{0},z_{n} \in Y\)
+\item per ogni \(i<n\) si ha \(z_{i}\mathrel{R} z_{i+1}\)
+\end{enumerate}
+
+Sia dunque
+\begin{equation*}
+\overline{Y} = \set{x \in X\ |\ \exists\, s\ (s\text{ è un percorso da } Y\text{ in se stesso} \,\land\, x \in \operatorname{ran}(s))}
+\end{equation*}
+(dove \(\operatorname{ran}(s)\) indica il \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{range di \(s\)}) la classe degli elementi di \(X\) visitati da un percorso da \(Y\) in se stesso.
+
+Per costruzione, \(Y \subseteq \overline{Y}\). Siccome \(R\) è well-founded e \(\overline{Y} \subseteq X\), sia \(\overline{y}\) il \(R\)-elemento minimale di \(\overline{Y}\).
+
+Nessun elemento di \(\overline{Y}\setminus Y\) può essere minimale rispetto a \(\overline{Y}\) (ovvio, siccome vi è una catena di relazioni). Pertanto \(\overline{y} \in Y\).
+
+Dimostriamo che \(\overline{y}\) sia \(\tilde{R}\)-minimale in \(Y\). Supponiamo per assurdo che vi sia \(\overline{x} \in Y\) tale che
+\begin{equation*}
+\overline{x} \mathrel{\tilde{R}}\overline{y}
+\end{equation*}
+Dunque esistono \(z_{0},\dots,z_{n+1}\) elementi \(\overline{Y}\) tali che
+\begin{equation*}\overline{x}\mathrel{R}z_{0}\mathrel{R}z_{1}\mathrel{R}\dots\mathrel{R}z_{n+1}\mathrel{R}\overline{y}
+\end{equation*}
+Dunque \(z_{n+1}\mathrel{R}\overline{y}\), contro l'ipotesi che \(\overline{y}\) fosse minimale rispetto a \(R\) in \(\overline{Y}\).
+\end{document}

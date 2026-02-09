@@ -1,0 +1,63 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Siano \(M, N\) \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili} (di dimensione, rispettivamente, \(n, m\)),  e sia \(F:M\longrightarrow N\) una \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{funzione \(C^{\infty}\)}. Sia \(p \in M\) e \(q\coloneqq F(p) \in N\).
+Allora esistono \((U,\varphi)\) \href{20250111092123-varieta_topologica.org}{carta} di \(M\), \((V,\psi)\) \href{20250111092123-varieta_topologica.org}{carta} di \(N\), con \(p \in U\) e \(F(U) \subseteq V\) tali che
+\begin{equation*}
+\psi\circ F\circ \varphi^{-1}
+\end{equation*}
+è \href{20250113125602-classe_c_di_una_funzione.org}{funzione \(C^{\infty}\)}
+
+Siano
+\begin{align*}
+\varphi &= (x^{1},\dots,x^{n})\\
+\psi &= (y^{1},\dots,y^{m})
+\end{align*}
+Queste \href{20250114103339-teorema_sulla_base_dello_spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{inducono} le seguenti \href{20250102163502-base_di_uno_spazio_vettoriale.org}{basi} (vedi \href{20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Spazio tangente ad un punto di una varietà differenziabile} e \href{20250114101917-derivazioni_canoniche_su_una_varieta_differenziabile.org}{Derivazioni Canoniche su una varietà differenziabile}):
+\begin{align*}
+\set{
+\restriction{\dpd{}{{x^{1}}}}{p},\dots,\restriction{\dpd{}{{x^n}}}{p}
+} &\text{ base di }\operatorname{T}_{p}M\\
+\set{
+\restriction{\dpd{}{{y^{1}}}}{q},\dots,\restriction{\dpd{}{{y^{m}}}}{q}
+} &\text{ base di }\operatorname{T}_{q}N
+\end{align*}
+
+Siccome il \href{20250114111331-differenziale_di_una_funzione_tra_varieta_differenziabili.org}{differenziale} \(\restriction{F_{\star}}{p}: \operatorname{T}_{p}M\longrightarrow \operatorname{T}_{q}N\) è \href{20250114101949-funzione_lineare.org}{lineare}, è rappresentato da una \href{20250104111539-spazio_delle_matrici.org}{matrice} \((A^{k}_{i})\); in particolare
+\begin{equation*}
+\restriction{F_{\star}}{p}\left(
+\restriction{
+\dpd{}{{x^{i}}}
+}{p}
+\right) = A^{k}_{i} \restriction{
+\dpd{}{{y^{k}}}
+}{q}
+\end{equation*}
+con la \href{20250114105957-notazione_di_einstein.org}{Notazione di Einstein}.
+\section{Proposizione}
+\label{sec:org915704a}
+Indicando con \(\left(\psi\circ F\circ \varphi^{-1}\right)^{r}\) la \(r\)-esima componente di \(\psi\circ F\circ\varphi^{-1}\), si ha che la matrice \((A^{r}_{i})\) è
+\begin{equation*}
+A^{r}_{i}=\dpd{{\left(\psi\circ F\circ \varphi^{-1}\right)^{r}}}{{x^{i}}}\left(\varphi(p)\right)
+\end{equation*}
+(vedi \href{20250114103236-derivata_parziale.org}{Derivata parziale})
+Questa scrittura ha senso perché \(\psi\circ F\circ \varphi^{-1}\) è una funzione da aperti di \(\R^{n}\) in aperti di \(\R^{m}\).
+
+Dunque
+\begin{equation*}
+(A^{r}_{i}) = \operatorname{J}_{\psi\circ F\circ \varphi^{-1}}\left(\varphi(p)\right)
+\end{equation*}
+dove \(\operatorname{J}\) è la \href{20250114123754-matrice_jacobiana.org}{Matrice Jacobiana}
+\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\label{sec:org4217b09}
+\section{Notazione}
+\label{sec:org464632d}
+Si scrive che
+\begin{equation*}
+F_{\star}\left(\dpd{}{{x^{i}}}\right) = \dpd{{F^{k}}}{{x^{i}}}\left(\dpd{}{{y^{k}}}\right)
+\end{equation*}
+con la \href{20250114105957-notazione_di_einstein.org}{Notazione di Einstein}.
+\end{document}

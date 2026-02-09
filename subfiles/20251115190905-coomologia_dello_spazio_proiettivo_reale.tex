@@ -1,0 +1,222 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Coomologia dello spazio proiettivo reale}
+\label{sec:org0bcd1d1}
+\begin{thm}
+Sia \(\mathds{P}^{n} \R\) lo \href{20241231115051-spazio_proiettivo.org}{spazio proiettivo} reale di dimensione \(n\). La sua \href{20251115172442-gruppo_di_coomologia_di_de_rham.org}{coomologia di De Rham} è
+\begin{equation*}
+H^{k}(\mathds{P}^{n}\R) =%
+\begin{cases}
+\R & k = 0\\
+\R & k = n\text{ dispari}\\
+0 & \text{altrimenti}
+\end{cases}
+\end{equation*}
+\end{thm}
+\begin{proof}
+Consideriamo le seguenti mappe:
+\begin{itemize}
+\item Si consideri \(\mathds{S}^{n} \subseteq \R^{n+1}\), e si consideri la mappa antipodale:
+\begin{align*}
+a: \mathds{S}^{n} &\longrightarrow \mathds{S}^{n}\\
+\bm{x} &\longmapsto -\bm{x}
+\end{align*}
+Questa induce i seguenti pullback\footnote{Vedi:
+\begin{itemize}
+\item \href{20251115174001-pullback_di_una_funzione_tra_varieta_differenziabili.org}{Pullback di una funzione tra varietà differenziabili}
+\item \href{20251121174615-pullback_di_una_funzione_tra_varieta_differenziabili_in_coomologia.org}{Pullback di una funzione tra varietà differenziabili in coomologia}
+\end{itemize}}:
+\begin{align*}
+  a^{*}: \Omega^{k}(\mathds{S}^{n}) & \longrightarrow \Omega^{k}(\mathds{S}^{n})\\
+  \bm{a}^{*}: H^{k}(\mathds{S}^{n}) & \longrightarrow H^{k}(\mathds{S}^{n}).
+\end{align*}
+\item Si consideri la proiezione al \href{20250129155316-spazio_topologico_quoziente.org}{quoziente}:
+\begin{equation*}
+  \pi : \mathds{S}^{n} \to \mathds{P}^{n}\R = \mathds{S}^{n}/\sim_{a}
+\end{equation*}
+Che induce i seguenti pullback:
+\begin{align*}
+  \pi^{*}: \Omega^{k}(\mathds{P}^{n}\R) & \longrightarrow \Omega^{k}(\mathds{S}^{n})\\
+  \bm{\pi}^{*}: H^{k}(\mathds{P}^{n}\R) & \longrightarrow H^{k}(\mathds{S}^{n}).
+\end{align*}
+\end{itemize}
+
+Se \(k=0\) allora, siccome \(\mathds{P}^{n}\R\) è connesso, si ha che \(H^{0}(\mathds{P}^{n}\R) = \R\).
+
+Sia quindi ora \(k>0\).
+\begin{enumerate}
+\item \textbf{Claim}:
+\(\Omega^{k}(\mathds{S}^{n}) = \Omega^{k}(\mathds{S}^{n})_{+} \oplus \Omega^{k}(\mathds{S}^{n})_{-}\)\footnote{Vedi ``\href{20241213095808-somma_diretta.org}{Somma Diretta}''}, e inoltre
+\(\pi^{*} [\Omega^{k}(\mathds{P}^{n}\R)] \subseteq \Omega^{k}(\mathds{S}^{n})_{ +}\)\footnote{Vedi:
+\begin{itemize}
+\item \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Range di una funzione}
+\item \href{20250114103118-sottospazio_vettoriale.org}{Sottospazio vettoriale}
+\end{itemize}}.
+
+\emph{dim.}: Si definiscono:
+\begin{align*}
+ \Omega^{k}(\mathds{S}^{n})_{+} &\coloneqq %
+ \set{\omega \in \Omega^{k}(\mathds{S}^{n}) \mid a^{*}\omega = \omega};\\
+ \Omega^{k}(\mathds{S}^{n})_{-} &\coloneqq %
+ \set{\omega \in \Omega^{k}(\mathds{S}^{n}) \mid a^{*}\omega = - \omega}
+\end{align*}
+gli insiemi delle forme \uline{invarianti} e \uline{antiinvarianti}.
+
+Siccome \(a^{*}\circ a^{*} = \Id_{\Omega^{k}(\mathds{S}^{n})}\), segue la decomposizione. In particolare:
+\begin{equation*}
+ \omega = \bigg(\frac{\omega+a^{*}\omega}{2}\bigg) + %
+ 	\bigg(\frac{\omega-a^{*}\omega}{2}\bigg) %
+ \tag{\(\star\)}
+\end{equation*}
+
+Inoltre, siccome per definizione di \(\mathds{P}^{n}\R\): \(\pi \circ a = \pi\): \href{20251115174001-pullback_di_una_funzione_tra_varieta_differenziabili.org}{allora}
+\begin{equation*}
+ (\pi \circ a)^{*} = \pi^{*}%
+ \IMPLICA %
+ a^{*} \circ \pi^{*} = \pi^{*}
+\end{equation*}
+e pertanto, per ogni \(\omega \in \Omega^{k}(\mathds{P}^{n}\R)\):
+\begin{equation*}
+ a^{*}(\pi^{*}\omega) = \pi^{*}\omega.
+\end{equation*}
+Segue che
+\(\pi^{*} [\Omega^{k}(\mathds{P}^{n}\R)] \subseteq \Omega^{k}(\mathds{S}^{n})_{ +}\)
+\item \textbf{Claim}: In realtà \(\pi^{*}: \Omega^{k}(\mathds{P}^{n}\R) \to \Omega^{k}(\mathds{S}^{n})_{+}\) è isomorfismo.
+
+\emph{Non dimostrato}.
+
+\item \textbf{Claim}: Segue che \(H^{k}(\mathds{S}^{n}) = H^{k}(\mathds{S}^{n})_{+} \oplus H^{k}(\mathds{S}^{n})_{-}\), e inoltre \(H^{k}(\mathds{P}^{n}\R) \cong H^{k}(\mathds{S}^{n})_{ +}\).
+
+\emph{dim.}:
+Si definiscano:
+\begin{align*}
+ H^{k}(\mathds{S}^{n})_{+} &\coloneqq \set{[\omega] \in H^{k}(\mathds{S}^{n}) \mid \bm{a}^{*}[\omega] = [\omega]}\\
+ H^{k}(\mathds{S}^{n})_{-} &\coloneqq \set{[\omega] \in H^{k}(\mathds{S}^{n}) \mid \bm{a}^{*}[\omega] = -[\omega]}
+\end{align*}
+
+Per dimostrare la somma diretta è sufficiente:
+\begin{itemize}
+\item Mostrare che \(H^{k}(\mathds{S}^{n})_{+} \cap H^{k}(\mathds{S}^{n})_{-} = \set{0}\)
+
+Sia quindi \([\omega] \in H^{k}(\mathds{S}^{n})_{+} \cap H^{k}(\mathds{S}^{n})_{-}\): allora
+\begin{equation*}
+   -[\omega] = \bm{a}^{*}[\omega] =[ \omega]
+\end{equation*}
+e pertanto \([\omega]= 0\).
+
+\item Mostrare che se \([\omega] \in H^{k}(\mathds{S}^{n})\) allora esistono \([\omega_{1}] \in H^{k}(\mathds{S}^{n})_{+}\) e \([\omega_{2}] \in H^{k}(\mathds{S}^{n})_{-}\) tali che:
+\begin{equation*}
+   [\omega] = [\omega_{1}] + [\omega_{2}].
+\end{equation*}
+
+Ma in particolare, per (\(\star\)):
+\begin{equation*}
+   \omega = \parentesi{\null \in \Omega^{k}(\mathds{S}^{n})_{+}}{\bigg(\frac{\omega+a^{*}\omega}{2}\bigg)} + %
+   \parentesi{\null \in \Omega^{k}(\mathds{S}^{n})_{-}}{\bigg(\frac{\omega-a^{*}\omega}{2}\bigg)} %
+\end{equation*}
+e dunque, ponendo:
+\begin{align*}
+   \omega_{1} &\coloneqq \frac{\omega+a^{*}\omega}{2}\\
+   \omega_{2} &\coloneqq \frac{\omega-a^{*}\omega}{2}
+\end{align*}
+si ottiene che
+\begin{align*}
+   \bm{a}^{*}[\omega_{1}] = [a^{*}\omega_{1}] &= [\omega_{1}] \\
+   \bm{a}^{*}[\omega_{2}] = [a^{*}\omega_{2}] = [- \omega_{2}] &= -[\omega_{2}]\\
+   [\omega_{1}]+[\omega_{2}] &= [\omega].
+\end{align*}
+\end{itemize}
+
+Rispetto all'isomorfismo \(H^{k}(\mathds{P}^{n}\R) \cong H^{k}(\mathds{S}^{n})_{+}\), questo è indotto da \(\bm{\pi}^{*}\):
+\begin{align*}
+\bm{\pi}^{*}: H^{k}(\mathds{P}^{n}\R) &\longrightarrow H^{k}(\mathds{S}^{n})_{+}\\
+[\omega] &\longmapsto [\pi^{*}\omega]
+\end{align*}
+\begin{itemize}
+\item La mappa è ben definita in quanto corestrizione di un pullback, e se \([\omega] \in H^{k}(\mathds{P}^{n}\R)\) allora
+\begin{equation*}
+   a^{*}\circ \pi^{*}\omega = \pi^{*}\omega
+\end{equation*}
+e dunque \(\bm{\pi}^{*}[\omega] = [\pi^{*}\omega] \in H^{k}(\mathds{P}^{n}\R)_{+}\).
+\item La mappa è iniettiva: siano \([\omega], [\tau] \in H^{k}(\mathds{P}^{n}\R)\) tali che \(\bm{\pi}^{*}[\omega] = \bm{\pi}^{*}[\tau]\).
+Allora
+\begin{equation*}
+   \pi^{*}(\omega-\tau) = \dif \eta.
+\end{equation*}
+Siccome \(\pi^{*}\) è un isomorfismo, esiste \(\nu\) tale che
+\begin{equation*}
+   \eta = \pi^{*} \nu
+\end{equation*}
+e in particolare:
+\begin{equation*}
+   \pi^{*}(\omega-\tau) = \dif \pi^{*} \nu = \pi^{*} \dif \nu
+\end{equation*}
+e dunque \(\omega-\tau = \dif \nu\) per l'iniettività di \(\pi^{*}\):
+\begin{equation*}
+   [\omega]= [\tau].
+\end{equation*}
+
+\item La mappa è suriettiva: se \([\eta] \in H^{k}(\mathds{S}^{n})_{+}\), allora WLOG\footnote{Infatti, se \([\eta] \in H^{k}(\mathds{S}^{n})_{+}\), allora
+\begin{equation*}
+[\eta] = \bm{a}^{*}[\eta] = [a^{*}\eta]%
+\IMPLICA a^{*}\eta - \eta = \dif\beta.
+\end{equation*}
+Si definisce quindi \(\tilde{\eta} \coloneqq \frac{\eta + a^{*}\eta}{2}\).
+\begin{itemize}
+\item Dimostro che \([\tilde{\eta}] = [\eta]\):
+\begin{equation*}
+  \tilde{\eta} = \frac{\eta + a^{*}\eta}{2} = \frac{\eta+\eta+\dif\beta}{2} = \eta + \operatorname{d}(\beta/2).
+\end{equation*}
+\item Dimostro che \(a^{*}\tilde{\eta} = \eta\):
+\begin{equation*}
+        a^{*}\tilde{\eta} = \frac{a^{*}\eta + a^{*}a^{*}\eta}{2} = \frac{a^{*}\eta+\eta}{2} = \tilde{\eta}.
+\end{equation*}
+\end{itemize}
+Dunque \([\tilde{\eta}]=[\eta]\) e \(a^{*}\tilde{\eta}=\tilde{\eta}\).} si ha
+\begin{equation*}
+   a^{*}\eta = \eta
+\end{equation*}
+e pertanto \(\eta \in \Omega^{k}(\mathds{S}^{n})_{+}\). Per il Claim 2., esiste \(\omega \in \Omega^{k}(\mathds{P}^{n} \R)\) tale che \(\pi^{*}\omega = \eta\), e inoltre
+\begin{equation*}
+   0 = \dif\eta = \dif \pi^{*}\omega = \pi^{*} \dif \omega
+\end{equation*}
+e siccome \(\pi^{*}\) isomorfismo per ogni \(k\), \(\dif\omega= 0\) e quindi \([\omega] \in H^{k}(\mathds{P}^{n}\R)\) e \(\bm{\pi}^{*}[\omega] = [\eta]\).
+\end{itemize}
+\end{enumerate}
+
+Dunque, se \(k \neq n\), allora \(H^{k}(\mathds{S}^{n}) = 0\) (per la \href{20251115184248-coomologia_delle_sfere.org}{coomologia delle sfere}), ma
+\begin{equation*}
+H^{k}(\mathds{P}^{n}\R) \cong  H^{k}(\mathds{S}^{n})_{+} \subseteq H^{k}(\mathds{S}^{n}) = 0
+\end{equation*}
+e quindi \(H^{k}(\mathds{P}^{n}\R) = 0\).
+
+Sia ora quindi \(k=n\). La situazione è la seguente\footnote{Vedi ``\href{20251115184248-coomologia_delle_sfere.org}{Coomologia delle sfere}''}:
+\begin{equation*}
+H^{n}(\mathds{P}^{n}\R) \cong H^{n}(\mathds{S}^{n})_{+} \subseteq H^{n}(\mathds{S}^{n}) = \langle [\nu] \rangle
+\end{equation*}
+dove \(\nu\) è la \href{20251115184544-forma_volume_su_una_varieta_differenziabile.org}{forma volume} su \(\mathds{S}^{n}\). È possibile calcolare che
+\begin{equation*}
+a^{*}\nu = (-1)^{n+1}\nu
+\end{equation*}
+e pertanto: \(\bm{a}^{*}[\nu] = (-1)^{n+1}[\nu]\).
+\begin{itemize}
+\item Se \(n\) è pari, allora \(n+1\) è dispari, e quindi \(\bm{a}^{*}[\nu] = - [\nu]\), e quindi \([\nu] \notin H^{n}(\mathds{S}^{n})_{+}\):
+\begin{equation*}
+  H^{n}(\mathds{S}^{n})_{+} = 0 %
+  \IMPLICA %
+  H^{n}(\mathds{P}^{n}\R) = 0.
+\end{equation*}
+\item Se \(n\) è dispari, allora \(n+1\) è pari, e quindi \(\bm{a}^{*}[\nu] = [\nu]\), e quindi \([\nu] \in H^{n}(\mathds{S}^{n})_{+}\):
+\begin{equation*}
+  H^{n}(\mathds{S}^{n})_{+} = \langle [\nu] \rangle \cong \R %
+  \IMPLICA %
+  H^{n}(\mathds{P}^{n}\R) \cong \R.%
+  \qedhere
+\end{equation*}
+\end{itemize}
+\end{proof}
+\end{document}

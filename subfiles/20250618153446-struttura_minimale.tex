@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{notazione della Teoria dei Modelli}.
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} fissato,
+\section{Struttura minimale}
+\label{sec:orgf77e144}
+Una \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} \(M\) è detta \uline{struttura minimale} se per ogni \href{20250212112324-estensione_di_un_linguaggio_del_prim_ordine.org}{\(\mathcal{L}(M)\)}-\href{20250131103317-formula_del_prim_ordine.org}{formula} con una sola \href{20250131103429-variabile_libera_di_una_formula.org}{variabile libera} \(\varphi(x)\), l'\href{20250131122913-soddisfazione_di_una_formula.org}{insieme definito} da \(\varphi\): \(\varphi(M)\) è \emph{finito} o \emph{cofinito}.
+\section{Struttura fortemente minimale}
+\label{sec:org3061121}
+Una \(\mathcal{L}\)-struttura \(M\) è detta \uline{struttura fortemente minimale} se \(M\) è una struttura minimale e se tutte le sue \href{20250212102253-sottostruttura_elementare.org}{estensioni elementari} lo sono.
+\section{Teoria fortemente minimale}
+\label{sec:orgbd26122}
+\begin{definizione}
+Una \(\mathcal{L}\)-teoria \(T\) \href{20250609162657-teoria_coerente.org}{consistente} e senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti è detta \uline{fortemente minimale} se per ogni \(\mathcal{L}\)-formula \(\varphi(x;z)\) (dove \(x\) è una singola variabile) esiste \(n \in \omega\) tale che
+\begin{equation*}
+T\vdash \forall\,z\ \left[\exists^{\le n}\, x\ \varphi(x;z) \,\lor\, \exists^{\le n}\, x\ \lnot\varphi(x;z)\right]
+\end{equation*}
+dove con ``\(\exists^{\le n}\)'' si intende ``esistono al massimo \(n\) \(x\) tali che''
+\end{definizione}
+
+(vedi \href{20250131123011-conseguenza_logica.org}{Conseguenza logica})
+\section{Teorema di Caratterizzazione}
+\label{sec:orge0555d4}
+
+Sono fatti equivalenti:
+\begin{enumerate}
+\item La \href{20250131123228-teoria_di_una_struttura.org}{teoria} \(\operatorname{Th}(M)\) è \hyperref[sec:orgbd26122]{fortemente minimale};
+\item \(M\) è una \hyperref[sec:org3061121]{struttura fortemente minimale};
+\item \(M\) ammette una \href{20250212102253-sottostruttura_elementare.org}{estensione elementare} \hyperref[sec:orgf77e144]{minimale} e \href{20250617095548-modello_lambda_saturo.org}{\(\omega\)-satura}.
+\end{enumerate}
+\end{document}

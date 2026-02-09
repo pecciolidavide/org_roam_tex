@@ -1,0 +1,52 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Rete di Convoluzione}
+\label{sec:orgae0b30b}
+\subsection{Caso unidimensionale}
+\label{sec:org59dc78a}
+
+\begin{definizione}
+Un \uline{segnale discreto} è una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di numeri reali a \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} in \(\Z\):
+\begin{equation*}
+\langle \dots, y_{-2},y_{-1}, y_{0}, y_{1},y_{2},\dots\rangle.
+\end{equation*}
+\end{definizione}
+\begin{definizione}
+Un \uline{filtro} o \uline{kernel} è un segnale a \href{20250701115005-supporto_di_una_funzione.org}{supporto} compatto (ovvero solo un numero finito di posizioni è diverso da \(0\)):
+\begin{equation*}
+\langle \dots, 0, \dots, 0, w_{-k}, \dots, w_{-1}, w_{0}, w_{1},\dots,w_{k}, 0, \dots, 0\dots\rangle.
+\end{equation*}
+\end{definizione}
+\begin{definizione}
+Se \(y=\langle y_{i}\rangle_{i \in \Z}\) è un segnale discreto e \(w=\langle w_{i}\rangle_{i \in \Z}\) è un filtro, si chiama \uline{segnale filtrato} (o \emph{convolved}) il segnale \(z\coloneqq y*w\), \(z=\langle z_{j}\rangle_{j \in \Z}\):
+\begin{equation*}
+z_{j}=\sum_{k=-\infty}^{+\infty} y_{j+k}\cdot w_{k}.
+\end{equation*}
+\end{definizione}
+\begin{definizione}
+In una \href{20250624155858-neurone_artificiale.org}{rete neurale feedforward}, se \(x = \langle x_{1},\dots,x_{n}\rangle\) è l'output del layer \(\ell-1\), il layer \(\ell\) si dice \uline{layer di convoluzione} se esiste \(w=\langle w_{j}\rangle_{j \in \Z}\) filtro tale per cui ciascun \(s^{(\ell)}_{k}\) è (a meno di traslare l'intervallo \(k=1,\dots,d^{(\ell)}\))
+\begin{equation*}
+s^{(\ell)_{k}} = w_{k} + b_{k}
+\end{equation*}
+per qualche \(b_{k} \in \R\).
+\end{definizione}
+\subsection{Caso due dimensionale}
+\label{sec:org58312d5}
+
+\begin{definizione}
+Un \uline{segnale discreto} è una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di numeri reali a \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} in \(\Z^{2}\): \(y=\langle y_{ij}\rangle_{(i,j) \in \Z^{2}}\).
+\end{definizione}
+\begin{definizione}
+Un \uline{filtro} o \uline{kernel} è un segnale a \href{20250701115005-supporto_di_una_funzione.org}{supporto} compatto (ovvero solo un numero finito di posizioni è diverso da \(0\)): \(w=\langle w_{ij}\rangle_{(i,j) \in \Z^{2}}\).
+\end{definizione}
+\begin{definizione}
+Se \(y=\langle y_{ij}\rangle_{(i,j) \in \Z^{2}}\) è un segnale discreto e \(w=\langle w_{ij}\rangle_{(i,j) \in \Z^{2}}\) è un filtro, si chiama \uline{segnale filtrato} (o \emph{convolved}) il segnale \(z\coloneqq y*w\), \(z=\langle z_{ij}\rangle_{(i,j) \in \Z^{2}}\):
+\begin{equation*}
+z_{ij}=\sum_{h=-\infty}^{+ \infty} \sum_{k=-\infty}^{+\infty} y_{i+h,j+k}\cdot w_{h,k}.
+\end{equation*}
+\end{definizione}
+\end{document}

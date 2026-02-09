@@ -1,0 +1,49 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione TEORIA DEI MODELLI}
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}.
+\begin{thm}
+Sia \(N\) una \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} infinita, e sia \(A \subseteq N\) fissato.
+
+Allora esiste una \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} \(M\), con \(\card{M}\le\card{\mathcal{L}(A)}\) (vedi \href{20250203111003-ordinali.org}{Relazione d'ordine sugli ordinali} e \href{20250212112324-estensione_di_un_linguaggio_del_prim_ordine.org}{Linguaggio del prim'ordine con parametri}) tale che
+\begin{equation*}
+A \subseteq M \preceq N
+\end{equation*}
+(vedi \href{20250212102253-sottostruttura_elementare.org}{Sottostruttura elementare})
+\end{thm}
+\begin{proof}
+\uline{Costruzione della \href{20250131103212-sottostruttura_del_prim_ordine.org}{sottostruttura}.}
+
+Sia \(\lambda=\card{\mathcal{L}(A)}\). Si costruisce per \href{20250207121906-teorema_di_ricorsione.org}{ricorsione} \(\langle A_{i}: i<\omega\rangle\) con \(\card{A_{i}}\le\lambda\).
+
+Si pone \(A_{0} = A\); ovviamente \(\card{A_{0}}\le\lambda\).
+
+Si assuma per ipotesi induttiva che \(\card{A_{i}}\le\lambda\); allora \(\card{\mathcal{L}(A_{i})}\le\lambda\) (segue ovviamente dalle proprietà di base dell'\href{20250612151505-aritmetica_dei_cardinali.org}{Aritmetica dei cardinali}).
+
+Fissata una variabile \(x\), sia \(\langle \varphi_{k}(x): k<\lambda\rangle\) una \href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{enumerazione} delle formule in \(\mathcal{L}(A_{i})\) che siano \href{20250212144403-formula_consistente.org}{consistenti} in \(N\), e sia \(a_{k} \in N\) tale che \(N\vDash \varphi_{k}[a_{k}]\).
+
+Si pone quindi \(A_{i+1}\coloneqq A\cup \set{a_{k}:k<\lambda}\). Ovviamente quindi \(\card{A_{i+1}} \le\lambda\).
+
+Costruita quindi \(\langle A_{i}:i<\omega\rangle\), si pone \(M\coloneqq \bigcup_{i<\omega} A_{i}\). Ovviamente \(A=A_{0} \subseteq M\), e \href{20250211104310-cardinalita_dell_unione_di_insiemi_e_minore_del_supremum_della_cardinalita_degli_insiemi_per_la_cardinalita_dell_insieme_degli_indici.org}{inoltre}
+\begin{equation*}
+  \card{M} \le \lambda\cdot\omega=\lambda.
+\end{equation*}
+
+\uline{Applicazione del \href{20250212113245-criterio_di_tarski_vaught.org}{Criterio di Tarski Vaught}.}
+
+Sia \(\varphi(x) \in \mathcal{L}(M)\) consistente in \(N\). Siano \(\set{a_{1},\dots,a_{n}} \in M\) i \href{20250212102927-enunciato_con_parametri.org}{parametri} che compaiono in \(\varphi(x)\), allora esistono degli \(i_{j} < \omega\) tali che
+\begin{equation*}
+  a_{j} \in A_{i_{j}}
+\end{equation*}
+e pertanto esiste \(i = \max{i_{j}}\) tale che \(\varphi(x) \in \mathcal{L}(A_{i})\) (poiché \(A_{0} \subseteq A_{1} \subseteq \dots \subseteq A_{i} \subseteq \dots\)).
+
+Allora \(\varphi(x) \in \mathcal{L}(A_{i})\) è consistente in \(N\), e pertanto per costruzione esiste \(a \in A_{i+1} \subseteq M\) tale che \(N\vDash \varphi(a)\).
+
+Dunque esiste \(a \in M\) tale che \(N\vDash \varphi[a]\).\qedhere
+\end{proof}
+\end{document}

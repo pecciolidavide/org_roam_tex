@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Definizione}
+\label{sec:org3078f9d}
+
+Sia \(X\) uno spazio topologico metrizzabile e separabile.
+\begin{itemize}
+\item \(A \subseteq X\) è detto \uline{analitico} se esiste uno spazio Polacco \(Y\) e una funzione continua
+\begin{equation*}
+f:Y\to X
+\end{equation*}
+tale che \(f(Y) = A\).
+\item \(C \subseteq X\) è detto \uline{coanalitico} se \(X\setminus C\) è analitico.
+\item \(B \subseteq X\) è detto \uline{bianalitico} se \(B\) e \(X\setminus B\) sono analitici.
+\end{itemize}
+
+La collezione dei sottoinsiemi di \(X\) analitici, coanalitici e bianalitici è indicata, rispettivamente, da
+\begin{equation*}
+\bm{\Sigma}_{1}^{1}(X),\quad \bm{\Pi}_{1}^{1}(X),\quad \bm{\Delta}_{1}^{1}(X)
+\end{equation*}
+\section{Proposizione}
+\label{sec:org9d2f46b}
+
+Sia \(X\) uno spazio Polacco, e sia \(\emptyset \neq A \subseteq X\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(A\) è analitico;
+\item \(A\) è immagine continua di \(\omega^{\omega}\);
+\item \(A= \pi_{X}(C)\) per qualche \(C \in \bm{\Pi}_{1}^{0}\left(X\times \omega^{\omega}\right)\), \(C\neq \emptyset\), dove \(\pi_{X}\) è la proiezione su \(X\)
+\item \(A = \pi_{X}(C)\) per qualche spazio Polacco \(Y\) e per qualche \(C \in \bm{{\operatorname{Bor}}}(X\times Y)\), \(C\neq \emptyset\);
+\item \(A=f(C)\) per qualche spazio Polacco \(Y\), per qualche \(C \in \bm{{\operatorname{Bor}}}(X\times Y)\) e per qualche funzione Boreliana \(f:Y\to X\).
+\end{enumerate}
+\end{document}

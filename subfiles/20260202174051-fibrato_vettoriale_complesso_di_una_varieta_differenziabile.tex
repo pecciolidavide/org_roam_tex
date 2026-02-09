@@ -1,0 +1,39 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Fibrato vettoriale complesso di una varietà differenziabile}
+\label{sec:org159715f}
+Sia \(X\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile}.
+
+\begin{definizione}
+Un \textbf{fibrato vettoriale complesso \(\mathcal{C}^{\infty}\)} per \(X\) è una coppia \((E,\pi)\) dove \(E\) è una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} e \(\pi:E\to X\) è una \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{funzione \(\mathcal{C}^{\infty}\)} tale che:
+\begin{enumerate}
+\item per ogni \(x \in X\), la \href{20260128184014-fibra_di_una_funzione.org}{fibra} \(E_{x}\coloneqq\pi^{-1}(x)\) ha una struttura di \href{20241205142027-spazio_vettoriale.org}{spazio vettoriale complesso};
+\item esiste \(\set{U_{\alpha}}\) \href{20250103164252-ricoprimento.org}{ricoprimento} \href{20250103145124-topologia.org}{aperto} di \(X\), ed esistono \(\phi_{\alpha}: \pi^{-1}(U_{\alpha}) \to U_{\alpha}\times \C^{r}\) \href{20250113172924-diffeomorfismo_tra_varieta_differenziabili.org}{diffeomorfismi} tali che
+\begin{itemize}
+\item il seguente diagramma è commutativo;
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+        {\pi^{-1}(U_\alpha)} \&\& {U_\alpha\times \C^r} \\
+        \\
+        \& {U_\alpha}
+        \arrow["{\phi_\alpha}", from=1-1, to=1-3]
+        \arrow["\pi"', from=1-1, to=3-2]
+        \arrow["{\pi_{U_{\alpha}}}", from=1-3, to=3-2]
+\end{tikzcd}
+\end{equation*}
+
+\item la \href{20250205170515-restrizione_di_una_classe.org}{restrizione} \(\restriction{\phi_{\alpha}}{E_{x}} : E_{x} \to \C^{r}\) è \(\C\)-\href{20250114101949-funzione_lineare.org}{lineare}.
+\end{itemize}
+\end{enumerate}
+\end{definizione}
+
+\begin{definizione}
+Il numero \(r\) nella definizione precedente si dice \textbf{rango di \(E\)}.
+\end{definizione}
+\subsection{Cociclo di un fibrato vettoriale complesso}
+\label{sec:org766c66c}
+\end{document}

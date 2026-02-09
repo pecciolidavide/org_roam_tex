@@ -1,0 +1,176 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Sigma-algebra come campo di informazione}
+\label{sec:org39eb0c4}
+FONTE: CHATGPT
+\subsection{Contesto: \(\sigma\)-algebra come struttura di conoscenza}
+\label{sec:org9cb97a5}
+
+Sia \((\Omega, \mathcal{F}, \mathbb{P})\) uno \href{20250711175559-spazio_di_probabilita.org}{spazio di probabilità}.
+
+\begin{itemize}
+\item \(\Omega\) è lo spazio degli esiti: tutte le possibili realtà del mondo.
+\item \(\mathcal{F}\) è una \href{20250526100313-sigma_algebra.org}{\(\sigma\)-algebra} di sottoinsiemi di \(\Omega\): rappresenta gli eventi osservabili o misurabili.
+\item \(\mathbb{P}\) è una \href{20250704105515-misura_di_probabilita.org}{misura di probabilità} su \((\Omega, \mathcal{F})\).
+\end{itemize}
+
+Ogni sottoinsieme \(A \in \mathcal{F}\) rappresenta un evento che ha significato empirico: possiamo sapere se è accaduto o meno.
+\subsection{La \(\sigma\)-algebra come insieme delle informazioni disponibili}
+\label{sec:orga9bee70}
+
+Una \(\sigma\)-algebra \(\mathcal{G} \subseteq \mathcal{F}\) può essere vista come l'insieme delle informazioni che un osservatore possiede.
+
+\begin{itemize}
+\item Se \(\mathcal{G}\) è ``piccola'', l’osservatore sa poco.
+\item Se \(\mathcal{G}\) è ``grande'', sa molto (fino a \(\mathcal{F}\), conoscenza completa).
+\end{itemize}
+
+Ogni evento \(A \in \mathcal{G}\) è un fatto che l’osservatore può distinguere.
+
+Se \(A \notin \mathcal{G}\), allora l’osservatore non può sapere se \(A\) è accaduto.
+\subsection{Esempio: partizionare lo spazio degli eventi}
+\label{sec:org29b83e4}
+
+Sia \(\Omega = \{ \omega_1, \omega_2, \omega_3, \omega_4 \}\), e l’osservatore sa solo se l’esito è nei primi due o negli ultimi due. Allora:
+
+\[
+\mathcal{G} = \{ \emptyset, \Omega, \{ \omega_1, \omega_2 \}, \{ \omega_3, \omega_4 \} \}
+\]
+
+Questa \(\sigma\)-algebra rappresenta una partizione dell’informazione.
+\subsection{\(\sigma\)-algebra generata da una variabile aleatoria}
+\label{sec:org49449d5}
+
+Sia \(X : \Omega \to \mathbb{R}\) una \href{20250711175937-variabile_aleatoria.org}{variabile aleatoria}. La \href{20250714154501-sigma_algebra_generata_da_una_variabile_aleatoria.org}{\(\sigma\)-algebra generata da \(X\)} è:
+\begin{equation*}
+\sigma(X) = \{ X^{-1}(B) : B \in \mathcal{B}(\mathbb{R}) \}
+\end{equation*}
+
+Questa contiene tutti gli eventi determinabili in base al valore di \(X\), ed è l'informazione completa codificata da \(X\).
+\subsubsection{Significato informativo}
+\label{sec:org6096a6a}
+
+\begin{itemize}
+\item \(\sigma(X)\) rappresenta tutta l'informazione contenuta in \(X\).
+\item Se conosciamo \(X(\omega)\), allora possiamo sapere esattamente quali eventi in \(\sigma(X)\) si sono verificati.
+\item Ogni evento \(A \in \sigma(X)\) è determinabile unicamente tramite \(X\).
+\end{itemize}
+
+Se \(A \notin \sigma(X)\), non possiamo sapere se \(A\) è accaduto conoscendo solo \(X\).
+\subsubsection{Esempio esplicito}
+\label{sec:org9aefd1e}
+
+Sia:
+
+\begin{itemize}
+\item \(\Omega = \{ \omega_1, \omega_2, \omega_3, \omega_4 \}\)
+\item \(X : \Omega \to \mathbb{R}\) definita da:
+\begin{itemize}
+\item \(X(\omega_1) = 0\)
+\item \(X(\omega_2) = 0\)
+\item \(X(\omega_3) = 1\)
+\item \(X(\omega_4) = 2\)
+\end{itemize}
+\end{itemize}
+
+Allora \(X^{-1}(\{0\}) = \{ \omega_1, \omega_2 \}\), \(X^{-1}(\{1\}) = \{ \omega_3 \}\), \(X^{-1}(\{2\}) = \{ \omega_4 \}\)
+
+Quindi: \(\sigma(X)\) è la\(\sigma\)-algebra generata dalla partizione \(\{ \{ \omega_1, \omega_2 \}, \{ \omega_3 \}, \{ \omega_4 \} \}\)
+
+In particolare:
+\begin{equation*}
+\sigma(X) = \{ \emptyset, \Omega, \{ \omega_1, \omega_2 \}, \{ \omega_3 \}, \{ \omega_4 \}, \{ \omega_1, \omega_2, \omega_3 \}, \{ \omega_1, \omega_2, \omega_4 \}, \{ \omega_3, \omega_4 \} \}
+\end{equation*}
+\subsubsection{Interpretazione informativa}
+\label{sec:orga3de98a}
+
+\begin{itemize}
+\item Se \(X(\omega) = 0\), so solo che \(\omega \in \{ \omega_1, \omega_2 \}\)
+\item Se \(X(\omega) = 1\), allora \(\omega = \omega_3\)
+\item Se \(X(\omega) = 2\), allora \(\omega = \omega_4\)
+\end{itemize}
+
+Ogni evento in \(\sigma(X)\) è un’unione di blocchi della partizione indotta da \(X\).
+
+Esempi:
+
+\begin{itemize}
+\item \(\{ \omega_1, \omega_2, \omega_4 \} \in \sigma(X)\), perché corrisponde a \(X \in \{ 0, 2 \}\)
+\item \(\{ \omega_1, \omega_3 \} \notin \sigma(X)\), perché non è unione di intere fibre.
+\end{itemize}
+\subsubsection{Teorema: caratterizzazione di \(\sigma(X)\)}
+\label{sec:org3737bcc}
+
+\begin{itemize}
+\item \(Y\) è \(\sigma(X)\)-misurabile \(\iff\) esiste \(f : \mathbb{R} \to \mathbb{R}\) tale che \(Y = f(X)\)
+\item \(A \subseteq \Omega\) è in \(\sigma(X)\) \(\iff\) \(A = X^{-1}(B)\) per qualche Borel \(B \subseteq \mathbb{R}\)
+\end{itemize}
+\subsubsection{Conclusione}
+\label{sec:org0160681}
+
+\(\sigma(X)\) è esattamente tutta e sola l’informazione che può essere dedotta conoscendo il valore di \(X(\omega)\).
+\subsection{Variabili condizionate e informazione}
+\label{sec:orgc4a0359}
+
+La probabilità condizionata \(\mathbb{E}[Y \mid \mathcal{G}]\) è la miglior stima di \(Y\) dato ciò che so in \(\mathcal{G}\).  
+Quindi \(\mathcal{G}\) rappresenta l'informazione disponibile, e la condizionata è un modo per fare inferenza su variabili non note usando quella informazione.
+
+Se \(Y\) è misurabile rispetto a \(\sigma(X)\), allora esiste una funzione \(f\) tale che \(Y = f(X)\), e in particolare:
+
+\[
+\mathbb{E}[Y \mid \sigma(X)] = g(X)
+\]
+
+per qualche funzione \(g\).
+\subsection{Estensione al caso multidimensionale}
+\label{sec:orgef96c50}
+
+Se \(X = (X_1, \dots, X_n)\), allora:
+
+\[
+\sigma(X) = \sigma(X_1, \dots, X_n)
+\]
+
+cioè la \(\sigma\)-algebra contiene l'informazione congiunta di tutte le componenti.
+\subsection{Informazione nel tempo: filtrazioni}
+\label{sec:org04fc4f9}
+
+Una filtrazione \((\mathcal{F}_t)_{t \geq 0}\) è una famiglia crescente di \(\sigma\)-algebre:
+
+\[
+\mathcal{F}_s \subseteq \mathcal{F}_t \quad \text{per ogni } s \leq t
+\]
+
+\begin{itemize}
+\item \(\mathcal{F}_t\) rappresenta tutta l’informazione disponibile fino al tempo \(t\).
+\item Un processo \(X_t\) è adattato se \(X_t\) è \(\mathcal{F}_t\)-misurabile.
+\end{itemize}
+\subsection{Partizioni e conoscibilità}
+\label{sec:orgaf18256}
+
+Ogni \(\sigma\)-algebra \(\mathcal{G}\) induce una partizione di \(\Omega\) nei suoi eventi ``atomici'', cioè quelli minimali e distinguibili.
+
+\begin{itemize}
+\item Ogni osservatore con informazione \(\mathcal{G}\) sa solo a quale blocco della partizione appartiene \(\omega\).
+\item Non può distinguere elementi dello stesso blocco.
+\end{itemize}
+\subsection{Riepilogo}
+\label{sec:org0f017f4}
+
+\begin{center}
+\begin{tabular}{ll}
+Concetto & Interpretazione\\
+\hline
+\(\sigma\)-algebra \(\mathcal{G}\) & Informazione disponibile\\
+Evento \(A \in \mathcal{G}\) & Evento conoscibile\\
+\(\mathbb{E}[X \mid \mathcal{G}]\) & Stima di \(X\) con l'informazione\\
+\(\sigma(X)\) & Tutta l’informazione contenuta in \(X\)\\
+Filtrazione \((\mathcal{F}_t)\) & Informazione che evolve nel tempo\\
+Partizione & Eventi distinguibili\\
+\end{tabular}
+\end{center}
+\end{document}

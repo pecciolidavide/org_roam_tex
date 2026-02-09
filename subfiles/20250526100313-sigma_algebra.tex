@@ -1,0 +1,50 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Sia \(\Omega\) un \href{20250130104331-insieme_mk.org}{insieme}. Una \textbf{\textbf{\(\sigma\)-algebra}} \(\mathcal{F}\) su \(\Omega\) è una collezione di \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsiemi} di \(\Omega\) che soddisfa le seguenti proprietà:
+\begin{enumerate}
+\item \(\Omega \in \mathcal{F}\)
+\item Se \(A \in \mathcal{F}\), allora anche \(\Omega\setminus A \in \mathcal{F}\)\footnote{Vedi ``\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottrazione insiemistica}''}
+\item Se \(\{A_n\}_{n \in \mathbb{N}} \subseteq \mathcal{F}\), allora anche
+\end{enumerate}
+\begin{equation*}
+\bigcup_{n=1}^{\infty} A_n \in \mathcal{F}
+\end{equation*}
+
+Dunque, una \(\sigma\)-algebra è una famiglia di insiemi chiusa per complementazione e per unioni numerabili, e che contiene l’insieme base \(\Omega\).
+\end{definizione}
+
+\begin{prop}
+Sia \(\mathcal{F}\) una \(\sigma\)-algebra su uno spazio \(\Omega\). Allora valgono le seguenti proprietà fondamentali:
+
+\begin{enumerate}
+\item \(\emptyset \in \mathcal{F}\)
+
+\emph{Dimostrazione:} segue da \(\Omega \in \mathcal{F}\) e dalla chiusura per complementi, poiché
+\begin{equation*}
+\emptyset = \Omega\setminus\Omega \in \mathcal{F}
+\end{equation*}
+
+\item \(\mathcal{F}\) è chiusa per intersezioni numerabili:
+se \(A_n \in \mathcal{F}\) per ogni \(n \in \mathbb{N}\), allora
+\begin{equation*}
+\bigcap_{n=1}^{\infty} A_n \in \mathcal{F}
+\end{equation*}
+
+\emph{Dimostrazione:} segue dalla chiusura per complementi e per unioni numerabili, usando \href{20250714161943-leggi_di_de_morgan.org}{De Morgan}.
+
+\item \(\mathcal{F}\) è chiusa per differenza:
+se \(A, B \in \mathcal{F}\), allora
+\begin{equation*}
+A \setminus B = A \cap (\Omega\setminus B) \in \mathcal{F}
+\end{equation*}
+
+\item \(\mathcal{F}\) è chiusa per unioni finite e intersezioni finite:
+se \(A, B \in \mathcal{F}\), allora \(A \cup B \in \mathcal{F}\) e \(A \cap B \in \mathcal{F}\)
+\end{enumerate}
+\end{prop}
+\end{document}

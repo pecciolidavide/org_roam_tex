@@ -1,0 +1,50 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Caratterizzazione morfismo di fasci iniettivo tramite spighe}
+\label{sec:orgba334a1}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}, e siano \(\mathcal{F},\mathcal{G}\) due \href{20250324174728-fascio.org}{fasci} di \href{20241205141146-gruppo_abeliano.org}{gruppi} su \(X\).
+
+\begin{prop}
+Se \(\varphi:\mathcal{F}\to\mathcal{G}\) è un \href{20250325180613-morfismo_di_prefasci.org}{morfismo di fasci}, LSASE:
+\begin{enumerate}
+\item \(\varphi\) è un \href{20250327115206-morfismo_di_fasci_iniettivo.org}{morfismo di fasci iniettivo};
+\item per ogni \(p \in X\): \(\varphi_{p}:\mathcal{F}_{p}\to \mathcal{G}_{p}\)\footnote{\(\varphi_{p}\) è il \href{20250327114817-morfismo_di_fasci_induce_omomorfismo_tra_spighe.org}{morfismo indotto} sulle \href{20250325183434-spiga_di_un_prefascio.org}{spighe} \(\mathcal{F}_{p},\mathcal{G}_{p}\)\label{org685cd6e}} è un \href{20241206115531-morfismo_di_gruppi.org}{morfismo di gruppi} \href{20241219101956-funzione_iniettiva.org}{iniettivo};
+\item per ogni \(U \subseteq X\) aperto: \(\varphi_{U} :\mathcal{F}(U) \to \mathcal{G}(U)\) è un \href{20241206115531-morfismo_di_gruppi.org}{morfismo di gruppi} \href{20241219101956-funzione_iniettiva.org}{iniettivo}.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+La dimostrazione è ovvia considerati:
+\begin{itemize}
+\item \href{20260127101434-caratterizzazione_di_successione_esatta_di_fasci_tramite_spighe.org}{Caratterizzazione di successione esatta di fasci tramite spighe}
+\item \href{20250327150529-caratterizzazione_di_successione_esatta_di_fasci_tramite_sezioni.org}{Caratterizzazione di successione esatta di fasci tramite sezioni}
+\item \href{20250327150404-successione_di_fasci_esatta.org}{Caratterizzazione morfismo di fasci iniettivo tramite successione esatta}
+\qedhere
+\end{itemize}
+\end{proof}
+\section{Caratterizzazione morfismo di fasci suriettivo tramite spighe}
+\label{sec:orgfd4f350}
+
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}, e siano \(\mathcal{F},\mathcal{G}\) due \href{20250324174728-fascio.org}{fasci} di \href{20241205141146-gruppo_abeliano.org}{gruppi} su \(X\).
+
+\begin{prop}
+Se \(\varphi:\mathcal{F}\to\mathcal{G}\) è un \href{20250325180613-morfismo_di_prefasci.org}{morfismo di fasci}, LSASE:
+\begin{enumerate}
+\item \(\varphi\) è un \href{20250327115214-morfismo_di_fasci_suriettivo.org}{morfismo di fasci suriettivo};
+\item per ogni \(p \in X\): \(\varphi_{p}:\mathcal{F}_{p}\to \mathcal{G}_{p}\)\textsuperscript{\ref{org685cd6e}} è un \href{20241206115531-morfismo_di_gruppi.org}{morfismo di gruppi} \href{20241213105600-funzione_suriettiva.org}{suriettivo}.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+La dimostrazione è ovvia considerati:
+\begin{itemize}
+\item \href{20260127101434-caratterizzazione_di_successione_esatta_di_fasci_tramite_spighe.org}{Caratterizzazione di successione esatta di fasci tramite spighe}
+\item \href{20250327150404-successione_di_fasci_esatta.org}{Caratterizzazione morfismo di fasci suriettivo tramite successione esatta}
+\qedhere
+\end{itemize}
+\end{proof}
+\end{document}

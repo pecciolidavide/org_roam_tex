@@ -1,0 +1,21 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(L_{Q}\) il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} dell'\href{20250608093604-aritmetica.org}{aritmetica di Robinson} e sia \(\#\) una \href{20250609104647-buona_codifica_di_un_linguaggio.org}{buona codifica per \(L_{Q}\)}. Si utilizza la notazione de ``\href{20250609104647-buona_codifica_di_un_linguaggio.org}{Aritmetizzazione della sintassi}''
+\section{Teorema di Tarski}
+\label{sec:org810881a}
+
+Sia \(\operatorname{Th}(\langle \N, +,\cdot, S, 0\rangle)\) la \href{20250131123228-teoria_di_una_struttura.org}{teoria} del \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard per l'aritmetica}, ovvero l'insieme degli \(L_{Q}\)-\href{20250131103446-enunciato_del_prim_ordine.org}{enunciati} \href{20250131122913-soddisfazione_di_una_formula.org}{veri} in \(N\).
+
+Allora
+\begin{equation*}
+\operatorname{Th}^{\#}(\langle \N, +,\cdot, S, 0\rangle) \coloneqq \set{\termcode{\sigma}\mid \langle \N, +,\cdot, S, 0\rangle\vDash \sigma}
+\end{equation*}
+non è definibile in \(\langle \N, +,\cdot, S, 0\rangle\), ovvero non esiste alcuna \(L_{Q}\)-formula \(\varphi(x)\) tale che per ogni \(L_{Q}\)-enunciato \(\sigma\) si abbia
+\begin{equation*}
+\sigma \in \operatorname{Th}(\langle \N, +,\cdot, S, 0\rangle) \quad\iff\quad \langle \N, +,\cdot, S, 0\rangle\vDash \varphi(\termcode{\sigma}).
+\end{equation*}
+\end{document}

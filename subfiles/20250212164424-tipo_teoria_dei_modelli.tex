@@ -1,0 +1,83 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}. Si utilizzerà la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione TEORIA DEI MODELLI}.
+
+Un \textbf{tipo} è un insieme di \(\mathcal{L}\)-\href{20250131103317-formula_del_prim_ordine.org}{formule}. Si denota con \(p(x)\), dove \(x\) indicano le \href{20250130162057-linguaggio_del_prim_ordine.org}{variabili} che potrebbero \href{20250131103429-variabile_libera_di_una_formula.org}{occorrere} tra le formule.
+
+Sia \(M\) una \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura}.
+\section{Soddisfazione di un tipo}
+\label{sec:orge621b33}
+Se per qualche \(a \in M^{x}\) si ha che per ogni \(\varphi(x) \in p(x)\) vale \(M\vDash \varphi(a)\) (vedi \href{20250131122913-soddisfazione_di_una_formula.org}{Soddisfazione di una formula}) si scive una delle seguenti:
+\begin{align*}
+M&\vDash p(a)\\
+M, (a) &\vDash p(x)\\
+a &\vDash p(x)
+\end{align*}
+Diremo che \(a\) è una \uline{soluzione} o una \uline{realizzazione} di \(p(x)\).
+\section{Tipo soddisfacibile}
+\label{sec:orgb69db67}
+\begin{itemize}
+\item Diremo che \(p(x)\) è \uline{soddisfacibile in \(M\)} (consistente in \(M\)) se ha una soluzione in \(M\).
+\item Diremo che \(p(x)\) è \uline{soddisfacibile} (consistente) se è realizzato per qualche \(\mathcal{L}\)-struttura
+\end{itemize}
+\section{Tipo finitamente soddisfacibile}
+\label{sec:org15af1f1}
+\begin{itemize}
+\item Diremo che \(p(x)\) è \uline{finitamente soddisfacibile in \(M\)} (o finitamente consistente) se tutti i sottoinsiemi finiti \(q(x) \subseteq p(x)\) sono soddisfacibili in \(M\) (o, equivalentemente, se la congiunzione arbitraria di formule di \(p(x)\) sono \href{20250131123540-formula_soddisfacibile.org}{soddisfacibili in \(M\)}).
+
+\item Diremo che \(p(x)\) è \uline{finitamente soddisfacibile} se tutti i sottoinsiemi finiti \(q(x) \subseteq p(x)\) sono soddisfacibili.
+\end{itemize}
+\section{Tipo di un elemento di una struttura}
+\label{sec:orgb9e78f3}
+Sia \(a \in M^{\lambda}\) per qualche \href{20250203161341-cardinali.org}{cardinale} \(\lambda\), e sia \(x\) una variabile di lunghezza \(\lambda\).
+
+Si definisce il \uline{tipo di \(a\) in \(M\)} come
+\begin{equation*}
+\operatorname{tp}_{M}(a) \coloneqq \set{
+\varphi(x)\ \mathcal{L}\text{-formula}\ |\ M\vDash \varphi(a)
+}
+\end{equation*}
+(vedi \href{20250131122913-soddisfazione_di_una_formula.org}{Soddisfazione di una formula})
+
+Generalizzando, si scrive \(\operatorname{tp}_{M}(a/A)\), per \(A \subseteq M\) come
+\begin{equation*}
+\operatorname{tp}_{M}(a/A) \coloneqq \set{
+\varphi(x)\ \mathcal{L}(A)\text{-formula}\ |\ M\vDash \varphi(a)
+}
+\end{equation*}
+Questo è un \href{20251029152405-tipo_completo.org}{tipo completo su \(A\)}.
+
+Se \(\Delta\) è un insieme di formule (chiuso per sostituzione di variabili) si definisce il \uline{\(\Delta\)-tipo di \(a\) in \(M\)} come
+\begin{equation*}
+\operatorname{tp}_{M}(a) \coloneqq \set{
+\varphi(x) \in \Delta\ |\ M\vDash \varphi(a)
+}
+\end{equation*}
+\subsection{Tuple elementarmente equivalenti su un insieme di parametri}
+\label{sec:orgf1511c4}
+\begin{definizione}
+Se \(a,b \in M^{\lambda}\) e \(A \subseteq M\), si scrive
+\begin{equation*}
+a \mathrel{\equiv_{A}} b
+\end{equation*}
+(e si dice che \(a\) e \(b\) sono equivalenti su \(A\)) se
+\begin{equation*}
+\operatorname{tp}_{M}(a/A) = \operatorname{tp}_{M}(b/A).
+\end{equation*}
+\end{definizione}
+\section{Insieme definito da un tipo}
+\label{sec:org3b9e43b}
+Sia \(p(x)\) un tipo, \(p(x) = \set{\varphi_{\alpha}(x)\mid \alpha <\lambda}\).
+
+L'insieme definito da \(p\) in \(M\), denotato con \(p(M^{x})\) è
+\begin{equation*}
+p(M^{x}) \coloneqq \set{a \in M^{x}\mid M\vDash \varphi_{\alpha}[a],\text{ per ogni }\alpha<\lambda} = \bigcap_{\alpha<\lambda} \varphi_{\alpha}(M^{x})
+\end{equation*}
+dove \(\varphi_{\alpha}(M^{x})\) è l'\href{20250131122913-soddisfazione_di_una_formula.org}{insieme definito} da \(\varphi_{\alpha}\).
+
+L'insieme \(p(M^{x})\) viene detto \uline{tipo-definibile}.
+\end{document}

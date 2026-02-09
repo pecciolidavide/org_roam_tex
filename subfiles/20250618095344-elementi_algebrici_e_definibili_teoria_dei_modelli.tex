@@ -1,0 +1,42 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{notazione della Teoria dei Modelli}.
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} fissato, \(T\) una \(\mathcal{L}\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123151-teoria_completa.org}{completa} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti, ed un modello \(\mathcal{U}\) di \href{20241213101756-cardinalita.org}{cardinalità} \(\kappa>\card{\mathcal{L}}\), con \(\kappa\) \href{20250211123155-cardinale_limite_forte.org}{inaccessibile}. Si lavora nell'ambito di un \href{20250617102733-modello_mostro.org}{MODELLO MOSTRO}.
+\section{Definizione}
+\label{sec:org4ca0616}
+
+Sia \(a \in \mathcal{U}\) e sia \(A \subseteq \mathcal{U}\).
+\begin{itemize}
+\item \(a\) è \uline{algebrico} su \(A\) se esiste una \href{20250131103317-formula_del_prim_ordine.org}{formula} \href{20250212112324-estensione_di_un_linguaggio_del_prim_ordine.org}{\(\varphi(x) \in \mathcal{L}(A)\)} ed esiste \(k \in \N^{+}\) tale
+\begin{equation*}
+  \mathcal{U}\vDash \varphi[a] \,\land\, \exists^{=k}\,x\ \varphi(x)
+\end{equation*}
+dove con ``\(\exists^{=k}\)'' si intende l'abbreviazione della formula del prim'ordine ``esistono \(k\) elementi tali che''.
+\item Se \(a\) è algebrico su \(A\) e \(k=1\), si dirà che \(a\) è \uline{definibile} su \(A\).
+\item Si scrive \(\operatorname{acl}(A)\) per definire la \uline{chiusura algebrica} di \(A\), ovvero l'insieme di tutti gli elementi algebrici su \(A\).
+\item Se \(A=\operatorname{acl}(A)\), si dice che \(A\) è \uline{algebricamente chiuso}
+\item Si scrive \(\operatorname{dcl}(A)\) per definire la \uline{chiusura definibile} di \(A\), ovvero l'insieme di tutti gli elementi definibili su \(A\).
+\end{itemize}
+
+Se \(\bm{x}\) è una tupla finita di variabili, allora \href{20250131103317-formula_del_prim_ordine.org}{formule} \(\varphi(\bm{x}) \in \mathcal{L}(A)\) e \href{20250212164424-tipo_teoria_dei_modelli.org}{tipi} \(p(\bm{x}) \subseteq \mathcal{L}(A)\) con un numero finito di \href{20250212164424-tipo_teoria_dei_modelli.org}{soluzioni} sono chiamati \uline{algebrici}
+\subsection{Osservazione}
+\label{sec:orgb17294c}
+
+Le chiusure \(\operatorname{dcl}(A)\) e \(\operatorname{acl}(A)\) sono \href{20250131103212-sottostruttura_del_prim_ordine.org}{sottostrutture} di \(\mathcal{U}\); inoltre vale la seguente catena di sottostrutture
+\begin{equation*}
+\langle A\rangle_{\mathcal{U}} \subseteq \operatorname{dcl}(A) \subseteq \operatorname{acl}(A)
+\end{equation*}
+dove \(\langle A\rangle_{\mathcal{U}}\) è la \href{20250212100332-sottostruttura_generata_da_un_insieme.org}{sottostruttura generata} da \(A\).
+\section{Elemento algebricamente indipendente da un insieme in un modello mostro}
+\label{sec:org9b9feb0}
+Sia \(B \subseteq \mathcal{U}\).
+\begin{itemize}
+\item Si dirà che \(a \in \mathcal{U}\) è \uline{algebricamente indipendente da \(B\)} se \(a\notin \operatorname{acl}(B)\).
+\item Si dirà che \(B\) è un \uline{insieme algebricamente indipendente} se per ogni \(a \in B\), \(a\) è algebricamente indipendente da \(B\setminus\set{a}\).
+\end{itemize}
+\end{document}

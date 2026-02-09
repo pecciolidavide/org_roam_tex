@@ -1,0 +1,33 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(L \supset L_{Q}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} che estende quello dell'\href{20250608093604-aritmetica.org}{artimetica di Robinson}. Con \(\vdash\) si intende la relazione di dimostrabilità in un qualunque calcolo logico per la logica del prim'ordine, corretto e completo. Se \(n \in \N\), con \(\overline{n}\) si intende il \href{20250608093604-aritmetica.org}{numerale} corrispondente.
+\section{Insieme rappresentato da una formula}
+\label{sec:orgf7aa276}
+Sia \(T\) una \(L\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria}. La \(L\)-formula \(\varphi(x_{1},\dots,x_{k})\) \uline{rappresenta} \(P \subseteq \N^{k}\) in \(T\) se per ogni \(a_{1},\dots,a_{k} \in \N\):
+\begin{itemize}
+\item se \((a_{1},\dots,a_{k}) \in P\) allora \(T\vdash \varphi(\overline{a_{1}},\dots,\overline{a_{k}})\);
+\item se \((a_{1},\dots,a_{k})\notin P\) allora \(T\vdash \lnot \varphi(\overline{a_{1}},\dots,\overline{a_{k}})\).
+\end{itemize}
+\section{Funzione totale rappresentata da una formula}
+\label{sec:orge18e2d4}
+Sia \(T\) una \(L\)-teoria. La \(L\)-formula \(\varphi(x_{1},\dots,x_{k},y)\) \uline{rappresenta} la \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250213105339-funzione_parziale.org}{totale} \(F:\N^{k}\to \N\) se per ogni \(a_{1},\dots,a_{k} \in \N\)
+\begin{equation*}
+T\vdash \forall\, y\ \left[\varphi(\overline{a_{1}},\dots,\overline{a_{k}},y)\iff y=\overline{F(a_{1},\dots,a_{k})}\right].
+\end{equation*}
+
+Questa condizione richiede che \(\varphi\) definisca una funzione solo quando ristretta ai \href{20250608093604-aritmetica.org}{numeri standard}. È però più forte di richiedere che il \href{20250104112443-grafico_di_una_funzione.org}{grafico} di \(F\) sia rappresentabile, in quanto questa seconda richiesta non impedisce che esiste \(y\) non standard tale che
+\begin{equation*}
+T\vdash \varphi(\overline{a_{1}},\dots,\overline{a_{k}},y).
+\end{equation*}
+\section{Insieme rappresentabile}
+\label{sec:org00fd00e}
+Un sottoinsieme o una funzione si dicono \uline{rappresentabili} in una \(L\)-teoria \(T\) se esiste una formula che li rappresenta in \(T\). Si noti che questa formula non deve essere unica.
+\section{Nota}
+\label{sec:org371f4f3}
+
+La nozione di ``rappresentabilità'' è molto simile a quello di ``\href{20250603170634-insieme_definibile_nel_modello_standard.org}{definibilità}'', solo che il focus qui è sulla \uline{teoria} (ovvero è puramente sintattico), mentre per quanto riguarda la definibilità si è fissato un modello specifico, il modello standard.
+\end{document}

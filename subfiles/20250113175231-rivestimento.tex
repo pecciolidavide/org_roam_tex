@@ -1,0 +1,18 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Definizione}
+\label{sec:org7cbdb44}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}. Un \textbf{rivestimento} su \(X\) è una coppia \((\tilde{X}, \pi)\) dove \(\tilde{X}\) è uno \href{20250103145124-topologia.org}{spazio topologico} e
+\(\pi:\tilde{X}\longrightarrow X\) è \href{20250103103252-funzione_continua.org}{continua}, \href{20241213105600-funzione_suriettiva.org}{suriettiva} e tale che, per ogni \(p \in X\), esiste \(U \subseteq X\) \href{20250103145124-topologia.org}{aperto}, \(p \in U\) tale che
+\begin{equation*}
+\pi^{-1}(U) = \coprod_{i} \tilde{U}_{i}
+\end{equation*}
+(vedi \href{20250113175700-unione_disgiunta.org}{Unione disgiunta})
+dove \(\tilde{U}_{i} \subseteq X_{i}\) \href{20250103145124-topologia.org}{aperto} e \(\restriction{\pi}{\tilde{U}_{i}}:\tilde{U}_{i} \longrightarrow U\) è un \href{20250111142332-omeomorfismo.org}{omeomorfismo} per ogni \(i\).
+
+Per \(p_{0} \in X\) fissato, \(\pi^{-1}(p_{0})\) è discreto, e si dice la \textbf{fibra} di \(p_{0}\).
+\end{document}

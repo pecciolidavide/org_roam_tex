@@ -1,0 +1,60 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{L} = \set{<}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, con \(<\) \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di relazione} \href{20250130162057-linguaggio_del_prim_ordine.org}{binaria}, e siano \(M, N\) due \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{strutture}.
+Si indichi con \(T_{\text{lo}}\) la \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250203101604-ordine.org}{degli ordini stretti lineari} e \(T_{\text{dlo}}\) la \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250203101604-ordine.org}{degli ordini lineari densi}.
+\section{Isomorfismo parziale}
+\label{sec:org80348c7}
+Sia \(k:M\dashrightarrow N\) una \href{20250213105339-funzione_parziale.org}{funzione parziale}.  \(k\) è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo parziale} sse, per ogni \(a,b \in \operatorname{dom} k\) (vedi \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Dominio, Range e Campo di una Classe Relazione})
+\begin{equation*}
+M\vDash a<b \quad\iff\quad N\vDash ka<kb
+\end{equation*}
+\section{Proposizione}
+\label{sec:orgafb62d7}
+Se \(M\vDash T_{\text{lo}}\) e \(N\vDash T_{\text{dlo}}\) (vedi \href{20250131122913-soddisfazione_di_una_formula.org}{Soddisfazione di una formula}) e la \href{20250213105339-funzione_parziale.org}{funzione parziale} \(k:M\partialto N\) è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo parziale} finito \footnote{Ovvero tale che \(\operatorname{dom}k\) sia un insieme finito.}, allora, per ogni \(b \in M\) esiste un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo parziale}
+\begin{equation*}
+h: M\partialto N
+\end{equation*}
+tale che
+\begin{enumerate}
+\item \(b \in \operatorname{dom} h\) (vedi \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Dominio, Range e Campo di una Classe Relazione})
+\item per ogni \(a \in \operatorname{dom}k\), \(a \in \operatorname{dom}h\) e \(h(a) = k(a)\).
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:org10a3530}
+\subsubsection{Caso 1}
+\label{sec:org8699614}
+Se \(b \in \dom k\) allora \(h=k\) è la funzione cercata.
+\subsubsection{Caso 2}
+\label{sec:org910e669}
+Se \(b\notin \dom k\), si definiscano i seguenti insiemi:
+\begin{align*}
+A^{-}&\coloneqq \set{a \in \dom k\ |\ a<b}\\
+A^{+} &\coloneqq \set{a \in \dom k\ |\ b<a}
+\end{align*}
+Allora \(A^{+}, A^{-}\) sono insiemi finiti tali che
+\begin{itemize}
+\item \(A^{+}\cup A^{-} = \operatorname{dom}k\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottrazione di classi MK});
+\item per ogni \(x \in A^{-}\) e per ogni \(y \in A^{+}\), \(x<y\).
+\end{itemize}
+
+Poiché \(k\) è un isomorfismo (parziale), si ha che per ogni \(x \in A^{-}\) e per ogni \(y \in A^{+}\),
+\begin{equation*}
+k(x)<k(y)
+\end{equation*}
+
+Poiché \(A^{+}, A^{-}\) sono \uline{finiti} e l'ordine è totale, esistono \href{20250203102516-massimo_e_minimo.org}{massimo e minimo}:
+\begin{align*}
+n_{A^{+}} &\coloneqq \min \set{k(y)\ |\ y \in A^{ +}}\\
+n_{A^{-}} &\coloneqq \max\set{k(x) \ |\ x \in A^{-}}
+\end{align*}
+e inoltre \(n_{A^{-}}< n_{A^{+}}\). Quindi poiché l'ordine è denso, esiste \(c \in N\) tale che
+\begin{equation*}
+n_{A^{-}}<c<n_{A^{+}}
+\end{equation*}
+
+Allora la \href{20250202170607-classe_relazione_binaria.org}{funzione} \(h=k\cup\set{(b,c)}\) è la funzione cercata.
+\end{document}

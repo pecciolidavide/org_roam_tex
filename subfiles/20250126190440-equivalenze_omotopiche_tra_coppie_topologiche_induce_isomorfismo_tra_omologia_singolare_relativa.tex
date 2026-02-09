@@ -1,0 +1,73 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}.
+\begin{prop}
+Siano \((X,A),(Y,B)\) \href{20250122154728-coppia_topologica.org}{coppie topologiche}, e sia
+\begin{equation*}
+f:(X,A)\longrightarrow(Y,B)
+\end{equation*}
+un \href{20250122160145-categoria_topp.org}{morfismo} tale che
+\begin{align*}
+f:X&\longrightarrow Y\\
+\restriction{f}{A}:A&\longrightarrow B
+\end{align*}
+siano \href{20250124155008-spazi_topologici_omotopicamente_equivalenti.org}{equivalenze omotopiche}.
+
+Allora applicando il \href{20241205131958-funtore.org}{funtore} di \href{20250126191208-funtore_da_topp_a_rmod_di_omologia.org}{omologia}, si ottiene che per ogni \(n\)
+\begin{equation*}
+\overline{f_{\star}}: H_{n}(X,A) \longrightarrow H_{n}(Y,B)
+\end{equation*}
+è un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo}.
+\end{prop}
+\begin{proof}
+Si hanno le seguenti successioni \href{20250120125004-successione_di_r_moduli_esatta.org}{esatte}:\footnote{La commutatività del diagramma è data da ``\href{20250124163710-diagramma_commutativo_dell_omologia_di_due_coppie_topologiche.org}{Morfismo tra coppie topologiche induce diagramma commutativo in omologia}''. Vedi anche:
+\begin{itemize}
+\item \href{20250122133631-omologia_singolare.org}{Omologia Singolare}
+\item \href{20250122154903-omologia_singolare_relativa.org}{Omologia Singolare Relativa}
+\end{itemize}}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	{H_n(A)} \& {H_n(X)} \& {H_n(X,A)} \& {H_{n-1}(A)} \& {H_{n-1}(X)} \\
+	{H_n(B)} \& {H_n(Y)} \& {H_n(Y,B)} \& {H_{n-1}(B)} \& {H_{n-1}(Y)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}
+\end{equation*}
+
+Per il \href{20250122155528-teorema_dell_invarianza_per_omotopia.org}{corollario} del \href{20250122155528-teorema_dell_invarianza_per_omotopia.org}{teorema di invarianza per omotopia}, le funzioni \(f_{\star}, (\restriction{f}{A})_{\star}\)\footnote{Ottenute applicando il \href{20250123115927-funtore_di_omologia_singolare.org}{funtore di omologia singolare}.} sono \href{20241206115416-morfismi_r_moduli.org}{isomorfismi}, e pertanto il diagramma seguente è commutativo e a righe esatte:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,column sep=large,row sep=huge]
+	{H_n(A)} \& {H_n(X)} \& {H_n(X,A)} \& {H_{n-1}(A)} \& {H_{n-1}(X)} \\
+	{H_n(B)} \& {H_n(Y)} \& {H_n(Y,B)} \& {H_{n-1}(B)} \& {H_{n-1}(Y)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{(\restriction{f}{A})_{\star}}"', from=1-1, to=2-1]
+	\arrow["\cong", draw=none, from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow["{f_{\star}}"', from=1-2, to=2-2]
+	\arrow["\cong", draw=none, from=1-2, to=2-2]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{\overline{f_{\star}}}"', from=1-3, to=2-3]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{(\restriction{f}{A})_{\star}}", from=1-4, to=2-4]
+	\arrow["\cong"', draw=none, from=1-4, to=2-4]
+	\arrow["{f_{\star}}", from=1-5, to=2-5]
+	\arrow["\cong"', draw=none, from=1-5, to=2-5]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}
+\end{equation*}
+e dunque, applicando il \href{20250120155801-lemma_del_cinque.org}{lemma del cinque}, \(\overline{f_{\star}}\) è un isomorfismo.
+\end{proof}
+\end{document}

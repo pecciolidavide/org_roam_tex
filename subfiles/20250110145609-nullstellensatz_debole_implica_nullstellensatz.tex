@@ -1,0 +1,65 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}, e sia \(J \subseteq \K[x_{1},\dots,x_{n}]\) un \href{20241219112955-ideale.org}{ideale}. Sia  \(V(J) \subseteq \A^{n}\) (vedi \href{20241231114009-spazio_affine.org}{Spazio Affine} e \href{20241231112823-radici_polinomiali.org}{Luogo di zeri}).
+\section{Lemma di Rabinowitsch.}
+\label{sec:org19301ad}
+Il \href{20250110143644-nullstellensatz_debole.org}{Nullstellensatz debole} implica il \href{20250110143120-nullstellensatz.org}{Nullstellensatz}
+\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\label{sec:orgc58381a}
+
+\subsubsection{\(I\left(V(J)\right) \subseteq \sqrt{J}\)}
+\label{sec:org4d943a6}
+Sia \(f \in I\left(V(J)\right)\) (vedi \href{20250103144124-ideale_di_un_sottoinsieme.org}{Ideale di un sottoinsieme}). Per definizione, \(\forall\, x \in V(J)\) si ha che \(f(x)=0\). Siccome
+\begin{equation*}
+J \subseteq \K[x_{1},\dots,x_{n}] \subseteq \K[x_{1},\dots,x_{n},x_{n+1}]
+\end{equation*}
+posso considerare \(J'=\langle J, x_{n+1}\cdot f -1\rangle \subseteq \K[x_{1},\dots,x_{n}, x_{n+1}]\) (vedi \href{20241219113154-ideale_generato.org}{Ideale-Generato} e \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}).
+
+Necessariamente \(\emptyset = V(J') \subseteq \A^{n+1}\). Infatti, se \(p \in V(J')\) allora \(p \in V(J) \subseteq \A^{n+1}\), e dunque \(f(p) = 0\); pertanto \((x_{n+1}\cdot f-1)(p)\neq 0\). Assurdo.
+
+Per il Nullestellensatz debole, \(J'=\K[x_{0},\dots,x_{n+1}] = (1)\). Pertanto esistono \(h_{i} \in \K[x_{0},\dots,x_{n+1}]\) ed \(f_{i} \in J\) tali che
+\begin{equation*}
+1=h_{0}\cdot (x_{n+1}\cdot f -1) + \sum_{i=1}^{k}h_{i}\ f_{i}
+\end{equation*}
+Inoltre, si ha che per ogni \(i=1,\dots,k\),
+\begin{align*}
+h_{i}\ f_{i} &= (a_{0}+a_{1}\ x_{n+1} + \dots + a_{m}\ x_{n+1}^{m})\ f_{i}\\
+&= (a_{0}f_{1}) + (a_{1}f_{i})\ x_{n+1} + \dots + (a_{m}f_{i})\ x_{n+1}^{m}
+\end{align*}
+con \(a_{j} \in \K[x_{1},\dots,x_{n}]\), poiché \(\K[x_{1},\dots,x_{n},x_{n+1}] = \K[x_{1},\dots,x_{n}][x_{n+1}]\).
+
+Pertanto, siccome ogni \(a_{j}f_{i} \in J\) per definizione di ideale, si ha per per \(g_{i} \in J\)
+\begin{equation*}
+1 = h_{0}\cdot(x_{n+1}\cdot f-1) + \sum_{i=0}^{s} g_{i}\ x_{n+1}^{i}
+\end{equation*}
+
+Moltiplicando entrambi i lati per \(f^{s}\):
+\begin{equation*}
+f^{s}=f^{s}\cdot h_{0}\cdot (x_{n+1}\ f - 1) + f^{s}\sum_{i=0}^{s}g_{i}\ x_{n+1}^{i}
+\end{equation*}
+Sia ora \(Y=x_{n+1}\ f \in \K[x_{1},\dots,x_{n+1}]\). Allora \(f^{s}\ x_{n+1}^{i} = Y^{i}\ f^{s-i}\), dunque
+\begin{equation*}
+f^{s}=f^{s}\cdot h_{0}\cdot (Y-1) + \sum_{i=0}^{s} Y^{i}f^{s-i}g_{i}
+\end{equation*}
+L'uguaglianza iniziale era polinomiale, e pertanto indica che, per ogni valore assegnato alle variabili \(x_{1},\dots,x_{n+1}\), l'espressione a destra vale \(1\). Pertanto, tutte le uguaglianze successive sono sempre valide per qualsiasi valore assegnato alle singole variabili. In particolare, assegnando ad \(x_{n+1}\) il valore \(1/f\), ovvero ad \(Y\) il valore \(1\), si ottiene
+\begin{equation*}
+f^{s} = \sum_{i=0}^{s} f^{s-i}g_{i},\qquad g_{i} \in J
+\end{equation*}
+
+Pertanto \(f^{s} \in J\), dunque \(f \in \sqrt{J}\), quindi \(I\left(V(J)\right) \subseteq \sqrt{J}\)
+\subsubsection{\(\sqrt{J} \subseteq I\left(V(J)\right)\)}
+\label{sec:orge8d1a96}
+Sia \(f \in \sqrt{J}\). Allora esiste \(r \ge 1\) tale che \(f^{r} \in J\).
+
+Sia \(p \in V(J)\). Allora \(f^{r}(p) = 0\). Ma siccome \(\K\) è un \href{20250103143950-dominio_di_integrita.org}{dominio}, e per definizione
+\begin{equation*}
+f^{r}(p) = \left[f(p)\right]^{r}
+\end{equation*}
+allora \(f(p)=0\).
+
+Dunque \(f \in I\left(V(J)\right)\).
+\end{document}

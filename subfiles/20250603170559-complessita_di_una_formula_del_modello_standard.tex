@@ -1,0 +1,103 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Notazione}
+\label{sec:orge0bd1d6}
+
+Si consideri il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} \(\mathcal{L} = \set{+,\cdot}\). Si definiscono le seguenti pseudoformule (ovvero abbreviazioni):
+\begin{itemize}
+\item relazione d'ordine: ``\(x\le y\)'' sse \(\varphi_{\le}(x,y)\) dove
+\begin{equation*}
+  \varphi_{\le}(x,y) = \exists\,z\ (z+x=y);
+\end{equation*}
+\item numero zero: ``\(x=0\)'' sse \(x+x=x\);
+\item numero uno: ``\(x=1\)'' sse \(x\cdot x=x\);
+\item la \href{20250202124648-successore_di_un_insieme_mk.org}{funzione successore}: ``\(y=S(x)\)'' sse \(\exists\,w\ ( ``w=1" \,\land\, x+w=1)\).
+\end{itemize}
+\subsection{Quantificatore limitato nel linguaggio dell'aritmetica}
+\label{sec:orgd6e0957}
+Inoltre, per ogni linguaggio \(\mathcal{L}'\supseteq \mathcal{L}\) e per ogni \(\mathcal{L}'\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\psi\) si useranno le seguenti quantificazioni limitate: si scriverà
+\begin{align*}
+\exists\,w\le t\ &\psi\\
+\forall\,w\le t\ &\psi
+\end{align*}
+in luogo di
+\begin{align*}
+\exists\,w\ &\left(\varphi_{\le}(w,t) \,\land\, \psi\right)\\
+\forall\,w\ &\left(\varphi_{\le}(w,t) \,\implies\, \psi\right).
+\end{align*}
+Queste verranno dette quantificazioni limitate.
+\section{Definizione}
+\label{sec:orga2c61b9}
+
+Sia \(\mathcal{L}'\supseteq \mathcal{L}\) un linguaggio del prim'ordine. Si definiscono le classi di \(\mathcal{L}'\)-formule \(\Delta_{0},\Sigma_{1},\Pi_{1}\):
+\begin{itemize}
+\item \(\Delta_{0}\) è la più piccola collezione di \(\mathcal{L}'\)-formule contenente le formule atomiche e chiusa per
+\begin{itemize}
+\item \uline{connettivi} (\(\lnot, \land,\lor, \implies,\iff\)),
+\item \uline{quantificatori limitati};
+\end{itemize}
+\item \(\Sigma_{1}\) è la più piccola collezione di \(\mathcal{L}'\)-formule contenente \(\Delta_{0}\) e chiusa per
+\begin{itemize}
+\item \uline{congiunzioni},
+\item \uline{disgiunzioni},
+\item \uline{quantificazioni limitate},
+\item \uline{quantificazioni esistenziali};
+\end{itemize}
+\item \(\Pi_{1}\) è la più piccola collezione di \(\mathcal{L}'\)-formule contenente \(\Delta_{0}\) e chiusa per
+\begin{itemize}
+\item \uline{congiunzioni},
+\item \uline{disgiunzioni},
+\item \uline{quantificazioni limitate},
+\item \uline{quantificazioni universali}.
+\end{itemize}
+\end{itemize}
+
+Per induzione simultanea è possibile definire, per ogni \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{naturale} \(n\ge 1\):
+\begin{itemize}
+\item \(\Sigma_{n+1}\): la più piccola collezione di \(\mathcal{L}'\)-formule contenente \(\Pi_{n}\) e chiusa per
+\begin{itemize}
+\item \uline{congiunzioni},
+\item \uline{disgiunzioni},
+\item \uline{quantificazioni limitate},
+\item \uline{quantificazioni esistenziali};
+\end{itemize}
+\item \(\Pi_{n+1}\): la più piccola collezione di \(\mathcal{L}'\)-formule contenente \(\Sigma_{n}\) e chiusa per
+\begin{itemize}
+\item \uline{congiunzioni},
+\item \uline{disgiunzioni},
+\item \uline{quantificazioni limitate},
+\item \uline{quantificazioni universali}.
+\end{itemize}
+\end{itemize}
+\section{Osservazioni}
+\label{sec:org97f3325}
+\begin{enumerate}
+\item Le classi \(\Delta_{0},\Pi_{n}, \Sigma_{n}\) si intendono chiuse per \href{20250131123033-equivalenza_logica_tra_due_enunciati.org}{equivalenza logica}.
+\item La negazione di una \(\Sigma_{n}\)-formula è (logicamente equivalente a) un \(\Pi_{n}\)-formula.
+\item La negazione di una \(\Pi_{n}\)-formula è (logicamente equivalente a) un \(\Sigma_{n}\)-formula.
+\end{enumerate}
+\section{Descrizione esplicita}
+\label{sec:orgf91685a}
+
+Se \(\varphi(x_{1},\dots,x_{k})\) è una \(\Sigma_{1}\) formula, allora esiste una \(\Delta_{0}\) formula \(\psi(x_{1},\dots,x_{k},y)\) tale che \(\varphi\) sia \href{20250131123033-equivalenza_logica_tra_due_enunciati.org}{equivalente} a
+\begin{equation*}
+\exists\,y\ \psi(x_{1},\dots,x_{k},y).
+\end{equation*}
+nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard}.
+
+Dunque, a meno di equivalenza su \(\langle \N,+,\cdot\rangle\) le formule \(\Sigma_{n}\) sono della forma
+\begin{equation*}
+\exists\, y_{1}\ \forall\, y_{2}\ \exists\, y_{3} \dots Q\,y_{n}\ \psi(\bm{x}, y_{1},\dots,y_{n})
+\end{equation*}
+dove \(\psi\) è \(\Delta_{0}\) e \(Q=\forall\) se \(n\) è pari e \(Q=\exists\) se \(n\) è dispari.
+
+Dunque, a meno di equivalenza su \(\langle \N,+,\cdot\rangle\) le formule \(\Pi_{n}\) sono della forma
+\begin{equation*}
+\forall\,\, y_{1}\ \forall\, y_{2}\ \exists\, y_{3} \dots Q\,y_{n}\ \psi(\bm{x}, y_{1},\dots,y_{n})
+\end{equation*}
+dove \(\psi\) è \(\Delta_{0}\) e \(Q=\exists\) se \(n\) è pari e \(Q=\forall\) se \(n\) è dispari.
+\end{document}

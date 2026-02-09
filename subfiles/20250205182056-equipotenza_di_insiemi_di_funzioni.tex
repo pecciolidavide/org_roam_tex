@@ -1,0 +1,110 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section[Teorema]{Teorema\footnote{Vedi:
+\begin{itemize}
+\item \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano}
+\item \href{20250619101109-classi_equipotenti.org}{Classi equipotenti MK} (\(\equipotenti\))
+\item \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali}
+\item \href{20250202192030-classe_delle_classi_funzioni.org}{Insieme delle funzioni}
+\item \href{20241219101956-funzione_iniettiva.org}{Classe si inietta} (\(\embeds\))
+\item \href{20250206170922-sequenze_e_stringhe.org}{Insieme delle sequenze finite}
+\end{itemize}}}
+\label{sec:orgc11109c}
+Se \(X\) è un \href{20250130104331-insieme_mk.org}{insieme} \href{20250205120448-classe_finita_e_infinita_mk.org}{infinito} tale che \(X\times X\asymp X\), allora per ogni \(n > 0\)
+\begin{equation*}
+\prescript{n}{}{X}\asymp X
+\end{equation*}
+
+Inoltre, se \(\omega \preceq X\) allora \(\prescript{<\omega}{}{X}\asymp X\)
+
+In particolare, se \(X\) è \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile} e \href{20250205120448-classe_finita_e_infinita_mk.org}{infinito}, allora
+\begin{equation*}
+\card{\prescript{<\omega}{}{X}} = |X|
+\end{equation*}
+\section{Proposizione}
+\label{sec:org209d321}
+Per ogni \href{20250130104331-insieme_mk.org}{insieme} \(X\) vale
+\begin{equation*}
+\prescript{<\omega}{}{X} \asymp \omega\times \prescript{<\omega}{}{X}\asymp \prescript{<\omega}{}{\left(\prescript{<\omega}{}{X}\right)}
+\end{equation*}
+\subsection{Dimostrazione}
+\label{sec:org530058d}
+
+\subsubsection{Casi banali}
+\label{sec:org63e0944}
+Se \(X=\emptyset\) (vedi \href{20250131161811-insieme_vuoto_mk.org}{Insieme vuoto MK}), allora \(\prescript{<\omega}{}{X} = \emptyset\) e il risultato è banale.
+
+Se \(X=\set{x_{0}}\), allora \(\prescript{<\omega}{}{X} \asymp \omega\). Infatti
+\begin{equation*}
+\prescript{<\omega}{}{X} = \set{\langle x_{0},\dots,x_{0}\rangle \eqqcolon s\,|\, \operatorname{lenght}(s) \in \omega}
+\end{equation*}
+ed inoltre \(\omega\times\omega \asymp \omega\) (per il \href{20250205181254-order_type_del_prodotto_cartesiano_di_un_cardinale_e_il_cardinale_stesso.org}{teorema}, \href{20250203161341-cardinali.org}{dato che} \(\omega\) è un \href{20250203161341-cardinali.org}{cardinale})
+
+Dunque
+\begin{align*}
+\omega &\asymp \prescript{<\omega}{}{X}\\
+\omega&\asymp\omega \times\omega \asymp \omega\times\prescript{<\omega}{}{X}
+\end{align*}
+
+Inoltre, per il punto precedente, siccome \(\omega\embeds \prescript{<\omega}{}{X}\) (vedi \href{20241219101956-funzione_iniettiva.org}{Classe si inietta MK}), si ha
+\begin{equation*}
+\prescript{<\omega}{}{\left(\prescript{<\omega}{}{X}\right)} \asymp \prescript{<\omega}{}{X}\asymp \omega
+\end{equation*}
+\subsubsection{In generale}
+\label{sec:org27a3fc0}
+Si utilizzi la notazione adottata in \href{20250206170922-sequenze_e_stringhe.org}{Insieme delle sequenze finite}
+
+Per \(X\) con almeno due elementi distinti.
+
+Si dimostra che
+\begin{equation*}
+\prescript{<\omega}{}{\left(\prescript{<\omega}{}{X}\right)}\embeds \prescript{<\omega}{}{X}.
+\end{equation*}
+trovando un modo per disporre in fila un numero finito di sequenze finite.
+
+Siano \(x_{0},x_{1}\) due elementi distinti di \(X\). Data \(s \in \prescript{<\omega}{}{X}\), sia
+\begin{equation*}
+s' \coloneqq x_{0}^{(\operatorname{lh}s)}\smallfrown \langle x_{1}\rangle\smallfrown s
+\end{equation*}
+Dall'iniettività di \(s\mapsto s'\) segue che è \href{20241219101956-funzione_iniettiva.org}{iniettiva}\footnote{Intuitivamente, viene prima dichiarata la lunghezza della stringa (tramite una stringa nella forma \(\langle x_{0},\dots,x_{0},x_{1}\rangle\)), e poi viene presentata la stringa. Questo consente di tornare indietro senza nessun problema.}:
+\begin{equation*}
+\prescript{<\omega}{}{\left(\prescript{<\omega}{}{X}\right)}\to \prescript{<\omega}{}{X}:\quad \langle s_{0},\dots,s_{n}\rangle \mapsto s_{0}'\smallfrown s_{1}'\smallfrown \dots\smallfrown s_{n}'
+\end{equation*}
+
+Inoltre si scrive l'iniezione
+\begin{equation*}
+\omega\times \prescript{<\omega}{}{X} \to \prescript{<\omega}{}{\left(\prescript{<\omega}{}{X}\right)}:\quad (n,s)\mapsto \langle\parentesi{n+1\text{ times}}{s,\dots,s}\rangle
+\end{equation*}
+
+Si ha quindi la seguente catena (vedi \href{20241219101956-funzione_iniettiva.org}{Classe si inietta MK})
+\begin{equation*}
+\prescript{<\omega}{}{\left(\prescript{<\omega}{}{X}\right)}\embeds \prescript{<\omega}{}{X} \embeds \omega\times\prescript{<\omega}{}{X} \embeds \prescript{<\omega}{}{\left(\prescript{<\omega}{}{X}\right)}
+\end{equation*}
+
+Per il \href{20250205150457-teorema_di_cantor_bernstein_schroder.org}{Teorema di Cantor-Bernstein-Schröder} segue la tesi.
+\section{Corollario}
+\label{sec:org2b43720}
+Per ogni insieme \(X\) esiste un insieme \(Y\) tale che:
+\begin{itemize}
+\item \(X\embeds Y\)
+\item \(Y\asymp \prescript{<\omega}{}{Y}\) e dunque \(Y\asymp Y\times Y\).
+\end{itemize}
+\subsection{Dimostrazione}
+\label{sec:org675d832}
+Sia \(Y=\prescript{<\omega}{}{X}\). Ovviamente \(X\embeds \prescript{<\omega}{}{X}\), ed inoltre, per la proposizione precedente,
+\begin{equation*}
+\prescript{<\omega}{}{X}\asymp \prescript{<\omega}{}{\left(\prescript{<\omega}{}{X}\right)}
+\end{equation*}
+e quindi \(Y\asymp \prescript{<\omega}{}{Y}\).
+
+In particolare, \(\prescript{<\omega}{}{Y}\embeds Y\), e dunque
+\begin{equation*}
+Y\embeds Y\times Y\embeds \prescript{<\omega}{}{Y} \embeds Y
+\end{equation*}
+e applicando il \href{20250205150457-teorema_di_cantor_bernstein_schroder.org}{Teorema di Cantor-Bernstein-Schröder} si ottiene che \(Y\asymp Y\times Y\).
+\end{document}

@@ -1,0 +1,39 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\def\U{\mathcal{U}}
+\def\A{\mathcal{A}}
+\def\Cinfty{\mathcal{C}^{\infty}}
+\section{Struttura Differenziabile}
+\label{sec:org19ae11a}
+Siano \(\U,\U'\) due \href{20250113103136-atlante_topologico_differenziabile.org}{atlanti differenziabili}. Diremo che \(\U \subseteq \U'\) se ogni carta di \(\U\) appartiene ad \(\U'\).
+\begin{definizione}
+Una \textbf{struttura differenziabile} è un atlante differenziabile che sia \href{20250203102516-massimo_e_minimo.org}{massimale} rispetto all'inclusione.
+
+Una varietà topologica con una struttura differenziabile fissata si dice una \textbf{varietà differenziabile}
+\end{definizione}
+
+Nota: \href{20250113120151-esistenza_e_unicita_di_una_struttura_differenziabile_per_ogni_atlante.org}{Esistenza e unicità di una struttura differenziabile per ogni atlante}
+\def\U{\mathcal{U}}
+\def\A{\mathcal{A}}
+\def\Cinfty{\mathcal{C}^{\infty}}
+
+\begin{definizione}
+Una \uline{varietà differenziabile} è uno spazio topologico \(M\) di Haussdorf e a base numerabile, dotato di un atlante \(\A = \set{(U_{\alpha}, \varphi_{\alpha})}_{\alpha \in A}\) dove:
+\begin{itemize}
+\item \(U_{\alpha} \subseteq M\) è un \href{20250103145124-topologia.org}{aperto};
+\item \(\bigcup_{\alpha \in A} U_{\alpha} = M\) (ovvero \(\set{U_{\alpha}}_{\alpha}\) è un \href{20250103164252-ricoprimento.org}{ricoprimento});
+\item \(\varphi_{\alpha}: U_{\alpha} \to V_{\alpha} \subseteq \R^{n}\) è un omeomorfismo;
+\end{itemize}
+e \(\A\) è un atlante differenziabile, ovvero per ogni \(\alpha,\beta \in A\): se \(U_{\alpha} \cap U_{\beta} \neq \emptyset\) allora
+\begin{equation*}
+\varphi_{\alpha} \circ \varphi_{\beta}^{-1} :
+\varphi_{\beta}(U_{\alpha}\cap U_{\beta}) \to
+\varphi_{\alpha}(U_{\alpha}\cap U_{\beta})
+\end{equation*}
+è una \href{20250113125602-classe_c_di_una_funzione.org}{mappa \(\Cinfty\)}. Inoltre \(\A\) è massimale rispetto all'inclusione.
+\end{definizione}
+\end{document}

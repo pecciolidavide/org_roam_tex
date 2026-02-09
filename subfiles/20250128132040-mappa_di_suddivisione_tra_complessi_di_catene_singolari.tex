@@ -1,0 +1,130 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\use{upgreek}
+\def\tau{\uptau}
+
+
+\begin{document}
+
+\section{Mappa di suddivisione tra complessi di catene singolari}
+\label{sec:orge00fde6}
+Sia \(R\) un \href{20241219112842-pid.org}{PID}. Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}, e sia
+\begin{equation*}
+\mathcal{S}_{\bullet}(X) = \set{\left(S_{q}(X),\partial_{q}^{X}\right)}_{q}
+\end{equation*}
+il \href{20250120163114-complesso_di_catene.org}{complesso} di \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{catene singolari}, \(S_{q}\) \href{20250122133435-simplesso_singolare.org}{modulo di catene singolari}.
+
+\begin{definizione}
+Per ogni \(q \in \N\), si construisce la \textbf{\href{20241206115416-morfismi_r_moduli.org}{mappa} di suddivisione}
+\begin{equation*}
+\operatorname{sd}_{q}^{(X)}:S_{q}(X) \to S_{q}(X)
+\end{equation*}
+come segue, per induzione.
+\begin{itemize}
+\item Per \(q = 0\), si pone \(\operatorname{sd}_{0}^{(X)} = \Id_{X}\).
+\item Per ipotesi induttiva, si supponga costruita per ogni \(X\) la mappa: \(\operatorname{sd}_{q-1}^{(X)} : S_{q-1}(X)\to S_{q-1}(X)\).
+
+\begin{itemize}
+\item \uline{Per \(X = \Delta_{q}\) \href{20250121122324-simplesso_standard.org}{simplesso standard} e \(\iota_{q} \in S_{q}(\Delta_{q})\), \(\iota = \operatorname{id}_{\Delta_{q}}\).}
+
+Sia \(b\) il \href{20250128131908-suddivisione_baricentrica.org}{baricentro} di \(\Delta_{q}\), e sia
+\begin{equation*}
+\operatorname{J}_{b}: S_{q-1}(\Delta_{q})\longrightarrow S_{q}(\Delta_{q})
+\end{equation*}
+il \href{20250122154711-estensione_di_un_simplesso_singolare_in_uno_spazio_stellato.org}{join ad un punto} (poiché \(\Delta_{q}\) è stellato rispetto a \(b\)).
+
+Definiamo
+\begin{equation*}
+\operatorname{sd}_{q}(\iota_{q}) \coloneqq \operatorname{J}_{b}\left(\operatorname{sd}_{q-1}(\partial_{q}^{\Delta_{q}}\iota_{q})\right).
+\end{equation*}
+
+\item Per \(X\) qualsiasi, si \href{20241213094625-modulo_libero.org}{definisce} il \href{20241206115416-morfismi_r_moduli.org}{morfismo}
+\begin{equation*}
+\operatorname{sd}_{q}^{(X)}: S_{q}(X) \longrightarrow S_{q}(X)
+\end{equation*}
+sulla \href{20241213094625-modulo_libero.org}{base} \(\Sigma_{q}(X)\) di \(S_{q}(X) = R^{\Sigma_{q}(X)}\)\footnote{Vedi ``\href{20241213095808-somma_diretta.org}{Somma Diretta}''}
+
+Se \(\sigma \in \Sigma_{q}(X)\) \href{20250122133435-simplesso_singolare.org}{catena singolare}, allora \(\sigma:\Delta_{q}\longrightarrow X\) \href{20250103103252-funzione_continua.org}{continua}, ed è pertanto possibile applicare il \href{20241205131958-funtore.org}{funtore} \href{20250122154136-funtorialita_dell_omologia_singolare.org}{diesis} ottenendo
+\begin{equation*}
+\sigma_{\diesis}: \mathcal{S}_{\bullet}(\Delta_{q}) \longrightarrow \mathcal{S}_{\bullet}(X)
+\end{equation*}
+dove il \href{20250120163759-categoria_complessi_di_catene.org}{morfismo di complessi di catene} è definito come segue:
+\begin{equation*}
+\sigma_{\diesis} = \set{
+\begin{aligned}
+\sigma_{\diesis}^{n}: S_{n}(\Delta_{q}) &\longrightarrow S_{n}(X)\\
+\Sigma_{n}(\Delta_{q})\ni\tau &\longmapsto \sigma\circ\tau
+\end{aligned}
+}
+\end{equation*}
+
+Dunque si definisce \(\operatorname{sd}_{q}^{(X)}\sigma \coloneqq \sigma_{\diesis}^{q}\left(\operatorname{sd}_{q}^{(\Delta_{n})}\iota_{q}\right)\).
+\end{itemize}
+\end{itemize}
+\end{definizione}
+
+\begin{prop}
+L'insieme dei \href{20241206115416-morfismi_r_moduli.org}{morfismi}
+\(\operatorname{sd}_{q}: S_{q}(X) \longrightarrow S_{q}(X)\)
+induce un \href{20250120163759-categoria_complessi_di_catene.org}{morfismo}
+\begin{equation*}
+\operatorname{sd}_{\bullet} : \mathcal{S}_{\bullet}(X)\longrightarrow \mathcal{S}_{\bullet}(X)
+\end{equation*}
+ovvero il seguente diagramma commuta:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,sep=large]
+	\cdots \& {S_{q+1}(X)} \& {S_{q}(X)} \& {S_{q-1}(X)} \& \cdots \\
+	\cdots \& {S_{q+1}(X)} \& {S_{q}(X)} \& {S_{q-1}(X)} \& \cdots
+	\arrow["{\partial_{q+2}}", from=1-1, to=1-2]
+	\arrow["{\partial_{q+1}}", from=1-2, to=1-3]
+	\arrow["{\operatorname{sd}_{q+1}}", from=1-2, to=2-2]
+	\arrow["{\partial_q}", from=1-3, to=1-4]
+	\arrow["{\operatorname{sd}_{q}}", from=1-3, to=2-3]
+	\arrow["{\partial_{q-1}}", from=1-4, to=1-5]
+	\arrow["{\operatorname{sd}_{q-1}}", from=1-4, to=2-4]
+	\arrow["{\partial_{q+2}}"', from=2-1, to=2-2]
+	\arrow["{\partial_{q+1}}"', from=2-2, to=2-3]
+	\arrow["{\partial_q}"', from=2-3, to=2-4]
+	\arrow["{\partial_{q-1}}"', from=2-4, to=2-5]
+\end{tikzcd}
+\end{equation*}
+\end{prop}
+\begin{cor}
+È ben definita una mappa tra i \href{20250122133631-omologia_singolare.org}{moduli di omologia singolare}:
+\begin{equation*}
+\operatorname{sd}_{\star}: H_{q}(X) \longrightarrow H_{q}(X)\\
+\end{equation*}
+tramite il \href{20250123115927-funtore_di_omologia_singolare.org}{funtore di omologia}.
+\end{cor}
+\subsection{Legame con le trasformazioni affini}
+\label{sec:org03b0cdd}
+
+\begin{oss}
+\begin{enumerate}
+\item Se \(\iota_{q} :\Delta_{q} \longrightarrow\Delta_{q}\) è l'identità, allora \(\operatorname{sd}_{q}(\iota_{q}) \in S_{q}(\Delta_{q})\) è
+\begin{equation*}
+ \operatorname{sd}_{q}(\iota_{q}) = \sum a_{i}\ \tau_{i}
+\end{equation*}
+con \(\tau_{i} \in \Sigma_{q}(\Delta_{q})\) \href{20250129094132-trasformazione_affine.org}{trasformazioni affini}.
+\item Se \(\tau_{0}: \Delta_{q} \longrightarrow\Delta_{q}\) è una \href{20250129094132-trasformazione_affine.org}{trasformazione affine}, allora
+\begin{align*}
+ \operatorname{sd}_{q}(\tau_{0}) &= (\tau_{0})^{q}_{\diesis}\ \operatorname{sd}_{q}(\iota_{q})\\
+ &= (\tau_{0})^{q}_{\diesis}\ \sum a_{i}\ \tau_{i} = \sum a_{i}\ \tau_{0}\circ \tau_{i}
+\end{align*}
+dove, ovviamente, \(\tau_{0}\circ\tau_{i}\) è ancora una \href{20250129094132-trasformazione_affine.org}{trasformazione affine}.
+
+Pertanto, si ha che \(\operatorname{sd}_{q}^{2}(\iota_{q}) = \sum a_{j}a_{h}\ \tau_{i}\circ\tau_{j}\) è ancora somma di \href{20250129094132-trasformazione_affine.org}{trasformazioni affini}.
+\item Se \(\tau:\Delta_{q}\to \Delta_{q}\) \href{20250129094132-trasformazione_affine.org}{trasformazione affine}, con \(P_{i} \coloneqq \tau(e_{i})\)\footnote{Con \(e_{i}\) si indicano \href{20250121122324-simplesso_standard.org}{i punti base di \(\Delta_{q}\)}}, allora \(\operatorname{sd}_{q}\tau = \sum_{i} a_{i}\tau_{i}\), dove \(\tau_{i}\) affine e tale che:
+\begin{align*}
+\tau_{i}: \Delta_{q} &\longrightarrow \Delta_{q}\\
+e_{0} &\longmapsto P_{i_{0}}\\
+e_{1} &\longmapsto \frac{P_{i_{0}}+P_{i_{1}}}{2}\\
+&\vdots\\
+e_{q} &\longmapsto \frac{P_{i_{0}} + \dots + P_{i_{{q}}}}{q+1}.
+\end{align*}
+
+TODO fare bene tutti i calcoli
+\end{enumerate}
+\end{oss}
+\end{document}

@@ -1,0 +1,58 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{thm}
+Per ogni funzione \(g \in C[0,1]\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''} e per ogni \(\varepsilon>0\) esistono \(0=x_{0}<x_{1}<\dots<x_{N} = 1\) ed esistono \(c_{i} \in \R\) tali che, posta\footnote{Questa è una \href{20250701140621-funzione_costante_a_tratti.org}{Funzione costante a tratti}}
+\begin{equation*}
+c(x) = \sum_{i=0}^{N-1} c_{i} H(x-x_{i})
+\end{equation*}
+si ha che
+\begin{equation*}
+\forall x \in [0,1]:\quad |g(x)-c(x)|<\varepsilon
+\end{equation*}
+\end{thm}
+\begin{proof}
+Sia \(\varepsilon>0\) fissato. \href{20250701121640-teorema_di_heine_borel.org}{Siccome} \([0,1]\) è compatto, \href{20250630155208-funzione_reale_continua_su_un_compatto_e_uniformemente_continua.org}{allora} \(g\) è \href{20250611135127-funzione_uniformemente_continua.org}{uniformemente continua}. Sia \(\delta>0\) che soddisfi la condizione di uniforme continuità.
+
+Sia \(0=x_{0}<\dots<x_{N}=1\) la equipartizione di \([0,1]\) tale che \(|x_{i+1}-x_{i}|<\delta\), e siano i \(c_{0},\dots,c_{N-1}\) tali che
+\begin{align*}
+g(x_{0}) &= c_{0} & c_{0}&= g(x_{0})\\
+g(x_{1}) &= c_{0}+c_{1} & c_{1}&= g(x_{1})-g(x_{0})\\
+&\vdots\\
+g(x_{i}) &= c_{0}+c_{1}+\dots+c_{i}& c_{i}&= g(x_{i})-g(x_{i-1})\\
+&\vdots\\
+g(x_{N-1}) &= c_{0}+c_{1}+\dots+c_{N-1}& c_{N-1}&= g(x_{N-1})-g(x_{N-2}).
+\end{align*}
+Questo definisce la funzione \(c(x)\).
+
+Sia ora \(u \in [0,1]\). Allora esiste \(k <N\) tale che \(u \in [x_{k},x_{k+1})\) e tale che \(|u-x_{k}|<\delta\). Si osservi quindi che
+\begin{equation*}
+H(u-x_{j}) = \begin{cases}
+1 & j\le k\\
+0 & j>k
+\end{cases}
+\end{equation*}
+e pertanto \(c(u)\) vale:
+\begin{equation*}
+c(u) = \sum_{i=0}^{N-1} c_{i} \, H(u-x_{i}) = \sum_{i=0}^{k} c_{i} = g(x_{k}).
+\end{equation*}
+È possibile ora calcolare la distanza da \(g\):
+\begin{align*}
+|g(u)-c(u)| &= |g(u)-g(x_{k}) + g(x_{k}) - c(u)|\\
+& \le |g(u)-g(x_{k})| + \cancel{|g(x_{k})-c(u)|} = |g(u)-g(x_{k})| <\varepsilon
+\end{align*}
+dove l'ultima condizione deriva dall'uniforme continuità di \(g\). Per l'arbitrarietà di \(u\) questo dimostra la tesi.
+\end{proof}
+\begin{oss}
+La funzione \(c(x)\) di cui sopra è la funzione output di una \href{20250624155858-neurone_artificiale.org}{rete neurale} con un layer nascosto:
+\begin{itemize}
+\item i pesi dall'input ai neuroni nascosti sono \(w_{i} = 1\);
+\item ci sono \(N\) neuroni nascosti con funzione di attivazione \(H(x)\) e bias \(\theta_{i} = -x_{i}\);
+\item i pesi dai neuroni nascosti al neurone di output sono i \(c_{i}\);
+\item il neurone di output è lineare.
+\end{itemize}
+\end{oss}
+\end{document}

@@ -1,0 +1,114 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID} e sia \((X,A)\) una \href{20250122154728-coppia_topologica.org}{coppia topologica}.
+Questo induce:
+\begin{itemize}
+\item il \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{complesso di catene singolari} di \(A\)\footnote{\(S_{q}(A)\) è il \href{20250122133435-simplesso_singolare.org}{modulo delle \(q\)-catene singolari} di \(A\), e \(\partial_{q}\) sono le \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{mappe di bordo}.}
+\begin{equation*}
+  \mathcal{S}_{\bullet}(A) \coloneqq \set{\left(S_{q}(A),\partial_{q}^{A}\right)}_{q};
+\end{equation*}
+\item il \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{complesso di catene singolari} di \(X\)
+\begin{equation*}
+  \mathcal{S}_{\bullet}(X) \coloneqq \set{\left(S_{q}(X),\partial_{q}\right)}_{q};
+\end{equation*}
+\item il \href{20250122154809-complesso_di_catene_singolari_relative.org}{complesso di catene singolari relativo} di \((X,A)\)
+\begin{equation*}
+  \mathcal{S}_{\bullet}(X,A)\coloneqq \set{\left(S_{q}(X,A), \overline{\partial}_{q}\right)}_{q}
+\end{equation*}
+\end{itemize}
+
+\begin{prop}
+Si hanno le seguenti successioni esatte per l'\href{20250122154903-omologia_singolare_relativa.org}{omologia singolare relativa}, con l'\href{20250122133631-omologia_singolare.org}{omologia singolare} e \href{20250122154406-omologia_singolare_ridotta.org}{omologia singolare ridotta \(\tilde{H}_{n}\)}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,column sep=3.15em]
+	\cdots \& {H_n(A)} \& {H_n(X)} \& {H_n(X,A)} \& {H_{n-1}(A)} \& \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{(\iota_n)_{\star}}", from=1-2, to=1-3]
+	\arrow["{(\pi_n)_{\star}}", from=1-3, to=1-4]
+	\arrow["{\partial_{\star}^{(n)}}", from=1-4, to=1-5]
+	\arrow["{(\iota_{n-1})_{\star}}", from=1-5, to=1-6]
+\end{tikzcd}
+\end{equation*}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,column sep=3.15em]
+	\cdots \& {\tilde{H}_n(A)} \& {\tilde{H}_n(X)} \& {H_n(X,A)} \& {\tilde{H}_{n-1}(A)} \& \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+\end{tikzcd}
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+\href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{Si ha che} la seguente è una \href{20250120131527-sec.org}{SEC}:
+\begin{equation*}
+\begin{tikzcd}[row sep=tiny]
+	0 & {S_q(A)} & {S_q(X)} & {S_q(X,A)} & 0 \\
+	&& s & {s+S_q(A)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{{\iota_q}}", from=1-2, to=1-3]
+	\arrow["{{\pi_q}}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[maps to, from=2-3, to=2-4]
+\end{tikzcd}
+\end{equation*}
+dove \(\iota_{q}\) si ha perché \(S_{q}(A) \subseteq S_{q}(X)\).
+Inoltre il seguente diagramma commuta per ogni \(q\)
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	0 \& {S_q(A)} \& {S_q(X)} \& {S_q(X,A)} \& 0 \\
+	0 \& {S_{q-1}(A)} \& {S_{q-1}(X)} \& {S_{q-1}(X,A)} \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\iota_q}", from=1-2, to=1-3]
+	\arrow["{\partial_q^A}"', from=1-2, to=2-2]
+	\arrow["{\pi_q}", from=1-3, to=1-4]
+	\arrow["{\partial_q}"', from=1-3, to=2-3]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{\overline{\partial}_q}"', from=1-4, to=2-4]
+	\arrow[from=2-1, to=2-2]
+	\arrow["{\iota_{q-1}}"', from=2-2, to=2-3]
+	\arrow["{\pi_{q-1}}"', from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}
+\end{equation*}
+e pertanto è indotta una \href{20250120183640-sec_di_complessi_di_catene.org}{SEC di complessi di catene}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	0 \& {\mathcal{S}_{\bullet}(A)} \& {\mathcal{S}_{\bullet}(X)} \& {\mathcal{S}_{\bullet}(X,A)} \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["\iota", from=1-2, to=1-3]
+	\arrow["\pi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+a cui è possibile applicare lo \href{20250120164938-zig_zag_lemma.org}{Zig-Zag Lemma}, ottenendo la seguente successione \href{20250120125004-successione_di_r_moduli_esatta.org}{esatta} di \href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{moduli di omologia}:\footnote{Le diverse \href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{omologie} diventano l'\href{20250122133631-omologia_singolare.org}{omologia signolare} e l'\href{20250122154903-omologia_singolare_relativa.org}{omologia singolare relativa}, mentre i morfismi \(\iota_{n,\star}, \pi_{n,\star}\) sono ricavati tramite il \href{20250120165029-funtore_tra_chr_e_rmod.org}{funtore di omologia}.}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,column sep=3.15em]
+	\cdots \& {H_n(A)} \& {H_n(X)} \& {H_n(X,A)} \& {H_{n-1}(A)} \& \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{(\iota_n)_{\star}}", from=1-2, to=1-3]
+	\arrow["{(\pi_n)_{\star}}", from=1-3, to=1-4]
+	\arrow["{\partial_{\star}^{(n)}}", from=1-4, to=1-5]
+	\arrow["{(\iota_{n-1})_{\star}}", from=1-5, to=1-6]
+\end{tikzcd}
+\end{equation*}
+
+Applicando lo stesso ragionamento all'\href{20250122154406-omologia_singolare_ridotta.org}{omologia singolare ridotta \(\tilde{H}_{n}\)}, si ottiene:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,column sep=3.15em]
+	\cdots \& {\tilde{H}_n(A)} \& {\tilde{H}_n(X)} \& {H_n(X,A)} \& {\tilde{H}_{n-1}(A)} \& \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+\end{tikzcd}\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

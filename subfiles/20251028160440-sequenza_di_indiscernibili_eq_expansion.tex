@@ -1,0 +1,139 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\def\D{\mathcal{D}}
+\def\C{\mathcal{C}}
+\def\B{\mathcal{C}}
+\def\X{\mathcal{X}}
+\def\DD{\bm{\D}}
+\def\CC{\bm{\C}}
+\def\BB{\bm{\B}}
+\def\U{\mathcal{U}}
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+\def\L{\mathcal{L}}
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+\def\tc{\mid}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\tp{\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+\def\b{\bm{b}}
+\def\c{\bm{c}}
+\def\d{\bm{d}}
+\def\z{\overline{z}}
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+
+\begin{prop}
+Let \(A \subseteq \U\) and let \(\<\D_i:i<\omega\>\) be an \href{20251026210908-sequenza_di_indiscernibili.org}{\(A\)-indiscernible sequence} in \href{20251028160605-eq_espansione_di_un_modello_mostro.org}{\(\U^\eq\)}.
+Prove that there is a \href{20250131103317-formula_del_prim_ordine.org}{formula} \(\phi(x\,;z)\in \L\) and an \(A\)-indiscernible sequence \(\< b_i:i<\omega \>\) in \(\U^z\) such that \(\D_i=\phi(\U^{x}\,;b_i)\).
+\end{prop}
+
+\def\defaultnonforkmodel{A}
+
+\begin{proof}
+Si suppone che ciascun \(\D_{i} \subseteq \U^{x}\) per \(x\) fissata.
+\begin{itemize}
+\item Siccome \(\D_{i} \in \U^{\eq}\), allora esiste \(b_{i}' \in \U^{z_{i}}\) ed esiste \(\sigma_{i}(x;z_{i}) \in \L\) tale che
+\begin{equation*}
+  \D_{i} = \sigma_{i} (\U^{x}; b_{i}')
+\end{equation*}
+e, ponendo \(z\) tale che \(\card{z} = \sup_{i \in \omega} \card{z_{i}}\):
+\begin{equation*}
+  \D_{i} = \sigma_{i} (\U^{x}; b_{i}'), \qquad b_{i}' \in \U^{z}.
+\end{equation*}
+\item Il fatto che \(\DD \coloneqq \< \D_{i} : i <\omega \>\) sia una sequenza di indiscernibili su \(A\) significa che per ogni \(n \in \N\), \(I,J \in \omega^{(n)}\)
+\begin{equation}
+  \DD \restricted{ I } \equivalentover{A} \DD \restricted{ J }. %
+  \label{eq:Dseqind}
+\end{equation}
+\end{itemize}
+
+Siccome si ha
+\begin{equation*}
+\exists z\ \forall x\ \big[x \in \D_{0} \iff \sigma_{0}(x;z)\big]
+\end{equation*}
+allora per la~\eqref{eq:Dseqind} si ha che per ogni \(i \in \omega\)
+(ponendo \(I = \< 0 \>\) e \(J = \< j \>\))
+\begin{equation*}
+\exists z\ \forall x\ \big[x \in \D_{j} \iff \sigma_{0}(x;z)\big]
+\end{equation*}
+ovvero, se \(\phi(x;z) \coloneqq \sigma_{0}(x;z)\) vale:
+\begin{equation*}
+\exists z\ \forall x\ \big[x \in \D_{j} \iff \phi(x;z)\big]
+\end{equation*}
+
+Pertanto per ogni \(\D_{i}\) esiste \(d_{i} \in \U^{z}\) tale che
+\begin{equation}
+\D_{i} = \phi(\U^{x}; d_{i}). %
+\label{eq:Dphi}
+\end{equation}
+Sia \(\d\coloneqq \< d_{i} \mid i<\omega \>\) la sequenza associata.
+Si consideri \(\EMtp(\d / A)\). Per il \href{20251107125444-teorema_di_ehrenfeucht_mostowski.org}{Teorema di Ehrenfeucht-Mostowski} esiste una sequenza di indiscernibili
+\(\c = \< c_{i} \mid i<\omega \>\) tale che
+\begin{equation*}
+\EMtp(\c / A) \supseteq \EMtp(\d / A)
+\end{equation*}
+Sia quindi \(\C_{i} \coloneqq \phi(\U^{x}; c_{i})\) e
+\(\CC \coloneqq \< \C_{i} \mid i<\omega \>\).
+
+Si dimostra che \(\CC \equivalentover{A} \DD\).
+Infatti, sia \(\psi(\X) \in \L(A)\) tale che
+\begin{equation}
+\vDash \psi(\CC) \IMPLICA \vDash \psi \big( \phi(\U^{x};c_{i_{1}}),\dots, \phi(\U^{x};c_{i_{n}})\big). %
+\label{eq:formulasub}
+\end{equation}
+Se per assurdo \(\vDash \lnot\psi(\DD)\) poiché \(\DD\) è una sequenza di indiscernibili, per ogni \(j_{1}<\dots<j_{n}<\omega\)
+\begin{equation*}
+\vDash \lnot\psi(\D_{j_{1}},\dots,\D_{j_{n}}).
+\end{equation*}
+In particolar modo, quindi, per ogni \(j_{1}<\dots<j_{n}<\omega\)
+\begin{equation*}
+\vDash %
+\lnot\psi\big( \phi(\U^{x};d_{j_{1}}),\dots, \phi(\U^{x};d_{j_{n}})\big)
+\end{equation*}
+e pertanto
+\(\lnot\psi\big( \phi(\U^{x};z_{1}),\dots, \phi(\U^{x};z_{n})\big) \in \EMtp(\d / A)\).
+Siccome \(\c \vDash \EMtp(\d / A)\) allora
+\begin{equation*}
+\c \vDash %
+\lnot\psi\big( \phi(\U^{x};z_{1}),\dots, \phi(\U^{x};z_{n})\big).
+\end{equation*}
+Assurdo, per la~\eqref{eq:formulasub}.
+Quindi per ogni \(\psi(\X) \in \L(A)\):
+\begin{equation*}
+\CC \vDash \psi(\X) \IMPLICA %
+\DD \vDash \psi(\X).
+\end{equation*}
+
+Poiché \(\L(A)\) è chiuso per negazioni, questo implica che
+\(\CC \equivalentover{A} \DD\):
+\begin{equation*}
+\orbita(\CC / A) = \orbita(\DD / A) \ni \DD
+\end{equation*}
+e pertanto esiste \(F \in \Aut(\U / A)\) tale che \(F\CC = \DD\).
+Per ogni \(i<\omega\):
+\begin{equation*}
+\D_{i} = F \C_{i} = F\big[\phi(\U^{x}; c_{i})\big] = \phi(\U^{x}; F c_{i}) = \phi(\U^{x}; b_{i}).
+\end{equation*}
+avendo posto \(b_{i}\coloneqq Fc_{i}\).
+Siccome \(F\) è un automorfismo,
+e \(\< c_{i} \mid i<\omega\>\) è sequenza di indiscernibili
+allora anche \(\< b_{i} \mid i<\omega\>\) lo è.
+\end{proof}
+\end{document}

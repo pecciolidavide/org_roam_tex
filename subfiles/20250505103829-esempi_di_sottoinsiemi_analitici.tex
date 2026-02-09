@@ -1,0 +1,40 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esercizio 5}
+\label{sec:org506a59d}
+
+Show that the collection of all sequences \((x_n)_{n \in \omega} \in [0,1]^\omega\) having an irrational accumulation point is analytic.
+\subsection{Soluzione}
+\label{sec:org15029f4}
+
+Sia \(A_{[0,1]\setminus\Q}\) l'insieme di tutti gli \((x_{j})_{j \in \omega} \in [0,1]^{\omega}\) con un punto di accumulazione irrazionale.
+
+Si ricorda che \(p \in [0,1]\) è un punto di accumulazione per \((x_{j})_{j \in \omega}\), per definizione, se:
+\begin{equation*}
+\forall\, \varepsilon > 0 \ \forall\, N \in \N\ \exists\, n > N\ \left(x_{n} \in (p-\varepsilon,p+\varepsilon)\right).
+\end{equation*}
+
+In particolare, \(p \in [0,1]\) è un punto di accumulazione per \((x_{j})_{j \in \omega}\) se e solo se:
+\begin{equation*}
+\forall\, \varepsilon \in \Q^{+} \ \forall\, N \in \N\ \exists\, n > N\ \left(x_{n} \in (p-\varepsilon,p +\varepsilon)\right).
+\end{equation*}
+
+Per il Remark 3.1.10, quindi, siccome \([0,1]\setminus \Q\) è uno spazio polacco, \(A_{[0,1]\setminus \Q}\) è un insieme analitico, in quanto definito dalla seguente formula:
+\begin{equation*}
+\exists\, p \in [0,1]\setminus \Q\ \forall\, \varepsilon \in \Q^{+} \ \forall\, N \in \N\ \exists\, n > N\ \left(x_{n} \in (p-\varepsilon,p +\varepsilon)\right)
+\end{equation*}
+composta unicamente (tranne che per il primo esistenziale), da quantificazioni numerabili, e da una formula atomica: \(x_{n} \in (p-\varepsilon,p+\varepsilon)\), che definisce un boreliano di \(([0,1]\setminus \Q)\times [0,1]^{\omega}\), in quanto, data la funzione continua
+\begin{align*}
+F_{n}: ([0,1]\setminus \Q)\times [0,1]^{\omega}  &\longrightarrow \R\\
+\left(p,(x_{j})_{j \in \omega}\right) &\longmapsto x_{n}-p
+\end{align*}
+si ha che\footnote{??}
+\begin{equation*}
+\set{\left(p,(x_{j})_{j \in \omega}\right) \in ([0,1]\setminus \Q)\times [0,1]^{\omega}\mid x_{n} \in (p-\varepsilon,p+\varepsilon)} = F_{n}^{-1}\left[(-\varepsilon,\varepsilon)\right]
+\end{equation*}
+è un aperto.\qed
+\end{document}

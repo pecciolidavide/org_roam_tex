@@ -1,0 +1,31 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Complesso di catene}
+\label{sec:orgf383c77}
+\subsection{Complesso di catene di \(R\)-moduli}
+\label{sec:org384e207}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità.
+
+\begin{definizione}
+Un complesso di catene è una \href{20250206170922-sequenze_e_stringhe.org}{successione} di coppie
+\begin{equation*}
+\mathcal{C}_{\bullet} = \set{(C_{n}, \partial_{n})}_{n \in \Z}
+\end{equation*}
+tali che
+\begin{itemize}
+\item \(C_{n}\) sia un \href{20241205141053-r_moduli.org}{\(R\)-modulo};
+\item \(\partial_{n}:C_{n}\longrightarrow C_{n-1}\) è un \href{20241206115416-morfismi_r_moduli.org}{morfismo di moduli tale} che
+\begin{equation*}
+  \partial_{n}\circ\partial_{n-1} \equiv 0
+\end{equation*}
+(se e solo se \(\operatorname{Im}\partial_{n} \subseteq \operatorname{ker}\partial_{n-1}\)).
+\end{itemize}
+
+Gli elementi di \(C_{n}\) si dicono \(n\)-catene.
+\end{definizione}
+\end{document}

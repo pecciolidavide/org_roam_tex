@@ -1,0 +1,57 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+La funzione \(\max\set{x_{1},x_{2}}\) è \href{20250708122736-exact_learning_machine_learning.org}{rappresentata esattamente} da una \href{20250624155858-neurone_artificiale.org}{rete neurale} con un \href{20250624155858-neurone_artificiale.org}{layer nascosto} con 4 \href{20250624155858-neurone_artificiale.org}{neuroni} \href{20250624155858-neurone_artificiale.org}{ReLU}, ovvero
+\begin{equation*}
+\max\set{x_{1},x_{2}} = \sum_{j=1}^{4}\lambda_{j}\operatorname{ReLU}(w_{1j}x_{1}+w_{2j}x_{2})
+\end{equation*}
+per qualche \(\lambda_{j}, w_{ij} \in \R\).
+\end{prop}
+\begin{prop}
+La funzione \(f(x_{1},\dots,f_{x_{n}}) = \max\set{x_{1},\dots,x_{n}}\) è \href{20250708122736-exact_learning_machine_learning.org}{rappresentata esattamente} da una \href{20250624155858-neurone_artificiale.org}{rete neurale} \href{20250624155858-neurone_artificiale.org}{ReLU-feedforward} con
+\begin{equation*}
+L=\begin{cases}
+2k & \text{se }n=2^{k}\\
+2(\floor{\log_{2}n} + 1)&\text{altrimenti}
+\end{cases}
+\end{equation*}
+\label{prop10.2.2}
+\end{prop}
+\begin{prop}
+Esiste una \href{20250624155858-neurone_artificiale.org}{rete neurale} \href{20250624155858-neurone_artificiale.org}{feedforward} con input di dimensione 2, un layer nascosto di larghezza 2, output di dimensione 1 con \href{20250624155858-neurone_artificiale.org}{funzione di attivazione} \href{20250624155858-neurone_artificiale.org}{ReLU} in ogni \href{20250624155858-neurone_artificiale.org}{neurone} che \href{20250708122736-exact_learning_machine_learning.org}{rappresenta esattamente} la funzione
+\begin{equation*}
+f(x_{1},x_{2}) = \max\set{x_{1},x_{2}}\quad \forall x_{1} \in \R, x_{2} \in \R^{\ge 0}.
+\end{equation*}
+come in Fig. \ref{fig:max2elementi}.
+
+In realtà, però, per ogni \(x_{1},x_{2} \in \R\)
+\begin{equation*}
+\max\set{x_{1},x_{2}} =  \operatorname{ReLU}(x_{1}-x_{2})+x_{2}.
+\end{equation*}
+\label{prop10.2.4}
+\end{prop}
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	{x_1} \\
+	\&\& {\boxed{\operatorname{ReLU}}} \\
+	\&\&\&\& {\boxed{\operatorname{ReLU}}} \& {\max\set{x_1,x_2}} \\
+	\&\& {\boxed{\operatorname{ReLU}}} \\
+	{x_2}
+	\arrow["1"{description}, from=1-1, to=2-3]
+	\arrow["{{-1}}"{description}, from=1-1, to=4-3]
+	\arrow["1"{description}, from=2-3, to=3-5]
+	\arrow[from=3-5, to=3-6]
+	\arrow["1"{description}, from=4-3, to=3-5]
+	\arrow["0"{description}, from=5-1, to=2-3]
+	\arrow["1"{description}, from=5-1, to=4-3]
+\end{tikzcd}
+\end{equation*}
+\caption{\label{fig:max2elementi}Rete Neurale che impara \(\max\set{x_{1},x_{2}}\).}
+\end{figure}
+\end{document}

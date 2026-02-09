@@ -1,0 +1,77 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema}
+\label{sec:org8183b57}
+
+Sia \(X\) uno spazio polacco con una metrica fissata e sia \(\mathcal{W}\) una base debole di X.
+
+Dato \(F \subseteq X\times \omega^{\omega}\) si consideri il \href{20250513111844-gioco_di_banach_mazur.org}{**-gioco}: \(G^{**}_{\text{u}}(F)\). Indicato con \(A\coloneqq \pi_{X}(F)\):
+\begin{enumerate}
+\item se I ha una \href{20250513171520-giochi_di_gale_stewart.org}{strategia} \href{20250513171520-giochi_di_gale_stewart.org}{vincente} in \(G^{**}_{\text{u}}(F)\), allora \(A\) è magro in un aperto non vuoto di \(X\);
+\item se II ha una \href{20250513171520-giochi_di_gale_stewart.org}{strategia} \href{20250513171520-giochi_di_gale_stewart.org}{vincente} in \(G^{**}_{\text{u}}(F)\) allora \(A\) è comagro.
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:orgfe54698}
+
+\begin{enumerate}
+\item Sia \(\sigma\) una \href{20250513171520-giochi_di_gale_stewart.org}{strategia} \href{20250513171520-giochi_di_gale_stewart.org}{vincente} per I, e sia \(U_{0}\) la prima mossa. Si mostra che \(A\) è \href{20250419122752-insieme_magro.org}{magro} in \(U_{0}\).
+
+Per ogni \(a \in \omega\) e per ogni \(p \in \sigma\) della forma:
+\begin{equation*}
+ p=\langle
+ 	U_{0},({y}_{0}, V_{0}), \dots, U_{n-1}, ({y}_{n-1}, V_{n-1}), U_{n}
+ \rangle
+\end{equation*}
+si definisce \(F_{p,a} \subseteq U_{0}\):
+\begin{align*}
+ F_{p,a} = \{&z \in U_{n}\mid \text{per ogni mossa legale }(a, V_{n})\\
+ &\text{se } U_{n+1}\text{ è l'unico elemento di }\mathcal{W}\text{ tale che}\\
+ &p \concat \langle(a,V_{n}), U_{n+1}\rangle \in \sigma \text{ allora } z \notin U_{n+1}\}
+\end{align*}
+\begin{itemize}
+\item L'insieme \(F_{p,a}\) è mai denso, poiché chiuso e con interno vuoto \footnote{Esempio 1.5.2 (2) di LMR ``Notes on descriptive set theory''}. Infatti, se per assurdo \(\operatorname{Int}(F_{p,a}) \neq \emptyset\), allora esiste \(W \in \mathcal{W}\) tale che
+\begin{equation*}
+   W \subseteq \operatorname{Int}(F_{p,a}), \quad \operatorname{diam}(W)<2^{-n}
+\end{equation*}
+pertanto se II gioca \(V_{n} \coloneqq W\) allora I dovrà giocare \(U_{n+1} \subseteq V_{n} \subseteq F_{p,a}\). Ma per definizione \(U_{n+1}\cap F_{p,a} = \emptyset\). Assurdo.
+
+Inoltre, se \(\eta \in U_{n}\setminus F_{p,a}\), allora esiste una sequenza
+\begin{equation*}
+   p\concat\langle (a,V_{n}), U_{n+1}\rangle \in \sigma
+\end{equation*}
+con \(\eta \in U_{n+1}\); siccome \(U_{n+1} \cap F_{p,a} = \emptyset\) segue
+\begin{equation*}
+   \eta \in U_{n+1} \subseteq U_{n}\setminus F_{p,a} \subseteq X\setminus F_{p,a}
+\end{equation*}
+ovvero \(F_{p,a}\) chiuso.
+
+\item Siccome \(\sigma\) e \(\omega\) sono insiemi numerabili allora
+\begin{equation*}
+   \bigcup_{p \in \sigma', a \in \omega} F_{p,a}
+\end{equation*}
+è un insieme magro, dove \(\sigma' \subseteq \sigma\) è l'insieme delle sequenze di lunghezze dispari.
+\end{itemize}
+
+Sia ora \(x \in A\cap U_{0}\). Allora esiste \(y \in \omega^{\omega}\), \(y=(y_{i})_{i \in\omega}\) tale che \((x,y) \in F\).
+
+Una posizione \(p \in \sigma'\):
+\begin{equation*}
+     p=\langle
+     	U_{0},({y}_{0}, V_{0}), \dots, U_{n-1}, ({y}_{n-1}, V_{n-1}), U_{n}
+     \rangle
+\end{equation*}
+è \uline{buona} per \((x,{y})\) se \(x \in U_{n}\). Siccome \(\sigma\) è una strategia vincente per il giocatore I, allora esiste una posizione \(p_{(x,y)} \in \sigma\) buona per \((x,y)\) e massimale, ovvero ogni estensione di \(p_{(x,y)}\) \uline{non è buona}. Ma allora, se
+\begin{equation*}
+ p_{(x,y)} = \langle U_{0}, (y_{0},V_{0}),\dots, U_{n}\rangle
+\end{equation*}
+si ha che \(x \in F_{p_{(x,y)}, y_{n}}\).
+
+Pertanto \(A\cap U_{0} \subseteq \bigcup_{p \in \sigma', a \in \omega} F_{p,a}\) è magro.
+
+\item Se II ha una strategia vincente per \(G^{**}_{\text{u}}(F)\), allora ha una strategia vincente \href{20250513111844-gioco_di_banach_mazur.org}{in \(G^{**}(A)\)}. Per il \href{20250514174717-teorema_di_caratterizzazione_dei_comagri_tramite_il_gioco_di_banach_mazur.org}{teorema precedente}, \(A\) è comagro.\qed
+\end{enumerate}
+\end{document}

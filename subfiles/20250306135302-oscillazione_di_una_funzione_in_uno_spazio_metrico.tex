@@ -1,0 +1,46 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(Z_{1}\) uno \href{20250103145124-topologia.org}{spazio topologico}, e sia \(Z_{2} = (Z_{2},d')\) uno \href{20250301193511-spazio_metrico.org}{spazio metrico}.
+Sia \(A \subseteq Z_{1}\) e sia \(f:A\to Z_{2}\) una \href{20250103103252-funzione_continua.org}{funzione continua}.
+\section{Definizione}
+\label{sec:org82e7d62}
+Per ogni \(z \in Z_{1}\) si definisce l'\texttt{oscillazione} di \(f\) in \(z\) come
+\begin{equation*}
+\operatorname{osc}_{f}(z) \coloneqq \inf\set{\operatorname{diam}\left(f(U\cap A)\right)\ |\ U \subseteq Z_{1}\text{ aperto, }z \in  U}
+\end{equation*}
+dove, se \(B\neq \emptyset\):
+\begin{equation*}
+\operatorname{diam}(B)\coloneqq \sup{d'(x,y)\ |\ x,y \in B} \in \R
+\end{equation*}
+mentre \(\operatorname{diam}(\emptyset) = 0\).
+\section{Insieme dei punti in cui l'oscillazione di una funzione si annulla}
+\label{sec:org1d7f1f9}
+\subsection{Continuità}
+\label{sec:org2c59538}
+Se \(z \in Z_{1}\setminus \operatorname{Cl}(A)\) (vedi \href{20250103144944-chiusura_topologica.org}{Chiusura Topologica}), allora \(\operatorname{osc}_{f}(z) = 0\).
+
+Se \(z \in A\) allora
+\begin{equation*}
+\operatorname{osc}_{f}(z) = 0\qquad \iff\qquad f\text{ è continua in }z
+\end{equation*}
+(vedi \href{20250103103252-funzione_continua.org}{Funzione Continua} e \href{20250306140014-funzione_continua_in_un_punto.org}{Funzione Continua in un punto})
+\subsection{Insieme \(G_{\delta}\)}
+\label{sec:org532c695}
+È possibile dimostrare che per ogni \(\varepsilon>0\), gli insiemi
+\begin{equation*}
+A_{\varepsilon}\coloneqq \set{z \in Z_{1}\ |\ \operatorname{osc}_{f}(z)<\varepsilon}
+\end{equation*}
+sono aperti, e pertanto
+\begin{equation*}
+\set{z \in Z_{1}\ |\ \operatorname{osc}_{f}(z) =0} = \bigcap_{n \in \N} A_{2^{-n}}
+\end{equation*}
+è un \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{insieme \(\bm{G}_{\delta}\)}.
+\subsection{L'insieme dei punti di continuità di una funzione continua in uno spazio metrizzabile è Gdelta}
+\label{sec:orge3f49b2}
+Siano \(X,Y\) \href{20250103145124-topologia.org}{spazi topologici}, \(Y\) \href{20250301193401-spazio_topologico_metrizzabile.org}{metrizzabile}, e sia \(f:X\to Y\) una \href{20250202170607-classe_relazione_binaria.org}{funzione}.
+L'insieme dei punti in \(X\) su cui \(f\) \href{20250306140014-funzione_continua_in_un_punto.org}{è continua} è un \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{insieme \(\bm{G}_{\delta}\)}.
+\end{document}

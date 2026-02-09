@@ -1,0 +1,32 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\renewcommand{\L}{\mathcal{L}} % Il linguaggio
+\newcommand{\U}{\mathcal{U}} % Modello mostro
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+
+Sia \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio}, \(T\) una \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123151-teoria_completa.org}{completa} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti e \(\U\) un \href{20250617095548-modello_lambda_saturo.org}{modello saturo} di \href{20241213101756-cardinalita.org}{cardinalità} \href{20250211123155-cardinale_limite_forte.org}{inaccessibile} \(\kappa>\card{\L}+ \omega\). \(\U\) è un \href{20250617102733-modello_mostro.org}{modello mostro}.
+
+Sia \(A \subseteq \U\) piccolo.
+\section{Tipo invariante su un insieme}
+\label{sec:org7f8921b}
+\begin{definizione}
+Sia \(\varphi(x;z) \in \L\) una \href{20250131103317-formula_del_prim_ordine.org}{formula}.
+Un \href{20251026161720-phi_formula_su_un_insieme.org}{\(\varphi\)-tipo} \(p(x) \subseteq \mathcal{L}_{\varphi}(\mathcal{U})\) si dice \uline{\(A\)-invariante} se per ogni \(\psi(x;\overline{b}) \in p(x)\) e per ogni \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{automorfismo}\footnote{Vedi anche ``\href{20251020151126-insieme_degli_automorfismi_di_una_struttura_del_prim_ordine.org}{Gruppo degli automorfismi di una struttura del prim'ordine}''} \(f \in \operatorname{Aut}(\mathcal{U}/A)\):
+\begin{equation*}
+p(x)\vdash \psi(x;f\overline{b})
+\end{equation*}
+ovvero esistono \(\psi_{1}(x),\dots,\psi_{n}(x) \in p(x)\) tali che
+\begin{equation*}
+\U\vDash \forall x\ \big(\psi_{1}(x) \land \dots \land \psi_{n}(x) \implies \psi(x;f\overline{b})\big).
+\end{equation*}
+\end{definizione}
+
+\uline{Notazione}: scriveremo \(p(x)\vdash fp(x)\).
+
+\href{20250515141706-da_finire.org}{DA FINIRE}
+\end{document}

@@ -1,0 +1,22 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, siano \(M,N\) due \(\mathcal{L}\)-\href{20250131103212-sottostruttura_del_prim_ordine.org}{strutture} e sia \(k:M\partialto N\) una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappa elementare}. Sia \(\bm{a}\) una enumerazione del \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} \(\operatorname{dom}k\)
+
+Fissato un tipo \(p(x;z)\) di \(\mathcal{L}\)-formule (dove \(x\) è una variabile di lunghezza arbitraria e \(\card{z}=\card{\bm{a}}\)), se \(p(x;\bm{a})\) è (\href{20250212164424-tipo_teoria_dei_modelli.org}{finitamente}) \href{20250212164424-tipo_teoria_dei_modelli.org}{soddisfacibile in \(M\)} allora \(p(x;k\bm{a})\) è finitamente soddisfacibile in \(N\).
+
+Infatti, se \(p(x;\bm{a})\) è finitamente soddisfacibile, allora, detta \(\psi(x_{1},\dots,x_{n}, z_{1},\dots,z_{m})\) una congiunzione arbitraria di formule di \(p(x;z)\) allora
+\begin{equation*}
+M\vDash \exists\,x_{1}\,\dots\,\exists\,x_{n} \psi(x_{1},\dots,x_{n}, a_{1},\dots,a_{m})
+\end{equation*}
+per qualche \(a_{1},\dots,a_{m} \in \operatorname{dom}k\).
+
+Poiché \(k\) è mappa elementare, allora
+\begin{equation*}
+N\vDash \exists\,x_{1}\,\dots\,\exists\,x_{n} \psi(x_{1},\dots,x_{n}, ka_{1},\dots,ka_{m})
+\end{equation*}
+ovvero \(p(x;k\bm{a})\) è finitamente soddisfacibile in \(N\).
+\end{document}

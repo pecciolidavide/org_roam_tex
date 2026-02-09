@@ -1,0 +1,23 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Teorema}
+\label{sec:orgc367c1c}
+Sia \(X\) una \href{20250130104320-classe_mk.org}{classe}, e sia \(R \subseteq X\times X\) una \href{20250202170607-classe_relazione_binaria.org}{relazione} \href{20250203100901-relazione_well_founded_mk.org}{ben fondata}.
+
+Sia \(\varphi(x)\) un proprietà degli elementi di \(X\) tale che
+\begin{equation*}
+\forall\,x \in X\ \left[
+\forall\, y \in X \ [y\mathrel{R}x \,\implies\, \varphi(y)] \, \implies\, \varphi(x)
+\right]\tag{1}
+\end{equation*}
+Allora vale che \(\forall\,x \in X\ \varphi(x)\).
+\subsection{Dimostrazione\hfill{}\textsc{IdL:matematica\_lm}}
+\label{sec:org6129535}
+Supponiamo per assurdo che esista \(\overline{x} \in X\) tale che \(\varphi(x)\) non valga.
+Per well-foundedness di \(R\) supponiamo che questo sia \(R\)-\href{20250203102516-massimo_e_minimo.org}{minimale}. Allora\footnote{Infatti, se per ogni \(y\mathrel{R}\overline{x}\) si avesse \(\varphi(y)\), per la (1) si avrebbe \(\varphi(\overline{x})\), assurdo.} vi è qualche \(y \in X\), \(y\mathrel{R}\overline{x}\) tale che \(\lnot\,\varphi(y)\). Questo è assurdo per minimalità.
+\end{document}

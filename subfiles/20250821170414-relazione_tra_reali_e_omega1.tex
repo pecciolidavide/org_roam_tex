@@ -1,0 +1,63 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Relazione tra reali e omega1}
+\label{sec:orge7aa3da}
+Nel contesto della \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}, vi sono due insiemi non \href{20250111143651-insieme_numerabile.org}{numerabili} molto diversi tra di loro: \(\R\) e \(\omega_{1}\)\footnote{\href{20250205180824-numero_di_hartogs_di_un_ordinale.org}{Ordinale omega1}}. L'unica informazione è che esiste una \href{20241213105600-funzione_suriettiva.org}{funzione suriettiva} \(\R\surjects \omega_{1}\)\footnote{per \href{20250205180824-numero_di_hartogs_di_un_ordinale.org}{definizione \(\omega_{1}\)} è il \href{20250205152531-numeri_di_hartogs.org}{numero di Hartogs} di \(\omega\): \(\omega_{1}=\omega^{+}\); per costruzione, quindi, esiste una suriezione \(\parti{\omega\times\omega}\surjects \omega_{1}\):
+\begin{equation*}
+\R\equipotenti\parti{\omega}\equipotenti\parti{\omega\times\omega}\surjects\omega_{1}
+\end{equation*}
+Si veda ``\href{20250215151413-biiezione_canonica_tra_n_e_n2.org}{Biiezione canonica tra N e prodotti cartesiani di N}'' per una scrittura esplicita della funzione: \(\omega\asymp\omega\times\omega\).}.
+
+Tutte le altre possibilità (ovvero \(\omega_{1}\surjects\R\), \(\R\embeds\omega_{1}\) e \(\omega_{1}\embeds \R\)\footnote{Con ``\(\embeds\)'' si indica l'esistenza di una \href{20241219101956-funzione_iniettiva.org}{funzione iniettiva}.}) sono indipendenti da MK. Le implicazioni sono riassunte in Figura~\ref{fig:omega1eR2}, dove ``\href{20250206171508-axiom_of_choiche.org}{AC}'' è l'assioma della scelta e ``\href{20250210103648-ipotesi_del_continuo.org}{CH}'' è l'ipotesi del continuo (ovvero \(\R\equipotenti\omega_{1}\)).
+
+Restano da dimostrare le implicazioni 1., 2. e 3., mostrate in Figura~\ref{fig:omega1eR}
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	{\text{AC}} \&\& {\boxed{\omega_1\embeds\R}} \\
+	{\text{CH}} \&\& {\boxed{\R\embeds\omega_1}} \\
+	\&\& {\boxed{\omega_1\surjects\R}}
+	\arrow[Rightarrow, from=1-1, to=1-3]
+	\arrow[Rightarrow, from=2-1, to=1-3]
+	\arrow[Rightarrow, 2tail reversed, from=2-1, to=3-3]
+	\arrow[Rightarrow, from=2-3, to=1-3]
+	\arrow[Rightarrow, 2tail reversed, from=2-3, to=2-1]
+	\arrow[Rightarrow, 2tail reversed, from=3-3, to=2-3]
+\end{tikzcd}
+\end{equation*}
+\caption{\label{fig:omega1eR2}Catena delle diverse implicazioni in ambito di MK.}
+\end{figure}
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	{\text{AC}} \&\& {\boxed{\omega_1\embeds\R}} \\
+	{\text{CH}} \&\& {\boxed{\R\embeds\omega_1}} \\
+	\&\& {\boxed{\omega_1\surjects\R}}
+	\arrow["{1.}", Rightarrow, from=1-1, to=1-3]
+	\arrow["{3.}"', Rightarrow, from=2-3, to=2-1]
+	\arrow["{2.}"', Rightarrow, from=3-3, to=2-3]
+\end{tikzcd}
+\end{equation*}
+\caption{\label{fig:omega1eR}Catena delle diverse implicazioni da dimostrare nell'ambito di MK.}
+\end{figure}
+
+\begin{enumerate}
+\item Assumendo AC \href{20250210104534-ac_e_classi_ben_ordinabili.org}{allora ogni insieme} è \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile}, e in particolare \(\R\) è ben ordinabile; dunque esiste \href{20250203111003-ordinali.org}{l'ordinale} \href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{order type} \(\operatorname{ot}(\R) \in \operatorname{Ord}\).
+
+\(\R\) è non numerabile, e quindi \(\operatorname{ot}(\R)\) è non numerabile; inoltre \(\omega_{1}\) \href{20250205180824-numero_di_hartogs_di_un_ordinale.org}{è il più piccolo ordinale non numerabile}, e quindi
+\begin{equation*}
+ \omega_{1}\le\operatorname{ot}(\R)\equipotenti \R
+\end{equation*}
+e quindi \(\omega_{1}\embeds\R\).
+
+\item Se \(\omega_{1}\surjects \R\) allora, siccome \(\omega_{1}\) è ben ordinabile, esiste la funzione inversa \(\R\to\omega_{1}\), ovviamente iniettiva, e quindi \(\R\embeds\omega_{1}\)
+
+\item Se \(\R\embeds\omega_{1}\) allora \(\R\) è ben ordinabile. Come per 1., quindi \(\omega_{1}\embeds \R\). Per il \href{20250205150457-teorema_di_cantor_bernstein_schroder.org}{Teorema di Cantor-Bernstein-Schröder}, allora, \(\R\equipotenti\omega_{1}\).
+\end{enumerate}
+\end{document}

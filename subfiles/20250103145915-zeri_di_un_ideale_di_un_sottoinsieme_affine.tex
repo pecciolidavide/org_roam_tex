@@ -1,0 +1,52 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
+\section{Proposizione}
+\label{sec:org43cf965}
+Sia \(Y \subseteq \A^{n}\) un sottoinsieme (vedi \href{20241231114009-spazio_affine.org}{Spazio Affine}), e sia \(I(Y)\) il suo \href{20250103144124-ideale_di_un_sottoinsieme.org}{ideale}. Allora, considerando la \href{20250103101459-topologia_di_zariski_affine.org}{Topologia di Zariski}, si ha che la \href{20241231114256-varieta_algebrica_affine.org}{Varietà Algebrica Affine}
+\begin{equation*}
+V\left(I(Y)\right)=\overline{Y}
+\end{equation*}
+(vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri}) dove con \(\overline{Y}\) si intende la \href{20250103144944-chiusura_topologica.org}{chiusura} di \(Y\) nella \href{20250103145124-topologia.org}{topologia} citata.
+\subsection{Osservazione}
+\label{sec:orgcb9132a}
+Se \(Y \subseteq \A^{n}\) è già una \href{20241231114256-varieta_algebrica_affine.org}{Varietà Algebrica Affine}, allora, per definizione, è un chiuso nella topologia di Zariski, e, pertanto,
+\begin{equation*}
+Y = \overline{Y}= V\left(I(Y)\right)
+\end{equation*}
+\subsection{Dimostrazione}
+\label{sec:org9c5b38c}
+Chiaramente si ha che \(Y \subseteq V\left(I(Y)\right)\), poiché
+\begin{equation*}
+I(Y)=\set{f \in \K[x_{1},\dots,x_{n}]: f(p)=0\ \forall\, p \in Y}
+\end{equation*}
+e dunque, se \(y \in Y\), allora per ogni \(f \in I(Y)\) si ha che \(f(y)=0\).
+
+Dunque, per le proprietà della \href{20250103144944-chiusura_topologica.org}{Chiusura Topologica},
+\begin{equation*}
+\overline{Y} \subseteq \overline{V\left(I(Y)\right)} = V\left(I(Y)\right)
+\end{equation*}
+
+Viceversa, siccome \(\overline{Y}\) è chiuso, allora \(\overline{Y}=V(J)\) per un qualche \href{20241219112955-ideale.org}{Ideale} \(J \subseteq \K[x_{1},\dots,x_{n}]\).
+
+Come sopra,
+\begin{equation*}
+J \subseteq I\left(V(J)\right)
+\end{equation*}
+dal momento che se \(f \in J\) allora per ogni \(p \in V(J)\) si ha che \(f(p)=0\) e pertanto \(f \in I\left(V(J)\right)\).
+Dunque
+\begin{equation*}
+J \subseteq I\left(V(J)\right) = I\left(\overline{Y}\right) \subseteq I(Y)
+\end{equation*}
+poiché \(Y \subseteq \overline{Y}\) (vedi \href{20250103144124-ideale_di_un_sottoinsieme.org}{Ideale di un sottoinsieme})
+
+Dunque \(J \subseteq I(Y)\) e, in particolare (vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri})
+\begin{equation*}
+V\left(I(Y)\right) \subseteq V(J)
+\end{equation*}
+ma \(V(J)=\overline{Y}\) e pertanto si ha la tesi.
+\end{document}

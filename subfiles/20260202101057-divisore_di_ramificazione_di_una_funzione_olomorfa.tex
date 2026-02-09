@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Divisore di ramificazione di una funzione olomorfa}
+\label{sec:orgc130182}
+Siano \(X,Y\) \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann}, \(F:X\to Y\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa} non costante.
+
+\begin{definizione}
+Il \textbf{divisore di ramificazione} di \(F\) è il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{divisore}:\footnote{Con \(\mathrm{mult}_{p}\,F\) si indica la \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{molteplicità di \(F\) in \(p\)}.}
+\begin{equation*}
+R_{F} \coloneqq \sum_{p \in X} (\mathrm{mult}_{p}\,F - 1)\cdot p
+\end{equation*}
+\href{20260201235333-gruppo_delle_funzioni_in_z.org}{supportato} sui \href{20260129104340-punto_di_ramificazione_per_una_funzione_tra_superfici_di_riemann.org}{punti di ramificazione}.
+\end{definizione}
+\begin{oss}
+Nel caso in cui \(X,Y\) sono compatte, la \href{20260129171832-formula_di_hurewicz_superfici_di_riemann.org}{Formula di Hurwitz} si può scrivere come:\footnote{Con \(g\) si indica il \href{20260127112828-superficie_di_riemann.org}{genere topologico}, mentre con \(\deg\) si indica sia il \href{20260129171444-teorema_del_grado_per_olomorfismi_tra_superfici_di_riemannn.org}{grado della funzione} che \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{del divisore}.}
+\begin{equation*}
+2g(X)- 2 = (\deg F) \big(2g(Y)-2\big) +\deg R_{F}.
+\end{equation*}
+\end{oss}
+\end{document}

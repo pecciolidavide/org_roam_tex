@@ -1,0 +1,144 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Omologia singolare relativa per scheletri di CW-complessi}
+\label{sec:org83cb022}
+\begin{oss}
+Sia \(X\) un \href{20260205161432-cw_complesso.org}{CW-complesso}, con scheletri \(X_{j}\). Allora il \href{20250129183516-quoziente_di_una_coppia_topologica_buona.org}{quoziente} di contrazione ad un punto:
+\begin{equation*}
+X_{j+1}/X_{j} \cong \bigvee_{\alpha} \mathds{S}_{\alpha}^{j+1}
+\end{equation*}
+è omeomorfo all'\href{20250128132743-prodotto_wedge_di_spazi_topologici_puntati.org}{unione ad un punto delle sfere} \href{20250115150754-sfera_n_dimensionale.org}{\(j+1\)-dimensionali}. L'\href{20250122154903-omologia_singolare_relativa.org}{omologia singolare relativa} di \((X_{n}, X_{n-1})\) è:
+\begin{enumerate}
+\item Per il \href{20260205123011-omologia_singolare_relativa_di_una_coppia_topologica_buona.org}{calcolo dell'omologia relativa di una coppia topologica buona}:
+\begin{equation*}
+ H_{q}(X_{n}, X_{n-1}) \cong \tilde{H}_{q}(X_{n}/X_{n-1})
+\end{equation*}
+dove \(\tilde{H}_{q}\) è l'omologia ridotta
+\item \(\tilde{H}_{q}(X_{n}/X_{n-1}) = \tilde{H}_{q}\left(\bigvee_{\alpha} \mathds{S}_{\alpha}^{n}\right)\)
+\item Per il calcolo dell'\href{20250128132743-prodotto_wedge_di_spazi_topologici_puntati.org}{omologia dell'unione al punto}, e per l'\href{20250127162702-calcolo_dell_omologia_singolare_della_sfera_e_dell_omologia_singolare_relativa_del_disco_rispetto_alla_sfera.org}{omologia delle sfere}, si ha:\footnote{Vedi ``\href{20241213095808-somma_diretta.org}{Somma Diretta di moduli}''}
+\begin{equation*}
+  \tilde{H}_{q}\left(\bigvee_{\alpha} \mathds{S}_{\alpha}^{n}\right) = \begin{cases}
+ 	0 & q\neq n\\
+ 	\bigoplus_{\alpha} \tilde{H}_{q}(\mathds{S}^{n}_{\alpha}) = \bigoplus_{\alpha} R \cdot [e_{\alpha}^{n}] & q=n
+ \end{cases}
+\end{equation*}
+\end{enumerate}
+
+Dunque \(H_{n}(X_{n}, X_{n-1}) \cong \bigoplus_{\alpha} R\cdot [e_{\alpha}^{n}]\), dove \([e_{\alpha}^{n}]\) è il generatore associato alla \(n\)-cella \(\alpha\).
+
+Più precisamente, se
+\begin{equation*}
+\Phi_{\alpha}^{n} : (e^{n}_{\alpha}, \partial e^{n}_{\alpha}) \longrightarrow (X_{n}, X_{n-1})
+\end{equation*}
+è la \href{20250215122759-export.org_archive}{mappa caratteristica}, allora questa \href{20250126191208-funtore_da_topp_a_rmod_di_omologia.org}{induce} \((\Phi_{\alpha}^{n})_{\star}\):
+\begin{equation*}
+(\Phi_{\alpha}^{n})_{\star} : H_{n}(e^{n}_{\alpha}; \partial e^{n}_{\alpha}) \to H_{n}(X_{n}, X_{n-1})
+\end{equation*}
+con \(H_{n}(e^{n}_{\alpha}; \partial e^{n}_{\alpha}) \cong R\).
+
+Se \(c_{\alpha}^{n} : \Delta_{n} \longrightarrow e_{\alpha}^{n}\) è un \href{20250111142332-omeomorfismo.org}{omeomorfismo} (ovvero è un \href{20250122133435-simplesso_singolare.org}{simplesso singolare} dal \href{20250121122324-simplesso_standard.org}{simplesso standard}), allora \([c_{\alpha}^{n}] \in H_{n}(e^{n}_{\alpha}, \partial e^{n}_{\alpha})\), e dunque
+\begin{equation*}
+[e_{\alpha}^{n}] \coloneqq (\Phi_{\alpha}^{n})_{\star}[c_{\alpha}^{n}].
+\end{equation*}
+\end{oss}
+
+\begin{commento}
+Siccome \(c_{\alpha}^{n}\) è un omeomorfismo, allora \([c_{\alpha}^{n}]\) non è nullo, e pertanto neanche \((\Phi_{\alpha}^{n})_{\star}[c_{\alpha}^{n}]\) lo sarà. Inoltre, per costruzione, vedendo \((\Phi_{\alpha}^{n})_{\star}[c_{\alpha}^{n}]\) dentro \(\tilde{H}_{q}(\bigvee_{\alpha} \mathds{S}^{n}_{\alpha})\), questo deve stare dentro \(\tilde{H}_{q}(\mathds{S}^{n}_{\alpha}) \cong R\), e quindi lo genera.
+\end{commento}
+\section{Omologia singolare di CW-complessi}
+\label{sec:orgd5920d8}
+\begin{prop}
+Sia \(X\) un CW-complesso, \(X_{n}\) il suo \(n\)-scheletro. Se \(X\) è finito dimensionale\footnote{Ovvero esiste \(N \in \N\) tale che per ogni \(m\ge N\) : \(X_{m} = 0\).}
+\begin{enumerate}
+\item per ogni \(q>n\): \(H_{q}(X_{n}) = 0\);
+\item per ogni \(q<n\), l'inclusione \(X_{n} \hookrightarrow X\) \href{20250123115927-funtore_di_omologia_singolare.org}{induce} un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo}
+\begin{equation*}
+ H_{q}(X_{n}) \xrightarrow{\ \cong\ } H_{q}(X);
+\end{equation*}
+\item per \(q=n\), l'inclusione \(X_{n} \hookrightarrow X\) \href{20250123115927-funtore_di_omologia_singolare.org}{induce} una mappa \href{20241213105600-funzione_suriettiva.org}{suriettiva}
+\begin{equation*}
+ H_{q}(X_{n}) \twoheadrightarrow H_{q}(X).
+\end{equation*}
+\end{enumerate}
+\label{prop:dadim:oiniounouhjiu}
+\end{prop}
+
+\begin{oss}
+Questa proposizione ci assicura che gli \(n\)-scheletri siano delle ``approssimazioni'' di \(X\).
+\end{oss}
+
+\begin{proof}
+(della Proposizione~\ref{prop:dadim:oiniounouhjiu}).
+Fissato \(q\), si consideri la catena di inclusioni
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{X_0} \& {X_1} \& \cdots \& {X_n} \& \cdots \& X
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow[hook, from=1-3, to=1-4]
+	\arrow[hook, from=1-4, to=1-5]
+	\arrow[hook, from=1-5, to=1-6]
+\end{tikzcd}
+\end{equation*}
+che \href{20250123115927-funtore_di_omologia_singolare.org}{induce}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{H_q(X_0)} \& {H_q(X_1)} \& \cdots \& {H_q(X_n)} \& \cdots \& {H_q(X)}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow[hook, from=1-3, to=1-4]
+	\arrow[hook, from=1-4, to=1-5]
+	\arrow[hook, from=1-5, to=1-6]
+\end{tikzcd}
+\end{equation*}
+\begin{itemize}
+\item Per \(j\) tale che \(j\neq q, q+1\), si può considerare la \href{20250122154927-successione_esatta_di_una_coppia_topologica.org}{SEL indotta} dall'\href{20250122154903-omologia_singolare_relativa.org}{omologia relativa} di \((X_{j}, X_{j-1})\):
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+        {H_{q+1}(X_j, X_{j-1})} \& {H_{q}(X_{j-1})} \& {H_q(X_j)} \& {H_{q-1}(X_j, X_{j-1})}
+        \arrow[from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow[from=1-3, to=1-4]
+\end{tikzcd}
+\end{equation*}
+dove \(H_{q+1}(X_j, X_{j-1}) = H_{q}(X_j, X_{j-1}) = 0\), e \href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{quindi} \(H_{q}(X_{j-1}) \cong H_{q}(X_{j})\).
+\item Si noti che, per \(q>0\): \(H_{q}(X_{0}) = 0\), in quanto \(X_{0}\) è un insieme discreto e finito\footnote{Questo segue direttamente da:
+\begin{itemize}
+\item \href{20250122154153-calcolo_dell_omologia_del_punto.org}{Calcolo dell'omologia singolare del punto}
+\item \href{20250122154543-significato_geometrico_del_modulo_di_omologia_singolare_0.org}{Omologia singolare dell'unione disgiunta}
+\end{itemize}}.
+\end{itemize}
+
+Dunque si ha la seguente successione esatta:
+\begin{equation*}
+\scalebox{0.9}{%
+\begin{tikzcd}[ampersand replacement=\&, column sep=small]
+	{H_q(X_0)} \& {H_q(X_1)} \& \cdots \& {H_q(X_{q-1})} \& {H_q(X_q)} \& {H_q(X_{q+1})} \& {H_q(X_{q+2})} \& \cdots \& {H_q(X)}
+	\arrow["\cong", from=1-1, to=1-2]
+	\arrow["\cong", from=1-2, to=1-3]
+	\arrow["\cong", from=1-3, to=1-4]
+	\arrow["{?}", from=1-4, to=1-5]
+	\arrow["{?}", from=1-5, to=1-6]
+	\arrow["\cong", from=1-6, to=1-7]
+	\arrow["\cong", from=1-7, to=1-8]
+	\arrow["\cong", from=1-8, to=1-9]
+\end{tikzcd}%
+}
+\end{equation*}
+che dà luogo a
+\begin{enumerate}
+\item \(0 = H_{q}(X_{0}) \cong \dots \cong H_{q}(X_{q-1})\);
+\item \(H_{q}(X_{q+1}) \cong H_{q}(X_{q+2}) \cong \dots \cong H_{q}(X)\).
+\item Considernao invece la \href{20250122154927-successione_esatta_di_una_coppia_topologica.org}{SEL indotta} dall'\href{20250122154903-omologia_singolare_relativa.org}{omologia relativa} di \((X_{q+1}, X_{j})\):
+\begin{equation*}
+ H_{q}(X_{q}) \longrightarrow H_{q}(X_{q+1}) \longrightarrow H_{q}(X_{q+1}, X_{q}).
+\end{equation*}
+Siccome \(H_{q}(X_{q+1}, X_{q}) = 0\), \href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{allora} \(H_{q}(X_{q}) \longrightarrow H_{q}(X_{q+1})\) è suriettiva.
+\qedhere
+\end{enumerate}
+\end{proof}
+\end{document}

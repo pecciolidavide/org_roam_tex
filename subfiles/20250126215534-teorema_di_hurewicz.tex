@@ -1,0 +1,65 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema di Hurewicz}
+\label{sec:org5488ea1}
+\begin{thm}
+Sia \(X\) \href{20250103145124-topologia.org}{spazio topologico} \href{20250113103025-spazio_topologico_connesso_per_archi.org}{connesso per archi}, \(x_{0} \in X\).
+
+Sia \(\Pi_{1}(X,x_{0})\) il \href{20241204223712-gruppo_fondamentale.org}{gruppo fondamentale} di \((X,x_{0})\) e \(H_{1}(X)\) lo \href{20241205141053-r_moduli.org}{\(\Z\)-modulo} di \href{20250122133631-omologia_singolare.org}{omologia singolare} di \(X\) (ovvero un \href{20250127093245-gruppo_abeliano.org}{gruppo abeliano}).
+Allora esiste un \href{20241206115531-morfismo_di_gruppi.org}{morfismo}, detto Mappa di Hurewicz
+\begin{equation*}
+\varphi:\Pi_{1}(X,x_{0}) \longrightarrow H_{1}(X)
+\end{equation*}
+\href{20241213105600-funzione_suriettiva.org}{suriettivo} tale che\footnote{\(\ker\) è il \href{20241213105201-kernel.org}{Kernel}.} \(\operatorname{ker}(\varphi)\) sia l'\href{20250127093652-gruppo_abelianizzato.org}{abelianizzato} di \(\Pi_{1}(X,x_{0})\):
+\begin{equation*}
+\operatorname{ker}(\varphi)=\left[\Pi_{1}(X,x_{0}),\Pi_{1}(X,x_{0})\right].
+\end{equation*}
+\end{thm}
+\begin{cor}
+Per il \href{20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.org}{primo teorema di isomorfismo}
+\begin{equation*}
+H_{1}(X)\cong \Pi_{1}(X,x_{0})/\operatorname{ker}(\varphi) = \Pi_{1}(X,x_{0})^{\operatorname{ab}}
+\end{equation*}
+\end{cor}
+\section{Trasformazione naturale indotta dal Teorema di Hurewicz}
+\label{sec:orgab97ce7}
+Sia \(R=\Z\), siano \(X,Y\) \href{20250103145124-topologia.org}{spazi topologici} \href{20250113103025-spazio_topologico_connesso_per_archi.org}{cpa}. Sia \(f:X\to Y\) funzione continua, \(x_{0} \in X\), \(y_{0}\coloneqq f(x_{0}) \in Y\). Siano:
+\begin{align*}
+\varphi_{X}: \Pi_{1}(X,x_{0}) &\longrightarrow H_{1}(X)\\
+\varphi_{Y}: \Pi_{1}(Y,y_{0}) &\longrightarrow H_{1}(Y )
+\end{align*}
+le mappe del \hyperref[sec:org5488ea1]{Teorema di Hurewicz} dal \href{20241204223712-gruppo_fondamentale.org}{gruppo fondamentale} di \(X\) e \(Y\) nel primo gruppo di \href{20250122133631-omologia_singolare.org}{omologia singolare}. Si indichi con \(f_{\star}\) l'immagine di \(f\) sia tramite \href{20250114095222-funtore_del_gruppo_fondamentale.org}{il funtore \(\Pi_{1}\)} che tramite il \href{20250123115927-funtore_di_omologia_singolare.org}{funtore \(H_{1}\)}.
+
+\begin{prop}
+Il seguente diagramma commuta:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\Pi_1(X,x_0)} \&\& {H_1(X)} \\
+	\\
+	{\Pi_1(Y,y_0)} \&\& {H_1(Y)}
+	\arrow["{\varphi_X}", from=1-1, to=1-3]
+	\arrow["{f_\star}"', from=1-1, to=3-1]
+	\arrow["{f_\star}", from=1-3, to=3-3]
+	\arrow["{\varphi_Y}"', from=3-1, to=3-3]
+\end{tikzcd}
+\end{equation*}
+e quindi \(\set{\varphi_{X}}\) è una \href{20241205132705-trasformazioni_naturali.org}{trasformazione naturale} tra i \href{20241205131958-funtore.org}{funtori}:
+\begin{itemize}
+\item del \href{20250114095222-funtore_del_gruppo_fondamentale.org}{gruppo fondamentale}, \(\Pi_{1}\);
+\item di \href{20250123115927-funtore_di_omologia_singolare.org}{omologia singolare}, \(H_{1} \circ U\)\footnote{\(U\) è il \href{20241205131958-funtore.org}{funtore} dimenticante da \href{20241205115614-categoria_top.org}{spazi topologici puntati} a \href{20241205115600-categoria_top.org}{spazi topologici} \(\cat{Top*}\to \cat{Top}\)}
+\end{itemize}
+\end{prop}
+\begin{proof}
+Infatti, sia \([\gamma]_{\Pi} \in \Pi_{1}(X,x_{0})\):
+\begin{align*}
+\varphi_{Y}\circ f_{\star}[\gamma]_{\Pi} &= \varphi_{Y} [f\circ\gamma]_{\Pi}%
+= [f\circ\gamma]_{H}\\
+f_{\star}\circ\varphi_{X}[\gamma]_{\Pi} &= f_{\star} [\gamma]_{H} = [f\circ\gamma]_{H}.
+\qedhere
+\end{align*}
+\end{proof}
+\end{document}

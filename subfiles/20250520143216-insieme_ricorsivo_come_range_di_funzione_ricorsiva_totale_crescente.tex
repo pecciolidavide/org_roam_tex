@@ -1,0 +1,63 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
+\section{Proposizione}
+\label{sec:org6048033}
+
+Un insieme infinito \(P \subseteq \N\) è \href{20250216173925-insieme_ricorsivo.org}{ricorsivo} se e solo se \(P= \operatorname{rng}(f)\) \footnote{Vedi ``\href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Dominio, Range e Campo di una Classe Relazione}''} per qualche \href{20250202170607-classe_relazione_binaria.org}{funzione}
+\begin{equation*}
+f: \N\to \N
+\end{equation*}
+\href{20250207104855-funzione_ricorsiva.org}{ricorsiva} \uline{\href{20250213105339-funzione_parziale.org}{totale}} e \href{20250203132953-funzione_monotona.org}{strettamente crescente}.
+\subsection{Dimostrazione}
+\label{sec:orgc1c135d}
+
+(\(\Rightarrow\)): Si costruisce la funzione \(f\) \uline{per ricorsione}:
+\begin{equation*}
+\begin{cases}
+f(0) = \minim{x}{P(x)}\\
+f(y+1) = \minim{x}{P(x) \,\land\, f(y)<x}
+\end{cases}
+\end{equation*}
+(vedi  ``\href{20250520101418-funzioni_ricorsive_per_minimizzazione_su_un_predicato.org}{Funzioni ricorsive per minimizzazione su un predicato}'' e ``\href{20250215151458-funzioni_ricorsive.org}{Schema di Ricorsione di funzioni ricorsive}'').
+
+Questa è ricorsiva, totale e tale che \(P=\operatorname{rng}(f)\).
+
+(\(\Leftarrow\)): Si ha che
+\begin{equation*}
+P(y)\quad \iff \quad \exists\,x\le y\ \left(\operatorname{graph}(f)(x,y)\right)
+\end{equation*}
+dove il \href{20250104112443-grafico_di_una_funzione.org}{grafico} di \(f\) è \href{20250216173925-insieme_ricorsivo.org}{ricorsivo} \href{20250601162421-funzioni_ricorsive_e_loro_grafico.org}{poiché} \(f\) è \href{20250213105339-funzione_parziale.org}{totale} e \href{20250207104855-funzione_ricorsiva.org}{ricorsiva}. \href{20250519112917-proprieta_di_chiusura_degli_insiemi_ricorsivi.org}{Quindi} \(P\) è ricorsivo.
+\section{Corollario}
+\label{sec:org6ab5a1a}
+
+Se \(P \subseteq \N\) è ricorsivo e infinito, allora esiste una \href{20250104111707-funzione_biunivoca.org}{biiezione} ricorsiva \(g:P\to \N\).
+
+Sia infatti \(f: \N\to \N\) la funzione strettamente crescente totale e ricorsiva tale che \(P=f(\N)\).
+
+Poiché questa è strettamente crescente allora è \href{20241219101956-funzione_iniettiva.org}{iniettiva}, e restringendo il codominio si ottiene
+\begin{equation*}
+f: \N\to P = f(\N)
+\end{equation*}
+biiettiva.
+
+Pertanto l'inversa \(g: P\to \N\) è una biiezione tra \(P\) e \(\N\).
+
+Inoltre, questa è ricorsiva, \href{20250601162421-funzioni_ricorsive_e_loro_grafico.org}{poiché} il suo \href{20250104112443-grafico_di_una_funzione.org}{grafico} è \href{20250216173925-insieme_ricorsivo.org}{ricorsivo}
+\begin{equation*}
+\operatorname{graph}(g)(x,y) \quad\iff \quad \operatorname{graph}(f)\left(F(x,y)\right)
+\end{equation*}
+dove \(F: \N^{2}\to \N^{2}: (m,n)\mapsto (n,m)\).
+
+Il grafico è ricorsivo perché:
+\begin{itemize}
+\item \(\operatorname{graph}(f)\) è ricorsivo \href{20250601162421-funzioni_ricorsive_e_loro_grafico.org}{poiché \(f\) è ricorsiva totale} ed \(F\) è una funzione ricorsiva;
+\item \href{20250519112917-proprieta_di_chiusura_degli_insiemi_ricorsivi.org}{gli insiemi ricorsivi sono chiusi per sostituzioni totali ricorsive.}
+\end{itemize}
+\end{document}

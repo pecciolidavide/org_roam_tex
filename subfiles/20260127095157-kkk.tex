@@ -1,0 +1,42 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Mappa esponenziale tra fasci di funzioni olomorfe}
+\label{sec:org642ec61}
+Sia \(X \subseteq \C\): si considerino i \href{20250324174728-fascio.org}{fasci} \href{20250324175845-esempi_di_prefasci.org}{\(\mathcal{O}_{X}\)} e \href{20250324175845-esempi_di_prefasci.org}{\(\mathcal{O}_{X}^{*}\)}.
+
+\begin{definizione}
+Si definisca la \textbf{mappa esponenziale}: \(\mathrm{exp} : \mathcal{O}_{X} \to \mathcal{O}_{X}^{*}\): per ogni \(U \subseteq \C\)
+\begin{align*}
+\mathrm{exp}_{U}: \mathcal{O}_{X}(U) &\longrightarrow \mathcal{O}_{X}^{*}(U)\\
+f(z) &\longmapsto e^{f(z)}.
+\end{align*}
+\end{definizione}
+
+\begin{oss}
+Il \href{20250327114922-fascio_nucleo.org}{fascio nucleo} \(\ker \exp = \uline{\Z}\) \href{20250325171002-fascio_di_gruppo_localmente_costante.org}{fascio localmente costante}, perché
+\begin{equation*}
+e^{2\pi i \, z} = 1 \IFF  z \in \Z.
+\end{equation*}
+\end{oss}
+
+\begin{prop}
+La mappa  \(\mathrm{exp} : \mathcal{O}_{X} \to \mathcal{O}_{X}^{*}\) è un \href{20250327115214-morfismo_di_fasci_suriettivo.org}{morfismo di fasci suriettivo}.
+\end{prop}
+\begin{proof}
+Sia \(U \subseteq \C\) aperto e \(f \in \mathcal{O}_{\C}^{*}(U)\). Allora per ogni \(p \in U\) esiste \(W \subseteq U\) \href{20250111142313-intorno.org}{intorno} \href{20250103145124-topologia.org}{aperto} \href{20250113100451-spazio_topologico_semplicemente_connesso.org}{semplicemente connesso} di \(p\), tale che
+\begin{equation*}
+\restriction{f}{W} \in \operatorname{Im}\mathrm{exp}_{W}.
+\end{equation*}
+Questo vale perché ogni \href{20260126110551-funzione_olomorfa.org}{funzione olomorfa} mai nulla su un aperto semplicemente connesso \href{20260126184347-logaritmo_complesso_e_olomorfo_su_un_aperto_semplicemente_connesso.org}{ammette un logaritmo}.
+
+Quindi, per definizione, \(f\) appartiene al \href{20250327114937-fascio_immagine.org}{fascio immagine}:
+\begin{equation*}
+f \in (\operatorname{Im}\exp)(U)
+\end{equation*}
+e pertanto \(\operatorname{Im}\exp = \mathcal{O}_{\C}^{*}\).
+\end{proof}
+\end{document}

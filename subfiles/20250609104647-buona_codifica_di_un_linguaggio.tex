@@ -1,0 +1,158 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Aritmetizzazione della sintassi}
+\label{sec:orgf88ac07}
+Sia \(L=\operatorname{Rel}\cup \operatorname{Fun}\cup \operatorname{Cost}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} \href{20250111143651-insieme_numerabile.org}{numerabile}, dove \(\operatorname{Rel}, \operatorname{Fun}, \operatorname{ Cost}\) sono gli insiemi di simboli di, rispettivamente, relazione, funzione e costanti, con \(\operatorname{ar}(\cdot)\) la funzione di \href{20250130162057-linguaggio_del_prim_ordine.org}{arietà}, e sia \(\operatorname{Vbl}=\set{v_{i}\mid i \in \omega}\) l'insieme delle \href{20250130162057-linguaggio_del_prim_ordine.org}{variabili}.
+\subsection{Buona codifica di un linguaggio}
+\label{sec:orgdc7e38a}
+Una buona codifica per \(L\) è una \href{20250531104048-codifica_di_un_insieme_numerabile.org}{codifica ricorsiva} dell'insieme \(D=L\cup \operatorname{Vbl}\cup \set{\lnot, \land,\lor, \implies,\iff, \exists, \forall, =}\)
+\begin{equation*}
+\#: D\to \N
+\end{equation*}
+tale che
+\begin{itemize}
+\item \(\#(v_{i}) = 2{i}\) per ogni \(v_{i} \in \operatorname{Vbl}\);
+\item \(\#(\lnot)=1\), \(\#(\land) =3\), \(\#(\lor)=5\), \(\#(\implies)=7\), \(\#(\iff)=9\), \(\#(\exists)=11\), \(\#(\forall) = 13\), \(\#(=)=15\);
+\item le \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagini} \(\operatorname{Rel}^{\#}\coloneqq\#[\operatorname{Rel}]\), \(\operatorname{Fun}^{\#}\coloneqq\#[\operatorname{Fun}]\) e \(\operatorname{Cost}^{\#}\coloneqq\#[\operatorname{Cost}]\) sono ricorsivi primitivi;
+\item la funzione \(a:\N\to \N\) tale che
+\begin{equation*}
+  a(n) =\begin{cases}
+  	\operatorname{ar}(s) & \text{se }n=\#(s)\text{ per qualche }s \in \operatorname{Rel}\cup \operatorname{Fun}\\
+  	0 &\text{altrimenti}
+      \end{cases}
+\end{equation*}
+è ricorsiva primitiva.
+\end{itemize}
+\subsection{Buona codifica dei termini di un linguaggio}
+\label{sec:org3d98687}
+A partire da \(\#\), si definiscono delle codifiche \(\termcode{t}\) per gli \(L\)-\href{20250130162316-termine_del_prim_ordine.org}{termini} \(t\) per ricorsione sull'\href{20250130162316-termine_del_prim_ordine.org}{altezza} di \(t\):
+\begin{itemize}
+\item se \(t\) è della forma \(s\) per qualche simbolo \(s \in \operatorname{Cost}\cup \operatorname{Vbl}\), si pone
+\begin{equation*}
+  \termcode{t} \coloneqq \godelcode{\#(s)}
+\end{equation*}
+dove \(\godelcode{\cdot}\) è la \href{20250531110737-codifica_delle_sequenze_finite_tramite_beta_di_godel.org}{codifica di Godel per le sequenze finite};
+\item se \(t\) è della forma \(f(t_{1},\dots,t_{k})\) per qualche \(f \in \operatorname{Fun}\) e con \(\operatorname{ar}(f)=k\), si pone
+\begin{equation*}
+  \termcode{t} \coloneqq \godelcode{\#(f),\termcode{t_{1}},\dots,\termcode{t_{k}}}.
+\end{equation*}
+\end{itemize}
+
+Si indica con \(\operatorname{Term}\) l'insieme degli \(L\)-termini e con \(\operatorname{Term}^{\#}\) l'insieme delle loro codifiche, ovvero
+\begin{equation*}
+\operatorname{Term}^{\#} \coloneqq \set{\termcode{t}\mid t \in \operatorname{Term}}.
+\end{equation*}
+\begin{prop}
+Valgono le seguenti proprietà:
+\begin{itemize}
+\item \(0\notin \operatorname{Term}^{\#}\), poiché \(0=\godelcode{}\) mentre ogni elemento di \(\operatorname{Term}^{\#}\) è codifica di una sequenza non vuota;
+\item per ogni \(t,t' \in \operatorname{Term}\) si ha
+\begin{itemize}
+\item \(\operatorname{ht}(t)\le \termcode{t}\);
+\item se \(t'\) è un \href{20250609111619-sottotermine.org}{sottotermine} di \(t\), allora \(\termcode{t'}\le\termcode{t}\);
+\item \(\term{t}=\term{t'}\) se e solo se \(t=t'\);
+\item se il simbolo \(s\) occorre in \(t\), allora \(\#(s)\le \termcode{t}\);
+\end{itemize}
+\item l'insieme \(\operatorname{Term}^{\#}\) è ricorsivo primitivo.
+\end{itemize}
+\end{prop}
+\subsection{Buona codifica delle formule di un linguaggio}
+\label{sec:org62918de}
+A partire da \(\#\), si definiscono delle codifiche \(\termcode{\varphi}\) per le \(L\)-\href{20250131103317-formula_del_prim_ordine.org}{formule} \(\varphi\) per ricorsione sull'\href{20250131103317-formula_del_prim_ordine.org}{altezza} di \(\varphi\):
+\begin{itemize}
+\item se \(\varphi\) è della forma \(t_{1}=t_{2}\) con \(t_{1},t_{2} \in \operatorname{Term}\), allora
+\begin{equation*}
+  \termcode{\varphi} = \godelcode{\#(=), \termcode{t_{1}},\termcode{t_{2}}};
+\end{equation*}
+\item se \(\varphi\) è della forma \(R(t_{1},\dots,t_{k})\) con \(R \in \operatorname{Rel}\), \(\operatorname{ar}(R)=k\) e \(t_{1},\dots,t_{k} \in \operatorname{Term}\), allora si pone
+\begin{equation*}
+  \termcode{\varphi} = \godelcode{\#(R), \termcode{t_{1}},\dots,\termcode{t_{k}}};
+\end{equation*}
+\item se \(\varphi\) è della forma \(\lnot\psi\) poniamo \(\termcode{\varphi}=\godelcode{\#(\lnot), \termcode{\varphi}}\);
+\item se \(\varphi\) è della forma \(\psi_{1}\mathrel{\square} \psi_{2}\) con \(\square \in \set{\land,\lor,\implies,\iff}\), si pone
+\begin{equation*}
+  \termcode{\varphi} = \godelcode{\#(\square), \termcode{\psi_{1}},\termcode{\psi_{2}}};
+\end{equation*}
+\item se \(\varphi\) è della forma \(Q\,v_{i}\ \psi\) per qualche \(Q \in \set{\exists,\forall}\) e \(v_{i} \in \operatorname{Vbl}\), si pone
+\begin{equation*}
+  \termcode{\varphi} = \godelcode{\#(Q), \#(v_{i}), \termcode{\psi}}.
+\end{equation*}
+\end{itemize}
+
+Si indica con \(\operatorname{Fml}\) l'insieme delle \(L\)-formule e con \(\operatorname{Fml}^{\#}\) l'insieme delle loro codifiche, ovvero
+\begin{equation*}
+\operatorname{Fml}^{\#} \coloneqq \set{\termcode{\varphi}\mid \varphi \in \operatorname{Fml}}.
+\end{equation*}
+\subsubsection{Proprietà}
+\label{sec:org7a09a68}
+\begin{itemize}
+\item \(0\notin \operatorname{Fml}^{\#}\), poiché \(0=\godelcode{}\) mentre ogni elemento di \(\operatorname{Form}^{\#}\) è codifica di una sequenza non vuota;
+\item per ogni \(\varphi,\psi \in \operatorname{Fml}\) si ha
+\begin{itemize}
+\item \(\operatorname{ht}(\varphi)\le \termcode{\varphi}\);
+\item se \(\psi\) è una \href{20250609113022-sottoformula_del_prim_ordine.org}{sottoformula} di \(\varphi\), allora \(\termcode{\psi}\le\termcode{\varphi}\);
+\item \(\term{\varphi}=\term{\psi}\) se e solo se \(\varphi=\psi\);
+\item se il simbolo \(s\) occorre in \(\varphi\), allora \(\#(s)\le \termcode{\varphi}\);
+\end{itemize}
+\item l'insieme \(\operatorname{Fml}^{\#}\) è ricorsivo primitivo.
+\end{itemize}
+\subsection{Codifica della sostituzione di termini a variabili}
+\label{sec:org5f82507}
+Dati due termini \(s,t \in \operatorname{Term}\) ed una variabile \(v_{i}\), il termine \(s(t/v_{i})\) ottenuto \href{20250609125154-sostituzione_di_termini_in_un_termine.org}{sostituendo} \(t\) a \(v_{i}\) è definito per ricorsione sull'altezza di \(s\) come segue:
+\begin{itemize}
+\item se \(s=v_{i}\), allora \(s(t/v_{i}) = t\);
+\item se \(s \in \operatorname{Cost}\cup \operatorname{Vbl}\) ma \(s\neq v_{i}\), allora \(s(t/v_{i}) = s\);
+\item se \(s=f(t_{1},\dots,t_{k})\) con \(f \in \operatorname{Fun}\) di arietà \(k\) e \(t_{1},\dots,t_{k} \in \operatorname{Term}\), allora
+\begin{equation*}
+  s(t/v_{i}) = f\left(t_{1}(t/v_{i}), \dots,t_{k}(t/v_{i})\right).
+\end{equation*}
+\end{itemize}
+
+Allo stesso modo, data una formula \(\varphi \in \operatorname{Fml}\) e un termine \(t \in \operatorname{Term}\) ed una variabile \(v_{i} \in \operatorname{Vbl}\), la formula \(\varphi(t/v_{i})\) ottenuta sostituendo \(t\) ad ogni occorrenza libera di \(v_{i}\) in \(\varphi\), è definita per ricorsione sull'altezza della formula:
+\begin{itemize}
+\item se \(\varphi\) è della forma \(t_{1}=t_{2}\) allora \(\varphi(t/v_{i})\) è \(t_{1}(t/v_{i}) = t_{2}(t/v_{i})\);
+\item se \(\varphi\) è della forma \(R(t_{1},\dots,t_{k})\) con \(R \in \operatorname{Rel}\) di arietà \(k\) e \(t_{1},\dots,t_{k} \in \operatorname{Term}\) allora \(\varphi(t/v_{i})\) è \(R\left(t_{1}(t/v_{i}),\dots,t_{k}(t/v_{i})\right)\);
+\item se \(\varphi\) è della forma \(\lnot\psi\) allora \(\varphi(t/v_{i})\) è \(\lnot \psi(t/v_{i})\);
+\item se \(\varphi\) è della forma \(\psi_{1}\mathrel{\square}\psi_{2}\) con \(\square \in \set{\land,\lor, \implies,\iff}\) allora \(\varphi(t/v_{i})\) è \(\psi_{1}(t/v_{i})\mathrel{\square}\psi_{2}(t/v_{i})\);
+\item se \(\varphi\) è della forma \(Q\, v_{i}\ \psi\) con \(Q \in \set{\forall,\exists}\), allora \(\varphi(t/v_{i})\) è \(\varphi\) stessa;
+\item se \(\varphi\) è della forma \(Q\, v_{j}\ \psi\) con \(Q \in \set{\forall,\exists}\) e \(j\neq i\), allora \(\varphi(t/v_{i})\) è \(Q\, v_{j}\ \psi(t/v_{i})\).
+\end{itemize}
+\subsubsection{Proposizione}
+\label{sec:org216c4d3}
+Le funzioni \(\operatorname{sub}_{\operatorname{Term}}, \operatorname{sub}_{\operatorname{Fml}}:\N^{3}\to \N\), definite come segue, sono \href{20250215141024-funzioni_primitive_ricordive.org}{ricorsive primitive}:
+\begin{align*}
+\operatorname{sub}_{\operatorname{Term}}(n,i,m) &\coloneqq \begin{cases}
+\termcode{s(t/v_{i})} & \text{se }n=\termcode{s}, m=\termcode{t} \in \operatorname{Term}^{\#}\\
+0 &\text{altrimenti}.
+\end{cases}\\
+\operatorname{sub}_{\operatorname{Fml}}(n,i,m) &\coloneqq \begin{cases}
+\termcode{\varphi(t/v_{i})} & \text{se }n=\termcode{\varphi} \in \operatorname{Fml}^{\#}, m=\termcode{t} \in \operatorname{Term}^{\#}\\
+0 &\text{altrimenti}.
+\end{cases}
+\end{align*}
+
+Inoltre sono ricorsivi primitivi gli insiemi
+\begin{align*}
+\operatorname{Free}_{\operatorname{Term}}^{\#} &\coloneqq \set{(i,\termcode{t}) \in \N^{2}\mid v_{i}\text{ occorre libera nel termine }t}\\
+\operatorname{Free}_{\operatorname{Fml}}^{\#} &\coloneqq \set{(i,\termcode{\varphi}) \in \N^{2}\mid v_{i}\text{ occorre libera nella formula  }\varphi}\\
+\operatorname{Enum}^{\#} &\coloneqq\set{\termcode{\sigma}\mid \sigma\text{ è un enunciato}} \subseteq \N
+\end{align*}
+\subsection{Notazioni}
+\label{sec:org77a3c05}
+
+Data una \(L\)-teoria del prim'ordine \(T\), indichiamo con
+\begin{align*}
+\operatorname{Teor}_{T} &\coloneqq\set{\varphi\mid T\vDash \varphi}\\
+\operatorname{Teor}_{T}^{\#} &\coloneqq\set{\termcode{\varphi}\mid \varphi \in \operatorname{Teor}_{T}}
+\end{align*}
+gli insiemi delle \href{20250131123011-conseguenza_logica.org}{conseguenze logiche} di \(T\) e dei loro codici.
+
+Inoltre, se \(\operatorname{Ax}(T)\) è un \href{20250131123109-insieme_di_assiomi_per_una_teoria.org}{sistema di assiomi} per \(T\), allora poniamo
+\begin{equation*}
+\operatorname{Ax}^{\#}(T) :=\set{\termcode{\varphi}\mid\varphi \in \operatorname{Ax}(T)}.
+\end{equation*}
+\end{document}

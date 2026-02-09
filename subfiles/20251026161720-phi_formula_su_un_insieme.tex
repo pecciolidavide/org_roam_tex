@@ -1,0 +1,43 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\renewcommand{\L}{\mathcal{L}} % Il linguaggio
+\newcommand{\U}{\mathcal{U}} % Modello mostro
+\section{phi-formula su un insieme}
+\label{sec:orgdd40782}
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+
+Sia \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio}, \(T\) una \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123151-teoria_completa.org}{completa} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti e \(\U\) un \href{20250617095548-modello_lambda_saturo.org}{modello saturo} di \href{20241213101756-cardinalita.org}{cardinalità} \href{20250211123155-cardinale_limite_forte.org}{inaccessibile} \(\kappa>\card{\L}+ \omega\). \(\U\) è un \href{20250617102733-modello_mostro.org}{modello mostro}.
+
+Sia \(A \subseteq \U\) piccolo.
+
+\begin{definizione}
+Sia \(\varphi(x;z) \in \L\) una \href{20250131103317-formula_del_prim_ordine.org}{formula}. Una \uline{\(\varphi\)-formula} su \(A\) è\footnote{Con questa notazione (\(\set{\land,\lor, \lnot}\! \Delta\)) si indica la \href{20251021120818-chiusura_di_un_insieme_di_formule_rispetto_a_connettivi_logici.org}{chiusura di \(\Delta\)} rispetto a \(\set{\land,\lor, \lnot}\)}
+\begin{equation*}
+\psi(x) \in \set{\land,\lor, \lnot}\! \Delta,\qquad \Delta = \set{\varphi(x;b)\mid b \in \U^{z}}
+\end{equation*}
+tale che \(\psi\) sia \href{20251026161128-formula_invariante_su_un_insieme.org}{invariante su \(A\)}.
+
+Con \(\mathcal{L}_{\varphi}(A)\) si intende l'insieme delle \(\varphi\)-formule su \(A\).
+\end{definizione}
+\subsection{phi-tipo su un insieme}
+\label{sec:orgdc1180f}
+\begin{definizione}
+Un \(\varphi\)-tipo è un insieme di \hyperref[sec:orgdd40782]{\(\varphi\)-formule}.
+
+Un \(\varphi\)-tipo \uline{globale} è un insieme \(\subseteq\)-\href{20250203102516-massimo_e_minimo.org}{massimale} \href{20250212164424-tipo_teoria_dei_modelli.org}{finitamente consistent}e di \(\varphi\)-formule su \(\U\).
+\(S_{\varphi}(\U)\) è l'insieme di tutti i \(\varphi\)-tipi globali.
+\end{definizione}
+
+\begin{oss}
+Se \(p(x) \in S_{\varphi}(\mathcal{U})\) allora a meno di equivalenza
+\begin{equation*}
+p(x) \subseteq \set{\varphi(x;b),\lnot\varphi(x;b)\mid b \in \mathcal{U}^{z}}.
+\end{equation*}
+
+\href{20250515141706-da_finire.org}{DA FINIRE}
+\end{oss}
+\end{document}

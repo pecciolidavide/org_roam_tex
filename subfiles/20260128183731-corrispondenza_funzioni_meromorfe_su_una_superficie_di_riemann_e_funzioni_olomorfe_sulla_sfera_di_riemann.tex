@@ -1,0 +1,141 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Corrispondenza funzioni meromorfe su una superficie di Riemann e funzioni olomorfe sulla Sfera di Riemann}
+\label{sec:orgcc983d8}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, sia \(\C_{\infty}\) la \href{20260127112905-sfera_di_riemann.org}{Sfera di Riemann}, e sia \(\mathds{P}^{1}_{\C}\) il \href{20241231115051-spazio_proiettivo.org}{piano proiettivo} \href{20260127112924-esempi_fondamentali_di_varieta_complesse.org}{complesso}, \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfo} a \(\C_{\infty}\)\footnote{Vedi ``\href{20260128181135-sfera_di_riemann_biolomorfa_al_piano_proiettivo_complesso.org}{Sfera di Riemann biolomorfa al piano proiettivo complesso}''}.
+
+\begin{prop}
+C'è una corrispondenza biunivoca tra:
+\begin{itemize}
+\item le \href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{funzioni meromorfe su \(X\) a valori in \(\C\)}: \(\mathcal{M}_{X}(X)\)
+\item le \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{funzioni olomorfe} \(F:X\to \C_{\infty} \cong \mathds{P}^{1}_{\C}\) non costanti in \(\infty\).
+\end{itemize}
+\begin{equation*}
+\set{\parbox{10em}{\centering%
+	funzioni meromorfe \(f\) su \(X\) a valori in \(\C\)%
+}} \xleftrightarrow{\hspace{1em} 1:1 \hspace{1em}} %
+\set{\parbox{10em}{\centering%
+	mappe olomorfe \(F:X\to \C_{\infty}\cong \mathds{P}^{1}_{\C}\) non costanti in \(\infty\)
+}}.
+\end{equation*}
+\end{prop}
+\begin{proof}
+(\(\longrightarrow\)): Sia \(f \in \mathcal{M}_{X}(X)\): si definisce
+\begin{align*}
+F: X &\longrightarrow \C_{\infty}\\
+x &\longmapsto \begin{cases}%
+f(x) \in \C & \text{\(x\) non è un polo}\\%
+\infty & \text{\(x\) è un polo}.%
+\end{cases}
+\end{align*}
+o, equivalentemente,
+\begin{align*}
+F: X &\longrightarrow \mathds{P}^{1}_{\C}\\
+x &\longmapsto \begin{cases}%
+(f(x):1) \in \C & \text{\(x\) non è un polo}\\%
+(1:0) & \text{\(x\) è un polo}.%
+\end{cases}
+\end{align*}
+
+Verifichiamo che \(F\) è \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa}:
+\begin{itemize}
+\item Se \(x_{0} \in X\) non è un polo per \(f\), allora \(F(x_{0}) \in U_{1} = \set{z_{1}\neq 0} \in \mathds{P}^{1}_{\C}\), quindi componendo le carte:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=scriptsize]
+        X \&\& {U_1 \subseteq \mathds{P}_{\C}^1} \&\& \C \\
+        {x_0} \&\& {F(x_0) = (f(x)\duepunti 1)} \&\& {f(x)}
+        \arrow["F", from=1-1, to=1-3]
+        \arrow["{(x\duepunti y)\mapsto \frac{x}{y}}", from=1-3, to=1-5]
+        \arrow[maps to, from=2-1, to=2-3]
+        \arrow[maps to, from=2-3, to=2-5]
+\end{tikzcd}
+\end{equation*}
+e si ottiene un mappa olomorfa per ipotesi.
+\item Se \(x_{0} \in X\) è un polo per \(f\), allora in un intorno \(U_{x_{0}} \subseteq X\) di \(x_{0}\)\footnote{Siccome \(f\) è \href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{meromorfa}, allora l'insieme delle singolarità e degli zeri di \(f\) è \href{20260128123515-sottoinsieme_discreto.org}{discreto}, e pertanto è possibile richiedere che dentro ad \(U_{x_{0}}\) non ci siano altri zeri di \(f\).} si ha che
+\begin{equation*}
+  \frac{1}{f(x)} \eqqcolon g(x)
+\end{equation*}
+è olomorfa e nulla in \(x_{0}\)\footnote{Questo segue dalle proprietà dell'\href{20260128144433-ordine_di_una_funzione_meromorfa.org}{ordine delle funzioni meromorfe}.}. Quindi, per ogni \(x \in U_{x_{0}} \setminus\set{x_{0}}\):
+\begin{equation*}
+  F(x) = (f(x):1) = \left(\frac{1}{g(x)} : 1\right) = (1:g(x))
+\end{equation*}
+mentre per \(x=x_{0}\):
+\begin{equation*}
+  F(x) = (1:0) = (1:g(x_{0}))
+\end{equation*}
+
+Quindi, per ogni \(x \in U_{x_{0}}\), \(F(x) \in U_{0} \coloneqq \set{z_{0}\neq 0} \subseteq \mathds{P}^{1}_{\C}\), e si ottiene:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=scriptsize]
+        {U_{x_0}\subseteq X} \&\& {U_0 \subseteq \mathds{P}_{\C}^1} \&\& \C \\
+        x \&\& {F(x) = \big(1\duepunti g(x)\big)} \&\& {g(x)}
+        \arrow["F", from=1-1, to=1-3]
+        \arrow["{(x\duepunti y)\mapsto \frac{y}{x}}", from=1-3, to=1-5]
+        \arrow[maps to, from=2-1, to=2-3]
+        \arrow[maps to, from=2-3, to=2-5]
+\end{tikzcd}
+\end{equation*}
+che è una funzione olomorfa.
+\end{itemize}
+
+Quindi \(F\) è olomorfa, ed è la funzione associata ad \(f \in \mathcal{M}_{X}(X)\).
+
+(\(\longleftarrow\)): Sia \(F: X\to \mathds{P}^{1}_{\C}\) una funzione olomorfa non costante in \((1:0)\).
+
+Sia \(S\coloneqq F^{-1}\left((1:0)\right)\): per il \href{20260128144016-principio_di_identita_per_funzioni_olomorfe_su_superfici_di_riemann.org}{principio di identità}, questo è un sottoinsieme discreto.
+
+Inoltre, l'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine} \(F(X\setminus S) \subseteq U_{1} \coloneqq \set{z_{1}\neq 0} \subseteq \mathds{P}^{1}_{\C}\): quindi si definisce \(f: X\setminus S\to \C\) come segue:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=scriptsize]
+	{X\setminus S} \&\& {U_1 \subseteq \mathds{P}_{\C}^1} \&\& \C
+	\arrow["F", from=1-1, to=1-3]
+	\arrow["f"', bend right=24pt, from=1-1, to=1-5]
+	\arrow["{(z_0\duepunti z_1)\mapsto \frac{z_0}{z_1}}", from=1-3, to=1-5]
+\end{tikzcd}
+\end{equation*}
+
+In particolare si ha che
+\begin{equation*}
+\restriction{F}{X\setminus S} = \big(f(x):1\big).
+\end{equation*}
+
+Verificare che:
+\begin{enumerate}
+\item \(f \in \mathcal{O}(X\setminus S)\);
+\item \(f \in \mathcal{M}_{X}(X)\).
+\end{enumerate}
+\end{proof}
+
+\begin{oss}
+La biiezione si restringe a
+\begin{equation*}
+\set{\parbox{10em}{\centering%
+	funzioni meromorfe \(f\) su \(X\) a valori in \(\C\) non costanti
+}} \xleftrightarrow{\hspace{1em} 1:1 \hspace{1em}} %
+\set{\parbox{10em}{\centering%
+	mappe olomorfe \(F:X\to \C_{\infty}\cong \mathds{P}^{1}_{\C}\) non costanti
+}}.
+\end{equation*}
+\end{oss}
+\subsection{Esistenza funzioni meromorfe a valori complessi per superfici di Riemann compatte}
+\label{sec:org01fc4c1}
+\begin{prop}
+Se \(X\) è una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatta}, sono fatti equivalenti:
+\begin{enumerate}
+\item esiste \(f \in\mathcal{M}_{X}(M)\) \href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{funzione meromorfa} \textbf{non costante};
+\item esiste \(F: X \to \mathds{P}^{1}_{\C}\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{funzione olomorfa} e \href{20241213105600-funzione_suriettiva.org}{suriettiva}.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Questo segue banalmente da:
+\begin{itemize}
+\item \hyperref[sec:orgcc983d8]{Corrispondenza funzioni meromorfe su una superficie di Riemann e funzioni olomorfe sulla Sfera di Riemann}
+\item \href{20260128183856-funzione_olomorfa_tra_superfici_di_riemann_condominio_compatto.org}{Proprietà funzione olomorfa non costante tra superfici di Riemann con dominio compatto}
+\end{itemize}
+\end{proof}
+\end{document}

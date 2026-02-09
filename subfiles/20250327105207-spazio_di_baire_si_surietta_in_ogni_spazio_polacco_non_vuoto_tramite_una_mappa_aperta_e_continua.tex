@@ -1,0 +1,40 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:orgd876d8a}
+Show that for every nonempty \href{20250301194013-spazio_polacco.org}{Polish space} \(X\) there is a \href{20250103103252-funzione_continua.org}{continuous} \href{20250104114559-funzione_chiusa.org}{open} \href{20241213105600-funzione_suriettiva.org}{surjection} \(f: \omega^\omega \rightarrow X\).
+
+{[}Hint. First show that if \(X\) is a \href{20250301193511-spazio_metrico.org}{metric space}, then \href{20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo.org}{for every open \(U\) and every \(\varepsilon \in \R^{+}\) there is a countable covering \(\left(U_n\right)_{n \in \omega}\) of \(U\) such that \(\operatorname{Cl}\left(U_n\right) \subseteq U\) and \(\operatorname{diam}\left(U_n\right)<\varepsilon\), for all \(n \in \omega\)}. Use this to build an appropriate \$\(\omega\)\$-scheme inducing the function \(f\).]
+\subsection{Soluzione}
+\label{sec:org0e0d0bf}
+
+Sia \(d\) una \href{20250301193511-spazio_metrico.org}{metrica} \href{20250301194153-spazio_metrico_completo.org}{completa} fissata su \(X\).
+
+Si costruisce per induzione su \(\operatorname{lh}(s)\) un \(\omega\)-schema \(\mathcal{S}\) su \((X,d)\). Sia \(B_{\langle\,\rangle} = X\).
+
+Sia ora \(s \in \omega^{<\omega}\) tale per cui \(B_{s}\) è definito. Sia \((U_{n})_{n \in \omega}\) il \href{20250103164252-ricoprimento.org}{ricoprimento} \href{20250103145124-topologia.org}{aperto} \href{20250111143651-insieme_numerabile.org}{numerabile} di \(B_{s}\) che esiste per il \href{20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo.org}{claim}. Questo è tale che:
+\begin{itemize}
+\item \(\bigcup_{n \in \omega}  U_{n} = B_{s}\)
+\item gli \(U_{n}\) sono aperti, per ogni \(n \in \omega\);
+\item \(U_{n} \subseteq \operatorname{Cl}(U_{n}) \subseteq B_{s}\);
+\item \(\operatorname{diam}(U_{n})\le 2^{-\operatorname{lh}(s)}\);
+\item senza perdità di generalità, e possibile supporre che ciascun \(U_{n}\neq \emptyset\) (si sostituisce nel ricoprimento a ciascun \(U_{n}=\emptyset\) il primo \(U_{m}\neq \emptyset\));
+\end{itemize}
+Si pone quindi, per ogni \(a \in \omega\): \(B_{s\concat a} \coloneqq U_{a}\).
+
+Si è in questo modo definito un \(\omega\)-schema su \(X\) che induce una funzione
+\begin{equation*}
+f:D_{\mathcal{S}}\to X.
+\end{equation*}
+Per il lemma 1.3.6, \(f\) è tale che
+\begin{enumerate}
+\item \(f\) è continua per il punto (a);
+\item \(f\) è suriettiva per il punto (d);
+\item \(D_{\mathcal{S}} = \omega^{\omega}\) per il punto (e);
+\item \(f\) è aperta per il punto (d).
+\end{enumerate}
+\end{document}

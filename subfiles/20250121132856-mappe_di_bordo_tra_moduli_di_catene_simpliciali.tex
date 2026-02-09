@@ -1,0 +1,44 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}.
+
+Sia \(K\) un \href{20250121124147-complesso_simpliciale.org}{complesso simpliciale} \href{20250121131005-complesso_simpliciale_totalmente_ordinato.org}{totalmente ordinato}, e sia per ogni \(q\) l'\href{20241205141053-r_moduli.org}{\(R\)-modulo} \href{20250121124410-modulo_delle_catene_simpliciali.org}{delle catene simpliciali \(C_{q}(K)\)}. Si definisce il \href{20241206115416-morfismi_r_moduli.org}{morfismo}:
+\begin{align*}
+\partial_{q}: C_{q}(K) &\longrightarrow C_{q-1}(K)\\
+[p_{0},\dots,p_{q}] &\longmapsto \sum_{i=0}^{q} (-1)^{i} [p_{0},\dots,\hat{p}_{i},\dots,p_{q}]
+\end{align*}
+\begin{prop}
+Per ogni \(q\) si ha che \(\partial_{q-1}\partial_{q} = 0\).
+\end{prop}
+\begin{proof}
+\href{20241213095808-somma_diretta.org}{Siccome} \(C_{q}(K)\) è \href{20241213094625-modulo_libero.org}{libero}, è sufficiente mostrarlo su una \href{20241213094625-modulo_libero.org}{base}.
+
+Sia \([p_{0},\dots,p_{q}] \in K^{q}\) un \(q\)-\href{20250121121923-simplessi.org}{simplesso}. Per definizione:
+\begin{equation*}
+\partial_{q}[p_{0},\dots,p_{q}] = \sum_{i=0}^{q}(-1)^{i} [p_{0},\dots,\hat{p}_{i},\dots,p_{q}].
+\end{equation*}
+Dunque
+\begin{align*}
+\partial_{q-1}&\left(\partial_{q}[p_{0},\dots,p_{q}]\right) %
+	= \sum_{i=0}^{q} (-1)^{i} \partial_{q-1}[p_{0},\dots,\hat{p}_{i},\dots,p_{q}]\\
+&= \sum_{i=0}^{q} (-1)^{i} \left[ %
+	\sum_{j=0}^{i-1}(-1)^{j} [p_{0},\dots,\hat{p}_{j},\dots,\hat{p}_{i},\dots,p_{q}] + %
+	\sum_{j=i}^{q-1}(-1)^{j} [p_{0},\dots,\hat{p}_{i},\dots,\hat{p}_{j+1},\dots,p_{q}] %
+\right]\\
+&=
+	\sum_{\substack{j<i\\ i,j=0}}^{q} (-1)^{i+j} [p_{0},\dots,\hat{p}_{j},\dots,\hat{p}_{i}, \dots, p_{q}] +
+	\sum_{\substack{j+1>i\\ i,j=0}}^{q} - (-1)^{i+j+1} [p_{0},\dots,\hat{p}_{i},\dots,\hat{p}_{j+1},\dots,p_{q}]\\
+&\underset{\dagger}{=}
+	\sum_{\substack{j<i\\ i,j=0}}^{q} (-1)^{i+j} [p_{0},\dots,\hat{p}_{j},\dots,\hat{p}_{i}, \dots, p_{q}] +
+	\sum_{\substack{i'>j'\\ i',j'=0}}^{q} - (-1)^{i'+j'} [p_{0},\dots,\hat{p}_{j'},\dots,\hat{p}_{i'},\dots,p_{q}]\\
+& =
+	\sum_{\substack{j<i\\ i,j=0}}^{q} (-1)^{i+j} [p_{0},\dots,\hat{p}_{j},\dots,\hat{p}_{i}, \dots, p_{q}]
+	- \sum_{\substack{i'>j'\\ i',j'=0}}^{q} (-1)^{i'+j'} [p_{0},\dots,\hat{p}_{j'},\dots,\hat{p}_{i'},\dots,p_{q}] = 0
+\end{align*}
+dove l'uguaglianza (\(\dagger\)) si è ottenuta ponento \(j'=i\) e \(i'=j+1\).
+\end{proof}
+\end{document}

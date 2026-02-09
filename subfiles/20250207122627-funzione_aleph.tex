@@ -1,0 +1,35 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funzione Aleph}
+\label{sec:org6caa852}
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+
+La \href{20250203161341-cardinali.org}{classe dei cardinali} privata di \href{20250203161110-numeri_naturali_sono_ordinali.org}{\(\omega\)} è una \href{20250203104134-buon_ordine_mk.org}{classe ben ordinata} con l'inclusione ed inoltre è una \href{20250130104320-classe_mk.org}{classe propria}.
+
+\href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{Dunque} \(\operatorname{Ord}\cong \operatorname{Card}\setminus\omega\) e l'\href{20250203110432-isomorfismo_tra_ordini.org}{isomorfismo} è dato dalla \href{20250202170607-classe_relazione_binaria.org}{classe-funzione} \(\aleph\).
+\begin{equation*}
+\aleph:\operatorname{Ord}\to\operatorname{Card}\setminus\omega
+\end{equation*}
+In quanto isomorfismo è \href{20250203132953-funzione_monotona.org}{crescente} e \href{20250203161326-topologia_sugli_ordinali.org}{continua}.
+
+
+\begin{align*}
+\aleph_{0} &=\omega\\
+\aleph_{\operatorname{S}(\alpha)} &= (\aleph_{\alpha})^{+}\\
+\aleph_{\lambda} &= \sup_{\alpha<\lambda}\aleph_{\alpha}
+\end{align*}
+
+Spesso si scrive \(\omega_{\alpha}\) in luogo di \(\aleph_{\alpha}\).
+\begin{prop}
+Poiché \(\aleph:\operatorname{Ord}\to\operatorname{Ord}\) è crescente e continua, \href{20250207122856-punto_fisso_di_funzioni_continue_e_crescenti_sugli_ordinali.org}{allora} ammette punto fisso, ovvero esistono degli cardinali \(\kappa =\aleph_{\kappa}\).
+
+Il più piccolo di questi cardinali è il supremum di
+\begin{equation*}
+\aleph_{0},\quad \aleph_{\aleph_{0}},\quad\aleph_{\aleph_{\aleph_{0}}}, \quad \aleph_{\aleph_{\aleph_{\aleph_{0}}}},\quad\dots
+\end{equation*}
+\end{prop}
+\end{document}

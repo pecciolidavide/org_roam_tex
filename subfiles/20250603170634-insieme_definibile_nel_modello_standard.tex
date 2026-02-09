@@ -1,0 +1,84 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Notazione}
+\label{sec:org1269dfa}
+
+Si consideri il linguaggio del prim'ordine \(\mathcal{L} = \set{+,\cdot}\). Si definiscono le seguenti pseudoformule (ovvero abbreviazioni):
+\begin{itemize}
+\item relazione d'ordine: ``\(x\le y\)'' sse \(\varphi_{\le}(x,y)\) dove
+\begin{equation*}
+  \varphi_{\le}(x,y) = \exists\,z\ (z+x=y);
+\end{equation*}
+\item numero zero: ``\(x=0\)'' sse \(x+x=x\);
+\item numero uno: ``\(x=1\)'' sse \(x\cdot x=x\);
+\item la funzione successore: ``\(y=S(x)\)'' sse \(\exists\,w\ ( ``w=1" \,\land\, x+w=1)\).
+\end{itemize}
+
+Inoltre, per ogni linguaggio \(\mathcal{L}'\supseteq \mathcal{L}\) e per ogni \(\mathcal{L}'\)-formula \(\psi\) si useranno le seguenti quantificazioni limitate: si scriverà
+\begin{align*}
+\exists\,w\le t\ &\psi\\
+\forall\,w\le t\ &\psi
+\end{align*}
+in luogo di
+\begin{align*}
+\exists\,w\ &\left(\varphi_{\le}(w,t) \,\land\, \psi\right)\\
+\forall\,w\ &\left(\varphi_{\le}(w,t) \,\implies\, \psi\right)
+\end{align*}
+\section{Definizione}
+\label{sec:orgd71979c}
+
+\begin{itemize}
+\item Un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \(P \subseteq \N^{k}\) si dice \uline{\(\Gamma\)-definibile} (dove \(\Gamma\) è uno tra le \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{classi di complessità} \(\Delta_{0},\Sigma_{n},\Pi_{n}\)) se esiste una \(\Gamma\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\varphi(x_{1},\dots,x_{n})\) tale che
+\begin{equation*}
+  P = \set{(a_{1},\dots,a_{n}) \in \N^{k}\mid \langle \N,+,\cdot\rangle \vDash \varphi[a_{1},\dots,a_{n}]}.
+\end{equation*}
+dove \(\langle \N,+,\cdot\rangle\) è il \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard dell'aritmetica}.
+\item Un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \(P \subseteq \N^{k}\) si dice \(\Delta_{n}\)-definibile se è sia \(\Pi_{n}\)-definibile che \(\Sigma_{n}\)-definibile.
+\item Un sottoinsieme \(P \subseteq \N^{k}\) si dice \uline{definibile} se è \(\Gamma\)-definibile per qualche \(\Gamma\) scelto tra \(\Delta_{0},\Sigma_{n},\Pi_{n}\).
+\item Una funzione \(f:\N^{k}\to \N\) si dice \(\Gamma\)-definibile (dove \(\Gamma\) è uno tra le \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{classi di complessità} \(\Delta_{0},\Sigma_{n},\Pi_{n}\)) se il suo \href{20250104112443-grafico_di_una_funzione.org}{grafico} \(\operatorname{graph}(f) \subseteq \N^{k+1}\) è un sottoinsieme \(\Gamma\)-definibile.
+\end{itemize}
+\section{Esempi di predicati Delta0 definibili}
+\label{sec:org106f2c3}
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\).
+
+\begin{itemize}
+\item L'insieme vuoto \(A=\emptyset\) è \(\Delta_{0}\)-definibile, dalla formula \(\lnot(x=x)\).
+\item I predicati ``\(x=0\)'' e ``\(x=1\)'' sono chiaramente \(\Delta_{0}\) definibili. Inoltre, per ogni \(0\neq n \in \N\), il predicato ``\(x=n\)'' (ovvero l'insieme \(\set{n} \subseteq \N\)) è \(\Delta_{0}\)-definibile, poiché
+\begin{equation*}
+  ``x=n''\qquad\iff\qquad \exists\, y\le x\ \big(``y=1" \,\land\, x =\parentesi{n\text{ volte}}{y+y+\dots+y}\big).
+\end{equation*}
+
+Di conseguenza, ogni insieme finito \(\set{n_{1},\dots,n_{k}} \subseteq \N\) è \(\Delta_{0}\)-definibile dalla formula
+\begin{equation*}
+  ``x=n_{1}" \,\lor\,``x=n_{2}" \,\lor\,\dots \,\lor\,``x=n_{k}".
+\end{equation*}
+\item La relazione d'ordine \(\le \subseteq \N^{2}\) è \(\Delta_{0}\)-definibile, in quanto
+\begin{equation*}
+  ``x\le y" \qquad \iff\qquad \exists\,w\le y\ (x=w).
+\end{equation*}
+
+\uline{Nota}: questa definizione non è circolare, perché semplicemente si è richiesto che le classi \(\Delta_{0}\) siano chiuse per quantificazione limitata, che è definita essere \textbf{così}.
+\item La \href{20250202124648-successore_di_un_insieme_mk.org}{funzione successore} è \(\Delta_{0}\)-definibile, poiché
+\begin{equation*}
+  ``S(x)=y"\qquad\iff\qquad \exists\,z\le y\ \left(``z=1" \,\land\, y=x+z\right).
+\end{equation*}
+
+\item Il predicato ``\(x\) è un numero primo'' è \(\Delta_{0}\)-definibile.
+\end{itemize}
+\section{Proprietà di chiusura delle classi degli insiemi definibili}
+\label{sec:org094b489}
+Sia \(\Gamma\) una tra \(\Sigma_{n}, \Pi_{n}, \Delta_{n}\). La collezione degli insiemi \(\Gamma\)-definibili è chiusa per
+\begin{itemize}
+\item intersezioni
+\item unioni
+\item quantificazioni limitate.
+\end{itemize}
+
+Inoltre la collezione dei \(\Sigma_{n}\)-definibili è chiusa per proiezioni, mentre la collezione dei \(\Delta_{n}\)-definibili è chiusa per complementi.
+\end{document}

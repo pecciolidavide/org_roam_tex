@@ -1,0 +1,110 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:org180f893}
+
+Let \(X\) be a metrizable topological space. Prove by induction on \(1 \leq \alpha < \omega_1\) that:
+\begin{enumerate}
+\item \(\bm{\Sigma}^0_\alpha(X)\) is closed under countable unions and finite intersections;
+\item \(\bm{\Pi}^0_\alpha(X)\) is closed under countable intersections and finite unions;
+\item \(\bm{\Delta}^0_\alpha(X)\) is a Boolean algebra, i.e., it is closed under complements, finite unions, and finite intersections.
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:org5128c13}
+
+\subsubsection{Caso base: \(\alpha=1\)}
+\label{sec:orgd7ec588}
+
+\begin{enumerate}
+\item Unione di aperti è aperta e intersezione finita di aperti è aperta.
+\item Intersezione di chiusi è chiusa e unione finita di chiusi è chiusa.
+\item Il complementare di un clopen è ancora un clopen, così come unioni e intersezioni finite.
+\end{enumerate}
+\subsubsection{Passo induttivo}
+\label{sec:org2d49624}
+
+Sia l'enunciato vero per ogni \(\beta<\alpha\).
+\paragraph{Classi additive}
+\label{sec:org678f13d}
+
+\begin{itemize}
+\item Siano, per ogni \(n \in\omega\), \(A_{n} \in \bm{\Sigma}^0_\alpha(X)\). Per definizione, per ogni \(n \in\omega\), esistono degli \(A_{n}^{m} \in \bm{\Pi}^0_{\beta_{n}^{m}}(X)\), con \(\beta_{n}^{m}<\alpha\), tali che
+\begin{equation*}
+  A_{n} = \bigcup_{m \in \omega} A_{n}^{m}
+\end{equation*}
+Allora si ha che
+\begin{equation*}
+  \bigcup_{n \in \omega} A_{n} = \bigcup_{n,m \in \omega} A_{n}^{m}
+\end{equation*}
+che è ancora una unione numerabile, ed è quindi un elemento di \(\bm{\Sigma}^0_\alpha(X)\).
+
+\item Siano \(U, V \in \bm{\Sigma}^0_\alpha(X)\). Per definizione esistono degli \(U_{n} \in \bm{\Pi}^0_{\beta^{U}_{n}}(X)\) e degli \(V_{m} \in \bm{\Pi}^0_{\beta^{V}_{m}}(X)\), con \(\beta_{n}^{U}, \beta_{m}^{V} <\alpha\) tali che
+\begin{equation*}
+  U = \bigcup_{n \in \omega} U_{n},\quad V = \bigcup_{m \in \omega} V_{m}
+\end{equation*}
+
+Detto \(\beta_{n,m} \coloneqq \max\set{\beta_{n}^{V},\beta_{m}^{U}}<\alpha\), si ha che
+\begin{equation*}
+  U\cap V = \left(\bigcup_{n \in\omega} U_{n}\right)\cap\left(\bigcup_{m \in \omega} V_{m}\right) = \bigcup_{n,m \in \omega} (U_{n}\cap V_{m})
+\end{equation*}
+Per ipotesi induttiva, per ogni \(n,m\) si ha \(U_{n}\cap V_{m} \in \bm{\Pi}^0_{\beta_{n,m}}(X)\) e pertanto \(U\cap V \in \bm{\Sigma}^0_\alpha(X)\)
+\end{itemize}
+\paragraph{Classi moltiplicative}
+\label{sec:org7edf96b}
+
+\begin{itemize}
+\item Siano, per ogni \(n \in\omega\), \(A_{n} \in \bm{\Pi}^0_\alpha(X)\). Per definizione, per ogni \(n \in\omega\), esistono degli \(A_{n}^{m} \in \bm{\Sigma}^0_{\beta_{n}^{m}}(X)\), con \(\beta_{n}^{m}<\alpha\), tali che
+\begin{equation*}
+  A_{n} = \bigcap_{m \in \omega} A_{n}^{m}
+\end{equation*}
+Allora si ha che
+\begin{equation*}
+  \bigcap_{n \in \omega} A_{n} = \bigcap_{n,m \in \omega} A_{n}^{m}
+\end{equation*}
+che è ancora una intersezione numerabile, ed è quindi un elemento di \(\bm{\Pi}^0_\alpha(X)\).
+
+\item Siano \(U, V \in \bm{\Pi}^0_\alpha(X)\). Allora \((X\setminus U), (X\setminus V) \in \bm{\Sigma}^0_\alpha(X)\)
+\begin{align*}
+  X\setminus (U\cup V) = (X\setminus U)\cap (X\setminus V)
+\end{align*}
+e siccome \(\bm{\Sigma}^0_\alpha(X)\) è chiuso per intersezioni finite, allora \(X\setminus (U\cup V)\) è un elemento di \(\bm{\Sigma}^0_\alpha(X)\), ovvero
+\begin{equation*}
+  U\cup V \in \bm{\Pi}^0_\alpha(X).
+\end{equation*}
+\end{itemize}
+\paragraph{Classi ambigue}
+\label{sec:orgb5011d2}
+
+\begin{itemize}
+\item Sia \(U \in \bm{\Delta}^0_\alpha(X)\). Allora \(U \in \bm{\Sigma}^0_\alpha(X)\cap \bm{\Pi}^0_\alpha(X)\), ovvero esistono
+\begin{equation*}
+  A_{n} \in \bm{\Pi}^0_{\beta_{n}}(X),\qquad B_{m} \in \bm{\Sigma}^0_{\beta^{m}}(X)
+\end{equation*}
+con \(\beta_{n},\beta^{m} <\alpha\) tali che
+\begin{equation*}
+  U=\bigcup_{n \in \omega} A_{n},\qquad U = \bigcap_{m \in \omega} B_{m}.
+\end{equation*}
+
+Pertanto si ha che
+\begin{align*}
+  X\setminus U &= X \setminus \left(\bigcup_{n \in \omega} A_{n}\right) = \bigcap_{n \in\omega} (X\setminus A_{n})\\
+  X\setminus U &= X\setminus \left(\bigcap_{m \in \omega} B_{m}\right) = \bigcup_{m \in \omega} (X\setminus B_{m})
+\end{align*}
+
+Se \(A_{n} \in \bm{\Pi}^0_{\beta_{n}}(X)\) allora \(X\setminus A_{n} \in \bm{\Sigma}^0_{\beta_{n}}(X)\), e pertanto \(X\setminus U \in \bm{\Pi}^0_\alpha(X)\).
+
+Se \(B_{m} \in \bm{\Sigma}^0_{\beta^{m}}(X)\) allora \(X\setminus B_{m} \in \bm{\Pi}^0_{\beta^{m}}(X)\), e pertanto \(X\setminus U \in \bm{\Sigma}^0_\alpha(X)\).
+
+Dunque \(X\setminus U \in \bm{\Sigma}^0_\alpha(X)\cap \bm{\Pi}^0_\alpha(X) = \bm{\Delta}^0_\alpha(X)\).
+
+\item Siccome sia \(\bm{\Pi}^0_\alpha(X)\) che \(\bm{\Sigma}^0_\alpha(X)\) sono chiusi per unioni e intersezioni finite, allora
+\[
+  \bm{\Pi}^0_\alpha(X)\cap \bm{\Sigma}^0_\alpha(X) = \bm{\Delta}^0_\alpha(X)
+  \]
+è chiuso per unioni e intersezioni finite.\qed
+\end{itemize}
+\end{document}

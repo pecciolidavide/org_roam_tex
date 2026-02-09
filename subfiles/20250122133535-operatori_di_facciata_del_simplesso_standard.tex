@@ -1,0 +1,26 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Siano \(\Delta_{q}\) e \(\Delta_{q-1}\) i \href{20250121122324-simplesso_standard.org}{simplessi standard}:
+\begin{equation*}
+\Delta_{q-1} = [0, e_{1},\dots,e_{q-1}] \subseteq \R^{q},\qquad \Delta_{q} = [0, e_{1},\dots,e_{q}] \subseteq \R^{q+1}
+\end{equation*}
+
+\begin{definizione}
+Si definiscono gli operatori di facciata opposta all'\(i\)-esimo vertice di \(\Delta_{q}\):
+\begin{equation*}
+\varepsilon_{0}^{q},\dots,\varepsilon_{i}^{q},\dots,\varepsilon_{q}^{q} : \Delta_{q-1}\longrightarrow \Delta_{q}
+\end{equation*}
+definito sui vertici come (ponendo per convenzione \(e_{0}=0\))
+\begin{equation*}
+\varepsilon_{j}^{q}(e_{i}) \coloneqq \begin{cases}
+e_{i} &i<j\\
+ e_{i+1} &i\ge j
+\end{cases}
+\end{equation*}
+ed esteso per linearità a tutti gli altri punti.
+\end{definizione}
+\end{document}

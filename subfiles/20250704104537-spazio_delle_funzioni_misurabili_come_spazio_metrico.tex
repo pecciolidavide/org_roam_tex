@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{M}^{n}\) lo spazio delle funzioni \href{20250704104938-algebra_di_borel.org}{Borel}-\href{20250704104947-funzione_misurabile.org}{misurabili}:
+\begin{equation*}
+\mathcal{M}^{n}\coloneqq \set{f:\R^{n}\to \R\mid f\text{ Borel misurabile}}.
+\end{equation*}
+
+Se \(\bm{{\operatorname{Bor}}}(\R^{n})\) e \(\bm{{\operatorname{Bor}}}(\R)\) denotano le \href{20250704104938-algebra_di_borel.org}{algebre di Borel} di \(\R^{n}\) e di \(\R\), rispettivamente, allora
+\begin{equation*}
+f \in \mathcal{M}^{n}\quad \iff\quad \forall A \in \bm{{\operatorname{Bor}}}(\R): \ f^{-1}(A) \in \bm{{\operatorname{Bor}}}(\R^{n}).
+\end{equation*}
+
+Per definire una distanza \(d\) su \(\mathcal{M}^{n}\) si deve scegliere \(\mu:\bm{{\operatorname{Bor}}}(\R^{n})\to [0,1]\) \href{20250704105515-misura_di_probabilita.org}{misura di probabilità} su \(\left(\R^{n}, \bm{{\operatorname{Bor}}}(\R^{n})\right)\), con \(\mu(\R^{n})=1\).
+
+Quindi \((\mathcal{M}^{n},d_{\mu})\) è uno \href{20250301193511-spazio_metrico.org}{spazio metrico}, dove si è definita la \href{20250301193511-spazio_metrico.org}{distanza}:
+\begin{equation*}
+d_{\mu}(f,g) = \inf\set{\varepsilon>0\mid \mu\left(\set{x \in \R^{n}: |f(x)-g(x)|>\varepsilon}\right)<\varepsilon}.
+\end{equation*}
+Pertanto \(\mathcal{M}^{n}\) è dotato di una \href{20250103145124-topologia.org}{topologia} \href{20250301193530-topologia_indotta_da_una_distanza.org}{indotta dalla metrica}.
+\end{document}

@@ -1,0 +1,57 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso} e sia \(\Gamma=\set{p_{1},\dots,p_{d}} \subseteq \mathds{P}^{n}\) (vedi \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo}). \(\Gamma\) è una \href{20241231123223-varieta_algebrica_proiettiva.org}{Varietà Algebrica Proiettiva}?
+Esiste \(T \subseteq \K[x_{0}:\dots:x_{n}]^{h}\) tale che \(\Gamma = V(T)\)? (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi} e \href{20241231112823-radici_polinomiali.org}{Luogo di zeri})?
+\section{Fatto 1:}
+\label{sec:org3c3fca6}
+È possibile trovare \(T \subseteq \K[x_{0}:\dots:x_{n}]\) tale che
+\begin{align*}
+\forall\,  F \in T,\ \deg F \le d
+\end{align*}
+(vedi \href{20241231124742-grado_polinomi.org}{Grado-Polinomi})
+\subsection{Dim.}
+\label{sec:org75b024d}
+Per dimostrarlo si trova, per ogni \(q \in \mathds{P}^{n}\setminus\Gamma\) un polinomio \(F_{q}\in \K[x_{0}:\dots:x_{n}]\) tale che \(F_{q}(q)\neq 0\) e \(F_{q}(p_{i})=0\) per ogni \(p_{i} \in \Gamma\).
+
+Sia dunque \(H_{iq}\) il polinomio equazione dell'\href{20250102144306-iperpiano_proeittivo.org}{Iperpiano} che passa per \(p_{i}\) e non passa per \(q\): questo è un polinomio di primo grado, ed esiste sempre, poiché \(p_{i}\neq q\)
+Si ha quindi che \(F_{q} = H_{1q} \cdots \dots \cdots H_{dq}\) è un polinomio di grado \(d\).
+\section{Fatto 2}
+\label{sec:orgbd1c701}
+Se \(\Gamma\) è contenuto in una retta, \textbf{non è possibile} trovare \(T\) tale che
+\begin{equation*}
+\forall\, F \in T,\ \operatorname{\deg} F \le d-1
+\end{equation*}
+\subsection{Dim}
+\label{sec:orgea4a899}
+Si dimostra che, in virtù del fatto 1, esiste \(F \in T\)  tale che \(\deg F=d\).
+
+Siano \(P,Q\) tali che la retta
+\begin{equation*}
+\ell: \lambda P + \mu Q
+\end{equation*}
+contenga \(\Gamma\). Dunque, per ogni \(p_{i} \in \Gamma\) esiste \([\lambda_{i}:\mu_{i}]\in \mathds{P}^{1}\) tale che \(p_{i} = \lambda_{i}P+\mu_{i}Q\)
+
+Sia \(F \in T\). \(F \circ\ell\) è un polinomio omogeneo in due variabili di grado uguale ad \(F\) (poiché \(\ell\) è di primo grado)
+
+Se \(\deg F = \deg F\circ \ell\le d-1\), siccome \(F\circ \ell\) ha almeno \(d\) radici (poiché \(V(T) = \Gamma \subseteq \ell\)), si ha che \(F\circ \ell \equiv 0\)\footnote{Poiché \(F\circ\ell(\lambda,\mu)\) è omogeneo di grado \(\le d-1\), allora \(F\circ \ell(1,\xi)\) è un polinomio in una indeterminata di grado uguale a \(F\circ \ell(\lambda,\mu)\).
+A meno di scegliere \(P,Q\notin \Gamma\), per ogni \(p_{i} \in \Gamma\) si ha che \(\lambda_{i},\mu_{i}\neq 0\). Poiché \(F\circ\ell\) è un polinomio omogeneo, posto \(\xi_{i}=\frac{\mu_{i}}{\lambda_{i}}\) si ha che
+\begin{equation*}
+\forall\, i,\qquad 0=F\circ\ell[\lambda_{i}:\mu_{i}] = F\circ \ell [1:\xi_{i}]
+\end{equation*}
+e pertanto, \(F\circ \ell(1,\xi)\) ha almeno \(d\) radici. Dunque, per il \href{20250102154204-teorema_fondamentale_dell_algebra.org}{Teorema Fondamentale dell'Algebra}, siccome \(\K\) è un campo algebricamente chiuso, \(F\circ \ell(1,\xi)\equiv 0\), e dunque, per omogeneità, lo è pure \(F\circ \ell(\lambda,\mu)\).} e dunque \(\ell \subseteq V(F)\).
+
+Quindi, se \(\forall\, F \in T\), \(\deg F \le d-1\), allora \(\ell \subseteq V(T)\). Questo è assurdo, poiché la retta ha infiniti punti mentre \(\Gamma=V(T)\) ne ha un numero finito.
+\section{Fatto 3}
+\label{sec:org6067008}
+Se \(d\le 2n\) e \(\Gamma\) è in \href{20250102142629-posizione_generale.org}{Posizione Generale}, allora si può trovare \(T\) tale che
+\begin{equation*}
+\forall\, F\in T, \ \deg F\le 2
+\end{equation*}
+\section{Fatto 4}
+\label{sec:org70d265e}
+Se \(\Gamma \subseteq \mathds{P}^{2}\), allora \(\Gamma = V(F_{1},F_{2})\).
+\end{document}

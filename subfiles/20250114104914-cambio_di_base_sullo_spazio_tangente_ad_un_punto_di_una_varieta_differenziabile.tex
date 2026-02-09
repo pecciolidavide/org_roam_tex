@@ -1,0 +1,44 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} di dimensione \(n\), sia \(p \in M\), e siano \((U,\varphi_{\alpha})\), \((V,\varphi_{\beta})\) due \href{20250111092123-varieta_topologica.org}{carte} di \(M\), con \(p \in U\cap V\).
+Siano
+\begin{align*}
+\varphi_{\alpha} &= (x^{1}_{\alpha},\dots,x^{n}_{\alpha})\\
+\varphi_{\beta} &= (x^{1}_{\beta},\dots,x^{n}_{\beta})
+\end{align*}
+
+Ciascuna delle \(x_{\gamma}^{i}: U\cap V\longrightarrow \R\), e pertanto \(\left(x^{i}_{\gamma}\right)_{p} \in \mathscr{F}_{p}\) (Vedi \href{20250114100254-germi_di_funzioni.org}{Germi di funzioni}).
+
+\(\varphi_{\alpha}\) induce la \href{20250102163502-base_di_uno_spazio_vettoriale.org}{base} di \(\operatorname{T}_{p}M\) (vedi \href{20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Spazio tangente ad un punto di una varietà differenziabile} e \href{20250114103339-teorema_sulla_base_dello_spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Teorema sulla base dello spazio tangente ad un punto di una varietà differenziabile}):
+\begin{equation*}
+\set{\restriction{\dpd{}{{x^{1}_{\alpha}}}}{p}, \dots, \restriction{\dpd{}{{x^{n}_{\alpha}}}}{p}}
+\end{equation*}
+
+\(\varphi_{\beta}\) induce la \href{20250102163502-base_di_uno_spazio_vettoriale.org}{base} di \(\operatorname{T}_{p}M\) (vedi \href{20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Spazio tangente ad un punto di una varietà differenziabile} e \href{20250114103339-teorema_sulla_base_dello_spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Teorema sulla base dello spazio tangente ad un punto di una varietà differenziabile}):
+\begin{equation*}
+\set{\restriction{\dpd{}{{x^{1}_{\beta}}}}{p}, \dots, \restriction{\dpd{}{{x^{n}_{\beta}}}}{p}}
+\end{equation*}
+\section{Proposizione}
+\label{sec:org172d905}
+La \href{20250104111539-spazio_delle_matrici.org}{matrice} del \href{20250114105929-matrice_del_cambiamento_di_base.org}{cambiamento di base} \(A^{k}_{r}\) è
+\begin{equation*}
+A^{k}_{r} = \restriction{\dpd{}{{x^{r}_{\beta}}}}{p}\left(x_{\alpha}^{i}\right)_{p}
+\end{equation*}
+dove, con la \href{20250114105957-notazione_di_einstein.org}{notazione di Einstein}
+\begin{equation*}
+\restriction{\dpd{}{{x^{r}_{\beta}}}}{p} = A^{k}_{r}\restriction{\dpd{}{{x^{k}_{\alpha}}}}{p}
+\end{equation*}
+\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\label{sec:org76a29ec}
+
+\subsection{Notazione}
+\label{sec:orgb64c1c6}
+La matrice \(A^{k}_{r}\) si indica anche come segue:
+\begin{equation*}
+A^{k}_{r} = \restriction{\dpd{{x^k_{\alpha}}}{{x^{r}_{\beta}}}}{p} = \dpd{{x^k_{\alpha}}}{{x^{r}_{\beta}}}(p)
+\end{equation*}
+\end{document}

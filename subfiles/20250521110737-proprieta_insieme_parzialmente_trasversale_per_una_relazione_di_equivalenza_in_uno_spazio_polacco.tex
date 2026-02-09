@@ -1,0 +1,81 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esercizio 2}
+\label{sec:orgc9f7205}
+
+Let \(E\) be an equivalence relation on a Polish space \(X\). A \textbf{partial transversal} for \(E\) is a set \(T \subseteq X\) meeting each \(E\)-equivalence class in at most one point. Show that the following are equivalent:
+\begin{enumerate}
+\item \(E\) admits an uncountable analytic partial transversal;
+\item \(E\) admits an uncountable Borel partial transversal;
+\item there is a Borel function \(f: \R \to X\) such that \(f(r_0) \not\mathrel{E} f(r_1)\) for all distinct \(r_0, r_1 \in \R\).
+\end{enumerate}
+\subsection{Soluzione}
+\label{sec:orgf9d7dd3}
+
+\subsubsection{a. implica b.}
+\label{sec:orgbc3538f}
+
+\uline{Osservazione}: se \(T \subseteq X\) è un insieme trasversale parziale, allora ogni \(T' \subseteq T\) è ancora un insieme trasversale parziale.
+
+Inoltre, \href{20250522113216-ogni_insieme_analitico_non_numerabile_ammette_un_sottoinsieme_boreliano_non_numerabile.org}{ogni insieme analitico \(A\) non numerabile ammette un sottoinsieme boreliano \(B\) non numerabile}, in quanto:
+\begin{itemize}
+\item siccome \(A\) è analitico, allora \(A\) ha la PSP (per il Teorema 3.4.1);
+\item siccome \(A\) è non numerabile, allora esiste
+\begin{equation*}
+  \iota: 2^{\omega}\to A
+\end{equation*}
+una immersione topologica, ovvero \(\iota\) continua e iniettiva;
+\item pertanto, per il Corollario 3.2.7, \(B\coloneqq\iota(2^{\omega}) \subseteq T\) è boreliano (poiché \(2^{\omega} \in \bm{{\operatorname{Bor}}}(2^{\omega})\)) ed è ovviamente non numerabile, poiché ha cardinalità \(2^{\omega}>\omega\).
+\end{itemize}
+
+Pertanto l'insieme analitico trasversale parziale \(T\) ammette un sottoinsieme boreliano non numerabile \(T' \subseteq T\), e per l'Osservazione iniziale, \(T'\) è un insieme trasversale parziale.
+\subsubsection{b. implica a.}
+\label{sec:orgae03cc4}
+
+Questo è ovvio, poiché \(\bm{{\operatorname{Bor}}}(X) \subseteq \bm{\Sigma}_{1}^{1}(X)\) per il Corollario 3.1.4.
+\subsubsection{b. implica c.}
+\label{sec:org61e6a7d}
+
+Sia \(T' \subseteq X\) un insieme boreliano trasversale parziale. Allora, per il Corollario 3.2.7 esiste un chiuso \(F \subseteq \omega^{\omega}\) e una funzione continua e iniettiva
+\begin{equation*}
+g: F \subseteq \omega^{\omega}\to X
+\end{equation*}
+tale che \(g(F)=T'\).
+
+Inoltre, per il Teorema 1.3.17, esiste una biiezione continua
+\begin{equation*}
+h: F \subseteq \omega^{\omega}\to \R.
+\end{equation*}
+In particolare, per il Corollario 3.2.6, \(h\) è un Borel-isomorfismo, e pertanto \(h^{-1}: \R\to F\) è una funzione Boreliana.
+
+Si pone quindi \(f\coloneqq g\circ h^{-1}\). Questa è una funzione boreliana iniettiva (poiché composizione di funzioni iniettive)
+\begin{equation*}
+f: \R\to X.
+\end{equation*}
+
+Siano dunque \(r_{0}\neq r_{1} \in \R\). Allora \(f(r_{0})\neq f(r_{1})\), e \(f(r_{0}), f(r_{1}) \in T'\). Se per assurdo
+\begin{equation*}
+f(r_{0})\mathrel{E} f(r_{1})
+\end{equation*}
+si avrebbe che \(T'\) contiene due elementi distinti della stessa classe di \(E\)-equivalenza. Assurdo.
+
+Pertanto, se \(r_{0}\neq r_{1} \in \R\), allora \(f(r_{0})\not\mathrel{E}f(r_{1})\).
+\subsubsection{c. implica b.}
+\label{sec:org497694f}
+
+La funzione \(f\) è necessariamente \uline{iniettiva}, poiché se per assurdo esistessero \(r_{0}\neq r_{1} \in \R\) tali che \(f(r_{0})=f(r_{1})\), allora per la \uline{riflessività} di \(E\):
+\begin{equation*}
+f(r_{0})\mathrel{E}f(r_{1})
+\end{equation*}
+e questo contraddice l'ipotesi.
+
+Si consideri dunque \(A \subseteq \R\) non numerabile, \(A \in \bm{{\operatorname{Bor}}}(\R)\): allora \(f(A) \subseteq X\) è boreliano per il Corollario 3.2.7, ed è inoltre un insieme trasversale parziale per \(E\): infatti se per assurdo vi fossero \(x\neq y \in f(A)\) tali che \(x\mathrel{E}y\) allora, siccome \(f\) è iniettiva, esistono \(x_{0}\neq y_{0} \in A\) tali che \(x=f(x_{0})\), \(y=f(y_{0})\), ovvero
+\begin{equation*}
+f(x_{0})\mathrel{E}f(y_{0}).
+\end{equation*}
+Questo contraddice l'ipotesi.\qed
+\end{document}

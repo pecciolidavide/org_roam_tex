@@ -1,0 +1,40 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Rango in una successione di R-moduli finitamente generati}
+\label{sec:org5314a9f}
+Sia \(R\) un \href{20241219112842-pid.org}{PID}.
+
+\begin{thm}
+Se \(M,N,P\) sono \href{20241205141053-r_moduli.org}{\(R\)-moduli} \href{20241213100845-modulo_finitamente_generato.org}{finitamente generati} tale che la seguente sia una \href{20250120131527-sec.org}{SEC}
+\begin{equation*}
+0 \longrightarrow M  \longrightarrow N \longrightarrow P \longrightarrow 0
+\end{equation*}
+allora i loro \href{20260109173733-rango_di_un_modulo.org}{ranghi} rispettano:
+\begin{equation*}
+\operatorname{rk}(N) = \operatorname{rk}(M) + \operatorname{rk}(P)
+\end{equation*}
+\end{thm}
+
+\begin{oss}
+È sufficiente che siano finitamente generati \(M\) ed \(N\), in quanto:
+\begin{itemize}
+\item \(P\) è \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine} di \(N\) tramite un \href{20241206115416-morfismi_r_moduli.org}{morfismo} (\href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{poiché ultimo termine di una SEC})
+\item \(N\) è finitamente generato, e quindi lo è anche ogni sua immagine tramite morfismo.
+\end{itemize}
+\end{oss}
+
+\begin{thm}
+Se \(M_{i}\) è una famiglia di \(R\)-moduli finitamente generati, tali che
+\begin{equation*}
+0 \longrightarrow M_{1} \longrightarrow M_{2} \longrightarrow\dots\longrightarrow M_{k} \longrightarrow 0
+\end{equation*}
+è una sequenza esatta, allora i ranghi rispettano
+\begin{equation*}
+\sum_{i=1}^{k} (-1)^{i} \operatorname{rk}(M_{i}) = 0.
+\end{equation*}
+\end{thm}
+\end{document}

@@ -1,0 +1,62 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Una \uline{categoria} \(\mathcal{C}\) è composta dai seguenti oggetti:
+\begin{enumerate}
+\item una \href{20250130104320-classe_mk.org}{classe} \(\operatorname{Ob}(\mathcal{C})\) i cui elementi sono detti \uline{oggetti} di \(\mathcal{C}\);
+\item per ogni \href{20250131162451-coppia_ordinata_mk.org}{coppia} di oggetti \((X,Y)\) in \(\operatorname{Ob}(\mathcal{C})\): un \href{20250130104331-insieme_mk.org}{insieme} \(\operatorname{Hom}_{\mathcal{C}}(X,Y)\) dei \uline{morfismi} (o delle frecce);
+\item per ogni \href{20250206170922-sequenze_e_stringhe.org}{tripla} di oggetti \((X,Y,Z)\) in \(\operatorname{Ob}(\mathcal{C})\): una mappa
+\begin{align*}
+   \operatorname{Hom}_{\mathcal{C}}(X,Y) \times \operatorname{Hom}_{\mathcal{C}}(Y,Z) &\longrightarrow \operatorname{Hom}_{\mathcal{C}}(X,Z)\\
+   (f,g) &\mapsto g\circ f;
+\end{align*}
+\end{enumerate}
+
+soggetti alle seguenti proprietà:
+\begin{enumerate}
+\item se \(X,Y,X',Y' \in \operatorname{Ob}(\mathcal{C})\) e \((X,Y)\neq (X',Y')\), allora
+\begin{equation*}
+ \operatorname{Hom}_{\mathcal{C}}(X,Y)\cap \operatorname{Hom}_{\mathcal{C}}(X',Y') = \emptyset
+\end{equation*}
+
+\item per ogni quadrupla \((X,Y,Z,W)\) di oggetti in \(\operatorname{Ob}(\mathcal{C})\) e per ogni \(f \in \operatorname{Hom}_{\mathcal{C}}(X,Y)\),  \(g \in \operatorname{Hom}_{\mathcal{C}}(Y,Z)\),  \(h \in \operatorname{Hom}_{\mathcal{C}}(Z,W)\) valga
+\begin{equation*}
+   h\circ (g\circ f) = (h\circ g)\circ f;
+\end{equation*}
+\item per ogni oggetto \(X\) in \(\operatorname{Ob}(\mathcal{C})\) esiste \(\1_X \in \operatorname{Hom}_{\mathcal{C}} (X,X)\) tale che
+\begin{enumerate}
+\item per ogni \(Y\)  in \(\operatorname{Ob}(\mathcal{C})\) e per ogni  \(g \in \operatorname{Hom}_{\mathcal{C}}(X,Y)\)
+\begin{equation*}
+  g \circ \1_X = g
+\end{equation*}
+\item per ogni \(Y\)  in \(\operatorname{Ob}(\mathcal{C})\) e per ogni  \(h \in \operatorname{Hom}_{\mathcal{C}}(Y,X)\)
+\begin{equation*}
+  \1_X\circ h = h
+\end{equation*}
+\end{enumerate}
+\end{enumerate}
+\end{definizione}
+
+\uline{Notazione}:
+In luogo di \(f\in \operatorname{Hom}_{\mathcal{C}}(X,Y)\), quando la categoria è ben specificata, spesso si scriverà
+\begin{equation*}
+X \dfreccia{f} Y;\qquad f: X\longrightarrow Y
+\end{equation*}
+\begin{prop}
+Sia \(\mathcal{C}\) una categoria. Per ogni \(X \in \operatorname{Ob}(\mathcal{C})\) esiste un unica \(\1_X\)
+\end{prop}
+
+\begin{proof}
+Sia \(\1_X'\) un'altra unità. Allora
+\begin{equation*}
+    \1_X = \1_X\circ\1_X' = \1_X'\qedhere
+\end{equation*}
+\end{proof}
+
+
+Vedi degli \href{20241205113007-categorie_esempi.org}{esempi di categorie}.
+\end{document}

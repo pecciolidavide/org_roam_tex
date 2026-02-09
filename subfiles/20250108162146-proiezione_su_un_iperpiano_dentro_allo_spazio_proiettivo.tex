@@ -1,0 +1,41 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}. Si consideri \(\mathds{P}^{n}\) \href{20241231115051-spazio_proiettivo.org}{spazio proiettivo}, e sia \(H \subseteq \mathds{P}^{n}\) un \href{20250102144306-iperpiano_proeittivo.org}{iperpiano}, ovvero il \href{20241231112823-radici_polinomiali.org}{luogo degli zeri} di un \href{20241231112750-polinomio.org}{polinomio} di primo grado:
+\begin{equation*}
+H=V(F)
+\end{equation*}
+
+Sia \(p \in \mathds{P}^{n}\setminus H\) fissato. Allora per ogni \(q \in \mathds{P}^{n}\setminus\set{p}\) si definisce \(\ell_{pq}\) la \href{20250109101841-retta_proiettiva.org}{retta} che passa tra \(p\) e \(q\).
+La \textbf{proiezione} da \(p\) su \(H\) è l'applicazione
+\begin{align*}
+\pi_{p}: \mathds{P}^{n}\setminus \set{p} &\longrightarrow H\\
+q &\longmapsto \ell_{pq}\cap H
+\end{align*}
+\(\pi_{p}\) è un \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{morfismo}, poiché è polinomiale. Infatti, scegliendo a dovere le coordinate, si ponga
+\begin{align*}
+p&=[0:\dots:0:1]\\
+H&=V(x_{n})
+\end{align*}
+dunque, per ogni \(q =[q_{0}:\dots:q_{n}]\neq p\) si ha che
+\begin{equation*}
+\pi_{p}(q) = [q_{0}:\dots:q_{n-1}:0] \in H
+\end{equation*}
+
+Infatti, siccome la retta \(\ell_{pq}\) si può parametrizzare come
+\begin{equation*}
+\lambda \ p + \mu\ q,\qquad [\lambda:\mu] \in \mathds{P}^{1}
+\end{equation*}
+oppure con
+\begin{equation*}
+q+t\ p=[q_{0}:\dots:q_{n-1}:q_{n}+t],\qquad t \in \K
+\end{equation*}
+e il punto di \(\ell_{pq}\) con \(x_{n}=0\) ha coordinate \([q_{0}:\dots:q_{n-1}:0]\)
+
+Se \(X \subseteq \mathds{P}^{n}\) e \(p\notin X\), allora \(\restriction{\pi_{p}}{X}\) è ancora un morfismo
+\section{{\bfseries\sffamily TODO} Proiezione da uno spazio lineare\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\label{sec:org8d9ede8}
+\end{document}

@@ -1,0 +1,31 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la notazione di ``\href{20250609104647-buona_codifica_di_un_linguaggio.org}{Aritmetizzazione della sintassi}''.
+
+Sia \(L\) un linguaggio del prim'ordine numerabile. Sia \(\#\) una \href{20250609104647-buona_codifica_di_un_linguaggio.org}{buona codifica per \(L\)}.
+\section{Teorema}
+\label{sec:org1f41f19}
+
+Se \(T\) è una \(L\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250610134232-teoria_decidibile.org}{decidibile}, allora per ogni \(L\)-\href{20250131103446-enunciato_del_prim_ordine.org}{enunciato} \(\sigma\), \(T\cup\set{\sigma}\) è \href{20250610134232-teoria_decidibile.org}{decidibile}.
+\subsection{Idea di dimostrazione}
+\label{sec:org14f02b3}
+
+Utilizza la funzione
+\begin{equation*}
+f:\N\to \N:n\mapsto \godelcode{\#(\implies), \termcode{\sigma}, n}
+\end{equation*}
+tale che \(f(\termcode{\varphi}) = \termcode{\sigma\implies \varphi}\), dove \(\godelcode{}\) è la \href{20250531110737-codifica_delle_sequenze_finite_tramite_beta_di_godel.org}{codifica di Godel}.
+
+Nota
+\begin{equation*}
+T\cup\set{\sigma}\vdash \varphi\quad\iff\quad T\vdash\sigma\implies\varphi
+\end{equation*}
+\section{Corollario}
+\label{sec:orgec1021d}
+
+Se una \href{20250130114950-teoria_del_prim_ordine.org}{estensione finita} di una \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \(T\) è \href{20250610134232-teoria_decidibile.org}{indecidibile}, allora anche \(T\) è \href{20250610134232-teoria_decidibile.org}{indecidibile}.
+\end{document}

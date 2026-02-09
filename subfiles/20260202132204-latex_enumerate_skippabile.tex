@@ -1,0 +1,31 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{\LaTeX{} - Enumerate skippabile}
+\label{sec:org8f18643}
+Si definisce un comando \texttt{\textbackslash{}skipitem} che permette di saltare un numero di un elenco \texttt{enumerate}, inserendo un \texttt{item} classico.
+
+\begin{verbatim}
+\def\skipitem{\item[$\bullet$]}
+\end{verbatim}
+
+MWE:
+\begin{verbatim}
+\documentclass{article}
+\def\skipitem{\item[$\bullet$]}
+
+\begin{document}
+
+\begin{enumerate}
+    \item Foo
+    \item Boo
+    \skipitem Boo1
+    \item Foo2
+\end{enumerate}
+
+\end{document}
+\end{verbatim}
+\end{document}

@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile}
+Sia \(\alpha:(-\varepsilon, \varepsilon)\longrightarrow M\) una \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{funzione \(C^{\infty}\)} (si ricorda infatti che \href{20250113120835-esempi_fondamentali_di_varieta_differenziabili.org}{aperti di \(\R\) sono varietà}), e sia \(p\coloneqq\alpha(0)\).
+
+Si definisce \(\dot{\alpha}(0) \in \operatorname{T}_{p}M\) (vedi \href{20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Spazio tangente ad un punto di una varietà differenziabile}) come segue: se \(f_{p} \in C^{\infty}_{p}\) (vedi \href{20250114100254-germi_di_funzioni.org}{Germi di funzioni}) e \(f\) è un suo rappresentante,
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	M \& \R \\
+	{(-\varepsilon,\varepsilon)}
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["\alpha", from=2-1, to=1-1]
+	\arrow["{f\circ\alpha}"', from=2-1, to=1-2]
+\end{tikzcd}
+\end{equation*}
+e dunque si può definire
+\begin{equation*}
+\dot{\alpha}(0)f_{p}\coloneqq \restriction{\dod{}{t}(f\circ \alpha)(t)}{t=0}
+\end{equation*}
+(vedi \href{20250114110703-derivata.org}{Derivata})
+\section{Proposizione}
+\label{sec:orgf7420aa}
+\(\dot{\alpha}(0)\) è ben definito ed è una \href{20250114101437-derivazione_su_una_varieta_differenziabile.org}{derivazione}.
+\section{Osservazione}
+\label{sec:orge9c7714}
+Si ha dunque che l'insieme
+\begin{equation*}
+\set{\dot{\alpha}(0):\ \alpha:(-\varepsilon,\varepsilon)\longrightarrow M\text{ funzione }C^{\infty}} \subseteq \operatorname{T}_{p}M
+\end{equation*}
+\end{document}

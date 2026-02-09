@@ -1,0 +1,48 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
+\section{Teorema}
+\label{sec:orgd1a9120}
+Sia \(Y \subseteq \A^{n}\) (vedi \href{20241231114009-spazio_affine.org}{Spazio Affine}).
+
+\(Y\) è \href{20250103164917-sottospazio_irriducibile.org}{irriducibile} nella \href{20250103101459-topologia_di_zariski_affine.org}{topologia di Zariski} se e solo se \href{20250103144124-ideale_di_un_sottoinsieme.org}{l'ideale} \(I(Y)\) è \href{20250103171055-ideale_primo.org}{primo}.
+\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\label{sec:org3a0f23a}
+
+\subsubsection{``\(\implies\)''}
+\label{sec:org39ea795}
+Siano \(f_{1},f_{2} \in \K[x_{1},\dots,x_{n}]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}) tali che \(f_{1}f_{2} \in I(Y)\).
+
+Siano \(Y_{1}\coloneqq Y\cap V(f_{1})\) e \(Y_{2}\coloneqq Y\cap V(f_{2})\).
+
+Siccome \(f_{1}f_{2} \in I(Y)\) si ha che \(V(f_{1})\cup V(f_{2})=Y\)\footnote{Infatti, se \(p \in Y\) allora \((f_{1}f_{2})(p)=0\) e pertanto, siccome \(\K\) è un \href{20250103143950-dominio_di_integrita.org}{Dominio di integrità} si ha che almeno uno tra \(f_{1}(p)\) e \(f_{2}(p)\) è nullo, e pertanto \(p \in V(f_{1})\cup V(f_{2})\). Viceversa, se \(p \in V(f_{1})\cup V(f_{2})\), supponiamo \(p \in V(f_{1})\). Allora \(f_{1}(p)=0\) e quindi \((f_{1}f_{2})(p)=0\). Pertanto, siccome
+\begin{equation*}
+Y \subseteq \overline{Y} = V\left(I(Y)\right)
+\end{equation*}
+e \(p \in V\left(I(Y)\right)\) si ha la tesi. (vedi \href{20250103144944-chiusura_topologica.org}{Chiusura Topologica} e \href{20250103145915-zeri_di_un_ideale_di_un_sottoinsieme_affine.org}{Zeri di un ideale di un sottoinsieme affine})}
+\begin{equation*}
+Y_{1}\cup Y_{2} = \left(Y\cap V(f_{1})\right)\cup \left(Y\cap V(f_{2})\right) = Y \cap \left(V(f_{1})\cup V(f_{2})\right)=Y
+\end{equation*}
+Dal momento che \(Y\) è irriducibile, si ha che \(Y=Y_{1} \subseteq V(f_{1})\), e quindi \(I(Y)\supseteq I\left(V(f_{1})\right)\) (vedi \href{20250103144124-ideale_di_un_sottoinsieme.org}{Ideale di un sottoinsieme}) e pertanto \(f_{1} \in I(Y)\).
+\subsubsection{``\(\impliedby\)''}
+\label{sec:org35d075f}
+Supponiamo che \(Y=Y_{1}\cup Y_{2}\) non sia irridicubile. Allora \(I(Y)=I(Y_{1})\cap I(Y_{2})\)\footnote{Sia \(f \in I(Y)\). Allora per ogni \(p \in Y=Y_{1}\cup Y_{2}\), \(f(p)=0\). In particolare:
+\begin{itemize}
+\item per ogni \(p_{1} \in Y_{1} \subseteq Y_{1}\cup Y_{2}\) si ha che \(f(p_{1}) = 0\) e quindi \(f \in I(Y_{1})\)
+\item per ogni \(p_2 \in Y_{2} \subseteq Y_{1}\cup Y_{2}\) si ha che \(f(p_{2}) = 0\) e quindi \(f \in I(Y_{2})\)
+\end{itemize}
+Dunque \(f \in I(Y_{1})\cap I(Y_{2})\).
+Viceversa, sia \(g \in I(Y_{1})\cap I(Y_{2})\). Allora, per ogni \(p \in Y_{1}\) si ha che \(g(p)=0\) e per ogni \(p \in Y_{2}\) si ha che \(g(p)=0\).
+Siccome \(Y=Y_{1}\cup Y_{2}\) si ha che per ogni \(p \in Y\) vale \(g(p)=0\), e dunque \(g \in I(Y)\).}
+
+Se \(Y_{1,2} \subsetneqq Y\), allora \(I(Y_{1,2})\supsetneqq I(Y)\). Siano dunque:
+\begin{equation*}
+f_{1} \in I(Y_{1})\setminus I(Y),\qquad f_{2} \in I(Y_{2})\setminus I(Y)
+\end{equation*}
+
+Sicuramente \(f_{1}f_{2} \in I(Y_{1})\cap I(Y_{2}) = I(Y)\), infatti se \(p_{i} \in Y_{i}\) allora \(f_{i}(p_{i})=0\) e dunque \(f_{1}f_{2}(p)=0\). Pertanto \(I(Y)\) non è primo.
+\end{document}

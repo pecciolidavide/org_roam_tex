@@ -1,0 +1,132 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:orgac22888}
+A set \(A \subseteq \omega^\omega\) is \textbf{bounded} if there is \(z \in \omega^\omega\) such that for all \(x \in A\) we have \(x(n) \leq z(n)\) for all \(n \in \omega\). Prove that the following conditions are equivalent for an arbitrary \(F \subseteq \omega^\omega\) :
+\begin{enumerate}
+\item \(F\) is \href{20250103163701-spazio_topologico_compatto.org}{compact};
+\item \(F\) is \href{20250103145124-topologia.org}{closed} and \href{20250327104804-insieme_limitato_dello_spazio_di_baire.org}{bounded};
+\item \(F=[T]\) with \(T\) a finitely branching tree (i.e. every node in \(T\) has only finitely many successors).
+\end{enumerate}
+
+Conclude that \(A \subseteq \omega^\omega\) is contained in a compact set (equivalently, has compact closure) if and only \(A\) is bounded, and therefore \(\omega^\omega\) is not locally compact.
+\subsection{Dimostrazione}
+\label{sec:org9262e3b}
+
+Sia, per ogni \(s \in \omega^{<\omega}\): \(\bm{N}_{s} \coloneqq \set{x \in\omega^{\omega}\mid x\upharpoonright s =s}\).
+\subsubsection{a. implica b.}
+\label{sec:org9627fe9}
+
+Siccome \(\omega^{\omega}\) è \href{20250301193401-spazio_topologico_metrizzabile.org}{metrizzabile} è uno \href{20250109155715-spazio_topologico_di_hausdorff.org}{spazio T2}. Se \(F\) è \href{20250103163701-spazio_topologico_compatto.org}{compatto} allora è \href{20250103145124-topologia.org}{chiuso}. Resta da dimostrare che \(F\) sia \href{20250327104804-insieme_limitato_dello_spazio_di_baire.org}{limitato}.
+
+Per ogni \(x \in F\) e per ogni \(n \in \omega\) si consideri l'aperto
+\begin{equation*}
+U_{x,n} \coloneqq \set{y \in F\mid y\upharpoonright n = x\upharpoonright n}
+\end{equation*}
+Si ottiene quindi \(U_{x} \coloneqq F\cap \bigcup_{n \in \omega}U_{x,n}\) aperto in \(F\), e pertanto \(\set{U_{x}}_{x \in F}\) è un \href{20250103164252-ricoprimento.org}{ricoprimento} aperto di \(F\).
+
+Dal momento che \(F\) è compatto, esiste \(\set{x_{1},\dots,x_{m}} \subseteq F\) tali che
+\begin{equation*}
+\bigcup_{i=1,\dots,m} U_{x_{i}} = F
+\end{equation*}
+e pertanto è sufficiente porre \(z \in \omega^{\omega}\):
+\begin{equation*}
+z(\eta) \coloneqq \max \set{x_{i}(\eta)}
+\end{equation*}
+per ottenere la tesi.
+\subsubsection{b. implica a.}
+\label{sec:org3d32d6d}
+
+Siccome \(F\) è limitato, esiste \(z \in \omega^{\omega}\) tale che per ogni \(x \in F\) e per ogni \(n \in \omega\) si ha
+\begin{equation*}
+x(n)\le z(n)
+\end{equation*}
+
+Si consideri quindi, per ogni \(n \in \omega\): \(A_{n} \subseteq \omega\), \(A_{n} \coloneqq z(n)+1 = \set{0,1,2,\dots,z(n)}\). Questo è compatto in quanto finito con la \href{20250317165247-topologia_discreta.org}{topologia discreta}.
+
+Per il \href{20250401124050-teorema_di_tichonov.org}{Teorema di Tichonoff} \(A\coloneqq \prod_{n \in \omega} A_{n}\) è compatto. Inoltre
+\begin{equation*}
+F \subseteq A
+\end{equation*}
+in quanto, se \(x \in F\) allora per ogni \(n \in \omega\): \(x(n)< z(n)+1\) i.e. \(x(n) \in \left(z(n) + 1\right) = A_{n}\) e pertanto \(x \in A\).
+
+Quindi \(F\) è chiuso dentro \(A\) compatto, \href{20250401125136-chiuso_in_un_compatto_e_compatto.org}{quindi} \(F\) è compatto.
+\subsubsection{b. implica c.}
+\label{sec:orgd687287}
+Per la proposizione 1.3.3 esiste un albero potato \(T_{F}\) tale che \(F=[T_{F}]\), con
+\begin{equation*}
+T_{F} \coloneqq \set{x\upharpoonright n\mid x \in F \,\land\, n \in \omega}
+\end{equation*}
+
+Resta da dimostrare che \(T_{F}\) sia a ramificazione finita. Se per assurdo esistesse \(s \in T_{F}\) tale che, per ogni \(i \in\omega\):
+\begin{equation*}
+s\concat i \in T_{F}
+\end{equation*}
+Pertanto, per ogni \(i \in \omega\), esiste \(x_{i} \in F\) tale che \(x_{i}\upharpoonright \operatorname{lh}(s) + 1 = s\concat i\) ed in particolar modo, per ogni \(i \in \omega\) vale che \(x_{i}\left(\operatorname{lh}(s)+2\right)=i\). Per ogni \(z \in \omega^{\omega}\), quindi, esiste \(n \coloneqq \operatorname{lh}(s) +2\) ed esiste \(x \in F\), \(x \coloneqq x_{i_{0}}\) con \(i_{0}=z(n)+1\) tale per cui
+\begin{equation*}
+z\left(n\right) \le x(n) = x_{i_{0}}(n) = i_{0} = z(n)+1.
+\end{equation*}
+
+Assurdo poiché \(F\) è limitato.
+\subsubsection{c. implica b.}
+\label{sec:orge04ebfa}
+
+Sia \(T\) un albero a ramificazione finita, ovvero tale che per ogni \(s \in T\):
+\begin{equation*}
+R_{s} \coloneqq \set{n \in \omega\mid s\concat n \in T} \subseteq \omega
+\end{equation*}
+è un insieme finito, con
+\begin{equation*}
+F = [T] = \set{x \in\omega^{\omega}\mid \forall\, n \in \omega \ (x\upharpoonright n \in T)}
+\end{equation*}
+
+Per la proposizione 1.3.3 \(F\) è chiuso, e pertanto resta da dimostrare che \(F\) sia limitato.
+
+\begin{itemize}
+\item Per ogni \(n \in \omega\), \(T_{n} \coloneqq \set{t \in T\mid \operatorname{lh}(t) = n}\) è finito.
+
+Per induzione, \(T_{0} = \set{\emptyset}\). Se \(T_{n}\) è finito, allora
+\begin{equation*}
+  	T_{n+1} = \set{t \in T\mid \exists\, s \in T_{n} \,\land\, \exists\, m \in \omega\ (s\concat m = t)}
+\end{equation*}
+ovvero
+\begin{equation*}
+  	T_{n+1} = \bigcup_{s \in T_{n}} \bigcup_{m \in R_{s}} \set{s\concat m}
+\end{equation*}
+unione finita di singoletti, e pertanto finito.
+\item Si definisce \(z \in \omega^{\omega}\) come segue:
+\begin{equation*}
+  	\forall\, n \in \omega: \quad z(n) \coloneqq 1+\max_{s \in T_{n}}\max R_{s}
+\end{equation*}
+\item Claim: \(z\) così definito è tale che, per ogni \(x \in F\) e per ogni \(n \in \omega\): \(z(n)\ge x(n)\).
+
+Infatti, se per assurdo esistesse \(\tilde{x} \in F\) e \(\tilde{n} \in \omega\) tali che \(\tilde{x}(\tilde{n})> z(\tilde{n})\), allora \(\tilde{x}\upharpoonright \tilde{n}+1 \in T\) poiché \(F=[T]\), ed in particolar modo,
+\begin{equation*}
+  	(\tilde{x}\upharpoonright \tilde{n}+1) \in T_{\tilde{n}+1}
+\end{equation*}
+Pertanto \(\tilde{x}(\tilde{n}) \in R_{\tilde{x}\upharpoonright \tilde{n}}\) e \(\tilde{x}\upharpoonright \tilde{n} \in T_{\tilde{n}}\). Quindi \(z(\tilde{n})\ge 1 + \tilde{x}(\tilde{n})\). Assurdo.
+\end{itemize}
+\subsubsection{Locale compattezza}
+\label{sec:org28fb85d}
+
+Sia \(A \subseteq \omega^{\omega}\).
+\begin{itemize}
+\item Se esiste \(C \subseteq \omega^{\omega}\) compatto e tale che \(A \subseteq C\), allora \(C\) è limitato e quindi \(A\) è limitato.
+\item Se \(A\) è limitato e \(z \in \omega^{\omega}\) ne è testimone, allora sia \((a_{n})_{n\in \omega} \subseteq A\) una successione convergente ad \(a\).
+
+Allora per ogni \(n \in \omega\), \(a \in \bm{N}_{a\upharpoonright n+1}\), e quindi esiste \(N \in\omega\) tale che \(a_{N} \in \bm{N}_{a\upharpoonright n+1}\) e pertanto
+\begin{equation*}
+  	a(n) = a_{N}(n) \le z(n)
+\end{equation*}
+dove l'ultima disuguaglianza vale perché \(a_{N} \in A\) limitato.
+
+Per la caratterizzazione della chiusura in termini di successioni, si è dimostrato che \(\operatorname{Cl}(A)\) è limitato (e ovviamente chiuso), quindi compatto, e
+\begin{equation*}
+  	A \subseteq \operatorname{Cl}(A)
+\end{equation*}
+\end{itemize}
+\end{document}

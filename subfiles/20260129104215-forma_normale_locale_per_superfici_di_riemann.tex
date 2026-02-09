@@ -1,0 +1,144 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Forma normale locale per superfici di Riemann}
+\label{sec:orga1d40b4}
+\begin{prop}
+Siano \(X,Y\) \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann}, \(F:X\to Y\) \href{20260126110551-funzione_olomorfa.org}{olomorfa} non costante. Sia \(p \in X\).
+
+Allora esiste un unico \(m \in \N\), \(m\ge 1\) tale che per ogni \href{20260127112715-atlante_complesso.org}{carta locale}
+\begin{equation*}
+\varphi_{2}:U_{2}\to V_{2}
+\end{equation*}
+di \(Y\) centrata in \(F(p)\)\footnote{Ovvero \(F(p) \in U_{2}\) e \(\varphi_{2}\big(F(p)\big) = 0\).} esiste \(\varphi_{1}:U_{1}\to V_{1}\) carta locale di \(X\) centrata in \(p\)\footnote{Ovvero \(p \in U_{1}\) e \(\varphi_{1}(p) = 0\)} tale che l'espressione di \(F\) nelle carte locali sia \(z\mapsto z^{m}\), ovvero
+\begin{equation*}
+\varphi_{2}\circ F\circ\varphi_{1}^{-1}(z) = z^{m}.
+\end{equation*}
+\label{prop_formanormaleriem}
+\end{prop}
+
+\begin{proof}
+Fissiamo \(\varphi_{2}:U_{2}\to V_{2}\) carta locale centrata in \(F(p)\), e scegliamo \(\psi:U\to V\) carta locale per \(X\) centrata in \(p\).
+
+Sia \(T:V\to V_{2}\) l'espressione di \(F\) nelle carte locali \(\psi\) e \(\varphi_{2}\):
+\begin{equation*}
+\forall  w \in V:\qquad T(w) = \varphi_{2}\circ F\circ \psi^{-2}(w)
+\end{equation*}
+In particolare:
+\begin{itemize}
+\item \(T(0) = 0\);
+\item \(T\) è \href{20260126110551-funzione_olomorfa.org}{olomorfa}
+\end{itemize}
+
+Siccome \(F\) non è costante, allora \(T\) non è costante, e \href{20260128131354-principio_di_identita_per_funzioni_olomorfe.org}{pertanto} \(w=0\) è uno \href{20250403131856-punto_isolato.org}{zero isolato} per \(T\): esiste quindi \(m \coloneqq \mathrm{ord}_{0} T\)\footnote{Questo è l'\href{20260128124105-ordine_di_una_funzione_olomorfa.org}{ordine di \(T\) in \(0\)}.} finito. In particolare, \(m\ge 1\) poiché \(T(0) = 0\).
+
+Per il \href{20260128130443-comportamento_locale_di_una_funzione_analitica.org}{Teorema di Forma Normale nel caso di funzioni olomorfe}, esiste \(\eta: U_{0}\to U_{0}\) \href{20260127132618-funzione_biolomorfa.org}{biolomorfismo}, per \(U_{0} \subseteq \C\) intorno di \(0\), tale che
+\begin{equation*}
+\eta(0) = 0,\qquad T(w) = \big(\eta(w)\big)^{m}.
+\end{equation*}
+Sia quindi \(U_{1} \coloneqq \psi^{-1}[U_{0}] \ni p\), \(U_{1} \subseteq U\) \href{20250103145124-topologia.org}{aperto}, e poniamo
+\begin{equation*}
+\varphi_{1}\coloneqq \eta \circ \psi : U_{1}\to V_{1} \subseteq \C
+\end{equation*}
+carta locale di \(X\) centrata in \(p\). Allora,
+\begin{align*}
+\varphi_{2}\circ F \circ \varphi_{1}^{-1}(x) &= %
+\varphi_{2}\circ F \circ \psi^{-1}\circ \eta^{-1} (z) = \\
+&= (\varphi_{2}\circ F \circ \psi^{-1})\circ \eta^{-1} (z) = \\
+&= T\circ \eta^{-1}(z) = \big(\eta\circ\eta^{-1}(x)\big)^{m} = z^{m}.
+\end{align*}
+
+Resta da dimostrare l'unicità di \(m\). Notiamo che per ogni aperto \(A\) di \(p \in X\) esiste \(\tilde{A} \subseteq A\) intorno aperto di \(p\) tale che, considerando\footnote{Vedi ``\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}''}
+\begin{equation*}
+\restriction{F}{\tilde{A}}: \tilde{A} \to F[\tilde{A}]
+\end{equation*}
+si abbia:
+\begin{enumerate}
+\item per \(p\) si abbia \((\restriction{F}{\tilde{A}})^{-1} \big[F(p)\big] = \set{p}\)
+\item per ogni \(q \neq F(p)\), \(q \in F[\tilde{A}]\) si abbia che \((\restriction{F}{\tilde{A}})^{-1}(q)\) ha \href{20241213101756-cardinalita.org}{cardinalità} \(m\).
+\end{enumerate}
+
+Infatti, è sufficiente prendere \(\tilde{A}\coloneqq \varphi_{1}^{-1}[U_{0}] \cap A\):
+\begin{enumerate}
+\item se esistesse \(p' \in \tilde{A}\) tale che \(F(p)= F(p')\), allora in particolare \(\varphi_{2}\circ F(p) = \varphi_{2}\circ F(p')\), e quindi
+\begin{equation*}
+ 0 = \big(\varphi_{1}(p)\big)^{m} = \big(\varphi_{1}(p')\big)^{m}
+\end{equation*}
+e pertanto \(\varphi_{1}(p') = 0\), ovvero \(p'=p\);
+\item sia \(q \neq F(p)\), \(q \in F[\tilde{A}] \subseteq U_{2}\). Allora \(0 = \varphi_{2}\circ F(p) \neq \varphi_{2}(q)\). In particolare, esistono esattamente \(m\) radici \(r_{1},\dots,r_{m} \in U_{0} \cap \varphi_{1}[\tilde{A}]\) tali che
+\begin{equation*}
+ (r_{i})^{m} = \varphi_{2}(q)
+\end{equation*}
+Poiché \(\varphi_{1}\) è omeomorfismo, ci sono esattamente \(m\) elementi dentro la fibra di \(q\).
+\end{enumerate}
+
+Quindi \(m\) non dipende dalla scelta di \(\varphi_{2}\) o dalla costruzione, ma solo da \(F\). Quindi \(m\) è unico.
+\end{proof}
+
+\begin{prop}
+Per ogni intorno aperto \(U\) di \(p\) in \(X\), esiste \(U'\) intorno aperto di \(p\) in \(X\) tale che
+\begin{enumerate}
+\item la \href{20260128184014-fibra_di_una_funzione.org}{fibra} di \(F(p)\) in \(\tilde{U}\) contenga solo \(p\);
+\item per ogni \(p \neq q \in F[\tilde{U}]\), la \href{20260128184014-fibra_di_una_funzione.org}{fibra} di \(q\) in \(\tilde{U}\) ha cardinalità \(m\).
+\end{enumerate}
+\end{prop}
+\subsection{Molteplicità di una funzione tra superfici di Riemann}
+\label{sec:org4de1c91}
+\begin{definizione}
+Tale \(m \in \N\), \(m\ge 1\) si dice \uline{molteplicità di \(F\) in \(p\)}, e si indica con
+\begin{equation*}
+m \eqqcolon \mathrm{molt}_{p} F
+\end{equation*}
+\end{definizione}
+
+\begin{cor}
+Se esistono delle carte per cui la scrittura locale di \(F\) in un intorno di \(p\) è
+\begin{equation*}
+f(z) = z^{n}\cdot g(z)
+\end{equation*}
+con \(g(z)\) olomorfa e \(g(0) \neq 0\), allora \(n= \mathrm{molt}_{p} F\).
+\end{cor}
+\begin{proof}
+Poiché \(g(z)\) è \href{20250103103252-funzione_continua.org}{continua} e \(g(0) \neq 0\), \href{20250306140014-funzione_continua_in_un_punto.org}{allora} esiste un \href{20250111142313-intorno.org}{intorno} \(U\) di \(0\) tale che \(g(z)\) è non nulla su \(0\). WLOG si consideri \(U\) \href{20250113100451-spazio_topologico_semplicemente_connesso.org}{semplicemente connesso}.
+
+\href{20260126184450-funzione_olomorfa_su_un_aperto_semplicemente_connesso_ammette_radice_m_esima.org}{Allora} esiste \(h(z)\) tale che \(g(z) = \big(h(z)\big)^{n}\):
+\begin{equation*}
+f(z) = z^{n} \cdot g(z) = \big(z\cdot h(z)\big)^{n}
+\end{equation*}
+Se \(\theta(z) \coloneqq z\cdot h(z)\) è un \href{20260127132618-funzione_biolomorfa.org}{biolomorfismo} locale in \(0\), allora definisce un \href{20260127112715-atlante_complesso.org}{cambio di coordinate} su \(Y\) tale per cui la scrittura locale di \(F\) diventa \(w\mapsto w^{n}\), e per il \hyperref[sec:orga1d40b4]{Teorema di Forma Normale}, \(n= \mathrm{molt}_{p} F\).
+\begin{itemize}
+\item \(\theta(0) = 0\);
+\item \(\theta'(z) = h(z) + z\cdot h'(z)\), e quindi \(\theta'(0) = h(0) \neq 0\).
+\end{itemize}
+Per il \href{20260128143021-teorema_di_inversione_locale.org}{Teorema della funzione inversa} \(\theta(z)\) è un biolomorfismo locale.
+\end{proof}
+
+\begin{oss}
+Quindi si ha che:
+\begin{enumerate}
+\item Se \(m=1\), allora \(F\) è un \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfismo} locale in \(p\);
+\item Se \(m>1\), allora \(F\) non è \href{20241219101956-funzione_iniettiva.org}{iniettiva} in nessun \href{20250111142313-intorno.org}{intorno} di \(p\);
+\end{enumerate}
+e dunque sono equivalenti\footnote{Si confronti con ``\href{20260128143427-funzione_olomorfa_iniettiva_e_biolomorfismo_locale.org}{Funzione olomorfa iniettiva è biolomorfismo locale}''}:
+\begin{itemize}
+\item \(\mathrm{mult}_{p} F = 1\);
+\item \(F\) è un \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfismo} locale in \(p\);
+\item \(F\) è iniettiva in un intorno di \(p\).
+\end{itemize}
+\end{oss}
+
+\begin{oss}
+Siccome essere biolomorfismo locale è una condizione aperta, si ha che
+\begin{equation*}
+\set{p \in X \mid \mathrm{mult}_{p}\, F = 1}
+\end{equation*}
+è un \href{20250103145124-topologia.org}{aperto} di \(X\).
+\end{oss}
+
+\begin{esempio}
+Vedi un \href{20260129141700-esempio_di_calcolo_delle_moltiplicita_di_una_funzione_tra_superfici_di_riemann.org}{esempio di calcolo delle moltiplicità}.
+\end{esempio}
+\end{document}

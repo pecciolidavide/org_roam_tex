@@ -1,0 +1,97 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}
+\begin{thm}
+Sia \(\mathcal{F}\) un \href{20250324165349-prefascio.org}{prefascio} su \(X\). Allora esiste un \href{20250324174728-fascio.org}{fascio} \(\mathcal{F}^{+}\) su \(X\) ed un \href{20250325180613-morfismo_di_prefasci.org}{morfismo} \(j:\mathcal{F}\to \mathcal{F}^{ +}\) tali che
+\begin{enumerate}
+\item per ogni \href{20250324174728-fascio.org}{fascio} \(\mathcal{G}\) su \(X\) e per ogni \href{20250325180613-morfismo_di_prefasci.org}{morfismo}
+\begin{equation*}
+ \varphi:\mathcal{F}\to \mathcal{G}
+\end{equation*}
+esiste un unico \href{20250325180613-morfismo_di_prefasci.org}{morfismo} \(\psi:\mathcal{F}^{+}\to \mathcal{G}\) tale che \(\varphi=\psi\circ j\):
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+ {\mathcal{F}} \& {\mathcal{F}^+} \\
+ \& {\mathcal{G}}
+ \arrow["j", from=1-1, to=1-2]
+ \arrow["\varphi"', from=1-1, to=2-2]
+ \arrow["\psi", dashed, from=1-2, to=2-2]
+\end{tikzcd}
+\end{equation*}
+
+\item per ogni \(p \in X\), il morfismo tra \href{20250325183434-spiga_di_un_prefascio.org}{spighe} \href{20250327114817-morfismo_di_fasci_induce_omomorfismo_tra_spighe.org}{indotto}: \(f_{p}:\mathcal{F}_{p}\to \mathcal{F}_{p}^{+}\) è un \href{20241206115531-morfismo_di_gruppi.org}{isomorfismo}.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+Si costruiscono \(\mathcal{F}^{+}\) e \(j\).
+\begin{itemize}
+\item \uline{Costruzione di \(\mathcal{F}^{+}\)}: sia \(U \subseteq X\) aperto, e si considerino le funzioni\footnote{Il ``\(\coprod\)'' è l'\href{20250113175700-unione_disgiunta.org}{unione disgiunta}, mentre ``\(\mathcal{F}_{p}\)'' è la \href{20250325183434-spiga_di_un_prefascio.org}{spiga di \(\mathcal{F}\) in \(p\)}.}
+\begin{equation*}
+  s: U \to \coprod_{p \in U} \mathcal{F}_{p}
+\end{equation*}
+tali che
+\begin{enumerate}
+\item \(s(p) \in \mathcal{F}_{p}\) per ogni \(p \in U\);
+\item per ogni \(p \in U\):
+\begin{itemize}
+\item esiste \(V \subseteq {U}\) \href{20250111142313-intorno.org}{intorno} \href{20250103145124-topologia.org}{aperto} di \(p\)
+\item esiste \(f \in \mathcal{F}(V)\)
+\end{itemize}
+tali che\footnote{``\([f]_{q}\)'' è il \href{20250325183434-spiga_di_un_prefascio.org}{germe} di \(f\) in \(q\).}
+\begin{equation*}
+   \forall q \in V:\qquad s(q)=[f]_{q}
+\end{equation*}
+\end{enumerate}
+
+Si pone \(\mathcal{F}^{+}(U)\) come l'insieme delle \(s\) che soddisfino 1. e 2.\footnote{\textbf{Esercizio}: verificare che \(\mathcal{F}^{+}\) è un fascio.}
+
+La struttura di gruppo di \(\mathcal{F}^{+}(U)\) è data da: per ogni \(s,t \in \mathcal{F}^{ +}(U)\):
+\begin{align*}
+s+t: U &\longrightarrow \coprod_{p \in U} \mathcal{F}_{p}\\
+p &\longmapsto s(p) + t(p)
+\end{align*}
+dove la somma ha senso, in quanto \(s(p),t(p) \in \mathcal{F}_{p}\) che \href{20250325183434-spiga_di_un_prefascio.org}{ha struttura di gruppo}. Lo zero, quindi, è
+\begin{align*}
+0: U &\longrightarrow \coprod_{p \in U} \mathcal{F}_{p}\\
+p &\longmapsto 0 \in \mathcal{F}_{p}
+\end{align*}
+
+\item \uline{Costruzione di \(j\)}: sia \(U \subseteq X\) aperto. Si definisce
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=tiny]
+        {\mathcal{F}(U)} \&\& {\mathcal{F}^+(U)} \\
+        f \&\& \begin{array}{c} \left(\begin{aligned}s_f\duepunti U &\longrightarrow \coprod_{p \in U} \mathcal{F}_p\\ q &\longmapsto [f]_q\end{aligned}\right) \end{array}
+        \arrow["j", from=1-1, to=1-3]
+        \arrow[maps to, from=2-1, to=2-3]
+\end{tikzcd}
+\end{equation*}
+\end{itemize}
+\end{proof}
+\begin{oss}
+La condizione 1. garantisce che \((\mathcal{F}^{+},j)\) è unico a meno di \href{20250325180613-morfismo_di_prefasci.org}{isomorfismi}.
+\end{oss}
+\begin{prop}
+Si ha che:
+\begin{enumerate}
+\item il \href{20250324165349-prefascio.org}{prefascio} \(\mathcal{F}\) soddisfa l'\href{20250324174728-fascio.org}{assioma dell'unicità} se e solo se per ogni \(U \subseteq X\) aperto, \(j_{U}\) è iniettivo;
+\item \(j\) è un isomorfismo se e solo se \(\mathcal{F}\) è un fascio.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Si dimostra solo 1.
+
+Sia \(U \subseteq X\) aperto fissato. \(f \in \ker j_{U}\)\footnote{Vedi ``\href{20241213105201-kernel.org}{Kernel}''} se e solo se, per definizione, per ogni \(q \in U\): \([f]_{q} = 0\).
+
+Questo succede se e solo se per ogni \(q \in U\) esiste \(W_{q} \ni q\) tale che \(\restriction{f}{W_{q}} = 0 \in \mathcal{F}(W_{q})\).
+
+Siccome \(\set{W_{q}\cap U}_{q \in U}\) è ricoprimento aperto di \(U\), vale l'assioma di unicità sse \(f = 0\).
+\end{proof}
+\begin{definizione}
+Il fascio \(\mathcal{F}^{+}\) è detto \uline{fascio associato al prefascio \(\mathcal{F}\)}, o anche \uline{fascificato di \(\mathcal{F}\)}.
+\end{definizione}
+\end{document}

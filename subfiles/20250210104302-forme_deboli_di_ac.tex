@@ -1,0 +1,76 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+
+Si elencano delle versioni deboli di \href{20250206171508-axiom_of_choiche.org}{AC}.
+\section{Axiom of Choice - Indice}
+\label{sec:orgc41589a}
+\begin{definizione}
+Sia \(I\) un insieme.
+\begin{description}
+\item[{\(\mathrm{AC}_{I}\):}] data una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} \(\langle A_{i}\ |\ i \in I\rangle\) tale che per ogni \(i \in I\) si ha \(A_{i}\neq \emptyset\) non \href{20250131161811-insieme_vuoto_mk.org}{vuoto}, esiste una sequenza
+\begin{equation*}
+  \langle a_{i}\ |\ i \in I \rangle
+\end{equation*}
+tale che per ogni \(i \in I\) si ha \(a_{i} \in A_{i}\).
+\end{description}
+\end{definizione}
+\subsection{Axiom of countable Choice}
+\label{sec:orgdf96d13}
+\begin{definizione}
+L'Axiom of Countable Choice ACC è \(\mathrm{AC}_{\omega}\)
+\begin{description}
+\item[{\(\mathrm{ACC}\):}] data una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} \(\langle A_{i}\ |\ i \in \omega\rangle\) tale che per ogni \(i \in \omega\) si ha \(A_{i}\neq \emptyset\) non \href{20250131161811-insieme_vuoto_mk.org}{vuoto}, esiste una sequenza
+\begin{equation*}
+  \langle a_{i}\ |\ i \in \omega \rangle
+\end{equation*}
+tale che per ogni \(i \in \omega\) si ha \(a_{i} \in A_{i}\).
+\end{description}
+\end{definizione}
+\section{Axiom of Choice - Insieme}
+\label{sec:orgdb59bb3}
+\begin{definizione}
+Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme}.
+\begin{description}
+\item[{\(\mathrm{AC}(X)\):}] se \(X\) è un \href{20250130104331-insieme_mk.org}{insieme} non \href{20250131161811-insieme_vuoto_mk.org}{vuoto} allora esiste una \href{20250203105434-funzione_di_scelta.org}{funzione di scelta} su \(X\).
+\end{description}
+\end{definizione}
+\section{Axiom of Chioce - Insieme e Indice}
+\label{sec:org59543fb}
+\begin{definizione}
+Siano \(I, X\) due \href{20250130104331-insieme_mk.org}{insiemi}.
+\begin{description}
+\item[{\(\mathrm{AC}_{I}(X)\):}] Se \(X\) è un \href{20250130104331-insieme_mk.org}{insieme} non \href{20250131161811-insieme_vuoto_mk.org}{vuoto} e vi è una \href{20250202170607-classe_relazione_binaria.org}{funzione}\footnote{Vedi ``\href{20250130104245-morse_kelly_set_theory.org}{Insieme delle parti per MK}''}
+\begin{align*}
+  I &\longrightarrow \parti{X}\setminus\set{\emptyset}\\
+  i &\longmapsto A_{i}
+\end{align*}
+allora esiste una \href{20250202170607-classe_relazione_binaria.org}{funzione}
+\begin{align*}
+  I &\longrightarrow X\\
+  i &\longmapsto a_{i} \in A_{i}
+\end{align*}
+\end{description}
+\end{definizione}
+\section{Axiom of Dependent Choices}
+\label{sec:orgf7887e0}
+\section{Implicazioni tra le forme deboli di AC}
+\label{sec:orga194d57}
+\begin{prop}
+È facile verificare che
+\begin{align*}
+\operatorname{AC}_{I}\,&\iff\, \forall\, X\ \operatorname{AC}_{I}(X);\\
+\operatorname{AC}(X)\,&\iff\, \forall\, I \operatorname{AC}_{I} (X);\\
+\operatorname{AC}\,&\iff\, \forall\, I \forall\,X\ \operatorname{AC}_{I}(X)
+\end{align*}
+
+Inoltre, se esiste \(f:X\to Y\) \href{20241213105600-funzione_suriettiva.org}{suriettiva} e \(J\embeds I\)\footnote{Con ``\(\embeds\)'' si denota l'esistenza di una \href{20241219101956-funzione_iniettiva.org}{funzione iniettiva}.}, si ha che
+\begin{equation*}
+\operatorname{AC}_{I}(X)\,\implies\, \operatorname{AC}_{J}(Y)
+\end{equation*}
+\end{prop}
+\end{document}

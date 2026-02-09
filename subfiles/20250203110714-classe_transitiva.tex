@@ -1,0 +1,47 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Definizione}
+\label{sec:orgd3b72d9}
+Una \href{20250130104320-classe_mk.org}{classe} \(A\) si dice transitiva se \(\displaystyle \bigcup A \subseteq A\)\footnote{Vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata MK}}, ovvero se
+\begin{equation*}
+\forall\, a\ \forall\, x\ \left((a \in A \,\land\,  x \in a)\,\implies\, x \in A\right)
+\end{equation*}
+\section{Osservazione}
+\label{sec:orgad6499a}
+Se \(A\) è transitivo e \(a \in A\), allora \(a \subseteq A\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK}).
+\section{Proposizione}
+\label{sec:org30a7483}
+Se \(x\) è un \href{20250130104331-insieme_mk.org}{insieme} transitivo, allora \$ \displaystyle \bigcup x \$ e \(\operatorname{S}(x)\) sono transitivi. (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata} e \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme MK})
+\subsection{Dimostrazione}
+\label{sec:org2a8de53}
+
+\subsubsection{Unione generalizzata}
+\label{sec:orgae44d6f}
+Si ha che
+\begin{equation*}
+\bigcup x \coloneqq \set{y\,|\, \exists z \in x\ (y \in z)}
+\end{equation*}
+Se \(y \in \bigcup x\) e \(k \in y\) allora esiste \(z \in x\) tale che \(y \in z \in x\). Siccome \(x\) è transitivo allora \(y \in x\) e quindi
+\begin{equation*}
+k \in y \in x
+\end{equation*}
+Siccome \(x\) è transitivo allora \(k \in x\), e dunque \(\bigcup x\) è transitivo.
+\subsubsection{Successore}
+\label{sec:orgf65444d}
+Si ha che (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Unione di classi MK})
+\begin{equation*}
+\operatorname{S}(x) \coloneqq x\cup \set{x}
+\end{equation*}
+Se \(y \in \operatorname{S}(x)\) allora \(y \in x\) oppure \(y \in \set{x}\).
+\paragraph{caso 1}
+\label{sec:org14acc7c}
+Se \(y \in x\) e \(k \in y\) allora \(k \in x \subseteq \operatorname{S}(x)\) poiché \(x\) è transitivo, e quindi \(k \in \operatorname{S}(x)\).
+\paragraph{caso 2}
+\label{sec:org6531192}
+se \(y \in \set{x}\) allora \(y = x\). Se \(k \in y\) allora \(k \in x \subseteq \operatorname{S}(x)\) e dunque \(k \in \operatorname{S}(x)\).
+\end{document}

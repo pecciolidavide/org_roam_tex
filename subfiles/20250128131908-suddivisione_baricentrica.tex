@@ -1,0 +1,72 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\sigma_{0} = [p_{0},\dots,p_{q}]\) un \(q\)-\href{20250121121923-simplessi.org}{simplesso}.
+
+Si definisce il baricentro di un simplesso \([q_{0},\dots,q_{m}]\):
+\begin{equation*}
+b_{[q_{0},\dots,q_{m}]} \coloneqq \frac{q_{0}+\dots+q_{m}}{m+1}.
+\end{equation*}
+
+\begin{definizione}
+La \textbf{suddivisione baricentrica} di \(\sigma_{0}\) è il \href{20250121124147-complesso_simpliciale.org}{complesso simpliciale} \(K\) che abbia \href{20250121124310-scheletro_di_un_complesso_simpliciale.org}{scheletri}:
+\begin{align*}
+K_{0} &= \set{b_{\sigma}: \sigma\preceq \sigma_{0}}\\
+\forall\,r \le q,\quad
+K_{r} &= \set{[b_{\sigma_{1}},b_{\sigma_{2}},\dots,b_{\sigma_{r+1}}]: \sigma_{1}\preceq \sigma_{2}\preceq \dots\preceq \sigma_{r+1}\preceq \sigma_{0}}
+\end{align*}
+dove \(\preceq\) indica la \href{20250121122621-faccia_di_un_simplesso.org}{relazione di facciata}.
+\end{definizione}
+
+\begin{prop}
+Il \href{20250121124230-supporto_di_un_complesso_simpliciale.org}{supporto} di \(K\) è uguale a \(\sigma_{0}\):
+\begin{equation*}
+|K|=\sigma_{0}
+\end{equation*}
+\end{prop}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=1.5, font=\footnotesize]
+    % Definiamo i vertici del triangolo principale (0-facce)
+    \coordinate (p0) at (0,0);
+    \coordinate (p1) at (4,0);
+    \coordinate (p2) at (0,4);
+
+    % Calcoliamo i baricentri delle 1-facce (punti medi dei lati)
+    \coordinate (b01) at ($0.5*(p0)+0.5*(p1)$);
+    \coordinate (b12) at ($0.5*(p1)+0.5*(p2)$);
+    \coordinate (b02) at ($0.5*(p0)+0.5*(p2)$);
+
+    % Calcoliamo il baricentro del 2-simplesso (baricentro del triangolo)
+    \coordinate (b012) at ($1/3*(p0)+1/3*(p1)+1/3*(p2)$);
+
+    % Disegniamo i bordi del simplesso originale
+    \draw[thick] (p0) -- (p1) -- (p2) -- cycle;
+
+    % Disegniamo la suddivisione baricentrica
+    \draw[blue, thin] (b012) -- (p0);
+    \draw[blue, thin] (b012) -- (p1);
+    \draw[blue, thin] (b012) -- (p2);
+    \draw[blue, thin] (b012) -- (b01);
+    \draw[blue, thin] (b012) -- (b12);
+    \draw[blue, thin] (b012) -- (b02);
+
+    % Nodi e Etichette per i baricentri
+    \filldraw (p0) circle (1.5pt) node[below left] {$b_{[p_0]}$};
+    \filldraw (p1) circle (1.5pt) node[below right] {$b_{[p_1]}$};
+    \filldraw (p2) circle (1.5pt) node[above] {$b_{[p_2]}$};
+
+    \filldraw[red] (b01) circle (1.2pt) node[below] {$b_{[p_0,p_1]}$};
+    \filldraw[red] (b12) circle (1.2pt) node[right] {$b_{[p_1,p_2]}$};
+    \filldraw[red] (b02) circle (1.2pt) node[left] {$b_{[p_0,p_2]}$};
+
+    \filldraw[darkgray] (b012) circle (1.2pt) node[above right=2pt] {$b_{\sigma_0}$};
+
+\end{tikzpicture}
+\caption{Suddivisione Baricentrica di \(\Delta_{2}\).}
+\end{figure}
+\end{document}

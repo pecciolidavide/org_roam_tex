@@ -1,0 +1,29 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile},e sia \(\operatorname{C}^{\infty}(M)\) l'\href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{anello delle funzioni reali}. Si definisce l'insieme dei derivatori
+\begin{equation*}
+\operatorname{Der}(M) \coloneqq \set{\Phi: \operatorname{C}^{\infty}(M)\longrightarrow \operatorname{C}^{\infty}(M): \Phi\ \R\text{-lineare}, \text{ soddisfa Leibniz}}
+\end{equation*}
+dove \(\Phi\) soddisfa Leibniz se per ogni \(f,g \in \operatorname{C}^{\infty}(M)\)
+\begin{equation*}
+\Phi(fg) = \Phi(f)\ g + f\ \Phi(g)
+\end{equation*}
+vedi \href{20250114101949-funzione_lineare.org}{Funzione Lineare}.
+\section{Campi vettoriali come derivatori}
+\label{sec:org9c73c37}
+Ogni \href{20250115110259-campo_vettoriale_su_una_varieta_differenziabile.org}{campo vettoriale} induce un derivatore su \(M\). Infatti, se \(X \in \Gamma(M)\), allora per ogni \(f \in \operatorname{C}^{\infty}(M)\) si ha che \(X(f) \in \operatorname{C}^{\infty}(M)\) (vedi \href{20250115115535-azione_di_un_campo_vettoriale_su_una_funzione.org}{Azione di un campo vettoriale su una funzione} e \href{20250115120103-azione_di_un_campo_vettoriale_su_una_funzione_e_cinfinito.org}{Azione di un campo vettoriale su una funzione è Cinfinito}), e quindi è possibile vedere
+\begin{equation*}
+X: \operatorname{C}^{\infty} (M) \longrightarrow \operatorname{C}^{\infty}(M)
+\end{equation*}
+\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\label{sec:org5a89e3d}
+\section{Proposizione}
+\label{sec:orgde9b9d8}
+Ogni \(\Phi \in \operatorname{Der}(M)\) è indotto da un campo vettoriale. (Quindi \(\Gamma(M)\cong \operatorname{Der}(M)\)).
+\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\label{sec:org88b892f}
+\end{document}

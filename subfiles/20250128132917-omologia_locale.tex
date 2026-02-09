@@ -1,0 +1,30 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Omologia Locale}
+\label{sec:org5a49b8e}
+Sia \(R\) un \href{20241219112842-pid.org}{PID} e sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}.
+\begin{definizione}
+Sia \(x \in X\). Si definisce l'\textbf{omologia locale} di \(X\) attorno ad \(x\) come l'\href{20250122154903-omologia_singolare_relativa.org}{omologia singolare relativa} della \href{20250122154728-coppia_topologica.org}{coppia topologica} \((X,X\setminus\set{x})\):
+\begin{equation*}
+H_{n}(X \mid x) \coloneqq H_{n}(X,\ X\setminus\set{x})
+\end{equation*}
+\end{definizione}
+\begin{prop}
+Per ogni intorno chiuso \(U\) di \(x\) si ha che
+\begin{equation*}
+H_{n}(X \mid x)\cong H_{n}(U \mid x)
+\end{equation*}
+\end{prop}
+\begin{proof}
+Banale applicazione del \href{20250126223310-teorema_di_escissione.org}{Teorema di Escissione}:
+\begin{align*}
+H_{n}(X \mid x) &= H_{n}(X,X\setminus\set{x})\cong H_{n}\bigg(X\setminus\big(X\setminus U\big);\  \big(X\setminus\set{x}\big)\setminus\big(X\setminus U\big)\bigg)\\
+& = H_{n}(U;\ U\setminus \set{x}) = H_{n}(U \mid x).%
+\qedhere
+\end{align*}
+\end{proof}
+\end{document}

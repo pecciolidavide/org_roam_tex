@@ -1,0 +1,171 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Complesso di catene cellulari}
+\label{sec:orgb107e71}
+Sia \(X\) un \href{20260205161432-cw_complesso.org}{CW-complesso}, \(R\) \href{20241219112842-pid.org}{PID} fissato.
+
+\begin{definizione}
+Il \textbf{complesso di catene cellulari} \(\mathcal{S}_{\bullet}^{\text{cw}}(X)\) è il complesso di catene di \(R\)-moduli,
+\begin{equation*}
+\mathcal{S}_{\bullet}^{\text{cw}}(X) \coloneqq \set{(S_{q}^{\text{cw}}, \operatorname{d}_{q})}_{q \in \Z}
+\end{equation*}
+tale che
+\begin{enumerate}
+\item \(S_{q}^{\text{cw}} = H_{q}(X_{q}, X_{q-1}) \cong \oplus_{\alpha} R\cdot [e_{\alpha}^{q}]\) è l'\href{20250122154903-omologia_singolare_relativa.org}{omologia singolare relativa} \href{20260205161836-omologia_singolare_di_cw_complessi.org}{del CW-complesso}.
+\item \(\operatorname{d}_{q}: S_{q}^{\text{cw}}(X) \longrightarrow S_{q-1}^{\text{cw}}(X)\) è definita come \(\operatorname{d}_{q} \coloneqq \pi_{q-1}^{(q-1,q-2)}\circ \partial_q^{(q,q-1)\) nel diagramma commutativo di Figura~\ref{fig_SELdoppia}, dove le righe sono le \href{20250122154927-successione_esatta_di_una_coppia_topologica.org}{SEL dell'omologia relativa}.
+\end{enumerate}
+\end{definizione}
+
+\begin{figure}
+\begin{equation*}
+\scalebox{0.92}{%
+\begin{tikzcd}[ampersand replacement=\&]
+	{H_q(X_q)} \& \textcolor{rgb,255:red,214;green,92;blue,92}{{{H_q(X_q,X_{q-1})}}} \&\& {H_{q-1}(X_{q-1})} \&\& {H_{q-1}(X_q)} \\
+	\\
+	\& {H_{q-1}(X_{q-2})} \&\& {H_{q-1}(X_{q-1})} \&\& \textcolor{rgb,255:red,214;green,92;blue,92}{{{H_{q-1}(X_{q-1},X_{q-2})}}} \& {H_{q-2}(X_{q-2})}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{{\partial_q^{(q,q-1)}}}", from=1-2, to=1-4]
+	\arrow[from=1-4, to=1-6]
+	\arrow[equals, from=1-4, to=3-4]
+	\arrow[from=3-2, to=3-4]
+	\arrow["{{\pi_{q-1}^{(q-1,q-2)}}}"', from=3-4, to=3-6]
+	\arrow[from=3-6, to=3-7]
+\end{tikzcd}%
+}
+\end{equation*}
+\caption{\label{fig_SELdoppia}Le due righe della successione esatta lunga per l'omologia relativa}
+\end{figure}
+
+\begin{prop}
+La composizione \(\operatorname{d}_{q-1}\circ \operatorname{d}_{q} = 0\).
+\end{prop}
+\begin{proof}
+È sufficiente considera il seguente diagramma commutativo
+\begin{equation*}
+\scalebox{0.6}{%
+\begin{tikzcd}[ampersand replacement=\&]
+	{H_q(X_q)} \& \textcolor{rgb,255:red,214;green,92;blue,92}{{{H_q(X_q,X_{q-1})}}} \&\& {H_{q-1}(X_{q-1})} \&\& {H_{q-1}(X_q)} \\
+	\\
+	\& {H_{q-1}(X_{q-2})} \&\& {H_{q-1}(X_{q-1})} \&\& \textcolor{rgb,255:red,214;green,92;blue,92}{{{H_{q-1}(X_{q-1},X_{q-2})}}} \&\& {H_{q-2}(X_{q-2})} \\
+	\\
+	\&\&\&\&\& {H_{q-2}(X_{q-3})} \&\& {H_{q-2}(X_{q-2})} \&\& \textcolor{rgb,255:red,214;green,92;blue,92}{{{H_{q-2}(X_{q-2},X_{q-3})}}} \& {H_{q-2}(X_{q-2})}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{{\partial_q^{(q,q-1)}}}", from=1-2, to=1-4]
+	\arrow["{\operatorname{d}_q}"'{pos=0.3}, color={rgb,255:red,214;green,92;blue,92}, from=1-2, to=3-6]
+	\arrow[from=1-4, to=1-6]
+	\arrow[equals, from=1-4, to=3-4]
+	\arrow[from=3-2, to=3-4]
+	\arrow["{{\pi_{q-1}^{(q-1,q-2)}}}"', from=3-4, to=3-6]
+	\arrow["{\partial_{q-1}^{(q-1,q-2)}}", from=3-6, to=3-8]
+	\arrow["{\operatorname{d}_{q-1}}"'{pos=0.3}, color={rgb,255:red,214;green,92;blue,92}, from=3-6, to=5-10]
+	\arrow[equals, from=3-8, to=5-8]
+	\arrow[from=5-6, to=5-8]
+	\arrow["{{\pi_{q-2}^{(q-2,q-3)}}}"', from=5-8, to=5-10]
+	\arrow[from=5-10, to=5-11]
+\end{tikzcd}%
+}
+\end{equation*}
+e notare che
+\begin{equation*}
+\operatorname{d}_{{q-1}}\circ \operatorname{d}_{{q}} = \bigg({\pi_{q-2}^{(q-2,q-3)}} \circ \partial_{q-1}^{(q-1,q-2)}\bigg)\circ \bigg({\pi_{q-1}^{(q-1,q-2)}}\circ {\partial_q^{(q,q-1)}}\bigg)
+\end{equation*}
+con \(\partial_{q-1}^{(q-1,q-2)} \circ \pi_{q-1}^{(q-1,q-2)}=0\) in quanto mappe successive di una successione esatta.
+\end{proof}
+\section{Omologia Cellulare}
+\label{sec:orga1fa8ea}
+\begin{definizione}
+L'\textbf{omologia cellulare} di \(X\) è l'\href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{omologia del complesso} di \hyperref[sec:orgb107e71]{catene cellulari}:
+\begin{equation*}
+H_{q}^{\text{cw}} (X) \coloneqq %
+H_{q}\bigg(\mathcal{S}_{\bullet}^{\text{cw}}(X)\bigg).
+\end{equation*}
+\end{definizione}
+\begin{prop}
+Se \(X\) è un CW-complesso, allora per ogni \(q\) l'\href{20250122133631-omologia_singolare.org}{omologia singolare} \href{20241206115416-morfismi_r_moduli.org}{coincide} con l'\hyperref[sec:orga1fa8ea]{omologia cellulare}:
+\begin{equation*}
+H_{q}(X) \cong H_{q}^{\text{cw}}(X).
+\end{equation*}
+\end{prop}
+\begin{proof}
+Per definizione, dato questo diagramma:
+\begin{equation*}
+\scalebox{0.8}{%
+\begin{tikzcd}[ampersand replacement=\&]
+	\textcolor{rgb,255:red,214;green,92;blue,92}{{{{H_{q+1}(X_{q+1},X_q)}}}} \&\& {H_q(X_q)} \&\& {H_q(X_{q+1})} \&\& {H_q(X_{q+1},X_q)} \\
+	\\
+	{H_q(X_{q-1})} \&\& {H_q(X_q)} \&\& \textcolor{rgb,255:red,214;green,92;blue,92}{{{{{H_q(X_q,X_{q-1})}}}}} \&\& {H_{q-1}(X_{q-1})} \&\& {H_{q-1}(X_q)} \\
+	\\
+	\&\&\&\& {H_{q-1}(X_{q-2})} \&\& {H_{q-1}(X_{q-1})} \&\& \textcolor{rgb,255:red,214;green,92;blue,92}{{{{{H_{q-1}(X_{q-1},X_{q-2})}}}}}
+	\arrow["{{{\partial_{q+1}^{(q+1,q)}}}}", from=1-1, to=1-3]
+	\arrow["{{{\operatorname{d}_{q+1}}}}"'{pos=0.2}, color={rgb,255:red,214;green,92;blue,92}, from=1-1, to=3-5]
+	\arrow[from=1-3, to=1-5]
+	\arrow[from=1-5, to=1-7]
+	\arrow[from=3-1, to=3-3]
+	\arrow[equals, from=3-3, to=1-3]
+	\arrow["{{{\pi_q^{(q,q-1)}}}}", from=3-3, to=3-5]
+	\arrow["{{{{\partial_q^{(q,q-1)}}}}}", from=3-5, to=3-7]
+	\arrow["{{{\operatorname{d}_q}}}"'{pos=0.3}, color={rgb,255:red,214;green,92;blue,92}, from=3-5, to=5-9]
+	\arrow[from=3-7, to=3-9]
+	\arrow[equals, from=3-7, to=5-7]
+	\arrow[from=5-5, to=5-7]
+	\arrow["{{{{\pi_{q-1}^{(q-1,q-2)}}}}}"', from=5-7, to=5-9]
+\end{tikzcd}%
+}
+\end{equation*}
+si ha che \(H_{q}^{\text{cw}}(X) = \frac{\ker \operatorname{d}_{q}}{\operatorname{Im}\operatorname{d}_{q+1}}\)\footnote{Vedi ``\href{20241213105201-kernel.org}{Kernel}'' e ``\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}'' e ``\href{20241206142802-sottomoduli.org}{Quoziente di Moduli}''}.
+
+Sostituendo le informazioni sull'\href{20260205161836-omologia_singolare_di_cw_complessi.org}{omologia singolare} e \href{20260205161836-omologia_singolare_di_cw_complessi.org}{relativa degli scheletri}:
+\begin{equation*}
+\scalebox{0.8}{%
+\begin{tikzcd}[ampersand replacement=\&]
+	\textcolor{rgb,255:red,214;green,92;blue,92}{{{{H_{q+1}(X_{q+1},X_q)}}}} \&\& {H_q(X_q)} \&\& \textcolor{rgb,255:red,255;green,51;blue,85}{{H_q(X)}} \& \textcolor{rgb,255:red,255;green,51;blue,85}{0} \\
+	\\
+	\textcolor{rgb,255:red,255;green,51;blue,85}{0} \&\& {H_q(X_q)} \&\& \textcolor{rgb,255:red,214;green,92;blue,92}{{{{{H_q(X_q,X_{q-1})}}}}} \&\& {H_{q-1}(X_{q-1})} \&\& {H_{q-1}(X_q)} \\
+	\\
+	\&\&\&\& \textcolor{rgb,255:red,255;green,51;blue,85}{0} \&\& {H_{q-1}(X_{q-1})} \&\& \textcolor{rgb,255:red,214;green,92;blue,92}{{{{{H_{q-1}(X_{q-1},X_{q-2})}}}}}
+	\arrow["{{{\partial_{q+1}^{(q+1,q)}}}}", from=1-1, to=1-3]
+	\arrow["{{{\operatorname{d}_{q+1}}}}"'{pos=0.2}, color={rgb,255:red,214;green,92;blue,92}, from=1-1, to=3-5]
+	\arrow[from=1-3, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow[from=3-1, to=3-3]
+	\arrow[equals, from=3-3, to=1-3]
+	\arrow["{{{\pi_q^{(q,q-1)}}}}", from=3-3, to=3-5]
+	\arrow["{{{{\partial_q^{(q,q-1)}}}}}", from=3-5, to=3-7]
+	\arrow["{{{\operatorname{d}_q}}}"'{pos=0.3}, color={rgb,255:red,214;green,92;blue,92}, from=3-5, to=5-9]
+	\arrow[from=3-7, to=3-9]
+	\arrow[equals, from=3-7, to=5-7]
+	\arrow[from=5-5, to=5-7]
+	\arrow["{{{{\pi_{q-1}^{(q-1,q-2)}}}}}"', from=5-7, to=5-9]
+\end{tikzcd}%
+}
+\end{equation*}
+e \href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{quindi}, dall'alto verso il basso::
+\begin{enumerate}
+\item \(H_{q}(X) \cong \frac{H_{q}(X_{q})}{\operatorname{Im}\partial_{q+1}^{(q+1,q)}}\);
+\item \(\pi_{q}^{(q,q-1)} : H_{q}(X_{q}) \longrightarrow H_{q}(X_{q}, X_{q-1})\) è \href{20241219101956-funzione_iniettiva.org}{iniettiva};
+\item \(\pi_{q-1}^{(q-1,q-2)} : H_{q-1}(X_{q-1})\longrightarrow H_{q-1}(X_{q-1}, X_{q-2})\) è iniettiva.
+\end{enumerate}
+
+Siccome \(\pi_{q}^{(q,q-1)}\) è iniettiva, \href{20241206142802-sottomoduli.org}{allora} da 1. posso arrivare a
+\begin{equation*}
+H_{q}(X) \cong \frac{H_{q}(X_{q})}{\operatorname{Im}\partial_{q+1}^{(q+1,q)}} %
+\cong \frac{\operatorname{Im} \pi_{q}^{(q,q-1)}}{\operatorname{Im} \bigg(\pi_{q}^{(q,q-1)}\circ \partial_{q+1}^{q+1,q}\bigg)} \cong %
+\frac{\ker \partial_{q}^{(q,q-1)}}{\operatorname{Im}\operatorname{d}_{q+1}}
+\end{equation*}
+dove l'ultimo \href{20241206115416-morfismi_r_moduli.org}{isomorfismo} è dato dal fatto che le righe siano \href{20250120125004-successione_di_r_moduli_esatta.org}{successioni esatte} e dalla definizione di \(\operatorname{d}_{q+1}\).
+
+Siccome \(\pi_{q-1}^{(q-1,q-2)}\) è iniettiva, \href{20241213105201-kernel.org}{allora}
+\begin{equation*}
+\ker \partial_{q}^{(q,q-1)} = \ker \pi_{q-1}^{(q-1,q-2)}\circ \partial_{q}^{(q,q-1)} = \ker \operatorname{d}_{q}
+\end{equation*}
+e dunque
+\begin{equation*}
+H_{q}(X) \cong \frac{\ker \partial_{q}^{(q,q-1)}}{\operatorname{Im}\operatorname{d}_{q+1}} %
+\cong \frac{\ker \operatorname{d}_{q}}{\operatorname{Im}\operatorname{d}_{q+1}} = H_{q}^{\text{cw}}(X).\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

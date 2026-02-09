@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Sottoprefascio}
+\label{sec:orgcf15fbc}
+\begin{definizione}
+Sia \(\mathcal{F}\) un \href{20250324174728-fascio.org}{fascio} su \(X\). Un \uline{sottoprefascio} \(\mathcal{G}\) di \(\mathcal{F}\) è un \href{20250324165349-prefascio.org}{prefascio} \(\mathcal{G}\) tale che, per ogni \href{20250103145124-topologia.org}{aperto} \(U \subseteq X\), \(\mathcal{G}(U) \subseteq \mathcal{F}(U)\) (con condizione di compatibilità).
+\end{definizione}
+\begin{oss}
+In generale non è detto che \(\mathcal{G}\) sia un \href{20250324174728-fascio.org}{fascio}. Infatti, dato \(U \subseteq X\) \href{20250103145124-topologia.org}{aperto}, \(\set{U_{i}}\) \href{20250103164252-ricoprimento.org}{ricoprimento} aperto di \(U\) e \(s_{i} \in \mathcal{G}(U_{i})\) tali che, in \(\mathcal{G}(U_{i}\cap U_{jj})\)
+\begin{equation*}
+\forall\, i,j\quad \restriction{s_{i}}{U_{i}\cap U_{j}} = \restriction{s_{j}}{U_{i}\cap U_{j}}
+\end{equation*}
+si ha che, siccome \(\mathcal{F}\) è un \href{20250324174728-fascio.org}{fascio}, allora esiste un unico \(s \in \mathcal{F}(U)\) tale che \(\restriction{s}{U_{j}} = s_{j}\). Quindi \(\mathcal{G}\) soddisfa l'\href{20250324174728-fascio.org}{assioma di unicità}, ma non è chiaro se \(s \in \mathcal{G}(U)\).
+\end{oss}
+\section{Sottofascio}
+\label{sec:orgbe0aba1}
+\begin{definizione}
+Sia \(\mathcal{F}\) un \href{20250324174728-fascio.org}{fascio} su \(X\). Un \uline{sottofascio} \(\mathcal{G}\) di \(\mathcal{F}\) è un \hyperref[sec:orgcf15fbc]{sottoprefascio} \(\mathcal{G}\) di \(\mathcal{F}\) che soddisfa l'\href{20250324174728-fascio.org}{assioma di fascio}.
+\end{definizione}
+\end{document}

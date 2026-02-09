@@ -1,0 +1,39 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
+\begin{thm}
+Un insieme \(P \subseteq \N^{k}\) è \href{20250216173925-insieme_ricorsivo.org}{ricorsivo} se e solo se \(P\) e \(\N^{k}\setminus P\) sono \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivi}.
+\end{thm}
+\begin{proof}
+(\(\Rightarrow\)): Siccome gli insiemi ricorsivi sono \href{20250519112917-proprieta_di_chiusura_degli_insiemi_ricorsivi.org}{chiusi per complemento}, se \(P\) è ricorsivo allora \(\N^{k}\setminus P\) è ricorsivo; inoltre \href{20250520113238-insieme_semiricorsivo.org}{gli insiemi ricorsivi sono semiricorsivi}, dunque la tesi.
+
+(\(\Leftarrow\)): Siano \(R, S \subseteq \N^{k+1}\) ricorsivi tali che
+\begin{align*}
+P(\oldvec{x})\quad &\iff\quad \exists\,y\ R(\oldvec{x},y)\\
+\left(\N^{k}\setminus P\right)(\oldvec{x})\quad &\iff\quad \exists\,y\ S(\oldvec{x},y)\\
+\end{align*}
+
+Si consideri ora la funzione
+\begin{align*}
+f: \N^{k} &\longrightarrow \N\\
+\oldvec{x} &\longmapsto \minim{y}{R(\oldvec{x},y) \,\lor\, S(\oldvec{x},y)}
+\end{align*}
+Questa è una \href{20250207104855-funzione_ricorsiva.org}{funzione ricorsiva}, poiché ottenuta per \href{20250520101418-funzioni_ricorsive_per_minimizzazione_su_un_predicato.org}{minimizzazione di un enunciato ricorsivo} (\href{20250519112917-proprieta_di_chiusura_degli_insiemi_ricorsivi.org}{congiunzione di predicati ricorsivi}). Inoltre, è una \href{20250213105339-funzione_parziale.org}{funzione totale}, poiché:
+\begin{itemize}
+\item se \(\oldvec{x} \in P\) allora esiste \(y\) tale che \(R(\oldvec{x},y)\), e pertanto esiste \(y\) tale che \(R(\oldvec{x},y) \,\lor\, S(\oldvec{x},y)\);
+\item se \(\oldvec{x} \notin P\) allora \(\oldvec{x} \in \N^{k}\setminus P\) e dunque esiste \(y\) tale che \(S(\oldvec{x},y)\), e pertanto esiste \(y\) tale che \(R(\oldvec{x},y) \,\lor\, S(\oldvec{x},y)\).
+\end{itemize}
+
+Infine, si ha che \(P(\oldvec{x})\iff R\left(\oldvec{x}, f(\oldvec{x})\right)\). L'implicazione \((\Leftarrow)\) è ovvia. Viceversa, se \(P(\oldvec{x})\) allora esiste \(y\) tale che \(R(\oldvec{x},y)\). Inoltre, se esistesse \(y\) tale che \(S(\oldvec{x},y)\), si avrebbe che \(\left(\N^{k}\setminus P\right)(\oldvec{x})\), assurdo. Pertanto
+\begin{equation*}
+f(\oldvec{x}) = \minim{y}{R(\oldvec{x},y) \,\lor\, S(\oldvec{x},y)} = \minim{y}{R(\oldvec{x},y)}
+\end{equation*}
+da cui la tesi.
+\end{proof}
+\end{document}

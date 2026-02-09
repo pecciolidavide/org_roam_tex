@@ -1,0 +1,60 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
+Consideriamo la proiezione
+\begin{align*}
+\pi_{1}: \mathds{P}^{n}\times \mathds{P}^{m} &\longrightarrow \mathds{P}^{n}\\
+\left([x_{0}:\dots:x_{n}], [y_{0}:\dots:y_{m}]\right) &\longmapsto [x_{0}:\dots:x_{n}]
+\end{align*}
+(vedi \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo}).
+\section{Proposizione}
+\label{sec:org524b955}
+\(\pi_{1}\) è un \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{morfismo}, dove \(\mathds{P}^{n}\times \mathds{P}^{m}\) è una \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà proiettiva} con la \href{20250104190620-mappa_di_segre.org}{struttura indotta} dalla \href{20250104190620-mappa_di_segre.org}{mappa di Segre}.
+\subsection{Dimostrazione}
+\label{sec:org105b166}
+Per definizione, questo significa chiedersi se \(\pi_{1}\circ \sigma^{-1}:\Sigma_{n,m} \longrightarrow \mathds{P}^{n}\) sia un morfismo, dove \(\sigma\) è la mappa di Segre della dimensione giusta.
+\[\begin{tikzcd}[ampersand replacement=\&]
+	\& {\Sigma_{n,m}} \\
+	{\mathds{P}^n\times\mathds{P}^m} \&\& {\mathds{P}^n}
+	\arrow["{\pi_{1}\circ\sigma^{-1}}", from=1-2, to=2-3]
+	\arrow["\sigma", from=2-1, to=1-2]
+	\arrow["{\pi_1}"', from=2-1, to=2-3]
+\end{tikzcd}
+\]
+
+Sia \(p \in \mathds{P}^{N}_{z=z_{ij}}\), dove \(N=(n+1)(m+1)-1\). Pertanto
+\begin{equation*}
+p=\begin{bmatrix}
+p_{00} & p_{01} & \dots & p_{0m}\\
+\vdots\\
+p_{n0} & p_{n1} & \dots & p_{nm}
+\end{bmatrix}\neq 0
+\end{equation*}
+Pertanto esiste una colonna non nulla. Dunque \(\mathds{P}^{N}=\bigcup A_{j}\), dove \(A_{j}\) è l'insieme di punti con la \(j\)-esima colonna non nulla. \(A_{j}\) è un \href{20250103145124-topologia.org}{aperto}, poiché complementare dell'insieme dei punti con la \(j\)-esima colonna nulla (vedi \href{20250103180214-topologia_di_zariski_proiettiva.org}{Topologia di Zariski proiettiva}.)
+
+Su \(\Sigma_{n,m} \subseteq \bigcup A_{j}\) si definisce la mappa
+\begin{equation*}
+p=\begin{bmatrix}
+p_{00} & p_{01} & \dots & p_{0m}\\
+\vdots\\
+p_{n0} & p_{n1} & \dots & p_{nm}
+\end{bmatrix}\longmapsto [p_{0j}:p_{1j}:\dots:p_{nj}] \in \mathds{P}^{n}\ \text{se }p \in A_{j}
+\end{equation*}
+Questo è un \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{morfismo}. Infatti
+\begin{enumerate}
+\item è localmente polinomiale e composta da polinomi omogenei di primo grado, senza zeri comuni sugli aperti \(A_{j}\) (siccome per definizione su \(A_{j}\) la \(j\)-esima colonna è non nulla);
+\item è ben definita: infatti, se \(p \in \Sigma_{n,m}\) allora \(\rank p = 1\) (vedi \href{20250104170945-rango_di_una_matrice.org}{Rango di una matrice}), e pertanto tutte le colonne sono proporzionali.
+\end{enumerate}
+
+Resta da dimostrare che questa mappa sia effettivamente \(\pi\circ\sigma^{-1}\). Sia \(p\in \Sigma_{n,m}\) come sopra, \(p = \sigma(x,y)\) con \(x=[x_{0}:\dots:x_{n}]\), \(y=[y_{0}:\dots:y_{m}]\).
+
+Applicando la mappa a \(p\) si ottiene
+\begin{align*}
+[p_{0j}: p_{1j}: \dots:p_{nj}] &= [x_{0}y_{j}:x_{1}y_{j}:\dots:x_{n}y_{j}]\\
+&= [x_{0}:x_{1}:\dots:x_{n}].
+\end{align*}
+\end{document}

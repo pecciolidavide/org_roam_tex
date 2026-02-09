@@ -1,0 +1,119 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema di Ramsey}
+\label{sec:org93a3e80}
+Si veda la Sezione~15.1 di 
+
+\def\M{\mathcal{M}}
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+\def\equivalentover#1{\mathrel{\equiv_{#1}}}
+\def\restricted#1{\,\mathord{\upharpoonright}{\scriptstyle #1}}
+%% Alcuni simboli
+\def\nonforkSymbol{\mathbin{\raise1.8ex\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$} } }
+\renewcommand{\nonfork}[1][M]{\mathrel{\nonforkSymbol_{#1}}}
+
+\uline{Notazione}:
+\begin{itemize}
+\item per \(k \in \N\), \((k] = \set{1,\dots,k}\)
+\item per \(I\) insieme e \(\lambda\) \href{20250203161341-cardinali.org}{cardinale}, si indica con
+\begin{equation*}
+  \binom{I}{\lambda} = I^{(\lambda)} =  \set{J \subseteq I \mid \card{J} = \lambda}.
+\end{equation*}
+l'insieme dei \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsiemi} di \(I\) di \href{20241213101756-cardinalita.org}{cardinalità} fissata.
+\end{itemize}
+
+\begin{definizione}
+Una \uline{colorazione} per un insieme \(M^{(n)}\) è una funzione
+\begin{equation*}
+f: M^{(n)} \to (k]
+\end{equation*}
+per qualche \(n,k \in \omega\) fissato.
+\end{definizione}
+
+\begin{definizione}
+Dato un insieme \(M\) ed una colorazione \(f:M^{(n)}\to (k]\), \(H \subseteq M\) è \uline{monocromatico} se la \href{20250205170515-restrizione_di_una_classe.org}{restrizione} \(f \upharpoonright H^{(n)}\) è costante.
+\end{definizione}
+
+\begin{thm}
+Per ogni \(M\) insieme infinito e per ogni colorazione
+\begin{equation*}
+f: \binom{M}{n}\to (k]
+\end{equation*}
+esiste \(H \subseteq M\) infinito e monocromatico.
+\end{thm}
+
+\begin{proof}
+Sia \(\L\) il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} contenente \(k\) relazioni \(n\)-arie:
+\begin{equation*}
+\L = \set{r_{i} \mid i \in (k]}
+\end{equation*}
+e sia \(\M\) la \(\L\)-struttura di dominio \(M\), in cui
+\begin{equation*}
+r_{i}^{\M} \coloneqq \set{(a_{1},\dots,a_{n}) \mid f\big(\set{a_{1},\dots,a_{n}}\big) = i}.
+\end{equation*}
+
+Sia \(\U \succeq \mathcal{M}\)\footnote{con ``\(\preceq\)'' si intende che \(\mathcal{M}\) è \href{20250212102253-sottostruttura_elementare.org}{Sottostruttura elementare} di \(\U\).} un \href{20250617095548-modello_lambda_saturo.org}{modello saturo} \href{20250617102733-modello_mostro.org}{mostro}. Si noti che esiste una \href{20250131103317-formula_del_prim_ordine.org}{formula del prim'ordine} che afferma che \(r_{i}(x_{1},\dots,x_{n})\) rappresentano una colorazione di \(M^{(n)}\) (ovvero che le relazioni sono simmetriche e sono un ``ricoprimento''), e pertanto, per elementarietà, questo vale anche in \(\U\).
+
+Sia \(x\) una variabile di lunghezza 1 e sia \(q(x)\) il tipo \(x\notin M\). Questo è \href{20250212164424-tipo_teoria_dei_modelli.org}{finitamente soddisfacibile}, e \href{20251026195832-estensione_tipo_finitamente_soddisfacibile_in_un_insieme_a_tipo_massimale_e_completo.org}{pertanto} esiste un \href{20250617102733-modello_mostro.org}{tipo globale} \(p(x) \supseteq q(x)\), \(p(x) \in S(\U)\) finitamente soddisfacibile in \(M\). \href{20251026195746-tipo_finitamente_soddisfacibile_e_invariante.org}{Inoltre} \(p(x)\) è invariante su \(M\).
+
+Sia \(\overline{c} = \langle c_{i} \mid i<\omega \rangle\) una \href{20251026211057-sequenza_di_coeredi.org}{sequenza di coeredi di \(p(x)\) su \(M\)}.
+
+In particolare, siccome \(\overline{c}\) è un \href{20251026210840-sequenza_di_morley.org}{sequenza di Morley} su \(p(x)\) invariante su \(M\), \href{20251026211005-sequenza_di_morely_inviariante_e_indiscernibile.org}{allora} è una \href{20251026210908-sequenza_di_indiscernibili.org}{sequenza di indiscernibili} su \(M\). Pertanto per ogni \(I,J \in \omega^{(n)}\)
+\begin{equation*}
+c \restricted{I} \equivalentover{M} c \restricted{J}.
+\end{equation*}
+e dunque, per ogni \(i=1,\dots,k\)
+\begin{equation*}
+r_{i}(c\restricted{I}) \IFF r_{i}(c \restricted{J})
+\end{equation*}
+Segue che \(\set{c_{i} \mid i <\omega}\) è monocromatico (WLOG di colore 1). Si osservi però che questa sequenza è in \(\U\), non in \(M\).
+
+Si vuole costruire per induzione una sequenza \(\overline{a} = \langle a_{i} : i <\omega \rangle\) in \(M\) monocromatica di colore 1.
+
+Per induzione su \(i\): si supponga per ipotesi induttiva che tutte le sottosequenze di lunghezza \(n\) di
+\begin{equation*}
+(a\restricted{i}) \concat (c\restricted{n}),
+\end{equation*}
+dove ``\(\concat\)'' rappresenta la concatenazione tra \href{20250206170922-sequenze_e_stringhe.org}{stringhe}, abbiano lo stesso colore 1. Si cerca quindi \(a_{i} \in M\) in maniera che
+\begin{equation*}
+(a\restricted{i}) \textcolor{red}{\concat a_{i}} \concat (c\restricted{n}) = (a\restricted{i+1}) \concat (c\restricted{n})
+\end{equation*}
+abbia la stessa proprietà.
+
+Siccome \(\overline{c}\) è sequenza di indiscernibili su \(M\)\footnote{Ovvero per ogni \(I,J \in \omega^{(n)}\)
+\begin{equation*}
+c \restricted{I} \equivalentover{M} c \restricted{J}.
+\end{equation*}} in particolare
+\begin{equation*}
+(a\restricted{i}) \concat (c\restricted{n}) \concat c_{n}
+\end{equation*}
+ha tutte le sottostringhe di lunghezza \(n\) di colore 1 (poiché \(a\restricted{i} \subseteq M\)).
+
+In particolare esiste una formula \(\varphi \in \L\) tale che \(\varphi(a\restricted{i};\, c \restricted{n};\, c_{n})\) affermi che tutte le sottosequenze di lunghezza \(n\) della stringa abbiano colore 1.
+Questa formula per sua natura è simmetrica nelle variabili libere.
+
+Per la \href{20251026211057-sequenza_di_coeredi.org}{caratterizzazione delle sequenze di coeredi} si ha che
+\begin{equation*}
+c_{n} \nonfork c \restricted{n}
+\end{equation*}
+e dunque per \href{20251029154447-tuple_indipendenti_rispetto_ad_un_modello_monster_model.org}{definizione} esiste \(\bm{a} \in M\) tale che
+\begin{equation*}
+\varphi(a\restricted{i};\, c \restricted{n};\, \textcolor{red}{\bm{a}})
+\end{equation*}
+e, per l'osservazione di cui sopra,
+\begin{equation*}
+\varphi(a\restricted{i};\, \bm{a};\, c \restricted{n}).
+\end{equation*}
+
+Quindi la stringa
+\begin{equation*}
+(a \restricted{i}) \concat \bm{a} \concat (c\restricted{n})
+\end{equation*}
+è monocromatica di colore 1. Ponendo \(a_{i} \coloneqq \bm{a}\) si ha la tesi.
+\end{proof}
+\end{document}

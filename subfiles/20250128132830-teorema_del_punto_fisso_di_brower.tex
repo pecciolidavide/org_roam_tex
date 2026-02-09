@@ -1,0 +1,50 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema del punto fisso di Brower}
+\label{sec:orga651fab}
+Sia \(\mathds{D}^{n}\) il \href{20250127170831-disco_n_dimensionale.org}{disco \(n\)-dimensionale}.
+
+\begin{thm}
+Se \(f:\mathds{D}^{n} \longrightarrow \mathds{D}^{n}\) è una \href{20250103103252-funzione_continua.org}{funzione continua}, allora ammette un \href{20250129160423-punto_fisso.org}{punto fisso}, ovvero esiste \(p \in \mathds{D}^{n}\) tale che
+\begin{equation*}
+f(p)=p.
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+Supponiamo per assurdo che \(\forall\, p \in \mathds{D}^{n}\): \(f(p)\neq p\)
+
+Sia allora \(g:\mathds{D}^{n} \longrightarrow \partial \mathds{D}^{n}\), dove \(\partial \mathds{D}^{n}\) è il \href{20250129161026-bordo.org}{bordo}, ovvero la \href{20250115150754-sfera_n_dimensionale.org}{sfera}:
+\begin{equation*}
+\partial\mathds{D}^{n} = \mathds{S}^{n-1}
+\end{equation*}
+che a ciascun punto \(p\) associa il punto di intersezione per \(t>0\) tra la retta \(r_{p}(t)\) e il bordo \(\mathds{S}^{n-1}\).
+\begin{equation*}
+r_{p}(t) = f(p) + t\, \left(p-f(p)\right)
+\end{equation*}
+ben definita poiché per ipotesi \(p\neq f(p)\). \(g\) è una funzione continua e \(\restriction{g}{\mathds{S}^{n-1}} = \operatorname{id}_{\mathds{S}^{n-1}}\)
+
+Applicando il \href{20241205131958-funtore.org}{funtore} \href{20250123115927-funtore_di_omologia_singolare.org}{di omologia singolare} al seguente diagramma, ricordando che \(\mathds{D}^{n}\) è \href{20250122154613-insieme_stellato.org}{stellato} e \href{20250122154637-insieme_stellato_e_spazio_topologico_aciclico.org}{quindi} \href{20250122154451-spazio_topologico_aciclico.org}{aciclico} (e ricordando l'\href{20250127162702-calcolo_dell_omologia_singolare_della_sfera_e_dell_omologia_singolare_relativa_del_disco_rispetto_alla_sfera.org}{omologia della sfera})
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	{\mathds{D}^{n}} \& {\mathds{S}^{n-1}} \& {} \& {} \& {H_{n-1}(\mathds{D}^{n})} \& {H_{n-1}(\mathds{S}^{n-1})} \\
+	{\mathds{S}^{n-1}} \&\&\&\& {H_{n-1}(\mathds{S}^{n-1})}
+	\arrow["g", from=1-1, to=1-2]
+	\arrow["{H_{n-1}}"', squiggly, from=1-3, to=1-4]
+	\arrow["{g_{\star}}", from=1-5, to=1-6]
+	\arrow["i", hook, from=2-1, to=1-1]
+	\arrow["{\operatorname{id}}"', from=2-1, to=1-2]
+	\arrow["{i_{\star}}", from=2-5, to=1-5]
+	\arrow["{\operatorname{id}}"', from=2-5, to=1-6]
+\end{tikzcd}
+\end{equation*}
+si ottiene  che \(H_{n-1}(\mathds{D}^{n}) = 0\) e quindi \(i_{\star}=0\) e quindi
+\begin{equation*}
+\operatorname{id}=g_{\star}\circ i_{\star}=g_{\star}\circ 0 = 0.\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

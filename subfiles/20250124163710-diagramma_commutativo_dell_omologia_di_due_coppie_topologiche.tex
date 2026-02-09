@@ -1,0 +1,60 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Siano \((X,A), (Y,B)\) \href{20250122154728-coppia_topologica.org}{coppie topologiche}, e sia \(f:(X,A)\to(Y,B)\) un \href{20250122160145-categoria_topp.org}{morfismo}.
+\begin{lem}
+Il morfismo \(f\) induce le \href{20250103103252-funzione_continua.org}{funzioni continue}:
+\begin{equation*}
+f: X\longrightarrow Y,\qquad \restriction{f}{A}: A\longrightarrow B
+\end{equation*}
+Applicando i \href{20241205131958-funtore.org}{funtori}
+\begin{itemize}
+\item \href{20250122154136-funtorialita_dell_omologia_singolare.org}{funtore diesis} \((\mathcal{S}_{\bullet},\diesis)\) a \(f:X\longrightarrow Y\) e ad \(\restriction{f}{A}\);
+\item \href{20250124163705-funtore_da_topp_a_chr_diesis.org}{funtore diesis} \((\mathcal{S}_{\bullet},\overline{\diesis})\) a \(f:(X,A)\longrightarrow (Y,B)\)
+\end{itemize}
+si ottiene il seguente diagramma commutativo a \href{20251115182707-sec_di_complessi_di_cocatene.org}{righe esatte}\footnote{Questa è la \href{20250122154927-successione_esatta_di_una_coppia_topologica.org}{successione esatta dei complessi di catene di una coppia topologica}}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,column sep=3.15em]
+	0 \& {\mathcal{S}_{\bullet}(A)} \& {\mathcal{S}_{\bullet}(X)} \& {\mathcal{S}_{\bullet}(X,A)} \& 0 \\
+	0 \& {\mathcal{S}_{\bullet}(B)} \& {\mathcal{S}_{\bullet}(Y)} \& {\mathcal{S}_{\bullet}(Y,A)} \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{i_A}", from=1-2, to=1-3]
+	\arrow["{(\restriction{f}{A})_{\diesis}}"', from=1-2, to=2-2]
+	\arrow["{\pi_X}", from=1-3, to=1-4]
+	\arrow["{f_\diesis}"', from=1-3, to=2-3]
+	\arrow[from=1-4, to=1-5]
+	\arrow["{\overline{f_{\diesis}}}", from=1-4, to=2-4]
+	\arrow[from=2-1, to=2-2]
+	\arrow["{i_B}"', from=2-2, to=2-3]
+	\arrow["{\pi_Y}"', from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}
+\end{equation*}
+\end{lem}
+\begin{prop}
+Applicando il \href{20250120165029-funtore_tra_chr_e_rmod.org}{funtore di omologia} \((H_{n},\star)\) e lo \href{20250120164938-zig_zag_lemma.org}{zigzag lemma}, si ottiene il seguente diagramma commutativo a \href{20250120125004-successione_di_r_moduli_esatta.org}{righe esatte}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,column sep=3.15em, row sep=large]
+	\cdots \& {H_n(A)} \& {H_n(X)} \& {H_n(X,A)} \& {H_{n-1}(A)} \& \cdots \\
+	\cdots \& {H_n(B)} \& {H_n(Y)} \& {H_n(Y,B)} \& {H_{n-1}(B)} \& \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow["{(i_A)_{\star}}", from=1-2, to=1-3]
+	\arrow["{(\restriction{f}{A})_{\star}}"', from=1-2, to=2-2]
+	\arrow["{(\pi_A)_{\star}}", from=1-3, to=1-4]
+	\arrow["{f_{\star}}"', from=1-3, to=2-3]
+	\arrow["{\partial^X_{\star}}", from=1-4, to=1-5]
+	\arrow["{(\overline{f_{\diesis}})_{\star}}", from=1-4, to=2-4]
+	\arrow[from=1-5, to=1-6]
+	\arrow["{(\restriction{f}{A})_{\star}}", from=1-5, to=2-5]
+	\arrow[from=2-1, to=2-2]
+	\arrow["{(i_B)_{\star}}"', from=2-2, to=2-3]
+	\arrow["{(\pi_B)_{\star}}"', from=2-3, to=2-4]
+	\arrow["{\partial^Y_{\star}}"', from=2-4, to=2-5]
+	\arrow[from=2-5, to=2-6]
+\end{tikzcd}
+\end{equation*}
+\end{prop}
+\end{document}

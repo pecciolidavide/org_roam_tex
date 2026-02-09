@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile}. Si definisce
+\begin{align*}
+[\cdot,\cdot]: \Gamma(M)\times\Gamma(M) &\longrightarrow \Gamma(M)\\
+(X,Y) &\longmapsto [X,Y]
+\end{align*}
+il bracket di \(X,Y\) (vedi \href{20250115110259-campo_vettoriale_su_una_varieta_differenziabile.org}{Campo vettoriale su una varietà differenziabile})
+
+In particolare, per ogni \(f \in \operatorname{C}^{\infty}(M)\) (vedi \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{Anello delle funzioni da una varietà ai reali Cinfinito} e \href{20250115115535-azione_di_un_campo_vettoriale_su_una_funzione.org}{Azione di un campo vettoriale su una funzione} e \href{20250115121514-insieme_dei_derivatori_du_una_varieta.org}{Campi vettoriali come derivatori}),
+\begin{equation*}
+[X,Y](f) \coloneqq X\left(Y(f)\right)-Y\left(X(f)\right)
+\end{equation*}
+\section{{\bfseries\sffamily TODO} Il bracket è realmente un campo vettoriale\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\label{sec:org536cb36}
+
+\section{Proprietà}
+\label{sec:orgc190c11}
+Siano \(X,Y,Z \in \Gamma(M)\) e siano \(\lambda, \mu \in \R\):
+\begin{enumerate}
+\item \([\lambda\ X + \mu \ Y, Z] = \lambda\ [X,Z] + \mu\ [Y,Z]\) (è \(\R\)-bilineare);
+\item \([X,Y] = - [Y,Z]\) è antisimmetrica;
+\item soddisfa l'identità di Jacobi:
+\begin{equation*}
+ \left[[X,Y],Z\right] + \left[[Y,Z], X\right] + \left[[Z,X], Y\right] = 0
+\end{equation*}
+\end{enumerate}
+
+Queste tre proprietà si riassumono dicendo che \(\langle \Gamma(M), [\cdot,\cdot]\rangle\) è un'\href{20250115151742-algebra_di_lie.org}{algebra di Lie}.
+\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\label{sec:orgf6f4e2e}
+\end{document}

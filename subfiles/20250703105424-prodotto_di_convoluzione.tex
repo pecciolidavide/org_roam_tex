@@ -1,0 +1,25 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Prodotto di convoluzione}
+\label{sec:orgca81a05}
+\begin{definizione}
+Siano \(f,g: \R\to \R\) \href{20250703105508-funzioni_integrabili_secondo_lebesgue.org}{Lebesgue-integrabili}. La convoluzione \(f*g\) è
+\begin{equation*}
+\convolution{f}{g}(t) \coloneqq \int_{-\infty}^{+\infty} f(t-\tau)\,g(\tau)\dif \tau = \int_{-\infty}^{ +\infty}f(\tau)\,g(t-\tau) \dif\tau.
+\end{equation*}
+\end{definizione}
+\begin{prop}
+Siano \(f,g\) come sopra. Allora
+\begin{enumerate}
+\item \(\convolution{f}{g} = \convolution{g}{f}\);
+\item \(f\conv(g\conv h)=(f\conv g)\conv h\)
+\item \(f\conv (g+h) = f\conv g + f\conv h\)
+\item per ogni \(a \in\R\): \(a(f\conv g) = (af)\conv g = f\conv(ag)\)
+\item \((f\conv g)' = (f')\conv g = f\conv(g')\).
+\end{enumerate}
+\end{prop}
+\end{document}

@@ -1,0 +1,42 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Singolarità isolata (Analisi Complessa)}
+\label{sec:org4461344}
+\subsection{Per superfici di Riemann}
+\label{sec:org0797acc}
+
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, \(p_{0} \in X\) e \(U\) \href{20250111142313-intorno.org}{intorno} \href{20250103145124-topologia.org}{aperto} di \(p_{0}\).
+
+\begin{definizione}
+Se \(f: U \setminus\set{p_{0}}\to \C\) è \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa}, allora si dice che \uline{\(f\) ha una singolarità isolata in \(p_{0}\)}
+\end{definizione}
+
+\begin{thm}
+Ci sono esattamente tre possibilità:
+\begin{enumerate}
+\item esiste finito il \href{20250625110412-limite_analisi_matematica.org}{limite}
+\begin{equation*}
+ \lim_{p\to p_{0}} |f(p)|
+\end{equation*}
+e in questo caso si dice che \emph{\(f\) ha una singolarità eliminabile in \(p_{0}\)};
+\item esiste il \href{20250625110412-limite_analisi_matematica.org}{limite}
+\begin{equation*}
+ \lim_{p\to p_{0}} |f(p)| = +\infty
+\end{equation*}
+e in questo caso si dice che \emph{\(f\) ha un polo in \(p_{0}\)};
+\item non esiste il \href{20250625110412-limite_analisi_matematica.org}{limite}
+\begin{equation*}
+ \lim_{p\to p_{0}} |f(p)|
+\end{equation*}
+e in questo caso si dice che \emph{\(f\) ha una singolarità essenziale in \(p_{0}\)}.
+\end{enumerate}
+\end{thm}
+
+\begin{oss}
+Se \(\varphi :U_{1}\to V \subseteq \C\) è una carta locale in \(p_{0}\), con \(z_{0}\coloneqq\varphi(p_{0})\), allora \(f\circ \varphi^{-1}\) ha una singolarità isolata in \(z_{0}\) che sarà eliminabile / polo / essenziale in base a che tipo di singolarità è \(p\) per \(f\).
+\end{oss}
+\end{document}

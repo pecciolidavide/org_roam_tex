@@ -1,0 +1,39 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Logaritmo complesso è olomorfo su un aperto semplicemente connesso}
+\label{sec:orga00a977}
+\begin{prop}
+Se \(U \subseteq \C\) è un \href{20250103145124-topologia.org}{aperto} \href{20250113100451-spazio_topologico_semplicemente_connesso.org}{semplicemente connesso} tale che \(0 \notin U\), allora
+\begin{equation*}
+\log : U\to \C
+\end{equation*}
+è una funzione \href{20260126110551-funzione_olomorfa.org}{olomorfa}.
+\end{prop}
+
+\begin{proof}
+Consideriamo \(f(z) = 1/z\). Questa è una funzione olomorfa su \(U\), \href{20260126184314-funzione_olomorfa_su_un_aperto_semplicemente_connesso_ammette_primitiva.org}{e quindi esiste \(g\) una primitiva di \(f\)}, \(g:U\to \C\) olomorfa. Facendo la \href{20250114110703-derivata.org}{derivata}:
+\begin{equation*}
+\dod{}{z}\big(\frac{1}{z} e^{g(z)}\big) = \frac{1}{z} e^{g(z)}g'(z) - \frac{1}{z^{2}} e^{g}(z) = 0.
+\end{equation*}
+\href{20260127100741-spazio_topologico_semplicemente_connesso_e_connesso.org}{Siccome} \(U\) è \href{20250103165325-spazio_topologico_connesso.org}{connesso}, \href{20251222142956-teorema_della_derivata_nulla.org}{allora} \(\frac{1}{z} e^{g(z)} = \lambda > 0\) costante, ovvero
+\begin{equation*}
+e^{g(z)} = \lambda z.
+\end{equation*}
+Segue che \(e^{-\log\lambda\, g(z)} = z\), \(-\log\lambda\,g(z)\) \href{20260126110551-funzione_olomorfa.org}{olomorfa}.
+\end{proof}
+\section{Funzione olomorfa su aperto semplicemente connesso ammette un logaritmo}
+\label{sec:org69d3a1a}
+\begin{prop}
+Se \(U\) è un \href{20250103145124-topologia.org}{aperto} \href{20250113100451-spazio_topologico_semplicemente_connesso.org}{semplicemente connesso} e \(f:U\to \C\) è olomorfa e tale che \(f(x) \neq 0\) per ogni \(x\), allora esiste \(g:U\to \C\) olomorfa tale che
+\begin{equation*}
+e^{g(z)} = f(z).
+\end{equation*}
+\end{prop}
+\begin{proof}
+È sufficiente prendere una \href{20260126184314-funzione_olomorfa_su_un_aperto_semplicemente_connesso_ammette_primitiva.org}{primitiva} per \(f'(z)/f(z)\).
+\end{proof}
+\end{document}

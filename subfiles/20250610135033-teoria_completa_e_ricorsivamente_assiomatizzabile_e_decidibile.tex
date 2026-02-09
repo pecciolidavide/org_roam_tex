@@ -1,0 +1,17 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(L\) un linguaggio del prim'ordine numerabile.
+\section{Teorema}
+\label{sec:org04be852}
+Sia \(T\) una \(L\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123151-teoria_completa.org}{completa} e \href{20250609135250-teoria_ricorsivamente_assiomatizzabile.org}{ricorsivamente assiomatizzabile}. Allora \(T\) è \href{20250610134232-teoria_decidibile.org}{decidibile}.
+\subsection{Idea dimostrazione}
+\label{sec:orgf4a9aca}
+
+Le ipotesi \href{20250609135524-codifica_delle_dimostrazioni_a_partire_dagli_assiomi.org}{bastano per affermare} che \(\operatorname{Teor}_{T}^{\#}\) sia \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo}.
+
+Per il \href{20250520113349-teorema_di_post.org}{Teorema di Post}, dimostra che \(\sim\operatorname{Teor}_{T}^{\#}\) sia semiricorsivo, usando la funzione ricorsiva \(f:\N\to\N:n\mapsto\godelcode{\#(\lnot),n}\) dove \(\godelcode{}\) è la \href{20250531110737-codifica_delle_sequenze_finite_tramite_beta_di_godel.org}{codifica di Godel}.
+\end{document}

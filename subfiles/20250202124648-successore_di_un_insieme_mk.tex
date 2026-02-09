@@ -1,0 +1,29 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(x\) un \href{20250130104331-insieme_mk.org}{insieme}.
+
+Si definisce il \textbf{successore di \(x\)} come l'insieme
+\begin{equation*}
+\operatorname{S}(x) \coloneqq x\cup\set{x}
+\end{equation*}
+\section{Successore di un numero naturale}
+\label{sec:orge74096c}
+Ricordando la \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{definizione di numeri naturali} nella teoria degli insiemi, è naturale la definizione di successore:
+\begin{align*}
+\operatorname{S}: \N &\longrightarrow \N\\
+n &\longmapsto n+1
+\end{align*}
+\section{Formalizzazione in MK}
+\label{sec:org8bf20be}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+
+Per l'Axiom of Comprehension, se \(x\) è un insieme \(\set{x}\) è un insieme e \(x\cup \set{x}\) è un insieme.
+\subsection{Osservazione}
+\label{sec:org46d73d6}
+Per ogni insieme \(x\), \(x\neq \operatorname{S}(x)\). Infatti \(x \in S(x)\), ma \(x\notin x\) (vedi \href{20250131180704-nessun_insieme_appartiene_a_se_stesso.org}{Nessuna classe appartiene a se stessa}) e pertanto, per l'Axiom of Extentionality, \(x\neq \operatorname{S}(x)\).
+\end{document}

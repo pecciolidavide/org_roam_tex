@@ -1,0 +1,86 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:orgcce372b}
+
+Prove that for every \href{20250103145124-topologia.org}{topological space} \(X\) and every \(A \subseteq X\), the following are equivalent:
+
+\begin{enumerate}
+\item The set \(A\) is \href{20250417180515-insieme_mai_denso.org}{nowhere dense}, i.e. there is no open set \(U \subseteq X\) such that \(A \cap U\) is dense in \(U\).
+\item The closure of \(A\) has empty \href{20250122181431-parte_interna.org}{interior}.
+\item There is an open dense set \(V \subseteq X\) such that \(A \cap V = \emptyset\).
+\end{enumerate}
+
+Conclude that \(B \subseteq X\) is \href{20250419122752-insieme_magro.org}{comeager} if and only if it contains a countable intersection of dense open sets.
+\subsection{Dimostrazione}
+\label{sec:org5313aac}
+
+\subsubsection{a implica b}
+\label{sec:org9a5a998}
+
+Sia \(B\coloneqq \operatorname{Cl}_{X}(A)\), e sia per assurdo \(b \in \mathring{B}\). Allora esiste \(U \subseteq B\) aperto di \(X\) tale che \(b \in U\).
+
+\uline{Claim}: \(A\cap U\) è denso in \(U\), ovvero \(U \subseteq \operatorname{Cl}_{X}(A\cap U)\).
+
+Sia \(x \in U\) e sia \(V\) un intorno aperto di \(x\) in \(X\). Si vuole dimostrare che \(V\cap(A\cap U)\neq \emptyset\).
+\begin{itemize}
+\item L'insieme \(W\coloneqq U\cap V\) è un intorno aperto di \(x\).
+\item Siccome \(x \in U \subseteq \operatorname{Cl}_{X}(A)\), allora \(A\cap W \neq \emptyset\).
+\item Allora
+\begin{equation*}
+  	\emptyset\neq W\cap A = (V\cap U)\cap A = V\cap(A\cap U)
+\end{equation*}
+\end{itemize}
+
+Per l'arbitrarietà di \(V\), si è dimostrato che \(x \in \operatorname{Cl}_{X}(A\cap U)\), ovvero che \(A\cap U\) è denso in \(U\). Questo contraddice l'ipotesi.
+\subsubsection{b implica c}
+\label{sec:orgc43775b}
+
+Sia \(V\coloneqq X\setminus \operatorname{Cl}_{X}(A)\). Allora \(V\) è \uline{denso}, in quanto il suo complementare \(\operatorname{Cl}_{X}(A)\) ha parte interna vuota (per ipotesi).
+
+L'insieme \(V\) è aperto poiché complementare di un chiuso, e inoltre \(A\cap V=\emptyset\).
+\subsubsection{c implica a}
+\label{sec:orgfa605ae}
+
+Sia per assurdo \(U \subseteq X\) un aperto non vuoto tale che \(\operatorname{Cl}_{U}(A\cap U) = U\).
+
+Poiché \(V\) è denso in \(X\), \(U\cap V\neq \emptyset\) aperto di \(X\) e quindi aperto di \(U\). Ma
+\begin{equation*}
+(U\cap V)\cap (A\cap U) = U\cap (V\cap A) = \emptyset
+\end{equation*}
+poiché \(V\cap A=\emptyset\).
+
+Assurdo, poiché se \(A\cap U\) è denso in \(U\), allora \(A\cap U\) incontra ogni aperto di \(U\).
+\subsubsection{Caratterizzazione degli insiemi comagri}
+\label{sec:org8e645c2}
+\begin{itemize}
+\item Se \(B\) è comagro, allora si può scrivere:
+\begin{equation*}
+B \coloneqq X\setminus \left(\bigcup_{n \in \omega} A_{n}\right)
+\end{equation*}
+dove \(A_{n}\) è un insieme mai denso:
+\begin{equation*}
+B = \bigcap_{n \in \omega} (X\setminus A_{n}).
+\end{equation*}
+Per ogni \(n \in \omega\) esiste \(V_{n}\) aperto denso di \(X\) tale che \(A_{n}\cap V_{n} = \emptyset\), ovvero \(V_{n} \subseteq X\setminus A_{n}\):
+\begin{equation*}
+  	B= \bigcap_{n \in \omega} (X\setminus A_{n}) \supseteq \bigcap_{n \in \omega} V_{n}
+\end{equation*}
+
+\item Viceversa, siano \(V_{n} \subseteq X\) insiemi aperti e densi tali che
+\begin{equation*}
+  B\supseteq \bigcap_{n \in \omega} V_{n}
+\end{equation*}
+Si ha quindi \(X\setminus B \subseteq X\setminus \left(\bigcap_{n \in \omega} V_{n}\right) = \bigcup_{n \in \omega} (X\setminus V_{n})\).
+
+Allora \(A_{n} \coloneqq X\setminus V_{n}\) è mai denso per la caratterizzazione di cui sopra, e pertanto
+\begin{equation*}
+  C\coloneqq \bigcup_{n \in \omega} A_{n}
+\end{equation*}
+è un insieme magro. Pertanto \(X\setminus B \subseteq C\) è un insieme magro, e quindi \(B\) è un insieme comagro.\qed
+\end{itemize}
+\end{document}

@@ -1,0 +1,32 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità. Un \(R\)-modulo è un \href{20250127093245-gruppo_abeliano.org}{gruppo abeliano} \((M,+)\) con un'azione di \(R\) su \(M\):
+\begin{align*}
+\cdot: R\times M &\longrightarrow M\\
+(r,m)&\longmapsto rm
+\end{align*}
+tale che, se \(\1\) è l'identità di \(R\)
+\begin{align*}
+\forall\,r,s \in R,\ m &\in M & r(sm)&=(rs)m\\
+\forall\,r,s \in R,\ m &\in M & (r+s)m&=rm+sm\\
+\forall\,r \in R,\ m_1,m_2 &\in M & r(m_1+m_2)&=rm_1+rm_{2}\\
+\forall\,m &\in M & \1m&=m.
+\end{align*}
+\end{definizione}
+\begin{esempio}
+\begin{enumerate}
+\item Se \(R\) è un \href{20241205142049-campo.org}{campo}, allora gli \(R\) moduli sono tutti e soli gli \href{20241205142027-spazio_vettoriale.org}{spazi vettoriali} su \(R\).
+\item Se \(R= \Z\) allora gli \(\Z\)-moduli sono tutti e soli i \href{20241205141146-gruppo_abeliano.org}{gruppi abeliani}.
+\end{enumerate}
+\end{esempio}
+\uline{Notazione}.
+Sia \(M\) un \(R\)-modulo e sia \(e \in M\). Il modulo \textbf{generato} da \(e\) si denota con
+\begin{equation*}
+R\cdot e \coloneqq  \set{re: r\in R}.
+\end{equation*}
+\end{document}

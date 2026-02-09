@@ -1,0 +1,22 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}.
+\section{Definizione}
+\label{sec:org2d6e9f0}
+
+Una \uline{catena elementare} \(\langle M_{i}\mid i \in \lambda\rangle\) per qualche \href{20250203161341-cardinali.org}{cardinale} \(\lambda\) è una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{strutture} tali che per ogni \(i<j<\lambda\): \(M_{i}\preceq M_{j}\) è \href{20250212102253-sottostruttura_elementare.org}{sottostruttura elementare}.
+\section{Unione di una catena elementare}
+\label{sec:org534aa79}
+L'\uline{unione} (o il \uline{limite}) di una catena elementare \(\langle M_{i}\mid i \in \lambda\rangle\) è la \(\mathcal{L}\)-struttura fatta come segue:
+\begin{itemize}
+\item il \href{20250131103035-struttura_del_prim_ordine.org}{dominio} è l'unione \(\bigcup_{i<\lambda} M_{i}\);
+\item le funzioni e le relazioni sono l'unione delle funzioni e delle relazioni degli \(M_{i}\).
+\end{itemize}
+\subsection{Lemma}
+\label{sec:orgd676c9c}
+Sia \(N\) il limite della catena elementare \(\langle M_{i}\mid i \in \lambda\rangle\). Allora, per ogni \(i<\lambda\), \(M_{i}\) è \href{20250212102253-sottostruttura_elementare.org}{sottostruttura elementare} di \(N\): \(M_{i}\preceq N\).
+\end{document}

@@ -1,0 +1,101 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Prodotto wedge di spazi topologici puntati}
+\label{sec:orgd4fcd27}
+Siano \((X,x),(Y,y)\) \href{20250103145124-topologia.org}{spazi topologici} \href{20241205115614-categoria_top.org}{puntati} tali che
+\begin{itemize}
+\item esiste \(U_{x} \subseteq X\) \href{20250111142313-intorno.org}{intorno} di \(x\) tale che \(\set{x}\hookrightarrow U_{x}\) sia un \href{20250129112659-retratto_di_deformazione_forte_di_uno_spazio_topologico.org}{retratto di deformazione forte}
+\item esiste \(U_{y} \subseteq Y\) \href{20250111142313-intorno.org}{intorno} di \(y\) tale che \(\set{y}\hookrightarrow U_{y}\) sia un \href{20250129112659-retratto_di_deformazione_forte_di_uno_spazio_topologico.org}{retratto di deformazione forte}
+\end{itemize}
+
+\begin{definizione}
+Si definisce la \href{20250113110148-relazione_di_equivalenza.org}{relazione di equivalenza} \(\sim\) sull'\href{20250113175700-unione_disgiunta.org}{unione disgiunta} \(X\sqcup Y\):
+\begin{equation*}
+r\sim s\qquad \iff\qquad \begin{cases}
+r=s\\
+r=x \,\land\, s = y\\
+r=y \,\land\, s=x
+\end{cases}
+\end{equation*}
+e si definsice quindi il prodotto wedge di \(X\) e \(Y\) come il \href{20250114100810-quoziente_rispetto_a_relazione_di_equivalenza.org}{quoziente}:
+\begin{equation*}
+X\vee Y \coloneqq X\sqcup Y/\sim
+\end{equation*}
+con la \href{20250129155316-spazio_topologico_quoziente.org}{topologia quoziente indotta dalla proiezione} \(p:X\sqcup Y \to X\vee Y\).
+\end{definizione}
+\subsection{Omologia singolare del prodotto wedge di spazi topologici puntati}
+\label{sec:org173340c}
+\begin{prop}
+Sia \(R\) un \href{20241219112842-pid.org}{PID}. Per ogni \(q>0\), l'\href{20250122133631-omologia_singolare.org}{omologia singolare} dello spazio \(X\vee Y\) è uguale alla \href{20241213095808-somma_diretta.org}{somma diretta} dell'omologia singolare di \(X\) e \(Y\):
+\begin{equation*}
+H_{q}(X\vee Y) = H_{q}(X)\oplus H_{q}(Y)
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Sia \(p=[x]=[y]\), e si definiscano (visti come immagini nel quoziente):
+\begin{align*}
+Y_{1} &= X\cup U_{y} & X_{1} &= X\\
+Y_{2} &= Y\cup U_{x} & X_{2} &= Y\\
+Y_{1}\cap Y_{2} &= U_{x}\cup U_{y} & X_{1}\cap X_{2} &= \set{p}
+\end{align*}
+Allora la quadrupla \((X\vee Y, Y_{1}, Y_{2}, Y_{1}\cap Y_{2})\) soddisfa \href{20250128132648-teorema_di_mayer_vietoris.org}{Mayer-Vietoris}, e
+\begin{equation*}
+\Id: (X\vee Y, X_{1}, X_{2}, X_{1}\cap X_{2})\longrightarrow (X\vee Y, Y_{1}, Y_{2}, Y_{1}\cap Y_{2})
+\end{equation*}
+si restringe a tutte \href{20250122155727-retratto_di_deformazione_di_uno_spazio_topologico.org}{retrazioni di deformazione}. Quindi
+\begin{equation*}
+(X\vee Y, X_{1}, X_{2}, X_{1}\cap X_{2}) = (X\vee Y, X, Y, p)
+\end{equation*}
+soddisfa Mayer-Vietoris.
+\begin{itemize}
+\item Per \(q>1\), si ha
+\begin{equation*}
+  H_{q}(p) \longrightarrow H_{q}(X) \oplus H_{q}(Y) \longrightarrow H_{q}(X\vee Y) \longrightarrow H_{q-1}(p)
+\end{equation*}
+e, vista l'\href{20250122154153-calcolo_dell_omologia_del_punto.org}{omologia del punto}, \(H_{q}(p) =H_{q-1}(p) = 0\), e \href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{quindi}
+\begin{equation*}
+  H_{q}(X) \oplus H_{q}(Y) \cong H_{q}(X\vee Y).
+\end{equation*}
+\item Per \(q=1\):
+\begin{equation*}
+ \scalebox{0.8}{%
+ \begin{tikzcd}[ampersand replacement=\&,row sep=small]
+         {H_1(p)} \& {H_1(X)\oplus H_1(Y)} \& {H_1(X\vee Y)} \& {H_0(p)} \& {H_0(X)\oplus H_0(Y)} \& {H_0(X\vee Y)} \& 0
+         \arrow[from=1-1, to=1-2]
+         \arrow[from=1-2, to=1-3]
+         \arrow[from=1-3, to=1-4]
+         \arrow[from=1-4, to=1-5]
+         \arrow[from=1-5, to=1-6]
+         \arrow[from=1-6, to=1-7]
+ \end{tikzcd}}
+\end{equation*}
+e ricordando l'omologia del punto, si ottiene:
+\begin{equation*}
+\scalebox{0.8}{%
+\begin{tikzcd}[ampersand replacement=\&,row sep=small]
+        \&\&\& \textcolor{rgb,255:red,214;green,92;blue,92}{R} \\
+        \textcolor{rgb,255:red,214;green,92;blue,92}{0} \& {H_1(X)\oplus H_1(Y)} \& {H_1(X\vee Y)} \& {H_0(p)} \& {H_0(X)\oplus H_0(Y)} \& {H_0(X\vee Y)} \& 0 \\
+        \&\&\& {[p]} \& {\big([p],[p]\big) = \big([x],[y]\big)}
+        \arrow[from=2-1, to=2-2]
+        \arrow[from=2-2, to=2-3]
+        \arrow["\alpha", from=2-3, to=2-4]
+        \arrow["\cong"{marking, allow upside down}, color={rgb,255:red,214;green,92;blue,92}, draw=none, from=2-4, to=1-4]
+        \arrow["\beta",from=2-4, to=2-5]
+        \arrow[from=2-5, to=2-6]
+        \arrow[from=2-6, to=2-7]
+        \arrow[maps to, from=3-4, to=3-5]
+\end{tikzcd}}
+\end{equation*}
+In particolare, \(\beta\) è iniettiva, e quindi \(\alpha\) è il morfismo nullo. \href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{Segue}:
+\begin{equation*}
+  H_{1}(X)\oplus H_{1}(Y) \cong H_{1}(X\vee Y).%
+  \qedhere
+\end{equation*}
+\end{itemize}
+\end{proof}
+\end{document}

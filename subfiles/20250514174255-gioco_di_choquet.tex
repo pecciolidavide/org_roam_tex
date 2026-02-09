@@ -1,0 +1,52 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Gioco di Choquet}
+\label{sec:org7742e94}
+Sia \((X,\tau)\) uno \href{20250103145124-topologia.org}{spazio topologico} non vuoto. Il gioco di Choquet \(G_{X}\) è un \href{20250513155732-logic_game.org}{gioco logico} \href{20250513171520-giochi_di_gale_stewart.org}{di Gale-Stewart} codificato come segue: i giocatori I e II si alternano scegliendo sottoinsiemi aperti non vuoti di \(X\):
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,sep=tiny]
+	{\text{I}} \& {U_0} \&\& {U_1} \&\& {U_2} \&\& \cdots \\
+	{\text{II}} \&\& {V_0} \&\& {V_1} \&\& \cdots
+\end{tikzcd}
+\end{equation*}
+tali che \(U_{0} \supseteq V_{0}\supseteq U_{1}\supseteq V_{1}\supseteq \dots\)
+
+Il giocatore II vince se
+\begin{equation*}
+\bigcap_{n \in \omega} V_{n} = \bigcap_{n \in \omega} U_{n} \neq \emptyset.
+\end{equation*}
+e, poiché il gioco è \href{20250513155732-logic_game.org}{totale}, il giocatore II vince se
+\begin{equation*}
+\bigcap_{n \in \omega} V_{n} = \bigcap_{n \in \omega} U_{n} = \emptyset.
+\end{equation*}
+\section{Caratterizzazione degli spazi di Baire tramite il gioco di Choquet}
+\label{sec:orgb2d59b8}
+\subsection{Teorema}
+\label{sec:org252b273}
+
+Uno \href{20250103145124-topologia.org}{spazio topologico} \(X\) è uno \href{20250514154101-spazio_topologico_di_baire.org}{spazio topologico di Baire} se e solo se il giocatore I \uline{non ha una \href{20250513171520-giochi_di_gale_stewart.org}{strategia} \href{20250513171520-giochi_di_gale_stewart.org}{vincente}} nel \hyperref[sec:org7742e94]{gioco di Choquet} \(G_{X}\).
+\subsection{Spazio di Choquet}
+\label{sec:orgdcf56eb}
+\subsubsection{Definizione}
+\label{sec:org524ec3e}
+
+Uno spazio topologico \(X\) è detto \uline{spazio di Choquet} se il giocatore II ha una strategia vincente in \(G_{X}\).
+\subsubsection{Osservazione}
+\label{sec:orgf2bcad1}
+
+Se il giocatore I non ha una strategia vincente, \textbf{non è detto} che il giocatore II ne abbia una.
+
+Viceversa, però, se II ha una strategia vincente, allora necessariamente I non ne ha una. Quindi ogni spazio di Choquet è uno spazio topologico di Baire.
+
+Inoltre, se \(X\) è uno \href{20250301194013-spazio_polacco.org}{spazio polacco}, allora \(X\) è uno spazio di Choquet.
+\subsubsection{Aperti non vuoti di spazi di Choquet sono Choquet}
+\label{sec:org3cfd5a5}
+I \href{20250103163814-sottospazio_topologico.org}{sottospazi} \href{20250103145124-topologia.org}{aperti} non vuoti di uno spazio di Choquet sono spazi di Choquet.
+\subsubsection{Prodotto di spazi di Choquet è Choquet}
+\label{sec:orgd0f6a3b}
+Il \href{20250109154723-topologia_prodotto.org}{prodotto} finito di Spazi di Choquet sono spazi di Choquet.
+\end{document}

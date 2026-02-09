@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Definizione}
+\label{sec:org2ea17bc}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}, e sia \(Y \subseteq X\) un suo \href{20250103163814-sottospazio_topologico.org}{sottospazio}.
+\(Y\) si dice \textbf{irriducibile} se non è possibile scrivere
+\begin{equation*}
+Y=Y_{1}\cup Y_{2}
+\end{equation*}
+con \(Y_{1},Y_{2}\) \href{20250103145124-topologia.org}{chiusi} propri di \(Y\).
+\subsection{Osservazione}
+\label{sec:orge38dd34}
+Segue banalmente che se \(Y\) è irriducibile allora \(Y\) è \href{20250103165325-spazio_topologico_connesso.org}{connesso}. Il viceversa non è vero.
+\subsubsection{Controesempio}
+\label{sec:org75754ac}
+Si consideri in \(\A^{2}\) (vedi \href{20241231114009-spazio_affine.org}{Spazio Affine}) e si consideri la \href{20241231114256-varieta_algebrica_affine.org}{varietà} (vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri})
+\begin{equation*}
+Y=V(xy)=\set{xy=0}=\set{x=0}\cup\set{y=0}=V(x)\cup V(y)
+\end{equation*}
+Nella \href{20250103101459-topologia_di_zariski_affine.org}{topologia di Zariski}, \(Y\) è connesso ma non è irriducibile.
+\subsection{Proprietà 1}
+\label{sec:orgde508ee}
+Sia \(Y\) uno spazio topologico irriducibile. \(U \subseteq Y\) aperto non vuoto, allora \(\overline{U}=Y\) (vedi \href{20250103144944-chiusura_topologica.org}{Chiusura Topologica})
+\subsubsection{Dimostrazione}
+\label{sec:org5249b03}
+Se per assurdo \(\overline{U}\neq Y\) (dunque anche \(U\neq Y\)) allora \(Y=\overline{U}\cup (Y\setminus U)\) unione di chiusi propri, quindi \(Y\) non è irriducibile. Assurdo.
+\subsection{Proprietà 2}
+\label{sec:orge09805a}
+Sia \(Y \subseteq X\). \(Y\) è irriducibile se e solo se \(\overline{Y}\) è irridicubile.
+\subsubsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\label{sec:orgf925f2a}
+\end{document}

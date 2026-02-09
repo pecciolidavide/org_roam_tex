@@ -1,0 +1,23 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{Campo Algebricamente Chiuso}. Allora \(\K\) contiene infiniti elementi.
+\end{prop}
+\begin{proof}
+Supponiamo per assurdo che
+\begin{equation*}
+\K=\set{a_{1},\dots,a_{n}}
+\end{equation*}
+per qualche \(n \in \N\).
+
+Consideriamo \(p \in \K[x]\),
+\begin{equation*}
+p(x)=\prod_{i=1}^{n}(x-a_{1})+1
+\end{equation*}
+Siccome per ogni \(i\), si ha che \(p(a_{i})=1\), \(\K\) non è algebricamente chiuso. Assurdo.
+\end{proof}
+\end{document}

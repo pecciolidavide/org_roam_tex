@@ -1,0 +1,43 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Punto isolato}
+\label{sec:orga429bc6}
+\begin{definizione}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} e sia \(S \subseteq X\). \(x_{0} \in S\) si dice \textbf{punto isolato di \(S\)} se esiste \(U\) \href{20250111142313-intorno.org}{intorno} \href{20250103145124-topologia.org}{aperto} di \(x_{0}\) in \(X\) tale che \(S\cap U = \set{x_{0}}\).
+\end{definizione}
+
+Equivalentemente, \(x_{0}\) è un punto isolato di \(S\) se \(\set{x_{0}}\) è aperto nella \href{20250103163814-sottospazio_topologico.org}{topologia di sottospazio} di \(S\).
+
+\begin{prop}
+Sia \(x_{0} \in S\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(x_{0}\) è un punto isolato di \(S\);
+\item \(x_{0}\) non è un \href{20260128120739-punto_di_accumulazione.org}{punto di accumulazione} per \(S\).
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(\(2.\Rightarrow 1.\)): Sia \(U\) l'intorno aperto di \(x_{0}\) in \(X\) tale che
+\begin{equation*}
+U\cap S = \set{x_{0}}.
+\end{equation*}
+Allora \((U\setminus\set{x_{0}})\cap S = \emptyset\), e pertanto \(x_{0}\) non è un punto di accumulazione.
+
+(\(2.\Rightarrow 1.\)): Siccome \(x_{0}\) non è un punto di accumulazione per \(S\), allora esiste \(U\) intorno aperto di \(x_{0}\) tale che
+\begin{equation*}
+(U\setminus\set{x_{0}})\cap S = \emptyset
+\end{equation*}
+Siccome \(x_{0} \in U\) e \(x_{0} \in S\), allora
+\begin{equation*}
+U\cap S = \set{x_{0}}.\qedhere
+\end{equation*}
+\end{proof}
+
+\begin{definizione}
+Il punto \(x_{0}\) si dice \textbf{punto isolato di \(X\)} se \(\set{x_{0}}\) è un aperto di \(X\).
+\end{definizione}
+\end{document}

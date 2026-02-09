@@ -1,0 +1,27 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esempio di calcolo delle moltiplicità di una funzione tra superfici di Riemann}
+\label{sec:orgedb02f2}
+\begin{esempio}
+Si consideri la seguente \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{funzione olomorfa} tra le \href{20260127112905-sfera_di_riemann.org}{sfere di Riemann}:
+\begin{align*}
+F: \C_{\infty} &\longrightarrow \C_{\infty}\\
+z &\longmapsto z^{2}\\
+\infty &\longmapsto \infty
+\end{align*}
+Se ne vogliono calcolare le \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{molteplicità}. Allora:
+\begin{itemize}
+\item per \(0 \in \C \subseteq \C_{\infty}\), si ha che \(\mathrm{mult}_{0}\, F = 2\), in quanto la funzione è localmente iniettiva;
+\item per \(z_{0} \in \C\setminus \set{0} \subseteq \C_{\infty}\), si ha \(\mathrm{mult}_{z_{0}}\, F = 1\);
+\item in \(\infty\), consideriamo la scrittura tramite la carta locale \(w=1/z\): allora
+\begin{equation*}
+  w\mapsto w^{2}
+\end{equation*}
+è l'espressione di \(F\) nell'intorno di \(\infty\), e quindi \(\mathrm{mult}_{\infty}\, F = 2\).
+\end{itemize}
+\end{esempio}
+\end{document}

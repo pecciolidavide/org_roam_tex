@@ -1,0 +1,77 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(A\) un \href{20250130104331-insieme_mk.org}{insieme} non vuoto, e sia \(C \subseteq A^{\omega}\). \footnote{\href{20250202192030-classe_delle_classi_funzioni.org}{Classe delle Classi-Funzioni} e \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}}
+\section{Giochi di Gale-Stewart}
+\label{sec:org2f38af4}
+Si definisce il \uline{gioco di Gale-Stewart} associato ad \(C\) come il \href{20250513155732-logic_game.org}{gioco logico} seguente:
+\begin{equation*}
+G(A,C) = G(A) \coloneqq (A, \psi, C, A^{\omega}\setminus C)
+\end{equation*}
+dove la \href{20250202170607-classe_relazione_binaria.org}{funzione} \(\psi: A^{<\omega}\to \set{\text{I},\text{II}}\) è così definita
+\begin{equation*}
+\psi(s) \coloneqq \begin{cases}
+\text{I} & \operatorname{lh}(s)\text{ è pari}\\
+\text{II} & \operatorname{lh}(s)\text{ è dispari}
+\end{cases}
+\end{equation*}
+Pertanto il gioco può essere codificato come segue:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,sep=tiny]
+	{\text{I}} \& {a_0} \&\& {a_2} \&\& {a_4} \&\& \dots \\
+	{\text{II}} \&\& {a_1} \&\& {a_3} \&\& \dots
+\end{tikzcd}
+\end{equation*}
+e il giocatore I vince se e solo se \((a_{n})_{n \in \omega} \in C\). \footnote{\href{20250115100904-successione.org}{Successione}}
+\section{Strategia per un gioco di Gale-Stewart}
+\label{sec:org3183671}
+Si specializza la definizione di \href{20250513155732-logic_game.org}{strategia per un gioco logico} al caso particolare di un gioco di Gale-Stewart.
+
+È possibile vedere una strategia \(\varphi\) per il giocatore I in tre modi diversi, del tutto equivalenti.
+\begin{enumerate}
+\item Una mappa \(\psi: A^{<\omega}\to A^{<\omega}\) tale che, per ogni \(s \in A^{<\omega}\) valga che \href{20250206170922-sequenze_e_stringhe.org}{lunghezza} sia
+\begin{equation*}
+ \operatorname{lh}\varphi(s) = \operatorname{lh}(s) + 1
+\end{equation*}
+Intuitivamente, questa funzione associa alla sequenza degli \((a_{2i+1})\) giocati dal giocatore II una sequenza degli \((a_{2i})\) per il giocatore I:
+\begin{equation*}
+ \varphi(\emptyset) = \langle a_{0}\rangle,\quad \varphi(\langle a_{1}\rangle) = \langle a_{0},a_{2} \rangle,\quad \varphi(\langle a_{1},a_{3}\rangle) = \langle a_{0},a_{2},a_{4}\rangle.
+\end{equation*}
+\item Una mappa \(\psi: A^{<\omega}\to A\).
+
+Intuitivamente, questa funzione associa alla sequenza degli \((a_{2i+1})\) giocati dal giocatore II l'elemento \(a_{j} \in A\) che deve giocare il giocatore I:
+\begin{equation*}
+ \varphi(\emptyset) = a_{0},\quad \varphi(\langle a_{1}\rangle) = a_{2},\quad \varphi(\langle a_{1},a_{3}\rangle) = a_{4}.
+\end{equation*}
+\item Una \href{20250514142154-albero_teoria_descrittiva_degli_insiemi.org}{albero} \(\sigma \subseteq A^{<\omega}\) tale che:
+\begin{enumerate}
+\item \(\sigma\) sia \href{20250514142208-albero_potato.org}{potato} e non vuoto;
+
+\item se \(\langle a_{0},\dots,a_{2j}\rangle \in \sigma\) allora per ogni \(a_{2j+1} \in A\): \(\langle a_{0},\dots,a_{2j+1}\rangle \in \sigma\);
+
+\item se \(\langle a_{0},\dots,a_{2j-1}\rangle \in \sigma\) allora esiste un unico \(a_{2j} \in A\) tale che \(\langle a_{0},\dots,a_{2j}\rangle \in \sigma\).
+\end{enumerate}
+\end{enumerate}
+
+Una strategia è detta \uline{vincente} se il suo \href{20250514142251-corpo_di_un_albero.org}{corpo} \([\sigma] \in A\).
+\section{Gioco di Gale-Stewart con posizioni ammissibili}
+\label{sec:org1a64570}
+Spesso è comodo considerare giochi in cui I e II non possano giocare ogni elemento di \(A\), ma debbano seguire delle \uline{regole}. Quindi, è necessario dare un alberto potato non vuoto \(T \subseteq A^{<\omega}\), che determina le \href{20250514142938-posizioni_ammissibili_in_un_gioco_logico.org}{\uline{posizioni ammissibili}}.
+
+In questa situazione I e II si alternano giocando \(\langle a_{0},\dots,a_{n},\dots,\rangle\) in maniera tale che, ad ogni passo \(n \in \omega\)
+\begin{equation*}
+\langle a_{0},\dots,a_{n}\rangle \in T
+\end{equation*}
+
+Si scriverà, in questo caso, \(G(T, C)\).
+
+Si noti che questo non modifica il formalismo, in quanto è sufficiente cambiare gli insiemi di vittoria \(C\) e \(A^{\omega}\setminus C\) in maniera da far perdere automaticamente il giocatore che effettua una mossa illegale.
+
+Inoltre, il gioco definito sopra \(G(T,C)\) è \href{20250514143441-giochi_logici_equivalenti.org}{equivalente} al gioco \(G(A, C')\), dove
+\begin{equation*}
+C' \coloneqq \set{x \in A^{\omega}\mid \left[\exists\, n (x\upharpoonright n \notin T) \,\land\, \text{il minore }n\text{ tale che }x\upharpoonright n \notin T\text{ è pari}\right] \,\lor\, (x \in [T] \,\land\, x \in C)}.
+\end{equation*}
+\end{document}

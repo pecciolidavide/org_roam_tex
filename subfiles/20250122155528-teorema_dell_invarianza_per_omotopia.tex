@@ -1,0 +1,171 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema dell'invarianza per omotopia}
+\label{sec:orgbbde85e}
+Sia \(R\) un \href{20241219112842-pid.org}{PID}.
+\begin{thm}
+Siano \(X,Y\) \href{20250103145124-topologia.org}{spazi topologici}, e siano \(f,g:X\longrightarrow Y\) \href{20250103103252-funzione_continua.org}{funzioni continue} e \href{20250121094654-omotopia_tra_funzioni_continue.org}{omotope}, \(f\circ g\)
+Allora, considerando il \href{20241205131958-funtore.org}{funtore} \((\mathcal{S}_{\bullet}, \diesis): \cat{Top}\longrightarrow \cat{Ch}_{R}\)\footnote{Questo è il \href{20250122154136-funtorialita_dell_omologia_singolare.org}{funtore \(\diesis\)} dalla \href{20241205115600-categoria_top.org}{categoria \(\cat{Top}\)} alla \href{20250120163759-categoria_complessi_di_catene.org}{categoria \(\cat{Ch}_{R}\)}.} si ha che \(f_{\diesis}\) e \(g_{\diesis}\) siano \href{20250121094935-omotopia_tra_morfismi_di_complessi_di_catene.org}{omotopiche}:
+\begin{equation*}
+f_{\diesis}\sim g_{\diesis}: \mathcal{S}_{\bullet}(X)\longrightarrow \mathcal{S}_{\bullet}(Y).
+\end{equation*}
+\label{thm:invarianzaperomotopia}
+\end{thm}
+\begin{cor}
+Questo implica che, se \((H_{n},\star)\) è il \href{20250123115927-funtore_di_omologia_singolare.org}{funtore di omologia}, allora \(f_{\star}=g_{\star}\).
+\end{cor}
+\begin{proof}
+Infatti, due \href{20250121094935-omotopia_tra_morfismi_di_complessi_di_catene.org}{funzioni omotope tra complessi di catene} \href{20250121100726-funtore_di_omologia_di_funzioni_omotope.org}{danno luogo alla stessa funzione} \href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{in omologia}.
+\end{proof}
+\begin{lem}
+Se \(j^{0}_{\bullet} \sim j^{1}\bullet: \mathcal{S}_{\bullet}(X) \to \mathcal{S}_{\bullet}(X\times I)\) e \(H_{\bullet}: \mathcal{S}_{\bullet}(X\times I)\to \mathcal{S}_{\bullet}(Y)\) sono morfismi, allora
+\begin{equation*}
+H_{\bullet} \circ j_{0}_{\bullet} \sim H_{\bullet} \circ j^{1}_{\bullet}.
+\end{equation*}
+\end{lem}
+\begin{proof}
+Si è nella situazione di questo diagramma:
+\begin{equation*}
+\begin{tikzcd}
+	{S_{q+1}(X)} && {S_q(X)} && {S_{q-1}(X)} \\
+	\\
+	{S_{q+1}({X\times I})} && {S_q(X\times I)} && {S_{q-1}({X\times I})} \\
+	\\
+	{S_{q+1}(Y)} && {S_q(Y)} && {S_{q-1}(Y)}
+	\arrow["{\partial^X_{q+1}}", from=1-1, to=1-3]
+	\arrow["{j^0_{q+1}}"', shift right, from=1-1, to=3-1]
+	\arrow["{j^1_{q+1}}", shift left, from=1-1, to=3-1]
+	\arrow["{\partial^X_{q}}", from=1-3, to=1-5]
+	\arrow["{s_q}", from=1-3, to=3-1]
+	\arrow["{j^0_q}"', shift right, from=1-3, to=3-3]
+	\arrow["{j^1_q}", shift left, from=1-3, to=3-3]
+	\arrow["{\ell_q}"{description, pos=0.8}, color={rgb,255:red,214;green,92;blue,92}, dashed, from=1-3, to=5-1]
+	\arrow["{s_{q-1}}", from=1-5, to=3-3]
+	\arrow["{j^0_{q-1}}"', shift right, from=1-5, to=3-5]
+	\arrow["{j^1_{q-1}}", shift left, from=1-5, to=3-5]
+	\arrow["{\ell_{q-1}}"{description, pos=0.8}, color={rgb,255:red,214;green,92;blue,92}, dashed, from=1-5, to=5-3]
+	\arrow["{\partial^{X\times I}_{q+1}}"{pos=0.3}, from=3-1, to=3-3]
+	\arrow["{H_{q+1}}"', from=3-1, to=5-1]
+	\arrow["{\partial^{X\times I}_{q}}"{pos=0.4}, from=3-3, to=3-5]
+	\arrow["{H_q}"', from=3-3, to=5-3]
+	\arrow["{H_{q-1}}", from=3-5, to=5-5]
+	\arrow["{\partial^Y_{q+1}}", from=5-1, to=5-3]
+	\arrow["{\partial^Y_{q}}", from=5-3, to=5-5]
+\end{tikzcd}
+\end{equation*}
+Ponendo \(\ell_{q} \coloneqq H_{q+1}\circ s_{q}\), si ha la tesi:
+\begin{align*}
+l_{q-1} \circ \partial_q^X + \partial_{q+1}^Y \circ l_q %
+&= H_q \circ s_{q-1} \circ \partial_q^X + \partial_{q+1}^Y \circ H_{q+1} \circ s_q \\
+&= H_q \circ s_{q-1} \circ \partial_q^X + H_q \circ \partial_{q+1}^{X \times I} \circ s_q \\
+&= H_q \left[ s_{q-1} \circ \partial_q^X + \partial_{q+1}^{X \times I} \circ s_q \right] \\
+&= H_q \left[ j_q^1 - j_q^0 \right] = H_q \circ j_q^1 - H_q \circ j_q^0 \qedhere
+\end{align*}
+\end{proof}
+\begin{proof}
+(idea del Teorema~\ref{thm:invarianzaperomotopia}, da dimostrare per intero).
+\begin{equation*}
+\begin{tikzcd}
+	X &&&&&& {\mathcal{S}_\bullet(X)} \\
+	& {X\times I} && Y &&& {} & {\mathcal{S}_\bullet(X\times I)} && {\mathcal{S}_\bullet(Y)} \\
+	X &&&&&& {\mathcal{S}_\bullet(X)}
+	\arrow["{j^0}"', from=1-1, to=2-2]
+	\arrow["f", from=1-1, to=2-4]
+	\arrow["{j^0_\diesis}"', from=1-7, to=2-8]
+	\arrow["{f_\diesis}", from=1-7, to=2-10]
+	\arrow["H"{description}, from=2-2, to=2-4]
+	\arrow["{(\mathcal{S}_\bullet, \diesis)}", color={rgb,255:red,214;green,92;blue,92}, squiggly, from=2-4, to=2-7]
+	\arrow["{H_\diesis}"{description}, from=2-8, to=2-10]
+	\arrow["{j^1}", from=3-1, to=2-2]
+	\arrow["g"', from=3-1, to=2-4]
+	\arrow["{j^1_\diesis}", from=3-7, to=2-8]
+	\arrow["{g_\diesis}"', from=3-7, to=2-10]
+\end{tikzcd}
+\end{equation*}
+
+Per il lemma è sufficiente mostrare:
+\begin{equation*}
+j^\#_0 \sim j^\#_1
+\end{equation*}
+
+i.e. \(s_n : S_n(X) \to S_{n+1}(X \times I)\) si costruisce \textbf{\textbf{per induzione}}.
+
+\textbf{\textbf{Passo base:}} \(s_0 : S_0(X) \to S_1(X \times I)\)
+\begin{align*}
+\sigma \in \Sigma_0(X) \longmapsto s_0(\sigma) : \Delta_1 &\longrightarrow X \times I \\
+(1-t)e_0 + t e_1 &\longmapsto (\sigma(e_0), t)
+\end{align*}
+FUNZIONA.
+
+\textbf{\textbf{Ip. induttive:}} \(s_{n-1}, \dots, s_0 \quad \forall X \text{ sp. top.}\)
+
+\begin{enumerate}
+\item \(X = \Delta_n\), \(i_n \in \Sigma_n(\Delta_n)\), \(i_n\) identità.
+\begin{equation*}
+z_n := j^\#_1(i_n) - j^\#_0(i_n) - s_{n-1}(\partial i_n)
+\end{equation*}
+\(\partial z_n = 0\) + \(H_n(\Delta_n \times I) = 0\) implica che
+\begin{equation*}
+  \exists \beta_{n+1} \in S_{n+1}(X \times I) \text{ t.c. } \partial \beta_{n+1} = z_n
+\end{equation*}
+
+\item \(X\) generico, \(\sigma \in \Sigma_n(X)\)
+Si definisce \(s_{n}: S_{n}(X) \to S_{n+1}(X\times I)\):
+\begin{equation*}
+ 	\sigma \in \Sigma_n(X) \longmapsto (\sigma \times \Id)_\# \beta_{n+1}
+\end{equation*}
+
+Calcolando \(\partial_{n+1} s_n \sigma\) si ha la tesi ricordando:
+\begin{equation*}
+\begin{tikzcd}
+        {\Delta_n\times I} && {X\times I} &&& {\mathcal{S}_\bullet (\Delta_n\times I)} && {\mathcal{S}_\bullet (X\times I)} \\
+        &&& {} & {} \\
+        {\Delta_n} && X &&& {\mathcal{S}_\bullet (\Delta_n)} && {\mathcal{S}_\bullet (X)}
+        \arrow["{\sigma\times\Id}", from=1-1, to=1-3]
+        \arrow["{(\sigma\times\Id)_\diesis}", from=1-6, to=1-8]
+        \arrow[squiggly, from=2-4, to=2-5]
+        \arrow["{j^0}", from=3-1, to=1-1]
+        \arrow["\sigma"', from=3-1, to=3-3]
+        \arrow["{j^0}"', from=3-3, to=1-3]
+        \arrow["{j^0_\diesis}", from=3-6, to=1-6]
+        \arrow["{\sigma_\diesis}"', from=3-6, to=3-8]
+        \arrow["{j^0_\diesis}"', from=3-8, to=1-8]
+\end{tikzcd}
+\end{equation*}\qedhere
+\end{enumerate}
+\end{proof}
+\subsection{Spazi topologici omotopicamente equivalenti hanno moduli di omologia singolare isomorfi}
+\label{sec:orgfbcb4f5}
+Sia \(R\) un \href{20241219112842-pid.org}{PID} e siano \(X,Y\) spazi topologici.
+\begin{cor}
+Se \(X,Y\) sono \href{20250124155008-spazi_topologici_omotopicamente_equivalenti.org}{spazi topologici omotopicamente equivalenti}, allora per ogni \(n\) i \href{20241205141053-r_moduli.org}{moduli} di \href{20250122133631-omologia_singolare.org}{omologia singolare} sono \href{20241206115416-morfismi_r_moduli.org}{isomorfi}:
+\begin{equation*}
+H_{n}(X)\cong H_{n}(Y)
+\end{equation*}
+
+In particolare, se \(f,g\) \href{20250124155008-spazi_topologici_omotopicamente_equivalenti.org}{equivalenze omotopiche},
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,column sep=3.15em]
+	X \& Y
+	\arrow["f", shift left=2, from=1-1, to=1-2]
+	\arrow["g", shift left=2, from=1-2, to=1-1]
+\end{tikzcd}
+\end{equation*}
+allora \(f_{\star}, g_{\star}\) sono \href{20241206115416-morfismi_r_moduli.org}{isomorfismi} (applicando il \href{20241205131958-funtore.org}{funtore} \href{20250123115927-funtore_di_omologia_singolare.org}{di omologia singolare} \((H_{n},\star)\))
+\end{cor}
+\begin{proof}
+Siccome \(f,g\) sono equivalenze omotopiche, allora
+\begin{equation*}
+f \circ g \sim \Id_{X},\qquad g\circ f \sim \Id_{Y}.
+\end{equation*}
+Applicando il \href{20250123115927-funtore_di_omologia_singolare.org}{funtore di omologia singolare} \hyperref[sec:orgbbde85e]{si ottiene}
+\begin{equation*}
+\Id_{H_{n}(X)} = H_{n}(f\circ g) = H_{n}(f) \circ H_{n}(g)
+\end{equation*}
+e pertanto \(f_{\star}\) e \(g_{\star}\) sono inverse, \(f_{\star}\) è invertibile e quindi un isomorfismo.
+\end{proof}
+\end{document}

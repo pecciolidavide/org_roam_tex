@@ -1,0 +1,79 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID} e sia \(K\) un \href{20250121124147-complesso_simpliciale.org}{complesso simpliciale} \href{20250121131005-complesso_simpliciale_totalmente_ordinato.org}{totalmente ordinato}.
+\begin{definizione}
+L'\textbf{omologia simpliciale ridotta} di \(K\), \(\tilde{H}_{q}(K)\), è \href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{l'omologia} del \href{20250120163114-complesso_di_catene.org}{complesso} \href{20250122101105-complesso_augmentato_di_un_complesso_simpliciale.org}{augmentato} di \(K\), ovvero
+\begin{equation*}
+\tilde{H}_{q}(K) \coloneqq H_{q}\left(\tilde{\mathcal{C}}_{\bullet}(K)\right)
+\end{equation*}
+\end{definizione}
+\begin{thm}
+Indicata con \(H_{q}(K)\) l'\href{20250121160827-omologia_simpliciale.org}{omologia simpliciale} di \(K\), si ha che\footnote{Vedi ``\href{20241213095808-somma_diretta.org}{Somma Diretta}''}
+\begin{equation*}
+\tilde{H}_{q}(K) = %
+\begin{cases}
+H_{q}(K) & q>0\\
+H_{0}(K) \oplus R & q=0.
+\end{cases}
+\end{equation*}
+\end{thm}
+\begin{proof}
+Si divide la dimostrazione per i diversi valori di \(q\).
+\begin{itemize}
+\item \(\boxed{q>0}\)
+
+Per ogni \(q>0\), si ha che \(q\ge 1\) e quindi\footnote{Vedi ``\href{20241213105201-kernel.org}{Kernel}'' e ``\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}''}
+\begin{equation*}
+\tilde{H}_{q}(K) = \frac{\operatorname{ker}\tilde{\partial}_{q}}{\operatorname{Im}\tilde{\partial}_{q+1}} = \frac{\operatorname{ker}\partial_{q}}{\operatorname{Im}\partial_{q+1}} = H_{q}(K)
+\end{equation*}
+
+\item \(\boxed{q=0}\)
+
+Si consideri la seguente successione di morfismi:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=large]
+        0 \& {\frac{\vphantom{\displaystyle e^{\Sigma}}\displaystyle\operatorname{ker}\tilde{\partial}_0}{\vphantom{\displaystyle e^{\Sigma}}\displaystyle \operatorname{Im}\partial_1}} \& {\frac{\vphantom{\displaystyle e^{\Sigma}}\displaystyle\operatorname{ker}{\partial}_0}{\vphantom{\displaystyle e^{\Sigma}}\displaystyle\operatorname{Im}\partial_1}} \& {\frac{\vphantom{\displaystyle e^{\Sigma}}\displaystyle C_0(K)}{\vphantom{\displaystyle e^{\Sigma}}\displaystyle\operatorname{ker}\tilde{\partial}_0}} \& 0
+        \arrow[from=1-1, to=1-2]
+        \arrow["f", from=1-2, to=1-3]
+        \arrow[from=1-3, to=1-4]
+        \arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+\begin{itemize}
+\item \(f\) è l'inclusione, poiché \(\operatorname{ker}\tilde{\partial}_{0} \subseteq \operatorname{ker}\partial_{0} = C_{0}\) e dunque la \(f\) è \href{20241219101956-funzione_iniettiva.org}{iniettiva}:
+\item inoltre per il \href{20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.org}{terzo teorema di isomorfismo}:
+\begin{equation*}
+\frac{C_{0}(K)}{\operatorname{ker}\tilde{\partial}_{0}} = \frac{\operatorname{ker}\partial_{0}}{\operatorname{ker}\tilde{\partial}_{0}} \cong \frac{\operatorname{ker}{\partial}_{0}/\operatorname{Im}\partial_{1}}{\operatorname{ker}\tilde{\partial}_{0}/\operatorname{Im}\partial_{1}}
+\end{equation*}
+\end{itemize}
+e \href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{quindi} la successione è realmente \href{20250120125004-successione_di_r_moduli_esatta.org}{esatta}.
+
+Siccome\footnote{Si ha che \(R=\operatorname{Im}\tilde{\partial}_{0}\) (questo è ovvio), e dunque per il \href{20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.org}{primo teorema di isomorfismo}
+\begin{equation*}
+\frac{C_{0}(K)}{\operatorname{ker}\tilde{\partial}_{0}}\cong \operatorname{Im}\tilde{\partial}_{0}
+\end{equation*}}
+\begin{equation*}
+\frac{C_{0}(K)}{\operatorname{ker}\tilde{\partial}_{0}} \cong R
+\end{equation*}
+sostituendo si ottiene la \href{20250120131527-sec.org}{SEC}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=large]
+        0 \& {\tilde{H}_0(K)} \& {H_0(K)} \& R \& 0
+        \arrow[from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow[from=1-3, to=1-4]
+        \arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+dove \(R\) è \href{20241213094625-modulo_libero.org}{libero}. Pertanto, per il \href{20250120131729-teorema_di_spezzamento_sec.org}{Teorema di Spezzamento} (e il suo \href{20250120131729-teorema_di_spezzamento_sec.org}{corollario}):
+\begin{equation*}
+H_{0}(K)\cong \tilde{H}_{0}(K)\oplus R %
+\qedhere
+\end{equation*}
+\end{itemize}
+\end{proof}
+\end{document}

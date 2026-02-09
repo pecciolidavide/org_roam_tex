@@ -1,0 +1,64 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{itemize}
+\item :PROPERTIES:
+\end{itemize}
+:ID:       a6dd5cae-c225-49d4-8945-602100951278
+:ROAM\textsubscript{ALIASES}: ``Insieme semiricorsivo nella gerarchia aritmetica'' ``Insieme ricorsivo nella gerarchia aritmetica'' ``Insieme aritmetico''
+:END:
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
+\begin{definizione}
+\begin{itemize}
+\item Sia \(n\ge 1\). Un insieme \(P \subseteq \N^{k}\) si dice \(\Sigma_{n}^{0}\) se esiste \(R \subseteq \N^{k+n}\) \href{20250216173925-insieme_ricorsivo.org}{ricorsivo} tale che
+\begin{equation*}
+  P(\bm{x})\quad \iff\quad \exists\, y_{1}\ \forall\, y_{2} \ \exists\, y_{3}\ \dots\ Q_{n}\,y_{n}\ R(\bm{x},y_{1},\dots,y_{n})
+\end{equation*}
+con \(Q_{n} = \forall\) se \(n\) è pari e \(Q_{n}=\exists\) se \(n\) è dispari.
+\item Sia \(n\ge 1\). Un insieme \(P \subseteq \N^{k}\) si dice \(\Pi_{n}^{0}\) se esiste \(R \subseteq \N^{k+n}\) \href{20250216173925-insieme_ricorsivo.org}{ricorsivo} tale che
+\begin{equation*}
+  P(\bm{x})\quad \iff\quad \forall\, y_{1}\ \exists\, y_{2} \ \forall\, y_{3}\ \dots\ Q_{n}\,y_{n}\ R(\bm{x},y_{1},\dots,y_{n})
+\end{equation*}
+con \(Q_{n} = \exists\) se \(n\) è pari e \(Q_{n}=\forall\) se \(n\) è dispari.
+\item Sia \(n\ge 1\). Un insieme \(P \subseteq \N^{k}\) si dice \(\Delta_{n}^{0}\) se è \(\Sigma_{n}^{0}\) e \(\Pi_{n}^{0}\)
+\item Un insieme \(P \subseteq \N^{k}\) si dice \uline{aritmetico} se esiste \(n\ge 1\) tale che \(P\) sia \(\Sigma_{n}^{0}\) oppure \(\Pi_{n}^{0}\).
+\end{itemize}
+\end{definizione}
+\begin{prop}
+\begin{itemize}
+\item Un insieme è \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo} se e solo se è \(\Sigma_{1}^{0}\).
+\item Gli insiemi \(\Pi^{0}_{n}\) sono esattamente i \href{20250317100425-complementare_di_un_insieme.org}{complementari} degli insiemi \(\Sigma_{n}^{0}\).
+\item Gli insiemi \(\Sigma^{0}_{n+1}\) sono le proiezioni rispetto ad una qualsiasi variabile degli insiemi \(\Pi^{0}_{n}\).
+\item Per il \href{20250520113349-teorema_di_post.org}{Teorema di Post}, quindi, gli insiemi ricorsivi sono esattamente gli insiemi \(\Sigma^{0}_{1}\).
+\item Gli insiemi aritmetici sono la più piccola classe di insiemi contenente gli insiemi ricorsivi e chiusa per complementi e proiezioni.
+\end{itemize}
+\end{prop}
+\begin{prop}
+Tutte le classi precedenti sono chiuse per:
+\begin{itemize}
+\item sostituzioni ricorsive mediante funzioni totali (quando viste come \href{20250131103317-formula_del_prim_ordine.org}{predicati})
+\item \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{intersezioni} (ovvero congiunzioni)
+\item \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{unioni} (ovvero disgiunzioni)
+\item quantificazioni limitate.
+\end{itemize}
+
+Inoltre, le classi \(\Sigma_{n}^{0}\) sono chiuse per quantificazioni esistenziali (ovvero per proiezioni).
+
+Le classi \(\Pi_{n}^{0}\) sono chiuse per quantificazioni universali.
+
+Le classi \(\Pi^{0}_{n}\) sono chiuse per complementi (e quindi sono \href{20250603173727-algebra_di_boole.org}{Algebre di Boole}).
+
+Valgono le seguenti inclusioni:
+\begin{equation*}
+\Sigma_{n}^{0}, \Pi_{n}^{0} \subseteq \Delta_{n+1}^{0} \subseteq \Sigma_{n+1}^{0}, \Pi_{n+1}^{0}.
+\end{equation*}
+\end{prop}
+\begin{cor}
+Gli insiemi aritmetici sono la più piccola classe contenente gli insiemi ricorsivi e chiusa per operatori logici.
+\end{cor}
+\end{document}

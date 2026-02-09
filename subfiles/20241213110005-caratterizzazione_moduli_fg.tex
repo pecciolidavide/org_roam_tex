@@ -1,0 +1,43 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Caratterizzazione moduli finitamente generati}
+\label{sec:orge4056f1}
+Sia \(R\) un \href{20241205141119-anello.org}{anello abeliano con unità}.
+\begin{prop}
+Un \href{20241205141053-r_moduli.org}{\(R\)-modulo} \(M\) è \href{20241213100845-modulo_finitamente_generato.org}{finitamente generato} se e solo se si può scrivere \(M \cong L/N\)\footnote{Vedi ``\href{20241206142802-sottomoduli.org}{Quoziente di Moduli}''} con \(L\) \href{20241213094625-modulo_libero.org}{modulo libero}, \(L\) è \href{20241213100845-modulo_finitamente_generato.org}{finitamente generato}.
+\end{prop}
+\begin{proof}
+(\(\Rightarrow\)):
+Sia \(E=\set{e_1,\dots,e_n}\) un insieme di generatori di \(M\), e si consideri la funzione dalla \href{20241213095808-somma_diretta.org}{somma diretta}
+\begin{align*}
+f: R^{(E)} &\longrightarrow M\\
+(r_{j})_{e_{j} \in E} & \longmapsto \sum_{e_{j} \in E} e_{j}\cdot r_{j}.
+\end{align*}
+\begin{itemize}
+\item \(f\) è ovviamente un \href{20241206115416-morfismi_r_moduli.org}{morfismo};
+\item \(f\) è suriettiva,  poiché \(M\) è \href{20241213100845-modulo_finitamente_generato.org}{finitamente generato}.
+\end{itemize}
+
+Dunque, per il \href{20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.org}{Primo teorema di Isomorfismo}
+\begin{equation*}
+	M \cong R^{(E)}/\operatorname{ker}f
+\end{equation*}
+e quindi \(L = R^{(E)}\) \href{20241213095808-somma_diretta.org}{è libero e finitamente generato}.
+
+(\(\Leftarrow\)):
+Sia \(E = \set{e_1,\dots,e_n}\) una base finita di \(L\), e sia
+\begin{align*}
+\pi: L &\longrightarrow M\cong L/N\\
+l&\longmapsto l+N
+\end{align*}
+la \href{20241206142802-sottomoduli.org}{proiezione}; questa è un \href{20241206115416-morfismi_r_moduli.org}{morfismo di \(R\)-moduli}. Siccome \(\pi\) è suriettiva e \(\set{e_1,\dots,e_n}\) genera \(L\), allora
+\begin{equation*}
+\set{\pi(e_1),\dots,\pi(e_n)}
+\end{equation*}
+genera \(M\).
+\end{proof}
+\end{document}

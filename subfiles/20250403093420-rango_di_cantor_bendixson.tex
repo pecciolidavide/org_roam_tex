@@ -1,0 +1,186 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Definizione}
+\label{sec:org168ba1f}
+
+\subsection{Osservazione}
+\label{sec:org511c506}
+\(x \notin X'\) se e solo se \(\set{x}\cap X\) è un aperto di \(X\).
+\section{Proprietà di derivata e rango di Cantor-Bendixson per spazi polacchi}
+\label{sec:org399dea2}
+Sia \(\alpha\) un ordinale limite, siano \((X_{\beta})_{\beta<\alpha}\) una famiglia di spazi polacchi e sia
+\begin{equation*}
+X\coloneqq \coprod_{\beta<\alpha} X_{\beta}.
+\end{equation*}
+Allora, per ogni ordinale \(\lambda\):
+\begin{equation*}
+X^{(\lambda)} = \coprod_{\beta<\alpha} X_{\beta}^{(\lambda)}
+\end{equation*}
+\subsection{Dimostrazione}
+\label{sec:org1eb82d5}
+Si ricorda la topologia dell'unione disgiunta: \(U \subseteq \coprod_{\beta<\alpha} X_{\beta}\) è aperto se e solo se, detta
+\begin{equation*}
+\varphi_{\beta_{i}}: X_{\beta_{i}}\to \coprod_{\beta<\alpha} X_{\beta}
+\end{equation*}
+l'iniezione canonica, per ogni \(\beta_{i}<\alpha\) l'insieme \(\varphi^{-1}_{\beta_{i}} \subseteq X_{\beta_{i}}\) è aperto.
+
+Per induzione su \(\lambda\).
+\begin{itemize}
+\item Caso base: \(\lambda = 0\): banale.
+\item Caso base: \(\lambda = 1\): bisogna dimostrare che
+\begin{equation*}
+  \left(\coprod_{\beta<\alpha} X_{\beta}\right)' = \coprod_{\beta<\alpha} X_{\beta}'
+\end{equation*}
+
+Sia \(x \in \coprod_{\beta<\alpha} X_{\beta}\). Allora esiste un unico \(\beta_{0}\) tale che \(x \in X_{\beta_{0}}\).
+
+Dunque, se \(x \notin \left(\coprod_{\beta<\alpha} X_{\beta}\right)'\) allora:
+\begin{itemize}
+\item per ogni \(\beta\neq \beta_{0}\), \(x\notin X_{\beta}\) e quindi \(x\notin X_{\beta}' \subseteq X_{\beta}\);
+\item per \(\beta_{0}\), \(\set{x} \subseteq X_{\beta_{0}}\) è aperto, e quindi \(x\notin X_{\beta_{0}}'\);
+\end{itemize}
+pertanto \(x\notin \coprod_{\beta<\alpha} X_{\beta}'\).
+
+Viceversa, se \(x \notin \coprod_{\beta<\alpha} X_{\beta}'\) significa che \(\set{x} \subseteq X_{\beta_{0}}\) è aperto e pertanto per ogni \(\beta<\alpha\) l'insieme \(\varphi_{\beta}^{-1}\left(\set{x}\right)\) è aperto (poiché uguale a \(\emptyset\) se \(\beta\neq \beta_{0}\) e uguale a \(\set{x}\) se \(\beta=\beta_{0}\)). Pertanto \(\set{x} \subseteq \coprod_{\beta<\alpha} X_{\beta}\) è aperto, e dunque
+\begin{equation*}
+  x\notin \left(\coprod_{\beta<\alpha} X_{\beta}\right)'
+\end{equation*}
+\end{itemize}
+
+
+\begin{itemize}
+\item Ordinale successore: \(\lambda=\gamma+1\).
+\begin{align*}
+  X^{(\lambda)} &= \left(\coprod_{\beta<\alpha} X_{\beta}\right)^{(\lambda)} = \left(\left(\coprod_{\beta<\alpha} X_{\beta}\right)^{(\gamma)}\right)'\\
+  &= \left(\coprod_{\beta<\alpha} X_{\beta}^{(\gamma)}\right)' = \coprod_{\beta<\alpha} (X_{\beta}^{(\gamma)})'\\
+  &= \coprod_{\beta<\alpha} (X_{\beta}^{(\gamma+1)}) = \coprod_{\beta<\alpha} X_{\beta}^{(\lambda)}.
+\end{align*}
+
+\item Ordinale limite \(\lambda\):
+\begin{align*}
+  X^{(\lambda)} &= \bigcap_{\gamma<\lambda} X^{(\gamma)} = \bigcap_{\gamma<\lambda} \left(\coprod_{\beta<\alpha} X_{\beta}\right)^{(\gamma)}\\
+  &= \bigcap_{\gamma<\lambda}\left(\coprod_{\beta<\alpha} X_{\beta}^{(\gamma)}\right) = \coprod_{\beta<\alpha} \bigcap_{\gamma<\lambda} X_{\beta}^{(\gamma)}\\
+  &= \coprod_{\beta<\alpha} X_{\beta}^{(\lambda)}
+\end{align*}
+\end{itemize}
+\section{Esempi di spazi polacchi con rango di Cantor-Bendixson arbitrario}
+\label{sec:org6539fd1}
+Recall the notion of \href{20250403093420-rango_di_cantor_bendixson.org}{Cantor-Bendixson rank} of a \href{20250301194013-spazio_polacco.org}{Polish space} from Section 1.4 in the notes for the course. For each \href{20250203111003-ordinali.org}{ordinal} \(\alpha<\omega_1\), provide an example of a Polish space \(X\) with Cantor-Bendixson rank \(\alpha\). (Optional: show that such an \(X\) can always be taken as a countable space, and that if \(\alpha\) is a successor ordinal than \(X\) can be taken to be compact.)
+
+{[}Hint. To geometrically visualize the problem it is easier to work in \(\R^2\). Use a construction by transfinite recursion over \(\alpha\). The cases \(\alpha=0,1\) are easy. For \(\alpha=2\) consider \(X=\{x\} \cup\left\{x_n \mid n \in \omega\right\}\) with x\textsubscript{n} \(\rightarrow\) x\$ and all \(x_{n}\) isolated. This suggest the strategy when \(\alpha=\beta+1\) is successor: consider a sequence of spaces of Cantor-Bendixson rank \(\beta\) and construe them as a sequence of spaces accumulating towards a point. For limit cases, consider the (disjoint) sum of spaces with Cantor-Bendixson rank cofinal in \(\alpha\).]
+\subsection{Soluzione}
+\label{sec:org3cce2f8}
+
+Si costruiscono, per ricorsione, spazi polacchi \(X_{\alpha} \subseteq \R\) con rango di Cantor-Bendixson \(\alpha\) e tali che \(X^{\infty}_{\alpha} = \emptyset\).
+
+Questo garantisce che ciascun \(X_{\alpha}\) sia uno spazio polacco \href{20250111143651-insieme_numerabile.org}{numerabile}.
+\subsubsection{Caso base}
+\label{sec:org6418f6d}
+
+Per \(\alpha=0\) deve valere che \(X_{0}^{(0)} = X_{0} = \emptyset\). Pertanto si pone \(X_{0}= \emptyset\).
+
+Per \(\alpha=1\) deve valere che \(X^{(1)}_{1} = X_{1}' = \emptyset\). Pertanto si pone \(X_{1}= \omega \subseteq \R\).
+\subsubsection{Ordinale successore}
+\label{sec:orgc97b0f4}
+
+Sia \(\alpha=\beta+1\) un ordinale successore, e sia \(X_{\beta} \subseteq \R\) uno spazio polacco con rango di Cantor-Bendixson \(\beta\) e tale che \(X_{\beta}^{\infty} = \emptyset\).
+
+Sia \(\set{y_{n}\mid n \in \omega} \subseteq \R\) una successione convergente ad \(y \in \R\), composta da punti isolati tali che per ogni \(n \in \omega\): \(y_{n}< y\). Per ciascun \(n \in \omega\) sia \(U_{n} \subseteq \R\) un intervallo aperto tale che \(y_{n} \subseteq U_{n}\) e che \(\forall\, m\neq n\): \(\operatorname{Cl}(U_{n})\cap \operatorname{Cl}(U_{m}) = \emptyset\).
+
+Sia ora, per ogni \(n \in\omega\), \(\Phi_{n}: \R\to U_{n}\) un omeomorfismo (è sufficiente considerare una contrazione dell'arco tangente). Siano \(X_{n}\) le immagini di \(X_{\beta}\) tramite \(\Phi_{n}\):
+\begin{equation*}
+X_{n} \coloneqq \Phi_{n}(X_{\beta}) \subseteq U_{n}.
+\end{equation*}
+
+Si definisce \(X_{\alpha} \coloneqq \set{y}\cup \bigcup_{n \in \omega} X_{n}\). Questo è spazio polacco in quanto unione numerabile di spazi polacchi.
+
+Per induzione su \(\lambda<\alpha\):
+\begin{equation*}
+X_{\alpha}^{(\lambda)} = \set{y} \cup \bigcup_{n \in \omega} X_{n}^{(\lambda)}
+\end{equation*}
+\begin{itemize}
+\item Caso base: per \(\lambda=0\) è banale.
+\item Ordinale successore: sia \(\lambda<\alpha\), \(\lambda = \gamma+1\).
+Si dimostra che
+\begin{equation*}
+  	\set{y}\cup \bigcup_{n \in \omega} (X_{n}^{(\gamma)})' = \left(\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\right)'
+\end{equation*}
+
+Si consideri \(x \notin \left(\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\right)'\), \(x\neq y\).
+
+Allora \(\set{x} \subseteq\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\) è aperto: per ogni \(n \in\omega\) si ha che \(\set{x}\cap X_{n}^{(\gamma)}\) è aperto in \(X_{n}^{(\gamma)}\)   e quindi per ogni \(n \in \omega\): \(x\notin (X_{n}^{(\gamma)})'\), ovvero
+\begin{equation*}
+  	x \notin \set{y}\cup \bigcup_{n \in \omega} \left(X_{n}^{(\gamma)}\right)'.
+  \end{equation*}
+
+Se invece per assurdo \(y\notin \left(\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\right)'\) allora $\backslash$\(\set{y} \subseteq \set{y} \bigcup_{n \in \omega} X_{n}^{(\gamma)}\) è aperto e quindi esiste \(\varepsilon>0\) tale che
+\begin{equation*}
+  	(y-\varepsilon, y+\varepsilon) \cap \left(\set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\gamma)}\right) = \set{y}
+\end{equation*}
+Siano ora \(y_{n_{0}}, y_{n_{1}}, y_{n_{2}} \in (y-\varepsilon, y+\varepsilon)\) (che esistono poiché \(y_{n}\to y\)), con \(y_{n_{0}}< y_{n_{1}} < y_{n_{2}}\). Allora, siccome \(U_{n_{1}} = (a,b)\) per certi \(a,b \in \R\) tali che \(y_{n_{0}} < a\) e \(b< y_{n_{1}} < y\), si ha:
+\begin{equation*}
+  	U_{n_{1}} \subseteq (y-\varepsilon, y).
+\end{equation*}
+Siccome \(\lambda<\alpha\) ovvero \(\gamma+1<\beta+1\) allora \(\gamma<\beta\) e pertanto, per ogni \(n \in \omega\): \(X_{n}^{(\gamma)}\neq \emptyset\). Quindi
+\begin{equation*}
+  	\emptyset\neq\Phi_{n_{1}}(X_{\beta}^{(\gamma)}) = X_{n_{1}}^{(\gamma)} \subseteq U_{n_{1}} \subseteq (y-\varepsilon, y)
+\end{equation*}
+e pertanto
+\begin{equation*}
+  	(y-\varepsilon, y+\varepsilon) \cap\left(\set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\gamma)}\right) \supseteq \set{y}\cup \Phi_{n_{1}}(X_{\beta}^{(\gamma)})\supsetneqq \set{y}
+\end{equation*}
+Assurdo. Quindi \(y \in \left(\set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\gamma)}\right)'\)
+
+Viceversa, se \(x \notin \set{y}\cup \bigcup_{n \in \omega}(X_{n}^{(\gamma)})'\) allora per ogni \(n \in \omega\):
+\begin{equation*}
+  	x \notin (X_{n}^{(\gamma)})'
+\end{equation*}
+e pertanto \(\set{x} \subseteq X_{n}^{(\gamma)}\) è aperto. Ma \(X_{n}^{(\gamma)}\) è aperto di \(\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\) e quindi anche \(\set{x}\) lo è:
+\begin{equation*}
+  	x \notin \left(\set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\lambda)}\right)'.
+\end{equation*}
+Si noti che per ogni \(n \in \omega\) si ha che \(X_{n}^{(\gamma)}\) è aperto di \(\set{y}\cup \bigcup_{n \in \omega} X_{n}^{(\gamma)}\) poiché
+\begin{equation*}
+  	X_{n}^{(\gamma)} = U_{n}\cap \left(\set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\gamma)}\right)
+\end{equation*}
+dove \(U_{n}\) è un aperto di \(\R\).
+
+Pertanto si ha che
+\begin{align*}
+  	X_{\alpha}^{(\lambda)} &= \left(X_{\alpha}^{(\gamma)}\right)'\\
+  	&= \set{y}\cup \bigcup_{n \in \omega} (X_{n}^{\gamma})' = \set{y}\cup\bigcup_{n \in \omega} X_{n}^{(\lambda)}.
+\end{align*}
+\end{itemize}
+
+
+\begin{itemize}
+\item Ordinale limite: sia \(\lambda <\alpha\) un ordinale limite. Allora
+\begin{align*}
+  	X_{\alpha}^{(\lambda)} &= \bigcap_{\gamma<\lambda} X_{\alpha}^{(\gamma)} = \bigcap_{\gamma<\lambda}\left(\set{y}\cup \bigcup_{n \in\omega} X_{n}^{(\gamma)}\right)\\
+  	&= \set{y}\cup \bigcap_{\gamma<\lambda} \bigcup_{n \in \omega} X_{n}^{(\gamma)}\\
+  	&= \set{y}\cup \bigcup_{n \in \omega} \bigcap_{\gamma<\lambda} X_{n}^{(\gamma)} = \set{y}\cup\bigcup_{n \in\omega} X_{n}^{(\lambda)}.
+\end{align*}
+\end{itemize}
+
+Pertanto \(X_{\alpha}^{(\beta)} = \set{y}\) e \(X_{\alpha}^{(\alpha)} = \emptyset\).
+\subsubsection{Ordinale limite}
+\label{sec:org47beb17}
+Sia \(\alpha<\omega_{1}\) un ordinale limite, e sia per ogni \(\beta<\alpha\): \(X_{\beta}\) uno spazio polacco con rango di Cantor-Bendixson \(\beta\) e tale che \(X_{\beta}^{\infty} = \emptyset\).
+
+Sia \((\beta_{n})_{n \in \omega}\) una successione di ordinali cofinale in \(\alpha\). Senza perdita di generalità è possibile considerare ciascun \(X_{\beta_{n}}\) contenuto nell'intervallo \(I_{n}\coloneqq(n-1/2,n+1/2)\), per mezzo di un omeomorfismo \(\R\to I_{n}\).
+
+Allora si pone \(X_{\alpha}\coloneqq \coprod_{n<\omega} X_{\beta_{n}}\), \(X_{\alpha} \subseteq \R\) è uno spazio polacco in quanto unione numerabile di spazi polacchi.
+
+Inoltre \(X^{\infty}_{\alpha} = \emptyset\) e \(X\) ha rango di Cantor-Bendixson \(\alpha\). Infatti, per ogni \(\lambda<\alpha\) esiste \(n_{0} \in \omega\) tale che \(\beta_{n_{0}} >\lambda\) per cofinalità di \((\beta_{n})_{n \in \omega}\) e pertanto:
+\begin{equation*}
+X^{(\lambda)}_{\alpha} = \coprod_{n<\omega} X_{\beta_{n}}^{(\lambda)} \supseteq X_{\beta_{n_{0}}}^{(\lambda)} \neq\emptyset
+\end{equation*}
+mentre
+\begin{equation*}
+X^{(\alpha)}_{\alpha} = \coprod_{n<\omega} X_{\beta_{n}}^{(\alpha)} = \coprod_{n<\omega}\emptyset = \emptyset.\qedd
+\end{equation*}
+\end{document}

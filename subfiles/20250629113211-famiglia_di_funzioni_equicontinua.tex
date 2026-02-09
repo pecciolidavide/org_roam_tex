@@ -1,0 +1,55 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Una famiglia di funzioni \(\mathcal{F}\) da un insieme \(A \subseteq \R\) a valori reali si dice \uline{equicontinua} se per ogni \(\varepsilon>0\) esiste \(\delta>0\) tale che
+\begin{equation*}
+\forall f \in \mathcal{F}\ \forall x,y \in A\ \left(|x-y|<\delta\implies |f(x)-f(y)|<\varepsilon\right).
+\end{equation*}
+Equivalentemente, le funzioni di \(\mathcal{F}\) sono \href{20250611135127-funzione_uniformemente_continua.org}{uniformemente continua} per gli stessi \(\varepsilon\) e \(\delta\).
+\end{definizione}
+\begin{esempio}
+Si consideri \(\mathcal{F} \subseteq C^{1}\left([a,b]\right)\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''} tale che esista \(L>0\):
+\begin{equation*}
+\forall f \in \mathcal{F}\ \sup_{x \in [a,b]}|f'(x)|<L.
+\end{equation*}
+
+Allora \(\mathcal{F}\) è equicontinua.
+
+Infatti, per il \href{20250629143200-teorema_di_lagrange.org}{Teorema di Lagrange}:
+\begin{equation*}
+|f(x)-f(y)|\le \left(\sup_{c \in [a,b]} |f'(c)|\right)\ |x-y| \le L\ |x-y|
+\end{equation*}
+e dunque, scegliendo \(\delta = \varepsilon/L\) si ha la tesi.
+\end{esempio}
+
+\begin{esempio}
+Sia \(\sigma\) una funzione sigmoidale tale che esista \(\lambda>0\):
+\begin{equation*}
+\forall x \in \R:\ |\sigma'(x)|<\lambda<1
+\end{equation*}
+e sia \(\mathcal{F}\) la famiglia definita su \([a,b] \subseteq \R\) come segue:
+\begin{equation*}
+\mathcal{F} \coloneqq \set{\sum_{j=1}^{N}\alpha_{j} \sigma(w_{j}x+b_{j}); \alpha_{j},w_{j},b_{j} \in \R\mid \sum_{j=1}^{N}(\alpha_{j}^{2}+w_{j}^{2})\le 1}.
+\end{equation*}
+
+Allora \(\mathcal{F}\) è equicontinua. Infatti:
+\begin{itemize}
+\item \(\mathcal{F} \subseteq C^{1}\left([a,b]\right)\);
+\item Sia \(f \in \mathcal{F}\): per \href{20250629112810-disuguaglianza_di_cauchy_schwarz.org}{C-S}:
+\begin{align*}
+  |f'(x) | &= \bigg\lvert \sum_{j=1}^{N} \alpha_{j}w_{j} \sigma'(w_{j}x+b_{j})\bigg\rvert \le \sum_{j=1}^{N} |\alpha_{j}|\, |w_{j}|\,\lambda\\
+  &\le \lambda \left(\sum_{j=1}^{N} \alpha_{j}^{2}\right)^{1/2}\cdot\left(\sum_{j=1}^{N}w_{j}^{2}\right)^{1/2}\le\lambda.
+\end{align*}
+\end{itemize}
+Per l'esempio precedente, si ottieene la tesi.
+
+Si noti, inoltre, che se \(\sigma\) è la \href{20250624155858-neurone_artificiale.org}{sigmoide} logistica, allora la derivata massima è ottenuto in \(x=0\) e vale
+\begin{equation*}
+\sigma'(0) = \sigma(0)\,(1-\sigma(0)) = \frac{1}{4}<1.
+\end{equation*}
+\end{esempio}
+\end{document}

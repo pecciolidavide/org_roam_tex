@@ -1,0 +1,60 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si considerino le notazione della ``\href{20250609104647-buona_codifica_di_un_linguaggio.org}{Aritmetizzazione della sintassi}''.
+
+Sia \(T\) una \(L\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria}, e sia \(\operatorname{Ax}(T)\) un insieme di \(L\)-\href{20250131103317-formula_del_prim_ordine.org}{formule} che siano \href{20250131123109-insieme_di_assiomi_per_una_teoria.org}{assiomi} per \(T\). Si fissi una \href{20250609104647-buona_codifica_di_un_linguaggio.org}{codifica} \(\#\) per il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} \(L\), con la corrispondente \href{20250609104647-buona_codifica_di_un_linguaggio.org}{codifica di formule} e \href{20250609104647-buona_codifica_di_un_linguaggio.org}{termini} \(\termcode{\cdot}\).
+
+Si vuole codificare le dimostrazioni degli elementi di \(\operatorname{Teor}_{T}\) a partire da \(\operatorname{Ax}(T)\) come degli opportuni numeri naturali.
+
+Si fissi un calcolo logico corretto e completo, con un numero finito di regole di deduzione, tale che
+\begin{itemize}
+\item l'insieme \(\operatorname{LogAx}\) dei suoi assiomi logici deve essere tale che
+\begin{equation*}
+  \operatorname{LogAx}^{\#} \coloneqq \set{\termcode{\varphi}\mid \varphi \in \operatorname{LogAx}}
+\end{equation*}
+sia ricorsivo;
+\item per ogni regola di deduzione \(\gamma\) con \(n\) premesse, il predicato
+\begin{equation*}
+  R_{\gamma}^{\#} \coloneqq \set{\left(\termcode{\varphi_{1}},\dots,\termcode{\varphi_{n}},\termcode{\psi}\right) \in (\operatorname{Fml}^{\#})^{n+1}\mid \substack{\psi\text{ si deduce da }\\ \varphi_{1},\dots,\varphi_{n}\text{ mediante la regola }\varphi}}
+\end{equation*}
+\end{itemize}
+
+In particolare si sceglie il sistema alla Hilbert-Ackermann, che prevede come unica regola di deduzione il \emph{Modus Ponens}:
+\begin{equation*}
+\frac{\varphi\qquad\varphi\implies\psi}{\psi}\tag{MP}
+\end{equation*}
+e in questo caso si ha
+\begin{equation*}
+R_{\text{(MP)}}^{\#}\coloneqq \set{(n,m,k) \in \N^{3}\mid n,m,k \in \operatorname{Fml}^{\#} \,\land\, m = \godelcode{\#(\implies), n,k}}
+\end{equation*}
+dove \(\godelcode{}\) è la \href{20250531110737-codifica_delle_sequenze_finite_tramite_beta_di_godel.org}{codifica di Godel}.
+
+È possibile dunque considerare una dimostrazione di \(\varphi\) a partire da \(\operatorname{Ax}(T)\) come una \href{20250206170922-sequenze_e_stringhe.org}{sequenza finita} di formule \(\sigma \in (\operatorname{Fml})^{<\omega}\), l'ultima delle quali è proprio \(\varphi\) e in cui ciascuna delle formule è un assioma logico, un assioma di \(T\) oppure è ottenuta da formule precedenti mediante la regola (MP).
+\section{Definizione}
+\label{sec:org53526ad}
+
+Si definisce il predicato \(\operatorname{Prov}_{\operatorname{Ax}(T)} \subseteq (\operatorname{Fml})^{<\omega}\times \operatorname{Fml}\) tale che se \((\sigma,\varphi) \in \operatorname{Prov}_{\operatorname{Ax}(T)}\) allora \(\sigma=(\sigma_{1},\dots,\sigma_{k-1})\) è una dimostrazione di \(\varphi\) a partire da \(\operatorname{Ax}(T)\), ovvero
+\begin{itemize}
+\item \(\operatorname{lh}(\sigma)=k\ge 1\) e \(\sigma_{k-1}=\varphi\);
+\item per ogni \(i<k\), \(\sigma_{i} \in \operatorname{LogAx}\cup \operatorname{Ax}(T)\) oppure esistono \(j_{1},j_{2}<i\) tali che \(\sigma_{i}\) si ottenga da \(\sigma_{j_{1}},\sigma_{j_{2}}\) mediante (MP).
+\end{itemize}
+
+In particolare, si ottiene il predicato \(\operatorname{Prov}_{\operatorname{Ax}(T)}^{\#} \subseteq \N^{2}\) definito da (utilizzando la \href{20250531110737-codifica_delle_sequenze_finite_tramite_beta_di_godel.org}{codifica di Godel}) \(\operatorname{Prov}_{\operatorname{Ax}(T)}^{\#}(n,m)\) sse
+\begin{gather*}
+m \in \operatorname{Fml}^{\#} \,\land\, n \in \operatorname{Seq} \,\land\, \godeldec{n}_{\ell(n)-1} = m \,\land\, \\
+\quad\land\, \forall\,i\le \ell(n)\left(\godeldec{n}_{i} \in \operatorname{LogAx}^{\#}\cup \operatorname{Ax}^{\#}(T) \,\lor\,\exists\,j_{1},j_{2} <i\left(R_{\text{MP}}^{\#}\left(\godeldec{n}_{j_{1}}, \godeldec{n}_{j_{2}}, \godeldec{n}_{i}\right)\right)\right)
+\end{gather*}
+\section{Proposizione}
+\label{sec:org344cf0d}
+\begin{itemize}
+\item Se \(\operatorname{Ax}^{\#}(T)\) è (\href{20250520113238-insieme_semiricorsivo.org}{semi})\href{20250216173925-insieme_ricorsivo.org}{ricorsivo}, allora anche \(\operatorname{Prov}_{\operatorname{Ax}(T)}^{\#}\) lo è.
+\item Se \(T\) è \href{20250609135250-teoria_ricorsivamente_assiomatizzabile.org}{ricorsivamente assiomatizzabile}, allora \(\operatorname{Teor}_{T}^{\#}\) è \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo}, in quanto
+\begin{equation*}
+  \operatorname{Teor}_{T}^{\#}(m)\quad\iff\quad \exists\,n\ \operatorname{Prov}_{\operatorname{Ax}(T)}^{\#}(n,m).
+\end{equation*}
+\end{itemize}
+\end{document}

@@ -1,0 +1,209 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Reverse Mathematics [CORSO SEL2025]}
+\label{sec:orgbc86574}
+\subsection{Introduzione}
+\label{sec:org0f75d5e}
+
+Partiamo dal Teorema di Pitagora
+
+\begin{thm}
+Dato un triangolo rettangolo di lati \(a,b,c\), si ha \(a^{2}+b^{2}=c^{2}\).
+\end{thm}
+
+Questo è dimostrato a partire dagli \uline{assiomi di Euclide}.
+
+L'idea generale della matematica è risolvere questo problema:
+\begin{equation*}
+\text{Assiomi} \implies \text{Teoremi}
+\end{equation*}
+
+L'obiettivo della Reverse Mathematics è fare il processo inverso, ovvero rispondere a:
+\begin{description}
+\item[{(D1)}] Dato un teorema \(\varphi\), trovare gli assiomi minimi/minimali per dimostrarlo.
+\end{description}
+
+Una situazione ottimale è che esiste un gruppo di assiomi minimo \uline{equivalente} al teorema preso in questione. Questo può succedere per teoremi diversi: ad esempio, il Teorema di Pitagora è equivalente ad un gruppo degli assiomi di Euclide, e questo gruppo è equivalente al Teorema di Euclide, quindi Pitagora è equivalente ad Euclide.
+
+Quindi, la seconda domanda è:
+
+\begin{description}
+\item[{(D2)}] Dato un teorema \(\varphi\), trovare i teoremi equivalenti.
+\end{description}
+
+Formalmente, fissato un teorema \(A\), si fissa una teoria base tale che \(T\not\vdash A\). Si cerca un insieme di assiomi \(S\) tali che
+\begin{equation*}
+T+S\vdash A,\qquad T+A\vdash S
+\end{equation*}
+e quindi \(T\vdash T\iff S\).
+\subsection{Aritmetica del second'ordine \(\mathcal{L}_{2}\) e \(Z_{2}\).}
+\label{sec:org5d1bbfa}
+
+Si consideri il linguaggio del prim'ordine
+\begin{equation*}
+\mathcal{L}_{2} \coloneqq \set{0,S,+,\cdot,=,\le,\in}
+\end{equation*}
+con due tipi di variabili:
+\begin{itemize}
+\item variabili numeriche: \(x,y,z,n,m,\dots\).
+\item variabili insiemi: \(X,Y,Z\).
+\end{itemize}
+
+\uline{Assiomi}:
+\begin{itemize}
+\item assiomi di base (ovvero l'Aritmetica di Robinson)
+\begin{equation*}
+  0+x=x,\ 0\cdot x=0,\ 0\le x\ x+y=y+x
+\end{equation*}
+\item assioma di induzione
+\begin{description}
+\item[{\(\mathrm{Ind}\)}] \(0 \in X\land \forall n [n \in X\implies S(n) \in X]\implies \forall  n (n \in X)\)
+\end{description}
+\item schema di induzione: per ogni formula \(\varphi \in \mathcal{L}_{2}\)
+\begin{description}
+\item[{\(\mathrm{Ind-Schema}\)}] \(\varphi(0)\land \forall  n[\varphi(n)\implies \varphi\big(S(n)\big)]\implies \forall n\ \varphi(n).\)
+\end{description}
+\item schema di comprensione: per ogni formula \(\varphi \in \mathcal{L}_{2}\)
+\begin{description}
+\item[{\(\mathrm{CA}\)}] \(\exists X\ \forall  n\ [n \in X\iff \varphi(n)]\)
+\end{description}
+\end{itemize}
+
+\begin{esempio}
+Gli assiomi di base + l'assioma di comprensione dimostrano che l'assioma di induzione è equivalente allora schema di induzione
+\end{esempio}
+
+Quindi \(Z_{2}\) è dato dagli assiomi di base + \(\mathrm{Ca}\) + \(\mathrm{Ind}\). Questa teoria però è \uline{troppo forte}, quindi si considerano, per un insieme\(\Gamma \subseteq \mathcal{L}_{2}\), gli assiomi:
+\begin{description}
+\item[{\(\Gamma-\mathrm{Ind}\)}] \(\varphi(0)\land \forall  n[\varphi(n)\implies \varphi\big(S(n)\big)]\implies \forall n\ \varphi(n)\) per ogni \(\varphi \in \Gamma\);
+\item[{\(\Gamma-\mathrm{CA}\)}] \(\exists X\ \forall  n\ [n \in X\iff \varphi(n)]\) per ogni \(\varphi \in \Gamma\).
+\end{description}
+
+\begin{definizione}
+Quantificatori limitati: \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{Quantificatore limitato nel linguaggio dell'aritmetica}
+\end{definizione}
+
+\begin{definizione}
+Famiglia \(\Sigma_{n}^{0}, \Pi_{n}^{0}\): \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{Complessità di una formula nel linguaggio dell'aritmetica}
+\end{definizione}
+
+\begin{esempio}
+Alcune formule
+\begin{align*}
+x\cdot y = y\cdot x &\in \Sigma_{0}^{0}\\
+\mathrm{Pr}(t):\quad t>1 \land \forall  n\le t\ \forall  m\le t\ (t=n\cdot m \implies n=1\lor m=1) &\in \Sigma_{0}^{0}\\
+\forall n\ \exists p\ (p>n \land \mathrm{Pr}(p)) \in \Pi_{2}^{0}\\
+\forall n\ \big[n \in X\implies \exists m \le n\ (n=m+m)\big]&\in \Pi^{0}_{1}
+\end{align*}
+\end{esempio}
+
+\begin{definizione}
+Si definiscono le famiglie \(\Sigma_{n}^{1},\Pi_{n}^{1}\):
+\begin{itemize}
+\item \(\Sigma_{0}^{1} = \Pi_{0}^{1}\coloneqq \bigcup_{n} \Sigma_{n}^{1} = \bigcup_{n} \Pi_{n}^{1}\).
+\item \(\Sigma_{n}^{1} =\)
+\item \(\Pi_{n}^{1} =\) (definite come al solito)
+\end{itemize}
+\end{definizione}
+\subsection{``Big Five''}
+\label{sec:org38831a4}
+
+L'idea è che quasi tutti i teoremi sono equivalenti a uno dei seguenti gruppi di assiomi
+\subsubsection{RCA\textsubscript{0}}
+\label{sec:org7d12d59}
+
+Questa lista di assiomi è data da: Assiomi di base + \(\Sigma_{1}^{0}-\mathrm{Ind}\) + \(\Delta_{1}^{0}-\mathrm{CA}\) dove
+\begin{description}
+\item[{(\(\Delta_{1}^{0}-\mathrm{CA}\))}] \(\forall n\ (\varphi(n)\iff\psi(n))\implies \exists X\ \forall n [n \in X\iff \varphi(n)]\) per ogni \(\varphi \in \Sigma_{1}^{0}\) e \(\psi \in \Pi_{1}^{0}\).
+\end{description}
+
+L'idea è che, a meno di equivalenza logica, \(\Delta_{n}^{0} = \Sigma_{n}^{0}\cap \Pi_{n}^{0}\).
+
+\begin{prop}
+Sono fatti equivalenti
+\begin{itemize}
+\item \(\varphi(n)\in\Delta_{1}^{0}\)
+\item \(\varphi(n)\) è decidibile.
+\end{itemize}
+\end{prop}
+
+\begin{thm}
+RCA\textsubscript{0} prova:
+\begin{itemize}
+\item \(\R\) non è numerabile
+\item Teorema di Bolzano
+\item Ogni campo numerabile ha una chiusura algebrica
+\end{itemize}
+e non prova:
+\begin{itemize}
+\item ogni anello ha un ideale primo
+\item ogni sequenza non limitata di reali ha limite
+\item non unicità.
+\end{itemize}
+\end{thm}
+\subsubsection{WKL\textsubscript{0}}
+\label{sec:org8d2b195}
+
+Questa lista di assiomi è data da RCA\textsubscript{0} + WKL dove:
+\begin{description}
+\item[{\textbf{\textbf{WKL}}}] Sia \(T\) un albero binario infinito. Allora \(T\) ha un cammino.
+\end{description}
+
+\begin{thm}
+In RCA\textsubscript{0} sono fatti equivalenti:
+\begin{itemize}
+\item WKL
+\item ogni anello numerabile ha un ideale primo;
+\item ogni funzione continua in \([0,1]\) è limitata
+\item Teorema di completezza di Godel
+\item Ogni campo numerabile ha un'unica chiusura algebrica
+\end{itemize}
+\end{thm}
+\subsubsection{ACA\textsubscript{0}}
+\label{sec:org3994536}
+
+Questa lista di assiomi è data da RCA\textsubscript{0} + \(\mathrm{Ind}\) + \(\Pi^{1}_{0}-\mathrm{CA}\).
+
+\begin{thm}
+In RCA\textsubscript{0} sono fatti equivalenti:
+\begin{itemize}
+\item ACA\textsubscript{0}
+\item Lemma di Koning
+\item Ogni anello numerabile ha un ideale
+\end{itemize}
+\end{thm}
+
+Idea: ACA\textsubscript{0} è equivalente a PA
+\subsubsection{ATR\textsubscript{0}}
+\label{sec:orga6600ae}
+\subsubsection{\(\Pi_{1}^{1}-\mathrm{CA}_{0}\)}
+\label{sec:orgd051a04}
+
+\subsubsection{Riferimenti:}
+\label{sec:org45ffd1f}
+
+\begin{itemize}
+\item Simpson, Subsystems of second order aritmetic
+\item Stillwell, Reverse Mathematics
+\item Hitschelot, Slicing the truth
+\item Dzhafarov and Mummert, Reverse Mathematics
+\end{itemize}
+\subsection{Esempio}
+\label{sec:org1ab8547}
+
+\begin{thm}
+In RCA\textsubscript{0} sono fatti equivalenti:
+\begin{enumerate}
+\item ACA\textsubscript{0}
+\item \(\Sigma^{0}_{1}-\mathrm{CA}\)
+\item per ogni \(f:\N\to \N\) iniettiva esiste \(\operatorname{rng}(f)\) come insieme, ovvero
+\begin{equation*}
+ \exists X\ \forall n\ \big[n \in X\iff \exists m(f(m=n))\big]
+\end{equation*}
+\end{enumerate}
+\end{thm}
+\end{document}

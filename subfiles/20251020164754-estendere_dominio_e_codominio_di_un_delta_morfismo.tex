@@ -1,0 +1,44 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+\begin{itemize}
+\item Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}
+\item Sia \(\Delta\) un insieme di formule chiuso per sostituzione di variaibli e che contenga la formula ``\(x=y\)''.
+\item Se \(C \subseteq \set{\forall , \exists , \land,\lor,\lnot}\) è un insieme di connettivi, \(C\Delta\) denota la chiusura di \(\Delta\) per i connettivi in \(C\). \(\Delta^{\pm} \coloneqq \set{\lnot}\Delta\).
+\end{itemize}
+
+\begin{prop}
+Siano \(M,N\) due \(\mathcal{L}\)-strutture, e sia \(N\) \href{20250617095548-modello_lambda_saturo.org}{\(\omega\)-saturo}, e sia \(k:M\to N\) un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismo} di \href{20241213101756-cardinalita.org}{cardinalità} \(\card{k}<\omega\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(k\) è un \(\set{\exists, \land }\!\Delta\)-morfismo;
+\item per ogni \href{20250206170922-sequenze_e_stringhe.org}{tupla finita} \(b \in M^{<\omega}\)\footnote{Con \(M^{<\omega}\) si intende l'\href{20250206170922-sequenze_e_stringhe.org}{Insieme delle sequenze finite}.} esiste \(c \in N^{<\omega}\) tale che \(k\cup\set{\langle b,c\rangle}\) è un \(\Delta\)-morfismo.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Sia \(a\) una \href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{enumerazione} di \(\dom k\), e sia \(p(x,y) = \Delta\text{-}\operatorname{tp}_{M}(a,b)\)\footnote{\(p\) è il \href{20250212164424-tipo_teoria_dei_modelli.org}{\(\Delta\)-tipo di \(a,b\)} in \(M\)}. Per 1., \(p(ka,y)\) è finitamente consistente in \(N\).
+
+Siccome \(k\) è finita e \(N\) è \(\omega\)-saturo, allora esiste \(c \in N^{y}\) tale che \(N,c\vDash p(ka,y)\). Tale \(c\) è quello cercato.
+
+(\(2.\Rightarrow 1.\)): Ogni \(\varphi(x) \in \set{\exists ,\land}\!\Delta\) è della forma \(\exists \overline{y}\,\psi(x,\overline{y})\), con \(\psi(x,\overline{y}) \in \set{\land}\!\Delta\) e \(\card{\overline{y}} < \omega\).
+
+Sia \(a \in \dom(k)^{x}\) tale che \(M\vDash\varphi(a)\). Voglio mostrare \(N\vDash\varphi(ka)\).
+
+Sia \(\overline{b} \in N^{\overline{y}}\) tale che \(M\vDash \psi(a,\overline{b})\); per l'ipotesi 2. esiste \(\overline{c} \in N^{\overline{y}}\) tale che \(k\cup\set{\langle \overline{b},\overline{c}\rangle}\) sia un \(\Delta\)-morfismo.
+
+Quindi \(N\vDash \psi(ka,\overline{c})\) e dunque \(N\vDash \psi(ka)\).
+\end{proof}
+
+Dualmente vale la seguente proposizione.
+
+\begin{prop}
+Siano \(M,N\) due \(\mathcal{L}\)-strutture, e sia \(N\) \(\omega\)-saturo, e sia \(k:M\to N\) un \(\Delta\)-morfismo con \(\card{k}<\omega\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(k\) è un \(\set{\forall , \lor }\!\Delta\)-morfismo;
+\item per ogni \(c \in N^{<\omega}\) esiste \(b \in M^{<\omega}\) tale che \(k\cup\set{\langle b,c\rangle}\) è un \(\Delta\)-morfismo.
+\end{enumerate}
+\end{prop}
+\end{document}

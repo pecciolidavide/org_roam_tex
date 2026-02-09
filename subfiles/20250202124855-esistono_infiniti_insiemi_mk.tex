@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}.
+\section{Proposizione}
+\label{sec:org72785d8}
+La classe di tutti gli insiemi contiene infiniti elementi.
+\subsection{Dimostrazione}
+\label{sec:orgc83e9c4}
+Si parta dall'\href{20250131161811-insieme_vuoto_mk.org}{insieme vuoto} \(\emptyset\), e se ne consideri il \href{20250202124648-successore_di_un_insieme_mk.org}{successore}:
+\begin{equation*}
+\operatorname{S}(\emptyset) = \set{\emptyset}
+\end{equation*}
+Si può considerare quindi la seguente lista di insiemi distinti:
+\begin{align*}
+\set{\emptyset} &= \operatorname{S}(\emptyset)\\
+\set{\emptyset,\set{\emptyset}} &= \operatorname{S}\left(\set{\emptyset}\right)\\
+\set{{\emptyset,\set{\emptyset}},\set{\emptyset,\set{\emptyset}}} &= \operatorname{S}\left(\set{\emptyset,\set{\emptyset}}\right)
+\end{align*}
+Pertanto, vi sono infiniti insiemi.
+\end{document}

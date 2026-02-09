@@ -1,0 +1,62 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{L} = \set{R}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} composto da un \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di relazione} \href{20250130162057-linguaggio_del_prim_ordine.org}{binaria}, ed \(M\) una \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura}.
+
+Oppure, sia \(M\) una \href{20250130104320-classe_mk.org}{classe} e sia \(R \subseteq M\times M\) una \href{20250202170607-classe_relazione_binaria.org}{relazione binaria}.
+\section{Ordine}
+\label{sec:orgad2a2c8}
+\(\langle M;R\rangle\) è un \uline{ordine} (o \uline{ordine parziale}) se
+\begin{itemize}
+\item \uline{riflessivo}:  \(\forall\,x \ (x\mathrel{R} x)\);
+\item \uline{transitivo}: \(\forall\,x \forall\, y \forall\, z\ (x\mathrel{R}z\mathrel{R} y\,\implies\, x\mathrel{R} y)\);
+\item \uline{antisimmetrico}: \(\forall\,x \forall\, y \left(x \mathrel{R}y \, \implies\, \lnot\,(y\mathrel{R} x)\right)\).
+\end{itemize}
+
+Dunque un ordine è una \href{20250202170607-classe_relazione_binaria.org}{relazione binaria} \href{20250619161501-caratteristiche_delle_relazioni_binarie.org}{riflessiva}, transitiva e antisimmetrica.
+\section{Ordine stretto}
+\label{sec:orgba8f176}
+\(\langle M;R\rangle\) è un \uline{ordine stretto} se
+\begin{itemize}
+\item \uline{irriflessivo}:  \(\forall\,x \ \lnot\,(x\mathrel{R} x)\);
+\item \uline{transitivo}: \(\forall\,x \forall\, y \forall\, z\ (x\mathrel{R}z\mathrel{R} y\,\implies\, x\mathrel{R} y)\).
+\end{itemize}
+
+Dunque un ordine stretto è una relazione binaria irriflessiva, transitiva.
+
+Da questi segue:
+\begin{itemize}
+\item \uline{antisimmetrico}: \(\forall\,x \forall\, y \left(x \mathrel{R}y \, \implies\, \lnot\,(y\mathrel{R} x)\right)\).
+\end{itemize}
+\section{Ordine lineare}
+\label{sec:orgc37b252}
+Un ordine, o ordine stretto, \(\langle M;R\rangle\), si dice \uline{lineare} se:
+\begin{itemize}
+\item \uline{lineare}: \(\forall\,x \forall\, y\ (x\mathrel{R}y) \,\lor\,(y\mathrel{R}x) \,\lor\, (x=y)\).
+\end{itemize}
+\section{Ordine denso}
+\label{sec:orgc2e726a}
+Un ordine, o ordine stretto, \(\langle M;R\rangle\), si dice \uline{denso} se:
+\begin{itemize}
+\item \uline{non banale}: \(\exists\, x\exists\, y \ (x\mathrel{R} y)\)
+\item \uline{denso}: \(\forall\,x \forall\, y\ \left[(x\mathrel{R} y)\, \implies\, \exists\,z\ (x\mathrel{R}z \mathrel{R} y)\right]\)
+\end{itemize}
+\section{Ordine senza punto finale}
+\label{sec:orgf6c848a}
+Un ordine, o ordine stretto, \(\langle M;R\rangle\), si dice \uline{senza punto finale} se:
+\begin{equation*}
+\forall\,x\ \left[\exists\,y \ (x\mathrel{R} y) \,\land\, \exists\, y\ (y\mathrel{R}x)
+\right]
+\end{equation*}
+\section{Teoria degli ordini stretti lineare}
+\label{sec:org3c57a2a}
+Si indica con \(T_{\text{lo}}\) la \href{20250130114950-teoria_del_prim_ordine.org}{teoria} degli ordini stretti, lineari.
+Questa è una \href{20250131123128-teoria_soddisfacibile.org}{teoria soddisfacibile}, in quanto \(\langle \Q, <\rangle \vDash T_{\text{lo}}\) (vedi \href{20250131122913-soddisfazione_di_una_formula.org}{Soddisfazione di una formula})
+\section{Teoria degli ordini lineari densi senza punto finale}
+\label{sec:org0c876a4}
+Si indica con \(T_{\text{dlo}}\) la \href{20250130114950-teoria_del_prim_ordine.org}{teoria} degli ordini stretti, densi, lineari e senza punti finali.
+Questa è una \href{20250131123128-teoria_soddisfacibile.org}{teoria soddisfacibile}, in quanto \(\langle \Q, <\rangle \vDash T_{\text{dlo}}\) (vedi \href{20250131122913-soddisfazione_di_una_formula.org}{Soddisfazione di una formula})
+\end{document}

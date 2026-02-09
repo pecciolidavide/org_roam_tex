@@ -1,0 +1,64 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Sfera di Riemann}
+\label{sec:org3fb8f4d}
+\begin{definizione}
+La \textbf{sfera di Riemann} è la \href{20250115150754-sfera_n_dimensionale.org}{sfera \(2\)-dimensionale} \(\mathds{S}^{2}\) dotata di una \href{20260127112733-struttura_complessa.org}{struttura complessa}.
+\end{definizione}
+
+Su \(\mathds{S}^{2}\) si considerano due \href{20260127112715-atlante_complesso.org}{carte locali}:
+\begin{itemize}
+\item \(\varphi:U\coloneqq \mathds{S}^{2}\setminus\set{N} \to \C\) \href{20260127142419-proiezione_stereografica.org}{proiezione stegreografica};
+\item \(\psi:V\coloneqq \mathds{S}^{2}\setminus\set{S} \to \C\) data da:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+        {\mathds{S}^2\setminus\set{S}} \&\& \C \\
+        \\
+        \& \C
+        \arrow["\psi", from=1-1, to=1-3]
+        \arrow["\begin{array}{c} \substack{\text{proiezione}\\\text{stereografica}\\\text{del polo sud}} \end{array}"', from=1-1, to=3-2]
+        \arrow["{\text{coniugio}}"', from=3-2, to=1-3]
+\end{tikzcd}
+\end{equation*}
+\end{itemize}
+
+Allora si ha:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	\& {U\cap V =\mathds{S}^2\setminus\set{N,S}} \\
+	\\
+	{\C_z\setminus\set{0}} \&\& {\C_w\setminus\set{0}}
+	\arrow["\varphi"', from=1-2, to=3-1]
+	\arrow["\psi", from=1-2, to=3-3]
+	\arrow["{h(z)}"', from=3-1, to=3-3]
+\end{tikzcd}
+\end{equation*}
+dove \(h(z)\) è un \href{20260127132618-funzione_biolomorfa.org}{biolomorfismo}:
+\begin{equation*}
+w = h(z) = \frac{1}{z}.
+\end{equation*}
+
+\begin{prop}
+\(\mathds{S}^{2}\) è una superficie di Riemann compatta, di {[}BROKEN LINK: 40333d07-ddb5-4df6-bbfe-85e21ab20dc3] 0
+\end{prop}
+
+\begin{oss}
+Si indica con \(\C_{\infty} \coloneqq \C \cup\set{\infty}\) la sfera di Riemann, per mezzo della seguente mappa:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\mathds{S}^2\setminus\set{N}} \&\& \C \\
+	N \&\& \infty
+	\arrow["{{\text{stereo}}}", from=1-1, to=1-3]
+	\arrow[maps to, from=2-1, to=2-3]
+\end{tikzcd}
+\end{equation*}
+\end{oss}
+
+\begin{prop}
+La \hyperref[sec:org3fb8f4d]{sfera di Riemann} è \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfa} allo \href{20241231115051-spazio_proiettivo.org}{spazio proiettivo} \href{20260127112924-esempi_fondamentali_di_varieta_complesse.org}{complesso \(\mathds{P}^{1}_{\C}\)}.\footnote{Vedi ``\href{20260128181135-sfera_di_riemann_biolomorfa_al_piano_proiettivo_complesso.org}{Sfera di Riemann biolomorfa al piano proiettivo complesso}''}
+\end{prop}
+\end{document}

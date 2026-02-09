@@ -1,0 +1,174 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema di Spezzamento SEC}
+\label{sec:orgd04f4f8}
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità.
+
+\begin{thm}
+Si consideri la \href{20250120131527-sec.org}{SEC} di \href{20241205141053-r_moduli.org}{\(R\)-moduli}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	0 \& M \& N \& P \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["\varphi", color={rgb,255:red,214;green,92;blue,92}, bend left=24, dashed, from=1-3, to=1-2]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow["\psi", color={rgb,255:red,214;green,92;blue,92},  bend left=24, dashed, from=1-4, to=1-3]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+Sono fatti equivalenti:
+\begin{enumerate}
+\item esiste un \href{20241206115416-morfismi_r_moduli.org}{morfismo} \(\psi:P\longrightarrow N\) tale che \(g\circ\psi =\operatorname{id}_{P}\) (e \(\psi\) si dice \textbf{sezione});
+\item esiste un \href{20241206142802-sottomoduli.org}{sottomodulo} \(N' \mathrel{\subseteq_{R}} N\) tale che\footnote{Si veda:
+\begin{itemize}
+\item \href{20241206142802-sottomoduli.org}{Somma di sottomoduli}
+\item \href{20260112124147-sottomoduli_in_somma_diretta.org}{Sottomoduli in somma diretta}
+\item \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}
+\item \href{20241213095808-somma_diretta.org}{Somma Diretta}
+\item \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Intersezione}
+\end{itemize}}
+\begin{equation*}
+ N \cong N'\oplus \operatorname{Im}f
+\end{equation*}
+e tale che \(\restriction{g}{N'}:N' \longrightarrow P\) sia un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo} (ovvero \(N \cong M \oplus P\)).
+\item esiste un \href{20241206115416-morfismi_r_moduli.org}{morfismo} \(\varphi:N\longrightarrow M\) tale che \(\varphi\circ f = \operatorname{Id}_{M}\) (e \(\varphi\) si dice \textbf{retrazione})
+\end{enumerate}
+\end{thm}
+\begin{definizione}
+Se vale una delle condizioni di cui sopra, la SEC si dice \textbf{spezzante}.
+\end{definizione}
+\begin{proof}
+\begin{description}
+\item[{(\(2.\Rightarrow 3.\)):}] Per ogni \(n \in N\), esistono \(n' \in N'\) e \(m \in M\) tali che
+\begin{equation*}
+n = n'+f(m)
+\end{equation*}
+Inoltre questi sono unici poiché \(f\) è iniettiva e \(N=N'+\operatorname{Im}f\).
+
+Si definisce pertanto
+\begin{equation*}
+\varphi(n) = m
+\end{equation*}
+che è ben definita per l'unicità della scrittura di cui sopra. Inoltre, questa è un morfismo (lasciato per esercizio).
+\begin{equation*}
+\varphi\circ f(m) = \varphi\left(0+ f(m)\right) = m
+\end{equation*}
+
+\item[{(\(1.\Rightarrow 2.\)):}] Supponiamo esista un morfismo \(\psi:P\longrightarrow N\) tale che \(g\circ \psi =\operatorname{Id}_{P}\).
+Si definisca \(N' \coloneqq \operatorname{Im}\psi\). Inoltre, \(N' \mathrel{\subseteq_{R}} N\).
+
+\begin{itemize}
+\item \textbf{Claim 1:} \(\operatorname{Im}f\cap N' = \set{0}\)
+
+Sia \(n \in \operatorname{Im}f \cap N'\).
+\begin{itemize}
+\item Poiché la catena è esatta, allora \(\operatorname{Im}f=\operatorname{ker}g\), e dunque \(n \in \operatorname{ker}g\), e quindi \(g(n)=0\).
+\item Inoltre \(n \in N' = \operatorname{Im}\psi\), e dunque esiste \(p \in P\) tale che \(\psi(p) = n\).
+\end{itemize}
+
+Dunque
+\begin{equation*}
+0 = g(n)=g\circ\psi(p) = p
+\end{equation*}
+e pertanto \(n=\psi(0)\). Siccome \(\psi\) è morfismo, allora \(n=0\).
+
+\item \textbf{Claim 2:} \(\restriction{g}{N'}:N'\longrightarrow P\) iniettiva e suriettiva
+
+Sia \(n' \in N'\) tale che \(g(n')=0\). Allora \(n' \in \operatorname{ker}g \cap N' = \operatorname{Im}f\cap N' = \set{0}\) e dunque \(n'=0\). Pertanto \(\restriction{g}{N'}\) è iniettiva.
+
+Sia ora \(p \in P\). Allora \(g\left(\psi(p)\right) = p\) e \(\psi(p) \in N'\).
+
+\item \textbf{Claim 3}: \(\operatorname{Im}f+N' = N\)
+
+Sia \(n \in N\). Allora \(g(n) \in P\) e \(\psi\left(g(n)\right) \in N' = \operatorname{Im}\psi\). Sia \(n'\coloneqq \psi\left(g(n)\right)\).
+\begin{align*}
+g(n-n') &= g(n)-g(n')\\
+&= g(n) - g\left(\psi\left(g(n)\right)\right)\\
+&= g(n) - g\circ\psi\left(g(n)\right)\\
+&= g(n)-g(n) = 0
+\end{align*}
+e pertanto \((n-n') \in \operatorname{ker}g = \operatorname{Im}f\). Dunque esiste \(m \in M\) tale che \(n-n'=f(m)\) e
+\begin{equation*}
+n = n' + f(m).
+\end{equation*}
+\end{itemize}
+
+\item[{(\(3.\Rightarrow 1.\)):}] Supponiamo che esista il morfismo \(\varphi:N\longrightarrow M\). Voglio costruire \(\psi:P\longrightarrow N\).
+
+Per ogni \(p \in P\), si scelga \(n_{p} \in g^{-1}(p)\). Allora
+\begin{equation*}
+\psi(p) \coloneqq n_{p} - f\circ\varphi(n_{p})
+\end{equation*}
+
+\begin{itemize}
+\item \textbf{Claim 1}: \(\psi\) è ben definita
+
+Fissato \(p \in P\), siano \(n,n' \in g^{-1}(p)\).
+
+Notiamo che \(g(n-n') = g(n)-g(n') = p-p = 0\), pertanto \(n-n' \in \operatorname{ker}g=\operatorname{Im}f\) e pertanto esiste \(m \in M\) tale che
+\begin{equation*}
+n'=n-f(m)
+\end{equation*}
+
+Dunque
+\begin{align*}
+n'-f\circ\varphi(n' ) &= n-f(m)-f\left(\varphi\left(n-f(m)\right)\right)\\
+&= n-f(m)-f\left(\varphi(n)-\varphi\circ f(m)\right)\\
+&= n - f(m) - f\varphi(n) + f \varphi f(m)\\
+&= n - f\varphi(m) = n - f\circ\varphi(n)
+\end{align*}
+
+\item \textbf{Claim 2}: \(g\circ\psi = \operatorname{Id}_{P}\)
+
+Sia \(p \in P\) e sia \(n_{p} \in g^{-1}(p)\).
+
+\begin{equation*}
+g\left(\psi(p)\right) = g\left(n_{p} - f\varphi (n)\right) = g(n_{p}) - gf\varphi(n) = p
+\end{equation*}
+poiché \(g(n_{p}) = p\) e \(\operatorname{ker}g = \operatorname{Im}f\).
+
+\item \textbf{Claim 3}: \(\psi\) è un morfismo
+\qedhere
+\end{itemize}
+\end{description}
+\end{proof}
+\section{Spezzamento SEC con modulo finale libero}
+\label{sec:orge8ef388}
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità.
+
+\begin{prop}
+Si consideri la \href{20250120131527-sec.org}{SEC}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	0 \& M \& N \& P \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow["\psi", color={rgb,255:red,214;green,92;blue,92},  bend left=23, dashed, from=1-4, to=1-3]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+
+Se \(P\) è libero, allora \(N\cong M\oplus P\)\footnote{Vedi ``\href{20241206115416-morfismi_r_moduli.org}{Isomorfismo tra R-Moduli}'' e ``\href{20241213095808-somma_diretta.org}{Somma-Diretta}''.}.
+\end{prop}
+
+\begin{proof}
+Sia \(E \subseteq P\) una \href{20241213094625-modulo_libero.org}{base}. Per ogni \(e_{i} \in E\) si fissi \(\overline{e_{i}} \in g^{-1}(e_{i})\).
+Si definisce
+\begin{equation*}
+\psi\left(\sum a_{i}\ e_{i}\right)\coloneqq \sum a_{i}\ \overline{e_{i}}
+\end{equation*}
+che è \href{20241206115416-morfismi_r_moduli.org}{morfismo} per definizione, \(\psi: P\longrightarrow N\).
+
+Inoltre \(g\circ\psi = \operatorname{Id}_{P}\). Pertanto, per il \hyperref[sec:orgd04f4f8]{teorema di spezzamento},
+\begin{equation*}
+N\cong M\oplus P.%
+\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

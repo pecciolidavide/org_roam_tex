@@ -1,0 +1,28 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Sia \(\mathcal{F}\) un insieme di \href{20250202170607-classe_relazione_binaria.org}{funzioni} con lo stesso \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio}, a \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{valori} in \(\R\). \(\mathcal{F}\) si dice un'\uline{algebra di funzioni reali} se, per ogni \(f,g \in \mathcal{F}\) e \(c \in \R\):
+\begin{enumerate}
+\item \(f+g \in \mathcal{F}\);
+\item \(c\,f \in \mathcal{F}\);
+\item \(f\,g \in \mathcal{F}\).
+\end{enumerate}
+\end{definizione}
+
+Questa è la definizione di \href{20250110175552-algebra_su_un_campo.org}{\(\R\)-algebra}, specializzata in questo ambito.
+\begin{esempio}
+Sia \(\mathcal{A}\) l'insieme di tutte le serie di Fourier finite su \([0,2\pi]\):
+\begin{equation*}
+\mathcal{A} \coloneqq \set{f(x) = c_{0}+ \sum_{k=1}^{N} (a_{k}\cos kx + b_{k}\sin kx)\mid c_{0},a_{k},b_{k} \in \R, N \in\N}.
+\end{equation*}
+Ovviamente \(\mathcal{A}\) è chiuso per combinazioni lineari. Utilizzando il fatto che
+\begin{equation*}
+\cos(mx)\cos(nx) = \frac{1}{2}\left[\cos((m+n)x) + \cos((m-n)x)\right]
+\end{equation*}
+segue che \(\mathcal{A}\) è anche chiuso per prodotti. Pertanto è una \(\R\)-algebra.
+\end{esempio}
+\end{document}

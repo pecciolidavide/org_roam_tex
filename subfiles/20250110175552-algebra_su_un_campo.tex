@@ -1,0 +1,67 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Algebra su un anello}
+\label{sec:org80904de}
+\begin{definizione}
+Sia \(R\) un \href{20241205141119-anello.org}{anello}. \(A\) si dice una \uline{\(R\)-algebra} se:
+\begin{enumerate}
+\item \(A\) è un \href{20241205141053-r_moduli.org}{\(R\)-modulo};
+\item esiste \(g: A\times A \to A\) \href{20251222162256-funzione_bilineare.org}{bilineare}, ovvero per ogni \(r \in R\) e per ogni \(a,b \in A\)
+\begin{equation*}
+ g(r\cdot a, b) = g(a, r \cdot b) = r\cdot g(a,b).
+\end{equation*}
+\end{enumerate}
+\end{definizione}
+
+\begin{definizione}
+Una \(R\)-algebra \(A\) dotata di prodotto \(g:A\times A \to A\) si dice:
+\begin{itemize}
+\item \uline{associativa} se per ogni \(a,b,c \in A\):
+\begin{equation*}
+  g\big(a,g(b,c)\big) = g\big(g(a,b),c\big)
+\end{equation*}
+\item \uline{commutativa}, se per ogni \(a,b \in A\):
+\begin{equation*}
+  g(a,b) = g(b,a);
+\end{equation*}
+\item \uline{anticommutativa} se per ogni \(a,b \in A\):
+\begin{equation*}
+  g(a,b) = - g(b,a)
+\end{equation*}
+(si ricorda che \(A\) ha la struttura di \(R\)-modulo, e quindi \(-a \coloneqq -1\cdot a\)).
+\end{itemize}
+\end{definizione}
+\begin{oss}
+Se \(A\) è un \href{20241205141119-anello.org}{anello commutativo} e \(f: R \to A\) è un omomorfismo di anelli, allora
+\begin{itemize}
+\item è possibile dotare \(A\) della struttura di \(R\)-modulo ponendo, per ogni \(r \in R\) e \(a \in A\):
+\begin{equation*}
+  r\cdot a \coloneqq f(r) a;
+\end{equation*}
+\item il prodotto dell'anello è chiaramente una funzione bilineare
+\end{itemize}
+e dunque \(A\) ha una struttura di \(R\)-algebra.
+\end{oss}
+
+\begin{oss}
+In particolare, se \(A\) è un anello e \(R \subseteq A\) è un \href{20250110175843-sottoanello.org}{sottoanello}, allora \(A\) è una \(R\)-algebra.
+\end{oss}
+
+\begin{oss}
+Se \(\K\) è un campo, allora una \(\K\)-algebra è uno \href{20241205142027-spazio_vettoriale.org}{spazio vettoriale} \(V\) (\href{20241205141053-r_moduli.org}{in quanto i \(\K\)-moduli sono i \(\K\)-spazi vettoriali}) dotato di una \href{20251222162256-funzione_bilineare.org}{funzione bilineare} \(g:V\times V\to V\).
+\end{oss}
+\section{Morfismo tra algebre}
+\label{sec:org909587b}
+Sia \(R\) un \href{20241205141119-anello.org}{anello}.
+
+\begin{definizione}
+Se \(A,B\) sono due \hyperref[sec:org80904de]{\(R\)-algebre} (con prodotti \(f:A\times A \to A\) e \(g:B\times B\to B\)) allora un \uline{morfismo} \(F:A\to B\) è un \href{20241206115416-morfismi_r_moduli.org}{morfismo di \(R\)-moduli} tale che, per ogni \(a,b \in A\):
+\begin{equation*}
+F\big(f(a,b)\big) = g\big(F(a), F(b)\big).
+\end{equation*}
+\end{definizione}
+\end{document}

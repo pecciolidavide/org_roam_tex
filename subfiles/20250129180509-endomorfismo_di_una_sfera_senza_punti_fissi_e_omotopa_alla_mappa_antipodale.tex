@@ -1,0 +1,48 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Endomorfismo di una sfera senza punti fissi è omotopa alla mappa antipodale}
+\label{sec:orgdea2df5}
+\begin{prop}
+Sia \(f: \mathds{S}^{n} \longrightarrow \mathds{S}^{n}\) una \href{20250103103252-funzione_continua.org}{funzione continua} senza \href{20250129160423-punto_fisso.org}{punti fissi}.
+Allora \(f\) è \href{20250121094654-omotopia_tra_funzioni_continue.org}{omotopa} alla funzione:
+\begin{align*}
+a: \mathds{S}^{n} &\longrightarrow \mathds{S}^{n}\\
+x &\longmapsto -x
+\end{align*}
+\end{prop}
+
+\begin{proof}
+Se \(f\) non ha punti fissi, allora \(\forall p \in \mathds{S}^{n}\), \(f(p) \neq p\). Si costruisce l'omotopia \href{20250625123506-spazio_normato.org}{normalizzata}:\footnote{\textbf{NOTA BENE}: questa mappa altro non è che il cammino standard tra \(-p\) e \(f(p)\) in \(\R^{n+1}\), rinormalizzato per stare dentro \(\mathds{S}^{n}\).}
+\begin{equation*}
+H(p,t) \coloneqq \frac{t\cdot f(p) - (1-t)\,p}{\norma{t\cdot f(p) - (1-t)\,p}}
+\end{equation*}
+Se è ben definita, allora è continua, e \(H(p, 0) = -p\), \(H(p,1) = f(p)\).
+
+Supponiamo quindi per assurdo che esistano \(( t_{0}, p_0)\) (WLOG \(t_{0}\neq 0\)) tali che
+\begin{equation*}
+\norma{ t_{0}\cdot f( p_0) - (1- t_{0})\, p_0} = 0%
+\IFF%
+ t_{0}\cdot f( p_0) - (1- t_{0})\, p_0 = 0
+\end{equation*}
+ovvero sse \(\displaystyle f( p_0) = \frac{1- t_{0}}{ t_{0}}\  p_0\). Quindi
+\begin{equation*}
+\norma{f( p_0)} = \norma{\frac{1- t_{0}}{ t_{0}}\  p_0} = \frac{1- t_{0}}{ t_{0}}\ \norma{ p_0}
+\end{equation*}
+e quindi \(\frac{1- t_{0}}{ t_{0}} = 1\), ovvero \(t_{0}=0\). Assurdo.
+\end{proof}
+
+\begin{cor}
+Se \(f:\mathds{S}^{n} \longrightarrow \mathds{S}^{n}\) \href{20250103103252-funzione_continua.org}{continua} ha \href{20250129170910-grado_di_un_endomorfismo_della_sfera.org}{grado}
+\begin{equation*}
+\operatorname{deg}f\neq (-1)^{n+1}
+\end{equation*}
+allora \(f\) ha \href{20250129160423-punto_fisso.org}{punti fissi}.
+\end{cor}
+\begin{proof}
+È sufficiente considerare il \href{20250129170910-grado_di_un_endomorfismo_della_sfera.org}{grado della mappa antipodale}.
+\end{proof}
+\end{document}

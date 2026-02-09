@@ -1,0 +1,118 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Algoritmo di Gradient Descent}
+\label{sec:orgb46508b}
+L'algoritmo di \uline{Gradient Descent} è un algoritmo per trovare iterativamente il \href{20250627153543-massimo_e_minimo_di_una_funzione_reale.org}{minimo} \(x^{*}\) di una funzione reale \(f: D \subseteq \R^{n}\to \R\).
+
+Per il \href{20250627130923-esistenza_di_una_curva_perpendicolare_a_tutte_le_curve_di_livello.org}{teorema}\footnote{AGGIUNGERE RIFERIMENTO PUNTUALE}, per ogni punto di partenza \(x^{(0)}\) sufficientemente vicino ad \(x^{*}\) esiste una curva \(\gamma\) che collega \(x^{(0)}\) a \(x^{*}\), perpendicolare in ogni punto alle curve di livello (\href{20250627130736-gradiente_e_perpendicolare_alle_curve_di_livello.org}{ovvero} parallela al \href{20250624171244-gradiente_di_una_funzione.org}{gradiente della funzione}).
+
+Si vuole approssimare \(\gamma\) con una poligonale \([x^{(0)},x^{(1)},\dots,x^{(m)}]\) tale che:
+\begin{enumerate}
+\item detti \(c_{k}\coloneqq f(x^{(k)})\), si ha che \(c_{k+1}<c_{k}\)
+\item il segmento \([x^{(j)},x^{(j+1)}]\) sia perpendicolare a \(\mathcal{S}_{c_{j}}\)\footnote{Con \(\mathcal{S}_{c}\) si indica la \href{20250627131207-curva_di_livello.org}{curva di livello}.}.
+\end{enumerate}
+\subsection{Gradient Descent con passo fissato}
+\label{sec:org8cd5d3e}
+
+Il primo metodo per farlo è utilizzando il metodo della \uline{discesa più ripida}. Partendo da \(x^{(0)}\), si cerca il minimo della funzione muovendosi di un passo \(\eta\) nella direzione \(v\) in cui la funzione decresce più rapidamente.
+
+Dunque, fissato \(\eta\), si cerca \(v \in \R^{n}\) tale che \(\norma{v} = 1\) e tale per cui
+\begin{equation*}
+f(x^{(i)}+\eta v) - f(x^{(i)})
+\end{equation*}
+ha il valore negativo più grande.
+
+Utilizzando le \href{20250717132708-serie_di_taylor.org}{approssimazioni di Taylor}, ipotizzando che i termini quadrtici siano trascurabili (stiamo effettivamente ignorando la curvatura della superficie, data dall'hessiana), si ottiene che
+\begin{equation*}
+f(x^{(i)}+\eta v) - f(x^{(i)}) \approx \eta\,\langle \nabla f(x^{(i)}),v\rangle
+\end{equation*}
+Per la \href{20250629112810-disuguaglianza_di_cauchy_schwarz.org}{disuguaglianza di Cauchy-Schwartz} si ottiene che
+\begin{equation*}
+|\langle \nabla f(x^{(i)}),v\rangle|^{2} \le \norma{\nabla f(x^{(i)}}\, \norma{v} = \norma{\nabla f(x^{(i)})}
+\end{equation*}
+ovvero
+\begin{equation*}
+-{\norma{\nabla f(x^{(i)})}}\le \langle \nabla f(x^{(i)}),v\rangle\le {\norma{\nabla f(x^{(i)})}}.
+\end{equation*}
+Inoltre per \(v=-\frac{\nabla f(x^{(i)})}{\norma{\nabla f(x^{(i)})}}\) si ottiene
+\begin{align*}
+\langle \nabla f(x^{(i)}), v\rangle &= - \frac{1}{\norma{\nabla f(x^{(i)})}} \langle \nabla f(x^{(i)}),\nabla f(x^{(i)})\rangle=\\
+&= - \frac{1}{\norma{\nabla f(x^{(i)})}} \norma{\nabla f(x^{(i)})}^{2} =\\
+&= -\norma{\nabla f(x^{(i)})}
+\end{align*}
+e pertanto \(-\frac{\nabla f(x^{(i)})}{\norma{\nabla f(x^{(i)})}}\) è la direzione di massima decrescita, e la sopracitata decrescita è
+\begin{align*}
+f(x^{(i)}+\eta v) - f(x^{(i)}) \approx \eta\,\langle \nabla f(x^{(i)}),v\rangle = -\eta\norma{\nabla f(x^{(i)})}
+\end{align*}
+
+Questo dà luogo ad una \href{20250115100904-successione.org}{successione} \(\langle x^{(n)}\rangle_{n \in \N}\):
+\begin{equation}
+x^{(n+1)} \coloneqq x^{(n)}-\eta \frac{\nabla f(x^{(n)})}{\norma{\nabla f(x^{(n)})}}.\label{eq:succ:grdscfisso}
+\end{equation}
+Si noti che:
+\begin{enumerate}
+\item \(f(x^{(n+1)}) - f(x^{(n)})=-\eta\norma{\nabla f(x^{(n)})}<0\) e quindi \(f(x^{(n+1)}) < f(x^{(n)})\)
+\item \([x^{(n)},x^{(n+1)}]\) è parallelo a \(\nabla f(x^{(n)})\), e pertanto perpendicolare alla curva di livello di \(f\) passante per \(x^{(n)}\)
+\end{enumerate}
+e dunque la successione così costruita dà luogo ad una approssimazione di \(\gamma\) con una poligonale, come richiesto all'inizio.
+
+Al passo \(m\)-esimo:
+\begin{equation*}
+\norma{x^{*}-x^{(0)}}-m\eta \le \norma{x^{*}-x^{(m)}}\le \operatorname{diam}(\mathcal{S}_{f(x^{m})})
+\end{equation*}
+dove \(\operatorname{diam}\) è il \href{20250327131547-diametro_di_un_insieme.org}{diametro} dell'insieme.
+
+Questo metodo ha un problema: siccome \(\norma{x^{(n+1)}-x^{(n)}}=\eta\) fissato, la successione \(\langle x^{(n)}\rangle\) non è di \href{20250303134529-successione_di_cauchy.org}{Cauchy}, \href{20250301194153-spazio_metrico_completo.org}{e dunque} \uline{non \href{20250115100930-convergenza_per_una_successione.org}{converge}}.
+\subsection{Gradient Descent a passo variabile}
+\label{sec:orga2bbc43}
+
+Per ovviare al problema di cui sopra, si sostituisce la~\eqref{eq:succ:grdscfisso} con
+\begin{equation}
+x^{(n+1)} \coloneqq x^{(n)}-\eta \nabla f(x^{(n)}).\label{eq:succ:grdsc}
+\end{equation}
+Questo algoritmo è quello che si intende comunemente con \uline{gradient descent method}.
+\begin{prop}
+La successione \(\langle x^{(n)}\rangle_{n \in \N}\) definita in~\eqref{eq:succ:grdsc} \href{20250115100930-convergenza_per_una_successione.org}{converge} se e solo se \(\nabla f(x^{(n)})\to 0\) per \(n\to \infty\).
+\end{prop}
+\subsection{Line Search Method}
+\label{sec:org64a7a3c}
+Una variante del metodo di cui sopra è dato dallo scegliere una successione \(\langle x^{(n)}\rangle_{n \in \N}\):
+\begin{equation}
+x^{(n+1)} \coloneqq x^{(n)}-\eta_{n} \nabla f(x^{(n)})\label{eq:succ:linsrc}
+\end{equation}
+dove \(\eta_{n}\) è scelto come
+\begin{equation*}
+\eta_{n} =\arg \min_{\eta \in \R} f\left(x^{(n)}-\eta\nabla f(x^{(n)})\right).
+\end{equation*}
+
+L'idea è la seguente: partendo dal punto \(x^{(n)}\), si procede lungo la linea retta con direzione e verso \(-\nabla f(x^{(n)})\), e si sceglie il punto \(x^{(n+1)}\) lungo questa retta che rende minima la quantità \(f(x^(n+1))\). Geometricamente, questo significa scegliere il punto in cui la retta \(x^{(n)}-t\nabla f(x^{(n)})\) interseca tangenzialmente una curva di livello.
+
+Questo algoritmo converge molto più velocemente del gradient descent, e la poligonale \([x^{(0)},x^{(1)}, \dots]\) contiene solamente angoli retti.
+\subsection{Algoritmo di Stochastic Gradient Descent}
+\label{sec:orgb0eb10d}
+Una generalizzazione del \hyperref[sec:orgb46508b]{GD} applicato a \href{20250624155858-neurone_artificiale.org}{funzioni costo} è l'algoritmo di \uline{Stochastic Gradient Descent}. Questo prevede di suddividere il \href{20250627110009-training_error_and_test_error.org}{training set} \(\mathscr{T}\) in \(k\) parti disgiunte:
+\begin{equation*}
+\mathrm{Tr}_{1},\dots,\mathrm{Tr}_{k}
+\end{equation*}
+e di eseguire sulla funzione costo per i punti di \(\mathrm{Tr}_{i}\) l'algoritmo di GD. I parametri ottenuti saranno i parametri iniziali per svolgere il GR sulla funzione costo per i punti di \(\mathrm{Tr}_{i+1}\), con la convenzione che \(\mathrm{Tr}_{k+1}\coloneqq\mathrm{Tr}_{1}\). L'algoritmo è illustrato in figura~\ref{fig:alg:sgd}
+
+Ogni ciclo di GD su tutti i \(k\) training set è detto un'\uline{epoca} di apprendimento.
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	{\mathrm{Tr}_1} \& {\mathrm{Tr}_2} \& {\mathrm{Tr}_3} \& \dots \& {\mathrm{Tr}_k}
+	\arrow["{\text{GD}}", from=1-1, to=1-2]
+	\arrow["{\text{GD}}", from=1-2, to=1-3]
+	\arrow["{\text{GD}}", from=1-3, to=1-4]
+	\arrow["{\text{GD}}", from=1-4, to=1-5]
+	\arrow["{\text{epoca}}", bend left=20pt, from=1-5, to=1-1]
+\end{tikzcd}
+\end{equation*}
+\caption{\label{fig:alg:sgd}L'algoritmo di Stochastic Gradient Descent}
+\end{figure}
+\end{document}

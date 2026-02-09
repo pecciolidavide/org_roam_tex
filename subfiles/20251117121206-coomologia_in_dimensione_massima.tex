@@ -1,0 +1,161 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Coomologia in dimensione massima}
+\label{sec:orgae4aedc}
+Si indica con \(H^{k}\) la \href{20251115172442-gruppo_di_coomologia_di_de_rham.org}{Coomologia di De Rham}, con \(H^{k}_{\text{c}}\) \href{20251115192241-coomologia_a_supporto_compatto.org}{coomologia a supporto compatto}, e con \(\cong\) gli \href{20250113125833-isomorfismo_tra_spazi_vettoriali.org}{isomorfismi}
+\begin{thm}
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} \href{20250103165325-spazio_topologico_connesso.org}{connessa} di dimensione \(n\).
+\begin{enumerate}
+\item Se \(M\) è \uline{\href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile} e \href{20250103163701-spazio_topologico_compatto.org}{compatta}}, allora
+\begin{equation*}
+ H^{n}(M) \cong \R.
+\end{equation*}
+\item Se \(M\) è \uline{\href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile} e \href{20250103163701-spazio_topologico_compatto.org}{non compatta}}, allora
+\begin{equation*}
+ H^{n}(M) = 0.
+\end{equation*}
+\item Se \(M\) è \uline{\href{20251223152054-varieta_differenziabile_orientabile.org}{non orientabile}}, allora
+\begin{equation*}
+ H^{n}(M) = 0.
+\end{equation*}
+\item Se \(M\) è \uline{\href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile}}, allora
+\begin{equation*}
+ H^{n}_{\text{c}}(M) \cong \R.
+\end{equation*}
+\item Se \(M\) è \uline{\href{20251223152054-varieta_differenziabile_orientabile.org}{non orientabile}}, allora
+\begin{equation*}
+ H^{n}_{\text{c}}(M) = 0.
+\end{equation*}
+\end{enumerate}
+\end{thm}
+\begin{proof}
+\begin{enumerate}
+\item Per \href{20251229114152-dualita_di_poincare.org}{DP} e \href{20251229114152-dualita_di_poincare.org}{DP per varietà compatte}
+\begin{equation*}
+ H^{n}(M) \cong H^{0}(M)
+\end{equation*}
+e \href{20251115174538-0_gruppo_di_coomologia_di_de_rham_di_una_varieta_connessa.org}{siccome} \(M\) connessa
+\begin{equation*}
+  H^{0}(M) \cong \R.
+\end{equation*}
+\item Siccome \(M\) è connessa, allora \(H^{0}_{\text{c}}(M) = 0\) (\href{20251115174538-0_gruppo_di_coomologia_di_de_rham_di_una_varieta_connessa.org}{come per \(H^{0}\)}). Quindi per \href{20251229114152-dualita_di_poincare.org}{DP}
+\begin{equation*}
+ H^{n}(M) \cong H^{0}_{\text{c}}(M) = 0.
+\end{equation*}
+
+\item Come nel calcolo della \href{20251115190905-coomologia_dello_spazio_proiettivo_reale.org}{coomologia di \(\mathds{P}^{n}\R\)}, per \(M\) non orientabile esiste \(\tilde{M}\) \href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile} \(n\)-dimensionale e
+\begin{equation*}
+ \pi:\tilde{M} \to M
+\end{equation*}
+\href{20250103103252-funzione_continua.org}{continua} e \href{20241213105600-funzione_suriettiva.org}{suriettiva} tale che il \href{20251121174615-pullback_di_una_funzione_tra_varieta_differenziabili_in_coomologia.org}{pullback}
+\begin{equation*}
+ \bm{\pi}^{*}: H^{n}(M) \to H^{n}(\tilde{M})
+\end{equation*}
+è \href{20241219101956-funzione_iniettiva.org}{iniettivo}
+
+\begin{itemize}
+\item Se \(M\) è non compatta, allora \(\tilde{M}\) è non compatta (poiché l'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine} \(\pi[\tilde{M}] = M\) e \href{20251229125103-immagine_continua_di_spazio_compatto_e_compatto.org}{immagine continua di spazio compatto è compatto}).
+
+Per 2. allora \(H^{n}(\tilde{M}) = 0\) e siccome \(\bm{\pi}^{*}\) è iniettiva allora \(H^{n}(M) = 0\).
+
+\item Se \(M\) è compatta, allora \(\tilde{M}\) è compatta. Per dimostrare che \(H^{n}(M) = 0\) è sufficiente mostrare che per ogni \(\omega\), \([\omega] = 0\). Per iniettività di \(\bm{\pi}^{*}\), è sufficiente mostrare che \(\bm{\pi}^{*}[\omega] = 0\) per ogni \(\omega\).
+
+Si considerino quindi:
+\begin{itemize}
+\item il \href{20251115174001-pullback_di_una_funzione_tra_varieta_differenziabili.org}{pullback}:
+\begin{equation*}
+ \pi^{*}: A^{n}(M) \to A^{n}(\tilde{M})
+\end{equation*}
+
+\item la mappa \(A:\tilde{M} \to \tilde{M}\) tale che \(A^{2} = \Id\) e che scambia l'orientazione di \(M\).
+\end{itemize}
+
+Quindi, per ogni \(\omega\), siccome \(A\) inverte l'orientazione:
+\begin{equation*}
+   \int_{\tilde{M}} \pi^{*} \omega = - \int_{\tilde{M}}A^{*} \pi^{*}\omega.
+\end{equation*}
+Ma \(A^{*}\pi^{*}\omega = (\pi\circ A)^{*} \omega = \pi^{*}\omega\), e quindi
+ \begin{equation*}
+- \int_{\tilde{M}}A^{*} \pi^{*}\omega = -\int_{\tilde{M}} \pi^{*} \omega.
+ \end{equation*}
+Segue che \(\int_{\tilde{M}} \pi^{*} \omega = 0\) e, per la \href{20251229114152-dualita_di_poincare.org}{DP}, \(\pi^{*}\omega = 0\).
+
+Pertanto, \(\bm{\pi}^{*}[\omega] = [\pi^{*} \omega] = 0\).
+\end{itemize}
+
+\item Per \href{20251229114152-dualita_di_poincare.org}{DP} \(H^{n}_{\text{c}}(M)^{*} \cong H^{0}(M) \cong \R\), quindi \(\dim H^{n}_{\text{c}}(M)^{*}<\infty\) e dunque \(H^{n}_{\text{c}}(M)^{*} \cong H^{n}_{\text{c}}(M)\)
+\begin{equation*}
+ H^{n}_{\text{c}}(M) \cong \R.
+\end{equation*}
+
+\item Lasciato per esercizio, simile a 3.\qedhere
+\end{enumerate}
+\end{proof}
+\begin{oss}
+Mettendo insieme l'isomorfismo dato da DP e quello tra spazio vettoriale e il suo duale, si ottiene che, se \(M\) è una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} \href{20250103165325-spazio_topologico_connesso.org}{connessa}, \href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile} e \href{20250103163701-spazio_topologico_compatto.org}{compatta}, e \(\dim M = n\), allora
+\begin{align*}
+\int_{M}: H^{n}(M) &\longrightarrow \R\\
+[\omega] &\longmapsto \int_{M}\omega
+\end{align*}
+è un \href{20250113125833-isomorfismo_tra_spazi_vettoriali.org}{isomorfismo}.
+
+Questo segue anche dal fatto che:
+\begin{enumerate}
+\item \(\int_{M}\) è una mappa lineare;
+\item è suriettiva, poiché \(\int_{M} \nu \neq 0\)\footnote{Infatti \href{20251115184544-forma_volume_su_una_varieta_differenziabile.org}{l'integrale della forma volume è sempre positivo.}}, per \(\nu\) \href{20251115184544-forma_volume_su_una_varieta_differenziabile.org}{forma volume} (che esiste per la \href{20251115185324-caratterizzazione_varieta_differenziabile_orientabile_tramite_forma_voluma.org}{caratterizzazione} delle \href{20251223152054-varieta_differenziabile_orientabile.org}{v.d. orientabili})
+\item è iniettiva, in quanto \(\ker \int_{M} \neq H^{n}(M)\) (poiché \(\int_{M} \nu \neq 0\), per il \href{20251230144150-teorema_nullita_rango.org}{Teorema Nullità + Rango})
+\end{enumerate}
+\end{oss}
+\begin{oss}
+Se \(M\) è una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} qualsiasi, allora la \href{20241205142027-spazio_vettoriale.org}{dimensione} di \href{20251115192241-coomologia_a_supporto_compatto.org}{\(H^{n}_{\text{c}}(M)\)} è uguale al numero di \href{20250325160128-componente_connessa_di_uno_spazio_topologico.org}{componenti connesse} \href{20251223152054-varieta_differenziabile_orientabile.org}{orientabili} di \(M\).
+\end{oss}
+\begin{oss}
+Quindi, se \(M\) è una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} \href{20250103165325-spazio_topologico_connesso.org}{connessa} e \href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile} di dimensione \(n\), esiste \href{20251229110021-forma_differenziale_a_supporto_compatto.org}{\(\omega_{M} \in A^{n}_{\text{c}}(M)\)} tale che
+\begin{enumerate}
+\item La \href{20251115192241-coomologia_a_supporto_compatto.org}{coomologia a supporto compatto} \(H^{n}_{\text{c}}(M) = \langle [\omega_{M}] \rangle\)\footnote{Vedi ``\href{20250102163502-base_di_uno_spazio_vettoriale.org}{Base di uno spazio vettoriale}''};
+\item \(\int_{M} \omega_{M} = 1\).
+\end{enumerate}
+
+Infatti, per la \href{20251229114152-dualita_di_poincare.org}{Dualità di Poincaré} si ha il seguente \href{20250113125833-isomorfismo_tra_spazi_vettoriali.org}{isomorfismo} con lo \href{20250105124008-spazio_vettoriale_duale.org}{spazio duale}\footnote{Vedi anche ``\href{20251115172442-gruppo_di_coomologia_di_de_rham.org}{Gruppo di Coomologia di De Rham}''}:
+\begin{equation*}
+\begin{tikzcd}
+	{H^0(M)} & {H^n_{\text{c}}(M)^*} \\
+	{[\omega]} & {\displaystyle\bigg([\tau]\mapsto\int_M\omega\wedge \tau\bigg)}
+	\arrow["\cong", from=1-1, to=1-2]
+	\arrow[maps to, from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+\begin{itemize}
+\item Siccome \(M\) è connessa, \href{20251115174538-0_gruppo_di_coomologia_di_de_rham_di_una_varieta_connessa.org}{allora} \(\dim H^{0}(M) = 1 < +\infty\).
+\item Pertanto \(\dim H^{n}_{\text{c}}(M)^{*} = 1\) (per la dualità di Poincaré).
+\item Quindi esiste
+\begin{equation*}
+  F: H^{n}_{\text{c}}(M) \to \R
+\end{equation*}
+non nulla. \href{20251230144150-teorema_nullita_rango.org}{Quindi} \(F\) \href{20250113125833-isomorfismo_tra_spazi_vettoriali.org}{isomorfismo}, ed esiste \([\tau_{M}] \in H^{n}_{\text{c}}(M)\) non nullo tale che \(F[\tau_{M}] = 1\).
+\item Per l'isomorfismo dalla dualità di Poincaré, esiste \([\omega_{0}] \in H^{0}(M)\) tale che
+\begin{align*}
+F: H^{n}_{\text{c}}(M) &\longrightarrow \R\\
+\displaystyle [\tau] &\longmapsto \int_{M}\omega_{0}\wedge\tau
+\end{align*}
+\item In particolare, quindi
+\begin{equation*}
+  1 = F[\tau_{M}] = \int_{M} \omega_{0} \wedge \tau_{M}.
+\end{equation*}
+\end{itemize}
+
+Si pone \(\omega_{M} \coloneqq \omega_{0}\wedge \tau_{M}\).
+\begin{itemize}
+\item Sicuramente \([\omega_{M}] \in H^{n}_{\text{c}}(M)\), per definizione del \href{20251115175943-prodotto_wedge_in_coomologia_di_de_rham.org}{prodotto wedge}.
+\item \([\omega_{M}] \neq 0\) (e quindi genera tutto lo spazio): infatti, se per assurdo \([\omega_{M}] = 0\) \href{20251115172517-forma_differenziale_chiusa.org}{allora \(\omega_{M}\) è esatta}, e quindi, per il \href{20251115190058-teorema_di_stokes.org}{Teorema di Stokes},
+\begin{equation*}
+  \int_{M} \omega_{M} = 0.
+\end{equation*}
+Assurdo.
+\end{itemize}
+\end{oss}
+\end{document}

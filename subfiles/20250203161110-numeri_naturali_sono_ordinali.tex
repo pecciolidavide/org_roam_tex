@@ -1,0 +1,67 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Teorema}
+\label{sec:org832dad4}
+L'insieme \(\N\) è un \href{20250203111003-ordinali.org}{ordinale} (poiché insieme transitivo i cui elementi sono ordinali, e quindi transitivi). Si denota
+\begin{equation*}
+\omega =\N
+\end{equation*}
+\section{Numeri naturali sono ordinali}
+\label{sec:org48cbc10}
+\begin{enumerate}
+\item Ogni \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{numero naturale} è un \href{20250203111003-ordinali.org}{ordinale}.
+\item Se \(n \in \N\) e \(x \in n\) allora \(x \in \N\) (ovvero \(\N\) è un \href{20250130104331-insieme_mk.org}{insieme} \href{20250203110714-classe_transitiva.org}{transitivo})
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:org3082512}
+\subsubsection{Punto a.}
+\label{sec:orgd115005}
+Supponiamo per assurdo che (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottrazione di classi MK})
+\begin{equation*}
+X\coloneqq\N\setminus \operatorname{Ord} \neq \emptyset
+\end{equation*}
+Allora, per l'Axiom of Foundation, esiste \(n \in X\) tale che \(n\cap X = \emptyset\).
+
+Siccome \(0 = \emptyset\) è un ordinale, \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{segue} che \(n = \operatorname{S}(m) = m \cup\set{m}\) per qualche \(m \in \N\) (vedi \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme MK}), e pertanto \(m \in n\), dunque \(m\notin X\) (altrimenti \(n\cap X \neq \emptyset\)).
+
+Dunque \(m \in \operatorname{Ord}\) e \(\operatorname{S}(m) \in \operatorname{Ord}\mathrel{\cap} \N\) (vedi \href{20250203111003-ordinali.org}{Ordinali}). Assurdo poiché \(n \in X\).
+\subsubsection{Punto b.\hfill{}\textsc{IdL:matematica\_lm}}
+\label{sec:org7ac0e98}
+
+Supponiamo per assurdo che
+\begin{equation*}
+X\coloneqq \set{n \in \N\,|\, \exists\, x \in n\ (x\notin \N)} \neq \emptyset
+\end{equation*}
+
+Sia \(y \in X\) tale che \(y\cap X =\emptyset\) per l'Axiom of Foundation. Sia dunque \(\overline{x} \in y\) fissato tale che \(\overline{x} \notin \N\) (tale \(\overline{x}\) esiste poiché \(y \in X\)).
+
+Sicuramente \(y\neq 0\), e \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{dunque} esiste \(z \in\N\) tale che \(y = \operatorname{S}(z) = z\cup\set{z}\) (vedi \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme MK}).
+Dunque \(\overline{x} \in z\) oppure \(\overline{x} = z\).
+
+Se \(\overline{x} = z\) allora \(\overline{x} \in \N\), assurdo.
+
+Se \(\overline{x} \in z\) allora \(z \in X\) e \(z \in y\), contraddicendo l'ipotesi secondo cui \(y\cap X = \emptyset\). Assurdo.
+\section{Ordinale omega è il più piccolo ordinale limite}
+\label{sec:org8d0ef30}
+L'\href{20250203111003-ordinali.org}{ordinale} \(\omega\) è il \href{20250203111003-ordinali.org}{più piccolo} \href{20250203161132-ordinale_limite.org}{ordinale limite}.
+\subsection{Dimostrazione}
+\label{sec:org403e6c7}
+
+\subsubsection{Passo 1.}
+\label{sec:orgf929b74}
+\(\omega\) è effettivamente un ordinale (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega})
+\subsubsection{Passo 2.}
+\label{sec:org8ea71ed}
+Non ci sono ordinali limite più piccoli di \(\omega\).
+Infatti, se \(\alpha < \omega\), allora \(\alpha \in \omega\) e \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{quindi} \(\alpha = 0\) oppure \(\alpha = \operatorname{S}(\beta)\) per qualche \(\beta \in \omega\). (vedi \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme MK})
+\subsubsection{Passo 3.}
+\label{sec:org35911b3}
+\(\omega\) non è un successore.
+
+Supponiamo per assurdo che \(\omega = \operatorname{S}(\alpha) = \alpha\cup\set{\alpha}\): allora \(\alpha \in \omega\), e quindi \(\operatorname{S}(\alpha) \in \omega\), \(\omega \in \omega\). \href{20250131180704-nessun_insieme_appartiene_a_se_stesso.org}{Impossibile}.
+\end{document}

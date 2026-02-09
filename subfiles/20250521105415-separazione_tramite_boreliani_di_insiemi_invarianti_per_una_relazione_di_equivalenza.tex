@@ -1,0 +1,77 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esercizio 1}
+\label{sec:orgf60b8f2}
+
+Let \(E\) be an equivalence relation on a Polish space \(X\). A set \(A \subseteq X\) is called \textbf{\(E\)-invariant} if \(x \in A\) and \(y \mathrel{E} x\) implies \(y \in A\), for all \(x, y \in X\). Suppose that \(E\) is analytic, that is, \(E \in \bm{\Sigma}^1_1(X^2)\). Show that if \(A, B \subseteq X\) are disjoint analytic \(E\)-invariant sets, then there is a Borel \(E\)-invariant set \(C \subseteq X\) separating \(A\) from \(B\), that is, \(A \subseteq C\) and \(C \cap B = \emptyset\).
+
+\emph{Hint}: Recursively define sets \(A_n\), \(C_n \subseteq X\) so that \(A_0 = A\), \(C_n\) is a Borel set separating \(A_n\) from \(B\), and \(A_{n+1} \supseteq C_n\) is \(E\)-invariant, analytic, and disjoint from \(B\).
+\subsection{Soluzione}
+\label{sec:orge51d7fb}
+
+\uline{Claim}: Esistono due famiglie \((A_{n})_{n \in \omega}, (C_{n})_{n \in \omega}\) di sottoinsiemi di \(X\), tali che
+\begin{itemize}
+\item \(A_{0}=A\);
+\item \(\forall\, n \in\omega\): \(A_{n} \subseteq C_{n} \subseteq A_{n+1}\);
+\item \(\forall\, n \in\omega\): \(C_{n} \in \bm{{\operatorname{Bor}}}(X)\) e \(C_{n}\cap B = \emptyset\)
+\item \(\forall\, n \in \omega\): \(A_{n}\) è \(E\)-invariante, analitico.
+\end{itemize}
+
+Se tali famiglie esistono, sia \(C\coloneqq\bigcup_{n \in\omega} C_{n}\).
+\begin{itemize}
+\item \(C\) è \(E\)-invariante. Infatti, siano \(x,y \in X\), con  \(x\mathrel{E}y\). Se \(x \in C\), allora esiste \(n \in\omega\) tale che \(x \in C_{n} \subseteq A_{n+1}\); poiché \(A_{n+1}\) è \(E\)-invariante, allora \(y \in A_{n+1} \subseteq C_{n+1} \subseteq C\), e pertanto \(y \in C\).
+\item \(C \in \bm{{\operatorname{Bor}}}(X)\), poiché unione numerabile di Boreliani.
+\item \(A \subseteq C\); infatti \(A = A_{0} \subseteq C_{0} \subseteq C\).
+\item \(C\cap B = \emptyset\), poiché ciascun \(C_{n}\) è disgiunto ta \(B\).
+\end{itemize}
+
+\uline{Dimostazione del claim}: si procede per induzione.
+
+\begin{enumerate}
+\item Sia \(A_{0}\coloneqq A\), \(E\)-invariante e analitico. Allora \(A_{0}, B \subseteq X\) sono due insiemi analitici disgiunti, e pertanto esiste, per il Teorema 3.2.1, un Boreliano \(C_{0} \subseteq X\) tale che
+\begin{equation*}
+ A_{0} \subseteq C_{0};\quad C_{0}\cap B = \emptyset.
+\end{equation*}
+
+\item Per il passo induttivo, si supponga di aver costruito \((A_{i})_{i\le n}\) e \((C_{i})_{i\le n}\). Si costruiscono \(A_{n+1}, C_{n+1}\).
+
+\uline{L'insieme \(A_{n+1}\)} è definito chiudendo \(C_{n}\) rispetto alla relazione di equivalenza \(E\), ovvero
+\begin{equation*}
+ C_{n} \subseteq A_{n+1} \coloneqq \set{x \in X\mid \exists\,y \in C_{n}\ (x\mathrel{E}y)}.
+\end{equation*}
+\begin{itemize}
+\item Ovviamente \(A_{n} \subseteq C_{n} \subseteq A_{n+1}\), poiché \(E\) è riflessiva.
+\item \(A_{n+1}\) è \(E\)-invariante per definizione, poiché \(E\) è transitiva e simmetrica.
+\item \(A_{n+1}\) è analitico, poiché \((X\times C_{n})\cap E\) è analitico, e \(A_{n+1}\) è
+\begin{equation*}
+   \pi_{1}\left((X\times C_{n})\cap E\right)
+\end{equation*}
+dove \(\pi_{1}:X\times X\to X\) è la proiezione sul primo fattore (per la proposizione 3.1.5).
+
+L'insieme \((X\times C_{n})\cap E\) è analitico
+poiché \(\bm{\Sigma}_{1}^{1}\) è chiusa per intersezioni finite e:
+\begin{itemize}
+\item \(E\) è analitico per ipotesi;
+\item \(C_{n}\) è Boreliano per ipotesi, dunque analitico, e, detta \(\pi_{2}: X\times X\to X\) la proiezione sul secondo fattore,
+\begin{equation*}
+ X\times C_{n}= \pi_{2}^{-1}(C_{n})
+\end{equation*}
+e siccome \(\bm{\Sigma}_{1}^{1}\) è chiusa per retroimmagini continue, anche \(X\times C_{n}\) è analitico.
+\end{itemize}
+\item Si nota che \(A_{n+1}\cap B=\emptyset\) poiché, se per assurdo esistesse \(x \in A_{n+1}\cap B\) allora ci sarebbe \(y \in C_{n}\) tale che
+\begin{equation*}
+   x\mathrel{E}y
+\end{equation*}
+e siccome \(B\) è \(E\)-invariante, allora \(y \in B\). Dunque \(y \in B\cap C_{n} \neq\emptyset\). Assurdo.
+\end{itemize}
+
+Dunque gli insiemi \(A_{n+1}, B \subseteq X\) sono analitici e disgiunti, e pertanto esiste, per il Teorema 3.2.1, un Boreliano \(C_{n+1} \subseteq X\) tale che
+\begin{equation*}
+ A_{n+1} \subseteq C_{n+1}; \quad C_{n+1}\cap B =\emptyset\qedd
+\end{equation*}
+\end{enumerate}
+\end{document}

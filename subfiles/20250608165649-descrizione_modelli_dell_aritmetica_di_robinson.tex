@@ -1,0 +1,22 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Descrizione modelli dell'aritmetica di Robinson}
+\label{sec:org80caa25}
+Sia \(L_{Q}\) il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} dell'\href{20250608093604-aritmetica.org}{aritmetica di Robinson}, e sia \(Q\) l'aritmetica di Robinson.
+
+Sia \(M\) una \(L_{Q}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} \href{20250131122945-modello_di_un_insieme_di_formule.org}{tale che \(M\vDash Q\)}.
+
+\begin{itemize}
+\item Se un elemento \(q \in M\) è minore o uguale (nel senso della relazione binaria definita in \(M\) da \(\varphi_{\le}(x,y): \exists\,z\ (z+x=y)\)) ad un \href{20250608093604-aritmetica.org}{numero standard} \href{20250212100302-interpretazione_di_un_termine.org}{\(\overline{n}^{M}\)}, allora \(q=\overline{m}^{M}\) per qualche \(m\le n\). Dunque l'\href{20250608093604-aritmetica.org}{isomorfismo canonico tra \(\N\) e i numeri standard di \(M\)} preserva anche l'ordine \(\le\).
+\item Per ogni \(q \in M\), se \(q\) è \href{20250608093604-aritmetica.org}{nonstandard} allora \(q\) è strettmente maggiore (nel senso della relazione binaria definita in \(M\) da \(\varphi_{\le}(x,y): \exists\,z\ (z+x=y)\)) di qualunque numero standard.
+\item Sia \(A \subseteq M\) un sottoinsieme di \(M\) contenente un numero standard \(\overline{n}^{M}\). Allora esiste un numero standard \(\overline{m}^{M}\) che è un \uline{\href{20250203102516-massimo_e_minimo.org}{minimo} di \(A\)} ovvero tale che per ogni \(q \in A\) si ha
+\begin{equation*}
+  M\vDash \varphi_{\le} [\overline{m},q].
+\end{equation*}
+(vedi ``\href{20250131123704-sostituzione_di_termini_in_una_formula.org}{Sostituzione di termini in una formula}'')
+\end{itemize}
+\end{document}

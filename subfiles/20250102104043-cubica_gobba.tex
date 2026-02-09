@@ -1,0 +1,92 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{Campo Algebricamente Chiuso}, e sia \(\mathds{P}=\mathds{P}_{\K}\) (vedi \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo})
+\section{Definizione}
+\label{sec:org32f350d}
+Consideriamo
+\begin{align*}
+\gamma: \mathds{P}^{1}_{x} &\longrightarrow \mathds{P}^{3}_{z}\\
+[x_{0}:x_{1}] &\longmapsto [x_{0}^{3}:x_{0}^{2}x_{1}:x_{0}x_{1}^{2}:x_{1}^{3}]
+\end{align*}
+L'insieme \(C \subseteq \mathds{P}^{3}\), \(C\coloneqq \gamma(\mathds{P}^{1})\) è detto \textbf{cubica gobba}.
+\section{Varietà algebrica proiettiva}
+\label{sec:orgcc5d8b1}
+
+Ci si chiede se \(C\coloneqq\gamma(\mathds{P}^{1})\) è una \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà algebrica proiettiva}, ovvero se è possibile trovare degli \(F_{i}\in \K[z_{0}:z_{1}:z_{2}:z_{3}]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}) tali che (vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri})
+\begin{equation*}
+C= V(F_{i})
+\end{equation*}
+Siano \(F_{1},F_{2}, F_{3}\in \K[z_{0},z_{1},z_{2},z_{3}]\) definiti come segue:
+\begin{align*}
+F_{1}&\coloneqq z_{0}z_{3}-z_{1}z_{2}\\
+F_{2}&\coloneqq z_{1}^{2}-z_{0}z_{2}\\
+F_{3}&\coloneqq z_{2}^{2}-z_{3}z_{1}
+\end{align*}
+È immediato vedere che \(C \subseteq V(F_{1},F_{2},F_{3})\). Infatti, sia
+V\begin{equation*}
+\textasciitilde{}\{z\} = [\textasciitilde{}\{z\}\textsubscript{0}:\textasciitilde{}\{z\}\textsubscript{1}:\textasciitilde{}\{z\}\textsubscript{2}:\textasciitilde{}\{z\}\textsubscript{3}] \(\in\) C
+\end{equation*}
+e sia dunque \(\tilde{x} \in \gamma^{-1}(\tilde{z})\),
+\begin{equation*}
+\tilde{x}=[\tilde{x}_{0}:\tilde{x}_{1}]
+\end{equation*}
+
+Calcoliamo dunque
+\begin{align*}
+F_{1}(\tilde{z}) &= F_{1}\left(\tilde{x}^{3}_{0},\tilde{x}_{0}^{2}\tilde{x}_{1}, \tilde{x}_{0}\tilde{x}_{1}^{2}, \tilde{x}_{1}^{3}\right)\\
+&= \tilde{x}_{0}^{3}\tilde{x}_{1}^{3}-\tilde{x}_{0}^{2}\tilde{x}_{1}\tilde{x}_{0}\tilde{x}_{1}^{2} = 0\\
+F_{2}(\tilde{z}) &= F_{2}\left(\tilde{x}^{3}_{0},\tilde{x}_{0}^{2}\tilde{x}_{1}, \tilde{x}_{0}\tilde{x}_{1}^{2}, \tilde{x}_{1}^{3}\right)\\
+&=( \tilde{x}_{0}^{2}\tilde{x}_{1})^{2}-\tilde{x}_{0}^{3}\tilde{x}_{0}\tilde{x}_{1}^{2}=0\\
+F_{3}(\tilde{z})&= F_{3}\left(\tilde{x}^{3}_{0},\tilde{x}_{0}^{2}\tilde{x}_{1}, \tilde{x}_{0}\tilde{x}_{1}^{2}, \tilde{x}_{1}^{3}\right)\\
+&= (\tilde{x}_{0}\tilde{x}_{1}^{2})^{2}-\tilde{x}_{1}^{3}\tilde{x}_{0}^{2}\tilde{x}_{1}=0
+\end{align*}
+Viceversa, sia \(p=[p_{0}:p_{1}:p_{2}:p_{3}] \in V(F_{1},F_{2},F_{3}) \subseteq \mathds{P}^{3}\).
+Almeno uno tra \(p_{0}\) e \(p_{3}\) è non nullo. Infatti, se per assurdo \(p_{0}=p_{3}=0\) allora:
+\begin{itemize}
+\item siccome \(F_{2}(p)=0\) allora \(p_{1}^{2}=p_{0}p_{2}\) e dunque \(p_{1}=0\);
+\item siccome \(F_{3}(p)=0\) allora \(p_{2}^{2}=p_{3}p_{1}\) e dunque \(p_{2}=0\);
+\end{itemize}
+il risultato è che \(p=0\) (assurdo poiché \(p \in \mathds{P}^{3}\)).
+
+Supponiamo quindi che \(p_{0}\neq 0\). Dividendo tutte le coordinate per \(p_{0}\), possiamo assumere \(p_{0}=1\). Unendo questa informazione al fatto che \(P \in V(F_{1},F_{2},F_{3})\) si ottiene
+\begin{align*}
+p_{3}&= p_{1}p_{2}\\
+p_{1}^{2}&=p_{2}\\
+p_{2}^{2}&= p_{3}
+\end{align*}
+e pertanto \(p=[1:p_{1}:p_{1}^{2}:p_{1}^{3}]\)
+
+Ricordando che \(\gamma[x_{0}:x_{1}]=[x_{0}^{3}:x_{0}^{2}x_{1}:x_{0}x_{1}^{2}:x_{1}^{3}]\)
+si ha che
+\begin{equation*}
+p=\gamma[1:p_{1}]
+\end{equation*}
+\section{Curva piana}
+\label{sec:org6ffc88a}
+Ci si chiede se la cubica gobba, sia una \href{20250102104749-curva_piana.org}{Curva Piana}, ovvero sia contenuta in \(H \subseteq \mathds{P}^{3}\) piano.
+\begin{equation*}
+H: a_{0}z_{0}+a_{1}z_{1}+a_{2}z_{2}+a_{3}z_{3}=0
+\end{equation*}
+
+Si ha che \(C \subseteq H\) se e solo se \(\forall\, [x_{0}:x_{1}] \in \mathds{P}^{1}\)
+\begin{equation}
+a_{0}x_{0}^{3}+a_{1}x_{0}^{2}x_{1}+a_{2}x_{0}x_{1}^{2}+a_{3}x_{1}^{3}=0 \label{eq:1d}
+\end{equation}
+Ci chiediamo dunque se esistono \(a_{1},\dots,a_{3}\) tali per cui la condizione di cui sopra è vera.
+Ricordiamo che \(\mathds{P}^{1}= U_{0}\cup U_{1}\).
+\begin{itemize}
+\item In \(U_{0}\) si può porre \(x_{0}=1\), e la condizione diventa:
+\begin{equation*}
+  a_{0}+a_{1}x_{1}+a_{2}x_{1}^{2}+a_{3}x_{1}^{3}=0
+\end{equation*}
+Questo è un polinomio in una variabile, che pertanto ha un numero \textbf{finito} di soluzioni.
+\item In \(U_{1}\) valgono considerazioni simili, e pertanto in \(U_{0}\) ci sono un numero \textbf{finito} di soluzioni
+
+Pertanto, l'equazione polinomiale (1) ha un numero finito di soluzioni, e pertanto non possono esistere dei coefficieni tali per cui (1) è vera per ogni \([x_{0}:x_{1}] \in \mathds{P}^{1}\) (siccome \(\mathds{P}^{1}\) ha infiniti punti)\footnote{Si noti, infatti, che \(\mathds{P}^{1} \supseteq U_{0}\) e \(U_{0} = \K\). Dal momento che \(\K\) è \href{20241231112713-campo_algebricamente_chiuso.org}{Campo Algebricamente Chiuso} vale che \href{20250102103618-infinitezza_campi_alg_chiusi.org}{\(\K\) ha infiniti punti}.}
+Dunque, \(C\) non è una curva piana.
+\end{itemize}
+\end{document}

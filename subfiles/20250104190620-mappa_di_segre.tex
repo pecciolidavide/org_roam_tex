@@ -1,0 +1,109 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
+\section{{\bfseries\sffamily TODO} Versione Baby\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\label{sec:org15bc291}
+
+Si consideri l'applicazione
+\begin{align*}
+\sigma: \mathds{P}^{1}\times \mathds{P}^{1} &\longrightarrow \mathds{P}^{3}_{[z_{0}:\dots:z_{3}]}\\
+\left([x_{0}:x_{1}], [y_{0}:y_{1}]\right) &\longmapsto [x_{0}y_{0}:x_{0}y_{1}:x_{1}y_{0}:x_{1}y_{1}]
+\end{align*}
+(vedi \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo}).
+
+Sia \(Q=\sigma(\mathds{P}^{1}\times \mathds{P}^{1})\). È possibile dimostrare che
+\begin{equation*}
+Q=V(z_{0}z_{3}-z_{1}z_{2})
+\end{equation*}
+(vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri})
+\section{Morfismo di Segre.}
+\label{sec:orgb05155c}
+Siano \(m,n\ge 0\), e sia \(N=(n+1)(m+1)-1\), e si consideri la seguente applicazione:
+\begin{align*}
+\sigma_{n,m}: \mathds{P}^{n}_{x}\times \mathds{P}^{m}_{y} &\longrightarrow \mathds{P}^{N}_{z=z_{ij}}\\
+\left([x_{0}:\dots:x_{n}],[y_{0}:\dots:y_{m}]\right) &\longmapsto [\dots:x_{i}y_{j}:\dots]
+\end{align*}
+Segue da banali calcoli che \(\sigma_{n,m}\) sia ben definita. Sia \(\Sigma_{m,n}\coloneqq \sigma_{n,m}(\mathds{P}^{n}\times \mathds{P}^{m})\).
+
+La mappa \(\sigma_{n,m}\) è descritta dalle equazioni \(z_{ij}=x_{i}y_{j}\), ovvero
+\begin{equation*}
+A\coloneqq\begin{bmatrix}
+z_{00} & z_{01} & \dots & z_{0m}\\
+\vdots\\
+z_{n0} & x_{z_{n1}} & \dots & z_{nm} \end{bmatrix}
+ = \begin{bmatrix}
+x_{0}\\
+\vdots\\
+x_{n}\end{bmatrix} \ \begin{bmatrix}
+y_{0} & \dots & y_{m}
+\end{bmatrix}
+\end{equation*}
+Notiamo che la \href{20250104111539-spazio_delle_matrici.org}{matrice} \(A\) è di \href{20250104170945-rango_di_una_matrice.org}{rango} \(1\), poiché ogni riga è multipla di \([y_{0}\ \dots \ y_{m}]\).
+Inoltre, la condizione \(\rank A = 1\) è polinomiale: tutti i determinanti dei minori \(2\times 2\) sono nulli.
+
+Dunque: \(\Sigma_{n,m} \subseteq V(\rank A=1)\) (vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri}).
+\subsection{Dimostriamo l'uguaglianza}
+\label{sec:orgbdc866b}
+Sia \(p \in V(\rank A =1)\), \(p=[\dots:p_{ij}:\dots]\).
+
+Supponiamo che \(p_{00}\neq 0\). È dunque possibile porre \(p_{00}=1\). Considerando l'equazione, presente tra quelle che definiscono \(\rank A=0\):
+\begin{equation*}
+z_{00}\ z_{ij} = z_{i0}\ z_{0j}
+\end{equation*}
+e applicandola a \(p\), si ottiene che \(p_{ij}=p_{i0}\ p_{0j}\).
+
+Dunque, posti
+\begin{align*}
+A&= [1:p_{10}:p_{20}:\dots:p_{n0}] \in \mathds{P}^{n}\\
+B&=[1:p_{01}:p_{02}:\dots:p_{0m}] \in \mathds{P}^{m}
+\end{align*}
+si ha che \(p=\sigma_{n,m}(A,B)\).
+\subsection{La mappa di Segre è \href{20241219101956-funzione_iniettiva.org}{iniettiva}}
+\label{sec:org622dcaa}
+
+Siano \((A,B), (A',B') \in \mathds{P}^{n}\times\mathds{P}^{m}\) tali che
+\begin{equation*}
+\sigma_{n,m}(A,B)\sigma_{n,m}(A',B')=P
+\end{equation*}
+con \(P=[\dots:p_{ij}:\dots]\).
+
+Supponiamo che \(p_{00}\neq 0\). È possibile porre quindi \(p_{00}=1\). Segue che, se
+\begin{align*}
+A&=[a_{0}:\dots:a_{n}]\\
+B&=[b_{0}:\dots:b_{m}]\\
+A'&=[a_{0}':\dots:a_{n}']\\
+B'&=[b_{0}':\dots:b_{m}']
+\end{align*}
+allora
+\begin{enumerate}
+\item \(a_{0}' b_{0}'\neq 0\) e pertanto, poiché \(\K\) è un campo, \(a_{0}'\neq 0\) e \(b_{0}'\neq 0\). È dunque possibile porre entrambi \(=1\), e si ottiene che
+\end{enumerate}
+\begin{align*}
+A'&= [1:a_{1}':\dots:a_{n}']\\
+B' &= [1:b_{1}':\dots:b_{m}']
+\end{align*}
+\begin{enumerate}
+\item \(a_{0} b_{0}\neq 0\) e pertanto, poiché \(\K\) è un campo, \(a_{0}\neq 0\) e \(b_{0}\neq 0\). È dunque possibile porre entrambi \(=1\), e si ottiene che
+\end{enumerate}
+\begin{align*}
+A&= [1:a_{1}:\dots:a_{n}]\\
+B &= [1:b_{1}:\dots:b_{m}]
+\end{align*}
+
+A questo punto si sfrutta il fatto che:
+\begin{align*}
+a_{i}&=a_{i} b_{0} = p_{i0} = a_{i}' b_{0}' = a_{i}' & \forall\, i&=1,\dots,n\\
+b_{j}&=a_{0} b_{j} = p_{0j} = a_{0}' b_j' = b_{j}' & \forall\, j&=1,\dots,m
+\end{align*}
+e pertanto \(A=A'\) e \(B=B'\).
+\section{Prodotto di spazi proiettivi come varietà proiettiva}
+\label{sec:orgdea66f8}
+Si definisce \(\mathds{P}^{n}\times \mathds{P}^{m}\) come \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà proiettiva} con la struttura indotta da \(\sigma_{n,m}\),
+\begin{equation*}
+\Sigma_{n,m} \subseteq \mathds{P}^{N}
+\end{equation*}
+\end{document}

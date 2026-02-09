@@ -1,0 +1,52 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Modulo Libero}
+\label{sec:org418abab}
+Sia \(R\) un \href{20241205141119-anello.org}{anello abeliano con unità}.
+
+\begin{definizione}
+Sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo}. \(E \subseteq M\) si dice \textbf{base di \(M\)} se
+\begin{itemize}
+\item \(E\) è \href{20241212142019-insiemi_linearmente_indipendenti.org}{linearmente indipendente}
+\item \(E\) è un \href{20241212141101-generatori_modulo.org}{insieme di generatori}.
+\end{itemize}
+\end{definizione}
+
+\begin{definizione}
+Un \href{20241205141053-r_moduli.org}{\(R\)-modulo} si dice \textbf{libero} se ammette una base.
+\end{definizione}
+
+\begin{prop}
+Sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo}. Sono fatti equivalenti:
+\begin{enumerate}
+\item \(E \subseteq M\) è base di \(M\).
+\item ogni \(m \in M\) si può scrivere \textbf{in modo unico} come
+\begin{equation*}
+m = \sum_{i=1}^k a_i\,e_i\qquad a_i \in R,\ m_i \in E
+\end{equation*}
+\item \(M\) è isomorfo alla \href{20241213095808-somma_diretta.org}{somma diretta}\footnote{Vedi ``\href{20241212141101-generatori_modulo.org}{Insieme di Generatori di un Modulo}''} \# TODO unire i concetti di modulo libero e somma diretta
+\begin{equation*}
+M \cong \bigoplus_{e \in E} R \cdot e \cong R^{(E)}.
+\end{equation*}
+\end{enumerate}
+\end{prop}
+
+\begin{esempio}
+\(R\) \href{20260112124828-ogni_anello_ha_struttura_di_modulo_su_se_stesso.org}{considerato come \(R\)-modulo} è libero.
+\end{esempio}
+\section{Estensione morfismo di R-Moduli definito su una base}
+\label{sec:orgc6d5a76}
+Sia \(R\) un \href{20241205141119-anello.org}{anello abeliano con unità}.
+
+\begin{oss}
+Se \(M, N\) sono due \(R\)-moduli, e \(E\) è un base di \(M\), allora è possibile definire un qualsiasi \href{20241206115416-morfismi_r_moduli.org}{morfismo} \(\alpha: M\longrightarrow N\) dichiarandone l'azione solo sugli elementi di una base \(E\) di \(M\), e poi imponendo che sia un morfismo: per ogni \(m \in M\):
+\begin{equation*}
+\alpha(m) \underset{\dagger}{=} \alpha \big(\sum_{i=1}^{k} r_{i} e_{i}\big) =  \sum_{i = 1}^{k} r_{i} \alpha (e_{i})\qquad r_{i} \in R, e_{i} \in E
+\end{equation*}
+dove \(\dagger\) è per la caratterizzazione della base.
+\end{oss}
+\end{document}

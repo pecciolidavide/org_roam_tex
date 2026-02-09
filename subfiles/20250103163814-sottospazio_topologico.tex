@@ -1,0 +1,46 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\use{upgreek}
+\def\tau{\uptau}
+
+
+\begin{document}
+
+\section{Sottospazio Topologico}
+\label{sec:org0677bc3}
+\begin{definizione}
+Sia \((X, \tau)\) uno \href{20250103145124-topologia.org}{spazio topologico} e sia \(Y \subseteq X\) un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} di \(X\).
+La \textbf{\textbf{topologia di sottospazio}} (o topologia indotta) su \(Y\) è la collezione \(\tau_Y\) definita come:
+\begin{equation*}
+\tau_Y = \{ U \cap Y \mid U \in \tau \}
+\end{equation*}
+Gli elementi di \(\tau_Y\) sono detti \textbf{\textbf{aperti}} in \(Y\).
+La coppia \((Y, \tau_Y)\) è detta \textbf{\textbf{sottospazio topologico}} di \(X\).
+\end{definizione}
+
+\begin{oss}
+Analogamente per i chiusi: un sottoinsieme \(C \subseteq Y\) è \textbf{\textbf{chiuso}} nella topologia di sottospazio se e solo se è l'intersezione di \(Y\) con un insieme chiuso di \(X\).
+\begin{equation*}
+C \text{ chiuso in } Y \IFF \exists K \text{ chiuso in } X \text{ tale che } C = K \cap Y
+\end{equation*}
+\end{oss}
+\subsection{Proprietà Transitive}
+\label{sec:org35a697e}
+
+\begin{prop}
+Sia \(Y\) un sottospazio di \(X\). Valgono le seguenti proprietà di transitività:
+
+\begin{enumerate}
+\item \textbf{\textbf{Transitività dell'apertura}}: Se \(Y\) è un insieme \textbf{\textbf{aperto}} in \(X\), allora ogni sottoinsieme aperto in \(Y\) è anche aperto in \(X\).
+\begin{equation*}
+(Y \text{ aperto in } X) \land (A \text{ aperto in } Y) \IMPLICA A \text{ aperto in } X
+\end{equation*}
+
+\item \textbf{\textbf{Transitività della chiusura}}: Se \(Y\) è un insieme \textbf{\textbf{chiuso}} in \(X\), allora ogni sottoinsieme chiuso in \(Y\) è anche chiuso in \(X\).
+\begin{equation*}
+(Y \text{ chiuso in } X) \land (C \text{ chiuso in } Y) \IMPLICA C \text{ chiuso in } X
+\end{equation*}
+\end{enumerate}
+\end{prop}
+\end{document}

@@ -1,0 +1,47 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+\begin{itemize}
+\item Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}
+\item Sia \(\Delta\) un insieme di \href{20250131103317-formula_del_prim_ordine.org}{formule} chiuso per sostituzione di variaibli e che contenga la formula ``\(x=y\)''.
+\item Se \(C \subseteq \set{\forall , \exists , \land,\lor,\lnot}\) è un insieme di connettivi, \(C\Delta\) denota la chiusura di \(\Delta\) per i connettivi in \(C\). \(\Delta^{\pm} \coloneqq \set{\lnot}\Delta\). Vedi ``\href{20251021120818-chiusura_di_un_insieme_di_formule_rispetto_a_connettivi_logici.org}{Chiusura di un insieme di formule rispetto a connettivi logici}''
+\end{itemize}
+
+Sia \(T\) una \href{20250130114950-teoria_del_prim_ordine.org}{\(\mathcal{L}\)-teoria}.
+
+\begin{prop}
+Sono fatti equivalenti:
+\begin{enumerate}
+\item \(T\) ha \href{20251020161056-teoria_con_delta_eliminazione_positiva_dei_quantificatori.org}{\(\Delta\)-eliminazione positiva dei quantificatori};
+\item ogni \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismo} tra \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} di \(T\) è sia un \(\set{\exists ,\land }\!\Delta\)-morfismo che un \(\set{\forall , \lor}\!\Delta\)-morfismo.
+\item per ogni \(k:M\to N\) \(\Delta\)-morfismo finito tra \href{20250617095548-modello_lambda_saturo.org}{modelli \(\omega\)-saturi} di \(T\):
+\begin{itemize}
+\item per ogni \(b \in M\) esiste \(c \in N\) tale che \(k\cup\set{\langle b,c\rangle}\) è un \(\Delta\)-morfismo;
+\item per ogni \(c \in N\) esiste \(b \in N\) tale che \(k\cup\set{\langle b,c\rangle}\) è un \(\Delta\)-morfismo.
+\end{itemize}
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(\(1.\Rightarrow 2.\)): Ovvia.
+
+(\(2.\Rightarrow 1.\)): Si dimostra per induzione sulla sintassi che i \(\Delta\)-morfismi preservano la verità delle formule in \(\set{\exists ,\forall ,\land,\lor}\!\Delta\). Per il \href{20251020153459-lyndon_robinson_lemma.org}{Lyndon-Robinson Lemma}, posto che \(\set{\exists ,\forall ,\land,\lor}\!\Delta= \set{\land,\lor}\set{\exists ,\forall }\!\Delta\), questo è sufficiente.
+
+Assumiamo 2. e che \(\varphi(x,y)\) sia preservata da \(\Delta\)-morfismi.
+
+Per il \href{20251020153459-lyndon_robinson_lemma.org}{Lyndon-Robinson Lemma} \(\varphi(x,y)\) è equivalente a \(\psi(x,y) \in \set{\land ,\lor}\!\Delta\).
+
+ed inoltre \(\exists y\ \varphi(x;y)\) è equivalente a \(\exists y\ \psi(x,y) \in \set{\exists , \lor,\land }\Delta = \set{\exists , \land }\Delta\). ???????
+
+Per 2. \(\exists y\ \psi(x;y)\) è preservata dai \(\Delta\)-morfismi. Idem per \(\forall y\ \psi(x;y)\).
+
+Induzione ovvia per \(\land ,\lor\).
+
+(\(2.\Rightarrow 3.\)): Ovvia per ``\href{20251020164754-estendere_dominio_e_codominio_di_un_delta_morfismo.org}{Estendere dominio e codominio di un delta-morfismo}''.
+
+(\(3.\Rightarrow 1.\)): \emph{Non dimostrata}.
+\end{proof}
+\end{document}

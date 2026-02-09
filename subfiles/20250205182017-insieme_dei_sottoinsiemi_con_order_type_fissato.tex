@@ -1,0 +1,60 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section[Definizione]{Definizione\footnote{Vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK} e \href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{Order Type di una classe ben ordinata}}}
+\label{sec:org4990e52}
+Sia \(\langle X,\triangleleft\rangle\) un \href{20250130104331-insieme_mk.org}{insieme} \href{20250203104134-buon_ordine_mk.org}{ben ordinato} e sia \(\alpha \in \operatorname{Ord}\) un \href{20250203111003-ordinali.org}{ordinale}. Si definisce
+\begin{equation*}
+[X]^{\alpha} \coloneqq \set{Y \subseteq X\,|\, \operatorname{ot}(Y,\triangleleft) = \alpha}
+\end{equation*}
+\section{Definizione}
+\label{sec:org87c3797}
+Sia \(\langle X,\triangleleft\rangle\) un \href{20250130104331-insieme_mk.org}{insieme} \href{20250203104134-buon_ordine_mk.org}{ben ordinato} e sia \(\alpha \in \operatorname{Ord}\) un \href{20250203111003-ordinali.org}{ordinale}. Si definisce
+\begin{equation*}
+[X]^{\le\alpha} \coloneqq \set{Y \subseteq X\,|\, \operatorname{ot}(Y,\triangleleft) \le \alpha}
+\end{equation*}
+\section{Definizione}
+\label{sec:org2b9237a}
+Sia \(\langle X,\triangleleft\rangle\) un \href{20250130104331-insieme_mk.org}{insieme} \href{20250203104134-buon_ordine_mk.org}{ben ordinato} e sia \(\alpha \in \operatorname{Ord}\) un \href{20250203111003-ordinali.org}{ordinale}. Si definisce
+\begin{equation*}
+[X]^{<\alpha} \coloneqq \set{Y \subseteq X\,|\, \operatorname{ot}(Y,\triangleleft) < \alpha}
+\end{equation*}
+\section{Cardinalità}
+\label{sec:org9a365bd}
+
+Sia \(\kappa\) un \href{20250203161341-cardinali.org}{cardinale}.
+
+\begin{itemize}
+\item Se \(x \in [\kappa]^{n}\) allora \(x=\set{\alpha_{0},\dots,\alpha_{n-1}}\) con
+\begin{equation*}
+  \alpha_{0}<\dots<\alpha_{n-1}<\kappa
+\end{equation*}
+e pertanto può essere identificato con una sequenza \(\langle \alpha_{0},\dots,\alpha_{n-1}\rangle \in \null^{n}\kappa\).
+
+Questo garantisce \href{20241219101956-funzione_iniettiva.org}{l'iniezione} \([\kappa]^{n}\embeds \null^{n}\kappa\)\footnote{Vedi ``\href{20250202192030-classe_delle_classi_funzioni.org}{Insieme delle funzioni}''}
+
+\item Questa iniezione si estende all'insieme delle sequenze finite:
+\begin{equation*}
+  [\kappa]^{<\omega}\embeds \null^{<\omega}\kappa
+\end{equation*}
+\end{itemize}
+
+Dunque, siccome\footnote{Vedi ``\href{20250205182056-equipotenza_di_insiemi_di_funzioni.org}{Equipotenza dell'insieme delle sequenze finite}''}
+\begin{equation*}
+\kappa\le \card{[\kappa]^{n}} \le \card{[\kappa]^{<\omega}} = \kappa
+\end{equation*}
+si ottiene
+\begin{equation*}
+\kappa=\card{[\kappa]^{n}} = \card{[\kappa]^{<\omega}}.
+\end{equation*}
+
+Pertanto, se \(X\) è infinito è ben ordinabile allora
+\begin{itemize}
+\item \([X]^{n}\) e \([X]^{<\omega}\) sono ben ordinabili
+\item \(\card{X} = \card{[X]^{n}}= \card{[X]^{<\omega}}\).
+\end{itemize}
+\end{document}

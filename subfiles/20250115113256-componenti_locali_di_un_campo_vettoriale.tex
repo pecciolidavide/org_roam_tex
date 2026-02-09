@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} di dimensione \(n\), e sia \(X \in \Gamma(M)\) (vedi \href{20250115110259-campo_vettoriale_su_una_varieta_differenziabile.org}{Campo vettoriale su una varietà differenziabile}); sia \((U,\varphi)\) \href{20250111092123-varieta_topologica.org}{carta} di \(M\) con \(\varphi=(x^{1},\dots,x^{n})\), \(p \in U\).
+
+Dunque \(X_{p} \in \operatorname{T}_{p}M\) (vedi \href{20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Spazio tangente ad un punto di una varietà differenziabile}), e
+\begin{equation*}
+\set{\restriction{\dpd{}{{x^{1}}}}{p},\dots,\restriction{\dpd{}{{x^{n}}}}{p} }
+\end{equation*}
+è una \href{20250102163502-base_di_uno_spazio_vettoriale.org}{base} di \(\operatorname{T}_{p}M\) (vedi \href{20250114103339-teorema_sulla_base_dello_spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Teorema sulla base dello spazio tangente ad un punto di una varietà differenziabile}), e quindi
+\begin{equation*}
+X_{p} = X_{p}^{r} \restriction{\dpd{}{{x^{r}}}}{p}
+\end{equation*}
+con \(X_{p}^{r} \in \R\) (usando la \href{20250114105957-notazione_di_einstein.org}{notazione di Einstein}).
+
+
+
+Si hanno quindi \(n\) funzioni
+\begin{align*}
+X^{r}: U &\longrightarrow \R\\
+p &\longmapsto X_{p}^{r}
+\end{align*}
+che sono le \textbf{componenti del campo rispetto alla carta \((U,\varphi)\)}.
+
+In particolare, se \(\tilde{\varphi}\) è la mappa di \(\operatorname{T}M\) indotta da \(\varphi\) e le \(\pi_{j}\) sono
+\begin{align*}
+\pi_{j}: \R^{2n} &\longrightarrow \R\\
+(x_{1},\dots,x_{2n}) &\longmapsto x_{j}
+\end{align*}
+allora \(X^{r} = \varphi_{n+j}\circ \tilde{\varphi} \circ X\).
+\section{{\bfseries\sffamily TODO} Scrittura come \(X=X^{r}\pd{}{{x^{r}}}\)\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\label{sec:orge7dfeb1}
+\end{document}

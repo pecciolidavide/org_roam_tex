@@ -1,0 +1,35 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema}
+\label{sec:org87bc26b}
+Siano \(M,N\) due \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili} tali che \(\operatorname{dim}M=m+n\), \(\dim N = m\), e sia \(F: M\longrightarrow N\) una \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{funzione \(C^{\infty}\)}.
+Sia \(a \in N\) un \href{20250113130125-valore_regolare_di_una_funzione.org}{valore regolare} di \(F\), (ovvero per ogni \(p \in F^{-1}(a)\) il \href{20250114111331-differenziale_di_una_funzione_tra_varieta_differenziabili.org}{differenziale} \(\restriction{F_{\star}}{p}\) è \href{20241213105600-funzione_suriettiva.org}{suriettivo}).
+
+Allora \(M_{a}\coloneqq F^{-1}(a)\) ha una naturale struttura di \href{20250114124541-sottovarieta_differenziabile.org}{sottovarietà} di \(M\). \(M_{a}\) si dice \textbf{sottovarietà} definita in forma implicita.
+\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\label{sec:org3d2629d}
+
+\subsection{{\bfseries\sffamily TODO} Relazione tra spazi tangenti\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\label{sec:org748d93a}
+Se \(N = \R\) e \(p \in M_{a}\), allora
+\begin{equation*}
+\operatorname{T}_{p}M_{a} = \set{\bm{v} \in \operatorname{T}_{p} M: v\left(F_{p}\right) = 0}
+\end{equation*}
+dove \(F_{p}\) è il \href{20250114100254-germi_di_funzioni.org}{germe} di \(F\) in \(p\).
+\subsection{Generalizzazione}
+\label{sec:org39e65f9}
+Siano \(M,N\) due \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili} tali che \(\operatorname{dim}M=m+n\), \(\dim N = m\), e sia \(F: M\longrightarrow N\) una \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{funzione \(C^{\infty}\)}.
+Detto
+\begin{equation*}
+\operatorname{Crit}(F) = \set{p \in M: \restriction{F_{\star}}{p}\text{ non è suriettivo}}
+\end{equation*}
+si ha che
+\begin{equation*}
+M_{a} \coloneqq F^{-1}(a)\setminus \operatorname{Crit}(F)
+\end{equation*}
+ha una naturale struttura di \href{20250114124541-sottovarieta_differenziabile.org}{sottovarietà} di \(M\).
+\end{document}

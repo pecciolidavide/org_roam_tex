@@ -1,0 +1,30 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Successione di spazi vettoriali esatta induce successione esatta dei duali}
+\label{sec:org7bc0f11}
+Siano \(A,B,C\) \href{20241205142027-spazio_vettoriale.org}{spazi vettoriali}, \(f:A\to B\) e \(g:B\to C\) \href{20250114101949-funzione_lineare.org}{funzioni lineari}. Siano \(A^{*}, B^{*}, C^{*}\) gli \href{20250105124008-spazio_vettoriale_duale.org}{spazi vettoriali duali}, e \(f^{*}, g^{*}\) le \href{20251229103408-funzione_duale.org}{funzioni duali}.
+
+\begin{prop}
+Se la seguente è una \href{20251115182133-successione_di_spazi_vettoriali_esatta.org}{successione di spazi vettoriali esatta in \(B\)}:
+\begin{equation*}
+\begin{tikzcd}
+	A & B & C
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g", from=1-2, to=1-3]
+\end{tikzcd}
+\end{equation*}
+allora la seguente
+\begin{equation*}
+\begin{tikzcd}
+	{C^*} & {B^*} & {A^*}
+	\arrow["{g^*}"', from=1-1, to=1-2]
+	\arrow["{f^*}"', from=1-2, to=1-3]
+\end{tikzcd}
+\end{equation*}
+è esatta in \(B^{*}\)
+\end{prop}
+\end{document}

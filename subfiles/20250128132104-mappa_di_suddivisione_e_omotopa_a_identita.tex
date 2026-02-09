@@ -1,0 +1,157 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID} e sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}.
+Sia
+\(\mathcal{S}_{\bullet}(X) \coloneqq \set{\left(S_{q}(X),\partial_{q}\right)}_{q}\)
+il \href{20250120163114-complesso_di_catene.org}{complesso} di \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{catene singolari} di \(X\), e sia
+\begin{equation*}
+\operatorname{sd}_{\bullet}: \mathcal{S}_{\bullet}(X) \longrightarrow \mathcal{S}_{\bullet}(X)
+\end{equation*}
+il \href{20250120163759-categoria_complessi_di_catene.org}{morfismo} dato dalla \href{20250128132040-mappa_di_suddivisione_tra_complessi_di_catene_singolari.org}{mappa di suddivisione}. Si indichi con  \(\operatorname{id}_{\bullet}: \mathcal{S}_{\bullet}(X) \longrightarrow \mathcal{S}_{\bullet}(X)\) il morfismo identitario.
+\begin{prop}
+I morfismi \(\operatorname{sd}_{\bullet}\sim \operatorname{id}_{\bullet}\) sono \href{20250121094935-omotopia_tra_morfismi_di_complessi_di_catene.org}{omotopi}.
+\end{prop}
+\begin{proof}
+Bisogna dimostrare che esistano
+\begin{equation*}
+T_{q} : S_{q}(X) \longrightarrow S_{q+1}(X)
+\end{equation*}
+tali che \(\operatorname{sd}_{q} - \operatorname{id}_{q} = \partial_{q+1}\circ T_{q} + T_{q-1}\circ\partial_{q}\):
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,sep=huge]
+	\cdots \& {S_{q+1}(X)} \& {S_{q}(X)} \& {S_{q-1}(X)} \& \cdots \\
+	\cdots \& {S_{q+1}(X)} \& {S_{q}(X)} \& {S_{q-1}(X)} \& \cdots
+	\arrow["{\partial_{q+2}}", from=1-1, to=1-2]
+	\arrow["{\partial_{q+1}}", from=1-2, to=1-3]
+	\arrow["{T_{q+1}}"', dashed, from=1-2, to=2-1]
+	\arrow["{\operatorname{sd}_{q+1}}"', shift right=2, from=1-2, to=2-2]
+	\arrow["{\operatorname{id}_{q+1}}", shift left=2, from=1-2, to=2-2]
+	\arrow["{\partial_q}", from=1-3, to=1-4]
+	\arrow["{T_{q}}"', dashed, from=1-3, to=2-2]
+	\arrow["{\operatorname{sd}_{q}}"', shift right=2, from=1-3, to=2-3]
+	\arrow["{\operatorname{id}_{q}}", shift left=2, from=1-3, to=2-3]
+	\arrow["{\partial_{q-1}}", from=1-4, to=1-5]
+	\arrow["{T_{q-1}}"', dashed, from=1-4, to=2-3]
+	\arrow["{\operatorname{sd}_{q-1}}"', shift right=2, from=1-4, to=2-4]
+	\arrow["{\operatorname{id}_{q-1}}", shift left=2, from=1-4, to=2-4]
+	\arrow["{\partial_{q+2}}"', from=2-1, to=2-2]
+	\arrow["{\partial_{q+1}}"', from=2-2, to=2-3]
+	\arrow["{\partial_q}"', from=2-3, to=2-4]
+	\arrow["{\partial_{q-1}}"', from=2-4, to=2-5]
+\end{tikzcd}
+\end{equation*}
+
+Si trova \(T_{q}\) per induzione.
+
+\uline{Caso base}.
+
+Si definisce \(T_{0}=0\).
+Questo funziona:
+\begin{equation*}
+\parentesi{=\sigma}{\operatorname{sd}_{0}(\sigma)} - \sigma = \parentesi{=0}{\partial_{1} 0} + \parentesi{=0}{T_{-1}\,\partial_{0}\sigma}.
+\end{equation*}
+
+\uline{Ipotesi induttiva}
+
+Supponiamo che \(T_{q-1}\) sia stata definita per ogni \(X\) spazio topologico.
+
+\begin{itemize}
+\item \uline{Caso del triangolo}.
+Si ponga \(X=\Delta_{q}\), e si consideri \(\iota \in S_{q}(\Delta_{q})\), \(\iota = \operatorname{id}_{\Delta_{q}}\). Si vuole costruire
+\begin{equation*}
+\hat{T}_{q}: S_{q}(\Delta_{q})\longrightarrow S_{q+1}(\Delta_{q})
+\end{equation*}
+tale che
+\begin{align*}
+\operatorname{sd}(\iota)-\iota &= \partial_{q+1}\hat{T}_{q}(\iota) + \hat{T}_{q-1}(\partial_{q}\iota)\\
+\partial_{q+1}\hat{T}_{q}(\iota) &= \operatorname{sd}_{q}(\iota)-\iota - \hat{T}_{q-1}(\partial_{q}\iota)\tag{\(\bigstar\)}
+\end{align*}
+L'unico valore importante per \(\hat{T}_{q}\) è \(\hat{T}_{q}(\iota)\).
+
+Siccome \(\Delta_{q}\) è \href{20250122154613-insieme_stellato.org}{stellato}, \href{20250122154637-insieme_stellato_e_spazio_topologico_aciclico.org}{allora} è \href{20250122154451-spazio_topologico_aciclico.org}{aciclico}, e pertanto\footnote{Utilizzando la \href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{nomenclatura per i moduli di omologia}}
+\begin{align*}
+Z_{q}\left(\mathcal{S}_{\bullet}(\Delta_{q})\right) &= B_{q}\left(\mathcal{S}_{\bullet}(\Delta_{q})\right)\\
+\operatorname{ker}\partial_{q} &= \operatorname{Im}\partial_{q+1}
+\end{align*}
+Quindi, per definire \(\hat{T}_{q}(\iota)\) è sufficiente mostrare che
+\begin{equation*}
+  \left(\operatorname{sd}_{q}(\iota)-\iota - \hat{T}_{q-1}(\partial_{q}\iota)\right) \in  \operatorname{ker}\partial_{q} = \operatorname{Im}\partial_{q+1}
+\end{equation*}
+Questo basta per scegliere un valore per \(\hat{T}_{q}(\iota) \in S_{q+1}(\Delta_{q})\):
+\begin{align*}
+\partial_{q}\left(\operatorname{sd}_{q}(\iota)-\iota - \hat{T}_{q-1}(\partial_{q}\iota)\right) &= \partial_{q}\operatorname{sd}_{q}(\iota) - \partial_{q}\iota - \partial_{q}\hat{T}_{q-1}(\partial_{q}\iota )\\
+&= \operatorname{sd}_{q-1}\left(\partial_{q}\iota\right) - \partial_{q}\iota - \left(\operatorname{sd}_{q-1}(\partial_{q}\iota)-\partial_{q}\iota - \hat{T}_{q-2}(\partial_{q-1}\partial_{q}\iota)\right)\\
+&= \operatorname{sd}_{q-1}\left(\partial_{q}\iota\right) - \partial_{q}\iota - \left(\operatorname{sd}_{q-1}(\partial_{q}\iota)-\partial_{q}\iota\right)\\
+&= 0
+ \end{align*}
+dove si è utiilzzato il fatto che \(\hat{T}_{q-1}\) esista (per ipotesi induttiva) e rispetti l'uguaglianza \(\bigstar\).
+
+\item \uline{Caso generale}.
+
+Se \(\sigma \in \Sigma_{q}(X)\) \href{20250122133435-simplesso_singolare.org}{simplesso singolare}, allora \(\sigma:\Delta_{q}\longrightarrow X\) \href{20250103103252-funzione_continua.org}{continua}, ed è pertanto possibile applicare il \href{20241205131958-funtore.org}{funtore} \href{20250122154136-funtorialita_dell_omologia_singolare.org}{diesis} ottenendo
+\begin{equation*}
+\sigma_{\diesis}: \mathcal{S}_{\bullet}(\Delta_{q}) \longrightarrow \mathcal{S}_{\bullet}(X)
+\end{equation*}
+dove il \href{20250120163759-categoria_complessi_di_catene.org}{morfismo di complessi di catene} è definito come segue:
+\begin{equation*}
+\sigma_{\diesis} = \set{
+\begin{aligned}
+\sigma_{\diesis}^{n}: S_{n}(\Delta_{q}) &\longrightarrow S_{n}(X)\\
+\Sigma_{n}(\Delta_{q})\ni\tau &\longmapsto \sigma\circ\tau
+\end{aligned}
+}
+\end{equation*}
+
+Si \href{20241213094625-modulo_libero.org}{definisce} sulla \href{20241213094625-modulo_libero.org}{base} il \href{20241206115416-morfismi_r_moduli.org}{morfismo}
+ \begin{align*}
+T_{q}: S_{q}(X) &\longrightarrow S_{q+1}(X)\\
+\Sigma_{q}(X)\ni\sigma&\longmapsto \sigma_{\diesis}^{q+1}\left(\hat{T}_{q}(\iota)\right)
+\end{align*}
+
+Dimostriamo che valga
+\begin{equation*}
+	\operatorname{sd}_{q} - \operatorname{id}_{q} = \partial_{q+1}\circ T_{q} + T_{q-1}\circ\partial_{q}%
+  \tag{\(\bigstar'\)}
+\end{equation*}
+su ogni elemento \(\sigma \in \Sigma_{q}(X)\).
+
+Sia \(\iota\) come sopra, e sia \(\varepsilon_{i}^{q}\) gli \href{20250122133535-operatori_di_facciata_del_simplesso_standard.org}{operatori di facciata}
+\begin{align*}
+\partial_{q+1}\circ T_{q}(\sigma) + T_{q-1}\circ\partial_{q}\sigma &= \partial_{q+1} \sigma_{\diesis}^{q+1}\left(\hat{T}_{q}(\iota)\right) + T_{q-1}\left(\sum_{i=0}^{q}(-1)^{i}\sigma\circ\varepsilon_{i}^{q}\right)\\
+&= \sigma_{\diesis}^{q}\left(\partial_{q+1}\hat{T}_{q}(\iota)\right) + \sum_{i=0}^{q}(-1)^{i} T_{q-1}(\sigma\circ\varepsilon_{i}^{q})\\
+&= \sigma_{\diesis}^{q}\left(
+\operatorname{sd}_{q}(\iota)-\iota - \hat{T}_{q-1}(\partial_{q}\iota)
+\right) + \sum_{i=0}^{q}(-1)^{i}\ (\sigma\circ\varepsilon_{i}^{q})_{\diesis}^{q} \left(\hat{T}_{q-1}(\iota)\right)\\
+&= \sigma_{\diesis}^{q}\left(
+\operatorname{sd}_{q}(\iota)-\iota - \hat{T}_{q-1}(\partial_{q}\iota)
+\right) + \sum_{i=0}^{q}(-1)^{i}\ (\sigma)_{\diesis}^{q}\left((\varepsilon_{i}^{q})_{\diesis}^{q} \left(\hat{T}_{q-1}(\iota)\right)\right)\\
+&= \sigma_{\diesis}^{q}\left(
+\operatorname{sd}_{q}(\iota)-\iota - \hat{T}_{q-1}(\partial_{q}\iota)
+\right) + \sum_{i=0}^{q}(-1)^{i}\ (\sigma)_{\diesis}^{q}\left(\hat{T}_{q-1}(\varepsilon_{i}^{q})\right)
+\end{align*}
+e dunque questa è ancora uguale a
+\begin{align*}
+\partial_{q+1}\circ T_{q}(\sigma) + T_{q-1}\circ\partial_{q}\sigma &= \sigma_{\diesis}^{q}\left(
+\operatorname{sd}_{q}(\iota)-\iota - \hat{T}_{q-1}(\partial_{q}\iota)
+ + \sum_{i=0}^{q}(-1)^{i}\ \hat{T}_{q-1}(\varepsilon_{i}^{q})\right)\\
+&= \sigma_{\diesis}^{q}\left(
+\operatorname{sd}_{q}(\iota)-\iota - \hat{T}_{q-1}(\partial_{q}\iota)
+ + \hat{T}_{q-1}\left(\sum_{i=0}^{q}(-1)^{i}\ (\varepsilon_{i}^{q})\right)\right)\\
+&= \sigma_{\diesis}^{q}\left(
+\operatorname{sd}_{q}(\iota)-\iota - \hat{T}_{q-1}(\partial_{q}\iota)
+ + \hat{T}_{q-1}\left(\sum_{i=0}^{q}(-1)^{i}\ (\iota\circ\varepsilon_{i}^{q})\right)\right)\\
+&= \sigma_{\diesis}^{q}\left(
+\operatorname{sd}_{q}(\iota)-\iota - \hat{T}_{q-1}(\partial_{q}\iota)
+ + \hat{T}_{q-1}\left(\partial_{q}\iota\right)\right)\\
+&= \sigma_{\diesis}^{q}\left(\operatorname{sd}_{q}(\iota)-\iota\right)\\
+&= \sigma_{\diesis}^{q}\operatorname{sd}_{q}(\iota) - \sigma_{\diesis}^{q}\iota\\
+&= \operatorname{sd}_{q}(\iota)- \operatorname{id}(\sigma).
+\qedhere
+\end{align*}
+\end{itemize}
+\end{proof}
+\end{document}

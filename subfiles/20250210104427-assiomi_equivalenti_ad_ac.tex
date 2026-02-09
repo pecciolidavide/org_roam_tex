@@ -1,0 +1,84 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\begin{thm}
+I seguenti fatti sono equivalenti ad \href{20250206171508-axiom_of_choiche.org}{AC}:
+\begin{itemize}
+\item il \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{prodotto cartesiano} di \href{20250130104331-insieme_mk.org}{insiemi} non \href{20250131161811-insieme_vuoto_mk.org}{vuoti} è non \href{20250131161811-insieme_vuoto_mk.org}{vuoto};
+\item ogni \href{20241213105600-funzione_suriettiva.org}{funzione suriettiva} ha una \href{20250111142446-funzione_inversa.org}{inversa} sinistra\footnote{Vedi:
+\begin{itemize}
+\item \href{20250211173143-ac_implica_a_si_inietta_in_b_sse_b_si_surietta_su_a.org}{A si inietta in B sse B si surietta su A (AC)}
+\end{itemize}};
+\item ogni insieme \(X\) è \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile}\footnote{Vedi:
+\begin{itemize}
+\item \href{20250210104534-ac_e_classi_ben_ordinabili.org}{AC sse ogni insieme ben ordinabile}
+\end{itemize}}
+\item \(\forall\,\alpha \in \operatorname{Ord}\ \left(\parti{\alpha}\text{ è ben ordinabile}\right)\)\footnote{Vedi:
+\begin{itemize}
+\item \href{20250203111003-ordinali.org}{Ordinali}
+\item \href{20250130104245-morse_kelly_set_theory.org}{Insieme delle parti per MK}
+\item \href{20250203161431-classe_ben_ordinabile_mk.org}{Classe ben ordinabile MK}
+\end{itemize}}
+\item il \href{20250210104707-principio_di_massimalita_di_hausdorff.org}{principio di massimalità di Hausdorff}
+\item il \href{20250210104633-lemma_di_zorn.org}{Lemma di Zorn}
+\item il \href{20250210104633-lemma_di_zorn.org}{Weak Zorn Lemma}
+\item il \href{20250621133056-teichmuller_tukey_lemma.org}{Teichmüller-Tukey Lemma}
+\item l'\href{20250621133123-axiom_of_multiple_choices.org}{Axiom of Multiple Choices}
+\item \href{20250621133254-kurepa_s_maximality_principle.org}{Kurepa’s maximality principle}
+\item ogni \href{20250130104331-insieme_mk.org}{insieme} munito di \href{20250203101604-ordine.org}{ordine totale} è \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile}
+\end{itemize}
+\end{thm}
+\section{Condizioni uniformi per varianti di AC}
+\label{sec:org30b3fc2}
+\begin{prop}
+Sia \(X\) un insieme qualsiasi.
+\begin{enumerate}
+\item X è \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile} \(\iff\) \(\operatorname{AC}(X)\)\footnote{Vedi ``\href{20250210104302-forme_deboli_di_ac.org}{Axiom of Choice - Insieme}''} (cfr. ``\href{20250210104534-ac_e_classi_ben_ordinabili.org}{AC(X) sse X ben ordinabile}'').
+\item \(X\) è \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile} \(\implies\) \(\textsc{MaxHaus}(X)\) \(\implies\) \(\textsc{Zorn}(X)\) \(\implies\) \(\textsc{wZorn}(X)\)\footnote{Vedi:
+\begin{itemize}
+\item \href{20250210104707-principio_di_massimalita_di_hausdorff.org}{MaxHaus}
+\item \href{20250210104633-lemma_di_zorn.org}{Zorn Lemma}
+\item \href{20250210104633-lemma_di_zorn.org}{Weak Zorn Lemma}
+\end{itemize}
+cfr. \url{20250210104809-insiemi_ben_ordinabile_implica_maxhaus_che_implica_zorn_che_implica_weak_zorn.org}.}
+\item \(\textsc{wZorn}\left(\parti{X\times X}\right)\) implica \(X\) ben ordinabile.
+\end{enumerate}
+\end{prop}
+
+VEDI ANCHE: ``\href{20250210104302-forme_deboli_di_ac.org}{Implicazioni tra le forme deboli di AC}''
+\begin{proof}
+\begin{enumerate}
+\item cfr. ``\href{20250210104534-ac_e_classi_ben_ordinabili.org}{AC(X) sse X ben ordinabile}''.
+
+\item Si supponga \(\textsc{AC}(X)\), e sia \(F\) una \href{20250203105434-funzione_di_scelta.org}{funzione di scelta} per \(X\). Sia \(\le\) un \href{20250203101604-ordine.org}{ordine} su \(X\); se per assurdo \(\langle X, \le\rangle\) non contiene una \href{20250102120836-catena.org}{catena massimale}, allora per ogni \(C \subseteq X\) \href{20250102120836-catena.org}{catena}, l'insieme
+\begin{equation*}
+ K(C) \coloneqq\set{x \in X\mid C\cup\set{x}\text{ è una catena}}
+\end{equation*}
+è non vuoto.
+
+Pertanto, si definisce \(g:\operatorname{Ord}\to X\)\footnote{Vedi ``\href{20250203111003-ordinali.org}{Ordinali}''} per ricorsione: \(g(0) = F(K(\emptyset))\); per ogni \(\alpha \in \operatorname{Ord}\)
+\begin{equation*}
+ g(\alpha) = F(K(\set{g(\beta)\mid\beta<\alpha})).
+\end{equation*}
+\begin{itemize}
+\item Si mostra che \(g\) sia ben definita, ovvero che per ogni \(\alpha \in \operatorname{Ord}\) l'insieme \(G_{\alpha}\coloneqq\set{g(\beta)\mid\beta<\alpha}\) sia una catena; per induzione, \(G_{\emptyset} = \emptyset\) è una catena; se per ogni \(\beta<\alpha\), \(G_{\beta}\) è una catena, allora: se \(\alpha\) è un \href{20250203161132-ordinale_limite.org}{ordinale limite} \(G_{\alpha} = \bigcup_{\beta<\alpha} G_{\beta}\) è ancora una catena; se \(\alpha = \operatorname{S}(\gamma)\) è un \href{20250203161132-ordinale_limite.org}{ordinale successore} allora
+\begin{equation*}
+   G_{\alpha} = G_{\gamma}\cup\set{g(\gamma)}.
+\end{equation*}
+Inoltre per costruzione \(g(\gamma) \in K(G_{\gamma})\) e dunque per definizione \(G_{\alpha}\) è una catena.
+
+\item \href{20250205170515-restrizione_di_una_classe.org}{Restringendo} \(g\upharpoonright \operatorname{Hrtg(X)}\) al \href{20250205152531-numeri_di_hartogs.org}{numero di Hartog} di \(X\) si ottiene una \href{20241219101956-funzione_iniettiva.org}{funzione iniettiva} \(\operatorname{Hrtg}(X)\to X\). Assurdo.
+\end{itemize}
+
+Supponiamo ora \(\textsc{MaxHaus}(X)\), e sia \(\le\) un \href{20250203101604-ordine.org}{ordine} su \(X\) tale che ogni \href{20250102120836-catena.org}{catena} abbia un \href{20250203102516-massimo_e_minimo.org}{estremo superiore}. Sia \(C \subseteq X\) è una \href{20250102120836-catena.org}{catena massimale}, allora l'estremo superiore di \(C\) appartiene a \(C\), e pertanto è un \href{20250203102516-massimo_e_minimo.org}{elemento massimale} di \(X\).
+
+Ovviamente \(\textsc{Zorn}(X)\) implica \(\textsc{wZorn}(X)\), poiché ogni \href{20250202184517-ordine_superiormente_diretto.org}{insieme superiormente diretto} è una \href{20250102120836-catena.org}{catena}
+
+\item 
+\end{enumerate}
+\end{proof}
+\end{document}

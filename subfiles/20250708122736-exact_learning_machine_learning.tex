@@ -1,0 +1,30 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Exact Learning (Machine Learning)}
+\label{sec:org367a878}
+By exact learning we mean the expressibility of a \href{20250624155858-neurone_artificiale.org}{network} to reproduce exactly the desired target function, i.e. the output of the network is exactly the target function. For an exact learning the network weights do not need \href{20250627110009-training_error_and_test_error.org}{tuning}; their values can be found exactly. Si parla quindi di \uline{rappresentazione esatta}, e non di \uline{apprendimento}.
+
+Alcuni casi in cui questo può succedere:
+\begin{itemize}
+\item \href{20250708121822-one_hidden_layer_relu_network_impara_esattamente_funzioni_a_supporto_finito.org}{One Hidden Layer Perceptron Network rappresenta esattamente funzioni a supporto finito}
+\item \href{20250708122516-rete_neurale_relu_feedforward_impara_esattamente_la_funzione_massimo.org}{Rete Neurale ReLU-feedforward rappresenta esattamente la funzione massimo tra N input}
+\end{itemize}
+\subsection{Exact Learning non è sempre possibile}
+\label{sec:org0e206a5}
+Si consideri a titolo esplicativo \(C([0,1])\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''}, e si consideri una \href{20250624155858-neurone_artificiale.org}{rete neurale} con un \href{20250624155858-neurone_artificiale.org}{layer nascosto} con \href{20250624155858-neurone_artificiale.org}{funzione di attivazione} \href{20250624155858-neurone_artificiale.org}{logistica} \(\sigma\). La \href{20250624155858-neurone_artificiale.org}{funzione di input-output della rn} è
+\begin{equation*}
+G(x) = \sum_{j=1}^{N}\alpha_{j}\sigma(w_{j}x+\theta_{j}).
+\end{equation*}
+
+Siccome \(\sigma\) è \href{20250709150055-funzione_analitica.org}{analitica}, allora \(G(x)\) è analitica, mentre esistono funzioni continue ma non analitiche, come
+\begin{equation*}
+f(x)=\begin{cases}
+0 & x \in \left[0,\frac{1}{2}\right]\\[1em]
+x-\frac{1}{2} & x \in \left[\frac{1}{2},1\right].
+\end{cases}
+\end{equation*}
+\end{document}

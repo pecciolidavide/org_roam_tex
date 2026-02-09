@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Sia \((\Omega,  \mathcal{F}, \mathds{P})\) uno \href{20250711175559-spazio_di_probabilita.org}{spazio di probabilità}. Siano \(X_{1},\dots,X_{n}\) delle \href{20250711175937-variabile_aleatoria.org}{variabili aleatorie}, e sia
+\begin{equation*}
+Y\coloneqq \max\set{X_{1},\dots,X_{n}}.
+\end{equation*}
+Dette \(\sigma(X_{i}),\sigma(Y)\) le \href{20250526100313-sigma_algebra.org}{\(\sigma\)-algebre} \href{20250714154501-sigma_algebra_generata_da_una_variabile_aleatoria.org}{generate dalle v.a.}, si ha che
+\begin{equation*}
+\sigma(Y) \subseteq \bigcap \sigma(X_{i}).
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Sia \(b \in \R\).
+\begin{align*}
+Y^{-1}(-\infty, b] &= \set{\omega \in\Omega\mid Y(\omega)\le b}\\
+&= \set{\omega \in \Omega\mid
+\max\set{X_{1}(\omega),\dots,X_{n}(\omega)}\le b
+}\\
+&=\set{\omega \in\Omega\mid X_{1}(\omega)\le b \land \dots \land X_{n}(\omega)\le b}\\
+&= \set{\omega \in\Omega\mid X_{1}(\omega)\le b}\cap \dots \cap \set{\omega \in\Omega\mid X_{n}(\omega)\le b}\\
+&= \bigcap X^{-1}_{i}(-\infty, b]
+\end{align*}
+ma per ogni \(i\) si ha che \(X^{-1}_{i}(-\infty, b] \in \sigma(X_{i})\), dunque
+\begin{equation*}
+Y^{-1}(-\infty, b] \in \bigcap\sigma(X_{i}).\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

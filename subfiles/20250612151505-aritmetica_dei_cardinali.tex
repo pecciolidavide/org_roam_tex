@@ -1,0 +1,67 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Somma e prodotto}
+\label{sec:orgcc6ba3b}
+
+Si definiscono le \href{20250206171120-operazione_su_una_classe_mk.org}{operazioni} binarie \(\operatorname{Card}\times\operatorname{Card}\to \operatorname{Card}\) di \uline{somma} e \uline{prodotto di cardinali}:\footnote{Vedi
+\begin{itemize}
+\item \href{20241213101756-cardinalita.org}{Cardinalità}
+\item \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano}
+\item \href{20250113175700-unione_disgiunta.org}{Unione disgiunta}
+\end{itemize}}
+\begin{equation*}
+\kappa+\lambda \coloneqq \card{\kappa\times\set{0}\cup\lambda\times\set{1}},\qquad \kappa\cdot\lambda \coloneqq \card{\kappa\times\lambda}.
+\end{equation*}
+
+Queste definizioni sono ben poste poiché
+\begin{itemize}
+\item in \(\kappa\times\set{0}\cup\lambda\times\set{1}\) si applica l'ordine ``lessicografico'';
+\item in \(\kappa\times\lambda \subseteq \operatorname{Ord}\times\operatorname{Ord}\) si applica il \href{20250205180911-buon_ordine_di_godel_per_ordxord.org}{buon ordine di Godel}.
+\end{itemize}
+\begin{prop}
+Se \(\kappa,\lambda\ge 2\) oppure se \(\kappa=1\) e \(\lambda\ge \omega\), vale
+\begin{equation*}
+\kappa+\lambda\le \kappa\cdot\lambda
+\end{equation*}
+e, in generale, se una delle due condizioni sussiste:\footnote{Vedi
+\begin{itemize}
+\item \href{20250203102516-massimo_e_minimo.org}{Massimo e minimo}
+\end{itemize}}
+\begin{equation*}
+\min(\kappa,\lambda)=2;\qquad \min(\kappa,\lambda) = 1 \,\land\, \max(\kappa,\lambda)\ge \omega
+\end{equation*}
+allora si ha la seguente disuguaglianza
+\begin{equation*}
+\max(\kappa,\lambda) \le \kappa+\lambda \le \kappa\cdot\lambda\le \max(\kappa,\lambda)\cdot\max(\kappa, \lambda)
+\end{equation*}
+
+Più in generale, citando il \href{20250205181254-order_type_del_prodotto_cartesiano_di_un_cardinale_e_il_cardinale_stesso.org}{Teorema sull'order type del prodotto di cardinali}: se \(\kappa,\lambda\) sono \href{20250203161341-cardinali.org}{cardinali} diversi da \(0\) e almeno uno dei due è \href{20250205120448-classe_finita_e_infinita_mk.org}{infinito}, allora
+\begin{equation*}
+\max(\kappa,\lambda) = \kappa+\lambda = \kappa\cdot\lambda
+\end{equation*}
+e pertanto, se \(\kappa\) è infinito: \(\kappa+\kappa=\kappa\cdot \kappa = \kappa\).
+\end{prop}
+\section{Cardinal exponentiation}
+\label{sec:org77a1e89}
+Se si assume \href{20250206171508-axiom_of_choiche.org}{AC} \href{20250210104427-assiomi_equivalenti_ad_ac.org}{allora}, per ogni \(\kappa,\lambda \in \operatorname{Card}\), \(\prescript{\kappa}{}{\lambda}\) è \href{20250203104134-buon_ordine_mk.org}{ben ordinato}, e pertanto è possibile definire\footnote{Con \(\prescript{\kappa}{}{\lambda}\) si intende l'\href{20250202192030-classe_delle_classi_funzioni.org}{insieme delle funzioni} da \(\kappa\) a \(\lambda\).}
+\begin{equation*}
+\lambda^{\kappa}\coloneqq \card{\prescript{\kappa}{}{\lambda}},
+\end{equation*}
+che ha le seguenti proprietà di base:
+\begin{align*}
+\kappa^\lambda & \leq \nu^\mu & & \text{se }\kappa\le \nu\text{ e }\lambda\le \nu\\
+\left(\kappa^\lambda\right)^\mu & =\kappa^{\lambda \cdot \mu} & & \\
+\kappa^{\lambda+\mu} & =\kappa^\lambda \cdot \kappa^\mu & & \\
+(\kappa \cdot \lambda)^\mu & =\kappa^\mu \cdot \lambda^\mu . & &
+\end{align*}
+
+Si definisce inoltre
+\begin{equation*}
+\lambda^{<\kappa} \coloneqq \operatorname{sup}\set{\lambda^{\nu}\ |\ \nu \in \operatorname{Card} \,\land\, \nu<\kappa }
+\end{equation*}
+\end{document}

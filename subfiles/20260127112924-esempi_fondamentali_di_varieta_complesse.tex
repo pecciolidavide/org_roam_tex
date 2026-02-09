@@ -1,0 +1,40 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esempi fondamentali di varietà complesse}
+\label{sec:org1b8f906}
+\begin{esempio}
+\(\C^{n}\) è una \href{20260127112752-varieta_complessa.org}{varietà complessa} di dimensione \(n\).
+\end{esempio}
+\subsection{Spazio proiettivo complesso è una varietà complessa}
+\label{sec:org29093b8}
+Lo \href{20241231115051-spazio_proiettivo.org}{spazio proiettivo} complesso \(\mathds{P}^{n}(\C)\), di coordinate omogenee \((z_{0}:\dots:z_{n})\) è \href{20260127112752-varieta_complessa.org}{varietà complessa} con l'\href{20260127112715-atlante_complesso.org}{atlante}: \(U_{i} \coloneqq \set{z_{i} \neq 0}\);
+\begin{align*}
+\varphi_{i}: U_{i} &\longrightarrow \C^{n}\\
+(z_{0}:\dots:z_{n}) &\longmapsto \left(\frac{z_{0}}{z_{i}}; \dots; \check{\frac{z_{i}}{z_{i}}};\dots;\frac{z_{n}}{z_{i}}\right).
+\end{align*}
+
+I cambiamenti di coordinate sono \href{20260127132618-funzione_biolomorfa.org}{biolomorfismi}.
+
+\begin{esempio}
+Lo spazio \(\mathds{P}^{1}_{\C}\) è una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatta} di {[}BROKEN LINK: 40333d07-ddb5-4df6-bbfe-85e21ab20dc3] zero, con  le due carte
+\begin{align*}
+\varphi_{0}: U_{0} &\longrightarrow \C & \varphi_{1}: U_{1} &\longrightarrow \C\\
+(z_{0},z_{1}) &\longmapsto \frac{z_{1}}{z_{0}} & (z_{0},z_{1}) &\longmapsto \frac{z_{0}}{z_{1}}
+\end{align*}
+
+Il cambiamento di coordinate è dato da
+\begin{align*}
+\C\setminus\set{0} &\longrightarrow \C\setminus\set{0}\\
+z &\longmapsto \frac{1}{z}
+\end{align*}
+\end{esempio}
+\subsection{Aperti connessi di una varietà complessa sono varietà complessa}
+\label{sec:org4c521c7}
+\begin{prop}
+Ogni \href{20250103145124-topologia.org}{aperto} \href{20250103165325-spazio_topologico_connesso.org}{connesso} di una \href{20260127112752-varieta_complessa.org}{varietà complessa} è una varietà complessa della stessa dimensione.
+\end{prop}
+\end{document}

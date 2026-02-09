@@ -1,0 +1,37 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Integrazione di forme su varietà differenziabile orientata}
+\label{sec:org24833d3}
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} \href{20251223152054-varieta_differenziabile_orientabile.org}{orientata} \(n\)-dimensionale,
+sia \(\omega\) una \href{20251115155511-forma_differenziale_in_un_punto.org}{forma differenziale}, \(\omega \in\Omega^{n}(M)\) a \href{20251223153341-supporto_di_una_forma_differenziale.org}{supporto} \href{20250103163701-spazio_topologico_compatto.org}{compatto}. Sia \(\set{(U_{\alpha},\varphi_{\alpha})}_{\alpha \in A}\) un \href{20250113103136-atlante_topologico_differenziabile.org}{atlante} \href{20251223153742-atlante_orientato.org}{orientato} di \(M\).
+
+\begin{itemize}
+\item Se \(\operatorname{supp}\omega \subseteq U\), con \((U,\varphi)\) una carta, si definisce:
+\begin{equation*}
+  \int_{M}\omega \coloneqq \int_{\varphi(U)} (\varphi^{-1})^{*}\omega
+\end{equation*}
+tramite il \href{20251115174001-pullback_di_una_funzione_tra_varieta_differenziabili.org}{pullback} \((\varphi^{-1})^{*} : \Omega^{n}(M) \to \Omega^{n}(\R^{n})\).
+
+È possibile mostrare che questa definizione è ben posta, ovvero non dipende dalla scelta di \(U \supseteq \operatorname{supp}\omega\).
+
+\item Altrimenti, sia \(\set{\rho_{\alpha}}_{\alpha \in A}\) la \href{20251223153807-partizione_dell_unita.org}{partizione dell'unità} associata all'atlante scelto; si definisce
+\begin{equation*}
+  \int_{M} \omega \coloneqq \sum_{\alpha \in A} \int \rho_{\alpha} \omega.
+\end{equation*}
+Ciascun \(\rho_{\alpha}\omega\) ricade nel caso precedente, in quanto
+\begin{equation*}
+  \operatorname{supp}(\rho_{\alpha} \omega) \subseteq U_{\alpha}.
+\end{equation*}
+\end{itemize}
+
+\begin{definizione}
+Sia \(\omega \in \Omega^{n}(M)\) una \href{20251115155511-forma_differenziale_in_un_punto.org}{forma differenziale} a \href{20251223153341-supporto_di_una_forma_differenziale.org}{supporto} \href{20250103163701-spazio_topologico_compatto.org}{compatto}. Se \(\set{(U_{\alpha},\varphi_{\alpha})}_{\alpha \in A}\) e \(\set{\rho_{\alpha}}_{\alpha \in A}\) sono come sopra, allora si pone:
+\begin{equation*}
+\int_{M} \omega \coloneqq \sum_{\alpha \in A} \int_{\varphi_{\alpha}(U_{\alpha})} (\varphi_{\alpha}^{-1})^{*}(\rho_{\alpha}\omega).
+\end{equation*}
+\end{definizione}
+\end{document}

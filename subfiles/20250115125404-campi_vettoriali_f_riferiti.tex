@@ -1,0 +1,26 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Siano \(M,N\) \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili}, e sia \(F:M\longrightarrow N\) una \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{funzione \(C^{\infty}\)} con \href{20250114111331-differenziale_di_una_funzione_tra_varieta_differenziabili.org}{differenziale}
+\begin{equation*}
+\restriction{F_{\star}}{p}: \operatorname{T}_{p} M \longrightarrow \operatorname{T}_{F(p)}N
+\end{equation*}
+
+Siano \(X \in\Gamma(M)\), \(Y \in \Gamma(N)\) \href{20250115110259-campo_vettoriale_su_una_varieta_differenziabile.org}{campi vettoriali}.
+\section{Definizione}
+\label{sec:org6d51dca}
+\(X\) e \(Y\) si dicono \(F\)-riferiti se per ogni \(p \in M\)
+\begin{equation*}
+\restriction{F_{\star}}{p} (X_{p}) = Y_{F(p)}
+\end{equation*}
+\section{Teorema di caratterizzazione}
+\label{sec:org6e9e2d6}
+\(X,Y\) sono \(F\)-riferiti se e solo se, per ogni \(g \in \operatorname{C}^{\infty}(N)\) (vedi \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{Anello delle funzioni da una varietà ai reali Cinfinito}) si ha che
+\begin{equation*}
+X(g\circ F) = Y(g) \circ F
+\end{equation*}
+(vedi \href{20250115115535-azione_di_un_campo_vettoriale_su_una_funzione.org}{Azione di un campo vettoriale su una funzione})
+\end{document}

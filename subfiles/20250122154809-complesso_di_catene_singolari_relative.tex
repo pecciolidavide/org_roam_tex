@@ -1,0 +1,37 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID} e sia \((A,X)\) una \href{20250122154728-coppia_topologica.org}{coppia topologica}
+\begin{definizione}
+Si definisce il \href{20241205141053-r_moduli.org}{modulo} delle \(q\)-catene singolari relative come il \href{20241206142802-sottomoduli.org}{quoziente}\footnote{\(S_{q}(X)\) è il \href{20250122133435-simplesso_singolare.org}{modulo delle \(q\)-catene singolari}: siccome \(A \subseteq X\), allora \(\Sigma_{q}(A) \subseteq \Sigma_{q}(X)\), e quindi
+\begin{equation*}
+R^{(\Sigma_{q}(A))}= S_{q}(A) \subseteq S_{q}(X) = R^{(\Sigma_{q}(X))}
+\end{equation*}
+sono \href{20241206142802-sottomoduli.org}{sottomoduli}.}
+\begin{equation*}
+S_{q}(X,A) = \frac{S_{q}(X)}{S_{q}(A)}
+\end{equation*}
+\end{definizione}
+\begin{definizione}
+Si definisce la mappa di bordo
+\begin{align*}
+\overline{\partial}_{q}: S_{q}(X,A) &\longrightarrow S_{q-1}(X,A)\\
+\end{align*}
+che per ogni \(\sigma \in \Sigma_{q}(X)\)\footnote{\(\Sigma_{q}(X)\) è l'\href{20250122133435-simplesso_singolare.org}{insieme dei simplessi singolari su \(X\)}, ed è una \href{20241213094625-modulo_libero.org}{base} della \href{20241213095808-somma_diretta.org}{somma diretta} \(S_{q}(X) \coloneqq R^{(\Sigma_{q})}\).}, associa
+\begin{equation*}
+\overline{\partial}_{q}(\sigma+S_{q}(A)) \coloneqq \partial_{q}\sigma + S_{q-1}(A)
+\end{equation*}
+\end{definizione}
+\begin{oss}
+Questo è il \href{20250128151511-quoziente_di_complesso_di_catene_e_sottocomplesso.org}{quoziente} \(\mathcal{S}_{\bullet}(X)/\mathcal{S}_{\bullet}(A)\).
+\end{oss}
+\begin{definizione}
+Il \textbf{complesso di catene singolari relative} di \((X,A)\) è il \href{20250120163114-complesso_di_catene.org}{complesso di catene} di \(R\)-moduli:
+\begin{equation*}
+\mathcal{S}_{\bullet}(X,A) = \set{\left(S_{q}(X,A),\overline{\partial}_{q}\right)}_{q}
+\end{equation*}
+\end{definizione}
+\end{document}

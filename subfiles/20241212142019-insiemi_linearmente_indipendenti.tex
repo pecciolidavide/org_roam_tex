@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Moduli}
+\label{sec:orgb871e08}
+
+\begin{definizione}
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità, e sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo}. \(E \subseteq M\) si dice \textbf{linearmente indipendente} se per ogni \(e_1,\dots,e_n \in E\) e per ogni \(a_1,\dots,a_n \in R\)
+\begin{equation*}
+\sum_{i=1}^n a_i\ e_i = 0 \IMPLICA a_1=\dots=a_n=0.
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Osserviamo che non tutti i moduli hanno insiemi linearmente indipendenti. Consideriamo \(\Z_2\)\footnote{Vedi ``\href{20241213093511-gruppi_zp.org}{Gruppi-Zp}''} come \(\Z\)-modulo (siccome è un \href{20250127093245-gruppo_abeliano.org}{gruppo abeliano}):
+\begin{equation*}
+\Z_2 = \set{\overline{0},\overline{1}}
+\end{equation*}
+
+Entrambi gli insiemi \(\set{\overline{0}},\set{\overline{1}}\) sono linearmente dipendenti:
+\begin{itemize}
+\item \(\set{\overline{0}}\): per ogni \(z \in \Z\): \(z \cdot \overline{0} = \overline{0}\)
+\item \(\set{\overline{1}}\): \(2 \cdot \overline{1} = \overline{0}\), ma \(2\) non è lo zero di \(\Z\).
+\end{itemize}
+Dunque \(\Z_2\) come \(\Z\)-modulo non ammette insiemi linearmente indipendenti.
+
+\textbf{Tuttavia}, considerando \(\Z_2\) come \(\Z_2\)-modulo, questo è addirittura uno \href{20241205142027-spazio_vettoriale.org}{spazio vettoriale} (poiché \(\Z_{2}\) è campo).
+\end{oss}
+\section{Vettori}
+\label{sec:org2254c8f}
+\end{document}

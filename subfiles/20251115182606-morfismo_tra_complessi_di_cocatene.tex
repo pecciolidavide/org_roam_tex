@@ -1,0 +1,26 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Morfismo tra complessi di cocatene}
+\label{sec:orge5bf796}
+\begin{definizione}
+Siano \(C^{\bullet} \coloneqq \left\langle (C^{k}, \mathrm{d}_{C}^{k})\right\rangle_{k \in \Z}\) e \(D^{\bullet} \coloneqq \left\langle (D^{k}, \mathrm{d}_{D}^{k})\right\rangle_{k \in \Z}\) due \href{20251115182320-complesso_di_cocatene.org}{complessi di cocatene}. Un \uline{morfismo tra complessi di cocatene} \(F^{\bullet} : C^{\bullet} \to D^{\bullet}\) è una \href{20250115100904-successione.org}{successione} \(F^{\bullet} \coloneqq \langle F^{k} \rangle_{k \in \Z}\) tale che per ogni \(k \in \Z\):
+\begin{itemize}
+\item \(F^k:C^{k} \to D^{k}\) è \href{20250114101949-funzione_lineare.org}{applicazione lineare};
+\item \(F^{k} \circ \mathrm{d}_{C}^{k-1} = \mathrm{d}_{D}^{k-1} \circ F^{k-1}\), ovvero il seguente diagramma è commutativo:
+\begin{equation*}
+\begin{tikzcd}[sep=large]
+        {C^{k-1}} & {D^{k-1}} \\
+        {C^k} & {D^k}
+        \arrow["{F^{k-1}}", from=1-1, to=1-2]
+        \arrow["{\mathrm{d}_C^{k-1}}"', from=1-1, to=2-1]
+        \arrow["{\mathrm{d}_D^{k-1}}", from=1-2, to=2-2]
+        \arrow["{F^{k}}"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+\end{itemize}
+\end{definizione}
+\end{document}

@@ -1,0 +1,103 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(L_{Q}=\set{+,\cdot,S,0}\) il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} dell'aritmetica di Robinson, e sia \(Q\) l'\href{20250608093604-aritmetica.org}{aritmetica di Robinson}.
+\begin{lem}
+Se \(P,R \subseteq \N^{k}\) sono \href{20250608094213-insieme_rappresentato_da_una_formula.org}{rappresentabili} in \(Q\) dalle \href{20250131103317-formula_del_prim_ordine.org}{formule} \(\varphi\) e \(\psi\) rispettivamnte, allora anche
+\begin{equation*}
+P\cap R,\quad P\cup R, \sim P
+\end{equation*}
+sono rappresentati dalle formule \(\varphi \,\land\, \psi\), \(\varphi \,\lor\,\psi\) e \(\lnot\psi\), rispettivamente.
+
+In particolare gli insiemi rappresentabili in \(Q\) formano un'algebra di Boole.
+\end{lem}
+\begin{lem}
+Un sottoinsieme \(P \subseteq \N^{k}\) è rappresentabile in \(Q\) (da \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{una formula \(\Delta_{0}\)}) se e solo se la sua \href{20250215160218-funzione_caratteristica.org}{funzione caratteristica} \(\chi_{P}: \N^{k}\to \N\) è rappresentabile in \(Q\) (da \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{una formula \(\Delta_{0}\)}).
+\end{lem}
+\begin{proof}
+(\(\Rightarrow\)): Se \(\varphi(x_{1},\dots,x_{k})\) rappresenta \(P \subseteq \N^{k}\) allora \(\psi\) rappresenta \(\chi_{P}\):
+\begin{equation*}
+\psi(x_{1},\dots,x_{k}, y):\quad \left[\varphi(x_{1},\dots,x_{k}) \,\land\, y=\overline{1}\right]\,\lor\,\left[\lnot\varphi(x_{1},\dots,x_{k}) \,\land\, y=\overline{0}\right].
+\end{equation*}
+
+(\(\Leftarrow\)): Se \(\psi(x_{1},\dots,x_{k},y)\) rappresenta \(\chi_{P}\), allora \(\varphi\) rappresenta \(P\):
+\begin{equation*}
+\varphi(x_{1},\dots,x_{k}):\quad \psi(x_{1},\dots,x_{k}, \overline{1}).
+\end{equation*}
+dove si è effettuata una \href{20250131123704-sostituzione_di_termini_in_una_formula.org}{sostituzione} di \(y\) con il \href{20250130162316-termine_del_prim_ordine.org}{termine} \(\overline{1}\).
+\end{proof}
+\begin{lem}
+Per dimostrare che una funzione \(F:\N^{k}\to \N\) è rappresentata in una \(L_{Q}\subseteq L\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} \(T\) da una formula del tipo
+\begin{equation*}
+f(x_{1},\dots,x_{k})=y
+\end{equation*}
+con \(f \in L\), allora è sufficiente mostrare che per ogni \(a_{1},\dots,a_{k} \in \N\)
+\begin{equation*}
+T\vdash f(\overline{a_{1}},\dots,\overline{a_{k}}) = \overline{F(a_{1},\dots,a_{k})}.
+\end{equation*}
+
+In particolare, quindi, la funzione successore su \(\N\): \(n\mapsto n+1\) è rappresentata in \(Q\) dalla formula
+\begin{equation*}
+S(x)=y.
+\end{equation*}
+\end{lem}
+\begin{lem}
+La formula \(x+y=z\) rappresenta in \(Q\) la funzione \(+:\N^{2}\to \N\).
+
+La formula \(x\cdot y = z\) rappresenta in \(Q\) la funzione \(\cdot:\N^{2}\to \N\).
+\end{lem}
+\begin{cor}
+Per ogni \(L_{Q}\)-termine chiuso \(t\) esiste \(n \in \N\) tale che \(Q\vdash t=\overline{n}\). \emph{(dimostrazione per induzione sull'\href{20250130162316-termine_del_prim_ordine.org}{altezza del termine})}
+\end{cor}
+\begin{lem}
+La formula \(x_{1}=x_{2}\) rappresenta la relazione di uguaglianza
+\begin{equation*}
+P = \set{(n,m) \in \N^{2}\mid n=m}.
+\end{equation*}
+\end{lem}
+\begin{cor}
+Se \(t_{1},t_{2}\) sono \(L_{Q}\)-termini chiusi, allora
+\begin{equation*}
+Q\vdash t_{1}=t_{2}\quad\text{oppure}\quad Q\vdash \lnot(t_{1}=t_{2}).
+\end{equation*}
+\end{cor}
+\begin{lem}
+Per ogni \(n \in \N\)
+\begin{equation*}
+Q\vdash \forall\,x\ \left[\varphi_{\le}(x,\overline{n})\iff x=\overline{0} \,\lor\,\dots \,\lor\, x=\overline{n}\right]
+\end{equation*}
+dove \(\varphi_{\le}(x,y)\) è la formula \(\exists\,z\ (z+x=y)\).
+\end{lem}
+\begin{cor}
+Questo lemma implica che in qualunque modello \(M\) di \(Q\), se un elemento \(q \in M\) è minore o uguale (nel senso della relazione binaria definita in \(M\) da \(\varphi_{\le}\)) ad un \href{20250608093604-aritmetica.org}{numero standard} \(\overline{n}^{M}\), allora \(q=\overline{m}^{M}\) per qualche \(m\le n\). Dunque l'\href{20250608093604-aritmetica.org}{isomorfismo canonico tra \(\N\) e i numeri standard di \(M\)} preserva anche l'ordine \(\le\).
+\end{cor}
+\begin{cor}
+Se \(n \in \N\) e \(\varphi(x)\) è una \(L_{Q}\)-formula, allora sono equivalenti
+\begin{enumerate}
+\item \(Q\vdash \varphi(a)\) per ogni \(a \le n\);
+\item \(Q\vdash \forall\,x\le\overline{n}\ \varphi(x)\).
+\end{enumerate}
+\end{cor}
+\begin{lem}
+La formula \(\varphi_{\le}(x,y): \exists\,z\ (z+x=y)\) \href{20250608094213-insieme_rappresentato_da_una_formula.org}{rappresenta} la relazione \(\le \subseteq \N^{2}\) in \(Q\).
+\end{lem}
+\begin{lem}
+Per ogni \(b \in \N\):
+\begin{equation*}
+Q\vdash \forall\,x\ (\varphi_{\le}(x,\overline{b}) \,\lor\, \varphi_{\le}(\overline{b},x)).
+\end{equation*}
+\end{lem}
+\begin{thm}
+Ogni \href{20250215151458-funzioni_ricorsive.org}{funzione ricorsiva} \href{20250213105339-funzione_parziale.org}{totale} è \href{20250608094213-insieme_rappresentato_da_una_formula.org}{rappresentata in \(Q\)} da una \href{20250131103317-formula_del_prim_ordine.org}{formula} di \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{complessità} \(\Sigma_{1}\).
+\end{thm}
+\#+BEGIN\textsubscript{cor}
+Sia \(L\supseteq L_{Q}\) un linguaggio del prim'ordine e \(T\) una \(L\)-teoria tale che \(T\supseteq Q\). Allora:
+\begin{itemize}
+\item Ogni \href{20250215151458-funzioni_ricorsive.org}{funzione ricorsiva} \href{20250213105339-funzione_parziale.org}{totale} è \href{20250608094213-insieme_rappresentato_da_una_formula.org}{rappresentata in \(T\)} da una \href{20250131103317-formula_del_prim_ordine.org}{formula} di \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{complessità} \(\Sigma_{1}\).
+\item Ogni insieme ricorsivo è \href{20250608094213-insieme_rappresentato_da_una_formula.org}{rappresentata in \(T\)} sia da una \href{20250131103317-formula_del_prim_ordine.org}{formula} di \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{complessità} \(\Sigma_{1}\) che da una formula di complessità \(\Pi_{1}\).
+\end{itemize}
+\#+END\textsubscript{lem}
+\end{document}

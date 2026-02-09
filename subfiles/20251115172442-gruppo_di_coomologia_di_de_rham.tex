@@ -1,0 +1,45 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\d{\operatorname{d}}
+\def\H{\operatorname{H}_{\text{dR}}}
+
+
+\begin{document}
+
+\section{Gruppo di Coomologia di De Rham}
+\label{sec:org1be661f}
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} di dimensione \(n\), e sia \(\Omega^{k}(M)\) lo \href{20241205142027-spazio_vettoriale.org}{spazio vettoriale} delle \href{20251115155511-forma_differenziale_in_un_punto.org}{\(k\)-forme}. Si indichi con
+\begin{equation*}
+\d^{k} : \Omega^{k}(M) \to \Omega^{k+1}(M)
+\end{equation*}
+il \href{20251115160537-differenziale_di_una_forma.org}{differenziale di forme}.
+
+\begin{oss}
+Si ha che \(\operatorname{rng} \d^{k-1} \subseteq \ker \d^{k}\)\footnote{Vedi ``\href{20251121143525-kernel_di_una_funzione_tra_spazi_vettoriali.org}{Kernel di una funzione tra spazi vettoriali}'' e ``\href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Range di una funzione}''}, per le \href{20251115160537-differenziale_di_una_forma.org}{proprietà del differenziale di forme}.
+\end{oss}
+\begin{definizione}
+Per ogni \(0\le k \le n\) si definisce il \uline{\(k\)-esimo gruppo di Coomologia di De Rham} di \(M\) lo \href{20241205142027-spazio_vettoriale.org}{spazio vettoriale reale} dato dal \href{20251121143644-quoziente_di_spazi_vettoriali.org}{quoziente}:
+\begin{equation*}
+\H^{k}(M) \coloneqq \frac{\ker \d^{k}}{\operatorname{rng} \d^{k-1}}
+\end{equation*}
+con la convenzione che, per \(k=0\), \(\operatorname{rng} \d^{k-1} = O\) è lo spazio vettoriale banale.
+
+Si indica con\footnote{Vedi ``\href{20241213095808-somma_diretta.org}{Somma-Diretta}''}
+\begin{equation*}
+\H^{\bullet}(M) \coloneqq \bigoplus_{k=0}^{n} \H^{n}(M).
+\end{equation*}
+e questo è uno \uline{\href{20251201163733-gruppo_abeliano_graduato.org}{spazio vettoriale graduato}}.
+\end{definizione}
+\begin{oss}
+Si ha che \(\H^{k}(M) = 0\) sse tutte le \(k\)-forme \href{20251115172517-forma_differenziale_chiusa.org}{chiuse} sono \href{20251115172517-forma_differenziale_chiusa.org}{esatte}.
+\end{oss}
+\begin{prop}
+Siano \([\omega], [\omega'] \in \H^{k}(M)\). Allora
+\begin{enumerate}
+\item \(\dif \omega = 0\);
+\item \(\omega \in \Omega^{k}(M)\);
+\item \([\omega]=[\omega']\) sse \(\omega' = \omega + \dif \eta\) per qualche \(\eta \in \Omega^{k-1}(M)\).
+\end{enumerate}
+\end{prop}
+\end{document}

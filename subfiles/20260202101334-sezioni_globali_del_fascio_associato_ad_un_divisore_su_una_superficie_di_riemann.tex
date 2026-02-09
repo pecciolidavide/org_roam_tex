@@ -1,0 +1,93 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Sezioni globali del fascio associato ad un divisore su una superficie di Riemann}
+\label{sec:org862ec5f}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, e sia \(\operatorname{Div}(X)\) il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{gruppo dei divisori di \(X\)}. Fissiamo \(D \in \operatorname{Div}(X)\), e si consideri il \href{20250324174728-fascio.org}{fascio} \(\mathcal{O}_{X}(D)\) \href{20260202101128-fascio_associato_ad_un_divisore_su_una_superficie_di_riemann.org}{associato} a \(D\).
+
+\begin{definizione}
+Si denota \(\mathcal{O}_{X}(D)(X)\) la \href{20250324165349-prefascio.org}{sezione globale} di \(\mathcal{O}_{X}(D)\) con
+\begin{equation*}
+L(D) = \mathcal{O}_{X}(D)(X) %
+= \mathcal{O}(D)(X) %
+= H^{0}\big(X, \mathcal{O}_{X}(D)\big)
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Si ha che \(L(D)\) è un \(\C\)-sottospazio vettoriale di \(\mathcal{M}_{X}(X)\)\footnote{Con \(\mathcal{M}_{X}\) si indica il \href{20260128144151-fascio_delle_funzioni_meromorfe_su_una_superficie_di_riemann.org}{fascio delle funzioni meromorfe a valori in \(\C\)}.}
+\end{oss}
+\subsection{Dimensione della sezione globale del fascio associato ad un divisore su una superficie di Riemann compatta}
+\label{sec:org23f843a}
+\begin{lem}
+Sia \(X\) \href{20250103163701-spazio_topologico_compatto.org}{compatta}, \(D \in \operatorname{Div}(X)\) di \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{grado} \(\deg D < 0\). Allora \(L(D) = \set{0}\).
+\label{lem:finitezza}
+\end{lem}
+\begin{proof}
+Sia per assurdo \(f \in L(D)\) diversa da 0. Allora \(f \in \mathcal{M}_{X}(X)\setminus \set{0}\) è tale che\footnote{con ``\(\ge 0\)'' si intende che è un \href{20260202100903-divisore_effettivo_di_una_superficie_di_riemann.org}{divisore effettivo}.}
+\begin{equation*}
+\operatorname{div}(f) + D \ge 0 \IMPLICA \deg\bigg(\operatorname{div}(f) + D\bigg)\ge 0
+\end{equation*}
+Ma il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{grado} è omomorfismo di gruppi, e quindi
+\begin{equation*}
+0 \le \deg\bigg(\operatorname{div}(f) + D\bigg) = \deg \operatorname{div} (f) + \deg D
+\end{equation*}
+e \href{20260202100511-gruppo_di_picard_di_una_superficie_di_riemann.org}{inoltre \(\deg \operatorname{div} f = 0\)}.  Quindi \(\deg D \ge 0\).
+\end{proof}
+
+\begin{oss}
+Se \(X\) è compatto, \href{20260202173818-successione_esatta_corta_di_fasci_data_da_un_divisore_e_un_punto_di_una_superficie_di_riemann.org}{si ottiene} una \href{20250120131527-sec.org}{sequenza esatta corta di \(\C\)-spazi vettoriali}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	0 \& {L(D-p)} \& {L(D)} \& \C \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["\alpha", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+Questo implica che \(\ker\alpha \cong L(D-p)\).
+
+Poiché \(\dim_{\C}\C = 1\) e \(\alpha\) è \(\C\)-lineare, ci sono solo due possibilità per l'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine di \(\alpha\)}:
+\begin{itemize}
+\item \(\dim\operatorname{Im}\alpha = 0\): per il teorema di nullità più rango,
+\begin{equation*}
+  L(D) \cong L(D-p).
+\end{equation*}
+\item \(\dim\operatorname{Im}\alpha = 1\): allora \(\alpha\) è suriettivo, e pertanto, per il \href{20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.org}{primo teorema di isomorfismo}, il \href{20251121143644-quoziente_di_spazi_vettoriali.org}{quoziente} è \href{20250113125833-isomorfismo_tra_spazi_vettoriali.org}{isomorfo}
+\begin{equation*}
+  \frac{L(D)}{L(D-p)} \cong \C
+\end{equation*}
+\end{itemize}
+In entrambi i casi, questo implica che \(L(D)\) ha \(\C\)-dimensione finita se e solo se \(L(D-p)\) ha \(\C\)-dimensione finita\footnote{Il caso in cui \(L(D) \cong L(D-p)\) è ovvio. Inoltre, \href{20260202101128-fascio_associato_ad_un_divisore_su_una_superficie_di_riemann.org}{siccome} \(L(D-p) \subseteq L(D)\) è \href{20250114103118-sottospazio_vettoriale.org}{sottospazio vettoriale}, ovviamente se \(\dim L(D) <+\infty\) allora \(\dim L(D-p)<+\infty\). Viceversa, se \(L(D)/L(D-p) \cong \C\), e \(L(D-p)\) ha dimensione finita, allora necessariamente \(L(D)\) ha dimensione finita. \href{20251121143644-quoziente_di_spazi_vettoriali.org}{Altrimenti}, \(\dim \C = \infty\), assurdo.}.
+\end{oss}
+
+\begin{cor}
+Data \(X\) superficie di Riemann compatta, ci sono solo due possibilità:
+\begin{enumerate}
+\item per ogni \(D \in \operatorname{Div}(X)\) lo spazio \(L(D)\) ha \(\C\)-dimensione finita;
+\item per ogni \(D \in \operatorname{Div}(X)\) lo spazio \(L(D)\) ha \(\C\)-dimensione infinita.
+\end{enumerate}
+\end{cor}
+\begin{proof}
+Supponiamo per assurdo esistano \(D\) e \(D_{\infty}\) divisori di \(X\) tali che
+\begin{equation*}
+\dim L(D) < \infty,\qquad \dim L(D_{\infty}) = \infty.
+\end{equation*}
+
+Poiché \(X\) è compatto, allora \(\operatorname{supp}D\) e \(\operatorname{supp}D_{\infty}\), insiemi \href{20260128123515-sottoinsieme_discreto.org}{discreti}, \href{20260128172415-sottoinsieme_discreto_in_un_compatto.org}{sono finiti}. Pertanto \(D_{\infty}\) si può ottenere da \(D\) aggiungendo e togliendo un numero finito di punti. Per l'osservazione precedente, allora, \(D_{\infty}\) deve avere dimensione finita.
+\end{proof}
+
+\begin{thm}
+Se \(X\) è compatto, per ogni \(D \in \operatorname{Div}(X)\) si ha che
+\begin{equation*}
+\dim_{\C} L(D) < + \infty
+\end{equation*}
+\end{thm}
+\begin{proof}
+Per il Lemma~\ref{lem:finitezza}, esistono divisori di \(X\) tali che \(\dim L(D) < \infty\). Pertanto, per il corollario precedente, per ogni \(D \in \operatorname{Div}(X)\): \(\dim L(D) < \infty\).
+\end{proof}
+\end{document}

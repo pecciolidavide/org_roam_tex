@@ -1,0 +1,195 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si considerino le notazione della ``\href{20250609104647-buona_codifica_di_un_linguaggio.org}{Aritmetizzazione della sintassi}'', e si fissi una \href{20250609104647-buona_codifica_di_un_linguaggio.org}{buona codifica} \(\#\) per il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} \(L_{Q}=\set{+,\cdot,S,0}\) dell'\href{20250608093604-aritmetica.org}{aritmetica di Robinson} \(Q\).
+\section{Premesse}
+\label{sec:org7e0dcaa}
+
+\subsection{Lemma 1}
+\label{sec:org48d1042}
+
+La seguente funzione è \href{20250215141024-funzioni_primitive_ricordive.org}{ricorsiva primitiva}
+\begin{equation*}
+\operatorname{num}:\N\to \N: n\mapsto \termcode{\overline{n}}
+\end{equation*}
+dove \(\overline{n}\) indica il \href{20250608093604-aritmetica.org}{numerale} associato a \(n\).
+\subsection{Lemma 2}
+\label{sec:orgdfaba68}
+
+Esiste una funzione \href{20250215141024-funzioni_primitive_ricordive.org}{ricorsiva primitiva} \(D: \N\to \N\) tale che per ogni \(L_{Q}\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\rho(v_{0})\)
+\begin{equation*}
+D\left(\termcode{\rho}\right) = \termcode{\rho(\overline{\termcode{\rho}}/v_{0})}.
+\end{equation*}
+\subsection{Lemma di diagonalizzazione per le formule dell'aritmetica di Robinson}
+\label{sec:org586b96f}
+Per ogni \(L_{Q}\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\varphi(v_{i})\) con \(v_{i}\) \href{20250131103429-variabile_libera_di_una_formula.org}{libera} in \(\varphi\), esiste un \(L_{Q}\)-\href{20250131103446-enunciato_del_prim_ordine.org}{enunciato} \(\sigma\) tale che l'aritmetica di Robinson \href{20250131123011-conseguenza_logica.org}{dimostri}:
+\begin{equation*}
+Q\vdash \sigma\iff\varphi(\overline{\termcode{\sigma}}/v_{i})
+\end{equation*}
+\subsubsection{Dimostrazione}
+\label{sec:orgdfa46ee}
+
+Sia \(D\) la funzione del Lemma 2; siccome è \href{20250215141024-funzioni_primitive_ricordive.org}{ricorsiva primitiva}, \href{20250608094553-aritmetica_di_robinson_rappresenta_funzioni_ricorsive_totali_e_predicati_ricorsivi.org}{allora} esiste \(\psi(x,y)\) una \(L_{Q}\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} che \href{20250608094213-insieme_rappresentato_da_una_formula.org}{rappresenta \(D\) in \(Q\)}.
+
+WLOG:
+\begin{itemize}
+\item si supponga che \(i\neq 0\) (sempre possibile a meno di rinominare la variabili);
+\item \(\psi\) non contenga le variabili \(v_{0},v_{i}\).
+\end{itemize}
+
+Sia dunque
+\begin{equation*}
+\rho(v_{0}):\qquad \forall\,v_{i}\ (\psi(v_{0},v_{i})\implies \varphi(v_{i}))
+\end{equation*}
+e sia
+\begin{equation*}
+\sigma:\qquad \rho(\overline{\termcode{\rho}}/v_{0})
+\end{equation*}
+
+Si vuole dimostrare che
+\begin{equation*}
+Q\vdash \sigma\iff \varphi(\overline{\termcode{\sigma}}/v_{i})
+\end{equation*}
+
+\begin{itemize}
+\item Si supponga quindi che \(Q\vdash \sigma\), ovvero, per definizione di \(\rho\):
+\begin{equation*}
+     Q\vdash \forall\,v_{i}\ \left(\psi(\overline{\termcode{\rho}},v_{i})\implies \varphi(v_{i})\right)\tag{\star}
+\end{equation*}
+
+Inoltre, siccome \(\psi(x,y)\) rappresenta \(D\), allora
+\begin{equation*}
+     Q\vdash \psi(\overline{\termcode{\rho}}, \overline{D(\overline{\termcode{\rho}})})
+\end{equation*}
+ovvero proprio
+\begin{equation*}
+     Q\vdash \psi(\overline{\termcode{\rho}}, \overline{\termcode{\rho(\overline{\termcode{\rho}}/v_{0})}})\tag{\star\star}
+\end{equation*}
+Per (\(\star\)), istanziando \(v_{i}\) con \(\overline{\termcode{\rho(\overline{\termcode{\rho}}/v_{0})}}\):
+\begin{equation*}
+     Q\vdash \psi(\overline{\termcode{\rho}},\overline{\termcode{\rho(\overline{\termcode{\rho}}/v_{0})}})\implies \varphi(\overline{\termcode{\rho(\overline{\termcode{\rho}}/v_{0})}})
+\end{equation*}
+e per Modus Ponens con  (\(\star\star\)), si ottiene
+\begin{equation*}
+     Q\vdash \varphi(\overline{\termcode{\rho(\overline{\termcode{\rho}}/v_{0})}}/v_{i})
+\end{equation*}
+ovvero per la definizione di \(\sigma\)
+\begin{equation*}
+     Q\vdash \varphi(\overline{\termcode{\sigma}}/v_{i})
+\end{equation*}
+
+Questo dimostra che
+\begin{equation*}
+  Q\vdash \sigma\implies\varphi(\overline{\termcode{\sigma}}/v_{i})
+\end{equation*}
+\end{itemize}
+
+
+\begin{itemize}
+\item Viceversa, si supponga che \(Q\vdash \varphi(\overline{\termcode{\sigma}}/v_{i})\). Sia \(M\) una \(L_{Q}\)-struttura arbitraria tale che \(M\vDash Q\).
+
+Allora
+\begin{equation*}
+  M\vDash \varphi(\overline{\termcode{\sigma}}/v_{i})\tag{\star\star\star}
+\end{equation*}
+
+Mostriamo che \(M\vDash \sigma\), ovvero
+\begin{equation*}
+  M\vDash \forall\, v_{i}\ \left(\psi(\overline{\termcode{\rho}}, v_{i})\implies \varphi(v_{i})\right)
+\end{equation*}
+
+Sia dunque \(q \in M\) tale che \(M\vDash \psi[\overline{\termcode{\rho}},q]\). Siccome \(\psi\) rappresenta \(D\) in \(Q\) e \(M\vDash Q\), allora
+\begin{equation*}
+  q= \overline{D(\overline{\termcode{\rho}})}^{M} = \overline{\termcode{\rho(\overline{\termcode{\rho}}/v_{0})}}^{M} = \overline{\termcode{\sigma}}^{M}
+\end{equation*}
+e pertanto \(M\vDash \varphi[q]\) poiché, per (\(\star\star\star\)), \(M\vDash\varphi(\overline{\termcode{\sigma}}/v_{i})\).
+
+Per l'arbitrarietà di \(q \in M\), si ottiene
+\begin{equation*}
+  M\vDash\forall\, v_{i}\ \left(\psi(\overline{\termcode{\rho}}, v_{i})\implies \varphi(v_{i})\right)\qquad M\vDash \sigma
+\end{equation*}
+e per arbitrarietà di \(M\vDash Q\): \(Q\vdash \sigma\).
+
+Questo dimostra che \(Q\vdash \varphi(\overline{\term{\sigma}}/v_{i})\implies \sigma\).
+\end{itemize}
+
+I due punti sopra dimostrano la tesi
+\begin{equation*}
+Q\vdash \sigma\iff \overline{\term{\sigma}}/v_{i}).\qedd
+\end{equation*}
+\section{Primo Teorema di Incompletezza di Gödel}
+\label{sec:org54d21de}
+
+Sia \(L \supseteq L_{Q}\) e sia \(T\supseteq Q\) una \(L\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250609162711-teoria_omega_coerente.org}{\(\omega\)-coerente} e \href{20250609135250-teoria_ricorsivamente_assiomatizzabile.org}{ricorsivamente assiomatizzabile}. Allora \(T\) è \href{20250131123151-teoria_completa.org}{incompleta}.
+\subsection{Dimostrazione}
+\label{sec:org80d8fef}
+
+Sia \(\operatorname{Ax}(T)\) un sistema di assiomi per \(T\) tale che \(\operatorname{Ax}^{\#}(T) \subseteq \N\) sia ricorsivo.
+
+\href{20250609135524-codifica_delle_dimostrazioni_a_partire_dagli_assiomi.org}{Allora} \(\operatorname{Prov}_{\operatorname{Ax}(T)}^{\#} \subseteq \N^{2}\) è \href{20250216173925-insieme_ricorsivo.org}{ricorsivo}, e \href{20250608094553-aritmetica_di_robinson_rappresenta_funzioni_ricorsive_totali_e_predicati_ricorsivi.org}{quindi} esiste una \(L\)-formula \(\psi(x,y)\) che lo \href{20250608094213-insieme_rappresentato_da_una_formula.org}{rappresenta in \(T\)}.
+
+
+Sia quindi \(\varphi(y)\) la \(L\)-formula \(\lnot \exists\, x\ \psi(x,y)\). \footnote{Si noti che \(\varphi(y)\) è logicamente equivalente ad una \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{formula \(\Pi_{1}\)}}
+
+Per il Lemma di Diagonalizzazione, esiste \(\sigma_{G}\) tale che \footnote{Per costruzione, siccome \(\varphi(y)\) è \(\Pi_{1}\), allora anche \(\sigma_{G}\) è \(\Pi_{1}\).}
+\begin{equation*}
+T\supseteq Q\vdash \sigma_{G}\iff\varphi(\overline{\termcode{\sigma_{G}}}/y).\tag{\diamondsuit}
+\end{equation*}
+
+Si dimostra che \(T\not\vdash \sigma_{G}\) e \(T\not\vdash\lnot\sigma_{G}\).
+
+\begin{itemize}
+\item Se per assurdo \(T\vdash\sigma_{G}\) allora \(\sigma_{G} \in \operatorname{Teor}_{T}\), ovvero \(\termcode{\sigma_{G}} \in \operatorname{Teor}^{\#}_{T}\).
+
+Si ricorda che
+\begin{equation*}
+  \operatorname{Teor}_{T}^{\#}(m)\quad\iff\quad\exists\,n \ \operatorname{Prov}_{\operatorname{Ax}(T)}^{\#}(n,m)
+\end{equation*}
+con \(\operatorname{Prov}_{\operatorname{Ax}(T)}^{\#}\) rappresentato da \(\psi(x,y)\).
+
+Poiché \(T\) è \(\omega\)-coerente, \href{20250609162711-teoria_omega_coerente.org}{allora}
+\begin{equation*}
+  T\vdash \exists\, x\ \psi(x, \overline{\termcode{\sigma_{G}}}).
+\end{equation*}
+ovvero
+\begin{equation*}
+  T\vdash \lnot \varphi(\overline{\termcode{\sigma_{G}}})
+\end{equation*}
+Questo, per (\(\diamondsuit\)), implica che \(T\vdash \lnot\sigma_{G}\). Assurdo, poiché \(T\) è \(\omega\)-coerente, e quindi coerente.
+
+Dunque \(\termcode{\sigma_{G}}\notin \operatorname{Teor}^{\#}_{T}\).
+
+\item Siccome \(T\) è \(\omega\)-coerente, \href{20250609162711-teoria_omega_coerente.org}{allora}
+\begin{equation*}
+  T\not\vdash \exists\, \psi(x,\overline{\termcode{\sigma_{G}}})
+\end{equation*}
+poiché altrimenti \(\termcode{\sigma_{G}} \in \operatorname{Teor}^{\#}_{T}\).
+
+Dunque \(T\not\vdash \lnot \varphi(\overline{\termcode{\sigma_{G}}}/y)\) e per (\(\diamondsuit\)), quindi \(T\not\vdash\lnot\sigma_{G}\).\qed
+\end{itemize}
+\section{Conseguenze}
+\label{sec:org97ae274}
+
+\subsection{Corollario 1}
+\label{sec:org6fe9d20}
+
+Sia \(T\) una teoria ricorsivamente assiomatizzabile i cui assiomi siano veri in \(\N\). Se \(T\) dimostra gli assiomi (Q1)-(Q7) di \(Q\), allora \(T\) è incompleta. In particolare, l'aritmetica di Peano è incompleta.
+\subsection{Complessità e dimostrabilità nell'aritmetica di Robinson}
+\label{sec:org20d160f}
+Sia \(T\supseteq Q\) una \(L_{Q}\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} di cui il \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} sia un \href{20250131122945-modello_di_un_insieme_di_formule.org}{modello}. Esiste un \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{\(\Pi_{1}\)}-\href{20250131103446-enunciato_del_prim_ordine.org}{enunciato} \(\sigma_{G}\) nel linguaggio \(L_{Q}\) vero in \(\N\) tale che \(T\) non è in grado di dimostrare.
+
+Tutti gli \href{20250131103446-enunciato_del_prim_ordine.org}{enunciati} si considerino ora nel linguaggio \(L_{Q}\).
+\begin{itemize}
+\item Gli enunciati \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{\(\Sigma_{1}\)} veri nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} sono dimostrabili da \(Q\).
+\item Gli enunciato \(\Sigma_{1}\) falsi nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} \uline{non sono dimostrabili in \(Q\)}, ma non è detto che \(Q\) li possa refutare-
+\item Gli enunciati \(\Delta_{0}\) veri nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} sono dimostrabili in \(Q\).
+\item Gli enunciati \(\Delta_{0}\) falsi nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} sono refutabili in \(Q\).
+\end{itemize}
+\subsection{Teorema}
+\label{sec:org85e1467}
+
+Ogni teoria \(T\supseteq Q\) coerente e ricorsivamente assiomatizzabile è incompleta.
+\end{document}

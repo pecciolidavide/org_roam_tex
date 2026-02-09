@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}. Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}, e sia \(\mathcal{S}_{\bullet}(X)\) il \href{20250120163114-complesso_di_catene.org}{complesso di catene} \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{singolare}\footnote{Si ha che:
+\begin{itemize}
+\item i \(S_{q}(X)\) sono i \href{20250122133435-simplesso_singolare.org}{moduli delle catene singolari};
+\item i \(\partial_{q}\) sono le \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{mappe di bordo}.
+\end{itemize}}:
+\begin{equation*}
+\mathcal{S}_{\bullet}(X) = \set{\left(S_{q}(X), \partial_{q}\right)}_{q}
+\end{equation*}
+\begin{definizione}
+Si definisce \(\mathcal{\tilde{S}}_{\bullet}(X)\), \textbf{complesso singolare augmentato},
+\begin{equation*}
+\mathcal{\tilde{S}}_{\bullet}(X) \coloneqq \set{\left(\tilde{S}_{q}(X), \tilde{\partial}_{q}\right)}_{q}
+\end{equation*}
+dove
+\begin{itemize}
+\item per ogni \(q\ge 0\): \(\tilde{S}_{q}(X) \coloneqq S_{q}(X)\);
+\item per ogni \(q>0\): \(\tilde{\partial_{q}} \coloneqq \partial_{q}\);
+\end{itemize}
+e gli altri valori sono:
+\begin{equation*}
+\tilde{S}_{-1}(X) \coloneqq R,\qquad\qquad \begin{aligned}
+\tilde{\partial}_{0} : \tilde{S}_{0}(X)&\longrightarrow \tilde{S}_{-1}(X)\\
+\left[\sum a_{i} p_{i}\right]&\longmapsto \sum a_{i}
+\end{aligned}
+\end{equation*}
+\end{definizione}
+\begin{prop}
+\(\mathcal{\tilde{S}}_{\bullet}(X)\) è un \href{20250120163114-complesso_di_catene.org}{complesso di catene}.
+\end{prop}
+\end{document}

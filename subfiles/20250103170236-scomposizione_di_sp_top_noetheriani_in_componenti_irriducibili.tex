@@ -1,0 +1,87 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema}
+\label{sec:org2f37de0}
+
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250103152646-spazio_topologico_noetheriano.org}{noetheriano}, e sia \(Y \subseteq X\) un \href{20250103163814-sottospazio_topologico.org}{sottospazio} \href{20250103145124-topologia.org}{chiuso}. Allora esiste un numero finito di chiusi \href{20250103164917-sottospazio_irriducibile.org}{irriducibili}
+\begin{equation*}
+Y_{1},\dots,Y_{n}
+\end{equation*}
+tali che \(Y=Y_{1}\cup \dots \cup Y_{n}\).
+
+Inoltre, se \(\forall\, i \neq j\) si ha \(Y_{i}\not\subseteq Y_{j}\), allora la decomposizione è unica. Le \(Y_{i}\) si chiamano \textbf{componenti irriducibili} di \(Y\).
+\subsection{Dimostrazione}
+\label{sec:orgaf541bb}
+
+\subsubsection{Esistenza}
+\label{sec:org3999962}
+Sia \(\mathscr{F}\) la famiglia dei chiusi di \(X\) che non ammettono una decomposizione finita.
+Se \(\mathscr{F}\neq\emptyset\) allora esiste \(Y \in \mathscr{F}\) \href{20250203102516-massimo_e_minimo.org}{minimale}, \href{20250103155209-caratterizzazione_topologia_noetheriana.org}{poiché \(X\) è noetheriano}. \(Y\) non è irriducibile (poiché altrimenti sarebbe già decomposto) e pertanto esistono \(Y_{1},Y_{2}\) chiusi propri di \(Y\) tali che \(Y=Y_{1}\cup Y_{2}\).
+
+Per minimalità di \(Y\), \(Y_{1},Y_{2}\notin \mathscr{F}\), e pertanto entrambi ammettono una decomposizione finita. Dunque \(Y\) ammette una decomposizione finita, assurdo.
+\subsubsection{{\bfseries\sffamily TODO} Unicità\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\label{sec:org12526c7}
+Siano
+\begin{equation*}
+Y=Y_{1}\cup \dots\cup Y_{n}=Y'_{1}\cup \dots\cup Y_{s}'
+\end{equation*}
+due decomposizioni in componenti irriducibili.
+
+Intersecando con \(Y_{1}\):
+\begin{equation*}
+Y\cap Y_{1} = Y_{1} = \left(\bigcup_{i=1}^{s} Y_{i}'\right)\cap Y_{1}=\bigcup_{i=1}^{s} Y_{i}'\cap Y_{1}
+\end{equation*}
+Siccome \(Y_{1}\) è irriducibile, si ha che esiste \(i_{0}\) tale che \(Y_{1}=Y_{i_{0}}'\cap Y_{1}\). Senza perdita di generalità, poniamo \(i_{0}=1\). Questo significa che \(Y_{1} \subseteq Y_{1}'\)
+
+Intersecando nuovamente con \(Y_{1}'\):
+\begin{equation*}
+Y\cap Y_{1}' = \left(\bigcup_{j=1}^{n}Y_{j}\right)\cap Y_{1}' = Y_{1}'
+\end{equation*}
+Dunque si ha che \(Y_{1}'=\bigcup_{j=1}^{n}(Y_{j}\cap Y_{1}')\). Siccome \(Y_{1}'\) è irriducibile, deve esistere \(j_{0}\) tale che \(Y_{1}' = Y_{j_{0}}\cap Y_{1}'\) e dunque \(Y_{1}' \subseteq Y_{j_{0}}\).
+Necessariamente, \(j_{0}=1\), poiché, se per assurdo \(j_{0}\neq 1\):
+\begin{equation*}
+Y_{1} \subseteq Y_{1}' \subseteq Y_{j_{0}}
+\end{equation*}
+che contraddice l'ipotesi.
+
+Dunque \(Y_{1}=Y_{1}'\)
+
+Si ha che\footnote{Infatti,
+\begin{align*}
+Y_{1}\cup \dots\cup Y_{n} &= Y_{1}'\cup \dots \cup Y_{s}'\\
+\left(Y_{1}\cup \dots\cup Y_{n}\right)\setminus Y_{1} &= \left(Y_{1}'\cup \dots \cup Y_{s}'\right)\setminus Y_{1}'\\
+(Y_{2}\setminus Y_{1})\cup \dots \cup (Y_{n}\setminus Y_{1}) &=(Y_{2}'\setminus Y_{1}')\cup \dots \cup (Y_{s}'\setminus Y_{1}')\\
+\overline{(Y_{2}\setminus Y_{1})\cup \dots \cup (Y_{n}\setminus Y_{1})} &=\overline{(Y_{2}'\setminus Y_{1}')\cup \dots \cup (Y_{s}'\setminus Y_{1}')}\\
+\overline{(Y_{2}\setminus Y_{1})}\cup \dots \cup \overline{(Y_{n}\setminus Y_{1})} &=\overline{(Y_{2}'\setminus Y_{1}')}\cup \dots \cup\overline{(Y_{s}'\setminus Y_{1}')}\\
+\end{align*}
+(vedi \href{20250103144944-chiusura_topologica.org}{Chiusura Topologica} e \href{20250104095230-proprieta_operazioni_tra_insimi.org}{Proprietà Operazioni tra insiemi})
+Inoltre, per ogni \(i\) si ha che
+\begin{equation*}
+Y_{i} = \overline{Y_{i}\setminus Y_{1}}
+\end{equation*}
+Infatti, è possibile scrivere:
+\begin{equation*}
+Y_{i} = \overline{Y_{i}\setminus Y_{1}} \cup (Y_{i}\cap Y_{1})
+\end{equation*}
+dove
+\begin{itemize}
+\item \(Y_{i}\cap Y_{1} \subseteq Y_{i}\) è chiuso poiché intersezione di chiusi;
+\item \(\overline{Y_{i}\setminus Y_{1}}\) è chiuso, e inoltre \(\overline{Y_{i}\setminus Y_{1}} \subseteq Y_{i}\), poiché \(Y_{i}\setminus Y_{1} \subseteq Y_{i}\) e dunque
+\begin{equation*}
+  \overline{Y_{i}\setminus Y_{1}} \subseteq \overline{Y_{i}} = Y_{i}
+\end{equation*}
+\end{itemize}
+Dunque questi non possono essere chiusi propri.
+\begin{itemize}
+\item Se \(Y_{i}\cap Y_{1} = \emptyset\) allora ovviamente \(Y_{i} = Y_{i}\setminus Y_{1}\) e si ha la tesi;
+\item Se \(Y_{i}\cap Y_{1} = Y_{i}\) si ha che \(Y_{i} \subseteq Y_{1}\), che contraddice l'ipotesi. Assurdo.
+\end{itemize}}
+\begin{equation*}
+Y_{2}\cup \dots \cup Y_{n} = Y_{2}'\cup \dots \cup Y_{s}'
+\end{equation*}
+e dunque, iterando il procedimento di prima \(n\) volte, si ottiene la tesi.
+\end{document}

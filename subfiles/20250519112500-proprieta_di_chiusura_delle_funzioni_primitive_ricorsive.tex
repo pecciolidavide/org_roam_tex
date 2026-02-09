@@ -1,0 +1,94 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}
+\begin{prop}
+Sia \(k \in \N^{+}\). Se \(h:\N^{k+1}\to \N\) è \href{20250215141024-funzioni_primitive_ricordive.org}{primitiva ricorsiva} lo è anche
+\begin{equation*}
+f_{1}:\N^{k+1}\to \N
+\end{equation*}
+definita da
+\begin{equation*}
+f_{1}(x_{1},\dots,x_{k},y) = \sum_{z\le y} h(x_{1},\dots,x_{k},z)
+\end{equation*}
+\end{prop}
+\begin{proof}
+La funzione \(f_{1}\) è ottenuta da \(h\) tramite lo \href{20250215141024-funzioni_primitive_ricordive.org}{schema di ricorsione}:
+\begin{equation*}
+\begin{cases}
+f_{1}(x_{1},\dots,x_{k}, 0) = h(x_{1},\dots,x_{k},z)\\
+f_{1}(x_{1},\dots,x_{k}, y+1) = f_{1}(x_{1},\dots,x_{k}, y) + h(x_{1},\dots,x_{k}, y+1)
+\end{cases}
+\end{equation*}
+siccome la \href{20250215141024-funzioni_primitive_ricordive.org}{somma è primitiva ricorsiva}
+\end{proof}
+Con la stessa dimostrazione si ha che per \(k \in \N^{+}\), se \(h:\N^{k+1}\to \N\) è una \uline{\href{20250207104855-funzione_ricorsiva.org}{funzione ricorsiva}} lo è anche
+\begin{equation*}
+f_{1}:\N^{k+1}\to \N
+\end{equation*}
+definita da
+\begin{equation*}
+f_{1}(x_{1},\dots,x_{k},y) = \sum_{z\le y} h(x_{1},\dots,x_{k},z)
+\end{equation*}
+\begin{prop}
+Sia \(k \in \N^{+}\). Se \(h:\N^{k+1}\to \N\) è \href{20250215141024-funzioni_primitive_ricordive.org}{primitiva ricorsiva} lo è anche
+\begin{equation*}
+f_{2}:\N^{k+1}\to \N
+\end{equation*}
+definita da
+\begin{equation*}
+f_{2}(x_{1},\dots,x_{k},y) = \prod_{z\le y} h(x_{1},\dots,x_{k},z)
+\end{equation*}
+\end{prop}
+\begin{proof}
+La funzione \(f_{2}\) è ottenuta da \(h\) per mezzo dello \href{20250215141024-funzioni_primitive_ricordive.org}{schema di ricorsione}
+\begin{equation*}
+\begin{cases}
+f_{2}(x_{1},\dots,x_{k}, 0) = h(x_{1},\dots,x_{k}, 0)\\
+f_{2}(x_{1},\dots,x_{k}, y+1) = f_{2}(x_{1},\dots,x_{k}, y)\cdot h(x_{1},\dots,x_{k}, y+1)
+\end{cases}
+\end{equation*}
+perché il \href{20250215141024-funzioni_primitive_ricordive.org}{prodotto è ricorsivo primitivo}.
+\end{proof}
+Con la stessa dimostrazione si ha che per \(k \in \N^{+}\), se \(h:\N^{k+1}\to \N\) è \href{20250207104855-funzione_ricorsiva.org}{ricorsiva} lo è anche
+\begin{equation*}
+f_{2}:\N^{k+1}\to \N
+\end{equation*}
+definita da
+\begin{equation*}
+f_{2}(x_{1},\dots,x_{k},y) = \prod_{z\le y} h(x_{1},\dots,x_{k},z)
+\end{equation*}
+\begin{prop}
+Sia \(k \in \N^{+}\). Se \(h:\N^{k+1}\to \N\) è \href{20250215141024-funzioni_primitive_ricordive.org}{primitiva ricorsiva} lo è anche
+\begin{equation*}
+f_{3}:\N^{k+1}\to \N
+\end{equation*}
+definita da
+\begin{equation*}
+f_{3}(x_{1},\dots,x_{k},y) = \minim{z\le y}{h(x_{1},\dots,x_{k},z)=0}
+\end{equation*}
+dove
+\begin{equation*}
+\minim{z\le y}{h(x_{1},\dots,x_{k}, z)} \coloneqq \begin{cases}
+\min\set{z\le y\ |\ h(x_{1},\dots,x_{k}, z) = 0}\\
+y+1
+\end{cases}
+\end{equation*}
+\end{prop}
+\begin{proof}
+Infatti \(f_{3}\) si ottiene da \(h\) \href{20250215141024-funzioni_primitive_ricordive.org}{componendo} funzioni ricorsive primitive (ovvero \href{20250519112500-proprieta_di_chiusura_delle_funzioni_primitive_ricorsive.org}{somma limitata}, \href{20250519112500-proprieta_di_chiusura_delle_funzioni_primitive_ricorsive.org}{prodotto limitato} e \href{20250215141024-funzioni_primitive_ricordive.org}{funzione segno}):
+\begin{equation*}
+f_{3}(x_{1},\dots,x_{k}, y) = \sum_{z\le y} \prod_{i\le z} \operatorname{sgn}\left(h(x_{1},\dots,x_{k}, i)\right)
+\end{equation*}
+\end{proof}
+\begin{oss}
+Siccome le funzioni primitive ricorsive sono chiuse per \href{20250215141024-funzioni_primitive_ricordive.org}{composizione}, se \(h\) è come prima e \(g:\N^{\ell}\to \N\) è ricorsiva primitiva per qualche \(\ell \in \N^{+}\), allora
+\begin{equation*}
+f(x_{1},\dots,x_{k}, y_{1}, \dots, y_{k}) \coloneqq\minim{z\le g(y_{1},\dots,y_{\ell})}{h(x_{1},\dots,x_{k}, z) = 0}
+\end{equation*}
+è ricorsiva primitiva.
+\end{oss}
+\end{document}

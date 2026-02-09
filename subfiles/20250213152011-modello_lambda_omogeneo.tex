@@ -1,0 +1,37 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+:ID:       47112750-3aa0-48a1-a11c-4860dc95be50
+
+
+Sia \(\lambda\) un \href{20250203161341-cardinali.org}{cardinale}.
+
+Sia \(\mathcal{M} = \mathcal{M}_{\text{ob}}\cup \mathcal{M}_{\text{hom}}\) una \href{20241126100904-categoria.org}{categoria} \href{20250213142026-categorie_di_modelli_e_morfismi_parziali.org}{di modelli e morfismi parziali} di \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} \(\mathcal{L}\) tale che
+\begin{enumerate}
+\item per ogni \(M \in \mathcal{M}_{\text{ob}}\) e per ogni \(A \subseteq M\), la \href{20250213105339-funzione_parziale.org}{funzione parziale} identità \(\id_{A} : M\to M\) è \(\id_{A} \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(M,N \in \mathcal{M}_{\text{ob}}\), e \(k:M\to N\) \href{20250213105339-funzione_parziale.org}{funzione parziale}, se per ogni \(k' \subseteq k\) \href{20250205120448-classe_finita_e_infinita_mk.org}{finito} si ha \(k' \in \mathcal{M}_{\text{hom}}\), allora \(k \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(k \in \mathcal{M}_{\text{hom}}\), \(k\) è \href{20250111142446-funzione_inversa.org}{invertibile} e la sua \href{20250111142446-funzione_inversa.org}{inversa} \(k^{-1} \in \mathcal{M}_{\text{hom}}\);
+\end{enumerate}
+\begin{definizione}
+Un modello \(N \in \mathcal{M}_{\text{ob}}\) è \uline{\(\lambda\)-omogeneo} se ogni \(k \in \mathcal{M}_{\text{hom}}(N,N)\) di \href{20241213101756-cardinalita.org}{cardinalità} \(<\lambda\) esiste
+\begin{equation*}
+\tilde{k}:N\to N
+\end{equation*}
+totale e \href{20250104111707-funzione_biunivoca.org}{biiettivo}, \(\tilde{k} \in \mathcal{M}_{\text{hom}}(N,N)\), tale che \(k \subseteq \tilde{k}\).
+\end{definizione}
+\section{Modello omogeneo}
+\label{sec:org2839f9e}
+\begin{definizione}
+Un modello \(N \in \mathcal{M}_{\text{ob}}\) è \uline{omogeneo} se è \(\card{N}\)-omogeneo.
+\end{definizione}
+Quando non è specificata la categoria \(\mathcal{M}\) si sottointende la categoria di tutti i modelli e le mappe elementari tra di loro. La definizione, pertanto, diventa:
+
+\begin{definizione}
+Una \href{20250131103035-struttura_del_prim_ordine.org}{struttura} \(N\) è \uline{(elementarmente) \(\lambda\)-omogenea} se ogni \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappa elementare} \(k:N\to N\) di \href{20241213101756-cardinalita.org}{cardinalità} \(\card{k}<\lambda\) si estende ad un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{automorfismo}.
+
+Quando \(\lambda=\card{N}\), allora \(N\) si dice \uline{(elementarmente) omogenea}.
+\end{definizione}
+\end{document}

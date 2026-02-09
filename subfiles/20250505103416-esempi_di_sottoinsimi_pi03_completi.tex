@@ -1,0 +1,148 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esercizio 3}
+\label{sec:org0aac54e}
+
+Prove that the sets
+\begin{align*}
+C_0 &= c_0 \cap [0,1]^\omega = \left\{(x_n)_{n \in \omega} \in [0,1]^\omega \,\middle|\, x_n \to 0 \right\}\\
+C &= \left\{(x_n)_{n \in \omega} \in [0,1]^\omega \,\middle|\, (x_n)_{n \in \omega} \text{ converges} \right\}
+\end{align*}
+are both \(\bm{\Pi}^0_3\)-complete.
+
+\emph{Hint.} For the hardness part, compare these sets with the \(\bm{\Pi}^0_3\)-complete set \(C_3\) from Exercise 2.1.27 in the notes.
+\subsection{Soluzione}
+\label{sec:org6bf8ee0}
+
+\subsubsection{\(C_{0}\) e \(C\) sono degli insiemi \(\mathbf{\Pi}_{0}^{3}\).}
+\label{sec:org53520e2}
+
+\paragraph{Insieme \(C_{0}\).}
+\label{sec:org9a7202a}
+
+Si ha che \((x_{j})_{j \in \omega} \in C_{0}\) se e solo se \((x_{j})_{j \in \omega} \in [0,1]^{\omega}\) e:
+\begin{equation*}
+	\forall\, \varepsilon \in \Q^{+}\ \exists\,N \in \N \ \forall\, n > N\ \left( |x_{n}|\le\varepsilon\right)
+\end{equation*}
+ovvero, se \(U_{n, \varepsilon} \coloneqq \set{(x_{j})_{j \in \omega} \in [0,1]^{\omega}: |x_{n}|\le\varepsilon}\), allora
+\begin{equation*}
+	C_{0} = \bigcap_{\varepsilon \in \Q^{+}} \bigcup_{N \in \N} \bigcap_{n>N} U_{n,\varepsilon}.
+\end{equation*}
+
+Quindi, dette \(\pi_{m} : [0,1]^{\omega}\to [0,1]\) le \(m\)-esime proiezioni (continue per definizione di topologia prodotto):
+\begin{equation*}
+	U_{n,\varepsilon}= \pi_{n}^{-1}\left([-\varepsilon,\varepsilon]\right)
+\end{equation*}
+e pertanto \(U_{n,\varepsilon}\) è chiuso. Per il Lemma 2.1.5:
+\begin{align*}
+	\bigcap_{n > N} U_{n,\varepsilon} &\in \bm{\Pi}_{1}^{0}\\
+	\bigcup_{N \in \N}\bigcap_{n >N} U_{n,\varepsilon} &\in \bm{\Sigma}_{2}^{0}\\
+	C_{0} = \bigcap_{\varepsilon \in \Q^{+}} \bigcup_{N \in \N} \bigcap_{n>N} U_{n,\varepsilon} &\in \bm{\Pi}_{3}^{0}.
+\end{align*}
+e si ottiene che \(C_{0} \in \bm{\Pi}_{3}^{0}\left([0,1]^{\omega}\right)\).
+\paragraph{Insieme \(C\).}
+\label{sec:orgf98d777}
+
+Si ha che \((x_{j})_{j \in\omega} \in C\) se e solo se \((x_{j})_{j \in\omega} \in [0,1]^{\omega}\) e
+\begin{equation*}
+\forall\, \varepsilon \in \Q^{+}\ \exists\, N \in \N \ \forall\,n,m> N\ (|x_{n}-x_{m}|\le\varepsilon)
+\end{equation*}
+ovvero, se \(V_{m,n}^{\varepsilon} \coloneqq \set{(x_{j})_{j \in \omega} \in [0,1]^{\omega}: |x_{n}-x_{m}|\le\varepsilon}}\), allora
+\begin{equation*}
+C = \bigcap_{\varepsilon \in \Q^{+}}\bigcup_{N \in \N}\bigcap_{n,m>N} V_{n,m}^{\varepsilon}.
+\end{equation*}
+
+Poiché la funzione \((\pi_{n}-\pi_{m}):[0,1]^{\omega}\to \R\) è continua, allora
+\begin{equation*}
+V_{n,m}^{\varepsilon} \coloneqq (\pi_{n}-\pi_{m})^{-1}\left([-\varepsilon,\varepsilon]\right)
+\end{equation*}
+e quindi \(V_{n,m}^{\varepsilon}\) è chiuso. Per il Lemma 2.1.5:
+\begin{align*}
+\bigcap_{n,m > N} V_{n,m}^{\varepsilon} &\in \bm{\Pi}_{1}^{0}\\
+\bigcup_{N \in \N}\bigcap_{n,m > N} V_{n,m}^{\varepsilon} &\in \bm{\Sigma}_{2}^{0}\\
+C = \bigcap_{\varepsilon \in \Q^{+}}\bigcup_{N \in \N}\bigcap_{n,m>N} V_{n,m}^{\varepsilon} &\in \bm{\Pi}_{3}^{0}
+\end{align*}
+e si ottiene che \(C \in \bm{\Pi}_{3}^{0}\left([0,1]^{\omega}\right)\).
+\subsubsection{Hardness}
+\label{sec:org2da9842}
+
+È noto (Esercizio 2.1.27) che l'insieme \(C_{3} \coloneqq \set{x \in \omega^{\omega}\mid \lim_{n\to\infty}x(n) = \infty}\) sia \(\bm{\Pi}_{3}^{0}\)-hard. Pertanto si cercano delle funzioni continue
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	{\omega^\omega} \& {[0,1]^\omega} \& {[0,1]^\omega}
+	\arrow["F", from=1-1, to=1-2]
+	\arrow["G", from=1-2, to=1-3]
+\end{tikzcd}
+\end{equation*}
+tali che
+\begin{equation*}
+F^{-1}(C_{0}) = C_{3},\qquad G^{-1}(C) = C_{0}.
+\end{equation*}
+Questo, per mezzo del Lemma 2.1.23, garantisce che \(C_{0},C\) siano insiemi \(\bm{\Pi}_{3}^{0}\)-hard (e quindi, per il punto precedente, completi).
+
+Le due funzioni si definiscono come segue:
+\begin{align*}
+&\begin{aligned}
+F: \omega^{\omega} &\longrightarrow[0,1]^{\omega}\\
+(x_{j})_{j \in \omega} &\longmapsto \left(\phi(x_{j})\right)_{j \in \omega}
+\end{aligned} & &\text{dove} & &\begin{aligned}
+\phi: \N &\longrightarrow [0,1]\\
+m &\longmapsto \begin{cases}
+1/m & m\neq 0\\
+1 & m=0.
+\end{cases}
+\end{aligned}\\[1.5em]
+&\begin{aligned}
+G: [0,1]^{\omega} &\longrightarrow [0,1]^{\omega}\\
+(x_{j})_{j \in \omega} &\longmapsto (y_{j})_{j \in \omega}
+\end{aligned} & &\text{dove} &
+&y_{j} \coloneqq \begin{cases}
+0 & j\text{ dispari}\\
+x_{j/2} & j\text{ pari}.
+\end{cases}
+\end{align*}
+\paragraph{\underline{\(F\) è continua.}}
+\label{sec:org97823a4}
+
+La funzione \(F\) è continua poiché lo è su ciascuna componente (in quanto \(\N\) ha la topologia discreta).
+\paragraph{\underline{\(G\) è continua.}}
+\label{sec:org4f0e3c5}
+
+La funzione \(F\) è continua poiché lo è su ciascuna componente:
+\begin{itemize}
+\item la componente \(j\)-esima di \(G\), con \(j\) dispari, è data dalla funzione costante nulla, continua;
+\item la componente \(j\)-esima di \(G\), con \(j\) pari, è data dalla funzione proiezione \(\pi_{j/2}: [0,1]^{\omega}\to [0,1]\), continua per definizione di topologia prodotto.
+\end{itemize}
+\paragraph{\underline{\(F^{-1}(C_{0})=C_{3}\).}}
+\label{sec:org0d884e2}
+
+Si dimostra che \(\alpha \in C_{3}\) sse \(F(\alpha) \in C_{0}\).
+
+\begin{itemize}
+\item Se \(\alpha = (x_{j})_{j \in \omega}\in C_{3}\) allora esiste \(N \in \N\) tale che, per ogni \(j>N\) si ha\(x_{j}\neq 1\).
+
+Pertanto, per ogni \(j>N\), \(\phi(x_{j}) = 1/x_{j}\) e, siccome \(x_{j}\to \infty\), \(\phi(x_{j})\to 0\). Quindi \(F(\alpha) \in C_{0}\).
+\item Viceversa, sia \(\alpha = (x_{j})_{j \in \omega} \notin C_{3}\). Si supponga per assurdo che \((y_{j})_{j \in \omega} = F(\alpha) \in C_{0}\).
+
+Allora, definitivamente, \(y_{j} = 1/x_{j}\) (e in particolare \(x_{j}\neq 0\neq y_{j}\)), poiché altrimenti non si avrebbe convergenza a \(0\). In particolare, \(x_{j} = 1/y_{j}\), definitivamente:
+\begin{equation*}
+  \lim_{j\to \infty} x_{j} = \lim_{j\to\infty}\frac{1}{y_{j}} = \infty
+\end{equation*}
+poiché \(y_{j}\to 0\). Quindi \((x_{j})_{j \in \omega} \in C_{3}\). Assurdo.
+
+Si ottiene perciò che \(F(\alpha) \notin C_{0}\).
+\end{itemize}
+\paragraph{\underline{\(G^{-1}(C)=C_{0}\).}}
+\label{sec:org74e1729}
+
+Si dimostra che \(\alpha \in C_{0}\) sse \(G(\alpha) \in C\).
+
+\begin{itemize}
+\item Se \(\alpha = (x_{j})_{j \in \omega} \in C_{0}\) allora la successione \(\beta= (y_{j})_{j \in \omega} \coloneqq G(\alpha)\) converge a \(0\), e pertanto converge: \(G(\alpha) \in C\).
+\item Viceversa, se \(\alpha = (x_{j})_{j \in \omega}\notin C_{0}\) , allora la successione \(\beta= (y_{j})_{j \in \omega} \coloneqq G(\alpha)\) non converge, in quanto presenta due sottosuccessioni (\((y_{2j+1})_{j \in \omega}\) e \((y_{2j})_{j \in \omega}\)) con caratteri diversi: \(G(\alpha)\notin C\).\qed
+\end{itemize}
+\end{document}

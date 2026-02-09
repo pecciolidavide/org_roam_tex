@@ -1,0 +1,30 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}, e sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo}. 
+
+\begin{definizione}
+Per ogni \(m \in M\) si definisce \textbf{annullatore di \(m\)}:
+\begin{equation*}
+\operatorname{ann}_R (m) \coloneqq \set{a\in R: am=0} \subseteq R
+\end{equation*}
+\end{definizione}
+
+Questo è un \href{20241219112955-ideale.org}{ideale} di \(R\). Siccome \(R\) è un \href{20241219112842-pid.org}{PID}, allora
+\begin{equation*}
+\operatorname{ann}_R (m) = (a)
+\end{equation*}
+per qualche \(a \in R\).
+
+\begin{definizione}
+La \textbf{torsione di \(M\)} è
+\begin{equation*}
+\operatorname{Tor}_R (M)=\set{m \in M: \operatorname{ann}_R(m)\neq \set{0}}.
+\end{equation*}
+\end{definizione}
+
+La torsione, quindi, è l'insieme degli elementi del modulo che \textbf{hanno} annullatori non banali.
+\end{document}

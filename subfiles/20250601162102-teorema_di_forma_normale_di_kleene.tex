@@ -1,0 +1,18 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
+\section{Teorema}
+\label{sec:orga501569}
+
+Per ogni \(k\ge 1\) esiste un \href{20250216174510-insieme_ricorsivo_primitivo.org}{predicato ricorsivo primitivo} \(T_{k} \subseteq \N^{k+2}\) ed una \href{20250215141024-funzioni_primitive_ricordive.org}{funzione ricorsiva primitiva} \(U:\N\to \N\) tale che per ogni \href{20250202170607-classe_relazione_binaria.org}{funzione} (\href{20250213105339-funzione_parziale.org}{parziale}) \href{20250207104855-funzione_ricorsiva.org}{ricorsiva} \(f:\N^{k}\to \N\) esiste \(e \in \N\) tale che
+\begin{equation*}
+f(\bm{x}) = U\left(\minim{y}{T_{k}(e,\bm{x},y)}\right).
+\end{equation*}
+dove \(\minim{y}{\cdot}\) è l'\href{20250215151440-operatore_di_minimizzazione_non_limitato.org}{operatore di minimizzazione} \href{20250520101418-funzioni_ricorsive_per_minimizzazione_su_un_predicato.org}{applicato ad un predicato ricorsivo}.
+\end{document}

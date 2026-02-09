@@ -1,0 +1,120 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:orgcbce876}
+
+Prove that for any \href{20250301194013-spazio_polacco.org}{Polish space} \(X\) and \(x \in X\), the singleton \(\{x\}\) is \(\bm{\Pi}^0_1\)-complete if and only if \(x\) is not \href{20250403131856-punto_isolato.org}{isolated} in \(X\). Conclude that the set
+\[
+  C_1 = \{x \in 2^\omega \mid \exists n \ (x(n) = 0)\}
+\]
+from Proposition 2.1.31 of the notes is \(\bm{\Sigma}^0_1\)-complete.
+\subsection{Dimostrazione}
+\label{sec:orge832ff0}
+
+Siccome \(X\) è uno spazio metrizzabile, allora \(\set{x} \subseteq X\) è chiuso, e pertanto \(\set{x} \in \bm{\Pi_{1}}^{0}(X)\). Bisogna quindi dimostrare che \(\set{x}\) è \(\bm{\Pi}^{0}_{1}\)-hard sse \(x\) è \textbf{non isolato} in \(X\).
+\subsubsection{Implicazione ``\(\implies\)''}
+\label{sec:org9b0eb3b}
+
+Sia \(C \in \bm{\Pi}_{1}^{0}(\omega^{\omega})\), e sia \(f: \omega^{\omega}\to X\) continua tale che
+\begin{equation*}
+f^{-1}(x) = C.
+\end{equation*}
+
+Si supponga per assurdo che \(x\) sia isolato. Allora \(\set{x} \subseteq X\) è aperto, e quindi \(C \subseteq \omega^{\omega}\) è aperto (retroimmagine continua di un aperto).
+
+Per l'arbitrarietà di \(C\), questo implica che ogni chiuso di \(\omega^{\omega}\) è un clopen. Inoltre, se \(A \subseteq \omega^{\omega}\) è aperto, allora \(\omega^{\omega}\setminus A\) è chiuso e quindi clopen, e pertanto \(A\) è un chiuso:
+\begin{equation*}
+\bm{\Sigma}_{1}^{0}(\omega^{\omega}) = \bm{\Delta}_{1}^{0}(\omega^{\omega}) = \bm{\Pi}_{1}^{0}(\omega^{\omega}).
+\end{equation*}
+Questo contraddice il Theorem 2.1.17 delle note.
+\subsubsection{Implicazione ``\(\impliedby\)''\hfill{}\textsc{Modificato}}
+\label{sec:orge9fe70b}
+
+Sia \(x \in X\) un punto non isolato, ovvero \(x\) un punto di accumulazione di \(X\), e sia \(B \in \bm{\Pi}_{1}^{0}(\omega^{\omega})\).
+
+\begin{itemize}
+\item Si fissi \(d:X\to \R\) una metrica completa su \(X\).
+\item Siccome \(x\) è un punto di accumulazione di \(X\), allora esiste una successione \((y_{n})_{n \in \omega} \subseteq X\setminus\set{x}\) tale che \(y_{n}\to x\), ovvero, per ogni intorno \(U\) di \(x\) esiste \(N \in \N\) tale che, per ogni \(j\ge N\), \(y_{j} \in U\).
+
+\item Si costruisce \(\set{U_{n}}_{n \in \omega}\) una famiglia di aperti di \(X\) tali che
+\begin{itemize}
+\item per ogni \(n \in \omega\): \(U_{n}\setminus \set{x}\neq \emptyset\);
+\item l'intersezione \(\bigcap_{n \in \omega} U_{n} = \set{x}\);
+\item \(\operatorname{diam}(U_{n})\to 0\);
+\item per ogni \(n \in \omega\): \(\operatorname{Cl}(U_{n+1}) \subsetneqq U_{n}\)
+\end{itemize}
+e una successione \(v_{n} \subseteq X\setminus \set{x}\) tale che \(v_{n} \in U_{n}\setminus \operatorname{Cl}(U_{n+1})\).
+
+Sia \(U_{0} = X\). Si supponga di aver costruito \(U_{n}\), e sia \(\alpha \in U_{n}\setminus\set{x}\). Tale \(\alpha\) esiste, poiché esistono infiniti elementi della successione \((y_{j})_{j \in \omega}\) dentro \(U_{n}\) intorno di \(x\).
+
+Detto \(r\coloneqq\min\set{2^{-n-1}, d(x,\alpha)/2}>0\), sia \(U_{n}'\coloneqq B_{d}(x,r)\). Necessariamente \(\alpha\notin U_{n}'\) e \(U_{n}' \subsetneqq U_{n}\).
+
+È quindi possibile porre \(U_{n+1}\coloneqq B_{d}(x,r/2)\):
+\begin{equation*}
+  	\operatorname{Cl}(U_{n+1}) = \operatorname{Cl} \left(B_{d}(x,r/2)\right) \subseteq B_{d}^{\text{cl}}(x,r/2) \subseteq B_{d}(x,r) = U_{n}' \subsetneqq U_{n}.
+\end{equation*}
+
+Si ponga inoltre \(v_{n} \coloneqq \alpha\), \(v_{n} \in U_{n}\setminus \operatorname{Cl}(U_{n+1})\).
+
+Questa famiglia soddisfa tutte le proprietà elencate.
+\end{itemize}
+
+\begin{itemize}
+\item Siccome \(B\) è un chiuso di \(\omega^{\omega}\), allora esiste un albero potato \(T \subseteq \omega^{<\omega}\) tale che \(B=[T]\), i.e.
+\begin{equation*}
+  	B = \set{\alpha \in \omega^{\omega}\mid \forall\,n \in \omega\ (\alpha\upharpoonright n \in T)}
+\end{equation*}
+\item Si costruisce un \(\omega\)-schema \(\set{B_{s}\mid s \in \omega^{<\omega}}\) su \(X\):
+\begin{itemize}
+\item se \(s \in T\), allora \(B_{s} \coloneqq U_{\operatorname{lh}(s)}\); in particolare, quindi \(\emptyset \in T\) e \(B_{\emptyset} = U_{0} = X\);
+\item se \(s\notin T\), sia \(j_{s}\) il più grande indice tale che \(s\upharpoonright j_{s} \in T\); si pone \(B_{s} \coloneqq \set{v_{j_{s}}}\).
+\end{itemize}
+\item Questo definisce effettivamente uno schema tale che \(\operatorname{Cl}(B_{s\concat a}) \subseteq B_{s}\) e ciascun \(B_{s}\neq \emptyset\): pertanto è indotta una funzione continua totale (per il Lemma 1.3.6)
+\begin{equation*}
+  	F:\omega^{\omega}\to X
+\end{equation*}
+\item Resta da mostrare che \(F^{-1}(x) = B\). Questo per definizione garantisce che \(\set{x}\) sia un \(\bm{\Pi}_{1}^{0}\)-hard.
+
+Per ogni \(\beta \in B\),
+\begin{equation*}
+  	F(\beta) \in \bigcap_{n \in \omega} B_{\beta\upharpoonright n}
+\end{equation*}
+dove \(\beta\upharpoonright n \in T\). Quindi \(B_{\beta\upharpoonright n} = U_{n}\). Quindi
+\begin{equation*}
+  	F(\beta) \in \bigcap_{n \in \omega} U_{n} = \set{x}.
+\end{equation*}
+
+Viceversa, se \(\beta \notin B\), allora esiste \(n_{0} \in \omega\) tale che \(\beta\upharpoonright n_{0} \notin T\) e pertanto
+\begin{equation*}
+  	F(\beta) \in \bigcap_{n \in\omega} B_{\beta\upharpoonright n} \subseteq B_{\beta\upharpoonright n_{0}}
+\end{equation*}
+e per costruzione \(x\notin B_{\beta\upharpoonright n_{0}}\).
+\end{itemize}
+\subsubsection{Insieme \(C_{1}\)}
+\label{sec:org4fa3def}
+
+Dal momento che \(\bm{\Sigma}_{1}^{0} = \check{\bm{\Pi}}_{1}^{0}\) segue che \(C_{1}\) è \(\bm{\Sigma}_{1}^{0}\)-completo se e solo se \(2^{\omega}\setminus C_1\) è \(\bm{\Pi}_{1}^{0}\)-completo.
+
+Si ha che \(x \in 2^{\omega}\setminus C_{1}\) se e solo se per ogni \(n \in \omega\), \(x(n)\neq 0\), ovvero \(x(n)=1\).
+
+Pertanto \(2^{\omega}\setminus C_{1} =  \set{u}\), dove
+\begin{align*}
+u: \omega &\longrightarrow 2\\
+n &\longmapsto 1
+\end{align*}
+
+Per la caratterizzazione di cui sopra, \(C_{1}\) è \(\bm{\Sigma}_{1}^{0}\)-completo se e solo se \(u\) non è un punto isolato di \(2^{\omega}\).
+
+Si consideri ora la successione \((x_{n})_{n \in \omega} \subseteq 2^{\omega}\):
+\begin{equation*}
+x_{n}(j) = \begin{cases}
+1 & j<n\\
+0 &j\ge n
+\end{cases}
+\end{equation*}
+Si ha che \(x_{n}\to u\), e pertanto \(u\) non è un punto isolato di \(2^{\omega}\) (per ogni intorno \(I\) di \(u\) esiste \(N \in \omega\) tale che \(x_{N} \in I\setminus\set{u}\)). \qed
+\end{document}

@@ -1,0 +1,29 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funtore da RMod a Rmod - Torsione}
+\label{sec:orgf52a6b9}
+Sia \(R\) un \href{20241219112842-pid.org}{PID} \href{20241205141119-anello.org}{commutativo con unità}.
+
+\begin{definizione}
+Si definisce il \href{20241205131958-funtore.org}{funtore} \(\mathrm{Tor}: R\cat{Mod} \to R\cat{Mod}\), dove \(R\cat{Mod}\) è la \href{20241206115740-categoria_degli_r_moduli.org}{categoria degli \(R\)-moduli}, come segue:
+\begin{itemize}
+\item ad un \href{20241205141053-r_moduli.org}{modulo} \(M\) associa la sua \href{20241220000402-torsione_moduli.org}{torsione} \(\mathrm{Tor}(M)\);
+\item al \href{20241206115416-morfismi_r_moduli.org}{morfismo tra moduli} \(f:M\to N\) associa
+\begin{equation*}
+  \restriction{f}{\mathrm{Tor}(M)} : \mathrm{Tor} M \to \mathrm{Tor} N.
+\end{equation*}
+\end{itemize}
+\end{definizione}
+
+\begin{oss}
+Questa definizione è ben posta, in quanto, se \(f : M \to N\) è un morfismo tra moduli, allora per ogni \(m \in M\), \href{20241220000402-torsione_moduli.org}{l'annullatore}:
+\begin{equation*}
+\mathrm{ann} (f(m)) \supseteq \mathrm{ann}(m)
+\end{equation*}
+e quindi l'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine}: \(f[\mathrm{Tor}M] \subseteq \mathrm{Tor} N\).
+\end{oss}
+\end{document}

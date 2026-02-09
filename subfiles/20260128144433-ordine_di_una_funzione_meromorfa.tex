@@ -1,0 +1,69 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Ordine di una funzione meromorfa}
+\label{sec:org008e999}
+Sia \(U \subseteq \C\) aperto, \(z_{0} \in U\), \(f\) \href{20260128144055-funzione_meromorfa.org}{meromorfa} in \(U\) e non identicamente nulla in un intorno di \(z_{0}\).
+
+Allora in un intorno di \(z_{0}\) si ha lo \href{20260128163831-serie_di_laurent.org}{sviluppo di Serie di Laurent}:
+\begin{equation*}
+f(z) = \sum_{n\ge m} a_{n} (z-z_{0})^{n}
+\end{equation*}
+con \(m \in \Z\) tale che \(a_{m} \neq 0\).
+
+\begin{definizione}
+Si definisce l'ordine di \(f\) in \(z_{0}\):
+\begin{equation*}
+\mathrm{ord}_{z_{0}} f \coloneqq m.
+\end{equation*}
+\end{definizione}
+
+(Se \(f\) è nulla in un intorno di \(z_{0}\), si pone \(\mathrm{ord}_{z_{0}} f = +\infty\)).
+
+\begin{oss}
+Se una funzione è olomorfa in \(z_{0}\), allora il suo ordine (come funzione merofomorfa) coincide con \href{20260128124105-ordine_di_una_funzione_olomorfa.org}{quello come funzione olomorfa}.
+\end{oss}
+
+\begin{oss}
+Ci sono tre possibilità:
+\begin{itemize}
+\item \(m>0\): \(f\) è \href{20260126110551-funzione_olomorfa.org}{olomorfa} e nulla in \(z_{0}\)\footnote{Vedi ``\href{20260128124105-ordine_di_una_funzione_olomorfa.org}{Ordine di una funzione olomorfa}''\label{org45ec666}};
+\item \(m=0\): \(f\) è \href{20260126110551-funzione_olomorfa.org}{olomorfa} e non nulla in \(z_{0}\)\textsuperscript{\ref{org45ec666}};
+\item \(m<0\): \(f\) ha in \(z_{0}\) un \href{20260128154601-singolarita_isolata_analisi_complessa.org}{polo} di ordine \(|m|\).
+\end{itemize}
+\end{oss}
+\begin{prop}
+\begin{enumerate}
+\item L'ordine è invariante per biolomorfismo locale: se
+\begin{equation*}
+ h: V\subseteq \C\to W \subseteq \C
+\end{equation*}
+è un \href{20260127132618-funzione_biolomorfa.org}{biolomorfismo} tra un intorno di \(v_{0}\) e un intorno di \(w_{0}\), allora
+\begin{equation*}
+ \mathrm{ord}_{w_{0}} f\circ h = \mathrm{ord}_{z_{0}} f.
+\end{equation*}
+\item \(f\) ha ordine \(m\) in \(z_{0}\) se e solo se, in un \href{20250111142313-intorno.org}{intorno} \(U_{z_{0}}\) di \(z_{0}\):
+\begin{equation*}
+ \forall z \in U_{z_{0}}:\qquad f(z) = (z-z_{0})^{m} \cdot g(z)
+\end{equation*}
+con \(g:U_{z_{0}} \to \C\) olomorfa e mai nulla.
+\item Date \(f,g\) meromorfe su \(U\) e \(z_{0} \in U\), si ha
+\begin{itemize}
+\item \(\mathrm{ord}_{z_{0}}(f\cdot g) = (\mathrm{ord}_{z_{0}}f) + (\mathrm{ord}_{z_{0}} g)\)
+\item \(\mathrm{ord}_{z_{0}}(1/f) = -\mathrm{ord}_{z_{0}}f\)
+\item \(\displaystyle \mathrm{ord}_{z_{0}}(f+g) = \begin{cases}%
+		\min\set{\mathrm{ord}_{z_{0}}f;\mathrm{ord}_{z_{0}}g} & \mathrm{ord}_{z_{0}}f \neq \mathrm{ord}_{z_{0}}g\\%
+            \ge \mathrm{ord}_{z_{0}}f & \mathrm{ord}_{z_{0}}f=\mathrm{ord}_{z_{0}}g    %
+     \end{cases}\)
+In ogni caso
+\begin{equation*}
+   \mathrm{ord}_{z_{0}}(f+g) \ge \min \set{%
+   \mathrm{ord}_{z_{0}}f; \mathrm{ord}_{z_{0}}g}
+\end{equation*}
+\end{itemize}
+\end{enumerate}
+\end{prop}
+\end{document}

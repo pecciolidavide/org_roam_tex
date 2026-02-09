@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Definizione}
+\label{sec:org8c1b587}
+Sia \(X\) una \href{20250130104320-classe_mk.org}{classe}, e sia \(R \subseteq X\times X\) una \href{20250202170607-classe_relazione_binaria.org}{relazione binaria} (vedi \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano di classi MK}).
+\(R\) si dice \textbf{buon ordine} su \(X\) se
+\begin{enumerate}
+\item \(R\) è un \href{20250203101604-ordine.org}{ordine} \href{20250203101604-ordine.org}{lineare};
+\item \(R\) è \textbf{\href{20250203095749-relazione_left_narrow_mk.org}{regolare}};
+\item \(R\) è \textbf{\href{20250203100901-relazione_well_founded_mk.org}{ben fondata}}.
+\end{enumerate}
+
+\(\langle X, R\rangle\) si dice \textbf{classe ben ordinata}
+\section{Proprietà}
+\label{sec:org304fd9c}
+
+Siano \(\langle A,\le\rangle, \langle B, \trianglelefteq \rangle\) due \href{20250130104320-classe_mk.org}{classi} \href{20250203104134-buon_ordine_mk.org}{ben ordinate}.
+\begin{enumerate}
+\item Se \(f: A \longrightarrow A\) è una \href{20250202170607-classe_relazione_binaria.org}{classe-funzione} \href{20250203132953-funzione_monotona.org}{crescente}, allora \(\forall\, a \in A\ \left(a \le f(a)\right)\).
+
+Inoltre, se \(f\) è \href{20250104111707-funzione_biunivoca.org}{biiettiva}, allora \(f=\operatorname{id}_{A}\), dove
+\begin{equation*}
+  \operatorname{id}_{A} \coloneqq \set{(x,y) \in A \times A\, |\, x = y }
+\end{equation*}
+(vedi \href{20250131162451-coppia_ordinata_mk.org}{Coppia ordinata MK} e \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano di classi MK})
+\item Se  \(\langle A,\le\rangle, \langle B, \trianglelefteq \rangle\) sono \href{20250203110432-isomorfismo_tra_ordini.org}{isomorfe}, allora l'isomorfismo è unico.
+\item Se \(a \in A\), allora \(\langle A,\le\rangle\) e \(\left\langle\operatorname{pred}(a,A;\le),\le\right\rangle\) non sono isomorfi (vedi \href{20250206120526-segmento_iniziale_per_un_ordine.org}{Insieme dei predecessori}).
+\end{enumerate}
+\end{document}

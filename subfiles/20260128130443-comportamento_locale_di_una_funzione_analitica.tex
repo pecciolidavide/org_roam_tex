@@ -1,0 +1,63 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Forma normale locale per funzione olomorfa}
+\label{sec:org60e8563}
+\begin{prop}
+Sia \(f:U\to \C\) una \href{20260126110551-funzione_olomorfa.org}{funzione olomorfa}, sia \(z_{0} \in U\) tale che l'\href{20260128124105-ordine_di_una_funzione_olomorfa.org}{ordine} esista e:
+\begin{equation*}
+m\coloneqq \mathrm{ord}_{z_{0}} f ,\qquad 0 < m < + \infty.
+\end{equation*}
+Allora esiste \(U_{z_{0}}\) \href{20250111142313-intorno.org}{intorno} \href{20250103145124-topologia.org}{aperto} di \(z_{0}\), esiste \(r>0\) ed esiste un \href{20260127132618-funzione_biolomorfa.org}{biolomorfismo}
+\begin{align*}
+h: U_{z_{0}} &\longrightarrow \set{|z|<r} \subset \C\\
+z_{0} &\longmapsto 0
+\end{align*}
+tale che per ogni \(z \in U_{z_{0}}\): \(f(z) = h(z)^{m}\).
+\end{prop}
+
+\begin{proof}
+Siccome in un intorno \(U_{z_{0}}\) di \(z_{0}\) si può scrivere:
+\begin{equation*}
+f(z) = \sum_{n\ge m} a_{n}(z-z_{0})^{n} = (z-z_{0})^{m} \sum_{n\ge 0} a_{n+m} (z-z_{0})^{n}
+\end{equation*}
+definita \(g(z) \coloneqq \sum_{n\ge 0} a_{n+m} (z-z_{0})^{n}\), si ha che \(g\) è olomorfa in \(U_{z_{0}}\) e \(g(z_{0}) = a_{m} \neq 0\).
+
+A meno di restringere \(U_{z_{0}}\), possiamo assumere \(g(z) \neq 0\) per ogni \(z \in U_{z_{0}}\)\footnote{Questo vale per il \href{20260128131354-principio_di_identita_per_funzioni_olomorfe.org}{Principio di identità per funzioni olomorfe}}.
+
+\href{20260126184450-funzione_olomorfa_su_un_aperto_semplicemente_connesso_ammette_radice_m_esima.org}{Pertanto} esiste \(k(z)\) olomorfa in \({U_{z_{0}}}\) e mai nulla tale che \(g(z) = k(z)^{m}\) e pertanto
+\begin{equation*}
+f(z) = (z-z_{0})^{m}g(z) = (z-z_{0})^{m}\, k(z)^{m} = \big[(z-z_{0})k(z)\big]^{m}.
+\end{equation*}
+Allora, posto \(h(z) = (z-z_{0})\,k(z)\), si ha:
+\begin{itemize}
+\item \(h(z_{0}) = 0\);
+\item \(h(z)\) è olomorfa in \(U_{z_{0}}\);
+\item la derivata \(h'(z) = k'(z)\,(z-z_{0}) + k(z)\) e pertanto
+\begin{equation*}
+  h'(z_{0}) = k(z_{0}) \neq 0
+\end{equation*}
+dunque \(h'\neq 0\) in \(U_{z_{0}}\).
+\end{itemize}
+
+Quindi, a meno di restringere \(U_{z_{0}}\) e \(r>0\), per il \href{20260128143021-teorema_di_inversione_locale.org}{Teorema di inversione locale}, si ha un biolomorfismo.
+\end{proof}
+
+\begin{oss}
+Quindi, su \(U_{z_{0}}\), \(f\) fattorizza come segue:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{U_{z_0}} \&\& {\set{|z|<r}} \\
+	\\
+	\&\& {\set{|z|<r^m}}
+	\arrow["h", from=1-1, to=1-3]
+	\arrow["\sim"', draw=none, from=1-1, to=1-3]
+	\arrow["f"', from=1-1, to=3-3]
+	\arrow["{z\mapsto z^m}", from=1-3, to=3-3]
+\end{tikzcd}
+\end{equation*}
+\end{oss}
+\end{document}

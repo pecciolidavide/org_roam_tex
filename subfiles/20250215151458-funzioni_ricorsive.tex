@@ -1,0 +1,124 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}.
+
+Tutte le funzioni sono da considerarsi potenzialmente \href{20250213105339-funzione_parziale.org}{parziali}.
+\section{Definizione}
+\label{sec:orge74bced}
+Questa definizione può essere \href{20250216162850-funzioni_ricorsive_in_piu_dimensioni.org}{ampliata} a funzioni in più dimensioni.
+
+L'\href{20250130104331-insieme_mk.org}{insieme} \(\mathcal{R}\) delle \textbf{\href{20250202170607-classe_relazione_binaria.org}{funzioni} ricorsive} è la più piccola \href{20250130104320-classe_mk.org}{classe} contenente:
+\begin{itemize}
+\item la funzione costante nulla,
+\begin{equation*}
+  c_{0}:\N\to \N: x\mapsto 0
+\end{equation*}
+\item la \href{20250202124648-successore_di_un_insieme_mk.org}{funzione successore}:
+\begin{equation*}
+  S:\N\to \N: x\mapsto x+1
+\end{equation*}
+\item le funzioni proiezione \(U_{i}^{k}\), per ogni \(k \in \N^{+}\) e per ogni \(0<i \le k\):
+\begin{align*}
+  U_{i}^{k}: \N^{k} &\longrightarrow \N\\
+  (x_{1},\dots,x_{k})&\longmapsto x_{i}
+\end{align*}
+In particolare, la funzione \(U_{1}^{1}:\N\to \N\) è la funzione identità;
+\end{itemize}
+
+e chiusa per:
+\subsection{Schema di Composizione di funzioni ricorsive}
+\label{sec:orgcbf1686}
+Siano \(k,\ell \in \N^{+}\). Se \(h: \N^{k}\to \N\) e per ogni \(1\le i\le k\): \(g_{i}: \N^{\ell}\to \N\) sono funzioni ricorsive, allora la funzione \(f:\N^{\ell}\to \N\):
+\begin{equation*}
+f(x_{1},\dots,x_{\ell}) \coloneqq h\left(g_{1}(x_{1},\dots,x_{\ell}),\dots,g_{k}(x_{1},\dots,x_{\ell})\right)
+\end{equation*}
+è ricorsiva. In particolare, il \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} di \(f\) è composto di tutti e soli gli \((x_{1},\dots,x_{\ell}) \in \N^{\ell}\) tali che:
+\begin{enumerate}
+\item \(\forall\, i\), \((x_{1},\dots,x_{\ell}) \in \dom g_{i}\);
+\item \(\left(g_{1}(x_{1},\dots,x_{\ell}), \dots, g_{k}(x_{1},\dots,x_{\ell})\right) \in \dom h\).
+\end{enumerate}
+\subsection{Schema di Ricorsione di funzioni ricorsive}
+\label{sec:org511067c}
+Sia \(k \in \N^{+}\). Se \(h:\N^{n +2}\to \N\) e \(g:\N^{ k}\to \N\) sono funzioni ricorsive allora la funzione \(f:\N^{k+1}\to \N\) definita dalle condizioni
+\begin{equation*}
+\begin{cases}
+f(x_{1},\dots,x_{k},0) = g(x_{1},\dots,x_{k})\\
+f(x_{1},\dots,x_{n},y+1) = h\left(x_{1},\dots,x_{k}, y, f(x_{1},\dots,x_{n},y)\right)
+\end{cases}
+\end{equation*}
+è ricorsiva.
+
+Notiamo che questa funzione esiste per il \href{20250207121906-teorema_di_ricorsione.org}{Teorema di Ricorsione}.
+
+In particolare, il \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} di \(f\) è composto di tutti e soli gli \((x_{1},\dots,x_{k},y) \in \N^{k+1}\) tali che
+\begin{enumerate}
+\item \((x_{1},\dots,x_{k}, 0) \in \dom g\);
+\item \(\forall\, z< y\) si ha che \(\left(x_{1},\dots,x_{k}, z, f(x_{1},\dots,x_{k}, z)\right) \in\dom h\)
+\end{enumerate}
+
+Vedi la \href{20250601161456-generalizzazione_schema_di_ricorsione.org}{generalizzazione}.
+\subsection{Schema di minimizzazione}
+\label{sec:org3d54410}
+Se \(h:\N^{k+1}\to \N\) è una funzione ricorsiva allora applicando l'\href{20250215151440-operatore_di_minimizzazione_non_limitato.org}{operatore} \(\mu\) si ottiene una funzione ricorsiva \(f:\N^{k}\to \N\):
+\begin{equation*}
+f(x_{1},\dots,x_{k}) = \minim{z}{h(x_{1},\dots,x_{k}, z) = 0}
+\end{equation*}
+che ha per \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} tutti quei punti \((x_{1},\dots,x_{k}) \in \N^{k}\) per cui esiste \(z \in \N\) tale che
+\begin{enumerate}
+\item per ogni \(u\le z\), \((x_{1},\dots,x_{k}, u) \in \dom h\);
+\item \(h(x_{1},\dots,x_{k},z) = 0\).
+\end{enumerate}
+\begin{oss}
+Notiamo che se esiste un unico \(\tilde{z}\) tale che \(h(x_{1},\dots,x_{k}, \tilde{z}) = 0\), allora
+\begin{equation*}
+\minim{z}{h(x_{1},\dots,x_{k},z)=0} = \tilde{z}
+\end{equation*}
+\end{oss}
+\begin{oss}
+Ogni \href{20250215141024-funzioni_primitive_ricordive.org}{funzione ricorsiva primitiva} è ricorsiva: \(\mathcal{P} \subsetneqq \mathcal{R}\).
+\end{oss}
+\section{Definizione equivalente di funzioni ricorsive}
+\label{sec:org2e4078d}
+Sia \(\mathcal{F}\) la più piccola famiglia di funzioni \(f:\N^{k}\to \N\) contenente le funzioni \(U_{i}^{k}, +,\cdot,\chi_{\le}\) e chiusa per composizione e applicazioni dell'\href{20250215151440-operatore_di_minimizzazione_non_limitato.org}{operatore di minimizzazione} a funzioni \href{20250213105339-funzione_parziale.org}{totali}.
+Allora
+\begin{equation*}
+\mathcal{F} = \mathcal{R}.
+\end{equation*}
+
+La dimostrazione si articola tramite una serie di lemmi.
+
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
+\subsection{Lemma 1}
+\label{sec:org2a7abe3}
+Le funzioni \(\operatorname{sgn}\) e \(\overline{\operatorname{sgn}}\) appartengono ad \(\mathcal{F}\). (Vedi ``\href{20250215141024-funzioni_primitive_ricordive.org}{Esempi di funzioni primitive ricorsive}'' per la definizione di queste funzioni).
+\subsection{Lemma 2}
+\label{sec:orgf90540f}
+La collezione dei predicati le cui funzioni caratteristiche sono in \(\mathcal{F}\) (ovvero gli \(\mathcal{F}\)-predicati) è chiusa per intersezioni, unioni e complementi. In particolare \(\le,\ge,=,\neq,<,>\) sono \(\mathcal{F}\)-predicati.
+\subsection{Lemma 3}
+\label{sec:org0b1b7c8}
+Le funzioni costanti \(c_{n}\) e la funzione successore \(S\) appartengono ad \(\mathcal{F}\).
+\subsection{Lemma 4}
+\label{sec:org0fc9e86}
+Gli \(\mathcal{F}\)-predicati sono chusi per quantificazioni limitate. Se \(P \subseteq \N^{k+1}\) è un \(\mathcal{F}\)-predicato allora lo sono anche \(Q_{1},Q_{1} \subseteq \N^{k+1}\) definiti da:
+\begin{align*}
+Q_{1}(\bm{x},y)\quad &\iff\quad \exists\,z\le y\ P(\bm{x},y)\\
+Q_{2}(\bm{x},y)\quad &\iff\quad \forall\,z\le y\ P(\bm{x},y).
+\end{align*}
+\subsection{Lemma 5}
+\label{sec:orgfed9f64}
+Le seguenti funzioni appartengono ad \(\mathcal{F}\):
+\begin{itemize}
+\item \(\bm{J}, (\cdot)_{0}, (\cdot)_{1}\) (vedi ``\href{20250215151413-biiezione_canonica_tra_n_e_n2.org}{Biiezione canonica tra N e prodotti cartesiani di N}'');
+\item \(\operatorname{Res}\) (vedi ``\href{20250215171731-quoziente_e_resto_sono_funzioni_ricorsive_primitive.org}{Quoziente, resto, MCD e mcm sono funzioni ricorsive primitive}'' per una definizione);
+\item \(\beta,\ell,\godeldec{\cdot,\cdot}\) (vedi ``\href{20250531110737-codifica_delle_sequenze_finite_tramite_beta_di_godel.org}{Codifica delle sequenze finite tramite beta di Godel}'')
+\end{itemize}
+\subsection{Lemma 6}
+\label{sec:orga40a2b4}
+Le \href{20250215141024-funzioni_primitive_ricordive.org}{funzioni primitive ricorsive} sono in \(\mathcal{F}\): \(\mathcal{P} \subseteq \mathcal{F}\). In particolare, i \href{20250216174510-insieme_ricorsivo_primitivo.org}{predicati primitivi ricorsivi} sono \(\mathcal{F}\)-predicati.
+\end{document}

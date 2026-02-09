@@ -1,0 +1,46 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\HdRham{\operatorname{H}_{\text{dR}}}
+
+
+\begin{document}
+
+\section{Varietà differenziabili diffeomorfe hanno stessa Coomologia di de Rham}
+\label{sec:orgc36b310}
+Siano \(M, N\) due \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili} di dimensione, rispettivamente, \(m\) ed \(n\). Si indichi con \(\HdRham\) la \href{20251115172442-gruppo_di_coomologia_di_de_rham.org}{coomologia di De Rham}.
+\begin{thm}
+Se \(F:M\to N\) è un \href{20250113172924-diffeomorfismo_tra_varieta_differenziabili.org}{diffeomorfismo} tra \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili}, allora per ogni \(k \in \N\)  si ha l'\href{20250113125833-isomorfismo_tra_spazi_vettoriali.org}{isomorfismo tra spazi vettoriali}:
+\begin{equation*}
+\HdRham^{k}(M) \cong \HdRham^{k}(N)
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+Fissato \(k \in \N\), si consideri il \href{20251115174001-pullback_di_una_funzione_tra_varieta_differenziabili.org}{pullback} sulle \href{20251115155511-forma_differenziale_in_un_punto.org}{forme}:
+\begin{equation*}
+F^{*}:\Omega^{k}(N) \to \Omega^{k}(M)
+\end{equation*}
+\href{20251115174001-pullback_di_una_funzione_tra_varieta_differenziabili.org}{che soddisfa} \(\dif F^{*}\omega = F^{*} \dif \omega\) (dove \(\dif\) è la \href{20251115160537-differenziale_di_una_forma.org}{derivata esterna}).
+\begin{itemize}
+\item Se \(\omega \in \Omega^{k}(N)\) è \href{20251115172517-forma_differenziale_chiusa.org}{chiusa}, allora \(\dif \omega = 0\)
+\begin{equation*}
+  \dif F^{*}\omega = F^{*}\dif \omega = 0
+\end{equation*}
+e pertanto \(F^{*}\omega\) è chiusa.
+\item Se \(\omega \in \Omega^{k}(N)\) è \href{20251115172517-forma_differenziale_chiusa.org}{esatta}, allora esiste \(\eta\) tale che \(\omega = \dif\eta\):
+\begin{equation*}
+  F^{*}\omega = F^{*}\dif\eta = \dif F^{*}\eta
+\end{equation*}
+e quindi \(F^{*}\omega\) è esatta.
+\end{itemize}
+
+Ragionando allo stesso modo con \(F^{-1}\) e \((F^{-1})^{*}\) si ottiene la tesi.
+\end{proof}
+\begin{thm}
+Se \(F:M\to N\) è un \href{20250113172924-diffeomorfismo_tra_varieta_differenziabili.org}{diffeomorfismo} tra \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili}, allora si ha l'\href{20251201160758-isomorfismo_tra_algebre_graduate.org}{isomorfismo tra algebre graduate}:
+\begin{equation*}
+\HdRham^{\bullet}(M) \cong \HdRham^{\bullet}(N)
+\end{equation*}
+\end{thm}
+\end{document}

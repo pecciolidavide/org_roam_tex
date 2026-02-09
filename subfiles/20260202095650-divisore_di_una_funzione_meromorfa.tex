@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Divisore di una funzione Meromorfa}
+\label{sec:org156dbe1}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, e sia \(\mathcal{M}(X)\) l'\href{20260128144151-fascio_delle_funzioni_meromorfe_su_una_superficie_di_riemann.org}{insieme delle funzioni meromorfe a valori in \(\C\)}.
+
+\begin{definizione}
+Sia \(f \in \mathcal{M}(X)\) non nulla. Il \textbf{divisore di \(f\)} è il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{divisore} in \(\operatorname{Div}(X)\) dato dalla somma formale degli \href{20260128144450-ordine_di_una_funzione_meromorfa_su_una_superficie_di_riemann.org}{ordini}:
+\begin{equation*}
+\operatorname{div}(f) \coloneqq \sum_{p \in X} (\mathrm{ord}_{p}\,f)\cdot p.
+\end{equation*}
+\end{definizione}
+
+\begin{definizione}
+Si indica con \(\operatorname{PDiv} (X) \subseteq \operatorname{Div}(X)\) l'insieme dei \textbf{divisori principali di \(X\)}:
+\begin{equation*}
+\operatorname{PDiv}(X) = \set{D \in \operatorname{Div}(X) \mid \exists f \in \mathcal{M}(X):\ D = \operatorname{div}(f)} \subseteq \operatorname{Div}(X)
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Se \(f,g \in \mathcal{X}\setminus\set{0}\), allora \(\operatorname{div}(f\cdot g) = \operatorname{div} f + \operatorname{div} g\). Pertanto
+\begin{equation*}
+\operatorname{div}: \mathcal{M}\setminus\set{0}\to \operatorname{Div}(X)
+\end{equation*}
+è un \href{20241206115531-morfismo_di_gruppi.org}{omomorfismo di gruppi}, e dunque l'\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine}
+\begin{equation*}
+\operatorname{PDiv}(X) = \operatorname{div}[\mathcal{M}\setminus\set{0}]
+\end{equation*}
+è un \href{20241206143051-sottogruppo.org}{sottogruppo} di \(\operatorname{Div}(X)\).
+\end{oss}
+\end{document}

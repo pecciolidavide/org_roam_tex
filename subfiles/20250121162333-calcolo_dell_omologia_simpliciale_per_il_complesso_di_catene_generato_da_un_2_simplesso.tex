@@ -1,0 +1,102 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\sigma=[p_{0},p_{1},p_{2}]\) un 2-\href{20250121121923-simplessi.org}{simplesso}, e sia \(K = K[\sigma]\) il \href{20250120163114-complesso_di_catene.org}{complesso simpliciale} \href{20250121125446-complesso_simpliciale_generato_da_un_simplesso.org}{generato} da \(\sigma\).
+Sia \(R\) un \href{20241219112842-pid.org}{PID}.
+
+Denotando con
+\begin{equation*}
+\simplesso{i_{0},\dots,i_{k}} = [p_{i_{0}},\dots,p_{i_{k}}]
+\end{equation*}
+si ha che i \href{20250121160600-complesso_di_catene_simpliciali.org}{complessi di catene simpliciali} sono i seguenti \href{20241213094625-modulo_libero.org}{moduli liberi}\footnote{Vedi:
+\begin{itemize}
+\item \href{20241213095808-somma_diretta.org}{Somma Diretta}
+\item \href{20241213095808-somma_diretta.org}{Somma diretta dell'anello è modulo libero}
+\end{itemize}}:
+\begin{align*}
+C_{0}(K) &= R^{(\set{\simplesso{0},\simplesso{1},\simplesso{2}})}\\
+C_{1}(K) &= R^{(\set{\simplesso{01}, \simplesso{02}, \simplesso{12}})}\\
+C_{2}(K) &= R^{(\set{\simplesso{012}})} = R\cdot \simplesso{012}
+\end{align*}
+
+Le \href{20250121132856-mappe_di_bordo_tra_moduli_di_catene_simpliciali.org}{mappe di bordo} sono le seguenti:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=tiny]
+	0 \& {C_2(K)} \& {C_1(K)} \& {C_0(K)} \& 0 \\
+	\& {\simplesso{012}} \& {\simplesso{12}-\simplesso{02}+\simplesso{01}} \\
+	\&\& {\simplesso{01}} \& {\simplesso{1}-\simplesso{0}} \\
+	\&\& {\simplesso{02}} \& {e_2-\simplesso{0}} \\
+	\&\& {\simplesso{12}} \& {e_2-\simplesso{1}}
+	\arrow["{\partial_3}", from=1-1, to=1-2]
+	\arrow["{\partial_2}", from=1-2, to=1-3]
+	\arrow["{\partial_1}", from=1-3, to=1-4]
+	\arrow["{\partial_0}", from=1-4, to=1-5]
+	\arrow[maps to, from=2-2, to=2-3]
+	\arrow[maps to, from=3-3, to=3-4]
+	\arrow[maps to, from=4-3, to=4-4]
+	\arrow[maps to, from=5-3, to=5-4]
+\end{tikzcd}
+\end{equation*}
+
+Si vogliono calcolare i \href{20241205141053-r_moduli.org}{moduli} di \href{20250121160827-omologia_simpliciale.org}{omologia}.
+
+\begin{itemize}
+\item \textbf{Modulo di omologia 2}
+
+Si ha che \(\partial_{2}\) è una mappa iniettiva\footnote{Se \(\partial_{2}(r\simplesso{012}) = 0\), allora
+\begin{equation*}
+r\simplesso{12} - r\simplesso{02} + r\simplesso{01} = 0
+\end{equation*}
+con \(\set{\simplesso{01}, \simplesso{02}, \simplesso{12}}\) \href{20241213094625-modulo_libero.org}{base di \(C_{1}(K)\)}: quindi \(r=0\).}, e quindi \(\operatorname{ker}\partial_{2} = \{0\}\). Inoltre, ovviamente, \(\partial_{3}\equiv 0\), e dunque \(\operatorname{Im}\partial_{3} = \set{0}\).
+Dunque
+\begin{equation*}
+H_{2}(K) = \frac{\operatorname{ker}\partial_{2}}{\operatorname{Im}\partial_{3}} = \set{0}/\set{0} = 0
+\end{equation*}
+
+\item \textbf{Modulo di omologia 1}
+
+Per il \href{20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.org}{primo teorema di isomorfismo}, \(\operatorname{Im}\partial_{2} \cong C_{2}(K) / \set{0}\), con base \(\set{\simplesso{12}-\simplesso{02}+\simplesso{01}}\).
+
+Consideriamo invece un generico elemento di \(C_{1}(K)\), ovvero, fissati \(a,b,c \in R\),
+\begin{equation*}
+a\simplesso{01} + b\simplesso{02}+c\simplesso{12}.
+\end{equation*}
+Per calcolare il \(\operatorname{ker}\partial_{1}\) imponiamo
+\begin{equation*}
+  \begin{aligned}
+  	0 &= \partial_{1}(a\simplesso{01}+b\simplesso{02}+c\simplesso{12})\\
+  	&= a \simplesso{1}-a\simplesso{0} +b\simplesso{2}-b\simplesso{0} +c\simplesso{2}-c\simplesso{1}\\
+  	&= \simplesso{1}(a-c) + \simplesso{0} (-a-b) + \simplesso{2}(b+c)
+  \end{aligned}%
+\IFF%
+  \begin{cases}
+  	a-c=0\\
+  	-a-b=0\\
+  	b+c=0
+  \end{cases}
+\end{equation*}
+dove la doppia implicazione vale perché \(\simplesso{0},\set{\simplesso{1},\simplesso{2}}\) è base di \(C_{0}(K)\).
+
+Dunque, \(x \in \operatorname{ker}\partial_{1}\) se e solo se \(x = c(\simplesso{01}-\simplesso{02}+\simplesso{12})\) e dunque
+\begin{equation*}
+\operatorname{ker}\partial_{1} = R\cdot (\simplesso{01}-\simplesso{02}+\simplesso{12})
+\end{equation*}
+
+Pertanto
+\begin{equation*}
+H_{1}(K) = \frac{R\cdot(\simplesso{01}-\simplesso{02}+\simplesso{12})}{R\cdot (\simplesso{01}-\simplesso{02}+\simplesso{12})
+} = 0
+\end{equation*}
+
+\item \textbf{Modulo di omologia 0}
+
+Siccome \(\partial_{0} \equiv 0\), allora \(\operatorname{ker}\partial_{0} = C_{0}(K) = R^{\set{\simplesso{0},\simplesso{1},\simplesso{2}}}\).
+Viceversa, \(\operatorname{Im}\partial_{1} = R^{\set{\simplesso{1}-\simplesso{0},\simplesso{2}-\simplesso{0},\simplesso{2}-\simplesso{1}}}\), e dunque
+\begin{equation*}
+H_{0}(K) = \frac{R^{\set{\simplesso{0},\simplesso{1},\simplesso{2}}}}{R^{\set{\simplesso{1}-\simplesso{0},\simplesso{2}-\simplesso{0},\simplesso{2}-\simplesso{1}}}} = R\cdot \simplesso{0}
+\end{equation*}
+\end{itemize}
+\end{document}

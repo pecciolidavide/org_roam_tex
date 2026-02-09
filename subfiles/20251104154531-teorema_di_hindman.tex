@@ -1,0 +1,94 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema di Hindman}
+\label{sec:orgf92400e}
+\begin{thm}
+Per ogni \href{20251111150142-colorazione.org}{colorazione finita} di \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{\(\N\)} esiste un \href{20250130104331-insieme_mk.org}{insieme} \href{20250205120448-classe_finita_e_infinita_mk.org}{infinito} \(H \subseteq \N\) tale che
+\begin{equation*}
+\set{\sum_{a \in A} a \mid A \subseteq H\text{ finito}}
+\end{equation*}
+è \href{20251111150142-colorazione.org}{monocromatico}.
+\end{thm}
+\begin{oss}
+Questo teorema dice ``quasi'' che esiste un insieme monocromatico chiuso per somma. Infatti, mancano le somme di lunghezza arbitraria dello stesso elemento.
+\end{oss}
+\def\U{\mathcal{U}}
+\def\L{\mathcal{L}}
+%
+\def\eq{{\rm eq}}
+\def\Ueq{\U^\eq}
+%
+\def\orbita{\mathcal{O}}
+\def\Aut{\operatorname{Aut}}
+%
+\def\tc{\mid}
+\def\tp{\operatorname{tp}}
+\def\EMtp{\operatorname{EM}\text{-}\operatorname{tp}}
+\def\<{\langle}
+\def\>{\rangle}
+%
+\def\restricted#1{\,\mathord{\upharpoonright}{{\scriptstyle #1}}}
+\def\equivalentover#1{\mathrel{\equiv_{ #1 }}}
+
+%% NON FORKING
+\def\nonforkSymbol{%
+\mathbin{\raise1.8ex%
+\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}%
+\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$}}}
+\def\defaultnonforkmodel{M}
+\def\nonfork{\nonforkSymbol}
+\renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
+\mathrel{\nonforkSymbol_{#1}}}
+
+\def\defaultnonforkmodel{\N}
+\def\fp{\operatorname{fp}}
+\begin{proof}
+Si utilizza la ``\href{20251104154427-estensione_di_un_semigruppo_ad_un_modello_mostro.org}{Estensione semigruppo a Modello Mostro}''
+
+Sia
+\begin{equation*}
+\mathcal{A} \coloneqq \set{a \in \U\mid a\neq 0}
+\end{equation*}
+che è definibile e idem-potente. Quindi contiene \(b_{0}\) tale che \(\orbita(b_{0}/\N)\) è idempotente.
+
+Sia \(\overline{b} = \langle b_{i} : i<\omega \rangle\) sequenza di coeredi su \(N\).
+
+Si noti che \(\fp(\overline{b})\) è monocromatica (ha colore 1). Infatti
+\begin{equation*}
+b_{0}\cdot b_{1} \equivalentover{\N} b_{0},\qquad
+b_{0}\cdot b_{1} \equivalentover{\N} b_{i}
+\end{equation*}
+poiché \(b_{1}\nonfork b_{0}\).
+
+Definiamo per induzione una sequenza \(\overline{a} = \langle a_{i}: i<\omega\rangle\) tale che
+\begin{equation*}
+\fp(\overline{a} \restricted{n}, b_{1},b_{0})
+\end{equation*}
+ha colore \(1\). (definibile da \(\varphi(a\restricted{n}, b_{1},b_{0})\))
+
+Lo assumo per ipotesi induttiva. Voglio trovare \(a_{n}\). Siccome \(b_{1}\nonfork b_{0}\) allora esiste \(a_{n} \in \N\) tale che
+\begin{equation*}
+\varphi(a \restricted{n}, a_{n}, b_{0})
+\end{equation*}
+e quindi \(\fp(a \restricted{n}, a_{n}, b_{0})\) ha colore 1.
+Voglio arrivare a mostrare che \(\fp(a \restricted{n}, a_{n}, b_{1}, b_{0})\) ha colore 1.
+
+Siccome \(b_{1}\equivalentover{\N} b_{0}\), sicuramente
+\begin{equation*}
+a_{i_{1}}\cdot \dots a_{i_{n}} \cdot b_{0} \text{%
+ha lo stesso colore di %
+}a_{i_{1}}\cdot \dots a_{i_{n}} \cdot b_{1}
+\end{equation*}
+Se per assurdo \(a_{i_{1}}\cdot \dots a_{i_{n}} \cdot b_{1}\cdot b_{0}\) ha colore diverso, siccome \(b_{1}\nonfork b_{0}\) ho
+\begin{equation*}
+b_{1}\cdot b_{0} \equivalentover{\N} b_{0}
+\end{equation*}
+per idempotenza quindi anche
+\(a_{i_{1}}\cdot \dots a_{i_{n}} \cdot b_{0}\)
+ha un colore diverso. Assurdo.
+\end{proof}
+\end{document}

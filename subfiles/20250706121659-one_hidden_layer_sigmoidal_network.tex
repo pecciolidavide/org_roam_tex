@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{thm}
+Sia \(\varphi:\R\to \R\) tale che
+\begin{enumerate}
+\item \(\varphi\) sia \href{20250203132953-funzione_monotona.org}{crescente};
+\item \((\lim_{x\to+\infty}\varphi(x))-(\lim_{x\to-\infty}\varphi(x)) = 1\);
+\item \(\varphi\) sia \href{20250627155431-funzione_derivabile.org}{derivabile}, con \(|\varphi'(x)|\) limitata.
+\end{enumerate}
+
+Sia \(g \in C[0,1]\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''}. Allora per ogni \(\varepsilon>0\) esiste \(N \in \N\) ed esistono, per ogni \(i=0,\dots,N\) degli \(c_{i}, \theta_{i}, w \in \R\) tali che
+\begin{equation*}
+\forall  x \in [0,1]\qquad \bigg\lvert g(x) - \sum_{i=1}^{N} c_{i}\varphi(wx_{i} + \theta_{i})\bigg\rvert <\varepsilon
+\end{equation*}
+\end{thm}
+
+\begin{oss}
+In particolare, tutte le \href{20250624155858-neurone_artificiale.org}{funzioni di attivazione} \href{20250625110110-funzione_sigmoidale.org}{sigmoidali} \(\varphi\) rispettano le ipotesi.
+\end{oss}
+
+\begin{proof}
+Si divide la dimostrazione in fasi:
+\begin{enumerate}
+\item Approssimazione di \(g(x)\) con una \href{20250701140621-funzione_costante_a_tratti.org}{funzione costante a tratti} \(c(x)\) (di coefficienti arbitrariamente piccoli);
+\item Costruzione di una versione ``smoother'' \(c_{\alpha}(x)\) di \(c(x)\) tramite la \href{20250703105424-prodotto_di_convoluzione.org}{convoluzione};
+\item Aprrossimazione di \(c(x)\) con \(c_{\alpha}(x)\) (usando l'\href{20250630155139-misura_di_dirac_approssimata_da_misure_a_campana.org}{Approssimazione della misura di Dirac});
+\item Approssimazione di \(g(x)\) con \(c_{\alpha}(x)\). (banale disuguaglianza triangolare)
+\end{enumerate}
+
+Vedi Theorem 8.3.1 di \cite{calinDeepLearningArchitectures2020}
+\end{proof}
+\end{document}

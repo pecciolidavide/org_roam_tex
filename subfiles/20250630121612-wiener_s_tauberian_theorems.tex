@@ -1,0 +1,125 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si consideri l'operatore funzionale
+\begin{equation*}
+T_{\theta}: f(x)\mapsto f(x-\theta).
+\end{equation*}
+
+\begin{thm}
+Sia \(f \in L^{1}(\R)\)\footnote{Vedi ``\href{20250624162220-spazi_lp.org}{Spazi Lp}''\label{org147747f}}. Lo \href{20250630122400-span.org}{span} di \(\set{T_{\theta}f\mid \theta \in \R}\) è \href{20250301193045-sottoinsieme_denso.org}{denso} in \(L^{1}(\R)\) se e solo se la \href{20250630121906-trasformata_di_fourier.org}{trasformata di Fourier}:
+\begin{equation*}
+\forall \xi \in \R:\qquad \hat{f}(\xi) \neq 0
+\end{equation*}
+\label{teo:wt1}
+\end{thm}
+
+\begin{thm}
+Sia \(f \in L^{2}(\R)\)\textsuperscript{\ref{org147747f}}. Lo \href{20250630122400-span.org}{span} di \(\set{T_{\theta}f\mid \theta \in \R}\) è \href{20250301193045-sottoinsieme_denso.org}{denso} in \(L^{2}(\R)\) se e solo se gli zeri della \href{20250630121906-trasformata_di_fourier.org}{trasformata di Fourier}\footnote{Vedi ``\href{20250630122745-proprieta_vera_quasi_ovunque.org}{Proprietà vera quasi ovunque}''}
+\begin{equation*}
+\hat{f}(\xi) \neq 0\text{ q.o. }\xi \in \R
+\end{equation*}
+ovvero per la \href{20250630122824-misura_di_lebesgue.org}{misura di Lebsegue} \(\mu\):
+\begin{equation*}
+\mu\left(\set{\xi \in \R\mid \hat{f}(\xi) = 0}\right) = 0
+\end{equation*}
+\label{teo:wt2}
+\end{thm}
+\section{Applicazioni dei Teoremi Tauberiani di Wiener al Machine Learning}
+\label{sec:org089e565}
+\begin{enumerate}
+\item Sia \(g \in L^{1}(\R)\), e sia \(f \in L^{1}(\R)\) tale che
+\begin{equation*}
+  \forall \xi \in \R:\qquad \hat{f}(\xi) \neq 0
+\end{equation*}
+(ovvero \(f\) soddisfa le ipotesi del Teorema \ref{teo:wt1})
+
+Allora, per ogni \(\varepsilon>0\) esiste \(N \in \N\) ed esistono, per \(j=1,\dots,N\), degli \(\alpha_{j},\theta_{j} \in \R\) tali che
+\begin{gather*}
+  G(x) \coloneqq \sum_{j=1}^{N} \alpha_{j} f(x+\theta_{j})\\
+  \int_{\R}|g(x)-G(x)|\dif x<\varepsilon.
+\end{gather*}
+
+La funzione \(G(x)\) è l'output di una \href{20250624155858-neurone_artificiale.org}{rete neurale} con un \href{20250624155858-neurone_artificiale.org}{layer nascosto} di \(N\) neuroni (e neurone di output lineare), dove i \href{20250624155858-neurone_artificiale.org}{neuroni} del layer nascosto hanno funzione di attivazione \(f\).
+\item Sia \(g \in L^{2}(\R)\), e sia \(f \in L^{2}(\R)\) tale che
+\begin{equation*}
+  \mu\left(\set{\xi \in \R\mid f(\xi)=0}\right)=0
+\end{equation*}
+(ovvero \(f\) soddisfa le ipotesi del Teorema \ref{teo:wt2})
+
+Allora, per ogni \(\varepsilon>0\) esiste \(N \in \N\) ed esistono, per \(j=1,\dots,N\), degli \(\alpha_{j},\theta_{j} \in \R\) tali che
+\begin{gather*}
+  G(x) \coloneqq \sum_{j=1}^{N} \alpha_{j} f(x+\theta_{j})\\
+  \int_{\R}(g(x)-G(x))^{2}\dif x<\varepsilon.
+\end{gather*}
+
+La funzione \(G(x)\) è l'output di una \href{20250624155858-neurone_artificiale.org}{rete neurale} con un \href{20250624155858-neurone_artificiale.org}{layer nascosto} di \(N\) neuroni (e neurone di output lineare), dove i \href{20250624155858-neurone_artificiale.org}{neuroni} del layer nascosto hanno funzione di attivazione \(f\).
+\end{enumerate}
+
+Si noti che le seguenti \href{20250624155858-neurone_artificiale.org}{funzioni di attivazione} soddisfano le ipotesi dei Teoremi \ref{teo:wt1} e \ref{teo:wt2}.
+\begin{description}
+\item[{Doppio esponenziale.}] Sia \(f(x) = e^{-\lambda|x|}\), con \(\lambda>0\).
+\begin{equation*}
+  \int_{\R}|f(x)|\dif x = 2\int_{0}^{+\infty} e^{-\lambda x}\dif x = -\frac{2}{\lambda} [e^{-\lambda x}]^{ +\infty}_{0} = \frac{2}{\lambda}<\infty
+\end{equation*}
+e dunque \(f \in L^{1}(\R)\). Inoltre
+\begin{equation*}
+  \int_{\R} (f(x))^{2}\dif x = \int_{\R} e^{-2\lambda|x|}\dif x = \frac{1}{\lambda}<\infty
+\end{equation*}
+e pertanto \(f \in L^{2}(\R)\).
+
+Si calcola la trasformata di Laplace:
+\begin{align*}
+  \hat{f}(\xi) &= \int_{\R} e^{-2\pi i \xi x} e^{-\lambda|x|} \dif x\\
+  &= \int_{-\infty}^{0 } e^{-2\pi i \xi x} e^{-\lambda|x|} \dif x + \int_{0}^{+ \infty} e^{-2\pi i \xi x} e^{-\lambda|x|} \dif x\\
+  &= \int_{-\infty}^{0} e^{-2\pi i \xi x} e^{\lambda x} \dif x + \int_{0}^{+ \infty} e^{-2\pi i \xi x} e^{-\lambda x} \dif x\\
+  &= \int_{0}^{+ \infty} e^{2\pi i \xi x} e^{-\lambda x} \dif x + \int_{0}^{+ \infty} e^{-2\pi i \xi x} e^{-\lambda x} \dif x\\
+  &= \int_{0}^{+ \infty} e^{- (-2\pi i \xi +\lambda)x}\dif x + \int_{0}^{ + \infty} e^{- (2\pi i \xi +\lambda) x}\dif x\\
+  &= \frac{1}{-2\pi i \xi +\lambda} + \frac{1}{2\pi i \xi +\lambda} = \frac{(2\pi i \xi + \lambda) + (-2\pi i\xi + \lambda)}{(2\pi i \xi + \lambda) \cdot (-2\pi i\xi + \lambda)} =\frac{2\lambda}{4\pi^{2}\xi^{2} +\lambda^{2}}
+\end{align*}
+e quindi per ogni \(\xi \in \R\) si ha che \(\hat{f}(\xi)\neq \emptyset\).
+
+Dunque \(f\) soddisfa le condizioni dei Teoremi \ref{teo:wt1} e \ref{teo:wt2}.
+\item[{Potenziale di Laplace.}] Sia \(f(x)=\frac{1}{a^{2}+x^{2}}\) con \(a>0\).
+\begin{equation*}
+  \int_{\R} \bigg\lvert\frac{1}{a^{2}+x^{2}}\bigg\rvert\dif x =  \int_{\R} \frac{1}{a^{2}+x^{2}}\dif x = \left.\frac{\arctan(x/a)}{x}\right\rvert_{-\infty}^{\infty} = \frac{\pi}{a}<\infty
+\end{equation*}
+e dunque \(f \in L^{1}(\R)\). Inoltre \(f \in L^{2}(\R)\).
+
+Si ha la seguente trasformata di Laplace:
+\begin{align*}
+  \hat{f}(\xi) &= \int_{\R}e^{-2\pi i \xi x} \cdot \frac{1}{a^{2}+x^{2}}\dif x = \frac{\pi}{a} e^{-2\pi a |\xi|}
+\end{align*}
+e quindi per ogni \(\xi \in \R\) si ha che \(\hat{f}(\xi)\neq \emptyset\).
+
+Dunque \(f\) soddisfa le condizioni dei Teoremi \ref{teo:wt1} e \ref{teo:wt2}.
+
+\item[{Gaussiana.}] Sia \(f(x) = e^{-ax^{2}}\), con \(a>0\).
+\begin{align*}
+  \int_{\R} |e^{-ax^{2}}| \dif x &= \int_{\R} e^{-ax^{2}}\dif x =\frac{1}{\sqrt{a}}\int_{\R} e^{-(\sqrt{a}x)^{2}}\sqrt{a}\dif x\\
+  &= \frac{1}{\sqrt{a}} \int_{\R} e^{-u^{2}}\dif u = \frac{\sqrt{\pi}}{\sqrt{a}}<\infty
+\end{align*}
+e pertanto \(f \in L^{1}(\R)\) e \(f \in L_{2}^{\R}\).
+
+Si calcola la trasformata di Laplace:
+\begin{align*}
+  \hat{f}(\xi) &= \int_{\R} e^{-2\pi i x \xi} e^{-ax^{2}}\dif x = \int_{\R} \exp\left(-(2\pi i \xi) x + -a x^{2}\right)\dif x\\
+  &= \int_{\R} \exp\left(
+      -\frac{\pi^{2}\xi^{2}}{a} +\frac{\pi^{2}\xi^{2}}{a} + - (2\pi i \xi) x + - a x^{2}
+  \right)\dif x\\
+  &= \exp\left(-\frac{\pi^{2}\xi^{2}}{a}\right) \int_{\R} \exp \left[
+      -\left(-\frac{\pi^{2}\xi^{2}}{a} + 2\pi i \xi x + a x^{2} \right)
+  \right]\dif x\\
+  &= \exp\left(-\frac{\pi^{2}\xi^{2}}{a}\right) \int_{\R} \exp \left[
+      -\left(\frac{i\pi\xi}{\sqrt{a}} + x \sqrt{a} \right)^{2}
+  \right]\dif x\\
+  &= \exp\left(-\frac{\pi^{2}\xi^{2}}{a}\right) \frac{\sqrt{\pi}}{\sqrt{a}}
+\end{align*}
+e quindi per ogni \(\xi \in \R\) si ha che \(\hat{f}(\xi)\neq \emptyset\).
+
+Dunque \(f\) soddisfa le condizioni dei Teoremi \ref{teo:wt1} e \ref{teo:wt2}.
+\end{description}
+\end{document}

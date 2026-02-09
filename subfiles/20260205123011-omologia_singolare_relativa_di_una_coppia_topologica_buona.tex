@@ -1,0 +1,104 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Omologia Singolare Relativa di una coppia topologica buona}
+\label{sec:org2c694fe}
+Sia \(R\) un PID fissato.
+
+Sia \((X,A)\) una \href{20250122154728-coppia_topologica.org}{coppia topologica}, si indichi con \(X/A\) lo \href{20250129183516-quoziente_di_una_coppia_topologica_buona.org}{spazio quoziente} dove \(A\) è contratto a \(p_{A}\), \(\pi: X\to X/A\) proiezione.
+
+\begin{prop}
+Se \((X,A)\) è una \href{20250129183256-coppia_topologica_buona.org}{coppia topologica buona}, allora l'\href{20250122154903-omologia_singolare_relativa.org}{omologia relativa} è \href{20241206115416-morfismi_r_moduli.org}{isomorfa} a:
+\begin{equation*}
+\forall  n \in \N: \qquad H_{n}(X,A) \cong H_{n}\big(X/A, \set{p_{A}}\big) \cong \tilde{H}_{n}(X/A)
+\end{equation*}
+dove \(\tilde{H}_{n}\) indica l'\href{20250122154406-omologia_singolare_ridotta.org}{omologia singolare ridotta}.
+\end{prop}
+
+\begin{proof}
+Sia \(U \subseteq X\), \(A \subseteq U\) aperto che realizza la bontà di \((X,A)\).
+\begin{enumerate}
+\item Abbiamo il seguente \href{20250111142332-omeomorfismo.org}{omeomorfismo}:
+\begin{equation*}
+\pi:(X\setminus A, U\setminus A)\longrightarrow \left(
+\frac{X}{A}\setminus \set{p_{A}}, \frac{U}{A}\setminus\set{p_{A}}
+\right)
+\end{equation*}
+che \href{20250126191208-funtore_da_topp_a_rmod_di_omologia.org}{induce} un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo}
+\begin{equation*}
+\forall  n:\qquad H_{n}(X\setminus A, U\setminus A)\cong H_{n}\left(
+\frac{X}{A}\setminus \set{p_{A}}, \frac{U}{A}\setminus\set{p_{A}}
+\right)
+\end{equation*}
+
+\item Poiché \(A \subseteq U\) è un \href{20250122155727-retratto_di_deformazione_di_uno_spazio_topologico.org}{retratto di deformazione}, \href{20250126190440-equivalenze_omotopiche_tra_coppie_topologiche_induce_isomorfismo_tra_omologia_singolare_relativa.org}{allora}
+\begin{equation*}
+\forall n:\qquad H_{n}(X,A) \cong H_{n}(X,U).
+\end{equation*}
+\item Allo stesso modo \(\set{p_{A}} \subseteq U/A\) è un retratto di deformazione, e quindi FIXME
+\begin{equation*}
+\forall n:\qquad  H_{n}\big(X/A, \set{p_{A}}\big) \cong H_{n}(X/A, U/A).
+\end{equation*}
+\item Per il \href{20250126223310-teorema_di_escissione.org}{Teorema di Escissione}:
+\begin{align*}
+ H_{n}(X\setminus A, U\setminus A) &\cong H_{n}(X,U)\\
+ H_{n}(X/A, U/A) &\cong H_{n}\left(
+\frac{X}{A}\setminus \set{p_{A}}, \frac{U}{A}\setminus\set{p_{A}}
+\right)
+\end{align*}
+\end{enumerate}
+Tutto questo dà l'isomorfismo richiesto:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{H_n(X,\,A)} \&\& {H_n(X,\, U)} \&\& {H_n(X\setminus A,\ U\setminus A)} \\
+	\\
+	{H_n\big(X/A,\ \{p_A\}\big)} \&\& {H_n\big(X/A,\ U/A \big)} \&\& {H_n\left(\frac{X}{A}\setminus\{p_A\},\ \frac{U}{A}\setminus\{p_A\}\right)}
+	\arrow["{\cong }", from=1-1, to=1-3]
+	\arrow["{2.}"', draw=none, from=1-1, to=1-3]
+	\arrow["\cong"', from=1-5, to=1-3]
+	\arrow["{4.}", draw=none, from=1-5, to=1-3]
+	\arrow["\cong", from=1-5, to=3-5]
+	\arrow["{1.}"', draw=none, from=1-5, to=3-5]
+	\arrow["\cong"', from=3-1, to=3-3]
+	\arrow["{3.}", draw=none, from=3-1, to=3-3]
+	\arrow["\cong", from=3-5, to=3-3]
+	\arrow["{4.}"', draw=none, from=3-5, to=3-3]
+\end{tikzcd}\qedhere
+\end{equation*}
+
+Per quanto riguarda l'ultimo isomorfismo, si consideri la \href{20250122154927-successione_esatta_di_una_coppia_topologica.org}{SEL} in \href{20250122154406-omologia_singolare_ridotta.org}{omologia ridotta}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\tilde{H}_n(\set{p_A})} \& {\tilde{H}_n(X/A)} \& {H_n\bigg(X/A, \set{p_A}\bigg)} \\
+	{\tilde{H}_{n-1}(\set{p_A})} \& {\tilde{H}_{n-1}(X/A)} \& {H_{n-1}\bigg(X/A, \set{p_A}\bigg)} \\
+	\\
+	{\tilde{H}_0(\set{p_A})} \& {\tilde{H}_0(X/A)} \& {H_0\bigg(X/A, \set{p_A}\bigg)} \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=2-1]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow["\dots"{description}, dashed, from=2-3, to=4-1]
+	\arrow[from=4-1, to=4-2]
+	\arrow[from=4-2, to=4-3]
+	\arrow[from=4-3, to=4-4]
+\end{tikzcd}
+\end{equation*}
+Ricordando l'\href{20250122154153-calcolo_dell_omologia_del_punto.org}{omologia del punto}:
+\begin{equation*}
+\forall k \ge 0: \qquad \tilde{H}_{k}(\set{p_{A}}) = 0
+\end{equation*}
+per ogni \(n\) otteniamo un segmento della forma:
+\begin{equation*}
+\dots \longrightarrow 0 \longrightarrow \tilde{H}_{n}(X/A) \longrightarrow H_{n}(X/A, \set{p_{A}}) \longrightarrow 0 \longrightarrow \dots
+\end{equation*}
+\href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{Per l'esattezza della successione}, si ha un isomorfismo:
+\begin{equation*}
+\tilde{H}_{n}(X/A) \cong H_{n}(X/A, \set{p_{A}}).
+\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

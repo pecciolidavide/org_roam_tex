@@ -1,0 +1,30 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\renewcommand{\L}{\mathcal{L}} % Il linguaggio
+\newcommand{\U}{\mathcal{U}} % Modello mostro
+\renewcommand{\L}{\mathcal{L}} % Il linguaggio
+\newcommand{\U}{\mathcal{U}} % Modello mostro
+\section{Insieme delle formule del prim'ordine}
+\label{sec:org7414ef1}
+Sia \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} del prim'ordine.
+
+\begin{definizione}
+L'insieme delle \href{20250131103317-formula_del_prim_ordine.org}{formule del prim'ordine} del linguaggio \(\L\) e variabile libera \(z=\langle z_{i}:i<\alpha\rangle\) per qualche \href{20250203111003-ordinali.org}{ordinale} \(\alpha\) si indica con \(\L_{z}\).
+
+Se \(M\) è una \(\L\)-struttura e \(A \subseteq M\), allora l'insieme delle \href{20250131103317-formula_del_prim_ordine.org}{\(\L\)-formule} di variabile \(z\) e \href{20250212102927-enunciato_con_parametri.org}{parametri in \(A\)} si indica con \(\L_{z}(A)\).
+\end{definizione}
+\section{Cardinalità dell'insieme delle formule di un linguaggio del prim'ordine}
+\label{sec:org7f8fa48}
+Sia \(\mathcal{L}\) un linguaggio del prim'ordine.
+
+\begin{prop}
+La \href{20241213101756-cardinalita.org}{cardinalità} dell'insieme delle \(\mathcal{L}\)-\href{20250131103317-formula_del_prim_ordine.org}{formule} è
+\begin{equation*}
+\card{\operatorname{Form}_{\mathcal{L}}} = \max (\card{\mathcal{L}}, \aleph_{0}) = \card{\mathcal{L}} + \omega.
+\end{equation*}
+\end{prop}
+\end{document}

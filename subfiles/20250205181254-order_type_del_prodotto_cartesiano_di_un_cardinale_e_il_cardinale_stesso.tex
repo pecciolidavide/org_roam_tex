@@ -1,0 +1,92 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Teorema}
+\label{sec:org69fc82e}
+Sia \(\kappa\) una \href{20250203161341-cardinali.org}{cardinale} \href{20250205120448-classe_finita_e_infinita_mk.org}{infinito}, e sia \(\kappa\times\kappa\) il \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{prodotto cartesiano}.
+\begin{enumerate}
+\item Allora l'\href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{order type} del prodotto cartesiano con il \href{20250203104134-buon_ordine_mk.org}{buon ordine} \href{20250205180911-buon_ordine_di_godel_per_ordxord.org}{di Godel} è
+\begin{equation*}
+ \operatorname{ot}\left(\kappa\times\kappa,<_{G}\right) = \kappa
+\end{equation*}
+\item \(|\kappa\times\kappa|=\kappa\) (vedi \href{20241213101756-cardinalita.org}{Cardinalità}).
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:org7911068}
+La \href{20250202170607-classe_relazione_binaria.org}{funzione}
+\begin{align*}
+ \langle \kappa,<\rangle &\longrightarrow \langle\kappa\times\kappa,<_{G}\rangle \cong \operatorname{ot}(\kappa\times\kappa,<_{G})\\
+\alpha &\longmapsto (\alpha,0)
+\end{align*}
+è una funzione tra ordinali crescente, e \href{20250203111003-ordinali.org}{dunque} \(\kappa\le \operatorname{ot}(\kappa\times\kappa,<_{G})\).
+
+Si dimostra per \href{20250208172824-induzione_transfinita_per_le_relazioni_well_founded.org}{induzione} su \(\kappa\ge\omega\) che \(\operatorname{ot}(\kappa\times\kappa,<_{G})\le \kappa.\)
+\begin{itemize}
+\item Necessariamente \(\operatorname{ot}(\omega\times\omega,<_{G})\le\omega\).
+\item Si assuma che per ogni ordinale \(\omega\le\alpha<\kappa\): \(\operatorname{ot}(\alpha\times\alpha,<_{G})\le \alpha\).
+
+Sia per assurdo \(\delta\coloneqq \operatorname{ot}(\kappa\times\kappa,<_{G})\), \(\kappa<\delta\), e sia
+\begin{equation*}
+  f:\langle \kappa\times\kappa, <_{G}\rangle\to \delta=\operatorname{ot}(\kappa\times\kappa,<_{G})
+\end{equation*}
+l'isomorfismo. Allora esiste un unica coppia \((\lambda_{1},\lambda_{2}) \in \kappa\times\kappa\) tale che \(f(\lambda_{1},\lambda_{2}) =\kappa\).
+
+\(\lambda_{1},\lambda_{2}<\kappa\), dunque \(\max(\lambda_{1},\lambda_{2})\eqqcolon \lambda<\kappa\).
+
+Allora \(\kappa \subseteq f[\lambda\times\lambda]\), ma per ipotesi induttiva \(\card{\lambda\times\lambda}\le\lambda<\kappa\), dunque, siccome \(f\) è un isomorfismo
+\begin{equation*}
+  \kappa\embeds f[\lambda\times\lambda] \equipotenti \card{f[\lambda\times\lambda]} <\kappa
+\end{equation*}
+Assurdo.\qed
+\end{itemize}
+
+\url{https://math.stackexchange.com/a/2153155/1320017}
+\section{Equipotenza degli insiemi di funzioni tra cardinali}
+\label{sec:org6a4bf78}
+Se \(\kappa,\lambda\) sono cardinali tali che
+\begin{equation*}
+2\le\kappa\le\lambda
+\end{equation*}
+e \(\lambda\) è infinito, allora
+\begin{equation*}
+\prescript{\lambda}{}{2}\asymp \prescript{\lambda}{}{\kappa}\asymp \prescript{\lambda}{}{\lambda}
+\end{equation*}
+(vedi \href{20250202192030-classe_delle_classi_funzioni.org}{Classe delle Classi-Funzioni} e \href{20250619101109-classi_equipotenti.org}{Classi equipotenti MK})
+\subsection{Dimostrazione}
+\label{sec:org5bdfbea}
+\href{20250203111003-ordinali.org}{Dal momento} che
+\begin{equation*}
+2 \subseteq \kappa \subseteq \lambda
+\end{equation*}
+ovviamente
+\begin{equation*}
+\prescript{\lambda}{}{2} \subseteq \prescript{\lambda}{}{\kappa} \subseteq \prescript{\lambda}{}{\lambda}
+\end{equation*}
+Inoltre \(\prescript{\lambda}{}{\lambda} \subseteq \parti{\lambda\times\lambda}\).
+
+Inoltre, per il teorema \(|\lambda\times\lambda| = \lambda\), e \href{20241213101756-cardinalita.org}{pertanto}
+\begin{equation*}
+\lambda\times\lambda\asymp\lambda
+\end{equation*}
+(vedi \href{20250619101109-classi_equipotenti.org}{Classi equipotenti MK})
+
+Questo induce una \href{20250104111707-funzione_biunivoca.org}{biiezione}: \(\parti{\lambda\times\lambda}\asymp\parti{\lambda}\).
+
+Ma \(\parti{\lambda}\asymp \prescript{\lambda}{}{2}\), in quanto a ciascun \(\alpha \subseteq\lambda\) è associata la funzione \(f:\lambda\to 2\):
+\begin{align*}
+f(x) = \begin{cases}
+\emptyset & x \notin\alpha\\
+\set{\emptyset} & x \in \alpha
+\end{cases}
+\end{align*}
+ricordando che \(2=\set{\set{\emptyset},\emptyset}\)
+
+Si ha quindi la seguente, che dimostra la tesi:
+\begin{equation*}
+\prescript{\lambda}{}{2} \subseteq \prescript{\lambda}{}{\kappa} \subseteq \prescript{\lambda}{}{\lambda} \subseteq \parti{\lambda\times\lambda} \asymp \parti{\lambda} \asymp \prescript{\lambda}{}{2}
+\end{equation*}
+\end{document}

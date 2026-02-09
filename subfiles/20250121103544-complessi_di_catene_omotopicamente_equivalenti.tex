@@ -1,0 +1,39 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità.
+
+\begin{definizione}
+Siano \(\mathcal{C}_{\bullet},\mathcal{D}_{\bullet}\) due \href{20250120163114-complesso_di_catene.org}{complessi di catene di \(R\)-moduli}. Questi si dicono \textbf{omotopicamente equivalenti}, e si scrive \(\mathcal{C}_{\bullet} \sim \mathcal{D}_{\bullet}\) se esistono \href{20250120163759-categoria_complessi_di_catene.org}{morfismi}
+\begin{equation*}
+f_{\bullet}: \mathcal{C}_{\bullet}\to \mathcal{D}_{\bullet},\qquad g_{\bullet}: \mathcal{D}_{\bullet}\to \mathcal{C}_{\bullet}
+\end{equation*}
+tali che la loro composizione sia \href{20250121094935-omotopia_tra_morfismi_di_complessi_di_catene.org}{omotopa} all'identità, ovvero
+\begin{equation*}
+f_{\bullet}\circ g_{\bullet} \sim \id_{\mathcal{D}_{\bullet}},\qquad g_{\bullet}\circ f_{\bullet}\sim \id_{\mathcal{C}_{\bullet}}
+\end{equation*}
+\end{definizione}
+\begin{prop}
+Se \(\mathcal{C}_{\bullet}\sim \mathcal{D}_{\bullet}\) allora i loro \href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{moduli di omologia} sono \href{20241206115416-morfismi_r_moduli.org}{isomorfi}:
+\begin{equation*}
+\forall n:\qquad
+H_{n}(\mathcal{C}_{\bullet})\cong H_{n}(\mathcal{D}_{\bullet})
+\end{equation*}
+\end{prop}
+\begin{proof}
+Per definizione esistono:
+\begin{tikzcd}
+	{\mathcal{C}_\bullet} & {\mathcal{D}_\bullet}
+	\arrow["{f_\bullet}", shift left, from=1-1, to=1-2]
+	\arrow["{g_\bullet}", shift left, from=1-2, to=1-1]
+\end{tikzcd}
+e, applicando il \href{20250120165029-funtore_tra_chr_e_rmod.org}{funtore di omologia}, si ottiene
+\begin{equation*}
+H_{n}(f_{\bullet}\circ g_{\bullet})  = H_{n}(\Id_{\mathcal{D}_{\bullet}}) = \Id_{H_{n}(\mathcal{D}_{\bullet})}
+\end{equation*}
+ovvero \(H_{n}(f_{\bullet})\) invertibile e quindi \href{20241206115416-morfismi_r_moduli.org}{isomorfismo}.
+\end{proof}
+\end{document}

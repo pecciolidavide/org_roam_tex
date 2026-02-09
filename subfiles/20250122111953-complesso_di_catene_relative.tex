@@ -1,0 +1,85 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID} e sia \(K\) un \href{20250121124147-complesso_simpliciale.org}{complesso simpliciale} \href{20250121131005-complesso_simpliciale_totalmente_ordinato.org}{totalmente ordinato.}
+Si consideri il \href{20250121160600-complesso_di_catene_simpliciali.org}{complesso di catene simpliciali}:
+\begin{equation*}
+\mathcal{C}_{\bullet}(K) = \set{\left(C_{q}(K), \partial_{q}\right)}_{q}
+\end{equation*}
+\section{Modulo del complesso simpliciale relativo}
+\label{sec:org203ed03}
+Sia \(L \subseteq K\) un \href{20250121124213-sottocomplesso_simpliciale.org}{sottocomplesso}. Allora per ogni \(q\), gli \href{20250121124310-scheletro_di_un_complesso_simpliciale.org}{scheletri} \(L^{q} \subseteq K^{q}\) e, pertanto:\footnote{Vedi:
+\begin{itemize}
+\item \href{20241205141053-r_moduli.org}{Modulo}
+\item \href{20241213095808-somma_diretta.org}{Somma Diretta}
+\end{itemize}}
+\begin{equation*}
+R^{L^{q}} \subseteq R^{K^{q}}
+\end{equation*}
+
+il \href{20241205141053-r_moduli.org}{modulo} \href{20241213094625-modulo_libero.org}{libero} \href{20241212141101-generatori_modulo.org}{generato} da \(L^{q}\) è \href{20241206142802-sottomoduli.org}{sottomodulo} di quello generato da \(K^{q}\):
+\begin{equation*}
+C_{q}(L) = R^{L^{q}}\mathrel{\subseteq_{R}} R^{K^{q}} = C_{q}(K)
+\end{equation*}
+
+\href{20250122122650-quoziente_di_somma_diretta_di_moduli.org}{Quindi} il modulo \href{20241206142802-sottomoduli.org}{quoziente} \(R^{K^{q}}/R^{L^{q}}\) è \href{20241213094625-modulo_libero.org}{libero}, ed è \href{20241206115416-morfismi_r_moduli.org}{isomorfo} a \(R^{K^{q}\setminus L^{q}}\).
+
+\begin{definizione}
+Si definisce il \textbf{modulo del complesso simpliciale relativo \((K,L)\)}:
+\begin{equation*}
+C_{q}(K,L) \coloneqq \frac{C_{q} (K)}{C_{q}(L)}
+\end{equation*}
+\end{definizione}
+\section{Mappa di bordo tra moduli di complessi simpliciali relativi}
+\label{sec:orgc9da138}
+Si definisce, per ogni \(q\), la mappa di bordo
+\begin{align*}
+\overline{\partial}_{q}: C_{q}(K,L) &\longrightarrow C_{q-1}(K,L)\\
+c_{q} + C_{q}(L) &\longmapsto \partial_{q} c_{q} + C_{q-1}(L)
+\end{align*}
+dove \(\partial_{q}\) è la \href{20250121132856-mappe_di_bordo_tra_moduli_di_catene_simpliciali.org}{mappa di bordo per \(C_{q}(K)\)}.
+
+\begin{prop}
+Per ogni \(q\),
+\begin{enumerate}
+\item \(\overline{\partial}_{q}\) è ben definita;
+\item \(\overline{\partial}_{q+1}\circ\overline{\partial}_{q} \equiv 0\).
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+\begin{enumerate}
+\item È sufficiente mostrare che se, per \(\ell_{q} \in C_{q}(L)\):
+\begin{equation*}
+ c_{q} = c_{q}' + \ell_{q} \IFF [c_{q}] = [c_{q}']
+\end{equation*}
+allora \([\partial_{q}c_{q}] = [\partial_{q}c_{q}']\). In particolare, si mostra che \(\partial_{q} \ell_{q} \in C_{q-1}(L)\) per ogni \(\ell_{q} \in C_{q}(L)\).
+
+È sufficiente farlo per un elemento \(\sigma=[p_{0},\dots,p_{q}] \in L^{q}\) \href{20241213094625-modulo_libero.org}{base} di \(C_{q}(L)\):
+\begin{equation*}
+ \partial_{q}[p_{0},\dots,p_{q}] = \sum (-1)^{j} \parentesi{in L^{q-1}}{[p_{0},\dots,\hat{p_{j}},\dots,p_{q}]}
+\end{equation*}
+e quindi \(\partial_{q}\sigma \in C^{q-1}(L)\).
+
+\item Sia \(c+C_{q}(L) \in C_{q}(K,L)\). Allora
+\begin{align*}
+\overline{\partial}_{q-1}\circ \overline{\partial}_{q} \left(c+ C_{q}(K)\right) &= \overline{\partial}_{q-1}\left(\partial_{q}c + C_{q-1}(L)\right)\\
+&= \partial_{q-1}\partial_{q} c + C_{q-2}(L) = 0
+\end{align*}
+dove l'ultima uguaglianza si ha perché \href{20250121132856-mappe_di_bordo_tra_moduli_di_catene_simpliciali.org}{\(\partial_{q-1}\partial_{q} = 0\) per le mappe di bordo}.
+\qedhere
+\end{enumerate}
+\end{proof}
+\section{Complesso di catene relative}
+\label{sec:org68957ca}
+Mantenendo le notazioni:
+\begin{definizione}
+Il \textbf{complesso di catene relative} è il \href{20250120163114-complesso_di_catene.org}{complesso di catene}:
+\begin{equation*}
+\mathcal{C}_{\bullet}(K,L) \coloneqq \set{\left(C_{q}(K,L),\overline{\partial}_{q}\right)}_{q}
+\end{equation*}
+\end{definizione}
+\end{document}

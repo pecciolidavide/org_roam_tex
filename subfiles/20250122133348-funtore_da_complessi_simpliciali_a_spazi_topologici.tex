@@ -1,0 +1,41 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funtore da Pl a Top - di Supporto}
+\label{sec:org955b2ed}
+\subsection{Funtore}
+\label{sec:orga440203}
+La mappa
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,column sep=large,row sep=tiny]
+	K \& {|K|} \\
+	{K\xrightarrow{\varphi}L} \& {|K|\xrightarrow{|\varphi|}|L|}
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, maps to, from=1-1, to=1-2]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, maps to, from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+è un \href{20241205131958-funtore.org}{funtore} dalla \href{20250122133147-categoria_di_complessi_e_mappe_simpliciali.org}{categoria \(\cat{Pl}\)} alla \href{20241205115600-categoria_top.org}{categoria \(\cat{Top}\)}:
+\begin{equation*}
+|\cdot|:\cat{Pl}\longrightarrow \cat{Top}
+\end{equation*}
+\begin{itemize}
+\item \textbf{Oggetti}: a \(K\) un \href{20250121124147-complesso_simpliciale.org}{complesso simpliciale} si associa il suo \href{20250121124230-supporto_di_un_complesso_simpliciale.org}{supporto} \(|K|\), dotato della \href{20250121124249-topologia_debole_di_un_complesso_simpliciale.org}{topologia debole}.
+
+\item \textbf{Morfismi}: sia \(\varphi: K \longrightarrow L\) una \href{20250122133125-mappa_simpliciale.org}{mappa simpliciale}.
+
+Per ogni \(p \in |K| = \bigcup_{\sigma \in K} \sigma\) esiste un unico \href{20250121121923-simplessi.org}{simplesso} \(\sigma_{0} = [p_{0},\dots,p_{q}] \in K\) tale che \(p \in \mathring{\sigma_{0}}\)\footnote{\(\mathring{A}\) indica la \href{20250122181431-parte_interna.org}{parte interna}.}, e quindi esistono (e sono unici)  dei \(t_{i} \in (0,1)\) tali che
+\begin{itemize}
+\item \(\sum t_{i} = 1\);
+\item \(p = \sum t_{i}\,p_{i}\).
+\end{itemize}
+
+Si definisce
+\begin{align*}
+|\varphi|: |K| &\longrightarrow |L|\\
+p &\longmapsto \sum t_{i}\ \varphi_{0}(p_{i})
+\end{align*}
+\end{itemize}
+\end{document}

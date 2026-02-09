@@ -1,0 +1,79 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Sezioni globali del fascio associato ad un divisore sulla sfera di Riemann}
+\label{sec:org151bf3b}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, e sia \(\operatorname{Div}(X)\) il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{gruppo dei divisori di \(X\)}. Per ogni \(D \in \operatorname{Div}(X)\) si consideri il \href{20250324174728-fascio.org}{fascio} \(\mathcal{O}_{X}(D)\) \href{20260202101128-fascio_associato_ad_un_divisore_su_una_superficie_di_riemann.org}{associato} a \(D\). Sia \(L(D) = \mathcal{O}_{X}(D)(X)\) la \href{20260202101334-sezioni_globali_del_fascio_associato_ad_un_divisore_su_una_superficie_di_riemann.org}{sezione globale}.
+
+\begin{prop}
+Sia \(X=\C_{\infty}\) e sia \(D \in \operatorname{Div}(\C_{\infty})\) un \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{divisore} della \href{20260127112905-sfera_di_riemann.org}{sfera di Riemann} di \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{grado} \(d > 0\):
+\begin{equation*}
+D = \sum_{i=1}^{n} e_{i} \lambda_{ i} + e_{0}\infty,\qquad \lambda_{i} \in \C, e_{i} \in \Z
+\end{equation*}
+dove \(d= e_{0}+\sum e_{i}\). Consideriamo \(f(z) = \prod (z-\lambda_{i})^{-e_{i}} \in \mathcal{M}_{\C_{\infty}}(\C_{\infty})\)\footnote{Con \(\mathcal{M}_{X}\) si indica il \href{20260128144151-fascio_delle_funzioni_meromorfe_su_una_superficie_di_riemann.org}{fascio delle funzioni meromorfe a valori in \(\C\)}.}. Allora\footnote{Con \(\C_{\le d}[z]\) si indica l'\href{20241219113434-anello_dei_polinomi.org}{anello dei polinomi} di \href{20241231124742-grado_polinomi.org}{grado} \(\le d\).}
+\begin{equation*}
+L(D) = \set{g(z)\cdot f(z) \mid g \in \C_{\le d}[z]}
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+\uline{Nota}: l'\href{20260128144433-ordine_di_una_funzione_meromorfa.org}{ordine di \(f\)} è:
+\begin{itemize}
+\item \(\mathrm{ord}_{\lambda_{i}}\, f =-e_{i}\),
+\item \(\mathrm{ord}_{\infty}\ = \sum_{i=1}^{n} e_{i}\)\footnote{Infatti, vedi ``\href{20260128144305-funzioni_meromorfe_sulla_sfera_di_riemann.org}{Funzioni meromorfe sulla sfera di Riemann}''}
+\item per ogni \(p \in \C\setminus\set{\lambda_{i}}\): \(\mathrm{ord}_{p}\, f = 0\).
+\end{itemize}
+Quindi \(\operatorname{div}f = -\sum_{i} e_{i}\lambda_{i} + \left(\sum e_{i}\right) \cdot \infty\) e in particolare
+\begin{equation*}
+D + \operatorname{div}f = d \cdot \infty.
+\end{equation*}
+
+``\(\supseteq\)'': Se \(g \in \C_{\le d}[z]\), \href{20260128144305-funzioni_meromorfe_sulla_sfera_di_riemann.org}{allora} \(g \in \mathcal{M}_{\C_{\infty}}(\C_{\infty})\), e inoltre
+\begin{equation*}
+\mathrm{ord}_{\infty}\, g = - \deg g \le - d.
+\end{equation*}
+In particolare quindi\footnote{Vedi ``\href{20260128144433-ordine_di_una_funzione_meromorfa.org}{Ordine di una funzione meromorfa}''}
+\begin{equation*}
+\operatorname{div} g = \sum_{p \in \C_{\infty}} (\mathrm{ord}_{p}\, g) \cdot p = -\deg g \cdot \infty + \sum_{p \in g^{-1}(0)} \parentesi{>0}{(\mathrm{ord}_{p}\, g)} \cdot p
+\end{equation*}
+e pertanto
+\begin{align*}
+\operatorname{div}(f\cdot g) + D &= \operatorname{div}g + \operatorname{div}f + D = \left(\sum_{p \in g^{-1}(0)}{(\mathrm{ord}_{p}\, g)} \cdot p\right)  -\deg g \cdot \infty + d\cdot \infty\\
+&\ge \left(\sum_{p \in g^{-1}(0)}{(\mathrm{ord}_{p}\, g)} \cdot p\right)  -d \cdot \infty + d\cdot \infty =\sum_{p \in g^{-1}(0)}\parentesi{> 0}{(\mathrm{ord}_{p}\, g)} \cdot p \ge 0
+\end{align*}
+
+``\(\subseteq\)'': Sia \(h \in L(D) \setminus\set{0}\)\footnote{Ovviamente \(0 \in \set{g(z)\cdot f(z) \mid g \in \C_{\le d}[z]}\) per \(g(z) \coloneqq 0\).}, e si consideri
+\begin{equation*}
+g \coloneqq \frac{h}{f} \in \mathcal{M}_{\C_{\infty}}(\C_{\infty})
+\end{equation*}
+Allora\footnote{Poiché \(\operatorname{div}\) è un morfismo di gruppi e sia \(f,h \in\mathcal{M}_{\C_{\infty}}(\C_{\infty}) \setminus\set{0}\).}
+\begin{equation*}
+\operatorname{div}g = \parentesi{\ge - D}{\operatorname{div}(h)} - \operatorname{div}(f) \ge -D -\operatorname{div} f = -d\cdot\infty
+\end{equation*}
+e pertanto per ogni \(z \in \C\): \(\mathrm{ord}_{z}\, g \ge 0\): \(g\) è \href{20260126110551-funzione_olomorfa.org}{olomorfa}, e quindi è una funzione razionale senza poli, ovvero \(g \in \C[z]\):
+\begin{equation*}
+\deg g(z) = - \mathrm{ord}_{\infty} g \le d.
+\qedhere
+\end{equation*}
+\end{proof}
+
+\begin{cor}
+Sia \(D \in \operatorname{Div}(\C_{\infty})\) un \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{divisore} della \href{20260127112905-sfera_di_riemann.org}{sfera di Riemann} di \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{grado} \(d > 0\). Allora i seguenti \href{20241205142027-spazio_vettoriale.org}{spazi vettoriali} sono \href{20250113125833-isomorfismo_tra_spazi_vettoriali.org}{isomorfi}:
+\begin{equation*}
+L(D) \cong \C_{\le d}[z]
+\end{equation*}
+\end{cor}
+
+\begin{cor}
+Sia \(D \in \operatorname{Div}(\C_{\infty})\). Allora la \href{20241205142027-spazio_vettoriale.org}{dimensione} di \(L(D)\) è finita e
+\begin{equation*}
+\dim_{\C}L(D) = \begin{cases}
+0 & \deg D< 0\\
+1+\deg D & \deg D \ge 0
+\end{cases}
+\end{equation*}
+\end{cor}
+\end{document}

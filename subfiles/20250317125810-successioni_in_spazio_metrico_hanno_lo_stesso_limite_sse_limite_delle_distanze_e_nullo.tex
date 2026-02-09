@@ -1,0 +1,73 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema}
+\label{sec:org6949d7e}
+Sia \((X,d)\) uno \href{20250301193511-spazio_metrico.org}{spazio metrico}, e siano \((z_{n})_{n \in \N}\), \((w_{n})_{n \in \N}\) due \href{20250115100904-successione.org}{successioni}. Se
+\begin{itemize}
+\item \((w_{n})_{n \in \N}\) è \href{20250115100930-convergenza_per_una_successione.org}{convergente};
+\item \(\lim_{n\to \infty}d(z_{n}, w_{n}) = 0\)
+\end{itemize}
+allora \((z_{n})_{n \in \N}\) \href{20250115100930-convergenza_per_una_successione.org}{converge} e
+\begin{equation*}
+\lim_{n \to \infty} z_{n} = \lim_{n \to \infty} w_{n}
+\end{equation*}
+\subsection{Dimostrazione}
+\label{sec:org2358c1a}
+
+Sia \(k \coloneqq \lim_{n\to \infty} w_{n}\).
+
+Allora, per ogni \(\varepsilon>0\), esiste
+\begin{itemize}
+\item \(N \in \N\) tale che, \(\forall\, n>N\): \(d(z_{n}, w_{n})<\frac{\varepsilon}{2}\);
+\item \(M \in \N\) tale che, \(\forall\, n > M\): \(d(w_{n}, k) < \frac{\varepsilon}{2}\).
+\end{itemize}
+
+Quindi, per ogni \(n>\max\set{N,M}\),
+\begin{equation*}
+d(z_{n}, k) \le d(z_{n}, w_{n}) + d(w_{n}, k) < \varepsilon
+\end{equation*}
+grazie alla \href{20250306115949-disuguaglianza_triangolare.org}{disuguaglianza triangolare}.
+
+Siccome \(X\) è \href{20250109155715-spazio_topologico_di_hausdorff.org}{T2} (vedi \href{20250317130124-spazi_metrici_sono_t2.org}{Spazi metrici sono T2}), allora per \href{20250304162602-unicita_del_limite.org}{unicità del limite}:
+\begin{equation*}
+\lim_{n\to \infty} z_{n} = k
+\end{equation*}
+\subsubsection{Limiti uguali \%\% Dimostrazione alternativa}
+\label{sec:org71406bb}
+Siano quindi
+\begin{equation*}
+\ell \coloneqq \lim_{n\to\infty} z_{n},\quad k \coloneqq\lim_{n\to\infty}w_{n}
+\end{equation*}
+se per assurdo \(\ell\neq k\) allora, poiché \(X\) è \href{20250109155715-spazio_topologico_di_hausdorff.org}{Hausdorff} (vedi \href{20250317130124-spazi_metrici_sono_t2.org}{Spazi metrici sono T2}), esiste \(\varepsilon\) tale che, posto
+\begin{equation*}
+B_{d}(y, \varepsilon) \coloneqq \set{x \in Y\ |\ d(x,y)<\varepsilon}
+\end{equation*}
+si ha che
+\begin{equation*}
+B_{d}(\ell,\varepsilon)\cap B_{d}(k,\varepsilon) = \emptyset
+\end{equation*}
+Inoltre, per definizione di \href{20250115100930-convergenza_per_una_successione.org}{convergenza}, esiste \(M \in \N\) tale per cui, se \(n>M\), allora
+\begin{equation*}
+z_{n} \in B_{d}\left(\ell,\frac{\varepsilon}{4}\right) \subseteq B_{d}(\ell,\varepsilon), \quad w_{n} \in B_{d}\left(k,\frac{\varepsilon}{4}\right)
+\end{equation*}
+
+Allora \(d\left(z_{n}, w_{n}\right)\ge\frac{\varepsilon}{2}\). Questo contraddice l'ipotesi che
+\begin{equation*}
+\lim_{n\to \infty} d(z_{n},w_{n}) =0.
+\end{equation*}
+
+
+Infatti, se per assurdo
+\begin{equation*}
+d\left(z_{n}, w_{n}\right)<\frac{\varepsilon}{2}
+\end{equation*}
+allora per la disuguaglianza triangolare
+\begin{equation*}
+d\left(z_{n}, k\right) \le d\left(z_{n}, w_{n}\right) + d\left(w_{n}, k\right) < \frac{\varepsilon}{2} + \frac{\varepsilon}{4}<\varepsilon
+\end{equation*}
+e quindi \(z_{n} \in B_{d}(k,\varepsilon)\). Assurdo.
+\end{document}

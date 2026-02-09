@@ -1,0 +1,84 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Chiarimenti sui Passaggi Algebrici}
+\label{sec:org07e288f}
+I passaggi segnati con ``WHY'' nella dimostrazione dell'isomorfismo tra omologia singolare e cellulare si basano su due fatti generali di algebra omologica riguardanti i moduli e le mappe iniettive.
+\subsection{1. Isomorfismo di quozienti tramite iniezione (Primo WHY)}
+\label{sec:org6d8108c}
+
+Il passaggio:
+\begin{equation*}
+\frac{H_{q}(X_{q})}{\operatorname{Im}\partial_{q+1}^{(q+1,q)}} \cong \frac{\operatorname{Im} \pi_{q}^{(q,q-1)}}{\operatorname{Im} \bigg(\pi_{q}^{(q,q-1)}\circ \partial_{q+1}^{q+1,q}\bigg)}
+\end{equation*}
+è giustificato dal seguente lemma generale:
+
+\begin{lem}
+Siano \(M, N\) due \(R\)-moduli e \(\varphi: M \to N\) un omomorfismo \textbf{iniettivo}. Sia \(K \subseteq M\) un sottomodulo. Allora \(\varphi\) induce un isomorfismo tra i quozienti:
+\begin{equation*}
+\frac{M}{K} \cong \frac{\varphi(M)}{\varphi(K)}
+\end{equation*}
+\end{lem}
+
+\begin{proof}
+Consideriamo la restrizione di \(\varphi\) alla sua immagine, \(\tilde{\varphi}: M \to \operatorname{Im}(\varphi)\). Poiché \(\varphi\) è iniettiva, \(\tilde{\varphi}\) è un isomorfismo di moduli.
+Un isomorfismo mappa sottomoduli in sottomoduli e preserva i quozienti. Specificamente:
+\begin{enumerate}
+\item L'immagine di \(M\) tramite \(\tilde{\varphi}\) è \(\varphi(M)\) (ovvio).
+\item L'immagine del sottomodulo \(K\) tramite \(\tilde{\varphi}\) è \(\varphi(K)\).
+\end{enumerate}
+Pertanto, l'isomorfismo \(\tilde{\varphi}\) scende al quoziente:
+\begin{equation*}
+\frac{M}{K} \xrightarrow{\cong} \frac{\varphi(M)}{\varphi(K)}, \quad [m] \mapsto [\varphi(m)].
+\end{equation*}
+Nel nostro caso specifico:
+\begin{itemize}
+\item \(M = H_q(X_q)\)
+\item \(N = H_q(X_q, X_{q-1})\)
+\item \(\varphi = \pi_q^{(q,q-1)}\) (che sappiamo essere iniettiva)
+\item \(K = \operatorname{Im}\partial_{q+1}^{(q+1,q)}\)
+\end{itemize}
+Quindi il quoziente viene preservato mappando tutto tramite \(\pi_q\).
+\end{proof}
+\subsection{2. Nucleo di una composizione con iniezione (Secondo WHY)}
+\label{sec:org75ca3dc}
+
+Il passaggio:
+\begin{equation*}
+\ker \partial_{q}^{(q,q-1)} \cong \ker \left( \pi_{q-1}^{(q-1,q-2)}\circ \partial_{q}^{(q,q-1)} \right)
+\end{equation*}
+è giustificato dal fatto che comporre con una funzione iniettiva non cambia il nucleo della funzione precedente.
+
+\begin{lem}
+Siano \(f: A \to B\) e \(g: B \to C\) due omomorfismi di moduli. Se \(g\) è \textbf{iniettiva}, allora:
+\begin{equation*}
+\ker(f) = \ker(g \circ f)
+\end{equation*}
+\end{lem}
+
+\begin{proof}
+Dobbiamo mostrare la doppia inclusione (o l'uguaglianza diretta).
+Ricordiamo che \(x \in \ker(g \circ f) \iff g(f(x)) = 0\).
+
+Poiché \(g\) è iniettiva, il suo nucleo è banale, ovvero:
+\begin{equation*}
+g(y) = 0 \iff y = 0.
+\end{equation*}
+Sostituendo \(y\) con \(f(x)\), otteniamo:
+\begin{equation*}
+g(f(x)) = 0 \iff f(x) = 0 \iff x \in \ker(f).
+\end{equation*}
+Quindi i due insiemi coincidono esattamente.
+
+Nel nostro caso specifico:
+\begin{itemize}
+\item \(f = \partial_q^{(q,q-1)}\)
+\item \(g = \pi_{q-1}^{(q-1,q-2)}\) (che sappiamo essere iniettiva)
+\item \(g \circ f = \operatorname{d}_q\)
+\end{itemize}
+Pertanto \(\ker \partial_q^{(q,q-1)} = \ker \operatorname{d}_q\).
+\end{proof}
+\end{document}

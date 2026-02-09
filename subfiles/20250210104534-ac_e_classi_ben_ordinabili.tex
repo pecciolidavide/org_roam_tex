@@ -1,0 +1,37 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\Hrtg{\operatorname{Hrtg}}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\begin{thm}
+Una \href{20250130104320-classe_mk.org}{classe} \(X\) è \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile} se e solo se esiste una classe-\href{20250203105434-funzione_di_scelta.org}{funzione di scelta} su \(X\). In particolare, la \href{20250203104513-classe_totale.org}{classe totale} \(V\) è \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile} se e solo se vale l'\href{20250206171704-axiom_of_global_choice.org}{Axiom of global Choice}.
+\end{thm}
+
+\begin{cor}
+Per ogni \href{20250130104331-insieme_mk.org}{insieme} \(X\): \(\operatorname{AC}(X)\)\footnote{\(\operatorname{AC}(X)\) è una \href{20250210104302-forme_deboli_di_ac.org}{forma debole di AC}} se e solo se \(X\) è ben ordinabile.
+\end{cor}
+\begin{proof}
+\(\boxed{\Leftarrow}\): Si fissi un \href{20250203104134-buon_ordine_mk.org}{buon ordine} su \(X\), e sia \(A \subseteq X\) un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \href{20250131161811-insieme_vuoto_mk.org}{non vuoto}. Si pone \(f(A)\) come il \href{20250203102516-massimo_e_minimo.org}{minimo} di \(A\). Dunque \(f\) è una \href{20250203105434-funzione_di_scelta.org}{funzione di scelta su \(X\)}.
+
+\(\boxed{\Rightarrow}\): se \(X=\emptyset\) allora \(X \in \operatorname{Ord}\) e pertanto ben ordinabile. Dunque WLOG si supponga \(X\neq \emptyset\) e sia \(F\) la funzione di scelta.
+
+Se per assurdo \(X\) non fosse ben ordinabile, allora per ogni \href{20250203111003-ordinali.org}{ordinale} \(\alpha\), \(\alpha\not\equipotenti X\)\footnote{Con ``\(\equipotenti\)'' si intende la \href{20250619101109-classi_equipotenti.org}{relazione di equipotenza}}. Per ricorsione quindi si costruisce una funzione \(\Phi:\operatorname{Ord}\to X\).
+\begin{itemize}
+\item Si definisce \(x_{0}\coloneqq F(X)\).
+\item Al passo \(\alpha\) si sono costruiti \uline{distinti} dei punti \(\set{x_{\beta}\mid\beta<\alpha} \subseteq X\);
+\begin{itemize}
+\item se \(X=\set{x_{\beta}\mid \beta<\alpha}\) allora \(X\equipotenti \alpha\); questo è impossibile per l'ipotesi fatta, e dunque
+\item \(X\neq \set{x_{\beta}\mid \beta<\alpha}\); si pone \(x_{\alpha} \coloneqq F\left(X\setminus \set{x_{\beta}\mid \beta<\alpha}\right)\), \(x_{\alpha}\notin\set{x_{\beta}\mid \beta<\alpha}\).
+\end{itemize}
+\end{itemize}
+
+Restringendo \(\Phi\upharpoonright\operatorname{Hrtg}(X)\)\footnote{Con \(\Hrtg\) si intende il \href{20250205152531-numeri_di_hartogs.org}{Numero di Hartogs}.}, si ottiene un \href{20241219101956-funzione_iniettiva.org}{iniezione} \(\operatorname{Hrtg}(X)\to X\). Assurdo.
+\end{proof}
+\begin{cor}
+L'\href{20250206171508-axiom_of_choiche.org}{assioma della scelta} vale se e solo se ogni \href{20250130104331-insieme_mk.org}{insieme} è \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile}.
+\end{cor}
+\end{document}

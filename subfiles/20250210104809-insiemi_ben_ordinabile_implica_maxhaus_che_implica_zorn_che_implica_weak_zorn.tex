@@ -1,0 +1,91 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Proposizione}
+\label{sec:orgc09a2dd}
+Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme} \href{20250131161811-insieme_vuoto_mk.org}{non vuoto}.
+
+\(X\) è \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile} implica \(\textsc{MaxHaus}(X)\) implica \(\textsc{Zorn}(X)\) implica \(\textsc{wZorn}(X)\) .
+(vedi \href{20250210104707-principio_di_massimalita_di_hausdorff.org}{MaxHaus}, \href{20250210104633-lemma_di_zorn.org}{Zorn Lemma} e \href{20250210104633-lemma_di_zorn.org}{Weak Zorn Lemma})
+
+Inoltre \(\textsc{wZorn}\left(\parti{X\times X}\right)\) implica \(X\) ben ordinabile (vedi \href{20250130104245-morse_kelly_set_theory.org}{Insieme delle parti MK} e \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano di classi MK})
+\subsection{Dimostrazione}
+\label{sec:org31095af}
+
+\subsubsection{Punto 1.}
+\label{sec:orgf521cc7}
+Supponiamo che \(X\) sia ben ordinabile, e supponiamo per assurdo che \(\le\) sia un \href{20250203104134-buon_ordine_mk.org}{buon ordine} senza \href{20250102120836-catena.org}{catene massimali}.
+
+Sia dunque \(C \subseteq X\) una \href{20250102120836-catena.org}{catena}, e si definisca l'insieme
+\begin{equation*}
+K(C) \coloneqq \set{x \in X\setminus C\ |\ C\cup\set{x}\text{ è una catena}}
+\end{equation*}
+Questo è non vuoto poiché \(C\) non è una catena massimale.
+
+Sia \(F:\parti{X}\setminus\set{\emptyset}\to X\) una \href{20250203105434-funzione_di_scelta.org}{funzione di scelta} fissata (\href{20250210104534-ac_e_classi_ben_ordinabili.org}{che esiste}). Allora la funzione (vedi \href{20250205152531-numeri_di_hartogs.org}{Numeri di Hartogs})
+\begin{equation*}
+g: \operatorname{Hrtg}(X)\to X:\quad \alpha\mapsto F\left(
+K\left(\set{g(\beta)\ |\ \beta<\alpha}\right)
+\right)
+\end{equation*}
+che esiste per il \href{20250207121906-teorema_di_ricorsione.org}{Teorema di Ricorsione}, è iniettiva\footnote{Bisogna dimostrare che sia iniettiva}. \href{20250205152531-numeri_di_hartogs.org}{Assurdo}.
+\subsubsection{Punto 2.}
+\label{sec:orgcb0626c}
+Supponiamo ora \(\textsc{MaxHaus}(X)\), e sia \(\le\) un \href{20250203101604-ordine.org}{ordine} su \(X\) tale che ogni \href{20250102120836-catena.org}{catena} abbia un \href{20250203102516-massimo_e_minimo.org}{estremo superiore}.
+Sia \(C \subseteq X\) è una \href{20250102120836-catena.org}{catena massimale}, allora l'estremo superiore di \(C\) appartiene a \(C\), e pertanto è un \href{20250203102516-massimo_e_minimo.org}{elemento massimale} di \(X\).
+\subsubsection{Punto 3.}
+\label{sec:orgf422540}
+L'implicazione \href{20250210104633-lemma_di_zorn.org}{Zorn} implica \href{20250210104633-lemma_di_zorn.org}{wZorn} è immediata.
+\subsubsection{Punto 4.}
+\label{sec:org9552f4f}
+Sia \(\mathcal{P} \subseteq \parti{X\times X}\) l'insieme di tutti i buoni ordini \(R\) su \(X\) tali che \(\operatorname{fld}(R) \subseteq X\) (vedi \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Dominio, Range e Campo di una Classe Relazione}).
+
+Se \(R \in \mathcal{P}\) allora \(R\) è un \href{20250203104134-buon_ordine_mk.org}{buon ordine} su un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \(\operatorname{fld}(R) \subseteq X\). \(\mathcal{P}\neq \emptyset\) poiché \href{20250203161431-classe_ben_ordinabile_mk.org}{ogni insieme finito è ben ordinabile} (vedi anche \href{20250203161341-cardinali.org}{Numeri naturali sono cardinali})
+
+Per \(R, S \in \mathcal{P}\), si ponga \(R\trianglelefteq S\) se e solo se
+\begin{equation*}
+\exists\, a \in \operatorname{fld}S\ \left[\operatorname{fld}(R) = \operatorname{pred}(a; S) \,\land\, R = S\cap \operatorname{fld}(R)\times \operatorname{fld}(R) \right]
+\end{equation*}
+(vedi \href{20250206120526-segmento_iniziale_per_un_ordine.org}{Insieme dei predecessori} e \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano di classi MK})
+
+Per \(\textsc{wZorn}\left(\parti{X\times X}\right)\) esiste\footnote{\(\textsc{wZorn}\left(\parti{X\times X}\right)\) non richiede che l'ordine sia totale, e pertanto si può applicare a \(\trianglelefteq\). Inoltre, ovviamente, un elemento massimale di \(\parti{X\times X}\) rispetto a \(\trianglelefteq\) è necessariamente in \(\mathcal{P}\), poiché l'ordine è definito solo lì.
+Bisogna dimostrare che ogni insieme superiormente diretto di \(\mathcal{P}\) abbia un estremo superiore. Se \(R \subseteq \mathcal{P}\) allora \(\bigcup R\) è l'estremo superiore cercato.} \(\overline{R} \in \mathcal{P}\) elemento \(\trianglelefteq\)-\href{20250203102516-massimo_e_minimo.org}{massimale}. Se \(\operatorname{fld}(\overline{R}) = X\) allora \(\overline{R}\) è un \href{20250203104134-buon_ordine_mk.org}{buon ordine}\footnote{Infatti \(\overline{R}\) è un buon ordine su un sottoinsieme di \(X\). Se inoltre per ogni \(x \in X\) esiste \(y \in X\) tale che \((x,y) \in R\) oppure \((y,x) \in R\) si ha che questo sia un buon ordine su \(X\) poiché è \href{20250203101604-ordine.org}{totale}.} su \(X\).
+
+Supponiamo per assurdo che \(\operatorname{fld}(\overline{R}) \neq X\). Sia dunque \(a \in X\setminus\operatorname{fld}(\overline{R})\), e si consideri (vedi \href{20250131162451-coppia_ordinata_mk.org}{Coppia ordinata MK})
+\begin{equation*}
+S \coloneqq \overline{R}\cup \set{
+(y,a)\ |\ y \in \operatorname{fld}(\overline{R})
+}\cup\set{(a,a)}
+\end{equation*}
+
+Allora\footnote{Per dimostrare che \(S \in \mathcal{P}\) bisogna dimostrare che \(S\) sia \href{20250203095749-relazione_left_narrow_mk.org}{left-narrow} e \href{20250203100901-relazione_well_founded_mk.org}{well-founded} e che sia \href{20250203101604-ordine.org}{totale} su \(\operatorname{fld}(S)\subseteq X\).
+\begin{itemize}
+\item Sia \(x \in \operatorname{fld}(S)\). Allora, se \(x\neq a\)
+\begin{equation*}
+  \set{y \in X\ |\ (y,x) \in S} = \set{y \in X\ |\ (y,x) \in \overline{R}} \
+\end{equation*}
+che è un insieme poiché \(\overline{R}\) è left-narrow siccome buon ordine.
+Se invece \(x=a\) allora
+\begin{equation*}
+  \set{y \in X\ |\ (y,x) \in S} = \operatorname{fld}(\overline{R})\cup\set{a}
+\end{equation*}
+che è un insieme \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{poiché} \(\operatorname{fld}(\overline{R})\) è un insieme e per l'Axiom of Union (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata})
+\item Osserviamo che \(\operatorname{fld}(S) = \operatorname{fld}(\overline{R})\cup\set{a}\). Sia dunque \(Y \subseteq \operatorname{fld}(S)\). Sia \(\overline{y}\) l'elemento \(\overline{R}\)-minimale di \(Y\setminus \set{a}\) (dunque \(\overline{y}\neq a\)), e sia \(y \in Y\), \(y\neq \overline{y}\). Si deve dimostrare che \((y,\overline{y})\notin S\). Supponiamo per assurdo che \((y,\overline{y}) \in S\).
+Siccome \(\overline{y}\neq a\), si deve avere \((y,\overline{y}) \in \overline{R}\). Ma questo è assurdo. Infatti, se \(y = a\) allora \((a,\overline{y})\notin \overline{R}\) poiché \(a \notin \operatorname{fld}(\overline{R})\). Se invece \(y\neq a\) allora \((y,\overline{y})\notin \overline{R}\) per \(\overline{R}\)-minimalità di \(\overline{y}\) rispetto a \(Y\setminus\set{a}\).
+\end{itemize}
+Inoltre, sicuramente \(\overline{R} =  S\cap \operatorname{fld}(\overline{R})\times\operatorname{fld}(\overline{R})\) in quando, siccome \(a\notin \operatorname{fld}(\overline{R})\).
+Si ha anche che \(\operatorname{fld}(\overline{R}) = \operatorname{pred}(a;S)\), dove
+\begin{equation*}
+\operatorname{pred}(a;S) = \set{y \in X\ |\ (y,a) \in S}
+\end{equation*}
+Infatti, se \(y_{0} \in \operatorname{pred}(a;S)\) allora \((y_{0},a) \in S\). Siccome \(a \notin\operatorname{fld}(\overline{R})\), si che che
+\begin{equation*}
+(y_{0},a) \in \set{(y,a)\ |\ y \in \operatorname{fld}(\overline{R})}\cup\set{(a,a)}
+\end{equation*}
+Allora o \(y_{0} \in \operatorname{fld}(\overline{R})\) oppure \(y_{0} = a\). ????
+Se invece \(y_{0} \in \operatorname{fld}(\overline{R})\) allora \((y_{0},a) \in S\) e dunque \((y_{0},a) \in \operatorname{pred}(a;S)\).} \(S \in \mathcal{P}\) e \(\overline{R}\trianglelefteq S\), contro la massimalità di \(\overline{R}\). Assurdo
+\end{document}

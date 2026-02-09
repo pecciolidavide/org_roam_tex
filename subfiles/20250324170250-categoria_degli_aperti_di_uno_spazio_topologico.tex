@@ -1,0 +1,40 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Categoria degli aperti di uno spazio topologico}
+\label{sec:org6eb34e5}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}.
+\begin{definizione}
+Si definisce la \href{20241126100904-categoria.org}{categoria} \(\cat{A}_{X}\) tale che:
+\begin{itemize}
+\item gli oggetti di \(\cat{A}_{X}\) siano tutti gli \(U \subseteq X\) \href{20250103145124-topologia.org}{aperti};
+\item per ogni \(U,V \subseteq X\) aperti,
+\begin{equation*}
+  \operatorname{Hom}_{\cat{A}_{X}}(U,V)= \begin{cases}
+  	\emptyset & U \not\subseteq V\\
+  	i:U\hookrightarrow V & U \subseteq V
+      \end{cases}
+\end{equation*}
+\end{itemize}
+\end{definizione}
+\begin{oss}
+Quanto descritto sopra definisce una categoria.
+
+\begin{itemize}
+\item La composizione è quella usuale, poiché composizione di inclusioni è ancora un'inclusione (altrimenti non esiste)
+
+\item Se \(U,V,U',V' \subseteq X\) tali che \((U,V)\neq (U',V')\), allora
+\begin{equation*}
+  \operatorname{Hom}(U,V)\cap \operatorname{Hom}(U',V') = \emptyset
+\end{equation*}
+in quanto le funzioni sono caratterizzate da dominio e codominio.
+
+\item La composizione è associativa quando ha senso
+
+\item Esiste la mappa identità
+\end{itemize}
+\end{oss}
+\end{document}

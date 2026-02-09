@@ -1,0 +1,111 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Dualità di Poincaré}
+\label{sec:orgf8c0e1e}
+\begin{thm}
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} \href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile}. Allora, per ogni \(0\le k \le n\) il seguente \href{20251115185654-integrazione_di_forme_su_varieta_differenziabile_orientata.org}{integrale} (per il \href{20251229120415-prodotto_tensoriale.org}{prodotto tensoriale} tra \href{20251115172442-gruppo_di_coomologia_di_de_rham.org}{coomologie di De Rham} \(H^{k}\) e \href{20251115192241-coomologia_a_supporto_compatto.org}{a supporto compatto} \(H^{k}_{\text{c}}\)) è ben definito\footnote{Vedi ``\href{20251115155511-forma_differenziale_in_un_punto.org}{Prodotto wedge tra forme differenziali}''}
+\begin{align*}
+\int_{M}: H^{k}(M) \otimes H^{n-k}_{\text{c}}(M) &\longrightarrow \R\\
+([\omega],[\tau]) &\longmapsto \int_{M} \omega\wedge \tau
+\end{align*}
+e induce un \href{20250113125833-isomorfismo_tra_spazi_vettoriali.org}{isomorfismo} sullo \href{20250105124008-spazio_vettoriale_duale.org}{spazio duale}:
+\begin{align*}
+\int_{M}: H^{k}(M) &\xrightarrow{\hphantom{cia}\cong\hphantom{cia}} H^{n-k}_{\text{c}}(M)^{*}\\
+[\omega] &\longmapsto \bigg([\tau] \mapsto \int_{M} \omega\wedge \tau\bigg)
+\end{align*}
+\end{thm}
+
+\begin{proof}
+La mappa è ben definita per il \href{20251115190058-teorema_di_stokes.org}{Teorema di Stokes}. Si dimostra l'isomorfismo solo per \href{20251115191303-varieta_differenziabile_di_tipo_finito.org}{varietà di tipo finito}.
+
+\uline{Passo 0}: Considero un ricoprimento \(\set{U,V}\) di \(M\), e scrivo le due successioni Mayer-Vietoris (\href{20251115183635-teorema_di_mayer_vietoris_in_coomologia.org}{quella normale} e \href{20251229105636-successione_di_mayer_vietoris_per_coomologia_a_supporto_compatto.org}{quella a supporto compatto}), si ottiene un diagramma in cui tutti i quadrati sono commutativi, tranne (\(\star\)), che è commutativo a meno del segno (\emph{non dimostrato}):
+\begin{equation*}
+\begin{tikzcd}[sep=tiny]
+	\cdots && {H^k(M)} && {H^k(U)\oplus H^k(V)} && {H^k(U\cap V)} && {H^{k+1}(M)} && \cdots \\
+	&&&&&&& {(\star)} \\
+	\cdots && {H_{\text{c}}^{n-k}(M)^*} && {H_{\text{c}}^{n-k}(U)^*\oplus H_{\text{c}}^{n-k}(V)^*} && {H_{\text{c}}^{n-k}(U\cap V)^*} && {H_{\text{c}}^{n-k-1}(M)^*} && \cdots
+	\arrow[from=1-1, to=1-3]
+	\arrow[from=1-3, to=1-5]
+	\arrow["{\int_M}"', from=1-3, to=3-3]
+	\arrow[from=1-5, to=1-7]
+	\arrow["{\int_U}"', shift right=5, from=1-5, to=3-5]
+	\arrow["{\int_V}", shift left=5, from=1-5, to=3-5]
+	\arrow[from=1-7, to=1-9]
+	\arrow["{\int_{U\cap V}}", from=1-7, to=3-7]
+	\arrow[from=1-9, to=1-11]
+	\arrow["{\int_M}", from=1-9, to=3-9]
+	\arrow[from=3-1, to=3-3]
+	\arrow[from=3-3, to=3-5]
+	\arrow[from=3-5, to=3-7]
+	\arrow[from=3-7, to=3-9]
+	\arrow[from=3-9, to=3-11]
+\end{tikzcd}
+\end{equation*}
+
+\uline{Passo 1}: Si dimostra per induzione sulla cardinalità \(s\) di un \href{20251115191224-ricoprimento_aciclico_di_una_varieta_differenziabile.org}{ricoprimento aciclico} (ovvero \(\set{U_{\alpha}}_{\alpha \in A}\) tale che ogni intersezione finita non vuota di aperti sia diffeomorfa ad \(\R^{n}\), e \href{20251115173810-varieta_differenziabili_diffeomorfe_hanno_stessa_coomologia_di_de_rham.org}{quindi} abbia la stessa coomologia) di \(M\).
+\begin{itemize}
+\item Passo base \(s=1\): \(M\) è ricoperto da un solo aperto che ha la \href{20251115173611-coomologia_di_de_rham_di_r.org}{Coomologia di \(\R\)}.
+
+Quindi, per \(k\neq 0\) le coomologie sono nulle, mentre\footnote{Vedi anche ``\href{20251115192308-coomologia_a_supporto_compatto_di_r.org}{Coomologia a supporto compatto di R}''}:
+\begin{equation*}
+  H^{0}(M) \cong \R,\qquad H^{n-0}_{\text{c}}(M) \cong \R
+\end{equation*}
+
+Pertanto \(H^{n}_{\text{c}}(M)^{*} \cong \R\), e \(\int_{M}\) è effettivamente l'isomorfismo.
+
+\item Passo induttivo: Supponiamo la tesi vera per tutte le varietà che ammettono un ricoprimento aciclico di cardinalità \(s-1\), e la dimostriamo per una varietà che ammette un ricprimento aciclico di \(s\) aperti.
+
+Sia quindi \(M\) una varietà con un ricoprimento aciclico \(\set{U_{1},\dots,U_{s}}\), e siano
+\begin{equation*}
+  U\coloneqq U_{1}\cup\dots\cup U_{s-1},\qquad V\coloneqq U_{s}
+\end{equation*}
+Allora \(U\cap V\) è ricoperta da \(\set{U_{1}\cap U_{s},\dots,U_{s-1}\cap U_{s}}\). Scriviamo il diagramma commutativo di cui sopra:
+\begin{equation*}
+\scriptsize
+\begin{tikzcd}[column sep=tiny]
+        {H^{k-1}(U)\oplus H^{k-1}(V)} && {H^{k-1}(U\cap V)} && {H^k(M)} && {H^k(U)\oplus H^k(V)} && {H^k(U\cap V)} \\
+        \\
+        {H_{\text{c}}^{n-k+1}(U)^*\oplus H_{\text{c}}^{n-k+1}(V)^*} && {H_{\text{c}}^{n-k+1}(U\cap V)^*} && {H_{\text{c}}^{n-k}(M)^*} && {H_{\text{c}}^{n-k}(U)^*\oplus H_{\text{c}}^{n-k}(V)^*} && {H_{\text{c}}^{n-k}(U\cap V)^*}
+        \arrow[from=1-1, to=1-3]
+        \arrow["{\int_U}"'{text={rgb,255:red,255;green,54;blue,51}}, shift right=5, from=1-1, to=3-1]
+        \arrow["{\int_V}"{text={rgb,255:red,255;green,54;blue,51}}, shift left=5, from=1-1, to=3-1]
+        \arrow[from=1-3, to=1-5]
+        \arrow["{\int_{U\cap V}}"'{text={rgb,255:red,255;green,54;blue,51}}, from=1-3, to=3-3]
+        \arrow[from=1-5, to=1-7]
+        \arrow["{\int_M}"', from=1-5, to=3-5]
+        \arrow[from=1-7, to=1-9]
+        \arrow["{\int_U}"'{text={rgb,255:red,255;green,54;blue,51}}, shift right=5, from=1-7, to=3-7]
+        \arrow["{\int_V}"{text={rgb,255:red,255;green,54;blue,51}}, shift left=5, from=1-7, to=3-7]
+        \arrow["{\int_{U\cap V}}"{text={rgb,255:red,255;green,54;blue,51}}, from=1-9, to=3-9]
+        \arrow[from=3-1, to=3-3]
+        \arrow[from=3-3, to=3-5]
+        \arrow[from=3-5, to=3-7]
+        \arrow[from=3-7, to=3-9]
+\end{tikzcd}
+\end{equation*}
+
+Per ipotesi induttiva, tutti i morfismi evidenziati in rosso sono isomorfismi, e quindi, per il \href{20250120155801-lemma_del_cinque.org}{Lemma del cinque}, anche \(\int_{M}\) è isomorfismo.
+\qedhere
+\end{itemize}
+\end{proof}
+\begin{oss}
+Se \(M\) è una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} \href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile} e \href{20250103163701-spazio_topologico_compatto.org}{compatta}, allora \(H^{k}_{\text{c}}(M) = H^{k}(M)\), e pertanto, per DP:
+\begin{equation*}
+H^{k}(M) \cong H^{n-k}(M)^{*}
+\end{equation*}
+\end{oss}
+\begin{oss}
+Sempre nel caso in cui \(M\) è una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} \href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile} e \href{20250103163701-spazio_topologico_compatto.org}{compatta}, allora\footnote{Questo si ha perché:
+\begin{itemize}
+\item \href{20251115191303-varieta_differenziabile_di_tipo_finito.org}{Varietà differenziabile compatta ha tipo finito}
+\item \href{20251115191355-varieta_differenziabile_di_tipo_finito_ha_coomologia_di_dimensione_finita.org}{Varietà differenziabile di tipo finito ha coomologia di dimensione finita}
+\end{itemize}} la \href{20241205142027-spazio_vettoriale.org}{dimensione} \(\dim H^{k}(M) < +\infty\) e quindi, applicando nuovamente DP
+\begin{equation*}
+	H^{n-k}(M) \cong H^{k}(M)^{*} \cong H^{k}(M)
+\end{equation*}
+\end{oss}
+\end{document}

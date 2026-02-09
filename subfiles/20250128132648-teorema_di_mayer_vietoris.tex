@@ -1,0 +1,166 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema di Mayer-Vietoris (in omologia)}
+\label{sec:org7b325f6}
+Sia \(R\) un \href{20241219112842-pid.org}{PID}. Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} e siano \(X_{1},X_{2} \subseteq X\) tali che l'\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{unione} delle \href{20250122181431-parte_interna.org}{parti interne} sia tutto lo spazio:
+\begin{equation*}
+\mathring{X}_{1}\cup \mathring{X}_{2} = X.
+\end{equation*}
+Si definiscono le seguenti inclusioni:
+\begin{align*}
+i_{1}: X_{1}\cap X_{2} &\longrightarrow X_{1}\\
+i_{2}: X_{1}\cap X_{2} &\longrightarrow X_{2}\\
+j_{1}: X_{1} &\longrightarrow X\\
+j_{2}: X_{2} &\longrightarrow X.
+\end{align*}
+
+\begin{thm}
+Si ha la seguente \href{20250120125004-successione_di_r_moduli_esatta.org}{SEL} dei \href{20250122133631-omologia_singolare.org}{moduli di omologia singolare} (detta \textbf{di Mayer-Vietoris})
+\begin{equation*}
+\scalebox{0.945}{%
+\begin{tikzcd}[ampersand replacement=\&]
+	{H_{q+1}(X)} \& {H_q(X_1\cap X_2)} \&\& {H_q(X_1)\oplus H_q(X_2)} \&\& {H_q(X)} \& {H_{q-1}(X_1\cap X_2)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{(i_1)_{\star}\oplus (i_2)_\star}", from=1-2, to=1-4]
+	\arrow["{(j_1)_\star - (j_2)_\star}", from=1-4, to=1-6]
+	\arrow[from=1-6, to=1-7]
+\end{tikzcd}%
+}
+\end{equation*}
+dove \(\bullet_{\star}\) rappresenta il \href{20250123115927-funtore_di_omologia_singolare.org}{funtore di omologia} e le mappe sono definite come segue:\footnote{Vedi la \href{20241213095808-somma_diretta.org}{somma diretta di morfismi}.}
+\begin{align*}
+(i_{1})_{\star} \oplus (i_{2})_{\star}: H_{q}(X_{1}\cap X_{2}) & \longrightarrow H_{q}(X_{1})\oplus H_{q}(X_{2})\\
+c &\longmapsto \big((i_{1})_{\star}(c),\ (i_{2})_{\star}(c) \big)\\[1em]
+(j_{1})_{\star}-(j_{2})_{\star}: H_{q}(X_{1})\oplus H_{q}(X_{2}) & \longrightarrow H_{q}(X)\\
+(a,b) &\longmapsto (j_{1})_{\star} (a) - (j_{2})_{\star} (b)
+\end{align*}
+\end{thm}
+
+\begin{proof}
+\href{20241206142802-sottomoduli.org}{Si ha la seguente SEC di moduli}, per ogni \(q\):
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=small]
+	0 \& {S_q(X_1)\cap S_q(X_2)} \& {S_q(X_1)\oplus S_q(X_2)} \& {S_q(X_1)+S_q(X_2)} \& 0 \\
+	\& c \& {(c,c)} \\
+	\&\& {(s_1,s_2)} \& {s_1-s_2}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[maps to, from=2-2, to=2-3]
+	\arrow[maps to, from=3-3, to=3-4]
+\end{tikzcd}
+\end{equation*}
+Tutti \href{20250120163759-categoria_complessi_di_catene.org}{questi morfismi commutano con le mappe di bordo}, e pertanto è ben definita la \href{20250120183640-sec_di_complessi_di_catene.org}{SEC di complessi}:\footnote{Vedi:
+\begin{itemize}
+\item \href{20260203110150-complesso_di_catene_somma.org}{Somma di complessi di catene}
+\item \href{20260204100611-somma_diretta_di_complessi_di_catene.org}{Somma diretta di complessi di catene}
+\item \href{20260203110150-complesso_di_catene_somma.org}{Intersezione di complessi di catene}
+\end{itemize}}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=small]
+	0 \& {\mathcal{S}_{\bullet}(X_1)\cap \mathcal{S}_{\bullet}(X_2)} \& {\mathcal{S}_{\bullet}(X_1)\oplus \mathcal{S}_{\bullet}(X_2)} \& {\mathcal{S}_{\bullet}(X_1)+\mathcal{S}_{\bullet}(X_2)} \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+ed è possibile applicare lo \href{20250120164938-zig_zag_lemma.org}{Zig-Zag Lemma}, ottenendo:
+\begin{equation*}
+\scalebox{0.86}{%
+\begin{tikzcd}[ampersand replacement=\&,row sep=small]
+	{H_q\big(\mathcal{S}_{\bullet}(X_1)\cap \mathcal{S}_{\bullet}(X_2)\big)} \& {H_q\big(\mathcal{S}_{\bullet}(X_1)\oplus \mathcal{S}_{\bullet}(X_2)\big)} \& {H_q\big(\mathcal{S}_{\bullet}(X_1)+\mathcal{S}_{\bullet}(X_2)\big)} \& {H_{q-1}\big(\mathcal{S}_{\bullet}(X_1)\cap \mathcal{S}_{\bullet}(X_2)\big)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}%
+}
+\end{equation*}
+dove le mappe sono date dal \href{20250120165029-funtore_tra_chr_e_rmod.org}{funtore di omologia}.
+
+Per ciascuno dei moduli di omologia:
+\begin{itemize}
+\item Si noti che \(\mathcal{S}_{\bullet}(X_{1})\cap \mathcal{S}_{\bullet}(X_{2}) = \mathcal{S}_{\bullet}^{\cap}(X_{1},X_{2}) = \mathcal{S}_{\bullet}(X_{1}\cap X_{2})\) \href{20250128131221-complesso_di_catene_singolare_somma.org}{complesso di catene singolare intersezione}, e pertanto
+\begin{equation*}
+  H_q\big(\mathcal{S}_{\bullet}(X_1)\cap \mathcal{S}_{\bullet}(X_2)\big) = H_{q}(X_{1}\cap X_{2}).
+\end{equation*}
+\item Per il \href{20250126223310-teorema_di_escissione.org}{Teorema di Escissione} (la proposizione sul \href{20250128131221-complesso_di_catene_singolare_somma.org}{complesso di catene singolare somma}),
+\begin{equation*}
+  H_{q}\big(\mathcal{S}_{\bullet}(X_{1})+ \mathcal{S}_{\bullet}(X_{2})\big) \cong H_{q}(X).
+\end{equation*}
+con la mappa data dalla semplice inclusione.
+\item Siccome \href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{omologia} e \href{20260204100611-somma_diretta_di_complessi_di_catene.org}{somma diretta} \href{20260204120902-omologia_della_somma_diretta_di_complessi_di_catene.org}{commutano},
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=tiny]
+        {H_q\big(\mathcal{S}_{\bullet}(X_1)\oplus \mathcal{S}_{\bullet}(X_2)\big)} \&\& {H_q(X_1)\oplus H_q(X_2)} \\
+        {\big[(s_1,s_2)\big]} \&\& {\big([s_1],[s_2]\big)}
+        \arrow["\cong", from=1-1, to=1-3]
+        \arrow[tail reversed, from=2-1, to=2-3]
+\end{tikzcd}
+\end{equation*}
+\end{itemize}
+Componendo i morfismi, costruiamo il seguente diagramma commutativo che lega la successione esatta algebrica (riga superiore) con la successione di Mayer-Vietoris desiderata (riga inferiore):
+
+\begin{equation*}
+\scalebox{0.85}{%
+\begin{tikzcd}[ampersand replacement=\&, row sep=large, column sep=large]
+	{H_q(\mathcal{S}_{\bullet}(X_1)\cap \mathcal{S}_{\bullet}(X_2))} \& {H_q(\mathcal{S}_{\bullet}(X_1)\oplus \mathcal{S}_{\bullet}(X_2))} \& {H_q(\mathcal{S}_{\bullet}(X_1)+\mathcal{S}_{\bullet}(X_2))} \\
+	{H_q(X_1\cap X_2)} \& {H_q(X_1)\oplus H_q(X_2)} \& {H_q(X)}
+	\arrow["{\alpha_*}", from=1-1, to=1-2]
+	\arrow["{\beta_*}", from=1-2, to=1-3]
+	\arrow["=", from=1-1, to=2-1]
+	\arrow["{\Phi}"', "\cong", from=1-2, to=2-2]
+	\arrow["{\Psi}"', "\cong", from=1-3, to=2-3]
+	\arrow["{(i_1)_\star \oplus (i_2)_\star}"', from=2-1, to=2-2]
+	\arrow["{(j_1)_\star - (j_2)_\star}"', from=2-2, to=2-3]
+\end{tikzcd}%
+}
+\end{equation*}
+
+Analizziamo i morfismi verticali e la commutatività dei quadrati:
+
+\begin{enumerate}
+\item \textbf{\textbf{Primo quadrato (Mappa diagonale):}}
+Ricordiamo che \(\alpha(c) = (c,c)\).
+L'isomorfismo \(\Phi\) è l'inverso dell'isomorfismo naturale che porta una coppia di classi nella classe della coppia (vedi punto precedente sulla somma diretta).
+Partendo da \(c \in H_q(X_1 \cap X_2)\):
+\begin{itemize}
+\item Percorso alto: \(c \xrightarrow{\alpha_*} [(c,c)] \xrightarrow{\Phi} ([c], [c]) \in H_q(X_1) \oplus H_q(X_2)\).
+\item Percorso basso: \(c \longmapsto ((i_1)_\star(c), (i_2)_\star(c))\).
+\end{itemize}
+Poiché \(i_1, i_2\) sono inclusioni, le classi coincidono.
+
+\item \textbf{\textbf{Secondo quadrato (Mappa differenza):}}
+Ricordiamo che \(\beta(s_1, s_2) = s_1 - s_2\).
+L'isomorfismo \(\Psi\) è indotto dall'inclusione \(\iota: S_\bullet(X_1) + S_\bullet(X_2) \hookrightarrow S_\bullet(X)\) (che induce isomorfismo in omologia per il Teorema di Escissione/Barycentric subdivision).
+Sia \(([z_1], [z_2]) \in H_q(X_1) \oplus H_q(X_2)\):
+\begin{itemize}
+\item Percorso basso: \(([z_1], [z_2]) \longmapsto (j_1)_\star([z_1]) - (j_2)_\star([z_2])\).
+\item Percorso alto: \(([z_1], [z_2]) \xrightarrow{\Phi^{-1}} [(z_1, z_2)] \xrightarrow{\beta_*} [z_1 - z_2]\) (classe nel complesso somma).
+\end{itemize}
+Applicando \(\Psi\) (che è indotto dall'inclusione in \(X\)), la classe \([z_1 - z_2]\) diventa la classe in \(H_q(X)\).
+Poiché i cicli sono lineari, \([z_1 - z_2] = [z_1] - [z_2]\) in \(H_q(X)\), che coincide esattamente con \((j_1)_\star([z_1]) - (j_2)_\star([z_2])\).
+\end{enumerate}
+
+La successione inferiore è quindi esatta poiché isomorfa ad una successione esatta (quella superiore fornita dallo Zig-Zag Lemma). \qedhere
+\end{proof}
+
+\begin{oss}
+Se \(X\), \(Y\) sono spazi topologici e \(f:X\to Y\) continua tale che, per \(X_{1},X_{2} \subseteq X\), \(Y_{1},Y_{2} \subseteq X\):
+\begin{align*}
+f &: X \longrightarrow Y\\
+\restriction{f}{X_{1}}&: X_{1} \longrightarrow Y_{1}\\
+\restriction{f}{X_{2}}&: X_{2} \longrightarrow Y_{2}\\
+\restriction{f}{X_{1}\cap X_{2}}&: X_{1}\cap X_{2} \longrightarrow Y_{1}\cap Y_{2}
+\end{align*}
+sono tutte \href{20250124155008-spazi_topologici_omotopicamente_equivalenti.org}{equivalenze omotopiche}, allora:
+\begin{quote}
+se \((Y,Y_{1},Y_{2},Y_{1}\cap Y_{2})\) rispetta Mayer-Vietoris, lo fa anche \((X,X_{1},X_{2},X_{1}\cap X_{2})\).
+\end{quote}
+\end{oss}
+\end{document}

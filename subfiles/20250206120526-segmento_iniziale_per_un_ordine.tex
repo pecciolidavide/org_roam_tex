@@ -1,0 +1,35 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\textbf{\textbf{\uline{NOTA}: quando si parla di \uline{classi}, se ne parla nell'ambito della \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}; quando si parla di insiemi, il discorso ha validità più generale.}}
+
+Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme} (o una \href{20250130104320-classe_mk.org}{classe}) e sia \(R\) una \href{20250202170607-classe_relazione_binaria.org}{relazione binaria} \href{20250619161501-caratteristiche_delle_relazioni_binarie.org}{riflessiva} o \href{20250619161501-caratteristiche_delle_relazioni_binarie.org}{irriflessiva}, e \href{20250619161501-caratteristiche_delle_relazioni_binarie.org}{transitiva}.
+
+\begin{itemize}
+\item \(Y \subseteq X\) è un \uline{segmento iniziale per \(R\)} se
+\begin{equation*}
+  \forall\, y \in Y\ \forall\,x \in X\ (x\mathrel{R}y\implies x \in Y)
+\end{equation*}
+
+\item \(Y \subseteq X\) è un \uline{segmento finale per \(R\)} se
+\begin{equation*}
+  \forall\, y \in Y\ \forall\,x \in X\ (y\mathrel{R}x\implies x \in Y)
+\end{equation*}
+\end{itemize}
+\section{Insieme dei predecessori}
+\label{sec:org8bf7823}
+Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme} (o una \href{20250130104320-classe_mk.org}{classe}), e sia \(R\) un \href{20250203101604-ordine.org}{ordine}.
+
+Per ogni \(a \in X\) si definisce
+\begin{equation*}
+\operatorname{pred}(a;X,R) \coloneqq \set{x \in X\mid x\mathrel{R}a}.
+\end{equation*}
+
+\begin{itemize}
+\item Se \(X\) è un \href{20250130104331-insieme_mk.org}{insieme} \(\operatorname{pred}(a;X,R)\) è un \href{20250130104331-insieme_mk.org}{insieme}.
+\item Se \(X\) è una \href{20250130104320-classe_mk.org}{classe propria}, allora \(\operatorname{pred}(a;X,R)\) è un insieme sse \(R\) è \href{20250203095749-relazione_left_narrow_mk.org}{regolare}.
+\end{itemize}
+\end{document}

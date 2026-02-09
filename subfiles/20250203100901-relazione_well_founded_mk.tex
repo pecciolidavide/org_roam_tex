@@ -1,0 +1,30 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Relazione well-founded MK}
+\label{sec:org21b1bab}
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\begin{definizione}
+Sia \(X\) una \href{20250130104320-classe_mk.org}{classe}, e sia \(R\) una \href{20250202170607-classe_relazione_binaria.org}{relazione binaria}.
+
+\(R\) è \uline{ben fondata} se ogni \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoclasse} non \href{20250131161811-insieme_vuoto_mk.org}{vuota} di \(X\) contiene un \href{20250203102516-massimo_e_minimo.org}{elemento \(R\)-minimale}, ovvero
+\begin{equation*}
+\forall\, Y \subseteq X\ \left(Y \neq \emptyset\,\implies\, \exists\, y \in Y\ \forall\,z \in Y\ \left(z\neq y\,\implies\,(z,y) \notin R\right)\right)
+\end{equation*}
+(vedi \href{20250131162451-coppia_ordinata_mk.org}{Coppia ordinata MK})
+\end{definizione}
+\subsection{Inclusione è irriflessiva, well-founded e left-narrow}
+\label{sec:orgd31ca5b}
+Se \(V\) è la \href{20250203104513-classe_totale.org}{classe totale}, la relazione di inclusione
+\begin{equation*}
+\set{(x,y) \in V\,|\, x \in y}
+\end{equation*}
+è \href{20250619161501-caratteristiche_delle_relazioni_binarie.org}{irriflessiva}, e ben fondata per l'Axiom of Foundation. Inoltre, siccome per ogni \(x\)
+\begin{equation*}
+\set{y\,|\, y \in x} = x
+\end{equation*}
+e \(x\) è un \href{20250130104331-insieme_mk.org}{insieme}, allora è anche regolare.
+\end{document}

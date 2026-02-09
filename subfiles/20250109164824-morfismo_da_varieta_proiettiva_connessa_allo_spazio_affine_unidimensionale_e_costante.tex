@@ -1,0 +1,29 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Corollario del \href{20250109141249-morfismo_da_varieta_proiettiva_a_varieta_qp_e_chiuso.org}{TEOREMA}
+\section{Corollario}
+\label{sec:org6755c73}
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}, sia \(X\) una \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà algebrica proiettiva} e \href{20250103165325-spazio_topologico_connesso.org}{connessa}.
+Se \(f:X\longrightarrow \A^{1}\) (vedi \href{20241231114009-spazio_affine.org}{Spazio Affine}) è un \href{20250107112412-morfismo_tra_varieta_algebriche_qp.org}{morfismo}, allora \(f\) è costante.
+\subsection{Dimostrazione}
+\label{sec:orgc27f3f7}
+Siccome \(f\) è un morfismo, allora \(f\) è \href{20250103103252-funzione_continua.org}{continua} nella \href{20250103145124-topologia.org}{topologia} di \href{20250107112123-varieta_algebrica_quasi_proiettiva_qp.org}{Zariski}.
+\href{20250109165800-immagine_continua_di_spazio_connesso_e_connessa.org}{Pertanto} \(f(X)\) è connesso.
+
+Siccome \(X\) è una varietà algebrica proiettiva (ovvero un chiuso) e \(f\) è una funzione chiusa (per il \href{20250109141249-morfismo_da_varieta_proiettiva_a_varieta_qp_e_chiuso.org}{TEOREMA}), allora \(f(X) \subseteq \A^{1}\) è chiuso. Dentro ad \(\A^{1}\) con la \href{20250103101459-topologia_di_zariski_affine.org}{topologia di Zariski}, gli unici chiusi sono insiemi finiti di punti e \(\A^{1}\) stesso. Infatti ciascun polinomio in una indeterminata di grado \(d\), in un campo algebricamente chiuso, ha esattamente \(d\) zeri.
+
+Consideriamo ora \(g: X \longrightarrow \mathds{P}^{1}\), \(g(x) = [1:f(x)]\). \(g\) è sicuramente un \href{20250107112412-morfismo_tra_varieta_algebriche_qp.org}{morfismo} e per il \href{20250109141249-morfismo_da_varieta_proiettiva_a_varieta_qp_e_chiuso.org}{TEOREMA} \(g(X) \subseteq \mathds{P}^{1}\) è chiuso.
+Ma \(g(X) = i\left(f(X)\right)\), dove l'inclusione è un \href{20250107112412-morfismo_tra_varieta_algebriche_qp.org}{morfismo}
+\begin{align*}
+i: \A^{1} &\longrightarrow \mathds{P}^{1}\\
+t &\longmapsto [1:t]
+\end{align*}
+
+Se \(f(X)=\A^{1}\), allora \(g(X)= \mathds{P}^{1}\setminus\set{[0:1]}\) che non è chiuso dentro \(\mathds{P}^{1}\) (poiché dentro \(\mathds{P}^{1}\) gli unici chiusi sono \(\mathds{P}^{1}\) stesso e gli insiemi finiti di punti).
+
+Pertanto \(f(X)\) è un insieme finito di punti di \(\A^{1}\), connesso. Pertanto \(f(X)\) è un punto, ed \(f\) è costante.
+\end{document}

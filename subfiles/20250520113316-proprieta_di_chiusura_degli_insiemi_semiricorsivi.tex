@@ -1,0 +1,58 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
+\section{Proposizione}
+\label{sec:org8142750}
+La collezione degli \href{20250520113238-insieme_semiricorsivo.org}{insiemi semiricorsivi} è chiusa per:
+\begin{enumerate}
+\item sostituzioni \href{20250215151458-funzioni_ricorsive.org}{ricorsive} (mediante \href{20250213105339-funzione_parziale.org}{funzioni totali});
+\item proiezioni (ovvero quantificatori esistenziali);
+\item \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{intersezioni} (ovvero conginuzioni);
+\item \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{unioni} (ovvero disgiunzioni);
+\item quantificazioni limitate.
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:org508b5af}
+\begin{enumerate}
+\item Sia \(P \subseteq \N^{k}\) un insieme semiricorsivo, e siano, per \(1\le i\le k\): \(f_{i}: \N^{\ell}\to \N\) funzioni ricorsive totali. L'insieme \(R \subseteq \N^{\ell}\) definito da
+\begin{equation*}
+ R(\oldvec{x}^{\ell}) \quad \iff \quad P\left(f_{1}(\oldvec{x}^{\ell}),\dots,f_{k}(\oldvec{x}^{\ell})\right)
+\end{equation*}
+è semiricorsivo. Infatti, siccome \(P\) è semiricorsivo, allora esiste \(S \subseteq \N^{k+1}\) ricorsivo tale che
+\begin{equation*}
+ P(\oldvec{x}^{k}) \quad \iff\quad \exists\,y\ S(\oldvec{x}^{k},y).
+\end{equation*}
+Dunque, ponendo \(\oldvec{x}^{k} \coloneqq \left(f_{1}(\oldvec{x}^{\ell}),\dots,f_{k}(\oldvec{x}^{\ell})\right)\) si ha:
+\begin{align*}
+ R(\oldvec{x}^{\ell}) \quad &\iff \quad P\left(f_{1}(\oldvec{x}^{\ell}),\dots,f_{k}(\oldvec{x}^{\ell})\right)\\
+ &\iff\quad P(\oldvec{x}^{k})\\
+ &\iff\quad \exists\,y\ S(\oldvec{x}^{k},y)\\
+ &\iff\quad \exists\,y \ S\left(f_{1}(\oldvec{x}^{\ell}),\dots,f_{k}(\oldvec{x}^{\ell}),y \right)
+\end{align*}
+ma \(S\left(f_{1}(\oldvec{x}^{\ell}),\dots,f_{k}(\oldvec{x}^{\ell}),y \right)\) definisce un insieme ricorsivo, quindi la tesi.
+\item Sia \(P \subseteq \N^{k+1}\) semiricorsivo, e sia \(R \subseteq \N^{k}\) definito da
+\begin{equation*}
+ R(\oldvec{x}) \quad \iff \quad \exists\, y\ P(\oldvec{x},y).
+\end{equation*}
+\(R\) è semiricorsivo. Infatti, siccome \(P\) è semiricorsivo, allora esiste \(S \subseteq \N^{k+2}\) ricorsivo tale che
+\begin{equation*}
+ P(\oldvec{x},y)\quad \iff\quad \exists\,z\ S(\oldvec{x},y,z).
+\end{equation*}
+Ma allora
+\begin{align*}
+ R(\oldvec{x}) \quad &\iff\quad \exists\,y\ P(\oldvec{x},y)\\
+ &\iff\quad \exists\, y\exists\,z S(\oldvec{x},y,z)\\
+ &\iff\quad \exists\,t\ \left(\exists\, y\le t\ \exists\,z\le t\  S(\oldvec{x},y,z)\right)
+\end{align*}
+e l'insieme definito da \(\left(\exists\, y\le t\ \exists\,z\le t\  S(\oldvec{x},y,z)\right)\) \href{20250519112917-proprieta_di_chiusura_degli_insiemi_ricorsivi.org}{è ricorsivo}.
+\item Come sopra
+\item Come sopra
+\item Come sopra
+\end{enumerate}
+\end{document}

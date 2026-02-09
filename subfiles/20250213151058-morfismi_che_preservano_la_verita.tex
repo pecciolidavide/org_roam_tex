@@ -1,0 +1,21 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, e siano \(M,N\) due \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{strutture}.
+\section{Definione}
+\label{sec:org3cdcecd}
+Una funzione (anche \href{20250213105339-funzione_parziale.org}{parziale}) \(f: M\partialto N\) \uline{preserva la verità di \(\varphi(x)\)} una \(\mathcal{L}\)-formula \(\varphi(x_{1},\dots,x_{n})\) se per ogni \(a_{1},\dots,a_{n} \in \operatorname{dom}(f)\) nel dominio di \(f\)
+\begin{equation*}
+M\vDash \varphi[a_{1},\dots,a_{n}]\quad\implies\quad N\vDash \varphi[f(a_{1}),\dots,f(a_{n})]
+\end{equation*}
+(vedi \href{20250131122913-soddisfazione_di_una_formula.org}{Soddisfazione di una formula})
+\section{Funzione biiettiva che preserva la verità delle formule atomiche è isomorfismo}
+\label{sec:org55bb282}
+
+Se \(f:M\to N\) è una \href{20250213105339-funzione_parziale.org}{funzione totale} \href{20250104111707-funzione_biunivoca.org}{biiettiva} tale che sia \(f\) chee \(f^{-1}\) preservino la verità delle {[}BROKEN LINK: 2e27614e-3f6e-4f10-922e-1688f86d323c], allora \(f\) è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo tra \(\mathcal{L}\)-strutture}.
+
+La dimostrazione è molto standard.
+\end{document}

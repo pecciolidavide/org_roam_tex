@@ -1,0 +1,26 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità.
+
+Siano \(\mathcal{C}_{\bullet}, \mathcal{C}_{\bullet}'\) \href{20250120163114-complesso_di_catene.org}{complessi di catene} e sia \(f_{\bullet}: \mathcal{C}_{\bullet}\longrightarrow \mathcal{C}_{\bullet}'\) un \href{20250120163759-categoria_complessi_di_catene.org}{morfismo}. Fissato \(n \in \Z\), la mappa che assegna\footnote{Con ``\(H_{n}\)'' si intende l'\href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{\(n\)-esimo modulo di omologia}, mentre \(f_{\star}\) è la \href{20250120164930-morfismo_tra_complessi_di_catene_induce_morfismo_tra_moduli_di_omologia.org}{mappa indotta da \(f\)}}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&, row sep=small]
+	{\mathcal{C}_{\bullet}} \& {H_n(\mathcal{C}_{\bullet})} \\
+	{\big(f_{\bullet}\duepunti \mathcal{C}_{\bullet}\longrightarrow \mathcal{C}_{\bullet}'\big)} \& \begin{array}{c} \left(\begin{aligned}
+		f_{\star}\duepunti H_n(\mathcal{C}_{\bullet}) &\longrightarrow H_n(\mathcal{C}_{\bullet}')\\
+		[z] &\longmapsto [f_{n}(z)]
+		\end{aligned}\right) \end{array}
+	\arrow[maps to, from=1-1, to=1-2]
+	\arrow[maps to, from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+è un \href{20241205131958-funtore.org}{funtore} \href{20241204222455-funtore_covariante.org}{covariante} tra le \href{20250120163759-categoria_complessi_di_catene.org}{categorie dei complessi di catene} e degli \href{20241206115740-categoria_degli_r_moduli.org}{\(R\)-moduli},
+\begin{equation*}
+(H_{n},\star) : \cat{Ch}_{R}\longrightarrow \cat{RMod}
+\end{equation*}
+detto \textbf{\(n\)-esimo funtore di omologia}.
+\end{document}

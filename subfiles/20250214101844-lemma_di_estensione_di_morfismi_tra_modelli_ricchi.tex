@@ -1,0 +1,79 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione TEORIA DEI MODELLI}.
+
+Sia \(\mathcal{M} = \mathcal{M}_{\text{ob}}\cup \mathcal{M}_{\text{hom}}\) una \href{20241126100904-categoria.org}{categoria} \href{20250213142026-categorie_di_modelli_e_morfismi_parziali.org}{di modelli e morfismi parziali} di \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} \(\mathcal{L}\) tale che
+\begin{enumerate}
+\item per ogni \(M \in \mathcal{M}_{\text{ob}}\) e per ogni \(A \subseteq M\), \(\id_{A} : M\partialto M\) è \(\id_{A} \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(M,N \in \mathcal{M}_{\text{ob}}\), e \(k:M\partialto N\) \href{20250213105339-funzione_parziale.org}{funzione parziale}, se per ogni \(k' \subseteq k\) \href{20250205120448-classe_finita_e_infinita_mk.org}{finito} si ha \(k' \in \mathcal{M}_{\text{hom}}\), allora \(k \in \mathcal{M}_{\text{hom}}\);
+\item per ogni \(k \in \mathcal{M}_{\text{hom}}\), \(k\) è \href{20250111142446-funzione_inversa.org}{invertibile} e la sua \href{20250111142446-funzione_inversa.org}{inversa} \(k^{-1} \in \mathcal{M}_{\text{hom}}\);
+\item gli elementi di \(\mathcal{M}_{\text{hom}}\) \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{preservano la verità} delle \href{20250131103317-formula_del_prim_ordine.org}{formule atomiche};
+\item se \(M \in \mathcal{M}_{\text{ob}}\) e \(N\) è una \href{20250131103035-struttura_del_prim_ordine.org}{struttura} \href{20250131123208-teorie_elementarmente_equivalente.org}{elementarmente equivalente} a \(M\), \(M\equiv N\), allora \(N \in \mathcal{M}_{\text{ob}}\).
+\item per ogni \(M, N \in \mathcal{M}_{\text{ob}}\), se \(h:M\partialto N\) è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappa elementare}, allora \(h \in \mathcal{M}_{\text{hom}}\).
+\end{enumerate}
+
+Sia \(\lambda\) un \href{20250203161341-cardinali.org}{cardinale} tale che \(\card{\mathcal{L}}\le\lambda\)
+\section{Teorema}
+\label{sec:org45b1d6a}
+Siano \(M,N \in \mathcal{M}_{\text{ob}}\) di \href{20241213101756-cardinalita.org}{cardinalità} \(\card{M}=\card{N} =\lambda\), entrambi \href{20250213151902-modello_lambda_ricco.org}{ricchi}.
+Allora, per ogni \(k \in \mathcal{M}_{\text{hom}}(M,N)\) di cardinalità \(\card{k}<\lambda\), esiste un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo}:
+\begin{equation*}
+\tilde{k}:M\to N
+\end{equation*}
+\href{20250104111707-funzione_biunivoca.org}{biiettiva} tale che \(k \subseteq \tilde{k}\), \(\tilde{k} \in \mathcal{M}_{\text{hom}}(M,N)\).
+\subsection{Dimostrazione}
+\label{sec:orgbc55d6c}
+Siano \(\langle m_{i} \ |\ i<\lambda\rangle\), \(\langle n_{i}\ |\ i<\lambda\rangle\) le \href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{enumerazioni} di \(M\) ed \(N\).
+
+Si ponga \(k_{0}\coloneqq k\). Per \(\alpha<\lambda\) si effettua la seguente \href{20250207121906-teorema_di_ricorsione.org}{costruzione ricorsiva}:
+\subsubsection{Ordinale successore}
+\label{sec:orgbe54a93}
+Se \href{20250202124648-successore_di_un_insieme_mk.org}{\(\alpha= \operatorname{S}(\beta)\)} è un \href{20250203111003-ordinali.org}{ordinale} \href{20250203161132-ordinale_limite.org}{successore}, poiché \(N\) è ricco allora esiste \(n \in N\) tale che
+\begin{equation*}
+k_{\beta}\cup \set{(m_{\beta}, n)} \in \mathcal{M}_{\text{hom}}.
+\end{equation*}
+Si pone dunque
+\begin{equation*}
+k_{\beta+1/2} \coloneqq k_{\beta}\cup \set{(m_{\beta}, n)}
+\end{equation*}
+
+Per la proprietà 3., \(k_{\beta+1/2}\) è invertibile, e \((k_{\beta+1/2})^{-1} \in \mathcal{M}_{\text{hom}}\). Poiché \(M\) è ricco, allora esiste \(m \in N\) tale che
+\begin{equation*}
+(k_{\beta+1/2})^{-1} \cup \set{(n_{\beta}, m)} \in \mathcal{M}_{\text{hom}}.
+\end{equation*}
+Si pone quindi \(k_{\alpha} \coloneqq \left((k_{\beta+1/2})^{-1} \cup \set{(n_{\beta}, m)}\right)^{-1} \in \mathcal{M}_{\text{hom}}\)
+
+Si ha che \(m_{\beta} \in \operatorname{dom}k_{\alpha}\) e \(n_{\beta} \in \operatorname{rng}k_{\alpha}\). Inoltre \(k_{\beta} \subseteq k_{\alpha}\), poiché \(k_{\alpha} = k_{\beta}\cup\set{(m_{\beta},n), (m, n_{\beta})}\).
+\subsubsection{Ordinale limite}
+\label{sec:orga4243dc}
+Se \(\alpha\) è un ordinale limite (\href{20250203161110-numeri_naturali_sono_ordinali.org}{allora \(\alpha\ge \omega\)}), si pone
+\begin{equation*}
+k_{\alpha}' \coloneqq \bigcup_{\beta<\alpha} k_{\beta}.
+\end{equation*}
+Questa è una \href{20250202180416-unione_di_relazioni_funzionali_mk.org}{funzione parziale}; inoltre, per le assuzioni 1. e  2. questo è \(\in \mathcal{M}_{\text{hom}}\). (Infatti ogni \(k' \subseteq k_{\alpha}'\) finito è \(k_{\alpha^{*}}\circ \operatorname{Id}_{P}\) per qualche \(k_{\alpha}^{*}} \in \mathcal{M}_{\text{hom}}\) e \(P \subseteq M\)).
+
+Poiché \(N\) è ricco, allora esiste \(n \in N\) tale che
+\begin{equation*}
+k_{\alpha}'\cup \set{(m_{\alpha}, n)} \in \mathcal{M}_{\text{hom}}.
+\end{equation*}
+Questo dunque è invertibile e \(\left(k_{\alpha}'\cup \set{(m_{\alpha}, n)}\right)^{-1} \in \mathcal{M}_{\text{hom}}\); siccome \(M\) è ricco, allora esiste \(m \in M\) tale che
+\begin{equation*}
+\left(k_{\alpha}'\cup \set{(m_{\alpha}, n)}\right)^{-1} \cup \set{(n_{\alpha}, m)} \in \mathcal{M}_{\text{hom}}.
+\end{equation*}
+
+Si pone \(k_{\alpha} \coloneqq \left(\left(k_{\alpha}'\cup \set{(m_{\alpha}, n)}\right)^{-1} \cup \set{(n_{\alpha}, m)}\right)^{-1} \in \mathcal{M}_{\text{hom}}\).
+
+Si noti che \(k_{\alpha}' \subseteq k_{\alpha}\), e che \(m_{\alpha} \in \operatorname{dom} k_{\alpha}\), \(n_{\alpha} \in \operatorname{rng} k_{\alpha}\).
+\subsubsection{Isomorfismo}
+\label{sec:org996ff44}
+Si pone \(\tilde{k}\coloneqq \bigcup_{\beta<\lambda}k_{\beta}\). Questa è una biiezione (per costruzione), tale che \(k \subseteq \tilde{k}\), ed inoltre \(\tilde{k} \in \mathcal{M}_{\text{hom}}\).
+
+Per l'assunzione 4., siccome \(\tilde{k}\) \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{preserva la verità delle \(\mathcal{L}\)-formule atomiche}, \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{allora è un isomorfismo}.
+\section{Modelli ricchi della stessa cardinalità se nella stessa componente connessa sono isomorfi}
+\label{sec:org3759af8}
+Tutti i modelli ricchi di \href{20241213101756-cardinalita.org}{cardinalità} \(\lambda\) nella stessa \href{20250213153736-componente_connessa_di_una_categoria_di_modelli_e_morfismi_parziali.org}{componente connessa} sono \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfi}.
+\end{document}

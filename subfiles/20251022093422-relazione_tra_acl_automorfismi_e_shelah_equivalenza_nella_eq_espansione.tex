@@ -1,0 +1,104 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\newcommand{\U}{\mathcal{U}} % Modello mostro
+\newcommand{\acl}{\operatorname{acl}}
+\newcommand{\dcl}{\operatorname{dcl}}
+\newcommand{\tp}{\operatorname{tp}}
+\newcommand{\eq}{\text{eq}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\equivalentover}[1]{\mathrel{\equiv_{#1}}}
+\newcommand{\Shequivalentover}[1]{\mathrel{\overset{\text{Sh}}{\equiv}_{#1}}}
+\newcommand{\orbita}{\mathcal{O}}
+
+\begin{prop}
+Prove that following are equivalent for every \(A\subseteq\mathcal{U}\)
+\begin{enumerate}
+\item \(\operatorname{acl}^{\text{eq}} A=\operatorname{dcl}^{\text{eq}}\big(\operatorname{acl} A\big)\)
+\item \(\operatorname{Aut}(\mathcal{U}/\operatorname{acl}^{\text{eq}} A)= \operatorname{Aut}(\mathcal{U}/\operatorname{acl} A)\)
+\item \(c\mathrel{\equiv_{\operatorname{acl}A}}b\oldiff c\mathrel{\overset{\text{Sh}}{\equiv}_{A}} b\) for all \(c,b \in \U^{\lambda}\).
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(\(1.\Rightarrow 2.\)):
+Siccome in generale \(\acl A \subseteq \acl^{\eq} A\) allora
+\begin{equation*}
+\Aut(\U/\acl^\eq A) \subseteq \Aut(\U/\acl A).
+\end{equation*}
+
+Viceversa, sia \(f \in \Aut(\U/\acl A)\) e sia \(\mathcal{A} \in \acl^{\eq} A\).
+Per \(1.\) allora \(\mathcal{A} \in \dcl^{\eq}\big(\acl A\big)\) e per la caratterizzazione di \(\dcl^{\eq}\) allora esiste \(\psi(x) \in \mathcal{L}(\acl A)\) tale che \(\mathcal{A}=\psi(\U^{x})\).
+
+In particolare esiste \(\psi(x;z) \in \mathcal{L}\), con \(\card{z} = \card{\acl A}\) tale che, detta \(a\) una enumerazione di \(\acl A\):
+\begin{equation*}
+\psi(x) = \psi(x;a)\quad\oldimplies\quad \mathcal{A}=\psi(\U^{x};a).
+\end{equation*}
+Pertanto:
+\begin{equation*}
+f\mathcal{A}=f[\psi(\U^{x};a)] = \psi(\U^{x};fa) = \psi(\U^{x};a) = \mathcal{A}.
+\end{equation*}
+
+Per arbitrarietà di \(\mathcal{A}\) si ha \(f\mathcal{A}=\mathcal{A}\) per ogni \(\mathcal{A} \in \acl^{\eq} A\): \(f \in \Aut(\U/\acl^{\eq} A)\).
+
+(\(2.\Rightarrow 3.\)): È noto che per ogni \(c,b \in \U^{\lambda}\)
+\begin{equation*}
+c \Shequivalentover{A} b\quad\oldiff\quad c\equivalentover{\acl^\eq A} b.
+\end{equation*}
+È sufficiente quindi dimostrare che 2. implichi
+\begin{equation*}
+c\equivalentover{\acl A}b
+\quad\oldiff\quad
+c\equivalentover{\acl^\eq A} b
+\end{equation*}
+per ogni \(b,c \in\U^{\lambda}\) per ottenere la tesi.
+
+Ma \(c\equivalentover{\acl A}b\) se e solo se\footnote{Il verso \(c\equivalentover{\acl A}b\ \oldimplies\ \orbita (c/\acl A) = \orbita(b/\acl A)\)
+è ovvio, dal momento che \(\orbita(b/\acl A) = p(\U^{x})\), dove \(p(x) = \tp(b/\acl A)\).
+Viceversa WLOG si supponga per assurdo che vi sia \(\varphi(x) \in \tp(b/\acl A)\) tale che \(\varphi(x) \notin \tp(c/\acl A)\). Allora non vale \(\varphi(c)\) e quindi \(c\notin \orbita(b/\acl A)\). Assurdo poiché \(c\in \orbita(c/\acl A)\).} \(\orbita (c/\acl A) = \orbita(b/\acl A)\).
+
+Per \(2.\) questo è vero se e solo se \(\orbita(c/\acl^{\eq}A) = \orbita(b/\acl^{\eq}A)\) e, come sopra, questo avviene se e solo se \(c\equivalentover{\acl^{\eq} A} b\).
+
+(\(3.\Rightarrow 1.\)):
+Vale sempre \(\dcl^{\eq} (\acl A) \subseteq \acl^{\eq} A\). Infatti, sia \(\mathcal{B} \in \dcl^{\eq}(\acl A)\). Allora esiste \(\psi(x;z) \in \mathcal{L}\), \(\card{z}=n\), ed esistono \(a_{1},\dots,a_{n} \in \acl A\) tali che
+\begin{equation*}
+\mathcal{B} = \psi(\U^{x};a_{1},\dots,a_{n}).
+\end{equation*}
+Inoltre esistono \(\varphi_{1},\dots,\varphi_{n} \in \mathcal{L}(A)\) tali che \(\varphi_{i}(a_{i})\) e che testimoniano \(a_{i} \in \acl A\). Quindi la formula
+\begin{equation*}
+\Phi(\mathcal{X}):\quad
+\exists z_{1},\dots,z_{n}\
+\big(\mathcal{X} = \psi(\U^{x}; z_{1},\dots,z_{n}) \land \bigwedge_{i=1}^{n} \varphi_{i}(z_{i})\big)
+\end{equation*}
+ha parametri unicamente in \(A\) ed è realizzata da un numero finito di \(\mathcal{X}\) (poiché ciascuna \(\varphi_{i}\) ha un numero finito di realizzazioni), e inoltre \(\Phi(\mathcal{B})\). Pertanto \(\Phi\) testimonia \(\mathcal{B} \in \acl^{\eq} A\).
+
+Resta da dimostrare che \(3.\) implica \(\acl^{\eq} A \subseteq \dcl^{\eq}(\acl A)\).
+Sia quindi \(a\in \acl^{\eq} A\).
+
+\begin{itemize}
+\item Si noti che
+\(\orbita(a/\acl^{\eq}A) = \set{a}\)
+poiché \(a \in \acl^{\eq}A\).
+\item Inoltre,
+\begin{align*}
+  \orbita(a/\acl A) &= \set{b \in (\U^{\eq})^{\card{a}}\mid a\equivalentover{\acl A} b}\\
+  \orbita(a/\acl^{\eq} A) &= \set{b \in (\U^{\eq})^{\card{a}}\mid a\equivalentover{\acl^{\eq} A} b}.
+\end{align*}
+\item L'ipotesi \(3.\) implica che
+\begin{equation*}
+a\equivalentover{\acl A}b
+\quad\oldiff\quad
+a\equivalentover{\acl^\eq A} b
+\end{equation*}
+per ogni \(c,b\).
+\end{itemize}
+
+Utilizzando i tre fatti di cui sopra, si ottiene che
+\begin{equation*}
+\orbita(a/\acl A) = \orbita(a/\acl^{\eq}A) = \set{a}
+\end{equation*}
+ovvero \(a\) invariante su \(\acl A\). Per la caratterizzazione \(a \in \dcl^{\eq}(\acl A)\).
+\end{proof}
+\end{document}

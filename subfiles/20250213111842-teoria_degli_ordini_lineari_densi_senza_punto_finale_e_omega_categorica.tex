@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema}
+\label{sec:orgf791798}
+La \href{20250130114950-teoria_del_prim_ordine.org}{teoria} \(T_{\text{dlo}}\) \href{20250203101604-ordine.org}{degli ordini lineari densi senza punto finale} è \(\omega\)-\href{20250213111504-teoria_lambda_categorica.org}{categorica} (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}).
+\subsection{Dimostrazione}
+\label{sec:org134cb8c}
+
+Sia \(M,N\) due \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} \href{20250111143651-insieme_numerabile.org}{numerabili} di \href{20250203101604-ordine.org}{\(T_{\text{dlo}}\)}.
+
+\uline{Claim}: Ogni isomorfismo parziale \(k:M\partialto N\) si estende ad un isomorfismo \(g:M\to N\).
+
+Ponendo \(k=\emptyset\) si ottiene la tesi.
+
+\uline{\emph{Dimostrazione del Claim}}: si utilizza una \emph{costruzione di back-and-forth}.
+
+Siano \(\langle a_{i}: i<\omega\rangle\), \(\langle b_{i}:i<\omega\) \href{20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.org}{enumerazioni} di \(M\) e \(N\), rispettivamente, tale che \(a_{0} \in \operatorname{dom}k\) e \(b_{0} \in\operatorname{dom}(k)\).
+
+Si definisce per \href{20250207121906-teorema_di_ricorsione.org}{ricorsione} una catena di isomorfismi parziali finiti \(g_{i}:M\partialto N\) tali che \(a_{i} \in g_{i+1}\) e \(b_{i} \in \operatorname{rng} g_{i+1}\). Appare quindi evidente che \href{20250202180416-unione_di_relazioni_funzionali_mk.org}{ponendo}
+\begin{equation*}
+g \coloneqq \bigcup_{i \in \omega} g_{i}
+\end{equation*}
+si ottiene un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo}.
+
+Sia dunque \(g_{0}\coloneqq k\). Sia \(g_{i}:\)Il passo induttivo consiste di due steps, il \uline{forth step} e il \uline{back step}.
+\begin{itemize}
+\item \uline{Forth step}: Sia quindi \(g_{i}: M\partialto N\); per il \href{20250213104706-lemma_di_estensione_di_un_isomorfismo_parziale_tra_ordini.org}{Lemma di estensione}, esiste un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo parziale} \(g_{i+1/2} : M\partialto N\) tale che \(a_{i} \in \operatorname{dom}(g_{i+1/2})\).
+\item \uline{Back step}: siccome \((g_{i+1/2})^{-1}: N\partialto M\) è ancora un isomorfismo parziale, allora applicando lo stesso lemma questo si estende a \(f:N\partialto M\) tale che \(b_{i} \in \operatorname{dom}f\). Allora si pone \(g_{i+1}\coloneqq f^{-1}\).\qed
+\end{itemize}
+\end{document}

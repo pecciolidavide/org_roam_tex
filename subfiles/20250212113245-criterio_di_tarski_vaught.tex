@@ -1,0 +1,93 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, e sia \(N\) una \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura}.
+\section{Teorema (Criterio di Tarski-Vaught)}
+\label{sec:orga2397f1}
+Per ogni \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \(A \subseteq N\), sono fatti equivalenti:
+\begin{enumerate}
+\item \(A\) è il dominio di una sottostruttura elementare \(M\preceq N\);
+\item per ogni \href{20250212102927-enunciato_con_parametri.org}{formula} \(\varphi(x) \in \mathcal{L}(A)\)
+\begin{equation*}
+ N\vDash \exists\,x\ \varphi(x)\quad \implies\quad N\vDash \varphi(b)\text{ per qualche } b \in A
+\end{equation*}
+(vedi \href{20250131122913-soddisfazione_di_una_formula.org}{Enunciato vero in un modello del prim'ordine})
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:org0faa4d2}
+\subsubsection{1 implica 2}
+\label{sec:org630698c}
+
+Se \(M\preceq N\) allora \(M\mathrel{\equiv_{A}}N\) (vedi \href{20250131123208-teorie_elementarmente_equivalente.org}{Strutture elementarmente equivalenti su un sottoinsieme}), e dunque per ogni \(\sigma \in \mathcal{L}(A)\)
+\begin{equation*}
+M\vDash\sigma\,\iff\, N\vDash\sigma
+\end{equation*}
+
+Siccome \(\left(\exists\,x\ \varphi(x)\right) \in \mathcal{L}(A)\):
+\begin{align*}
+N\vDash\exists\,x\ \varphi(x) \quad &\implies\quad M\vDash \exists\, x \ \varphi(x)\\
+&\implies\quad M\vDash \varphi(b)\text{ per qualche }b \in A
+\end{align*}
+siccome ora \(\varphi(b) \in \mathcal{L}(A)\) allora
+\begin{equation*}
+M\vDash \varphi(b)\text{ per qualche }b \in A\quad\implies\quad N\vDash \varphi(b)\text{ per qualche }b \in A.
+\end{equation*}
+\subsubsection{2 implica 1}
+\label{sec:org00dd687}
+
+\paragraph{Dominio di una sottostruttura}
+\label{sec:orgf8a4ab7}
+
+Si dimostra che \(A \subseteq N\) è il dominio di una \href{20250131103212-sottostruttura_del_prim_ordine.org}{sottostruttura}, ovvero che per ogni \(f \in \mathcal{L}_{\text{fun}}\) (vedi \href{20250130162057-linguaggio_del_prim_ordine.org}{Simbolo di funzione}) di \href{20250130162057-linguaggio_del_prim_ordine.org}{arietà} \(n\), e per ogni \(\overline{a}=(a_{1},\dots,a_{n}) \in A^{n}\) (vedi \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano generalizzato}), \(f^{N}\overline{a} \in A\) (vedi \href{20250212100302-interpretazione_di_un_termine.org}{Interpretazione di un termine}).
+
+Si ponga dunque \(\varphi_{f,\overline{a}}(x)\):
+\begin{equation*}
+f(a_{1},\dots,a_{n}) = x
+\end{equation*}
+
+Poiché \(N\vDash \exists\, x\ \varphi_{f,\overline{a}}(x)\), allora \(N\vDash \varphi_{f, \overline{a}}(b)\) per qualche \(b \in A\) (condizione 2.), e quindi
+\begin{equation*}
+f^{N}(a_{1},\dots,a_{n}) = b \in A.
+\end{equation*}
+
+Sia dunque \(M \subseteq N\) la \href{20250131103212-sottostruttura_del_prim_ordine.org}{sottostruttura} di dominio \(A\).
+\paragraph{Sottostruttura elementare}
+\label{sec:orgd458d08}
+
+Si dimostra che per ogni \(\xi(x_{1},\dots,x_{n})\) \(\mathcal{L}\)-formula, per ogni \((a_{1},\dots,a_{n}) \in M^{n}\):
+\begin{equation*}
+M\vDash \xi(a_{1},\dots,a_{n})\quad \iff\quad N\vDash\xi(a_{1},\dots,a_{n})
+\end{equation*}
+(vedi \href{20250212122610-caratterizzazione_sottostruttura_elementare.org}{Caratterizzazione sottostruttura elementare}) per \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{induzione} sull'\href{20250131103317-formula_del_prim_ordine.org}{altezza della formula}
+\begin{enumerate}
+\item Passo base
+\label{sec:org6c1d5fb}
+
+Se \(\xi(x_{1},\dots,x_{n})\) è \href{20250131103317-formula_del_prim_ordine.org}{atomica}, allora per definizione di \href{20250131103212-sottostruttura_del_prim_ordine.org}{sottostruttura} e di \href{20250212100302-interpretazione_di_un_termine.org}{interpretazione di un termine}, segue la tesi.
+\item Ipotesi induttiva
+\label{sec:orgf7b6b26}
+
+Si dimostra solo per il quantificatore esistenziale. Infatti i connettivi \(\,\land\,, \,\lor\,, \lnot\,\) sono banali, e \(\forall\,\) è una combinazione di questi con \(\exists\,\).
+
+Sia \(\xi(x_{1},\dots,x_{n})\) la \href{20250131103317-formula_del_prim_ordine.org}{formula}
+\begin{equation*}
+\exists\,y\ \psi(x_{1},\dots,x_{n},y)
+\end{equation*}
+e assumiamo che l'ipotesi valga per \(\psi(x_{1},\dots,x_{n},y)\). Ricordando la definizione di ``\href{20250131122913-soddisfazione_di_una_formula.org}{Enunciato vero in un modello del prim'ordine}'', sia \((a_{1},\dots,a_{n}) \in M^{n}\)
+\begin{align*}
+M&\vDash \xi(a_{1},\dots,a_{n}) & &\iff & M&\vDash\psi(a_{1},\dots,a_{n},b)\text{ per qualche }b \in A\\
+&& &\iff& N&\vDash\psi(a_{1},\dots,a_{n},b)\\
+&& &\implies& N&\vDash\exists\,y\ \psi(a_{1},\dots,a_{n}, y)\\
+&& &\iff& N&\vDash\xi(a_{1},\dots,a_{n})
+\end{align*}
+
+Bisogna dimostrare che
+\begin{equation*}
+N\vDash \exists\,y\ \psi(a_{1},\dots,a_{n}, y)\quad\implies\quad N\vDash \psi(a_{1},\dots,a_{n}, b)\text{ per qualche }b \in A
+\end{equation*}
+ma questo è esattamente la condizione 2.
+\end{enumerate}
+\end{document}

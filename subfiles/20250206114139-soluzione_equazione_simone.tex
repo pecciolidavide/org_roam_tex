@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Trovare una soluzione numerica al seguente problema:
+\begin{equation*}
+\begin{cases}\displaystyle
+\tan\left(\frac{k_{x}\ d - n\pi}{2}\right) = \frac{\gamma}{k_{x}}\\[1em]
+k_{\Phi} = \frac{\textcolor{red}{\omega}}{c} = \frac{2\pi f}{c}\\[1em]
+k_{x} = \sqrt{k_{\Phi}^{2}\ (n_{\text{Si}}^{2}-\textcolor{red}{n_{\text{eff}}}^{2})}\\[1em]
+\gamma  = \sqrt{k_{\Phi}^{2}\ (\textcolor{red}{n_{\text{eff}}}^{2}-n_{\text{SiO2}}^{2})}\\[1em]
+n \in \set{0,1}\\[1em]
+d=160E-9
+\end{cases}
+\end{equation*}
+
+Innanzitutto
+\begin{equation*}
+\frac{\gamma}{k_{x}} = \sqrt{\displaystyle
+\frac{n_{\text{Si}}^{2}-\textcolor{red}{n_{\text{eff}}}^{2}}{\textcolor{red}{n_{\text{eff}}}^{2}-n_{\text{SiO2}}^{2}}
+}
+\end{equation*}
+
+dove
+\begin{align*}
+n_{\text{Si}}^{2}-\textcolor{red}{n_{\text{eff}}}^{2}&>0\\
+\textcolor{red}{n_{\text{eff}}}^{2}-n_{\text{SiO2}}^{2}&>0
+\end{align*}
+ovvero
+\begin{equation*}
+n^{2}_{\text{SiO2}} < \textcolor{red}{n_{\text{eff}}}^{2} < n_{\text{Si}}^{2}
+\end{equation*}
+che diventa
+\end{document}

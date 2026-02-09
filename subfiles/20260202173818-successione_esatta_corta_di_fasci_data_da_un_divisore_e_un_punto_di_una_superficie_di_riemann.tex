@@ -1,0 +1,110 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Successione esatta corta di fasci data da un divisore e un punto di una superficie di Riemann}
+\label{sec:org142394c}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, e sia \(\operatorname{Div}(X)\) il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{gruppo dei divisori di \(X\)}. Siano:
+\begin{itemize}
+\item per ogni \(D \in \operatorname{Div}(X)\), \(\mathcal{O}_{X}(D)\) il \href{20260202101128-fascio_associato_ad_un_divisore_su_una_superficie_di_riemann.org}{fascio associato a \(D\)};
+\item \(\mathcal{O}_{X}\) il \href{20260128143847-fascio_delle_funzioni_olomorfe_su_una_superficie_di_riemann.org}{fascio delle funzioni olomorfe};
+\item per ogni \(p \in X\), \(\C_{p}\) il \href{20250325171249-fascio_grattacielo.org}{fascio grattacielo centrato in \(p\)}.
+\end{itemize}
+
+\begin{oss}
+Per \(p \in X\):
+\begin{itemize}
+\item \(\mathcal{O}_{X}(-p)\) è il fascio delle funzioni olomorfe nulle in \(p\), ed è pertanto sottofascio di \(\mathcal{O}_{X}\):
+\begin{equation*}
+\mathcal{O}_{X}(-p) \hookrightarrow \mathcal{O}_{X}
+\end{equation*}
+\item Inoltre, si ha la mappa di valutazione in \(p\), morfismo di fasci \(\operatorname{ev}_{p}: \mathcal{O}_{X}\to \C_{p}\): se \(p \in U\):
+\begin{align*}
+\operatorname{ev}_{p,U}: \mathcal{O}_{X}(U) &\longrightarrow \C_{p}(U)\\
+f &\longmapsto f(p)
+\end{align*}
+se \(p\notin U\) allora \(\operatorname{ev}_{p,U}=0\).
+
+È possibile dimostrare che il \href{20250327114922-fascio_nucleo.org}{fascio nucleo} \(\ker \operatorname{ev}_{p} = \mathcal{O}_{X}(-p)\) e che \(\operatorname{ev}_{p}\) è \href{20250325180613-morfismo_di_prefasci.org}{morfismo di fasci} \href{20250327115214-morfismo_di_fasci_suriettivo.org}{suriettivo}.
+\end{itemize}
+Si ottiene quindi la \href{20250327150404-successione_di_fasci_esatta.org}{SEC} di \href{20250324174728-fascio.org}{fasci} di \href{20241205142027-spazio_vettoriale.org}{spazi vettoriali}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	0 \& {\mathcal{O}_X(-p)} \& {\mathcal{O}_X} \& {\C_p} \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["{\operatorname{ev}_p}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+\end{oss}
+
+\begin{prop}
+Per ogni \(D \in \operatorname{Div}(X)\) e \(p \in X\) esistono \(i\) e \(\varphi\) tali che
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	0 \& {\mathcal{O}_X(D-p)} \& {\mathcal{O}_X(D)} \& {\C_p} \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["i", from=1-2, to=1-3]
+	\arrow["\varphi", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+sia una \href{20250327150404-successione_di_fasci_esatta.org}{SEC} di \href{20250324174728-fascio.org}{fasci} di \href{20241205142027-spazio_vettoriale.org}{spazi vettoriali}.
+\end{prop}
+\begin{proof}
+Siccome \(D-p \le D\), \href{20260202101128-fascio_associato_ad_un_divisore_su_una_superficie_di_riemann.org}{allora} \(\mathcal{O}_{X}(D-p) \subseteq \mathcal{O}_{X}(D)\) è \href{20250325150647-sottoprefascio.org}{sottofascio}, e pertanto è possibile prendere come \(i\) l'inclusione.
+
+È necessario quindi costruire \(\mathcal{O}_{X}(D)\xrightarrow{\varphi} \C_{p}\) \href{20250327115214-morfismo_di_fasci_suriettivo.org}{suriettiva} il cui \href{20250327114922-fascio_nucleo.org}{nucleo} sia \(\mathcal{O}_{X}(D-p)\). Si fissi \(U_{p} \subseteq X\) \href{20250111142313-intorno.org}{intorno} \href{20250103145124-topologia.org}{aperto} e \href{20250103165325-spazio_topologico_connesso.org}{connesso} di \(p\), e \(z_{p}:U_{p}\to \C\) \href{20260127112715-atlante_complesso.org}{carta locale} tale che \(z_{p}(p) = 0\).
+
+Si definisce \(\varphi\). Sia ora \(U \subseteq X\) aperto.
+\begin{itemize}
+\item Se \(p\notin U\), allora si pone \(\varphi_{U} \coloneqq 0\).
+\item Se \(p \in U\), sia \(f \in \mathcal{O}_{X}(D)(U)\). Allora l'\href{20260128144450-ordine_di_una_funzione_meromorfa_su_una_superficie_di_riemann.org}{ordine}
+\begin{equation*}
+  \mathrm{ord}_{p} f \ge - D (p)
+\end{equation*}
+\begin{itemize}
+\item se \(f\) è nulla in un intorno di \(p\), si pone \(\varphi_{U}(f) = 0\);
+\item se \(f\) è non nulla in un intorno di \(p\), allora \(f\) nella carta locale ha uno sviluppo in \href{20260128163831-serie_di_laurent.org}{serie di Laurent}:
+\begin{equation*}
+f = \sum_{n\ge -D(p)} a_{n}\,z_{p}^{n}
+\end{equation*}
+Si pone \(\varphi_{U}(f) \coloneqq a_{-D(p)} \in \C\). Si noti che
+\begin{align*}
+a_{-D(p)} \neq 0 & \IFF \mathrm{ord}_{p} f = -D(p)\\
+a_{-D(p)} = 0 & \IFF \mathrm{ord}_{p} f > -D(p)\\
+&\IFF \mathrm{ord}_{p} f \ge -D(p) + 1\\
+&\IFF f \in \mathcal{O}_{X}(D-p) \subseteq \mathcal{O}_{X}(D).
+\end{align*}
+\end{itemize}
+\end{itemize}
+
+Si è dimostrato anche che \(\ker \varphi = \mathcal{O}_{X}(D-p)\).
+
+Resta da dimostrare che \(\varphi\) sia un \href{20250327115214-morfismo_di_fasci_suriettivo.org}{morfismo di fasci suriettivo}. Sia \(U \subseteq X\) aperto.
+\begin{itemize}
+\item Se \(p \notin U\), allora \(\varphi_{U}(U) = 0 = \C_{p}(U)\), e rispetta la suriettività.
+\item Se \(p \in U\), sia \(\lambda \in \C = \C_{p}(U)\). Vogliamo dimostrare che per ogni \(q \in U\) esiste \(W \subseteq U\) intorno aperto di \(q\), ed esiste \(F \in \mathcal{O}_{X}(D)(W)\) tale che \(\restriction{\lambda}{W} = \varphi_{W} (F)\).
+
+Per ogni \(q \neq p\) questo è ovvio: è sufficiente prendere un intorno \(W\) di \(q\) che non contenga \(p\), ottenendo che \(0 \in \mathcal{O}_{X}(D)(W)\) e \(\varphi_{W}(0) = 0 = \restriction{\lambda}{W}\).
+
+Sia quindi \(U_{p}\) l'intorno di \(p\) di cui sopra: \(z_{p}:U_{p}\to \C\) carta locale tale che \(z_{p}(p) = 0\). A meno di restringere \(U_{p}\), è possibile supporre che
+\begin{equation*}
+  U_{p}\cap \operatorname{supp}D \subsete\set{p}
+\end{equation*}
+in quanto il supporto è insieme discreto in uno spazio di Haussdorf. Allora \(\restriction{D}{U_{p}} = D(p)\cdot p\).
+
+Sia \(g \in \mathcal{M}_{X}(U_{p})\) data da \(g \coloneqq \lambda z_{p}^{-D(p)}\).
+\begin{itemize}
+\item \(g\) è olomorfa su \(U_{p}\setminus\set{p}\);
+
+\item \(\mathrm{ord}_{p}\,g = - D(p)\)
+\end{itemize}
+e pertanto \(\operatorname{div}g + \restriction{D}{U_{p}}\ge 0\): \(g \in \mathcal{O}_{X}(D)(U_{p})\) e \(\varphi_{U_{p}}(g) = \lambda\).
+\qedhere
+\end{itemize}
+\end{proof}
+\end{document}

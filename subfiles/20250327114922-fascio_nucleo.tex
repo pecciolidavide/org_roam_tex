@@ -1,0 +1,52 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Fascio nucleo}
+\label{sec:org5b47db9}
+Siano \(\mathcal{F},\mathcal{G}\) due \href{20250324174728-fascio.org}{fasci} sullo \href{20250103145124-topologia.org}{spazio topologico} \(X\), e sia \(\varphi: \mathcal{F}\to \mathcal{G}\) un \href{20250325180613-morfismo_di_prefasci.org}{morfismo di fasci}.
+
+\begin{definizione}
+Il \textbf{fascio nucleo} di \(\varphi\), indicato con \(\ker\varphi\), è definito ponendo per ogni \(U \subseteq X\) aperto:\footnote{Vedi ``\href{20241213105201-kernel.org}{Kernel}''}
+\begin{equation*}
+(\ker \varphi) (U) \coloneqq \ker \varphi_{U} \subseteq \mathcal{F}(U).
+\end{equation*}
+\end{definizione}
+
+\begin{prop}
+\(\ker \varphi\) è \href{20250325150647-sottoprefascio.org}{sottofascio} di \(\mathcal{F}\).
+\end{prop}
+
+\begin{proof}
+Bisogna dimostrare le seguenti cose.
+\begin{enumerate}
+\item \((\ker \varphi)(U) \subseteq \mathcal{F}(U)\) è \href{20241206143051-sottogruppo.org}{sottogruppo}.
+\item Dobbiamo dimostrare che \(\ker\varphi\) \href{20250324165349-prefascio.org}{definisca effettivamente un prefascio}.
+
+Siano quindi \(W \subseteq U \subseteq X\) aperti. Se \(f \in (\ker \varphi)(U) = \ker \varphi_{U}\), devo dimostrare che \(\restriction{f}{W} \in (\ker \varphi)(W) = \ker \varphi_{W}\).
+
+Ma \(\varphi_{U} f = 0\), quindi
+\begin{equation*}
+ 0=\restriction{\varphi_{U} f}{W} = \varphi_{W} \restriction{f}{W}
+\end{equation*}
+e pertanto \(\restriction{f}{W} \in \ker\varphi_{W} = (\ker\varphi)(W)\).
+
+\item Si dimostra che \(\ker\varphi\) soddisfi l'\href{20250324174728-fascio.org}{assioma di esistenza di fascio}. Non è necessaria l'\href{20250324174728-fascio.org}{unicità}, in quanto i sottoprefasci la soddisfano sempre.
+
+Sia \(U \subseteq X\) aperto, \(\set{U_{i}}\) ricoprimento aperto di \(U\). Se \(f \in \mathcal{F}(U)\) è tale che
+\begin{equation*}
+ \forall  i:\qquad \restriction{f}{U_{i}} \in (\ker\varphi)(U_{i})
+\end{equation*}
+vogliamo dimostrare che \(f \in (\ker\varphi)(U)\).
+
+Si consideri quindi \(\varphi_{U}(f) \in \mathcal{G}({U})\):
+\begin{equation*}
+ \forall i: \qquad \restriction{\varphi_{U}(f)}{U_{i}} = \varphi_{U_{i}}(\restriction{f}{U_{i}}) = 0
+\end{equation*}
+e pertanto, siccome \(\mathcal{G}\) è un fascio, allora \(\varphi_{U}(f) = 0\).
+\qedhere
+\end{enumerate}
+\end{proof}
+\end{document}

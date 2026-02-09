@@ -1,0 +1,58 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Definizione}
+\label{sec:org8248774}
+Sia \(X\) una \href{20250130104320-classe_mk.org}{classe}. La chiusura transitiva di \(X\) è
+\begin{align*}
+\operatorname{TC}(X) &= \left\{
+y\ |\ \exists\, n \in \omega\ \exists\, f \in \prescript{\operatorname{S}(n)}{}{V}\ \left[ f(0) \in X \,\land\,
+\right.\right.\\ &\qquad\qquad \left.\left.
+y = f(n) \,\land\, \forall\, i<n\ \left[f\left(\operatorname{S}(i)\right) \in f(i)\right]
+\right]\right\}
+\end{align*}
+dove \(V\) è la \href{20250203104513-classe_totale.org}{classe di tutti gli insiemi} (vedi \href{20250202192030-classe_delle_classi_funzioni.org}{Classe delle Classi-Funzioni}, \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme MK}).
+
+Si ha che \(y \in \operatorname{TC}(X)\) se e solo se esistono \(x_{0},\dots,x_{n} \in V\) tali che
+\begin{equation*}
+y \in x_{0} \in x_{1} \in \dots \in x_{n} \in X
+\end{equation*}
+\subsection{Osservazione}
+\label{sec:orgab47848}
+La classe \(\operatorname{TC}(X)\) è \href{20250203110714-classe_transitiva.org}{transitiva}. Infatti, se \(z \in y \in \operatorname{TC}(X)\) e \(f \in \prescript{\operatorname{S}(n)}{}{V}\) testimonia il fatto che \(y \in \operatorname{TC}(X)\), allora (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Unione di classi MK})
+\begin{equation*}
+f\cup \set{\left(\operatorname{S}(n), z\right)}
+\end{equation*}
+testimonia \(z \in \operatorname{TC}(X)\).
+
+Inoltre \(X \subseteq \operatorname{TC}(X)\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK}) e se \(Y\supseteq X\) è transitivo allora\footnote{Infatti, sia \(y \in \operatorname{TC}(X)\). Allora
+\begin{equation*}
+y \in x_{0} \in x_{1} \in \dots \in x_{n} \in X \subseteq Y
+\end{equation*}
+e dunque \(x_{n} \in Y\). Pertanto
+\begin{equation*}
+y \in x_{0} \in x_{1} \in \dots \in x_{n} \in Y
+\end{equation*}
+e per transitività \(y \in Y\).} \(\operatorname{TC}(X) \subseteq Y\). Dunque \(\operatorname{TC}(X)\) è la più piccola classe transitiva che contiene \(X\).
+\section{Chiusura transitiva di un insieme}
+\label{sec:org73b64a1}
+Se \(x\) è un insieme, allora si può definire la chiusura transitiva di \(x\) in due modi equivalenti.
+\subsection{Primo metodo}
+\label{sec:orgb3cbd2c}
+Si usa il \href{20250207121712-teorema_di_ricorsione_caso_speciale.org}{Teorema di Ricorsione - caso speciale}
+
+Si pone \(x_{0}=x\) e \(x_{n+1} = \bigcup x_{n}\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata}), e si ha:
+\begin{equation*}
+\operatorname{TC}(x) = \bigcup_{n \in \omega} x_{n}
+\end{equation*}
+\subsection{Secondo metodo}
+\label{sec:orgd0297f4}
+Si usa il \href{20250207121906-teorema_di_ricorsione.org}{Teorema di Ricorsione}, con \(R=\in\) (vedi \href{20250203100901-relazione_well_founded_mk.org}{Inclusione è irriflessiva, well-founded e left-narrow})
+\begin{equation*}
+\operatorname{TC}(x) = x\cup\bigcup_{y \in x} \operatorname{TC}(y)
+\end{equation*}
+\end{document}

@@ -1,0 +1,110 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:org248ffe6}
+A subset of a topological space is \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{\$\(\sigma\)\$-compact} (or \(K_\sigma\) ) if it can be written as a countable union of compact spaces. (For example, finitedimensional Euclidean spaces \(\R^n\) are \$\(\sigma\)\$-compact.) A set \(A \subseteq \omega^{\omega}\) is \href{20250327104804-insieme_limitato_dello_spazio_di_baire.org}{eventually bounded} if there is \(z \in \omega^\omega\) such that for all \(x \in A\) there is \(n \in \omega\) for which \(x(m) \leq z(m)\) for all \(m \geq n\). Prove that the following conditions are equivalent for an arbitrary \(A \subseteq \omega^\omega\) :
+\begin{enumerate}
+\item \(A\) is contained in a \$\(\sigma\)\$-compact set;
+\item \(A\) is eventually bounded.
+\end{enumerate}
+
+Conclude that \(F \subseteq \omega^\omega\) is a \$\(\sigma\)\$-compact set if and only if it is \(F_\sigma\) and eventually bounded, and that \href{20250402170018-spazio_di_baire_non_e_compatto.org}{\(\omega^\omega\) is not \$\(\sigma\)\$-compact}. Provide an explicit example of a subset of the Baire space which is \$\(\sigma\)\$-compact but not compact. Argue that \(\omega^\omega\) cannot be embedded as an \(F_\sigma\) (so neither closed) set into a \$\(\sigma\)\$-compact Polish space like \(\R^n\).
+\subsection{Dimostrazione}
+\label{sec:orga883386}
+
+\subsubsection{b. implica a.}
+\label{sec:org874dd45}
+Sia \(A\) \href{20250327104804-insieme_limitato_dello_spazio_di_baire.org}{definitivamente limitato}, e sia \(z \in \omega^{\omega}\) testimone. Si ponga, per ogni \(n \in\omega\)
+\begin{equation*}
+A_{n} \coloneqq \set{x \in A\mid \forall\, i \in \omega\ \left(x(i)\le \max\set{n, z(i)}\right)} \subseteq A
+\end{equation*}
+Si noti che \(A_{n}\) è \href{20250327104804-insieme_limitato_dello_spazio_di_baire.org}{limitato}, poiché posto \(y_{n}(i) \coloneqq \max\set{n, z(i)}\), \(y_{n} \in \omega^{\omega}\).
+
+Sia ora \(x_{0} \in A\). Allora esiste \(n_{0} \in \omega\) tale che, per ogni \(m\ge n_{0}\): \(x(m)\le z(m)\). Sia quindi \(N \coloneqq \max_{m< n_{0}} x(m)\). Allora
+\begin{equation*}
+\forall\, i \in \omega\quad x(i)\le \max\set{N, z(i)}
+\end{equation*}
+e pertanto \(x(i)\le y_{N}(i)\) e \(x \in A_{N}\).
+
+Segue che \(A=\bigcup_{n \in\omega} A_{n}\). Siccome ciascun \(A_{n}\) è \textbf{limitato}, allora esiste \(K_{n}\supseteq A_{n}\) \href{20250103163701-spazio_topologico_compatto.org}{compatto} (per l'\href{20250327104743-caratterizzazione_dei_compatti_dello_spazio_di_baire.org}{esercizio precedente}), e quindi
+\begin{equation*}
+A \subseteq \bigcup_{n \in \omega} K_{n}
+\end{equation*}
+\subsubsection{a. implica b.}
+\label{sec:org6e81934}
+Senza perdita di generalità si dimostra che se \(A\) è \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{\(\sigma\)-compatto}, allora \(A\) è \href{20250327104804-insieme_limitato_dello_spazio_di_baire.org}{definitivamente limitato} (in quanto se \(C\) è definitivamente limitato allora anche \(B \subseteq C\) lo è).
+
+Sia quindi
+\begin{equation*}
+A = \bigcup_{n \in \omega} K_{n}
+\end{equation*}
+e \(K_{n}\) \href{20250103163701-spazio_topologico_compatto.org}{compatto} per ogni \(n \in \omega\). Allora, per l'esercizio precedente, \(K_{n}\) è \href{20250103145124-topologia.org}{chiuso} e \href{20250327104804-insieme_limitato_dello_spazio_di_baire.org}{limitato}. Sia quindi \(y_{n}\) un testimone della limitatezza di \(K_{n}\).
+
+Si definisce quindi \(z \in \omega^{\omega}\): per ogni \(i \in \omega\):
+\begin{equation*}
+z(i) \coloneqq \max\set{y_{0}(i), \dots , y_{i}(i)}
+\end{equation*}
+
+Allora, per ogni \(x \in A\) esiste \(N \in\omega\) tale che \(x \in K_{N}\): pertanto, per ogni \(m> N\):
+\begin{align*}
+x(m)&\le y_{N}(m) \le \max\set{y_{0}(m), \dots, y_{N}(m)}\\
+&\le \max\set{y_{0}(m),\dots,y_{N}(m),\dots, y_{m}(m)} = z(m).
+\end{align*}
+\subsubsection{Caratterizzazione dei \(\sigma\)-compatti}
+\label{sec:org5344d23}
+
+Se \(F \subseteq \omega^{\omega}\) è \(\sigma\)-compatto allora:
+\begin{itemize}
+\item è \(\bm{F}_{\sigma}\) in quanto \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{unione} \href{20250111143651-insieme_numerabile.org}{numerabile} di compatti, che per la \href{20250327104743-caratterizzazione_dei_compatti_dello_spazio_di_baire.org}{caratterizzazione dell'esercizio} precedente sono \href{20250103145124-topologia.org}{chiusi};
+\item è \href{20250327104804-insieme_limitato_dello_spazio_di_baire.org}{definitivamente limitato} per la dimostrazione ``\ref{sec:org6e81934}'' svolta sopra.
+\end{itemize}
+
+Se \(F \subseteq \omega^{\omega}\) è un insieme \(\bm{F}_{\sigma}\) e definitivamente limitato, allora è contenuto in un insieme \(\sigma\)-compatto \(K\). Si scrivano:
+\begin{equation*}
+F \coloneqq \bigcup_{n \in\omega} C_{n},\qquad K\coloneqq\bigcup_{m \in \omega}K_{m}
+\end{equation*}
+con \(C_{n}\) chiusi e \(K_{m}\) compatti. Allora
+\begin{equation*}
+F= F\cap K = \bigcup_{n,m \in \omega} (C_{n}\cap K_{m})
+\end{equation*}
+dove \((C_{n}\cap K_{m}) \subseteq K_{m}\) è un chiuso in un compatto, e \href{20250401125136-chiuso_in_un_compatto_e_compatto.org}{quindi} compatto e pertanto \(F\) è \(\sigma\)-compatto.
+
+Inoltre, se \(\omega^{\omega}\) fosse \(\sigma\)-compatto, allora dovrebbe essere definitivamente limitato. Ma per ogni \(z \in \omega^{\omega}\) esiste \(z' \in \omega^{\omega}\) tale che per ogni \(n \in \omega\) esiste \(m\ge n\) per cui  \(z'(m)> z(m)\). È sufficiente porre, per ogni \(i \in \omega\): \(z'(i) = z(i) + 1\).
+\subsubsection{Insieme \(\sigma\)-compatto ma non compatto}
+\label{sec:orga64a3ba}
+
+Per il \href{20250401124050-teorema_di_tichonov.org}{Teorema di Tychonoff}, per ogni \(n \in\omega\) gli insiemi
+\begin{equation*}
+C_{n} \coloneqq \prod_{m \in \omega} \set{0,1,2, \dots, n}
+\end{equation*}
+sono \href{20250103163701-spazio_topologico_compatto.org}{compatti}, e pertanto \(C \coloneqq \bigcup_{n \in \omega} C_{n}\) è \(\sigma\)-compatto.
+
+Per ogni \(z \in \omega^{\omega}\), si ponga \(N\coloneqq z(0)\). Allora esiste \(x \in C_{N+1}\) tale che \(x(0) = N+1\), e quindi \(x(0)>z(0)\). Pertanto \(C\) non è \href{20250327104804-insieme_limitato_dello_spazio_di_baire.org}{limitato}, e \href{20250327104743-caratterizzazione_dei_compatti_dello_spazio_di_baire.org}{quindi} non è compatto.
+\subsubsection{Immersione di \(\omega^{\omega}\)}
+\label{sec:org2ce1e89}
+Siano per assurdo \(X\) uno spazio polacco \(\sigma\)-compatto (ovvero \(X=\bigcup_{m \in \omega} K_m\) con \(K_{m}\) compatti) ed \(\iota\) una \href{20250331122739-immersione_topologica.org}{immersione}:
+\begin{equation*}
+\iota: \omega^{\omega}\to X
+\end{equation*}
+tale per cui \(\iota(\omega^{\omega})\) sia un insieme \(\bm{F}_{\sigma}\) di \(X\).
+
+Allora esistono \(C_{n} \subseteq X\) chiusi tali che
+\begin{equation*}
+\iota(\omega^{\omega}) = \bigcup_{n \in \omega }C_{n}.
+\end{equation*}
+Inoltre si ha
+\begin{equation*}
+\iota(\omega^{\omega})= \left(\bigcup_{n \in\omega} C_{n}\right)\cap \left(\bigcup_{m \in\omega} K_{m}\right) = \bigcup_{n,m \in \omega} C_{n}\cap K_{m}
+\end{equation*}
+e pertanto
+\begin{equation*}
+\omega^{\omega} = \bigcup_{n,m \in\omega} \iota^{-1}(C_{n}\cap K_{m}).
+\end{equation*}
+Ma \(C_{n}\cap K_{m} \subseteq K_{m}\) sono compatti in quanto chiusi di un compatto, e siccome \(\iota\) è un omeomorfismo con la sua immagine, \(\iota^{-1}(C_{n}\cap K_{m})\) sono compatti.
+
+Quindi \(\omega^{\omega}\) è \(\sigma\)-compatto. Assurdo.\qed
+\end{document}

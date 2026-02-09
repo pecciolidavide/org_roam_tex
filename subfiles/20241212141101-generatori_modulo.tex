@@ -1,0 +1,32 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Modulo generato da un insieme}
+\label{sec:org9e94cdf}
+\begin{definizione}
+Sia \(R\) un \href{20241205141119-anello.org}{anello commutativo con unità}, e sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo}. Sia \(S \subseteq M\) un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme}. L'\uline{\(R\)-modulo generato da \(S\)} è il più piccolo \href{20241206142802-sottomoduli.org}{sottomodulo} di \(M\) che contenga \(S\):\footnote{Questa definizione ha senso in quanto \href{20241206142802-sottomoduli.org}{intersezione di sottomoduli è sottomodulo}.}
+\begin{equation*}
+(S) \coloneqq\hspace{-0.7em} \bigcap_{\substack{N\text{ sottomodulo di }M\\ S \subseteq N}}\hspace{-3em} N.
+\end{equation*}
+\end{definizione}
+È possibile mostrare che
+\begin{equation*}
+(S) = \set{r_{1}m_{1}+\dots+r_{k}m_{k} \mid k \in \N,\ r_{i} \in R,\ m_{i} \in S \subseteq M}.
+\end{equation*}
+
+\begin{definizione}
+Quando \((S) = M\), \(S\) si dice \uline{insieme di generatori} di \(M\).
+\end{definizione}
+
+\uline{Notazione}: quando \(S = \set{e}\), si indica \(R\cdot e \coloneqq (S)\).
+
+\begin{oss}
+Ogni modulo ammette un insieme di generatori banale,
+\begin{equation*}
+    S=M.
+\end{equation*}
+\end{oss}
+\end{document}

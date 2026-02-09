@@ -1,0 +1,97 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teoria dell'informazione (Shannon)}
+\label{sec:org48e4bee}
+\uline{Idea}: la quantità di informazione contenuta in un messaggio è legata a quanto il messggio sia imprevedibile.
+
+\begin{esempio}
+Si considerino i seguenti messaggi:
+\begin{description}
+\item[{(M1)}] ``Marco ha vinto alla lotteria.''
+\item[{(M2)}] ``Marco non ha vinto alla lotteria.''
+\end{description}
+Il primo, chiaramente, porta molta più informazione, poiché asserisce ad un avvenimento estremamente improbabile.
+\end{esempio}
+
+Dunque, se il messaggio porta la notizia di un avvenimento \(A\), che avviene con probabilità \(\mathds{P}(A) = p_{A}\), indicata con \(I(A)=I(p_{A})\) la \uline{quantità di informazione} di \(E\), si richiede che:
+\begin{enumerate}
+\item \(I(p)\) sia \href{20250203132953-funzione_monotona.org}{monotona decrescente} in \(p\);
+\item \(I(1) = 0\);
+\item se \(A\) e \(B\) sono \href{20250712102732-eventi_indipendenti.org}{indipendenti} allora \(p_{A \land B} = p_{A}p_{B}\), e dunque
+\begin{equation*}
+ I(A \land B) = I(p_{A}p_{B}) = I(p_{A})+I(p_{B})
+\end{equation*}
+\end{enumerate}
+\begin{definizione}
+Si definisce la \uline{quantità di informazione} di un evento con probabilità \(p\):
+\begin{equation*}
+I(p) \coloneqq -\ln(p).
+\end{equation*}
+\end{definizione}
+
+La funzione \(I(p)\) è mostrata in Figura~\ref{fig:IShannon}.
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis lines = middle,
+    xlabel = $p$,
+    ylabel = {$I(p)$},
+    domain=0.01:1,
+    samples=200,
+    ymin=0, ymax=5,
+    xmin=0, xmax=1.1,
+    xtick={0,1},
+    ytick=\empty,
+    width=10cm,
+    height=7cm,
+    enlargelimits
+  ]
+    \addplot[ultra thick, blue] { -ln(x) };
+    % Punto (1,0) in blu
+    \addplot[
+      only marks,
+      mark=*,
+      mark size=1pt,
+      color=blue
+    ] coordinates {(1,0)};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{\label{fig:IShannon}Quantità di informazione secondo Shannon}
+\end{figure}
+\subsection{Entropia (Teoria dell'informazione)}
+\label{sec:orgba231d7}
+\begin{definizione}
+Sia \(X\) una \href{20250711175937-variabile_aleatoria.org}{variabile aleatoria} con \href{20250712103837-distrubuzione_di_una_variabile_aleatoria.org}{legge} \(p\). Si definisce \uline{entropia di \(X\)} la quantità\footnote{Vedi ``\href{20250710140734-valore_atteso.org}{Valore atteso}''}
+\begin{equation*}
+H(X) \coloneqq\media[-\ln p(x)] = \int -\ln p(x) \cdot p(x)\dif x.
+\end{equation*}
+\end{definizione}
+
+\begin{definizione}
+Siano \(X,Y\) due \href{20250711175937-variabile_aleatoria.org}{variabili aleatorie} con \href{20250712103837-distrubuzione_di_una_variabile_aleatoria.org}{legge} \(p_{X},p_{Y}\). La \uline{cross-entropy} di \(X\) e \(Y\) è
+\begin{equation*}
+S(X,Y) = \media_{p_{X}}[-\ln p_{Y}] = \int -\ln p_{Y}(x)\cdot p_{X}(x)\dif x.
+\end{equation*}
+\end{definizione}
+\begin{prop}
+Per ogni v.a. \(X,Y\)
+\begin{equation*}
+S(X,Y)\ge H(X).
+\end{equation*}
+\end{prop}
+\subsection{Divergenza di Kullback-Leibler}
+\label{sec:orge9d4994}
+\begin{definizione}
+Siano \(X,Y\) due \href{20250711175937-variabile_aleatoria.org}{variabili aleatorie}. La \uline{divergenza di Kullback-Leibler} di \(X\) da \(Y\) è
+\begin{equation*}
+\kldiv{X}{Y} = S(X,Y)- H(X) \ge 0
+\end{equation*}
+\end{definizione}
+\end{document}

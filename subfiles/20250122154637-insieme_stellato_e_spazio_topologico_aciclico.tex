@@ -1,0 +1,27 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Se \(X \subseteq \R^{N}\) è \href{20250122154613-insieme_stellato.org}{stellato}, allora \(X\) è uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250122154451-spazio_topologico_aciclico.org}{aciclico}.
+\end{prop}
+
+\begin{proof}
+\begin{itemize}
+\item Siccome \(X\) è \href{20250122154613-insieme_stellato.org}{stellato}, allora è \href{20250113103025-spazio_topologico_connesso_per_archi.org}{cpa}, e \href{20250122154543-significato_geometrico_del_modulo_di_omologia_singolare_0.org}{quindi} l'\href{20250122154406-omologia_singolare_ridotta.org}{omologia singolare ridotta}:
+\begin{equation*}
+  \tilde{H}_{0}(X) = 0.
+\end{equation*}
+
+\item Per quanto riguarda tutti gli altri, la \href{20250122154711-estensione_di_un_simplesso_singolare_in_uno_spazio_stellato.org}{mappa \(s_{q}: S_{q}(X) \to S_{q+1}(X)\) del joint al punto \(x_{0}\)} afferma che
+\begin{equation*}
+  \Id_{S_{q+1}(X)}(\sigma) - 0(\sigma) = \sigma = \partial_{q+1}(s_{q}\sigma) + s_{q-1}(\partial_{q}\sigma)
+\end{equation*}
+e pertanto il \href{20250120163114-complesso_di_catene.org}{complesso di catene} \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{singolari \(\mathcal{S}_{\bullet} (X)\)} è \href{20250121104453-complesso_di_catene_contraibile.org}{contraibile}, \href{20250121110644-complesso_di_catene_aciclico_libero_e_contraibile.org}{e quindi} \href{20250121104306-complesso_di_catene_aciclico.org}{aciclico}.
+\end{itemize}
+
+Segue che \href{20250122154349-complesso_di_catene_singolare_augmentato.org}{\(\tilde{\mathcal{S}}_{\bullet}(X)\)} è \href{20250121104306-complesso_di_catene_aciclico.org}{aciclico}, e quindi \(X\) aciclico.
+\end{proof}
+\end{document}

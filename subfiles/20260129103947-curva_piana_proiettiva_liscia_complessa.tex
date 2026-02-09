@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Curva Piana proiettiva liscia complessa}
+\label{sec:orga109991}
+Sia \(F \in \C[x_{0}:x_{1}:x_{2}]\)\footnote{Vedi ``\href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}''} un \href{20241231121125-polinomi_omogenei.org}{polinomio omogeneo}, e se ne consideri il \href{20241231112823-radici_polinomiali.org}{luogo degli zeri omogeneo}:\footnote{Vedi ``\href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo}''}
+\begin{equation*}
+X\coloneqq \set{(x_{0}:x_{1}:x_{2}) \in \mathds{P}^{2}_{\C} \mid F(x_{0}:x_{1}:x_{2}) = 0} = V(F) \subseteq \mathds{P}^{2}_{\C}
+\end{equation*}
+
+\begin{prop}
+Se per ogni \(p \in X\) il \href{20250624171244-gradiente_di_una_funzione.org}{gradiente} \(\nabla F(p) \neq \bm{0}\)\footnote{In questo caso si dice che \(X\) è \uline{liscia}.}, allora \(X\) è una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatta}.
+\end{prop}
+
+\begin{definizione}
+Si definisce il grado di \(X\) come il \href{20241231124742-grado_polinomi.org}{grado di \(F\)}:
+\begin{equation*}
+\deg X \coloneqq \deg F
+\end{equation*}
+\end{definizione}
+\end{document}

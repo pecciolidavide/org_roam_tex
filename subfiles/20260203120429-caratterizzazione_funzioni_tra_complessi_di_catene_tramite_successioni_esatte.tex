@@ -1,0 +1,59 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Caratterizzazione funzioni tra complessi di catene tramite successioni esatte}
+\label{sec:orgec48746}
+Sia \(\mathcal{A}_{\bullet}\), \(\mathcal{B}_{\bullet}\) due \href{20250120163114-complesso_di_catene.org}{complessi di catene}.
+
+\begin{prop}
+Sia \(f_{\bullet}: \mathcal{A}_{\bullet} \longrightarrow \mathcal{B}_{\bullet}\) un \href{20250120163759-categoria_complessi_di_catene.org}{morfismo di complessi}. Valgono le seguenti caratterizzazioni tramite successioni esatte:
+
+\begin{enumerate}
+\item \textbf{\textbf{Iniettività}}: \(f_{\bullet}\) è \href{20250120163759-categoria_complessi_di_catene.org}{iniettivo} se e solo se la seguente successione è \href{20250120183640-sec_di_complessi_di_catene.org}{esatta}:
+\begin{equation*}
+0 \longrightarrow \mathcal{A}_{\bullet} \xrightarrow{f_{\bullet}} \mathcal{B}_{\bullet}
+\end{equation*}
+(ovvero se \(\ker(f_{\bullet}) = 0\)).
+
+\item \textbf{\textbf{Suriettività}}: \(f_{\bullet}\) è \href{20250120163759-categoria_complessi_di_catene.org}{suriettivo} se e solo se la seguente successione è \href{20250120183640-sec_di_complessi_di_catene.org}{esatta}:
+\begin{equation*}
+\mathcal{A}_{\bullet} \xrightarrow{f_{\bullet}} \mathcal{B}_{\bullet} \longrightarrow 0
+\end{equation*}
+(ovvero se \(\operatorname{coker}(f_{\bullet}) = 0\)).
+
+\item \textbf{\textbf{Isomorfismo}}: \(f_{\bullet}\) è un \href{20250120163759-categoria_complessi_di_catene.org}{isomorfismo} se e solo se la seguente successione è \href{20250120183640-sec_di_complessi_di_catene.org}{esatta}:
+\begin{equation*}
+0 \longrightarrow \mathcal{A}_{\bullet} \xrightarrow{f_{\bullet}} \mathcal{B}_{\bullet} \longrightarrow 0
+\end{equation*}
+\end{enumerate}
+\end{prop}
+\section{Isomorfismo indotto da una SEC di complessi di catene}
+\label{sec:orgcef670e}
+\begin{prop}
+Sia data una successione esatta corta di complessi di catene:
+\begin{equation*}
+0 \longrightarrow \mathcal{A}_{\bullet} \xrightarrow{f_{\bullet}} \mathcal{B}_{\bullet} \xrightarrow{g_{\bullet}} \mathcal{C}_{\bullet} \longrightarrow 0
+\end{equation*}
+Utilizzando i teoremi di isomorfismo, possiamo caratterizzare i termini della successione come segue:
+
+\begin{enumerate}
+\item Il morfismo \(f_{\bullet}\) induce un isomorfismo tra \(\mathcal{A}_{\bullet}\) e l'immagine in \(\mathcal{B}_{\bullet}\):
+\begin{equation*}
+\mathcal{A}_{\bullet} \cong \operatorname{Im}(f_{\bullet}) = \ker(g_{\bullet})
+\end{equation*}
+
+\item Il morfismo \(g_{\bullet}\) induce un isomorfismo tra il quoziente di \(\mathcal{B}_{\bullet}\) e \(\mathcal{C}_{\bullet}\):
+\begin{equation*}
+\mathcal{B}_{\bullet} / \operatorname{Im}(f_{\bullet}) \cong \mathcal{C}_{\bullet}
+\end{equation*}
+o, equivalentemente:
+\begin{equation*}
+\mathcal{B}_{\bullet} / \mathcal{A}_{\bullet} \cong \mathcal{C}_{\bullet}
+\end{equation*}
+(identificando \(\mathcal{A}_{\bullet}\) con la sua immagine tramite l'iniezione \(f_{\bullet}\)).
+\end{enumerate}
+\end{prop}
+\end{document}

@@ -1,0 +1,46 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\renewcommand{\L}{\mathcal{L}} % Il linguaggio
+\newcommand{\U}{\mathcal{U}} % Modello mostro
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+
+Sia \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio}.
+
+\begin{definizione}
+Un \uline{modello mostro} è una \(\L\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} \href{20250617095548-modello_lambda_saturo.org}{satura} \(U\) \textbf{\textbf{fissata}} di \href{20241213101756-cardinalita.org}{cardinalità} \(\card{\mathcal{U}}=\kappa>\L+\omega\).
+\end{definizione}
+\section{Notazione}
+\label{sec:orgb0fcd75}
+
+Si utilizzerà un'accezione diversa dei termini soliti:
+\begin{itemize}
+\item Una \(\mathcal{L}\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\varphi(x)\) sarà \uline{valida} sse \(\mathcal{U}\vDash\forall\,x \varphi(x)\).
+\item Una \(\mathcal{L}\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\varphi(x)\) sarà \uline{soddisfacibile} sse \(\mathcal{U}\vDash\exists\,x \varphi(x)\).
+\item \(M\) è un \uline{modello} sse \(M\preceq \mathcal{U}\) è \href{20250212102253-sottostruttura_elementare.org}{sottostruttura elementare} e \(\card{M}<\kappa\).
+\item Cardinali (e cardinalità) \(<\kappa\) sono detti \uline{piccoli}.
+\item Un insieme si dice \uline{definibile} se è definibile da una formula \(\varphi(x) \in \mathcal{L}(\mathcal{U})\).
+\item Un insieme si dice \uline{tipo definibile} se è definibile da un tipo \(p(x) \subseteq \mathcal{L}(\mathcal{U})\) con un insieme di parametri piccolo.
+\item I \uline{tipi globali} are \href{20251029152405-tipo_completo.org}{complete} \href{20250212164424-tipo_teoria_dei_modelli.org}{finitely consistent} \href{20250212164424-tipo_teoria_dei_modelli.org}{types}  \(\subseteq \mathcal{L}(\mathcal{U})\). L'insieme dei tipi globali si indica con \(S(\U)\). (vedi \href{20251029152405-tipo_completo.org}{Tipo completo})
+\item Il concetto di soddisfazione di un tipo è \uline{sempre} nel modello mostro, eventualmente intersecato con un modello.
+\end{itemize}
+
+Completa da Sezione 9.3 di 
+\section{Topologia indotta da un insieme sul modello mostro}
+\label{sec:org13d4d40}
+Sia \(A \subseteq \mathcal{U}\) piccolo. La \href{20250103145124-topologia.org}{topologia} indotta su \(\mathcal{U}^{x}\) è quella i cui \href{20250103145124-topologia.org}{chiusi} sono insiemi della forma
+\begin{equation*}
+\set{a \in \mathcal{U}^{x}\mid \mathcal{U}\vDash p(a)} = p(\mathcal{U}^{x})
+\end{equation*}
+dove \(p(x)\) è un \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo} di \href{20250212112324-estensione_di_un_linguaggio_del_prim_ordine.org}{\(\mathcal{L}(A)\)}-formule. (vedi ``\href{20250212164424-tipo_teoria_dei_modelli.org}{Realizzazione di un tipo}'')
+
+Questa è una topologia \href{20250617113538-topologia_zero_dimensionale.org}{zero-dimensionale}: infatti
+\begin{equation*}
+\set{\varphi(\mathcal{U}^{x})\mid \varphi(x)\text{ è una }\mathcal{L}(A)\text{ formula}}
+\end{equation*}
+è una base di clopen per la topologia.
+\end{document}

@@ -1,0 +1,46 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Neurone ad input continuo}
+\label{sec:org638b913}
+Si consideri \(X\) una v.a. a valori in \([0,1]\), e sia \(w\) una misura su \([0,1]\).
+\begin{definizione}
+Un \uline{neurone ad input continuo} con \href{20250624155858-neurone_artificiale.org}{funzione di attivazione} \(\sigma\) restituisce
+\begin{equation*}
+\sigma\left(\int_{0}^{1}x\,w(\dif x)\right) = \sigma(\media[X]).
+\end{equation*}
+\end{definizione}
+
+Quindi i ``pesi'' \(w\) rappresentano la \href{20250703142106-densita_di_probabilita.org}{densità} della v.a. \(X\) di input.
+\subsection{Variabile aleatoria assolutamente continua}
+\label{sec:org876134f}
+
+Si supponga quindi che \(X\) sia una v.a. assolutamente continua rispetto alla \href{20250630122824-misura_di_lebesgue.org}{misura di Lebesgue} su uno \href{20250711175559-spazio_di_probabilita.org}{spazio di probabilità} \((\Omega, \mathcal{F}, \mathds{P})\). Allora
+\begin{equation*}
+\int_{0}^{1} x\,w(\dif x) = \int_{0}^{1} x\cdot p(x)\dif x
+\end{equation*}
+per qualche \(p(x)\) non negativa e \href{20250704104947-funzione_misurabile.org}{misurabile}.
+
+Si vuole approssimare con questo neurone una v.a. \(Z\), minimizzando la cost function:
+\begin{align*}
+C(p) &= \media\left[\left(\sigma\left(\int_{0}^{1}xp(x)\dif x\right)-Z\right)^{2}\right]\\[0.5em]
+&= \media\big[(\parentesi{c\coloneqq}{\sigma(\media[X])}-Z)^{2}\big]\\
+&= \int_{\Omega} (c-Z)^{2} \dif \mathds{P}\\
+&= \int_{\Omega} (\media[Z]-\media[Z]+c-Z)^{2}\dif \mathds{P}\\
+&= \int_{\Omega} \left((\media[Z]-Z)^{2} + (c-\media[Z])^{2} + 2(\media[Z]-Z)(c-\media[Z])\right)\dif \mathds{P}\\
+&= \int_{\Omega} (\media[Z]-Z)^{2} \dif\mathds{P}+\int_{\Omega}(c-\media[Z])^{2}  \dif\mathds{P}+\cancel{2\int_{\Omega}(\media[Z]-Z)(c-\media[Z])\dif \mathds{P}}\\
+&= \operatorname{Var}(Z) + \media\left[(c-\media[Z])^{2}\right] = \operatorname{Var}(Z) + (c-\media[Z])^{2}
+\end{align*}
+
+Dunque \(C(p)\) è minimo quando \(c=\media[Z]\), ovvero
+\begin{equation*}
+\sigma(\media[X]) = \media[Z]
+\end{equation*}
+La densità cercata è \(p(x)\) misurabile e non negativa tale che la
+\begin{equation*}
+\int_{0}^{1}xp(x)\dif x = \sigma^{-1}(\media[Z]).
+\end{equation*}
+\end{document}

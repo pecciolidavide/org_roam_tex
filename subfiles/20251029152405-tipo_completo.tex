@@ -1,0 +1,23 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\L{\mathcal{L}}
+
+
+\begin{document}
+
+\section{Tipo completo}
+\label{sec:org52d9613}
+Sia \(\L\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, \(M\) una \(\L\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} e \(A \subseteq M\).
+
+\begin{definizione}
+Un \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo} \(p(x)\) si dice \uline{completo su \(A\)} se per ogni \href{20250131103317-formula_del_prim_ordine.org}{formula} \href{20250212102927-enunciato_con_parametri.org}{con parametri} \(\varphi(x) \in \L(A)\) si ha
+\begin{equation*}
+\varphi(x) \in p(x) \quad \lor \quad \lnot\varphi(x) \in p(x).
+\end{equation*}
+\begin{itemize}
+\item L'insieme dei tipi completi su \(A\) \href{20250212164424-tipo_teoria_dei_modelli.org}{finitamente soddisfacibili} si indica con \(S(A)\).
+\item L'insieme dei tipi \emph{di variabile libera \(x\)} completi su \(A\) finitamente soddisfacibili si indica con \(S_{x}(A)\).
+\end{itemize}
+\end{definizione}
+\end{document}

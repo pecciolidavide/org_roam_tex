@@ -1,0 +1,21 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Una \href{20250624155858-neurone_artificiale.org}{rete} \(\Sigma\Pi\) contiene sia \href{20250624155858-neurone_artificiale.org}{neuroni} \(\Sigma\) che neuroni \(\Pi\).
+\begin{thm}
+Sia \(I_{n}\coloneqq[0,1]^{n}\), e si consideri \(C(I_{n})\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''} dotato della \href{20250103145124-topologia.org}{topologia} \href{20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in I_{n}} |f(x)-g(x)| = \max_{x \in I_{n}}|f(x)-g(x)|.
+\end{equation*}
+
+Sia \(\varphi: \R\to \R\) una qualsiasi \href{20250103103252-funzione_continua.org}{funzione continua} non costante. Allora le funzioni nella forma
+\begin{equation*}
+G(x) = \sum_{k=1}^{M} \beta_{k}\prod_{j=1}^{N_{k}}\varphi(\bm{w}_{jk}\cdot \bm{x} + \theta_{jk}),\qquad G:I_{n}\to \R
+\end{equation*}
+con \(\bm{w}_{jk} \in \R^{n}\), \(\beta_{j},\theta_{jk} \in \R\), \(M,N_{k} \in \N\), sono \href{20250301193045-sottoinsieme_denso.org}{dense} in \(C(I_{n})\)
+\label{teo9.3.8}
+\end{thm}
+\end{document}

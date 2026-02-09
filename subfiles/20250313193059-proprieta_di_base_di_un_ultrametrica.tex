@@ -1,0 +1,125 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proprietà}
+\label{sec:org5ca283f}
+
+Suppose that \(d\) is an \href{20250318161815-ultrametrica.org}{ultrametric} on a space \(X\). Prove the following statements:
+\begin{enumerate}
+\item If \(d(x,z) \neq d(y,z)\), then \(d(x,y) = \max\{ d(x,z), d(y,z) \}\) (``all triangles are isosceles with legs longer than or equal to the basis'').
+\item The ``\href{20250103145124-topologia.org}{open}'' balls \(B_d(x, \varepsilon) = \{ y \in X \mid d(x,y) < \varepsilon \}\) and the ``\href{20250103145124-topologia.org}{closed}'' balls \(B_d^{\text{cl}}(x, \varepsilon) = \{ y \in X \mid d(x,y) \leq \varepsilon \}\) are both \href{20250318170914-insieme_clopen.org}{clopen}.
+\item If \(y \in B_d(x, \varepsilon)\), then \(B_d(y, \varepsilon) = B_d(x, \varepsilon)\) (``all elements of an open ball are centers of it'').
+\item If two open (closed) balls intersect, then one is contained in the other one.
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:org4ff73c2}
+
+\subsubsection{Parte a.}
+\label{sec:org4830194}
+Si supponga per assurdo che esistano \(x,y,z \in X\) tali che \(d(x,z)\neq d(y,z)\) e
+\begin{equation*}
+d(x,y)< \max\set{d(x,z),d(y,z)}\tag{1}
+\end{equation*}
+
+Quindi \(d(x,y)\neq d(x,z)\) e \(d(x,y)\neq d(y,z)\), e pertanto vale anche
+\begin{align*}
+d(x,z) &< \max\set{d(x,y),d(y,z)}\tag{2}\\
+d(y,z) &< \max\set{d(x,y),d(x,z)}\tag{3}
+\end{align*}
+
+Si considerino ora l'insieme di numeri reali distinti:
+\begin{equation*}
+\set{d(x,y),d(y,z), d(x,z)}
+\end{equation*}
+e se ne consideri il massimo \(M\), che esiste poiché l'insieme è finito. La prima condizione asserisce che
+\begin{equation*}
+d(x,y) < \max \set{d(x,z),d(y,z)}\le \max\set{d(x,y),d(y,z),d(x,z)} = M
+\end{equation*}
+e pertanto \(M\neq d(x,y)\). Similmente, la seconda condizione asserisce che \(M\neq d(x,z)\) e la terza che \(M\neq d(y,z)\). Assurdo.
+\subsubsection{Parte d.}
+\label{sec:org1ea6a2d}
+Siano \(x,y \in X\) e siano \(\varepsilon, \delta >0\), con \(\varepsilon\ge\delta\).
+
+\begin{itemize}
+\item Se \(B_{d}(x,\varepsilon)\cap B_{d}(y,\delta)\neq \emptyset\), allora \(B_{d}(y,\delta) \subseteq B_{d}(x,\varepsilon)\).
+
+Infatti, sia \(z_{0} \in B_{d}(x,\varepsilon)\cap B_{d}(y,\delta)\). Si ha che
+\begin{equation*}
+  	d(x,z_{0})<\varepsilon;\qquad d(y,z_{0})<\delta.
+\end{equation*}
+
+Sia ora \(z \in B_{d}(y,\delta)\), i.e. \(d(z,y)<\delta\). Allora
+\begin{align*}
+  	d(z,z_{0})&\le \max\set{d(y,z_{0}), d(z,y)} < \delta\\
+  	d(z,x) &\le \max\set{d(x,z_{0}), d(z_{0},z)} < \varepsilon.
+ \end{align*}
+e quindi \(z \in B_{d}(x,\varepsilon)\).
+
+\item Se \(B_{d}^{\text{cl}}(x,\varepsilon)\cap B_{d}^{\text{cl}}(y,\delta)\neq \emptyset\), allora \(B_{d}^{\text{cl}}(y,\delta) \subseteq B_{d}^{\text{cl}}(x,\varepsilon)\).
+
+Infatti, sia \(z_{0} \in B_{d}^{\text{cl}}(x,\varepsilon)\cap B_{d}^{\text{cl}}(y,\delta)\). Si ha che
+\begin{equation*}
+  	d(x,z_{0})\le\varepsilon;\qquad d(y,z_{0})\le\delta.
+\end{equation*}
+
+Sia ora \(z \in B_{d}^{\text{cl}}(y,\delta)\), i.e. \(d(z,y)\le\delta\). Allora
+\begin{align*}
+  	d(z,z_{0})&\le \max\set{d(y,z_{0}), d(z,y)} \le \delta\le\varepsilon\\
+  	d(z,x) &\le \max\set{d(x,z_{0}), d(z_{0},z)} \le \varepsilon.
+ \end{align*}
+e quindi \(z \in B_{d}^{\text{cl}}(x,\varepsilon)\).
+\end{itemize}
+\subsubsection{Parte b.}
+\label{sec:org566c69c}
+\begin{itemize}
+\item La palla \(B_{d}(x,\varepsilon)\) è aperta per definizione di \href{20250301193530-topologia_indotta_da_una_distanza.org}{topologia indotta da una metrica}
+
+\item Sia \((x_{n})_{n \in \N} \subseteq B_{d}(x,\varepsilon)\) una \href{20250115100904-successione.org}{successione} \href{20250115100930-convergenza_per_una_successione.org}{convergente} a \(\ell\). Allora esiste \(N \in \N\) tale che \(d(x_{N}, \ell)< \varepsilon\). Inoltre \(d(x_{N}, x)<\varepsilon\).
+
+Supponiamo per assurdo che \(\ell\notin B_{d}(x,\varepsilon)\). Allora \(d(\ell,x)\ge \varepsilon\). Ma, per definizione di ultrametrica
+\begin{equation*}
+  d(\ell,x)\le\max\set{d(x_{N},\ell), d(x_{N}, x)} <\varepsilon.
+\end{equation*}
+Assurdo. Pertanto \(B_{d}(x,\varepsilon)\) è \href{20250103145124-topologia.org}{chiusa}, per la \href{20250303120747-caratterizzazione_dei_chiusi_in_termini_di_successioni.org}{caratterizzazione dei chiusi per successioni}.
+
+\item Sia \((x_{n})_{n \in \N} \subseteq B_{d}^{\text{cl}}(x,\varepsilon)\) una \href{20250115100904-successione.org}{successione} \href{20250115100930-convergenza_per_una_successione.org}{convergente} a \(\ell\). Allora esiste \(N \in \N\) tale che \(d(x_{N}, \ell)\le \varepsilon\). Inoltre \(d(x_{N}, x)\le\varepsilon\).
+
+Supponiamo per assurdo che \(\ell\notin B_{d}^{\text{cl}}(x,\varepsilon)\). Allora \(d(\ell,x)> \varepsilon\). Ma, per definizione di ultrametrica
+\begin{equation*}
+  d(\ell,x)\le\max\set{d(x_{N},\ell), d(x_{N}, x)} \le\varepsilon.
+\end{equation*}
+Assurdo. Pertanto \(B_{d}^{\text{cl}}(x,\varepsilon)\) è \href{20250103145124-topologia.org}{chiusa}, per la \href{20250303120747-caratterizzazione_dei_chiusi_in_termini_di_successioni.org}{caratterizzazione dei chiusi per successioni}.
+
+\item Sia \(y \in B_{d}^{\text{cl}}(x,\varepsilon)\). Allora \(y \in B_{d}\left(y,\frac{\varepsilon}{2}\right) \subseteq B_{d}^{\text{cl}}\left(y,\frac{\varepsilon}{2}\right)\), con \(B_{d}\left(y,\frac{\varepsilon}{2}\right)\) aperto.
+
+Inoltre \(y \in B_{d}^{\text{cl}}\left(y,\frac{\varepsilon}{2}\right)\cap B_{d}^{\text{cl}}(x,\varepsilon)\) e pertanto, per il punto d.
+\begin{equation*}
+  	y \in B_{d}\left(y,\frac{\varepsilon}{2}\right) \subseteq B_{d}^{cl}\left(y,\frac{\varepsilon}{2}\right) \subseteq B_{d}^{\text{cl}}(x,\varepsilon).
+\end{equation*}
+
+Quindi \(B_{d}^{\text{cl}}(x,\varepsilon)\) è intorno di ogni suo punto, e \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{quindi} \href{20250103145124-topologia.org}{aperto}.
+\end{itemize}
+\subsubsection{Parte c.}
+\label{sec:org08c5d4f}
+Sia \(y \in B_{d}(x,\varepsilon)\). Allora \(d(x,y)<\varepsilon\).
+
+Si vuole dimostrare che
+\begin{equation*}
+B_{d}(y,\varepsilon) = B_{d}(x,\varepsilon).
+\end{equation*}
+\begin{itemize}
+\item Sia \(z \in B_{d}(y,\varepsilon)\). Allora \(d(y,z)<\varepsilon\), e pertanto
+\begin{equation*}
+  	d(x,z)\le \max\set{d(x,y), d(y,z)}<\varepsilon
+\end{equation*}
+e quindi \(z \in B_{d}(x,\varepsilon)\).
+\item Sia \(z \in B_{d}(x,\varepsilon)\). Allora \(d(x,z)<\varepsilon\), e pertanto
+\begin{equation*}
+  	d(y,z)\le \max\set{d(y,x),d(x,z)}<\varepsilon
+\end{equation*}
+e quindi \(z \in B_{d}(y,\varepsilon)\).
+\end{itemize}
+\end{document}

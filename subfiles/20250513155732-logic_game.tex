@@ -1,0 +1,58 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Definizione}
+\label{sec:org0decaed}
+Un \uline{gioco logico} è una quadrupla \(\mathcal{G} \coloneqq (\Omega, f, W_{\text{I}}, W_{\text{II}})\) dove:
+\begin{itemize}
+\item \(\Omega\) è un \href{20250130104331-insieme_mk.org}{insieme}, chiamato il \uline{dominio del gioco};
+\item \(f:\Omega^{<\omega}\to \set{\text{I},\text{II}}\) è una \href{20250202170607-classe_relazione_binaria.org}{funzione}, chiamata \uline{funzione di turno} o \uline{funzione del giocatore};
+\item \(W_{\text{I}},W_{\text{II}} \subseteq \Omega^{<\omega}\cup \Omega^{\omega}\) \footnote{\href{20250202192030-classe_delle_classi_funzioni.org}{Classe delle Classi-Funzioni} e \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}} sono tali che
+\begin{enumerate}
+\item \(W_{\text{I}}\cap W_{\text{II}} = \emptyset\);
+\item per ogni \(\bm{a} \in W_{\bullet}\) e per ogni \(\bm{b} \in\Omega^{<\omega}\cup \Omega^{\omega}\):
+\end{enumerate}
+\begin{equation*}
+  \bm{a} \subseteq \bm{b}\quad\implies\quad \bm{b} \in W_{\bullet}
+\end{equation*}
+\end{itemize}
+
+Gli elementi di \(\Omega^{<\omega}\) sono chiamati \uline{posizioni del gioco} \(\mathcal{G}\), mentre un elemento di \(\Omega^{\omega}\) è detto \uline{giocata} di \(\mathcal{G}\).
+
+I giocatori I e II giocano scegliendo a turno elementi di \(\Omega\). La funzione di turno \(f\) associa a ciascuna posizione uno dei due giocatori: se
+\begin{equation*}
+f(a_{0},a_{1},\dots,a_{n}) = \text{I}
+\end{equation*}
+allora l'elemento \(a_{n+1}\) sarà scelto dal giocatore I.
+
+Si dirà che il giocatore I \uline{vince la giocata \(\bm{a}\)} se \(\bm{a} \in W_{\text{I}}\); si dirà che il giocatore II \uline{vince la giocata \(\bm{b}\)} se \(\bm{b} \in W_{\text{II}}\).
+\subsection{Gioco Logico totale}
+\label{sec:org7b2a258}
+Un gioco è detto \uline{totale} se \(\Omega^{\omega} \subseteq W_{\text{I}}\cup W_{\text{II}}\).
+\subsection{Strategia per un gioco logico}
+\label{sec:org5c2ab6d}
+Si definiscano i seguenti insiemi:
+\begin{align*}
+\Omega^{<\omega}_{\text{I}} &\coloneqq \set{s \in \Omega^{<\omega}\mid f(s) = \text{I}}\\
+\Omega^{<\omega}_{\text{II}} &\coloneqq \set{s \in \Omega^{<\omega}\mid f(s) = \text{II}}
+\end{align*}
+
+A strategy for a player is a set of rules that describe exactly how that player should choose, depending on how the two players have chosen at earlier moves.
+
+Formalmente, una strategia per il giocatore \(j\) (con \(j=\text{I},\text{II}\)) è una funzione
+\begin{equation*}
+\varphi: \Omega_{j}^{<\omega} \to \Omega
+\end{equation*}
+
+A strategy for a player is said to be \uline{winning} if that player wins every play in which he or she uses the strategy, regardless of what the other player does.
+
+Un gioco si dice \uline{determinato} se esiste una strategia vincente per I o per II.
+\section{Bibliography}
+\label{sec:org1527e1d}
+\begin{itemize}
+\item Hodges, Wilfrid and Jouko Väänänen, ``Logic and Games'', The Stanford Encyclopedia of Philosophy (Winter 2024 Edition), Edward N. Zalta \& Uri Nodelman (eds.), URL = \url{https://plato.stanford.edu/archives/win2024/entries/logic-games/}.
+\end{itemize}
+\end{document}

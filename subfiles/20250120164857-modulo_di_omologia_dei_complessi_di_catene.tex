@@ -1,0 +1,33 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Modulo di omologia dei complessi di catene}
+\label{sec:org751e5fe}
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità.
+
+\begin{definizione}
+Sia \(\mathcal{C}_{\bullet} = \set{(C_{n},\partial_{n})}_{n \in \Z}\) un \href{20250120163114-complesso_di_catene.org}{complesso di catene di \(R\)-moduli}. Fissato \(n \in \Z\) si definiscono
+\begin{itemize}
+\item il \href{20241205141053-r_moduli.org}{modulo} degli \(n\)-cicli\footnote{Vedi ``\href{20241213105201-kernel.org}{Kernel}''}:
+\begin{equation*}
+  Z_{n}(\mathcal{C}_{\bullet})\coloneqq \operatorname{ker}(\partial_{n})
+\end{equation*}
+\item il \href{20241205141053-r_moduli.org}{modulo} degli \(n\)-bordi:\footnote{Vedi ``\href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Range di una funzione}''}
+\begin{equation*}
+  B_{n}(\mathcal{C}_{\bullet}) \coloneqq \operatorname{Im}(\partial_{n+1})
+\end{equation*}
+\end{itemize}
+
+Per la definizione di complesso di catene si ha che \(B_{n} \subseteq Z_{n}\) e pertanto si definisce l'\(n\)-esimo modulo di omologia di \(\mathcal{C}_{\bullet}\) come\footnote{Vedi ``\href{20241206142802-sottomoduli.org}{Quoziente di Moduli}''}
+\begin{equation*}
+H_{n}(\mathcal{C}_{\bullet}) \coloneqq Z_{n}(\mathcal{C}_{\bullet})/B_{n}(\mathcal{C}_{\bullet}).
+\end{equation*}
+Se \(z_{n} \in Z_{n}(\mathcal{C}_{\bullet})\) allora gli elementi di \(H_{n}(\mathcal{C}_{\bullet})\)  sono
+\begin{equation*}
+[z_{n}] = z_{n} + B_{n}(\mathcal{C}_{\bullet})
+\end{equation*}
+\end{definizione}
+\end{document}

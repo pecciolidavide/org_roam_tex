@@ -1,0 +1,42 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
+
+Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
+\section{Proposizione}
+\label{sec:orgbb9eedd}
+
+Un insieme \(P \subseteq \N\) è \href{20250520113238-insieme_semiricorsivo.org}{semiricorsivo} se e solo se \href{20250131161811-insieme_vuoto_mk.org}{vuoto} \(P=\emptyset\) oppure se \(P=\operatorname{rng}(f)\) \footnote{Vedi ``\href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Dominio, Range e Campo di una Classe Relazione}''} per qualche funzione
+\begin{equation*}
+f: \N\to \N
+\end{equation*}
+\href{20250207104855-funzione_ricorsiva.org}{ricorsiva} \uline{\href{20250213105339-funzione_parziale.org}{totale}}.
+\subsection{Dimostrazione}
+\label{sec:orgbcd945c}
+
+Senza perdita di generalità, si può assumere \(P\neq\emptyset\), poiché questo è ricorsivo \href{20250520113238-insieme_semiricorsivo.org}{e dunque} semiricorsivo.
+
+(\(\Rightarrow\)): Se \(P\) è semiricorsivo allora esiste \(R \subseteq \N^{2}\) tale che
+\begin{equation*}
+P(x)\quad \iff \quad \exists\, y\ R(x,y)
+\end{equation*}
+
+Sia dunque \(f: \N\to \N\) definita come segue: sia \(a \in P\) fissato, allora
+\begin{equation*}
+f(z) = \begin{cases}
+(z)_{1} & R\left((z)_{1}, (z)_{2}\right)\\
+a & \text{altrimenti}
+\end{cases}
+\end{equation*}
+Questa è \href{20250213105339-funzione_parziale.org}{totale}, tale che \(f(\N) = P\), e inoltre è ricorsiva, poiché \href{20250520101337-funzioni_ricorsive_definite_per_casi.org}{definita per casi} su un insieme ricorsivo \footnote{Vedi ``\href{20250519112917-proprieta_di_chiusura_degli_insiemi_ricorsivi.org}{Proprietà di chiusura degli insiemi ricorsivi}'' e ``\href{20250215151413-biiezione_canonica_tra_n_e_n2.org}{Biiezione canonica tra N e prodotti cartesiani di N}''}
+
+(\(\Leftarrow\)): Si ha che
+\begin{equation*}
+P(y)\quad \iff\quad \exists\,x\ \left(\operatorname{graph}(f)(x,y)\right)
+\end{equation*}
+dove il \href{20250104112443-grafico_di_una_funzione.org}{grafico} di \(f\) è \href{20250216173925-insieme_ricorsivo.org}{ricorsivo} \href{20250601162421-funzioni_ricorsive_e_loro_grafico.org}{poiché} \(f\) è \href{20250213105339-funzione_parziale.org}{totale} e \href{20250207104855-funzione_ricorsiva.org}{ricorsiva}.
+\end{document}

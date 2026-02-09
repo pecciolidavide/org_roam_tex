@@ -1,0 +1,60 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Estensione di un simplesso singolare in uno spazio stellato}
+\label{sec:org189bc5b}
+Sia \(X \subseteq \R^{N}\) \href{20250122154613-insieme_stellato.org}{stellato} rispetto a \(x_{0} \in X\).
+
+Ogni \href{20250122133435-simplesso_singolare.org}{simplesso singolare} \(\sigma:\Delta_{q}\longrightarrow X\)\footnote{Dove \(\Delta_{q}\) è il \href{20250121122324-simplesso_standard.org}{\(q\)-simplesso standard}.} può essere esteso ad
+\begin{equation*}
+J_{\sigma}: \Delta_{q+1}\longrightarrow X
+\end{equation*}
+tramite il \uline{joint a \(x_{0}\)}: infatti, siccome un generico punto di \(\Delta_{q+1}\) può essere scritto come:
+\begin{equation*}
+t e_{q+1} + (1-t)\cdot p,\qquad t \in [0,1]
+\end{equation*}
+con \(p \in \Delta_{q} \subseteq \Delta_{q+1}\), allora
+\begin{align*}
+J_{\sigma}: \Delta_{q+1} &\longrightarrow X\\
+(t e_{q+1} + (1-t)\cdot p) &\longmapsto (t e_{q+1} + (1-t)\cdot \sigma(p))
+\end{align*}
+
+\begin{prop}
+Se \(\varepsilon_{i}^{q+1}\) sono gli \href{20250122133535-operatori_di_facciata_del_simplesso_standard.org}{operatori di facciata}, allora
+\begin{equation*}
+J_{\sigma}\circ \varepsilon_{q+1}^{q+1} = \sigma
+\end{equation*}
+ed inoltre, per ogni \(i=0,\dots,q\) si ha che
+\begin{equation*}
+J_{\sigma}\circ\varepsilon_{i}^{q+1} = J_{\sigma\circ\varepsilon^{q}_{i}}
+\end{equation*}
+\end{prop}
+\begin{definizione}
+Si definisce la \href{20241206115416-morfismi_r_moduli.org}{mappa} \(s_{q}: S_{q}(X) \to S_{q+1}(X)\)\footnote{\(S_{q}(X)\) è il \href{20250122133435-simplesso_singolare.org}{modulo delle catene singolari}, ed è la \href{20241213095808-somma_diretta.org}{somma diretta \(R^{(\Sigma_{q})}\)}, con \href{20241213094625-modulo_libero.org}{base} proprio \(\Sigma_{q}\).}, che per ogni \(\sigma \in \Sigma_{q}\):
+\begin{equation*}
+s_{q}(\sigma) \coloneqq (-1)^{q+1} J_{\sigma}.
+\end{equation*}
+\end{definizione}
+\begin{lem}
+Per ogni \(q\) si ha e per ogni \(\sigma \in \Sigma_{q}\):\footnote{I \(\partial_{q}\) sono i \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{morfismi di bordo}.}
+\begin{equation*}
+\partial_{q+1} (s_{q}\sigma) = \sigma - s_{q-1}(\partial_{q}\sigma).
+\end{equation*}
+\end{lem}
+\begin{proof}
+Per definizione si ha
+\begin{equation*}
+\partial_{q+1} (s_{q}\sigma)  = \sum_{i=0}^{q+1} (-1)^{i} s_{q}(\sigma) \circ \varepsilon_{i}^{q+1} = \sum_{i=0}^{q+1} (-1)^{i} (-1)^{q+1} J_{\sigma} \circ \varepsilon_{i}^{q+1}.
+\end{equation*}
+Per la proposizione precedente, \(J_{\sigma}\circ \varepsilon_{q+1}^{q+1}=\sigma\) e \(J_{\sigma} \circ \varepsilon_{i}^{q+1} = J_{\sigma\circ \varepsilon_{i}^{q}}\) altrimenti.
+\begin{align*}
+\partial_{q+1} (s_{q}\sigma) &= (-1)^{q+1}(-1)^{q+1} \sigma - \sum_{i=0}^{q} (-1)^{i} (-1)^{q}J_{\sigma\circ \varepsilon_{i}^{q}} = \sigma - \sum_{i=0}^{q} (-1)^{i} (-1)^{q}J_{\sigma\circ \varepsilon_{i}^{q}}\\
+&= \sigma - \sum_{i=0}^{q}(-1)^{i} s_{q-1}(\sigma\circ \varepsilon_{i}^{q}) = \sigma - s_{q-1} \left(\sum_{i=0}^{q}(-1)^{i} \sigma \circ \varepsilon_{i}^{q}\right) \\
+&= \sigma - s_{q-1} (\partial_{q} \sigma).%
+\aedhere
+\end{align*}
+\end{proof}
+\end{document}

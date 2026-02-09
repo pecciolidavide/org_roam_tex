@@ -1,0 +1,23 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:orgcf4be71}
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{Campo Algebricamente Chiuso}, e sia \(\A^{1}\) lo \href{20241231114009-spazio_affine.org}{Spazio Affine}. Allora per ogni \(p \in \A^{1}\), \(\A^{1}\setminus\set{p}\) non è chiuso nella \href{20250103101459-topologia_di_zariski_affine.org}{topologia di Zariski}.
+\subsection{Dimostrazione}
+\label{sec:org1c2fc2a}
+\(\A^{1}\setminus\set{p}\) è chiuso, per definizione, se è una \href{20241231114256-varieta_algebrica_affine.org}{Varietà Algebrica Affine}.
+
+Supponiamo per assurdo che lo sia. \href{20250103100601-varieta_algebriche_luogo_di_zeri_di_finiti_polinomi.org}{Allora} esistono \(f_{1},\dots,f_{k} \in \K[x]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{anello dei polinomi}) tali che
+\begin{equation*}
+\A^{1}\setminus\set{p} = V(f_{1},\dots,f_{k})=V(f_{1})\cap \dots\cap V(f_{k})
+\end{equation*}
+(vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri}).
+
+Per il \href{20250102154204-teorema_fondamentale_dell_algebra.org}{Teorema Fondamentale dell'Algebra}, i polinomi di \(\K[x]\) di grado \(d\) hanno al massimo \(d\) zeri, e dunque \(V(f_{i})\) è un insieme finito, così come \(V(f_{1},\dots,f_{k})\).
+
+Ma \(\K\) è algebricamente chiuso, \href{20250102103618-infinitezza_campi_alg_chiusi.org}{dunque \(\K\) è infinito}, e quindi anche \(\A^{1}\) e \(\A^{1}\setminus\set{p}\) lo sono. Assurdo.
+\end{document}

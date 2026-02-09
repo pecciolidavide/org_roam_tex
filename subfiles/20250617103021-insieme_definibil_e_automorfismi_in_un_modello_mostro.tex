@@ -1,0 +1,18 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}. Si lavora dentro un  \href{20250617102733-modello_mostro.org}{modello mostro} \(\mathcal{U}\).
+
+Un \href{20250131122913-soddisfazione_di_una_formula.org}{insieme definibile con parametri} è della forma \(\varphi(\mathcal{U}^{x}, b)\) per qualche \(\mathcal{L}\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\varphi\) e per qualche \(b \in \mathcal{U}^{z}\).
+
+Se \(f:\mathcal{U}\to \mathcal{U}\) è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{automorfismo}, allora
+\begin{align*}
+f\left[\varphi(\mathcal{U}^{x}, b)\right] &=\set{fa\mid a \in \varphi(\mathcal{U}^{x}, b)}\\
+&= \set{fa \mid a \in \mathcal{U}^{x}\ \mathcal{U}\vDash \varphi(a,b)}\\
+&= \set{fa \mid a \in \mathcal{U}^{x}\ \mathcal{U}\vDash \varphi(fa,fb)}\qquad\text{poiché }f\text{ è un automorfismo}\\
+&= \set{a \in \mathcal{U}^{x}\mid\mathcal{U}\vDash \varphi(a,fb) } = \varphi(\mathcal{U}^{x},fb).
+\end{align*}
+\end{document}

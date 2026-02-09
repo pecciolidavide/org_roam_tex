@@ -1,0 +1,38 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Fascio immagine}
+\label{sec:org390aa59}
+Siano \(\mathcal{F},\mathcal{G}\) due \href{20250324174728-fascio.org}{fasci} sullo \href{20250103145124-topologia.org}{spazio topologico} \(X\), e sia \(\varphi: \mathcal{F}\to \mathcal{G}\) un \href{20250325180613-morfismo_di_prefasci.org}{morfismo di fasci}.
+
+Per ogni \(U \subseteq X\) aperto, \(\operatorname{Im}\varphi_{U} \subseteq \mathcal{G}(U)\)\footnote{Vedi ``\href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Range di una funzione}''}, e inoltre, se \(W \subseteq U\)
+\begin{equation*}
+\rho_{V}^{U} (\operatorname{Im} \varphi_{U}) \subseteq \operatorname{Im} \varphi_{V}.
+\end{equation*}
+
+Quindi \(\set{\operatorname{Im}\varphi_{U}}\) è un sottoprefascio di \(\mathcal{G}\), ma in generale non è un fascio.
+
+\begin{definizione}
+Si definisce il \textbf{fascio immagine} di \(\varphi\), denotato con \(\operatorname{Im} \varphi\), come il \href{20250327114851-fascio_associato_ad_un_prefascio.org}{fascificato}:\footnote{Vedi anche ``\href{20250327114913-fascio_associato_ad_un_sottoprefascio.org}{Fascio associato ad un sottoprefascio}''}
+\begin{equation*}
+\set{\operatorname{Im}\varphi_{U}}^{+} \subseteq G
+\end{equation*}
+sottofascio.
+\end{definizione}
+
+\begin{oss}
+Per ogni \(U \subseteq X\) aperto, si ha che
+\begin{equation*}
+(\operatorname{Im} \varphi)(U) =  \set{%
+g \in \mathcal{G}(U) \mid%
+	\forall p \in U\ %
+	\exists W \subseteq U \text{ intorno aperto di \(p\)}, \ %
+	\exists f \in \mathcal{F}(W):\hspace{1em} %
+	\restriction{g}{W} = \varphi_{W}(f) %
+}.
+\end{equation*}
+\end{oss}
+\end{document}

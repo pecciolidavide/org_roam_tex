@@ -1,0 +1,33 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Fibrato vettoriale olomorfo}
+\label{sec:orgf5e0e2e}
+Sia \(X\) una \href{20260127112752-varieta_complessa.org}{varietà complessa}.
+
+\begin{definizione}
+Un \textbf{fibrato vettoriale olomorfo} su \(X\) è una \href{20260127112752-varieta_complessa.org}{varietà complessa} \(E\) con \(\pi : E\to X\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa} tale che:
+\begin{enumerate}
+\item per ogni \(x \in X\), la \href{20260128184014-fibra_di_una_funzione.org}{fibra} \(E_{x} \coloneqq \pi^{-1}(x)\) è \href{20241205142027-spazio_vettoriale.org}{spazio vettoriale complesso};
+\item esiste \(\set{U_{\alpha}}\) \href{20250103164252-ricoprimento.org}{ricoprimento} \href{20250103145124-topologia.org}{aperto} di \(X\) ed esistono \(\phi_{\alpha}: \pi^{-1}(U_{\alpha})\to U_{\alpha}\times \C^{r}\) \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfismi} tali che
+\begin{itemize}
+\item il seguente diagramma commuti:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+        {\pi^{-1}(U_\alpha)} \&\& {U_\alpha\times \C^r} \\
+        \\
+        \& {U_\alpha}
+        \arrow["{\phi_\alpha}", from=1-1, to=1-3]
+        \arrow["\pi"', from=1-1, to=3-2]
+        \arrow["{\pi_{U_\alpha}}", from=1-3, to=3-2]
+\end{tikzcd}
+\end{equation*}
+
+\item la \href{20250205170515-restrizione_di_una_classe.org}{restrizione} \(\restriction{\phi_{\alpha}}{E_{x}}:E_{x}\to \C^{r}\) è \(\C\)-\href{20250114101949-funzione_lineare.org}{lineare}.
+\end{itemize}
+\end{enumerate}
+\end{definizione}
+\end{document}

@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Grafico di funzioni olomorfe è superficie di Riemann}
+\label{sec:org10369c1}
+Sia \(f:U \subseteq \C\to \C\) una \href{20260126110551-funzione_olomorfa.org}{funzione olomorfa}, con \(U\) \href{20250103145124-topologia.org}{aperto}. Sia
+\begin{equation*}
+\Gamma_{f} \coloneqq \set{(z,f(z)) \in \C^{2} \mid z \in U}
+\end{equation*}
+il suo \href{20250104112443-grafico_di_una_funzione.org}{grafico}.
+
+\begin{prop}
+\(\Gamma_{f}\) è una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} con \href{20260127112715-atlante_complesso.org}{carta locale} data dalla proiezione sul primo fattore
+\begin{align*}
+\pi: \Gamma_{f} &\longrightarrow \C\\
+(z,f(z)) &\longmapsto z
+\end{align*}
+\end{prop}
+
+\begin{oss}
+In generale, date \(f_{1},\dots,f_{n}: U \to \C\) olomorfe, il grafico:
+\begin{equation*}
+\Gamma_{f} \coloneqq \set{\big(z,f_{1}(z),\dots,f_{n}(z)\big) \in \C^{n+1} \mid z \in U}
+\end{equation*}
+è una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} con \href{20260127112715-atlante_complesso.org}{carta locale} data dalla proiezione sul primo fattore
+\begin{align*}
+\pi: \Gamma_{f} &\longrightarrow \C\\
+\big(z,f_{1}(z),\dots,f_{n}(z)\big) &\longmapsto z
+\end{align*}
+\end{oss}
+\end{document}

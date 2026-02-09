@@ -1,0 +1,104 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Neurone Sigmoidale}
+\label{sec:org6fcf1dc}
+Il \href{20250624155858-neurone_artificiale.org}{neurone} sigmoidale è \(\langle\bm{x},\bm{y},\sigma,y\rangle\) dove
+\begin{itemize}
+\item \(\sigma\) è una \href{20250624155858-neurone_artificiale.org}{funzione di attivazione} \href{20250625110110-funzione_sigmoidale.org}{sigmoidale}, o direttamente la \href{20250624155858-neurone_artificiale.org}{sigmoide}
+\begin{equation*}
+  \sigma(t) = \frac{1}{1+e^{-t}}
+\end{equation*}
+\item \(y=\sigma(\bm{w}\cdot\bm{x}) = \sigma(\bm{w}\cdot\bm{x} - b)\).
+\end{itemize}
+
+Il vantaggio dei neuroni sigmoidali rispetto al percettrone è la continuità di \(\sigma\) (infatti la Heaviside non è continua): a piccole variazioni di input e pesi corrispondono piccole variazioni dell'output; nello specifico:
+\begin{align*}
+\dif y &= \sum_{i=1}^{n} \dpd{y}{w_{i}}\dif w_{i} + \dpd{y}{b}\dif b \\
+&= \sum_{i=1}^{n} \sigma'(\bm{w}\cdot \bm{x}-b) x_{i}\dif w_{i} + \sigma'(\bm{w}\cdot \bm{x}-b) (-1)\dif b\\
+&= \sigma'(\bm{w}\cdot \bm{x}-b) \cdot\left(
+\sum_{i=1}^{n} x_{i}\dif w_{i} - \dif b
+\right)
+\end{align*}
+Si noti inoltre che la derivata della sigmoide è maggiorata da \(1\).
+\subsection{Regressione Logistica tramite neurone sigmoidale}
+\label{sec:orgcdd5781}
+Sia \(Z\) una variabile aleatoria, con immagine \(Z \in \set{-1,1}\), e sia \(X\) una variabile aleatoria discreta multidimensionale. Si vogliono approssimare le seguenti probabilità utilizzando un neurone sigmoidale:\footnote{Vedi ``\href{20250711174144-attesa_condizionata.org}{Probabilità condizionata}''}
+\begin{equation*}
+\mathds{P}(Z=1\mid X=\bm{x}),\qquad \mathds{P}(Z=-1\mid X=\bm{x}).
+\end{equation*}
+
+Si noti che
+\begin{equation*}
+\mathds{P}(Z=1\mid X=\bm{x})=1- \mathds{P}(Z=-1\mid X=\bm{x}).
+\end{equation*}
+
+Infatti, gli eventi \(Z=1\) e \(Z=-1\) ricoprono lo spazio di probabilità, pertanto
+\begin{equation*}
+\left(\set{Z=1}\cap\set{X=\bm{x}}\right)\cup \left(\set{Z=-1}\cap\set{X=\bm{x}}\right) = \set{X=x};
+\end{equation*}
+Esserendo \(Z=1\) e \(Z=-1\) due eventi disgunti, per la \(\sigma\)-additività:
+\begin{align*}
+\mathds{P}(Z=1 \land X=\bm{x})+\mathds{P}(Z=-1 \land X=\bm{x}) &= \mathds{P}(X=\bm{x})\\[.8em]
+\frac{\mathds{P}(Z=1 \land X=\bm{x})+\mathds{P}(Z=-1 \land X=\bm{x})}{\mathds{P}(X=\bm{x})} &= 1\\[.6em]
+\frac{\mathds{P}(Z=1 \land X=\bm{x})}{\mathds{P}(X=\bm{x})}+\frac{\mathds{P}(Z=-1 \land X=\bm{x})}{\mathds{P}(X=\bm{x})} &= 1
+\end{align*}
+Ricordando che l'attesa condizionata è, per \(\mathds{P}(B)\neq 0\), \(\mathds{P}(A\mid B) = \mathds{P}(A \land  B)/\mathds{P}(B)\), si ottiene
+\begin{equation*}
+\mathds{P}(Z=1\mid X=\bm{x})+ \mathds{P}(Z=-1\mid X=\bm{x})=1.
+\end{equation*}
+
+Si considera quindi \(\mathds{P}(Z=1\mid X=\bm{x})\) come una funzione di \(\bm{x}\), \(\mathds{P}(Z=1\mid X=\bm{x}) = f(\bm{x})\). È proprio questa funzione che si vuole approssimare con il neurone sigmoidale.
+
+Dunque, se
+\begin{equation*}
+\sigma(t) = \frac{1}{1+e^{-t}},\qquad \sigma(t) = 1-\sigma(-t)
+\end{equation*}
+si cercano \(\bm{w}\) tali che \(\sigma(\bm{w}\cdot \bm{x}) \approx f(\bm{x})\). Infine, si noti che
+\begin{align*}
+\mathds{P}(Z=1\mid X=\bm{x}) &= \sigma(\bm{w}\cdot x)\\
+\mathds{P}(Z=-1\mid X=\bm{x}) &= 1 - \mathds{P}(Z=1\mid X=\bm{x})\\ &= 1- \sigma(\bm{w}\cdot x) = \sigma(-\bm{w}\cdot\bm{x})
+\end{align*}
+e quindi si può scrivere \(\mathds{P}(Z=z\mid X=\bm{x})\approx\sigma(z\bm{w}\cdot\bm{x})\).
+
+Data la coppia di v.a. \((X,Z)\) con legge \(p_{X,Z}\), si sono costruite due v.a. differenti:
+\begin{enumerate}
+\item \(\mathds{P}(Z\mid X)\), di legge \(p(\bm{x},z)\): \(p(X,Z)\);
+\item la v.a. di legge \(\sigma(z\, \bm{w}\cdot \bm{x}) \eqqcolon p_{\bm{w}}(\bm{x},z)\): \(p_{\bm{w}}(X,Z)\)
+\end{enumerate}
+Chiaramente si vuole approssimare la prima utilizzando la seconda, minimizzando la funzione costo data dalla \href{20250711125821-teoria_dell_informazione_shannon.org}{divergenza di Kullback-Leibler}:
+\begin{equation*}
+C(\bm{w}) \coloneqq \kldiv{p(X,Z)}{p_{\bm{w}}(X,Z)} = S(p(X,Z), p_{\bm{w}}(X,Z)) - H(p(X,Z)).
+\end{equation*}
+Si è scelto \(\kldiv{p(X,Z)}{p_{\bm{w}}(X,Z)}\) invece di \(\kldiv{p_{\bm{w}}(X,Z)}{p(X,Z)}\) poiché \(H(p(X,Z))\) non dipende da \(\bm{w}\), e pertanto si può ignorare nel processo di \href{20250627153729-condizioni_necessarie_per_l_esistenza_di_un_minimo_di_una_funzione_reale.org}{minimizzazione} di \(C(\bm{w})\):
+\begin{equation*}
+C(\bm{w}) = S(p_{\bm{w}}(X,Z),p(X,Z)) = \media_{p(X,Z)}[-\ln p_{\bm{w}}(X,Z)] = \media_{p_{X,Z}}[-\ln p_{\bm{w}}(X,Z)].
+\end{equation*}
+
+Se quindi si conoscono \(N\) osservazioni di \((X,Z)\): \(\set{(\bm{x}_{i}, z_{i})\mid i=1,\dots,N}\), si può calcolare la versione empirica di \(C(\bm{w})\): \(\tilde{C}(\bm{w})\):
+\begin{equation*}
+\tilde{C}(\bm{w}) \coloneqq \cancel{\frac{1}{N}}\sum_{i=1}^{N} (-\ln p_{\bm{w}}(\bm{x}_{i},z_{i}))
+\end{equation*}
+dove \(1/N\) si è semplificato poiché valore fisso:
+\begin{align*}
+\tilde{C}(\bm{w}) &= - \sum_{i=1}^{N}\ln \sigma(z_{i}\, \bm{w}\cdot \bm{x}_{i})\\
+&= \sum_{i=1}^{N} \ln(1+\exp(-z_{i}\, \bm{w}\cdot \bm{x}_{i})).
+\end{align*}
+
+È possibile quindi applicare l'algoritmo di \href{20250711122823-algoritmo_di_gradient_descent.org}{Gradient Descent} a \(\tilde{C}(\bm{w})\) per ottenere i valori ottimali di \(\bm{w}\).
+
+Si noti inoltre che è consigliabile utilizzare questa funzione costo invece della solita \href{20250624155858-neurone_artificiale.org}{funzione costo} della \href{20250625123506-spazio_normato.org}{norma} \(L^{2}\), in quanto ha pendenza maggiore, e pertanto la convergenza del Gradient Descent è più veloce.
+
+\uline{Nota}: questo metodo è equivalente alla massimizzazione della log-verosimiglianza, suppondendo che la v.a. \(\mathds{P}(Z\mid X)\) abbia distribuzione \(p_{\bm{w}}(\bm{x},z)\), di parametri \(\bm{w}\). Infatti, considerando delle osservazioni i.i.d. \((\bm{x}_{i},z_{i})\), la verosimiglianza è
+\begin{equation*}
+\mathcal{L}(\bm{w}) = \prod_{i=1}^{N} \mathds{P}(Z=z_{i}\mid X=x_{i}) = \prod_{i=1}^{N} \sigma(z_{i}\, \bm{w}\cdot \bm{x}_{i}).
+\end{equation*}
+
+Siccome massimizzare la verosimiglianza è equivalente a massimizzare la log-verosimiglianza, si massimizza
+\begin{equation*}
+\ell(\bm{w}) \coloneqq\ln\left(\prod_{i=1}^{N} \mathds{P}(Z=z_{i}\mid X=x_{i})\right) = \sum_{i=1}^{N}\ln\sigma(z_{i}\, \bm{w}\cdot\bm{x}_{i}) = -\tilde{C}(\bm{w}).
+\end{equation*}
+\end{document}

@@ -1,0 +1,53 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\textbf{\textbf{\uline{NOTA}: quando si parla di \uline{classi}, se ne parla nell'ambito della \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}; quando si parla di insiemi, il discorso ha validità più generale.}}
+\section{Ordinale}
+\label{sec:org04786d5}
+
+Ogni \href{20250203111003-ordinali.org}{ordinale} può essere visto come uno \href{20250103145124-topologia.org}{spazio topologico}, con la \href{20250620092953-order_topology.org}{topologia indotta dall'ordine totale}.
+\section{Classe degli ordinali}
+\label{sec:orga2d02b8}
+
+Sia \href{20250203111003-ordinali.org}{\(\Omega\le \operatorname{Ord}\)}. Una classe \(A \subseteq \Omega\) è detta \uline{aperta} in \(\Omega\) se
+\begin{itemize}
+\item per ogni \(\alpha \in A\), \(\alpha\neq 0\) esistono \(\beta,\gamma \in \operatorname{Ord}\) tali che
+\begin{equation*}
+  \alpha \in (\beta;\gamma) \subseteq A
+\end{equation*}
+dove \((\beta;\gamma)\coloneqq\set{\eta \in \operatorname{Ord}\mid \beta<\eta<\gamma}\);
+\item se \(\alpha \in 0\) esiste \(\gamma \in \operatorname{Ord}\) tale che
+\begin{equation*}
+  [0;\gamma) \subseteq A
+\end{equation*}
+dove \([0;\gamma)\coloneqq\set{\eta \in \operatorname{Ord}\mid 0\ge \eta<\gamma}\).
+\end{itemize}
+
+Una classe \(C \subseteq \Omega\) è detta \uline{chiusa} in \(\Omega\) se \(\Omega\setminus C\) è aperto o, equivalentemente, se
+\begin{equation*}
+\forall\,\lambda\ \left(0<\bigcup(C\cap\lambda)=\lambda\implies \lambda \in C\right)
+\end{equation*}
+
+Dunque \(0\) e tutti \href{20250203161132-ordinale_limite.org}{ordinali successori} sono \href{20250403131856-punto_isolato.org}{punti isolati} in \(\Omega\).
+\section{Funzioni continue tra classi di ordinali}
+\label{sec:orge5081c8}
+Sia \(f:\Omega\to \operatorname{Ord}\) una \href{20250202170607-classe_relazione_binaria.org}{classe funzione}, con \(\Omega \le \operatorname{Ord}\).
+
+\begin{itemize}
+\item Poiché tutti gli ordinali successori sono punti isolati, la continuità lì non è un problema.
+\item Si supponga invece che \(\gamma<\Omega\) sia limite.
+\begin{itemize}
+\item Se \(f(\gamma)\) è un ordinale successore, allora sarà definitivamente costante prima \(\gamma\).
+\item Se \(f(\gamma)\) è limite, allora per ogni \(\delta<f(\gamma)\) esiste \(\beta<\gamma\) tale che \([\beta;\gamma]\) è mappato da \(f\) in \([\delta;f(\gamma)]\).
+\end{itemize}
+\end{itemize}
+
+Se \(f:\Omega\to \operatorname{Ord}\) è monotona, allora \(f\) è continua se e solo se per ogni \(\lambda<\Omega\) limite:
+\begin{equation*}
+f(\lambda)=\sup_{\beta<\lambda} f(\beta)\qquad\text{e}\qquad \forall\,X \subseteq \lambda\ (\sup X = \lambda\implies f(\lambda) = \sup_{\nu \in X}f(\nu))
+\end{equation*}
+Inoltre, se \(f\) è crescente allora \(f(\lambda)\) è un ordinale limite.
+\end{document}

@@ -1,0 +1,31 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Caratterizzazione sfera di Riemann tramite meromorfismo}
+\label{sec:orgeb79930}
+\begin{prop}
+Se \(X\) è \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatta} ed esiste un \href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{meromorfismo} \(f \in \mathcal{M}_{X}(X)\)\footnote{Vedi
+\begin{itemize}
+\item \href{20260128144151-fascio_delle_funzioni_meromorfe_su_una_superficie_di_riemann.org}{Fascio delle funzioni meromorfe su una superficie di Riemann}
+\end{itemize}} con un unico \href{20260128154601-singolarita_isolata_analisi_complessa.org}{polo}, e questo è di \href{20260128144450-ordine_di_una_funzione_meromorfa_su_una_superficie_di_riemann.org}{ordine} \(1\), allora sono \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{isomorfe}:\footnote{Vedi:
+\begin{itemize}
+\item \href{20260127112905-sfera_di_riemann.org}{Sfera di Riemann}
+\item \href{20260127112924-esempi_fondamentali_di_varieta_complesse.org}{Spazio proiettivo complesso è una varietà complessa}
+\item \href{20260128181135-sfera_di_riemann_biolomorfa_al_piano_proiettivo_complesso.org}{Sfera di Riemann biolomorfa al piano proiettivo complesso}
+\end{itemize}}
+\begin{equation*}
+X \cong \mathds{P}^{1}_{\C} \cong \C_{\infty}
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Si consideri \(F\) come nella dimostrazione di ``\href{20260129171638-somma_ordini_di_una_funzione_meromorfa_su_una_superficie_di_riemann_e_nulla.org}{Somma ordini di una funzione meromorfa su una superficie di Riemann è nulla}'', \(F: X\to \mathds{P}^{1}_{\C}\). Allora il \href{20260129171444-teorema_del_grado_per_olomorfismi_tra_superfici_di_riemannn.org}{grado} di \(F\):
+\begin{equation*}
+\deg F = \sum_{x \in F^{-1}(1:0)} \mathrm{mult}_{x_{0}}\, F = \sum_{x\text{ polo}} - \mathrm{ord}_{x_{0}} f = 1
+\end{equation*}
+e \href{20260129171557-caratterizzazione_isomorfismo_tra_superfici_di_riemann_tramite_grado.org}{quindi} \(F\) è un \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{isomorfismo}.
+\end{proof}
+\end{document}

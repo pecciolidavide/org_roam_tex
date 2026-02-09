@@ -1,0 +1,95 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:orgf342daa}
+
+Prove that for any Polish space and \(A \subseteq X\), if \(A\) is not open then it is \(\bm{\Pi}_{1}^{0}\)-hard. Conclude that a set \(A\) is truly closed (i.e. closed but not open) if and only if it is \(\bm{\Pi}_{1}^{0}\)-complete, and similarly for \(\bm{\Sigma}_{1}^{0}\).
+\subsection{Dimostrazione}
+\label{sec:org03d6e1c}
+
+\subsubsection{Non aperti sono \(\mathbf{\Pi}_{1}^{0}\)-hard\hfill{}\textsc{Modificato}}
+\label{sec:org065f330}
+
+Sia \(A\) un insieme non aperto, e sia \(C \subseteq \omega^{\omega}\) un chiuso fissato.
+
+Sia dunque \(a_{0} \in A\setminus \operatorname{Int}(A)\). In particolare, quindi \(a_{0} \in \operatorname{Cl}(X\setminus A) = A\setminus \operatorname{Int}(A)\).
+
+\begin{itemize}
+\item Si fissi \(d:X\to \R\) una metrica completa su \(X\).
+\item Siccome \(a_{0} \in \operatorname{Cl}(X\setminus A)\), allora esiste una successione \((y_{n})_{n \in \omega} \subseteq X\setminus A\) tale che \(y_{n}\to a_{0}\), ovvero, per ogni intorno \(U\) di \(a_{0}\) esiste \(N \in \N\) tale che, per ogni \(j\ge N\), \(y_{j} \in U\).
+\item Si costruisce \(\set{U_{n}}_{n \in \omega}\) una famiglia di aperti di \(X\) tali che
+\begin{itemize}
+\item per ogni \(n \in \omega\): \(U_{n}\setminus \set{a_{0}}\neq \emptyset\);
+\item l'intersezione \(\bigcap_{n \in \omega} U_{n} = \set{a_{0}}\);
+\item \(\operatorname{diam}(U_{n})\to 0\);
+\item per ogni \(n \in \omega\): \(\operatorname{Cl}(U_{n+1}) \subsetneqq U_{n}\)
+\end{itemize}
+e una successione \(v_{n} \subseteq X\setminus A\) tale che \(v_{n} \in U_{n}\setminus \operatorname{Cl}(U_{n+1})\).
+
+Sia \(U_{0} = X\). Si supponga di aver costruito \(U_{n}\), e sia \(\alpha \in U_{n}\setminus A\). Tale \(\alpha\) esiste, poiché esistono infiniti elementi della successione \((y_{j})_{j \in \omega}\) dentro \(U_{n}\) intorno di \(a_{0}\), e tutti questi elementi \uline{non appartengono ad \(A\)}.
+
+Detto \(r\coloneqq\min\set{2^{-n-1}, d(a_{0},\alpha)/2}>0\), sia \(U_{n}'\coloneqq B_{d}(a_{0},r)\). Necessariamente \(\alpha\notin U_{n}'\) e \(U_{n}' \subsetneqq U_{n}\).
+
+È quindi possibile porre \(U_{n+1}\coloneqq B_{d}(a_{0},r/2)\):
+\begin{equation*}
+  	\operatorname{Cl}(U_{n+1}) = \operatorname{Cl} \left(B_{d}(a_{0},r/2)\right) \subseteq B_{d}^{\text{cl}}(a_{0},r/2) \subseteq B_{d}(a_{0},r) = U_{n}' \subsetneqq U_{n}.
+\end{equation*}
+
+Si ponga inoltre \(v_{n} \coloneqq \alpha\), \(v_{n} \in U_{n}\setminus \operatorname{Cl}(U_{n+1})\), \(v_{n}\notin A\).
+
+Questa famiglia soddisfa tutte le proprietà elencate.
+
+\item Siccome \(C\) è un chiuso di \(\omega^{\omega}\), allora esiste un albero potato \(T \subseteq \omega^{<\omega}\) tale che \(C=[T]\), i.e.
+\begin{equation*}
+  	C= \set{\alpha \in \omega^{\omega}\mid \forall\,n \in \omega\ (\alpha\upharpoonright n \in T)}
+\end{equation*}
+\item Si costruisce un \(\omega\)-schema \(\set{B_{s}\mid s \in \omega^{<\omega}}\) su \(X\):
+\begin{itemize}
+\item se \(s \in T\), allora \(B_{s} \coloneqq U_{\operatorname{lh}(s)}\); in particolare, quindi \(\emptyset \in T\) e \(B_{\emptyset} = U_{0} = X\);
+\item se \(s\notin T\), sia \(j_{s}\) il più grande indice tale che \(s\upharpoonright j_{s} \in T\); si pone \(B_{s} \coloneqq \set{v_{j_{s}}}\).
+\end{itemize}
+\item Questo definisce effettivamente uno schema tale che \(\operatorname{Cl}(B_{s\concat a}) \subseteq B_{s}\) e ciascun \(B_{s}\neq \emptyset\): pertanto è indotta una funzione continua totale (per il Lemma 1.3.6)
+\begin{equation*}
+  	F:\omega^{\omega}\to X
+\end{equation*}
+\item Resta da mostrare che \(F^{-1}(A) = C\). Questo per definizione garantisce che \(A\) sia un \(\bm{\Pi}_{1}^{0}\)-hard.
+
+Per ogni \(\beta \in C\),
+\begin{equation*}
+  	F(\beta) \in \bigcap_{n \in \omega} B_{\beta\upharpoonright n}
+\end{equation*}
+dove \(\beta\upharpoonright n \in T\). Quindi \(B_{\beta\upharpoonright n} = U_{n}\). Quindi
+\begin{equation*}
+  	F(\beta) \in \bigcap_{n \in \omega} U_{n} = \set{a_{0}} \subseteq A.
+\end{equation*}
+
+Viceversa, se \(\beta \notin C\), allora esiste \(n_{0} \in \omega\) tale che \(\beta\upharpoonright n_{0} \notin T\) e pertanto
+\begin{equation*}
+  	F(\beta) \in \bigcap_{n \in\omega} B_{\beta\upharpoonright n} \subseteq B_{\beta\upharpoonright n_{0}}
+\end{equation*}
+e per costruzione, siccome \(B_{\beta\upharpoonright n_{0}} = \set{v_{m}}\) per qualche \(m \in \omega\), e \(v_{m}\notin A\) per costruzione, allora
+\begin{equation*}
+  	A\cap B_{\beta\upharpoonright n_{0}} = \emptyset
+\end{equation*}
+e pertanto \(F(\beta)\notin A\).
+\end{itemize}
+\subsubsection{Caratterizzazione dei chiusi ma non aperti}
+\label{sec:org3a2bba9}
+
+\begin{itemize}
+\item Se \(A\) è chiuso ma non aperto, allora \(A\) è \(\bm{\Pi}_{1}^{0}\)-hard e inoltre \(A \in \bm{\Pi}_{1}^{0}\). Per definizione, quindi \(A\) è un \(\bm{\Pi}_{1}^{0}\)-completo.
+
+Viceversa, se \(A\) è un chiuso \(\bm{\Pi}_{1}^{0}\)-hard, si supponga per assurdo che sia aperto. Allora, per ogni \(B \in \bm{\Pi}_{1}^{0}(\omega^{\omega})\) esiste una funzione continua \(F:\omega^{\omega}\to X\) tale che \(F^{-1}(A) = B\), ovvero \(B \in \bm{\Sigma}_{1}^{0}\). Si avrebbe quindi che ogni chiuso di \(\omega^{\omega}\) sia un clopen. Come argomentato nell'\href{20250505103058-caratterizzazione_dei_punti_non_isolati_di_uno_spazio_polacco.org}{esercizio precedente}, questo genera un assurdo.
+\item L'insieme \(A\) è aperto ma non chiuso se e solo se \(X\setminus A\) è chiuso ma non aperto, se e solo se \(X\setminus A\) è \(\bm{\Pi}_{1}^{0}\)-completo per il punto precedente.
+
+Per il Lemma 2.1.23, \(X\setminus A\) è \(\bm{\Pi}_{1}^{0}\)-completo se e solo se \(A\) è \(\check{\bm{\Pi}}_{1}^{0}\)-completo, ma (per l'Example 2.1.10)
+\begin{equation*}
+  	\check{\bm{\Pi}}_{1}^{0}=\bm{\Sigma}_{1}^{0}
+\end{equation*}
+e pertanto \(A\) è aperto ma non chiuso se e solo se \(A\) è \(\bm{\Sigma}_{1}^{0}\)-completo.\qed
+\end{itemize}
+\end{document}

@@ -1,0 +1,35 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Definizione}
+\label{sec:org36a50e5}
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile}, e sia \(p \in M\). Lo spazio tangente ad \(M\) in \(p\) è
+\begin{equation*}
+\operatorname{T}_{p}M\coloneqq \set{v: C^{\infty}_{p}\longrightarrow \R: v\text{ derivazione}}
+\end{equation*}
+(vedi \href{20250114101437-derivazione_su_una_varieta_differenziabile.org}{Derivazione su una varietà differenziabile} e \href{20250114100254-germi_di_funzioni.org}{Germi di funzioni})
+\section{Osservazione}
+\label{sec:org139191a}
+\(\operatorname{T}_{p} M\) è uno \href{20241205142027-spazio_vettoriale.org}{spazio vettoriale} reale. Inoltre \(\operatorname{T}_{p} M \subseteq \mathscr{L}(C^{\infty}_{p}; \R)\) è un \href{20250114103118-sottospazio_vettoriale.org}{sottospazio vettoriale}. (Vedi \href{20250114103136-spazio_delle_funzioni_lineare.org}{Spazio delle funzioni lineare})
+\section{Descrizione alternativa}
+\label{sec:org75136b6}
+Si ha che:
+\begin{equation*}
+\set{\dot{\alpha}(0):\ \alpha:(-\varepsilon,\varepsilon)\longrightarrow M\text{ funzione }C^{\infty}} = \operatorname{T}_{p}M
+\end{equation*}
+(vedi \href{20250114110247-curve_su_varieta_e_loro_derivata.org}{Derivata di curve su varietà come derivazioni})
+\subsection{Vettori dello spazio tangente ad una varietà in un punto come derivate di curve}
+\label{sec:org26f4fb8}
+\begin{prop}
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} e sia \(p \in M\). Sia \(\bm{v} \in \operatorname{T}_{p}M\) (vedi \href{20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.org}{Spazio tangente ad un punto di una varietà differenziabile}).
+
+Allora esiste \(\alpha:(-\varepsilon,\varepsilon)\longrightarrow M\) \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{funzione \(C^{\infty}\)} tale che (vedi \href{20250114110247-curve_su_varieta_e_loro_derivata.org}{Curve su varietà e loro derivata})
+\begin{align*}
+\alpha(0) &=p \\
+\dot{\alpha}(0) &=\bm{v}
+\end{align*}
+\end{prop}
+\end{document}

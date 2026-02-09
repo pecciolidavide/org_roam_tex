@@ -1,0 +1,33 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Sottovarietà complessa dello spazio proiettivo}
+\label{sec:org8b6f87a}
+Consideriamo lo \href{20241231115051-spazio_proiettivo.org}{spazio proiettivo} complesso \(\mathds{P}^{n}_{\C}\): questa è una \href{20260127112752-varieta_complessa.org}{varietà complessa}\footnote{Vedi ``\href{20260127112924-esempi_fondamentali_di_varieta_complesse.org}{Spazio proiettivo complesso è una varietà complessa}''}. Sia \(X \subseteq \mathds{P}^{n}_{\C}\) \href{20250103165325-spazio_topologico_connesso.org}{connesso} e \href{20250103145124-topologia.org}{chiuso}.
+
+\begin{definizione}
+Diciamo che \(X\) è una \textbf{sottovarietà complessa di \(\mathds{P}^{n}_{\C}\)} di dimensione 1, se, per ogni \(p \in X\):
+\begin{itemize}
+\item esiste \(U_{j} = \set{(z_{0}:\dots:z_{n}) \in \mathds{P}^{n}_{\C} \mid z_{j} \neq 0} \mathrel{\overset{\text{omeo}}{\approx}} \C^{n}\)\footnote{Questo è un \href{20250111142332-omeomorfismo.org}{omeomorfismo}.}
+\item esiste \(V_{p} \subseteq U_{j}\) \href{20250111142313-intorno.org}{intorno} \href{20250103145124-topologia.org}{aperto} di \(p\)
+\end{itemize}
+tale che \(X \cap V \subseteq \C^{n}\) è il \href{20250104112443-grafico_di_una_funzione.org}{grafico} di \(n-1\) \href{20260126110551-funzione_olomorfa.org}{funzioni olomorfe} di una variabile:
+\begin{equation*}
+X \cap V_{p} = \set{\big(x,g_{1}(x),\dots,g_{n-1}(x)\big)}.
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Al variare di \(p\), la proiezione
+\begin{align*}
+\pi_{p}: X\cap V_{p} &\longrightarrow \C\\
+\big(x,g_{1}(x),\dots,g_{n-1}(x)\big) &\longmapsto x
+\end{align*}
+è una \href{20260127112715-atlante_complesso.org}{carta locale}: questo dà luogo ad un \href{20260127112715-atlante_complesso.org}{atlante complesso} per \(X\).
+
+Pertanto \(X\) è una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatta}\footnote{Si noti che ``\href{20250401125136-chiuso_in_un_compatto_e_compatto.org}{Chiuso in un compatto è compatto}''}.
+\end{oss}
+\end{document}

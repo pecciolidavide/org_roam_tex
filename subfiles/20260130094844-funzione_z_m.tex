@@ -1,0 +1,43 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Mappa di potenza complessa}
+\label{sec:orgf28a579}
+Consideriamo, per \(m \in \N\), \(m\ge {1}\):
+\begin{align*}
+\phi : \C &\longrightarrow \C\\
+z &\longmapsto z^{m}
+\end{align*}
+\begin{prop}
+Per ogni \(z_{0}\in \C\setminus \set{0}\), esiste \(U\) \href{20250111142313-intorno.org}{intorno} \href{20250103145124-topologia.org}{aperto} di \(z_{0}\) tale che la \href{20250205170515-restrizione_di_una_classe.org}{restrizione} \(\restriction{\phi}{U}\) sia \href{20241219101956-funzione_iniettiva.org}{iniettiva}.
+\end{prop}
+\begin{proof}
+È noto che:\footnote{Vedi ``\href{20260130100707-differenza_di_potenze.org}{Scomposizione della differenza di potenze}''} per ogni \(w,z \in \C\):
+\begin{equation*}
+w^{m}-z^{m} = (w-z)\left(\sum_{i=1}^{m} z^{m-i}\cdot w^{i-1}\right).
+\end{equation*}
+Si consideri quindi
+\begin{equation*}
+P(w,z) \coloneqq \sum_{i=1}^{m} z^{m-i}\cdot w^{i-1}
+\end{equation*}
+\begin{itemize}
+\item Questo è un \href{20241231112750-polinomio.org}{Polinomio}, \href{20260130101500-polinomi_sono_continui.org}{quindi} è \href{20250103103252-funzione_continua.org}{continuo}, ed in particolare \href{20250306140014-funzione_continua_in_un_punto.org}{continuo in ogni punto}.
+\item \(P(z_{0},z_{0})\) è
+\begin{equation*}
+  \sum_{i=1}^{m} z_{0}^{m-i}\cdot z_{0}^{i-1} = \sum_{i=1}^{m} z_{0}^{m-1} = m\, z_{0}^{m-1}
+\end{equation*}
+e siccome \(m \neq 0\), \(P(z_{0},z_{0}) \neq 0\).
+\end{itemize}
+
+Quindi esiste \(V \subseteq \C^{2}\) tale che per ogni \((w,z) \in V\): \(P(w,z) \neq 0\), ed esiste\footnote{\href{20250301193341-sistema_fondamentale_di_intorni.org}{Sistema fondamentale di intorni} e \href{20250109154723-topologia_prodotto.org}{Topologia prodotto}} \(U \subseteq \C\) intorno di \(z_{0}\) tale che \(V\supseteq U\times U\).
+
+Siano quindi ora \(z_{1},z_{2} \in U\) tali che \(\phi(z_{1})=\phi(z_{2})\): si ha che \((z_{1},z_{2}) \in V\) e
+\begin{equation*}
+0 = (z_{1}^{m}-z_{2}^{m}) = (z_{1}-z_{2}) \cdot \parentesi{\neq 0}{P(z_{1},z_{2})}
+\end{equation*}
+e quindi \(z_{1}=z_{2}\).
+\end{proof}
+\end{document}

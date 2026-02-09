@@ -1,0 +1,56 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Definizioni}
+\label{sec:orge567cc0}
+Un \href{20241205141119-anello.org}{anello commutativo con unità} \(A\) si dice \uline{Noetheriano} (vedi \href{20250102120132-emmy_noether.org}{Emmy Noether}) se vale una delle seguenti proprietà equivalenti:
+\begin{enumerate}
+\item Ogni suo \href{20241219112955-ideale.org}{Ideale} \(I\) è \href{20241219113154-ideale_generato.org}{finitamente generato}
+\item Ogni \uline{catena ascendente di ideali}
+\begin{equation*}
+   I_{1} \subseteq I_{2} \subseteq \dots \subseteq I_{j} \subseteq
+\end{equation*}
+è \href{20250102120655-catena_stazionaria.org}{\uline{stazionaria}}, ovvero esiste \(n\) tale per cui per ogni \(k>0\)
+\begin{equation*}
+ I_{n+k}=I_{n}
+\end{equation*}
+(vedi \href{20250102120722-acc.org}{ACC})
+\end{enumerate}
+\section{Dimostrazione}
+\label{sec:org53275e0}
+Le due condizioni di cui sopra sono equivalenti
+\subsection{\(1\implies 2\)}
+\label{sec:org1268d5e}
+
+Sia \(I_{1} \subseteq I_{2} \subseteq \dots\subseteq I_{j} \subseteq \dots\) una catena ascendente di ideali. Sia
+\begin{equation*}
+I \coloneqq \bigcup_{j}I_{j}
+\end{equation*}
+\(I\) è ancora un ideale, e per 1. si ha che \(I=(r_{1},\dots,r_{n})\) per \(r_{i} \in I\), poiché \(I\) è finitamente generato. Per ogni \(k=1,\dots,n\) sia \(j_{k}\) tale che
+\begin{equation*}
+r_{j_{k}} \in I_{j_{k}}
+\end{equation*}
+Sia dunque \(N= \max \set{j_{k}}_{k}\). Si ha che \(r_{1},\dots,r_{n}\in I_{N}\), e pertanto \((r_{1},\dots,r_{n})\subseteq I_{N}\) e \(I_{N} \subseteq I\).
+
+Dunque \(I_{N}=I\) e, per ogni \(k\ge 0\) si ha
+\begin{equation*}
+I_{N+m}\supseteq I_{N}=I,\qquad I_{N+m} \subseteq I
+\end{equation*}
+e pertanto \(I_{N+m}=I_{N}\).
+\subsection{\(2\implies 1\)}
+\label{sec:orgb5fc71e}
+
+Osservazione: se \(I\) è un ideale non finitamente generato, e \(r_{1},\dots,r_{n} \in I\), allora anche \(I\setminus (r_{1},\dots,r_{n})\) è non finitamente generato. Infatti, se per assurdo \(I\setminus(r_{1},\dots,r_{n})\) fosse generato da \(t_{1},\dots,t_{k}\), allora \(I\) sarebbe generato da \(t_{1},\dots,t_{k},r_{1},\dots,r_{n}\).
+
+Sia \(I\) un ideale \textbf{non} finitamente generato, e sia \(a_{1}\in I\) tale che \((a_{1}) \subsetneqq I\). Allora \(I \setminus (a_{1})\) è non finitamente generato.
+Sia \(a_{2} \in I \setminus (a_{1})\) tale che \((a_{1},a_{2})\subsetneqq I\). Allora \(I\setminus(a_{1},a_{2})\) è non finitamente generato.
+
+Continuando in questo modo si crea una catena di ideali
+\begin{equation*}
+(a_{1})\subsetneqq (a_{1},a_{2}) \subsetneqq (a_{1},a_{2},a_{3}) \subsetneqq ...
+\end{equation*}
+non stazionaria.
+\end{document}

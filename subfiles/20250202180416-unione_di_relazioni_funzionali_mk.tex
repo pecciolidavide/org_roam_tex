@@ -1,0 +1,25 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Proposizione}
+\label{sec:orgd8e7b20}
+Sia \(\mathcal{F}\) una \href{20250130104320-classe_mk.org}{classe} di \href{20250202170607-classe_relazione_binaria.org}{funzioni} \href{20250202184517-ordine_superiormente_diretto.org}{superiormente diretta} rispetto a \(\subseteq\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK}). Allora l'\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{unione}
+\begin{equation*}
+\bigcup \mathcal{F}
+\end{equation*}
+è una \href{20250202170607-classe_relazione_binaria.org}{relazione funzionale}.
+\subsection{Dimostrazione}
+\label{sec:orgd214c72}
+L'unione \(\bigcup\mathcal{F}\) è una classe di \href{20250131162451-coppia_ordinata_mk.org}{coppie ordinate}, e pertanto è una \href{20250202170607-classe_relazione_binaria.org}{relazione}.
+
+Se \((x,y), (x,y') \in \bigcup\mathcal{F}\), allora \((x,y) \in f\) e \((x,y') \in g\) per qualche \(f,g \in \mathcal{F}\).
+Pertanto (per definizione di ordine superiormente diretta) esiste \(h \in \mathcal{F}\) tale che \(f \subseteq h\) e \(g \subseteq h\), e dunque
+\begin{equation*}
+(x,y), (x,y') \in h
+\end{equation*}
+ma \(h\) è una funzione, e pertanto \(y=y'\).
+\end{document}

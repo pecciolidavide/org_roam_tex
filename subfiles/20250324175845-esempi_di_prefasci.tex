@@ -1,0 +1,106 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Esempi di Fasci e Prefasci}
+\label{sec:orgff2410b}
+\begin{esempio}
+Si consideri \(X\) \href{20250103145124-topologia.org}{spazio topologico} qualsiasi. Allora i seguenti, con la \href{20250205170515-restrizione_di_una_classe.org}{restrizione ovvia}, sono dei \href{20250324165349-prefascio.org}{prefasci} di \href{20250110175552-algebra_su_un_campo.org}{\(\R\)-algebre}: per ogni \(U \subseteq X\) \href{20250103145124-topologia.org}{aperto}
+\begin{itemize}
+\item \(\mathcal{F}_{X}(U)\coloneqq\set{f:U\to \R}\);
+\item \(\mathcal{C}_{X}(U) \coloneqq \set{f:U \to \R\text{ continua}}\), fascio delle funzioni continue.
+\end{itemize}
+Entrambi sono anche dei \href{20250324174728-fascio.org}{fasci}: per il secondo esempio è necessario ricorrere al \href{20250127144302-lemma_di_incollamento.org}{Lemma di Incollamento}.
+\end{esempio}
+\subsection{Forme differenziali come fascio}
+\label{sec:org92e309b}
+\begin{esempio}
+Sia \(X\) varietà differenziabile. Il seguente è un \href{20250324165349-prefascio.org}{prefascio} di \href{20241205142027-spazio_vettoriale.org}{spazi vettoriali reali}:
+\begin{itemize}
+\item per ogni \(U \subseteq X\) aperto: \(\Omega^{p}(U)\), lo spazio delle \href{20251115155511-forma_differenziale_in_un_punto.org}{\(p\)-forme differenziali \(\mathcal{C}^{\infty}\)} su \(U\);
+\item come \href{20251201155413-restrizione_di_una_forma_ad_una_sottovarieta.org}{restrizione quella ovvia}.
+\end{itemize}
+Questo è anche un \href{20250324174728-fascio.org}{fascio}. Si indica con \(\mathcal{A}_{X}^{p} = \Omega_{X}^{p}\).
+\end{esempio}
+\subsection{Funzioni Cinfinito da una varietà ai reali come fascio}
+\label{sec:org4149b99}
+\begin{esempio}
+Sia \(X\) varietà differenziabile. Il seguente è un \href{20250324165349-prefascio.org}{prefascio} di \href{20250110175552-algebra_su_un_campo.org}{\(\R\)-algebre}:
+\begin{itemize}
+\item per ogni \(U \subseteq X\) aperto: \(\mathcal{C}^{\infty}(U)\coloneqq \set{f:U\to \R\text{ funzioni }\mathcal{C}^{\infty}}\)\footnote{Vedi ``\href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{Anello delle funzioni Cinfinito da una varietà ai reali}''};
+\item come \href{20250205170515-restrizione_di_una_classe.org}{restrizione quella ovvia}.
+\end{itemize}
+Questo è anche un \href{20250324174728-fascio.org}{fascio}. Si indica con \(\mathcal{C}_{X}^{\infty}\).
+\end{esempio}
+\subsection{Prefascio delle funzioni costanti a valori in un gruppo}
+\label{sec:org833af9e}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}, e sia \(G\) un gruppo. Il \href{20250324165349-prefascio.org}{prefascio} delle \href{20250325160105-funzione_costante.org}{funzioni costanti} a valori in \(G\) è, rispetto alle \href{20250205170515-restrizione_di_una_classe.org}{restrizioni} di funzioni, per ogni \(U \subseteq X\) \href{20250103145124-topologia.org}{aperto}
+\begin{equation*}
+\mathcal{F}(U) \coloneqq\set{f:U\to G\text{ costante}}
+\end{equation*}
+Questo \uline{non è}, in generale, un \href{20250324174728-fascio.org}{fascio}. Infatti, siano \(A,B \subseteq X\) aperti, non vuoti e disgiunti, e sia \(U\coloneqq A\cup B\). Allora \(\set{A,B}\) è un \href{20250103164252-ricoprimento.org}{ricoprimento} \href{20250103145124-topologia.org}{aperto} di \(U\), e
+\begin{equation*}
+f_{A}: A\to G: a\mapsto g_{A},\qquad f_{B}:B\to G: b\mapsto g_{B}
+\end{equation*}
+con \(g_{A}\neq g_{B}\) sono tali che \(f_{A} \in \mathcal{F}(A)\) e \(f_{B} \in \mathcal{F}(B)\), ma non esiste una funzione costante \(f:X\to G\) tale che
+\begin{equation*}
+\restriction{f}{A} = f_{A},\qquad \restriction{f}{B} = f_{B}.
+\end{equation*}
+\subsection{Sezioni Cinfinito di un fibrato vettoriale come fascio}
+\label{sec:org60adffa}
+\begin{esempio}
+Sia \(X\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile}, \(E \xrightarrow{\pi} X\) un fibrato vettoriale \(C^{\infty}\). Si definisce un \href{20250324174728-fascio.org}{fascio} di \href{20241205142027-spazio_vettoriale.org}{spazi vettoriali reali} come segue:
+\begin{itemize}
+\item Si pone:\footnote{Vedi:
+\begin{itemize}
+\item \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}
+\end{itemize}}
+\begin{align*}
+  \mathcal{F}(U) &\coloneqq \set{\text{sezioni \(C^{\infty}\) di \(R\) ristrette a \(U\)}}\\
+  &= \set{s:U\to \pi^{-1}[U]\text{ di classe \(C^{\infty}\)} \mid \pi \circ s = \Id_{U}}
+\end{align*}
+\item come \href{20250205170515-restrizione_di_una_classe.org}{restrizione quella ovvia}.
+\end{itemize}
+\end{esempio}
+\subsection{Fascio delle funzioni olomorfe}
+\label{sec:org5ce24b3}
+\begin{definizione}
+Sia \(X\) un aperto di \(\C\) o di \(\C^{n}\). Si definisce il \textbf{\href{20250324174728-fascio.org}{fascio} delle \href{20260126110551-funzione_olomorfa.org}{funzioni olomorfe}} \(\mathcal{O}_{X}\) come segue:
+\begin{itemize}
+\item si pone
+\begin{equation*}
+  \mathcal{O}_{X}(U) = \set{f:U\to \C \mid f\text{ olomorfa}}.
+\end{equation*}
+\item come \href{20250205170515-restrizione_di_una_classe.org}{restrizione quella ovvia}.
+\end{itemize}
+Questo è un fascio di \href{20250110175552-algebra_su_un_campo.org}{\(\C\)-algebre}.
+\end{definizione}
+\subsection{Fascio delle funzioni olomorfe mai nulle}
+\label{sec:orgde90217}
+\begin{definizione}
+Sia \(X\) un aperto di \(\C\) o di \(\C^{n}\). Si definisce il \textbf{\href{20250324174728-fascio.org}{fascio} delle \href{20260126110551-funzione_olomorfa.org}{funzioni olomorfe}} \(\mathcal{O}_{X}^{*}\) come segue:
+\begin{itemize}
+\item si pone
+\begin{equation*}
+  \mathcal{O}_{X}^{*}(U) = \set{f:U\to \C \mid f\text{ olomorfa} \land 0 \notin f[U]}.
+\end{equation*}
+\item come \href{20250205170515-restrizione_di_una_classe.org}{restrizione quella ovvia}.
+\end{itemize}
+Questo è un fascio di \href{20250127093245-gruppo_abeliano.org}{gruppi abeliani}.
+\end{definizione}
+\subsection{Fascio delle funzioni regolari su una varietà algebrica qp}
+\label{sec:org1b3892a}
+\begin{definizione}
+Sia \(X\) una varietà algebrica q.p. su \(\K\) campo algebricamente chiuso.\footnote{\(X\) è dotato della \href{20250107112123-varieta_algebrica_quasi_proiettiva_qp.org}{topologia di Zariski}.} Si definisce il \textbf{\href{20250324174728-fascio.org}{fascio} delle funzioni regolari} \(\mathcal{O}_{X}\) come segue:
+\begin{itemize}
+\item si pone
+\begin{equation*}
+  \mathcal{O}_{X}(U) = \set{f:U\to \K \mid f\text{ regolare}}.
+\end{equation*}
+\item come \href{20250205170515-restrizione_di_una_classe.org}{restrizione quella ovvia}.
+\end{itemize}
+Questo è un fascio di \href{20250110175552-algebra_su_un_campo.org}{\(\K\)-algebre}.
+\end{definizione}
+\end{document}

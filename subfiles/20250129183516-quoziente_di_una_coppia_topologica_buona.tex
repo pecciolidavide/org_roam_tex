@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Contrazione di un sottospazio topologico ad un punto}
+\label{sec:org23c4374}
+Sia \((X, \tau)\) uno \href{20250103145124-topologia.org}{spazio topologico} e sia \(A \subseteq X\) un \href{20250103163814-sottospazio_topologico.org}{sottospazio}.
+
+\begin{definizione}
+Si definisce la \href{20250113110148-relazione_di_equivalenza.org}{relazione di equivalenza} \(\sim\) su \(X\) che identifica tutti i punti di \(A\) in un unico punto, lasciando inalterati i punti di \(X \setminus A\):
+\begin{equation*}
+x \sim y \IFF (x = y) \lor (x \in A \land y \in A)
+\end{equation*}
+
+Lo spazio quoziente rispetto a questa relazione si denota con \(X/A\), dotat della \href{20250129155316-spazio_topologico_quoziente.org}{topologia quoziente} indotta dalla proiezione canonica \(\pi: X \to X/A: x\mapsto [x]_{\sim}\).
+\end{definizione}
+
+Gli elementi di \(X/A\) sono:
+\begin{itemize}
+\item I singoletti \(\{x\}\) per ogni \(x \in X \setminus A\);
+\item Il punto speciale \(p_{A}\), (la classe di equivalenza che contiene ogni punto di \(A\)).
+\end{itemize}
+
+\begin{oss}
+Un sottoinsieme \(U \subseteq X/A\) è aperto se e solo se \(\pi^{-1}(U)\) è aperto in \(X\).
+Esplicitamente, gli aperti di \(X/A\) sono di due tipi:
+\begin{enumerate}
+\item Sottoinsiemi aperti di \(X \setminus A\) (che non contengono il punto \([A]\));
+\item Insiemi della forma \(V \cup \{[A]\}\), dove \(V \subseteq X \setminus A\) è tale che \(V \cup A\) sia un aperto in \(X\) (ovvero intorni aperti del sottospazio \(A\) in \(X\)).
+\end{enumerate}
+\end{oss}
+\end{document}

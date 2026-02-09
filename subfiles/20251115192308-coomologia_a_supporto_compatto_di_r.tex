@@ -1,0 +1,81 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Coomologia a supporto compatto di R}
+\label{sec:org4bc87a0}
+\begin{thm}
+Se \(H^{k}_{\text{c}}\) indica la \href{20251115192241-coomologia_a_supporto_compatto.org}{coomologia a supporto compatto}, allora
+\begin{equation*}
+H^{k}_{\text{c}}(\R) = %
+\begin{cases}
+\R & k = 1\\
+0 & \text{altrimenti}.
+\end{cases}
+\end{equation*}
+\end{thm}
+\begin{proof}
+Per motivi di dimensione \(H^{k}_{\text{c}}(\R) = 0\) per \(k>0\). Per \(k=0\) segue dalla \href{20251115173611-coomologia_di_de_rham_di_r.org}{coomologia di \(\R\)}.
+
+Per quanto riguarda \(H^{1}_{\text{c}}(\R)\), dimostro che l'\href{20251115185654-integrazione_di_forme_su_varieta_differenziabile_orientata.org}{integrale}
+\begin{align*}
+\int_{\R}: H^{1}_{\text{c}}(\R) &\longrightarrow \R\\
+[\omega] &\longmapsto \int_{\R}\omega
+\end{align*}
+è un \href{20250113125833-isomorfismo_tra_spazi_vettoriali.org}{isomorfismo}.
+\begin{itemize}
+\item \uline{\(\int_{\R}\) è ben definita}.
+
+Se \(\omega = \dif f\) per qualche \href{20250113125602-classe_c_di_una_funzione.org}{\(f \in C^{\infty}(\R)\)} a \href{20250701115005-supporto_di_una_funzione.org}{supporto} \href{20250103163701-spazio_topologico_compatto.org}{compatto}, allora per il \href{20251229102111-teorema_fondamentale_del_calcolo_integrale.org}{teorema fondamentale del calcolo integrale}:
+\begin{equation*}
+  	\int_{\R}\omega = \int_{\R} f' \dif t = %
+  	\lim_{t \to + \infty} [f(t)-f(-t)] = 0
+\end{equation*}
+dove l'uguaglianza a zero segue dal supporto compatto di \(f\).
+
+\item \uline{\(\int_{\R}\) è suriettiva}.
+
+Sia \(f \in C^{\infty}(\R)\)]] a \href{20250701115005-supporto_di_una_funzione.org}{supporto} \href{20250103163701-spazio_topologico_compatto.org}{compatto}, \(f \ge 0\). Allora
+\begin{equation*}
+  \int_{\R} f\dif t \neq 0
+\end{equation*}
+e pertanto \(\dim \operatorname{Im}\int_{\R} > 0\). Necessariamente quindi
+\begin{equation*}
+  \dim \operatorname{Im}\int_{\R} = 1.
+\end{equation*}
+
+\item \uline{\(\int_{\R}\) è iniettiva}.
+
+Sia \(\omega = g \dif t \in A^{1}_{\text{c}} (\R)\) una \href{20251115155511-forma_differenziale_in_un_punto.org}{\(1\)-forma} a \href{20251223153341-supporto_di_una_forma_differenziale.org}{supporto} \href{20250103163701-spazio_topologico_compatto.org}{compatto} tale che \(\int_{\R}\omega = 0\). Si definisce
+\begin{equation*}
+  	f(t) \coloneqq - \int_{-\infty}^{t} g(\tau) \dif \tau.
+\end{equation*}
+Allora \(f\) è a \href{20250701115005-supporto_di_una_funzione.org}{supporto} \href{20250103163701-spazio_topologico_compatto.org}{compatto}, e \(\dif f = \omega\). Allora \([\omega]= 0\).
+
+Pertanto \(\ker \int_{\R}  = 0\).
+\end{itemize}
+
+Dunque \(H^{1}_{\text{c}}(\R) \cong \R\).
+\end{proof}
+\begin{cor}
+Se \(f \in C^{\infty}(\R)\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Funzione di classe Cinfinito}''} è a \href{20250701115005-supporto_di_una_funzione.org}{supporto} \href{20250103163701-spazio_topologico_compatto.org}{compatto} e:
+\begin{itemize}
+\item \(\forall x \in \R\): \(f(x) \ge 0\);
+\item la \href{20250630122824-misura_di_lebesgue.org}{misura di Lebesgue}: \(\mu\big(\set{x \in \R \mid f(x) \neq 0}\big)>0\)
+\end{itemize}
+allora \(\set{[f\dif t]}\) è una \href{20250102163502-base_di_uno_spazio_vettoriale.org}{base} di \(H^{1}_{\text{c}}(\R)\)
+\end{cor}
+
+\begin{esempio}
+La funzione
+\begin{equation*}
+f = \begin{cases}
+\operatorname{exp}\bigg(-\frac{1}{1-|x|^{2}}\bigg) & |x|<1\\
+0 & |x|\ge 1
+\end{cases}
+\end{equation*}
+soddisfa i requisiti del corollario.
+\end{esempio}
+\end{document}

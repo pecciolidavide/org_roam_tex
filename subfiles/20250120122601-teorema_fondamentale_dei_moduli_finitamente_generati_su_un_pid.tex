@@ -1,0 +1,31 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{thm}
+Sia \(R\) un \href{20241219112842-pid.org}{PID} e sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo} \href{20241213100845-modulo_finitamente_generato.org}{finitamente generato}.
+Allora esistono \(r_{1},\dots,r_{k} \in R\) tali che\footnote{``\(\divisore\)'' è la \href{20250120122938-divisore.org}{relazione di divisibilità}. Vedi anche:
+\begin{itemize}
+\item \href{20241220000402-torsione_moduli.org}{Torsione di un modulo}
+\item \href{20241206115416-morfismi_r_moduli.org}{Isomorfismo tra R-Moduli}
+\item \href{20241206142802-sottomoduli.org}{Quoziente di Moduli}
+\item \href{20241212141101-generatori_modulo.org}{Modulo generato da un insieme}
+\item \href{20241213095808-somma_diretta.org}{Somma Diretta}
+\end{itemize}}
+\begin{equation*}
+r_{1} \divisore r_{2} \divisore \dots \divisore r_{k-1}\divisore r_{k},\qquad \mathrm{Tor} M \cong R/(r_{1})\oplus R/(r_{2})\oplus\dots\oplus R/(r_{k})
+\end{equation*}
+\end{thm}
+
+In particolare, \(M\) è \href{20241206115416-morfismi_r_moduli.org}{isomorfo} a\footnote{Vedi ``\href{20260109174823-prodotto_cartesiano_di_moduli.org}{Prodotto cartesiano di moduli}''}
+\begin{equation*}
+M\cong R^{\,m}\oplus R/(r_{1})\oplus R/(r_{2})\oplus\dots\oplus R/(r_{k})
+\end{equation*}
+e questa scomposizione è unica a meno di permutazioni, nel senso che se
+\begin{equation*}
+M\cong R^{\,m'}\oplus R/(r_{1}')\oplus R/(r_{2}')\oplus\dots\oplus R/(r_{k'}')
+\end{equation*}
+allora \(m=m'\), \(k=k'\) e \(r_{i} = r_{\sigma(i)}'\) per qualche \href{20250120123610-permutazione.org}{permutazione} \(\sigma\).
+\end{document}

@@ -1,0 +1,44 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Sezioni globali del fascio associato ad un punto per superfici di Riemann compatte}
+\label{sec:org3aab325}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, e sia \(\operatorname{Div}(X)\) il \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{gruppo dei divisori di \(X\)}. Per ogni \(D \in \operatorname{Div}(X)\)  si consideri il \href{20250324174728-fascio.org}{fascio} \(\mathcal{O}_{X}(D)\) \href{20260202101128-fascio_associato_ad_un_divisore_su_una_superficie_di_riemann.org}{associato} a \(D\). Sia \(L(D) = \mathcal{O}_{X}(D)(X)\) la \href{20260202101334-sezioni_globali_del_fascio_associato_ad_un_divisore_su_una_superficie_di_riemann.org}{sezione globale}.
+
+\begin{oss}
+Se \(X\) è una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatta} e \(p \in X\), allora come \href{20260201235551-divisore_di_una_superficie_di_riemann.org}{divisore} è \href{20260202100903-divisore_effettivo_di_una_superficie_di_riemann.org}{effettivo}: \(p\ge 0\). Pertanto, indicato con \href{20260128143847-fascio_delle_funzioni_olomorfe_su_una_superficie_di_riemann.org}{\(\mathcal{O}_{X}\) il fascio delle funzioni olomorfe}, si ha\footnote{Vedi ``\href{20260202101128-fascio_associato_ad_un_divisore_su_una_superficie_di_riemann.org}{Fascio associato ad un divisore su una superficie di Riemann}''} che
+\begin{equation*}
+\mathcal{O}_{X} \subseteq \mathcal{O}_{X}(p)
+\end{equation*}
+è \href{20250325150647-sottoprefascio.org}{sottofascio}: siccome tutte le funzioni costanti sono olomorfe su \(X\), si ha:
+\begin{equation*}
+\C \subseteq \mathcal{O}_{X}(X) \subseteq L(p).
+\end{equation*}
+\begin{itemize}
+\item Se \(\dim L(p) > 1\), allora esiste \(f \in L(p)\) non costante.
+\begin{itemize}
+\item Per \href{20260202101128-fascio_associato_ad_un_divisore_su_una_superficie_di_riemann.org}{costruzione}, si ha che:
+\begin{itemize}
+\item per ogni \(x \in X\setminus \set{p}\): \(\mathrm{ord}_{x}f \ge 0\), \href{20260128144433-ordine_di_una_funzione_meromorfa.org}{ovvero} \(f\) olomorfa in \(x\);
+\item \(\mathrm{ord}_{p} \, f \ge -1\).
+\end{itemize}
+\item Siccome \(f\) non è costante, allora \href{20260128152954-funzione_olomorfa_su_una_superficie_di_riemann_compatta_a_valori_complessi.org}{non può essere olomorfa su \(X\)}. Quindi \(\mathrm{ord}_{p} \, f = -1\)
+\end{itemize}
+In particolare, \(f\) ha un polo in \(p\) di ordine 1.
+
+\href{20260129171718-caratterizzazione_sfera_di_riemann_tramite_meromorfismo.org}{Quindi}, \(X\cong \C_{\infty}\) è \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfismo}.
+\end{itemize}
+\end{oss}
+
+Segue il seguente corollario.
+
+\begin{cor}
+Se \(X\) è una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatta} e \(X \not\cong \C_{\infty}\), allora per ogni \(p \in X\):
+\begin{equation*}
+L(p) \cong \C.
+\end{equation*}
+\end{cor}
+\end{document}

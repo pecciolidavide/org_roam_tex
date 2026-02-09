@@ -1,0 +1,32 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Superficie di Riemann definita tramite Teorema della funzione implicita}
+\label{sec:org744975b}
+Sia \(\Omega \subseteq \C^{2}_{z,w}\) un \href{20250103145124-topologia.org}{aperto}, e sia \(F:\Omega\to \C\) \href{20260126110551-funzione_olomorfa.org}{olomorfa}. Si definisce
+\begin{equation*}
+X\coloneqq \set{p \in \Omega \mid F(p) = 0}.
+\end{equation*}
+Sia \(p_{0} = (z_{0},w_{0}) \in X\) tale che \(\pd{F}{w}(p_{0}) \neq 0\)\footnote{Vedi ``\href{20250114103236-derivata_parziale.org}{Derivata parziale}''}.
+
+\begin{prop}
+Se
+\begin{enumerate}
+\item \(X\) è connesso;
+\item per ogni \(p \in X\), il \href{20250624171244-gradiente_di_una_funzione.org}{gradiente} \(\nabla F (p) \neq \bm{0}\);
+\end{enumerate}
+allora \(X\) è una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}.
+\end{prop}
+
+\begin{proof}
+Per ogni \(p \in X\), per la condizione 2., almeno una delle proiezioni sugli assi è \href{20250111142332-omeomorfismo.org}{omeo} locale, che dà una \href{20260127112715-atlante_complesso.org}{carta locale}. I cambiamenti di coordinate sono dati da:
+\begin{itemize}
+\item la funzione identità;
+\item \(w=f(z)\) \href{20260126110551-funzione_olomorfa.org}{olomorfismo}.
+\qedhere
+\end{itemize}
+\end{proof}
+\end{document}

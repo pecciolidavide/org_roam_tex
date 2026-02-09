@@ -1,0 +1,26 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proprietà funzione olomorfa non costante tra superfici di Riemann con dominio compatto}
+\label{sec:orgab49736}
+\begin{thm}
+Siano \(X,Y\) \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann}, \(X\) \href{20250103163701-spazio_topologico_compatto.org}{compatta}. Se \(F:X\to Y\) è \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa} e non costante, allora:
+\begin{enumerate}
+\item \(F\) è \href{20241213105600-funzione_suriettiva.org}{suriettiva};
+\item \(Y\) è \href{20250103163701-spazio_topologico_compatto.org}{compatta};
+\item ogni \href{20260128184014-fibra_di_una_funzione.org}{fibra} di \(F\) è finita.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Per il \href{20260128144827-teorema_della_mappa_aperta_superfici_di_riemann.org}{Teorema della mappa aperta}, \(F\) è aperta, quindi \(F(X)\) è aperta in \(Y\).
+Siccome \(F(X)\) è compatto\footnote{Infatti ``\href{20251229125103-immagine_continua_di_spazio_compatto_e_compatto.org}{Immagine continua di spazio compatto è compatto}''}, allora\footnote{\href{20250331174140-compatto_in_un_haussdorf_e_chiuso.org}{Compatto in un Hausdorff è chiuso}} \(F(X)\) è chiusa.
+
+Allora, dato che \(Y\) è \href{20250103165325-spazio_topologico_connesso.org}{connessa} per definizione, \(F(X) = Y\). Seguono ovviamente i punti 1. e 2.
+
+Per il \href{20260128144016-principio_di_identita_per_funzioni_olomorfe_su_superfici_di_riemann.org}{Principio di identità}, ogni fibra è \href{20260128123515-sottoinsieme_discreto.org}{discreta}, ma \(X\) è \href{20250103163701-spazio_topologico_compatto.org}{compatto} e \href{20260128172415-sottoinsieme_discreto_in_un_compatto.org}{quindi ogni fibra è finita}.
+\end{proof}
+\end{document}

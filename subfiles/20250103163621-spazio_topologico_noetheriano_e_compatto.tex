@@ -1,0 +1,31 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema}
+\label{sec:org852105c}
+Sia \(X\) uno \href{20250103145124-topologia.org}{Spazio topologico} \href{20250103152646-spazio_topologico_noetheriano.org}{noetheriano}. Allora ogni \href{20250103163814-sottospazio_topologico.org}{sottospazio} \(Y \subseteq X\) è \href{20250103163701-spazio_topologico_compatto.org}{compatto}.
+\subsection{Dimostrazione}
+\label{sec:org2c75a61}
+Sia \(\mathcal{U}=\set{U_{\alpha}}_{{\alpha \in A}}\) un \href{20250103164252-ricoprimento.org}{ricoprimento} \href{20250103145124-topologia.org}{aperto} di \(Y\). Sia \(\mathscr{F}\):
+\begin{equation*}
+\mathscr{F}\coloneqq\set{U_{\alpha_{1}}\cup\dots\cup U_{\alpha_{n}}: \alpha_{i} \in A, n \in \N}
+\end{equation*}
+la famiglia di unioni finite di elementi di \(\mathcal{U}\). Siccome \(X\) è noetheriano, per il \href{20250103155209-caratterizzazione_topologia_noetheriana.org}{teorema di caratterizzazione}, \(\mathscr{F}\) ha un elemento massimale \(U\),
+\begin{equation*}
+U = U_{\beta_{1}}\cup \dots\cup U_{\beta_{k}}
+\end{equation*}
+
+Si ha che \(\set{U_{\beta_{i}}}_{i=1,\dots,k}\) è un ricorprimento aperto finito di \(Y\), e pertanto \(Y\) è compatto. Infatti \(Y \subseteq U\).
+
+Se per assurdo \(Y \not\subseteq U = U_{\beta_{1}}\cup \dots\cup U_{\beta_{k}}\), sia \(p \in Y\setminus U\). Allora esiste \(U_{\gamma} \in \mathscr{F}\) tale che \(p \in U_{\gamma}\). Inoltre
+\begin{equation*}
+U\cup U_{\gamma} \subsetneqq U
+\end{equation*}
+e pertanto \(U\) non è massimale. Assurdo.
+\subsection{Corollario}
+\label{sec:org496601a}
+Se \(X\) è uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250103152646-spazio_topologico_noetheriano.org}{noetheriano}, allora \(X\) è \href{20250103163701-spazio_topologico_compatto.org}{compatto}.
+\end{document}

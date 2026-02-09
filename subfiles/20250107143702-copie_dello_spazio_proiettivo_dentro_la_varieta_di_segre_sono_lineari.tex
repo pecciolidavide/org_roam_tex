@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
+\section{Proposizione}
+\label{sec:orgf534a3e}
+Sia \(\sigma:\mathds{P}^{n}\times \mathds{P}^{m} \longrightarrow \Sigma_{n,m}\) la \href{20250104190620-mappa_di_segre.org}{mappa di Segre}. (vedi \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo}).
+Allora, per \(p \in \mathds{P}^{n}\) e \(q \in \mathds{P}^{m}\), gli spazi
+\begin{equation*}
+\sigma\left(\set{p}\times \mathds{P}^{m}\right),\qquad \sigma\left(\mathds{P}^{n}\times\set{q}\right)
+\end{equation*}
+sono descritti da equazioni di primo grado.
+\subsection{Dimostrazione}
+\label{sec:org07d8dae}
+Fissiamo \(p \in \mathds{P}^{n}\), \(p=[p_{0}:\dots:p_{n}]\).
+
+Si ha che
+\begin{equation*}
+z=[\dots:z_{ij}:\dots] \in \sigma\left(\set{p}\times \mathds{P}^{m}\right)
+\end{equation*}
+se e solo se le colonne sono proporzionali a \(p\). Pertanto, se e solo se
+\begin{equation*}
+\forall\, j,\quad \rank\begin{bmatrix}
+z_{0j} & p_{0}\\
+z_{1j} & p_{1}\\
+\vdots\\
+z_{nj} & p_{n}
+\end{bmatrix}=1
+\end{equation*}
+(vedi \href{20250104170945-rango_di_una_matrice.org}{Rango di una matrice}). Come già osservato, questo succede se e solo se i \href{20250104111751-determinante_di_una_matrice.org}{determinanti} dei \href{20250104171415-minori_di_una_matrice.org}{minori} della \href{20250104111539-spazio_delle_matrici.org}{matrice} sono tutti nulli. Queste condizioni sono tutte polinomiali di primo grado.
+\end{document}

@@ -1,0 +1,87 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Caratterizzazione forme esatte di grado massimo su varietà orientabile, connessa e compatta}
+\label{sec:org7cb1a2d}
+\begin{prop}
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} \href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile}, \href{20250103165325-spazio_topologico_connesso.org}{connessa} e \href{20250103163701-spazio_topologico_compatto.org}{compatta}. Allora una \href{20251115155511-forma_differenziale_in_un_punto.org}{\(n\)-forma differenziale \(\omega \in A^{n}(M)\)} è \href{20251115172517-forma_differenziale_chiusa.org}{esatta} sse l'\href{20251115185654-integrazione_di_forme_su_varieta_differenziabile_orientata.org}{integrale}
+\begin{equation*}
+\int_{M} \omega = 0.
+\end{equation*}
+\end{prop}
+\begin{proof}
+(\(\Rightarrow\)): per il \href{20251115190058-teorema_di_stokes.org}{Teorema di Stokes}.
+
+(\(\Leftarrow\)): Per la \href{20251229114152-dualita_di_poincare.org}{Dualità di Poincaré} (e \href{20251117121206-coomologia_in_dimensione_massima.org}{Coomologia in dimensione massima}), si ha che \(H^{n}(M)\) ha dimensione 1.\footnote{Vedi ``\href{20251115172442-gruppo_di_coomologia_di_de_rham.org}{Gruppo di Coomologia di De Rham}''} Pertanto:
+\begin{align*}
+\int_{M}: H^{n}(M) &\longrightarrow \R\\
+[\omega] &\longmapsto \int_{M}\omega
+\end{align*}
+è un isomorfismo. Infatti
+\begin{enumerate}
+\item \(\int_{M}\) è \href{20250114101949-funzione_lineare.org}{lineare};
+\item sia dominio che codominio hanno dimensione 1;
+\item \(\int_{M} \nu \neq 0\)\footnote{Infatti \href{20251115184544-forma_volume_su_una_varieta_differenziabile.org}{l'integrale di una forma volume è positivo}.}, per \(\nu\) \href{20251115184544-forma_volume_su_una_varieta_differenziabile.org}{forma volume} (che esiste per la \href{20251115185324-caratterizzazione_varieta_differenziabile_orientabile_tramite_forma_voluma.org}{caratterizzazione} delle \href{20251223152054-varieta_differenziabile_orientabile.org}{v.d. orientabili})
+\end{enumerate}
+
+Quindi, se \(\int_{M} \omega = 0\) allora \([\omega]= 0\) in \(H^{n}(M)\), ovvero \(\omega\) è esatta.
+\end{proof}
+\begin{oss}
+Nelle condizioni di cui sopra, quindi, se \href{20251115173611-coomologia_di_de_rham_di_r.org}{\([\eta],[\omega] \in H^{n}(M)\)}
+\begin{equation*}
+[\eta] = [\omega] \IFF \int_{M} (\eta-\omega)=0.
+\end{equation*}
+\end{oss}
+\section{Caratterizzazione forme esatte di grado massimo a supporto compatto su varietà orientabile connessa}
+\label{sec:org700b44b}
+\begin{prop}
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} \href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile}, \href{20250103165325-spazio_topologico_connesso.org}{connessa}. Allora una \href{20251115155511-forma_differenziale_in_un_punto.org}{\(n\)-forma differenziale \(\omega \in A^{n}_{\text{c}}(M)\)} a \href{20251229110021-forma_differenziale_a_supporto_compatto.org}{supporto compatto} è \href{20251115172517-forma_differenziale_chiusa.org}{esatta} sse l'\href{20251115185654-integrazione_di_forme_su_varieta_differenziabile_orientata.org}{integrale}
+\begin{equation*}
+\int_{M} \omega = 0.
+\end{equation*}
+\end{prop}
+\begin{proof}
+(\(\Rightarrow\)): per il \href{20251115190058-teorema_di_stokes.org}{Teorema di Stokes}.
+
+(\(\Leftarrow\)): Per la \href{20251229114152-dualita_di_poincare.org}{Dualità di Poincaré} (e \href{20251117121206-coomologia_in_dimensione_massima.org}{Coomologia in dimensione massima}), si ha che \href{20251115192241-coomologia_a_supporto_compatto.org}{\(H^{n}_{\text{c}}(M)\)} ha dimensione 1. Pertanto:
+\begin{align*}
+\int_{M}: H^{n}_{\text{c}}(M) &\longrightarrow \R\\
+[\omega] &\longmapsto \int_{M}\omega
+\end{align*}
+è un isomorfismo. Infatti
+\begin{enumerate}
+\item \(\int_{M}\) è lineare;
+\item sia dominio che codominio hanno dimensione 1;
+\item siccome \(H^{n}_{\text{c}} \cong \R\), allora \(H^{n}_{\text{c}} = \langle [\omega_{M}]\rangle\); \href{20251117121206-coomologia_in_dimensione_massima.org}{posso sempre scegliere} \(\omega_{M}\) tale che \(\int_{M} \omega_{M} = 1\), e pertanto \(\int_{M} \omega_{M} \neq 0\).
+\end{enumerate}
+
+Quindi, se \(\int_{M} \omega = 0\) allora \([\omega]= 0\) in \(H^{n}(M)\), ovvero \(\omega\) è esatta.
+\end{proof}
+\section{Integrale di forma su sottovarietà non nullo implica forma non esatta}
+\label{sec:org73de02c}
+\begin{cor}
+Sia \(M\) è una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} \href{20251223152054-varieta_differenziabile_orientabile.org}{orientabile}, e \(S \subseteq M\) una \href{20250114124541-sottovarieta_differenziabile.org}{sottovarietà} di \(M\), \href{20250103163701-spazio_topologico_compatto.org}{compatta} e di dimensione \(k<n\); sia \(\omega \in A^{k}(M)\).
+
+Allora, se \(\int_{S} \omega \neq 0\)\footnote{Vedi ``\href{20251230110059-integrale_di_forme_su_sottovarieta_differenziabile.org}{Integrale di forme su sottovarietà differenziabile}''} allora \(\omega\) non è \href{20251115172517-forma_differenziale_chiusa.org}{esatta}.
+\end{cor}
+\begin{proof}
+Sia \(i:S \hookrightarrow M\) l'inclusione:
+\begin{equation*}
+\int_{S}\omega \coloneqq \int_{M} i^{*}\omega
+\end{equation*}
+dove \(i^{*}\) è il \href{20251115174001-pullback_di_una_funzione_tra_varieta_differenziabili.org}{pullback}.
+
+Se \(\omega\) è esatta, allora \(\omega = \dif \eta\):\footnote{Vedi \href{20251115174001-pullback_di_una_funzione_tra_varieta_differenziabili.org}{Proprietà del pullback di una funzione tra varietà differenziabili}}
+\begin{equation*}
+i^{*}\omega = \operatorname{d} (i^{*}\omega)
+\end{equation*}
+e quindi
+\begin{equation*}
+\int_{S} \omega = \int_{S} i^{*}(\dif \eta) = \int_{S} \operatorname{d} (i^{*}\omega) = 0
+\end{equation*}
+per il \href{20251115190058-teorema_di_stokes.org}{Teorema di Stokes}.
+\end{proof}
+\end{document}

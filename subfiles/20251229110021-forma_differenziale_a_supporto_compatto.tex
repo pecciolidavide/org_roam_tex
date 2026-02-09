@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile}.
+
+\begin{definizione}
+Si denota con \(A^{k}_{\text{c}}(M)\) l'insieme delle \href{20251115155511-forma_differenziale_in_un_punto.org}{\(k\)-forme differenziali} a \href{20251223153341-supporto_di_una_forma_differenziale.org}{supporto} \href{20250103163701-spazio_topologico_compatto.org}{compatto}:
+\begin{equation*}
+A^{k}_{\text{c}}(M) \subseteq A^{k} (M).
+\end{equation*}
+\end{definizione}
+
+Queste formano uno \href{20251201163733-gruppo_abeliano_graduato.org}{spazio vettoriale graduato}: \(A^{\bullet}_{\text{c}}(M)\):\footnote{Vedi ``\href{20241213095808-somma_diretta.org}{Somma Diretta}''}
+\begin{equation*}
+A^{\bullet}_{\text{c}}(M) \coloneqq \bigoplus_{k \in \N} A^{k}_{\text{c}}(M)
+\end{equation*}
+nonché un \href{20251115182320-complesso_di_cocatene.org}{complesso di cocatene} con il \href{20251115160537-differenziale_di_una_forma.org}{differenziale}. Infatti, se \(\omega \in A^{k}_{\text{c}}(M)\), allora \(\dif \omega \in A^{k+1}_{\text{c}}(M)\), in quanto
+\begin{equation*}
+\operatorname{supp} \dif \omega \subseteq \operatorname{supp}\omega.
+\end{equation*}
+\end{document}

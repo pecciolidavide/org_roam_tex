@@ -1,0 +1,35 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funzione localmente costante sse costante sulle componenti connesse}
+\label{sec:orgf73f8e8}
+\begin{prop}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250301193254-spazio_topologico_primo_numerabile.org}{primo numerabile}, \(Y\) un \href{20250130104331-insieme_mk.org}{insieme} e \(f: X\to Y\) una \href{20250202170607-classe_relazione_binaria.org}{funzione}.
+
+\(f\) è \href{20250325153824-funzione_localmente_costante.org}{localmente costante} su \(X\) se e solo se \(f\) è \href{20250325160105-funzione_costante.org}{costante} sulle \href{20250325160128-componente_connessa_di_uno_spazio_topologico.org}{componenti connesse} di \(X\).
+\end{prop}
+\begin{proof}
+(\(\Leftarrow\)): Segue dalla definizione di localmente costante, in quanto ogni componente connessa è \href{20250103145124-topologia.org}{aperta}, \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{quindi} \href{20250111142313-intorno.org}{intorno} di ogni suo punto.
+
+(\(\Rightarrow\)):
+Sia \(C \subseteq X\) una componente connessa, e supponiamo per assurdo che esistano \(x,y \in C\) tali che \(f(x)\neq f(y)\). Sia \(A\coloneqq\set{z \in C\mid f(z) = f(x)} \subseteq C\) e sia \(B\coloneqq\set{z \in C\mid f(z)=f(y)} \subseteq C\). Chiaramente \(A\cap B =\emptyset\), e \(A\ni x\), \(B\ni y\),
+
+Siccome \(f\) è localmente connessa, allora per ogni \(z \in C\) esiste \(U_{z} \subseteq C\) intorno aperto di \(z\) tale che \(\restriction{f}{U_{z}}\) è costante. Pertanto:
+\begin{itemize}
+\item per ogni \(z \in A\), \(U_{z} \subseteq A\);
+\item per ogni \(z \in B\), \(U_{z} \subseteq B\).
+\end{itemize}
+Sono entrambi intorno di ogni loro punti, \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{e pertanto} sono \href{20250103145124-topologia.org}{aperti}.
+
+Sia \((z_{n}) \subseteq A\) una \href{20250115100930-convergenza_per_una_successione.org}{successione convergente}. Sia \(p\) tale che \((z_{n})\) converge a \(p\). Siccome \(f\) è localmente costante, esiste un intorno \(V\) di \(p\) in cui \(f\) è costante.
+Siccome \(z_{n}\) converge a \(p\), allora esiste \(z_{n} \in V\), e pertanto \(f(p) = f(z_{n}) = f(x)\). Allora \(z \in A\). Per la \href{20250303120747-caratterizzazione_dei_chiusi_in_termini_di_successioni.org}{caratterizzazione dei chiusi per successioni}, \(A\) è \href{20250103145124-topologia.org}{chiuso}.
+
+Sia \((w_{n}) \subseteq B\) una \href{20250115100930-convergenza_per_una_successione.org}{successione convergente}. Sia \(w\) tale che \((w_{n})\) converge a \(w\). Siccome \(f\) è localmente costante, esiste un intorno \(W\) di \(w\) in cui \(f\) è costante.
+Siccome \(w_{n}\) converge a \(w\), allora esiste \(w_{n} \in V\), e pertanto \(f(w) = f(w_{n}) = f(y)\). Allora \(w \in B\). Per la \href{20250303120747-caratterizzazione_dei_chiusi_in_termini_di_successioni.org}{caratterizzazione dei chiusi per successioni}, \(B\) è \href{20250103145124-topologia.org}{chiuso}.
+
+Quindi \(C\) non è connesso. Assurdo.
+\end{proof}
+\end{document}

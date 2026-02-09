@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Collezione dei sottoinsiemi ben ordinabili di cardinalità limitata}
+\label{sec:org1cbed08}
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\begin{definizione}
+Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme} e sia \(\kappa\) un \href{20250203161341-cardinali.org}{cardinale}. Si definisce
+\begin{equation*}
+\parti[\kappa]{X}\coloneqq\set{Y \subseteq X\ |\ |Y|<\kappa}
+\end{equation*}
+dove \(|Y|\) è la \href{20241213101756-cardinalita.org}{cardinalità} del \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme}\(Y \subseteq X\), che esiste soltanto quando \(Y\) è \href{20250203161431-classe_ben_ordinabile_mk.org}{ben ordinabile}.
+
+Pertanto questa è la collezione di tutti i sottoinsiemi di \(X\) ben ordinabili di cardinalità minore di \(\kappa\).
+\end{definizione}
+\subsection{Applicazione ai cardinali}
+\label{sec:orgac251ab}
+
+Notiamo che, considerando la \href{20250205182017-insieme_dei_sottoinsiemi_con_order_type_fissato.org}{definzione} di \([\lambda]^{<\kappa}\) per i \href{20250203161341-cardinali.org}{cardinali} \(\lambda\) e \(\kappa\) si ha che\footnote{Vedi ``\href{20250612151505-aritmetica_dei_cardinali.org}{Elevamento a potenza di Cardinali}''}
+\begin{equation*}
+\parti[\kappa]{\lambda} = [\lambda]^{<\kappa}
+\end{equation*}
+e, assumendo \href{20250206171508-axiom_of_choiche.org}{AC}, si ha che
+\begin{equation*}
+\card{\parti[\kappa]{\lambda}} = \lambda^{<\kappa} \le \lambda^{k}
+\end{equation*}
+dove
+\begin{equation*}
+\lambda^{<\kappa} \coloneqq \sup\set{\lambda^{\nu}\mid \nu \in \operatorname{Card}\,\land\, \nu\le\kappa}
+\end{equation*}
+\end{document}

@@ -1,0 +1,21 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema (Lusin-Sierpiński)}
+\label{sec:orgf5d2b01}
+
+Sia \(X\) uno \href{20250301194013-spazio_polacco.org}{spazio polacco}. Allora ogni \href{20250525220742-insieme_analitico.org}{insieme analitico} di \(X\) ha la \href{20250514154039-proprieta_di_baire.org}{Baire Property}.
+\subsection{Dimostrazione}
+\label{sec:org5db71e3}
+
+Siccome \(\mathrm{BP}(X)\) è una \href{20250526100313-sigma_algebra.org}{\(\sigma\)-algebra} \footnote{Vedi Prop. 1.5.9 di LMR ``Notes on Descriptive Set Theory''.} allora è chiusa per complementi, e pertanto se ogni insieme coanalitico ha BP allora si è dimostrata la tesi.
+
+Sia dunque \(C\) un insieme coanalitico e sia \(U \subseteq X\) un aperto. Posto \(A\coloneqq (X\setminus C)\cup U\), questo è un insieme analitico, e pertanto  esiste un chiuso \(F \subseteq X\times\omega^{\omega}\) tale che \(A=\pi_{X}(F)\).
+
+Per il \href{20250514144736-teorema_di_gale_stewart.org}{Teorema di Gale-Stewart}, allora, il \href{20250513111844-gioco_di_banach_mazur.org}{**-gioco \(G^{ * *}_{\text{u}}(F)\)} è \href{20250513155732-logic_game.org}{determinato}, ed in particolare vale una tra le condizioni a. e b. del \href{20250514175252-magrezza_dentro_ad_un_polacco_tramite_gioco_di_banach_mazur.org}{teorema precedente}.
+
+Per i \href{20250514174717-teorema_di_caratterizzazione_dei_comagri_tramite_il_gioco_di_banach_mazur.org}{teoremi I e II}, allora, il \href{20250513111844-gioco_di_banach_mazur.org}{gioco \(G^{**}(A) = G^{ * *}\left((X\setminus C) \cup U\right)\)} è determinato: per il \href{20250526100910-caratterizzazione_bp_tramite_gioco_di_banach_mazur.org}{lemma precedente}, quindi \(C\) ha la BP. \qed
+\end{document}

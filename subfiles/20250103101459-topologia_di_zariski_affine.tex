@@ -1,0 +1,40 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Nella \href{20250103103232-topologia_euclidea.org}{topologia euclidea}, gli zeri di \href{20250103103252-funzione_continua.org}{funzioni continue} sono usualmente chiusi, pertanto ha senso definire una topologia come segue:
+\section{Definizione}
+\label{sec:orgacff47e}
+La \href{20250103145124-topologia.org}{topologia} di Zariski su \href{20241231114009-spazio_affine.org}{\(\A^{n}\)} è quella che ha per chiusi tutte e sole le \href{20241231114256-varieta_algebrica_affine.org}{varietà algebriche affini}; ovvero, \(C \subseteq \A^{n}\) è chiuso se e solo se \(C\) è il \href{20241231112823-radici_polinomiali.org}{luogo di zeri} di \href{20241231112750-polinomio.org}{polinomi}.
+\subsection{Dimostrazione che sia una topologia}
+\label{sec:orgdb9b4ae}
+\subsubsection{Contiene \(\emptyset\) e \(\A^{n}\)}
+\label{sec:orgf87421b}
+Infatti, \(\emptyset=V(1)\) e \(\A^{n} = V(0)\).
+\subsubsection{Chiuso per intersezioni}
+\label{sec:orgf9d1d22}
+Siano, per \(i \in I\), \(X_{i}=V(T_{i})\), con \(T_{i} \subseteq \K[x_{1},\dots,x_{n}]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi})
+
+\(\bigcap_{i \in I}X_{i}\) è una varietà algebrica, infatti
+\begin{equation*}
+\bigcap_{i \in I}V(T_{i}) = V\left(\bigcup_{i \in I} T_{i}\right)
+\end{equation*}
+\subsubsection{Chiuso per unioni finite}
+\label{sec:orgd6fab98}
+Siano \(X_{1}=V(T_{1})\) e \(X_{2}=V(T_{2})\).
+Allora \(X_{1}\cup X_{2} =V(T_{1})\cup V(T_{2}) = V(T_{1} \cdot T_{2})\) dove
+\begin{equation*}
+T_{1}\cdot T_{2} \coloneqq \set{fg: f \in T_{1}, g \in T_{2}}
+\end{equation*}
+
+Per doppia inclusione, sia \(p \in V(T_{1})\cup V(T_{2})\); allora \(p \in V(T_{i})\) per \(i=1\) oppure \(i=2\). Senza perdita di generalità suppongo \(p \in V(T_{1})\), cioè \(f(p)=0\) per ogni \(f \in T_{1}\).
+Per ogni \(h \in T_{1}\cdot T_{2}\), \(h=fg\) con \(f \in T_{1}\), e quindi \(h(p)=f(p)g(p)=0 g(p)=0\), e dunque \(p \in V(T_{1}\cdot T_{2})\).
+Viceversa, sia \(p \in V(T_{1} \cdot T_{2})\) e sia \(p \notin V(T_{1})\). Bisogna dimostrare che \(p \in V(T_{2})\).
+Siccome \(p\notin V(T_{1})\), esiste \(\tilde{f}\in T_{1}\) tale che \(\tilde{f}(p)\neq 0\). Inoltre, \(\forall\, g \in T_{2}\), si ha che \(\tilde{f}g \in T_{1}\cdot T_{2}\), e, pertanto, \(\tilde{f}g \in T_{1}\cdot T_{2}\).
+\begin{equation*}
+0 = (\tilde{f}g)(p) = \tilde{f}(p)\,g(p)
+\end{equation*}
+e quindi \(g(p)=0\), poiché \(\K[x_{1},\dots,x_{n}]\) è un \href{20250103143950-dominio_di_integrita.org}{Dominio di integrità}, e, pertanto, \(p \in V(T_{2})\).
+\end{document}

@@ -1,0 +1,77 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}, sia \(p \in \mathds{P}^{n}\) fissato (vedi \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo}), \(H \subseteq \mathds{P}^{n}\) un \href{20250102144306-iperpiano_proeittivo.org}{iperpiano}, e sia
+\begin{equation*}
+\pi_{p}:\mathds{P}^{n}\setminus\set{p}\longrightarrow H
+\end{equation*}
+la \href{20250108162146-proiezione_su_un_iperpiano_dentro_allo_spazio_proiettivo.org}{proiezione} da \(p\) su \(H\).
+\section{Teorema}
+\label{sec:orga1df582}
+Sia \(X \subseteq \mathds{P}^{n}\) una \href{20241231123223-varieta_algebrica_proiettiva.org}{sottovarietà algebrica proiettiva}. Allora \(\pi_{p}(X)\) è una sottovarietà di \(H\).
+\subsection{Lemma}
+\label{sec:org2d77d6c}
+Sia \(X \subseteq \mathds{P}^{n}\) una \href{20241231123223-varieta_algebrica_proiettiva.org}{sottovarietà algebrica proiettiva}, \(p \notin X\) e \(\ell\) una qualsiasi \href{20250109101841-retta_proiettiva.org}{retta} per \(p\).
+
+\(\ell\cap X \neq \emptyset\) se e solo se per ogni \(F,G \in I(X)^{h}\) (vedi \href{20250103144124-ideale_di_un_sottoinsieme.org}{Ideale di un sottoinsieme} e \href{20241231121125-polinomi_omogenei.org}{Polinomi Omogenei}), \(F\) e \(G\) hanno uno zero in comune su \(\ell\setminus\set{p}\).
+\subsubsection{Dimostrazione del lemma}
+\label{sec:org8ff3982}
+
+\paragraph{Implicazione ->}
+\label{sec:org86cfdbb}
+Se \(r \in \ell \cap X\) allora \(r \in \ell\) e \(r \neq p\), siccome \(p\notin X\). Siccome \(r \in X\), allora \(\forall\, F \in I(X)^{h}\) si ha che \(F(r)=0\). Pertanto \(r \in \ell\setminus\set{p}\) è radice comune di tutti i polinomi di \(I(X)^{h}\).
+\paragraph{Implicazione <-}
+\label{sec:orgde19c85}
+Per assurdo, supponiamo ogni coppia di polinomi \(F,G \in I(X)^{h}\) abbia uno zero in comune su \(\ell\setminus\set{p}\) e che \(\ell \cap X = \emptyset\).
+
+Sia \(F \in I(X)\) tale che \(F(p) \neq 0\). Tale polinomio esiste poiché \(p\notin X\). Infatti, \href{20250109115213-zeri_di_un_ideale_di_un_sottoinsieme_proiettivo.org}{si ha che} \(X=V\left(I(X)^{h}\right)\).
+
+Siano \(p_{1},\dots,p_{k}\) i punti di \(\ell\) nei quali si annulla \(F\), \(p_{1},\dots,p_{k}\notin X\) (esistono poiché per ipotesi ogni coppia di polinomi ha uno zero in comune su \(\ell\setminus\set{p}\), e pertanto ogni polinomio deve avere almeno uno zero in \(\ell\setminus\set{p}\)).
+Per ogni \(i=1,\dots,k\) sia \(G_{i} \in I(X)^{h}\) un polinomio tale che \(G_{i}(p_{i})\neq 0\). Tali polinomi esistono perché \(p_{i}\notin X\).
+
+A meno di moltiplicare per coordinate non nulle in \(p_{i}\), possiamo supporre che i \(G_{i}\) siano tutti dello stesso grado. Pertanto
+\begin{equation*}
+G\coloneqq \sum_{i=1}^{k} \lambda_{i} G_{i},\qquad \lambda_{i} \in \K\setminus\set{0}
+\end{equation*}
+è un polinomio omogeneo che non si annulla in nessuno degli \(p_{i}\). Pertanto \(F\) e \(G\) non hanno zeri comuni su \(\ell\setminus\set{p}\). Assurdo.
+\subsection{Dimostrazione del teorema}
+\label{sec:orge8f3a42}
+Scegliendo opportunamente le coordinate, sia
+\begin{equation*}
+p=[0:\dots:0:1], \qquad H=V(x_{n})
+\end{equation*}
+(vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri}).
+
+Sia \(q \in H\), \(q=[q_{0}:\dots:q_{n-1}:0]\).
+
+\(q \in \pi_{p}(X)\) se e solo se la \href{20250109101841-retta_proiettiva.org}{retta} \(\ell_{pq}\) che passa per \(p\) e per \(q\) interseca \(X\), ovvero se e solo se
+\begin{equation*}
+\ell_{pq}\cap X \neq \emptyset
+\end{equation*}
+Per il lemma, questo è vero se e solo se per ogni \(F,G \in I(X)^{h}\) esiste \(r \in \ell_{pq}\setminus\set{p}\) tali che \(F(r)=G(r)=0\).
+
+È possibile parametrizzare la retta \(\ell_{pq}\setminus\set{p}\) con un unico parametro,
+\begin{equation*}
+\ell: q+t\ p
+\end{equation*}
+ovvero \(\ell(t): [q_{0}:\dots:q_{n-1}: t]\). Dunque \(F\) e \(G\) hanno uno zero in comune su \(\ell_{pq}\), per definizione, sse esiste \(t_{0}\) tale che
+\begin{equation*}
+F\left(\ell(t_{0})\right)=G\left(\ell(t_{0})\right)
+\end{equation*}
+\(F\circ \ell\) e \(G\circ \ell\) sono polinomi di \(\K[t]\). Questi polinomi hanno uno zero comune se e solo se hanno un \href{20250108173845-fattore_comune.org}{fattore} non costante in comune (poiché \(\K\) algebricamente chiuso), se e solo se (per il \href{20250108173056-fattori_non_costanti_comuni_tra_polinomi.org}{lemma}, vedi \href{20250108173056-fattori_non_costanti_comuni_tra_polinomi.org}{Risultante})
+\begin{equation*}
+\operatorname{Res}(F\circ \ell, G\circ \ell) = 0
+\end{equation*}
+
+Ma per costruzione \(\operatorname{Res}(F\circ\ell, G\circ \ell)= \operatorname{Res}_{x_{n}}(F,G) (q)\) (vedi \href{20250109095734-risultante_per_polinomi_in_piu_variabili.org}{Risultante per polinomi in più variabili}), e pertanto
+\begin{equation*}
+q \in \pi_{p}(X)\quad\iff\quad \operatorname{Res}_{x_{n}}(F,G)(q) = 0
+\end{equation*}
+Siccome \(\operatorname{Res}_{x_{n}}(F,G)\) è un \href{20241231121125-polinomi_omogenei.org}{polinomio omogeneo}, allora
+\begin{equation*}
+\pi_{p}(X) = V\left(\set{\operatorname{Res}_{x_{n}}(F,G): F,G \in I(X)^{h}}\right)
+\end{equation*}
+\end{document}

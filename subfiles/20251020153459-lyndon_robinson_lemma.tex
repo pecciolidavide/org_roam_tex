@@ -1,0 +1,21 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si utilizza la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione della TEORIA DEI MODELLI}
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, \(T\) una \(\mathcal{L}\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti.
+
+Sia \(\Delta\) un insieme di formule chiuso per sostituzione di variaibli e che contenga la formula ``\(x=y\)''.
+
+Se \(C \subseteq \set{\forall , \exists , \land,\lor,\lnot}\) è un insieme di connettivi, \(C\Delta\) denota la chiusura di \(\Delta\) per i connettivi in \(C\). \(\Delta^{\pm} \coloneqq \set{\lnot}\Delta\).
+\begin{thm}
+(Lyndon-Robinson Lemma). Sia \(\varphi(x) \in \mathcal{L}\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(\varphi(x)\) è equivalente su \(T\) ad una \(\set{\land ,\lor }\Delta\)-formula;
+\item \(\varphi(x)\) è preservata da \(\Delta\)-morfismi.
+\end{enumerate}
+\end{thm}
+\end{document}

@@ -1,0 +1,116 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Sottomoduli}
+\label{sec:org98ea0cb}
+Sia \(R\) un \href{20241205141119-anello.org}{anello commutativo con unità}.
+\begin{definizione}
+Sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo}. \(N\)  si dice un \textbf{sottomodulo} di \(M\), e si scrive
+\begin{equation*}
+N \mathrel{\subseteq_R} M
+\end{equation*}
+un \href{20241206143051-sottogruppo.org}{\textbf{sottogruppo}} di \(M\) tale che
+\begin{equation*}
+\forall\,a \in R,\ \forall\,n \in N:\quad an \in N.
+\end{equation*}
+\end{definizione}
+\begin{prop}
+Sia \(f: M_1 \longrightarrow M_2\) un \href{20241206115416-morfismi_r_moduli.org}{morfismo tra \(R\)-moduli}, e sia (vedi \href{20241213105201-kernel.org}{Kernel})
+\begin{equation*}
+\operatorname{Ker}(f)\coloneqq \set{m \in M_1: f(m)=0}
+\end{equation*}
+
+Allora \(\operatorname{Ker}(f) \mathrel{\subseteq_R} M_1\). Inoltre \(\operatorname{Im}(f)= f(M_1) \mathrel{\subseteq_R} M_2\)
+\end{prop}
+\subsection{Sottomoduli dell'anello sono ideali}
+\label{sec:org3231b19}
+\begin{oss}
+\href{20260112124828-ogni_anello_ha_struttura_di_modulo_su_se_stesso.org}{Se si considera \(R\) come un \(R\)-modulo}, allora ogni sottomodulo di \(R\) è un suo ideale.
+\end{oss}
+\section{Quoziente di moduli}
+\label{sec:orgf6cd0d3}
+Se \(M,N\) sono due \href{20241205141053-r_moduli.org}{\(R\)-moduli} e \(N  \mathrel{\subseteq_R} M\) è \hyperref[sec:org98ea0cb]{sottomodulo}, allora il \href{20250127093245-gruppo_abeliano.org}{gruppo abeliano} del \hyperref[sec:org3938071]{quoziente} \(M/N\) eredita una struttura di \(R\)-modulo data da
+\begin{align*}
+R\times M/N &\longrightarrow M/N\\
+\left(r,m+N\right)&\longmapsto rm+N
+\end{align*}
+
+Anche citato come:
+\subsection{Quoziente di Moduli}
+\label{sec:org3938071}
+\subsection{Quoziente di moduli è invariante per iniezione}
+\label{sec:org7a1fade}
+Se \(M,N\) sono due \href{20241205141053-r_moduli.org}{\(R\)-moduli} e \(N  \mathrel{\subseteq_R} M\) è \hyperref[sec:org98ea0cb]{sottomodulo}. Sia \(\varphi: M\to P\) un \href{20241206115416-morfismi_r_moduli.org}{morfismo di moduli}.
+
+\begin{lem}
+Se il morfismo \(\varphi: M\to P\) è \textbf{\href{20241219101956-funzione_iniettiva.org}{iniettivo}}, allora induce un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo} con il \hyperref[sec:org3938071]{quoziente} tra le \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagini}:
+\begin{equation*}
+\frac{M}{N} \cong \frac{\varphi[M]}{\varphi[N]}.
+\end{equation*}
+\end{lem}
+\section{Somma di sottomoduli}
+\label{sec:org0381cb5}
+Se \(M\) è un \href{20241205141053-r_moduli.org}{\(R\)-modulo} e \(A_{1},A_{2}\mathrel{\subseteq_{R}} M\) sono \hyperref[sec:org98ea0cb]{sottomoduli}, allora si definisce il \hyperref[sec:org98ea0cb]{sottomodulo} \(A_{1}+A_{2}\mathrel{\subseteq_{R}} M\):
+\begin{equation*}
+A_{1}+A_{2} \coloneqq \set{a_{1}+a_{2} \in M: a_{1} \in A_{1},\ a_{2} \in A_{2}}
+\end{equation*}
+
+\begin{prop}
+Si ha che\footnote{Vedi:
+\begin{itemize}
+\item \hyperref[sec:org3938071]{Quoziente di Moduli}
+\item \href{20241213095808-somma_diretta.org}{Somma Diretta di moduli}
+\item \hyperref[sec:org9d3fe9f]{Intersezione di sottomoduli}
+\end{itemize}}
+\begin{equation*}
+A_{1}+A_{2}\cong \frac{A_{1}\oplus A_{2}}{A_{1}\cap A_{2}}
+\end{equation*}
+sono \href{20241206115416-morfismi_r_moduli.org}{isomorfi}.
+\end{prop}
+\begin{proof}
+Tale \href{20241206115416-morfismi_r_moduli.org}{isomorfismo} è \href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{indotto} dalla seguente \href{20250120131527-sec.org}{SEC}:
+\begin{equation*}
+0 \longrightarrow A_{1} \cap A_{2} \xrightarrow{\,\alpha\,} A_{1} \oplus A_{2} \xrightarrow{\,\beta\,} A_{1} + A_{2} \longrightarrow 0
+\end{equation*}
+
+I \href{20241206115416-morfismi_r_moduli.org}{morfismi} coinvolti sono definiti esplicitamente come segue:
+
+\begin{enumerate}
+\item Il morfismo \(\alpha\):
+\begin{equation*}
+\alpha: A_{1} \cap A_{2} \longrightarrow A_{1} \oplus A_{2}
+\end{equation*}
+\begin{equation*}
+\alpha(x) = (x, x)
+\end{equation*}
+
+\item Il morfismo \(\beta\):
+\begin{equation*}
+\beta: A_{1} \oplus A_{2} \longrightarrow A_{1} + A_{2}
+\end{equation*}
+\begin{equation*}
+\beta(a_{1}, a_{2}) = a_{1} - a_{2}
+\end{equation*}
+\end{enumerate}
+
+È sufficiente dimostrare l'esattezza.
+\begin{itemize}
+\item Ovviamente \(\alpha\) è iniettivo e \(\beta\) è suriettivo. \href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{Questo garantisce} l'esattezza nei due estremi.
+\item Resta quindi l'esattezza centrale, ovvero da dimostrare che \(\ker(\beta) = \operatorname{Im}(\alpha)\)\footnote{Vedi \href{20241213105201-kernel.org}{kernel} e \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{immagine}.}.
+
+\((a_{1},a_{2}) \in \ker\beta\) se e solo se \(a_{1}-a_{2}=0\) se e solo se \(a_{1}=a_{2}\): se e solo se
+\begin{itemize}
+\item \(a_{1}= a_{2} = a\in A_{1}\cap A_{2}\)
+
+\item \((a_{1},a_{2}) = \alpha(a)\).\qedhere
+\end{itemize}
+\end{itemize}
+\end{proof}
+\section{Intersezione di sottomoduli}
+\label{sec:org9d3fe9f}
+\lipsum[1]
+\href{20250515141706-da_finire.org}{DA FINIRE}
+\end{document}

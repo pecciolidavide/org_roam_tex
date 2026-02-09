@@ -1,0 +1,24 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Sia \(\mathcal{N}\) una \href{20250624155858-neurone_artificiale.org}{rete neurale} \href{20250624155858-neurone_artificiale.org}{ReLU-feedforward}, con
+\begin{itemize}
+\item input \(d\)-dimensionale
+\item 1 \href{20250624155858-neurone_artificiale.org}{layer nascosto} di larghezza \(n\)
+\item output 1-dimensionale.
+\end{itemize}
+
+Allora esiste un'altra \href{20250624155858-neurone_artificiale.org}{rete neurale ReLU-feedforward} \(\tilde{\mathcal{N}}\), con
+\begin{itemize}
+\item input \(d\)-dimensionale di input \(d\)
+\item profondità \(n+2\), dove ciascun layer nascosto ha larghezza \(d+2\) (quindi \(n+1\) layer nascosti),
+\item output 1-dimensionale,
+\end{itemize}
+tale che \(\mathcal{N}\) e \(\tilde{\mathcal{N}}\) producono la stessa funzione per input in \([0,1]^{d}\).
+\label{prop10.2.5}
+\end{prop}
+\end{document}

@@ -1,0 +1,39 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Divisore di una superficie di Riemann}
+\label{sec:orgffa2f9a}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, e sia \(\Z^{X}\) il \href{20260201235333-gruppo_delle_funzioni_in_z.org}{gruppo delle funzioni a valori in \(\Z\)}.
+
+\begin{definizione}
+Un \textbf{divisore di \(X\)} è una \href{20250202170607-classe_relazione_binaria.org}{funzione} \(D \in \Z^{X}\) tale che il \href{20260201235333-gruppo_delle_funzioni_in_z.org}{supporto} \(\operatorname{supp} D\) sia un sottoinsieme \href{20250103145124-topologia.org}{chiuso} e \href{20260128123515-sottoinsieme_discreto.org}{discreto} di \(X\).
+\end{definizione}
+
+I divisori formano un \href{20241206143051-sottogruppo.org}{sottogruppo} di \(\Z^{X}\), indicato con \(\operatorname{Div}(X)\).
+
+\begin{oss}
+Se \(X\) è \href{20250103163701-spazio_topologico_compatto.org}{compatto}, allora i divisori sono tutte e sole le funzioni con supporto finito\footnote{Infatti, \href{20260128172415-sottoinsieme_discreto_in_un_compatto.org}{i sottoinsiemi discreti in un compatto sono finiti}}. Questo è lo \href{20241205141053-r_moduli.org}{\(\Z\)-modulo} \href{20241213094625-modulo_libero.org}{libero} \href{20241213095808-somma_diretta.org}{generato dai punti di \(X\)}: \(\operatorname{Div}(X) \cong \Z^{(X)}\).
+
+In questo caso scriviamo \(D\) come una somma formale finita di punti:
+\begin{equation*}
+D = \sum_{p \in X} D(p) \cdot p,\qquad D(p) \in \Z.
+\end{equation*}
+\end{oss}
+
+\uline{Notazione}: In generale, scriviamo tutti i divisori come somma formale (non finita).
+\subsection{Grado di un divisore di una superficie di Riemann}
+\label{sec:org08a2ada}
+\begin{definizione}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatta}, \(D \in \operatorname{Div}(X)\). Il \textbf{grado di \(D\)} è
+\begin{equation*}
+\deg D \coloneqq \sum_{p \in X} D(p) \in \Z.
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+La funzione \(\deg: \operatorname{Div}(X)\to \Z\) è un \href{20241206115531-morfismo_di_gruppi.org}{omomorfismo di gruppi}.
+\end{oss}
+\end{document}

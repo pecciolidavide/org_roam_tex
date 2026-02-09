@@ -1,0 +1,74 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Principio di identità per funzioni olomorfe su Superfici di Riemann}
+\label{sec:org57e2a94}
+Siano \(X, Y\) due \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann}.
+\begin{thm}
+Sia \(U \subseteq X\) un \href{20250103145124-topologia.org}{aperto} \href{20250103165325-spazio_topologico_connesso.org}{connesso}.
+\begin{enumerate}
+\item Se \(f:U\to \C\) è \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa} non costante, allora per ogni \(\lambda \in \C\), \(f^{-1}(\lambda)\) è un \href{20260128123515-sottoinsieme_discreto.org}{sottoinsieme discreto} di \(U\).
+\item Siano \(f,g:U\to \C\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfe}, \(f\neq g\). Allora
+\begin{equation*}
+ \set{z \in U \mid f(z)=g(z)}
+\end{equation*}
+è sottoinsieme discreto di \(U\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+Il 2. segue da 1. per \(\lambda = 0\) e \(f-g\). Si dimostra quindi solo 1.
+
+È sufficiente il caso \(\lambda = 0\). Per ogni \(z_{0} \in U\) tale che \(f(z_{0}) = 0\) si ha esattamente una delle seguenti:
+\begin{itemize}
+\item \(f\) è nulla in un intorno di \(z_{0}\);
+\item \(z_{0}\) è uno zero \href{20250403131856-punto_isolato.org}{isolato} per \(f\).
+\end{itemize}
+Segue dal \href{20260128131354-principio_di_identita_per_funzioni_olomorfe.org}{Principio di identità per funzioni olomorfe} in \(\C\).
+
+Sia quindi
+\begin{equation*}
+     A \coloneqq \set{z \in U \mid %
+             f(z)=0,\ f\equiv 0 \text{ in un intorno di \(z\)}
+     }.
+\end{equation*}
+\begin{itemize}
+\item \(A\) è aperto per definizione, in quanto intorno di ogni suo punto.
+\item Sia \(z_{0} \in U\setminus A\).
+\begin{itemize}
+\item Se \(f(z_{0}) = 0\), siccome \(z_{0} \notin A\) allora \(z_{0}\) è uno zero isolato, e quindi esiste \(U_{z_{0}} \subseteq U\) intonro di \(z_{0}\) tale che
+\begin{equation*}
+\forall z \in U_{z_{0}},\qquad f(z) \neq 0.
+\end{equation*}
+e quindi \(U_{z_{0}} \cap A = \emptyset\)
+\item Se \(f(z_{0}) \neq 0\), allora per \href{20250306140014-funzione_continua_in_un_punto.org}{continuità} esiste \(U_{z_{0}} \subseteq U\) intorno di \(z_{0}\) tale che
+\begin{equation*}
+\forall z \in U_{z_{0}}\ f(z) \neq 0
+\end{equation*}
+e quindi \(U_{z_{0}} \cap A = \emptyset\).
+\end{itemize}
+
+Segue che \(U \setminus A\) sia aperto, e quindi \(A\) chiuso.
+\end{itemize}
+
+Siccome \(U\) è connesso, allora:
+\begin{itemize}
+\item \(A = U\), e quindi \(f \equiv 0\), assurdo perché \(f\) non costante;
+\item \(A = \emptyset\), quindi \(f\) ha solo zeri isolati e pertanto \(f^{-1}(0)\) è discreto in \(U\).
+\qedhere
+\end{itemize}
+\end{proof}
+\begin{thm}
+Siano \(F,G: X\to Y\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{funzioni olomorfe}, e sia
+\begin{equation*}
+\mathcal{S} \coloneqq \set{p \in X \mid F(p)=G(p)}.
+\end{equation*}
+Allora \(\mathcal{S}=X\) oppure \(\mathcal{S}\) è \href{20250103145124-topologia.org}{chiuso} e \href{20260128123515-sottoinsieme_discreto.org}{discreto} in \(X\).
+\end{thm}
+
+\begin{cor}
+Sia \(F:X\to Y\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa} non costante. Allora per ogni \(y \in Y\), la \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{retroimmagine} \(F^{-1}(y)\) è un sottoinsieme \href{20250103145124-topologia.org}{chiuso} e \href{20260128123515-sottoinsieme_discreto.org}{discreto} in \(X\).
+\end{cor}
+\end{document}

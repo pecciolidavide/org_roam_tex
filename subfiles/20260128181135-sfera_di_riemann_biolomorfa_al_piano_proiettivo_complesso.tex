@@ -1,0 +1,60 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Sfera di Riemann biolomorfa alla retta proiettiva complessa}
+\label{sec:org3da7995}
+\begin{prop}
+La \href{20260127112905-sfera_di_riemann.org}{sfera di Riemann \(\C_{\infty}\)} è \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{biolomorfa} allo \href{20241231115051-spazio_proiettivo.org}{spazio proiettivo} \href{20260127112924-esempi_fondamentali_di_varieta_complesse.org}{complesso \(\mathds{P}^{1}_{\C}\)}.
+\end{prop}
+\begin{proof}
+Si consideri
+\begin{equation*}
+F: \C_{\infty} \to \mathds{P}^{1}_{\C}:\qquad z \mapsto \begin{cases}
+(z:1) & z \in \C\\
+(1:0) & z = \infty
+\end{cases}
+\end{equation*}
+\(F\) è ovviamente biunivoca. Consideriamo le carte:
+\begin{equation*}
+\begin{aligned}
+A &\coloneqq \C \subseteq \C_{\infty}\\
+B &\coloneqq \C_{\infty} \setminus \set{0}
+\end{aligned}\qquad \begin{aligned}
+U_{0} &= \set{z_{0}\neq 0} \subseteq \mathds{P}^{1}_{\C}(z_{0}:z_{1})\\
+U_{1} &= \set{z_{1}\neq 0} \subseteq \mathds{P}^{1}_{\C}(z_{0}:z_{1})
+\end{aligned}
+\end{equation*}
+Allora si hanno le seguenti composizioni:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=small]
+	\& A \&\& {U_1} \&\& \C \\
+	\&\&\& {(z_0\duepunti z_1)} \&\& {\frac{z_0}{z_1}} \\
+	\& z \&\&\&\& z \\
+	\\
+	\\
+	\\
+	\\
+	\C \& B \&\& {U_0} \&\& \C \\
+	w \& \begin{array}{c} \begin{cases} 1/w & w\neq 0\\ \infty & w=0\end{cases} \end{array} \&\& {(z_0 \duepunti z_1)} \&\& {\frac{z_1}{z_0}} \\
+	w \& \begin{array}{c} \begin{cases} 1/w & w\neq 0\\ \infty & w=0\end{cases} \end{array} \&\& \begin{array}{c} \begin{cases} (1/w\duepunti 1) & w\neq 0\\ (1\duepunti 0) & w=0\end{cases} \end{array} \&\& \begin{array}{c} \begin{cases} w & w\neq 0\\ 0 & w=0\end{cases} \end{array}
+	\arrow["F", from=1-2, to=1-4]
+	\arrow["\varphi", from=1-4, to=1-6]
+	\arrow[maps to, from=2-4, to=2-6]
+	\arrow["\Id"', maps to, from=3-2, to=3-6]
+	\arrow[from=8-1, to=8-2]
+	\arrow["F", from=8-2, to=8-4]
+	\arrow[from=8-4, to=8-6]
+	\arrow[maps to, from=9-1, to=9-2]
+	\arrow[maps to, from=9-4, to=9-6]
+	\arrow[maps to, from=10-1, to=10-2]
+	\arrow["\Id"', maps to, bend right=30pt, from=10-1, to=10-6]
+	\arrow[from=10-2, to=10-4]
+	\arrow[from=10-4, to=10-6]
+\end{tikzcd}
+\end{equation*}
+Entrambe sono l'identità, che è olomorfa. Anche le inverse sono olomorfe, quindi si ha la tesi.
+\end{proof}
+\end{document}

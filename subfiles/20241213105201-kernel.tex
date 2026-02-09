@@ -1,0 +1,25 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Siano \(A,B\) \href{20241205141146-gruppo_abeliano.org}{gruppi} con \(0_{B} \in B\) l'elemento neutro. Se \(f:A\to B\), si definisce il \uline{kernel di \(f\)} come la \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{retroimmagine}:
+\begin{equation*}
+\ker f \coloneqq f^{-1}[\set{0_{B}}].
+\end{equation*}
+\end{definizione}
+
+\begin{prop}
+Se \(f\) è un \href{20241206115531-morfismo_di_gruppi.org}{morfismo di gruppi} ed è \href{20241219101956-funzione_iniettiva.org}{iniettiva}, allora \(\ker f = \set{0_{A}}\).
+\end{prop}
+\section{Invarianza del kernel per iniezioni}
+\label{sec:org97460b9}
+\begin{lem}
+Siano \(f: A \to B\) e \(g: B \to C\) due \href{20241206115531-morfismo_di_gruppi.org}{morfismi di gruppi}. Se \(g\) è \textbf{\href{20241219101956-funzione_iniettiva.org}{iniettiva}}, allora:
+\begin{equation*}
+\ker(f) = \ker(g \circ f)
+\end{equation*}
+\end{lem}
+\end{document}

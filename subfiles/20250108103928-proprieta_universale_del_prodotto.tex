@@ -1,0 +1,30 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\mathcal{C}\) una \href{20241126100904-categoria.org}{categoria}. Siano \(X,Y \in \operatorname{Ob}\mathcal{C}\).
+Un \textbf{prodotto} è una tripla \((X\times Y, p, q)\) con \(X\times Y \in \operatorname{Ob}C\) e
+\begin{equation*}
+p \in \operatorname{Hom}_{\mathcal{C}}(X\times Y, X),\qquad q \in \operatorname{Hom}_{\mathcal{C}}(X\times Y, Y)
+\end{equation*}
+
+tale che, per ogni oggetto \(H \in \operatorname{Ob}\mathcal{C}\) e ogni coppia di frecce
+\begin{equation*}
+p' \in \operatorname{Hom}_{\mathcal{C}}(H,X),\qquad q' \in \operatorname{Hom}_{\mathcal{C}}(H,Y)
+\end{equation*}
+esiste un'unica freccia \(h \in \operatorname{Hom}_{\mathcal{C}}(H,X\times Y)\) tale che il seguente diagramma commuti:
+$\backslash$[
+\begin{tikzcd}[ampersand replacement=\&]
+	H \\
+	\& {X\times Y} \& X \\
+	\& Y
+	\arrow["h", dashed, from=1-1, to=2-2]
+	\arrow["{p'}", bend left=19, from=1-1, to=2-3]
+	\arrow["{q'}"', bend right=19, from=1-1, to=3-2]
+	\arrow["p"', from=2-2, to=2-3]
+	\arrow["q", from=2-2, to=3-2]
+\end{tikzcd}
+$\backslash$]
+\end{document}

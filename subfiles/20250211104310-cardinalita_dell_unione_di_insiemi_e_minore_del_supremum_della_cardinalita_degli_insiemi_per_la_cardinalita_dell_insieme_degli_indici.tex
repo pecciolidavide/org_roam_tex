@@ -1,0 +1,38 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}+\href{20250206171508-axiom_of_choiche.org}{AC}
+\section{Teorema}
+\label{sec:orgf263a2b}
+Se \(I\) e \(\set{X_{i}\ |\ i \in I}\) sono insiemi (vedi \href{20250206170922-sequenze_e_stringhe.org}{Sequenza}), allora
+\begin{equation*}
+\card{\bigcup_{i \in I}X_{i}}\le \card{I}\cdot \sup_{i \in I}\card{X_{i}}
+\end{equation*}
+(vedi \href{20241213101756-cardinalita.org}{Cardinalità}, \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata}, \href{20250612151505-aritmetica_dei_cardinali.org}{Prodotto di cardinali}, \href{20250203111003-ordinali.org}{Relazione d'ordine sugli ordinali}, \href{20250203102516-massimo_e_minimo.org}{Infimum e supremum} e \href{20250203161341-cardinali.org}{Supremum di un insieme di cardinali è un cardinale})
+\subsection{Dimostrazione}
+\label{sec:orgf50d4a4}
+
+Per ogni \(i \in I\) sia \(f_{i}: X_{i}\to \card{X_{i}}\) una \href{20250104111707-funzione_biunivoca.org}{biiezione}.
+
+Per ogni \(x \in \bigcup_{i \in I} X_{i}\) sia \(i(x) \in I\) tale che \(x \in X_{i(x)}\) (è possibile sceglierlo grazie ad \href{20250206171508-axiom_of_choiche.org}{AC}).
+
+La funzione
+\begin{align*}
+\bigcup_{i \in I} X_{i} &\longrightarrow \bigcup_{i \in I}(\set{i}\times \card{X_{i}})\\
+x &\longmapsto \left(i(x),f_{i(x)}(x)\right)
+\end{align*}
+è \href{20241219101956-funzione_iniettiva.org}{iniettiva} e \href{20241213101756-cardinalita.org}{pertanto}
+\begin{equation*}
+\card{\bigcup_{i \in I} X_{i}}\le \sum_{i \in I} \card{X_{i}}
+\end{equation*}
+(vedi \href{20250612151505-aritmetica_dei_cardinali.org}{Somma di cardinali})
+
+Applicando \href{20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali.org}{Somma generalizzata di cardinali è minore del supremum dei cardinali} si ottiene
+\begin{equation*}
+\sum_{i \in I}\card{X_{i}} \le \card{I}\cdot \sup_{i \in I}\card{X_{i}}
+\end{equation*}
+da cui la tesi.
+\end{document}

@@ -1,0 +1,8 @@
+#+title: Readme
+
+Il processo è il seguente:
+- =org-publish= il progetto =roam-notes-latex=;
+- =creator.py= per creare il file =main.tex=; NECESSARIO FARLO SEMPRE, per pulire i file pubblicati
+- =pdflatex= su =main.tex=.
+
+TODO È ancora buggato perché nei subfiles ci sono dei =\usepackage= che ho inserito singolarmente. Devo trovare un modo per risolvere, non posso togliere tutto e basta.

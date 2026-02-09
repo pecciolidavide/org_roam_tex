@@ -1,0 +1,215 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\maketitle
+
+Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, e siano \(\mathcal{M},\mathcal{N}\) due \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{strutture} di \href{20250131103035-struttura_del_prim_ordine.org}{domini}, rispettivamente, \(M\) ed \(N\).
+\section{Proprietà delle mappe tra strutture del prim'ordine}
+\label{sec:org39c44c2}
+
+\begin{definizione}
+Sia \(\Delta \subseteq \mathcal{L}\) un insieme di \href{20250131103317-formula_del_prim_ordine.org}{formule}. Una \href{20250202170607-classe_relazione_binaria.org}{funzione} (che sia \href{20250213105339-funzione_parziale.org}{totale} o \href{20250213105339-funzione_parziale.org}{parziale}) \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini} delle strutture è detta \uline{\(\Delta\)-morfismo} se per ogni \(\varphi(x) \in \Delta\) e per ogni \(a \in (\dom F)^{x}\)
+\begin{equation*}
+M\vDash\varphi(a)\quad\oldimplies\quad N\vDash\varphi(Fa).
+\end{equation*}
+\end{definizione}
+
+In questo caso diciamo che \(F\) \uline{preserva la verità di tutte le formule di \(\Delta\)}.
+
+\begin{oss}
+Se \(F:M\to N\) è un \(\Delta\)-morfismo, allora è anche un \(\set{\land}\!\Delta\)-morfismo e un \(\set{\lor}\!\Delta\)-morfismo\footnote{La notazione \(\set{\land}\Delta\) è presa da ``\href{20251021120818-chiusura_di_un_insieme_di_formule_rispetto_a_connettivi_logici.org}{Chiusura di un insieme di formule rispetto a connettivi logici}''.}.
+
+\begin{itemize}
+\item Sia \(\eta(x) \in \set{\land}\!\Delta\). WLOG esistono \(\eta_{1}(x),\eta_{2}(x) \in \Delta\) tali che \(\eta(x)=\eta_{1}(x)\land \eta_{2}(x)\).
+
+Sia \(a \in (\dom F)^{x}\) tale che \(M\vDash\eta(a)\). Allora \(M\vDash \eta_{1}(a)\) e \(M\vDash\eta_{2}(a)\). Quindi \(N\vDash\eta_{1}(Fa)\) e \(N\vDash\eta_{2}(Fa)\). Quindi \(N\vDash\eta_{1}(Fa) \land \eta_{2}(Fa) = \eta(Fa)\).
+\item Sia \(\eta(x) \in \set{\lor}\!\Delta\). WLOG esistono \(\eta_{1}(x),\eta_{2}(x) \in \Delta\) tali che \(\eta(x)=\eta_{1}(x)\lor \eta_{2}(x)\).
+
+Sia \(a \in (\dom F)^{x}\) tale che \(M\vDash\eta(a)\). Allora \(M\vDash \eta_{1}(a)\) oppure \(M\vDash\eta_{2}(a)\). Quindi \(N\vDash\eta_{1}(Fa)\) oppure \(N\vDash\eta_{2}(Fa)\). Quindi \(N\vDash\eta_{1}(Fa) \lor \eta_{2}(Fa) = \eta(Fa)\).
+\end{itemize}
+\end{oss}
+\begin{definizione}
+Una \href{20250202170607-classe_relazione_binaria.org}{funzione} (che sia \href{20250213105339-funzione_parziale.org}{totale} o \href{20250213105339-funzione_parziale.org}{parziale}) \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini} delle strutture è detta \uline{mappa elementare} se per ogni \href{20250131103317-formula_del_prim_ordine.org}{formula} \(\varphi(x)\)
+e per ogni \(a \in (\dom F)^{x}\) nel \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} di \(F\), si ha
+\begin{equation*}
+M\vDash \varphi(a) \quad\implies\quad N\vDash \varphi(Fa)
+\end{equation*}
+ovvero se \(F\) è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismo} per \(\Delta=\mathcal{L}\) l'\href{20250131103317-formula_del_prim_ordine.org}{insieme di tutte le formule}.
+\end{definizione}
+\section{Mappe TOTALI tra strutture del prim'ordine}
+\label{sec:orgc76bdc3}
+\subsection{Morfismo tra strutture del prim'ordine}
+\label{sec:org544ac38}
+\begin{definizione}
+Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250213105339-funzione_parziale.org}{totale} \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è detta \uline{morfismo} se
+\begin{itemize}
+\item per ogni \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di relazione} \(R\) di \href{20250130162057-linguaggio_del_prim_ordine.org}{arietà} \(n\) e per ogni \(a_{1},\dots,a_{n} \in M\),
+\begin{equation*}
+  (a_{1},\dots,a_{n}) \in R^{M}\,\implies\, \left(F(a_{1}),\dots,F(a_{n})\right) \in R^{N}
+\end{equation*}
+\item per ogni \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di funzione} \(g\) di \href{20250130162057-linguaggio_del_prim_ordine.org}{arietà} \(n\) e per ogni \(a_{1},\dots,a_{n} \in M\),
+\begin{equation*}
+  F\left[g^{M}(a_{1},\dots,a_{n})\right] = g^{N}\left[F(a_{1}),\dots, F(a_{n})\right]
+\end{equation*}
+\end{itemize}
+\end{definizione}
+
+\begin{prop}
+Sia \(F:M\to N\) funzione totale. Sono fatti equivalenti:
+\begin{enumerate}
+\item \(F\) è un morfismo
+\item \(F\) è \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismo} per \(\Delta=\mathcal{L}_{\text{at}}\) l'\href{20250131103317-formula_del_prim_ordine.org}{insieme delle formule atomiche}, ovvero per ogni \href{20250131103317-formula_del_prim_ordine.org}{formula atomica} \(\varphi(x)\) e per ogni \(a\in M^{x}\) si ha
+\begin{equation*}
+ M\vDash \varphi(a) \quad\implies\quad N\vDash \varphi(Fa)
+\end{equation*}
+\end{enumerate}
+\end{prop}
+\subsection{Morfismo pieno tra strutture del prim'ordine}
+\label{sec:org513908a}
+\begin{definizione}
+Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250213105339-funzione_parziale.org}{totale} \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è detta \uline{morfismo pieno} se
+\begin{itemize}
+\item per ogni \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di relazione} \(R\) di \href{20250130162057-linguaggio_del_prim_ordine.org}{arietà} \(n\) e per ogni \(a_{1},\dots,a_{n} \in M\),
+\begin{equation*}
+  (a_{1},\dots,a_{n}) \in R^{M}\,\textcolor{red}{\iff}\, \left(F(a_{1}),\dots,F(a_{n})\right) \in R^{N}
+\end{equation*}
+\item per ogni \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di funzione} \(g\) di \href{20250130162057-linguaggio_del_prim_ordine.org}{arietà} \(n\) e per ogni \(a_{1},\dots,a_{n} \in M\),
+\begin{equation*}
+  F\left[g^{M}(a_{1},\dots,a_{n})\right] = g^{N}\left[F(a_{1}),\dots, F(a_{n})\right]
+\end{equation*}
+\end{itemize}
+\end{definizione}
+
+\begin{prop}
+\textbf{Caratterizzazione come \(\Delta\)-morfismo}: \textbf{\href{20250515141706-da_finire.org}{DA FINIRE}}
+\end{prop}
+\subsection{Immersione tra strutture del prim'ordine}
+\label{sec:org52a3fbd}
+\begin{definizione}
+Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250213105339-funzione_parziale.org}{totale} \href{20241219101956-funzione_iniettiva.org}{iniettiva} \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è detta \uline{immersione} se
+\begin{itemize}
+\item per ogni \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di relazione} \(R\) di \href{20250130162057-linguaggio_del_prim_ordine.org}{arietà} \(n\) e per ogni \(a_{1},\dots,a_{n} \in M\),
+\begin{equation*}
+  (a_{1},\dots,a_{n}) \in R^{M}\,\iff\, \left(F(a_{1}),\dots,F(a_{n})\right) \in R^{N}
+\end{equation*}
+\item per ogni \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di funzione} \(g\) di \href{20250130162057-linguaggio_del_prim_ordine.org}{arietà} \(n\) e per ogni \(a_{1},\dots,a_{n} \in M\),
+\begin{equation*}
+  F\left[g^{M}(a_{1},\dots,a_{n})\right] = g^{N}\left[F(a_{1}),\dots, F(a_{n})\right]
+\end{equation*}
+\end{itemize}
+\end{definizione}
+
+Una immersione è un morfismo pieno iniettivo.
+
+\begin{prop}
+Sia \(F:M\to N\) una funzione totale. Sono fatti equivalenti:
+\begin{enumerate}
+\item \(F:M\to N\) è una immersione;
+\item per ogni \(\varphi(x) \in \mathcal{L}_{\text{qf}}\) (ovvero per \(\varphi(x)\) \href{20250131103317-formula_del_prim_ordine.org}{formula senza quantificatori}) e per ogni \(a \in M^{x}\)
+\begin{equation*}
+ M\vDash \varphi(a)\quad\textcolor{red}{\iff}\quad N\vDash \varphi(Fa)
+\end{equation*}
+ovvero sia \(F\) che \(F^{-1}\) (eventualmente \href{20250213105339-funzione_parziale.org}{parziale}) sono dei \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismi} per \(\Delta=\mathcal{L}_{\text{qf}}\).
+\item per ogni \(\varphi(x) \in \mathcal{L}_{\text{at}}\) (ovvero per \(\varphi(x)\) \href{20250131103317-formula_del_prim_ordine.org}{formula atomica}) e per ogni \(a \in M^{x}\)
+\begin{equation*}
+ M\vDash \varphi(a)\quad\textcolor{red}{\iff}\quad N\vDash \varphi(Fa)
+\end{equation*}
+ovvero sia \(F\) che \(F^{-1}\) (eventualmente \href{20250213105339-funzione_parziale.org}{parziale}) sono dei \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismi} per \(\Delta=\mathcal{L}_{\text{at}}\).
+\end{enumerate}
+\end{prop}
+\subsubsection{Immersione elementare}
+\label{sec:org0233e01}
+\begin{definizione}
+Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250213105339-funzione_parziale.org}{totale} \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è detta \uline{immersione elementare} se
+\begin{itemize}
+\item \(F\) è una \hyperref[sec:org52a3fbd]{immersione};
+\item il \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{range} \(\operatorname{ran}F = F[M]\), visto come \href{20250131103212-sottostruttura_del_prim_ordine.org}{sottostruttura} di \(\mathcal{N}\), è \href{20250212102253-sottostruttura_elementare.org}{sottostruttura elementare}
+\end{itemize}
+\end{definizione}
+
+\begin{prop}
+Sia \(F:M\to N\) una funzione totale. Sono fatti equivalenti:
+\begin{enumerate}
+\item \(F\) è una immersione elementare;
+\item \(F\) è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappa elementare}, ovvero per ogni formula \(\varphi(x)\) e per ogni \(a \in M^{\card{x}}\)
+\begin{equation*}
+ 	M\vDash\varphi(a)\quad\implies\quad N\vDash\varphi(Fa)
+\end{equation*}
+\item il \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{range} \(\operatorname{ran}F = F[M]\), visto come \href{20250131103212-sottostruttura_del_prim_ordine.org}{sottostruttura} di \(\mathcal{N}\), è \href{20250212102253-sottostruttura_elementare.org}{sottostruttura elementare}, e \(F:M\to F[M]\) è un \hyperref[sec:org7d4a570]{isomorfismo}.
+\end{enumerate}
+\end{prop}
+
+Inoltre, \href{20250212185030-immersione_elementare_induce_isomorfismo.org}{ogni immersione elementare si estende ad un isomorfismo}.
+\subsection{Isomorfismo tra strutture del prim'ordine}
+\label{sec:org7d4a570}
+\begin{definizione}
+Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250213105339-funzione_parziale.org}{totale} \href{20250104111707-funzione_biunivoca.org}{biiettiva} \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è detta \uline{isomorfismo} se sia \(F\) che la sua \href{20250111142446-funzione_inversa.org}{inversa} \(F^{-1}\) sono \hyperref[sec:org544ac38]{morfismi tra le due strutture}.
+\end{definizione}
+
+\begin{prop}
+Sia \(F:M\to N\) una funzione totale \uline{biiettiva}. Sono fatti equivalenti:
+\begin{enumerate}
+\item \(F:M\to N\) è un isomorfismo;
+\item per ogni \href{20250131103317-formula_del_prim_ordine.org}{formula} \(\varphi(x) \in \mathcal{L}\) e per ogni \(a \in M^{x}\)
+\begin{equation*}
+ M\vDash \varphi(a)\quad\textcolor{red}{\iff}\quad N\vDash \varphi(Fa)
+\end{equation*}
+ovvero sia \(F\) che \(F^{-1}\) sono dei \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismi} per \(\Delta=\mathcal{L}\) (ovvero delle \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappe elementari}).
+\item per ogni \(\varphi(x) \in \mathcal{L}_{\text{qf}}\) (ovvero per \(\varphi(x)\) \href{20250131103317-formula_del_prim_ordine.org}{formula senza quantificatori}) e per ogni \(a \in M^{x}\)
+\begin{equation*}
+ M\vDash \varphi(a)\quad\textcolor{red}{\iff}\quad N\vDash \varphi(Fa)
+\end{equation*}
+ovvero sia \(F\) che \(F^{-1}\) sono dei \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismi} per \(\Delta=\mathcal{L}_{\text{qf}}\).
+\item per ogni \(\varphi(x) \in \mathcal{L}_{\text{at}}\) (ovvero per \(\varphi(x)\) \href{20250131103317-formula_del_prim_ordine.org}{formula atomica}) e per ogni \(a \in M^{x}\)
+\begin{equation*}
+ M\vDash \varphi(a)\quad\textcolor{red}{\iff}\quad N\vDash \varphi(Fa)
+\end{equation*}
+ovvero sia \(F\) che \(F^{-1}\) sono dei \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismi} per \(\Delta=\mathcal{L}_{\text{at}}\).
+\end{enumerate}
+\end{prop}
+
+Indebolendo un po' l'ipotesi 2. si ottiene la seguente proposizione:
+
+\begin{prop}
+Sia \(F:M\to N\) una funzione totale. Sono fatti equivalenti:
+\begin{enumerate}
+\item \(F\) è un isomorfismo.
+\item \(F\) è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappa elementare} biiettiva.
+\end{enumerate}
+\end{prop}
+\section{Mappe PARZIALI tra strutture del prim'ordine}
+\label{sec:org55a73d1}
+\subsection{Morfismo parziale tra strutture del prim'ordine}
+\label{sec:org4de69e8}
+\begin{definizione}
+Una \href{20250213105339-funzione_parziale.org}{funzione parziale} \(f:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è un \uline{morfismo parziale} se è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismo} per \(\Delta=\mathcal{L}_{\text{at}}\) l'\href{20250131103317-formula_del_prim_ordine.org}{insieme delle formule atomiche}, ovvero
+\begin{quote}
+per ogni formula atomica \(\varphi(x)\) e per ogni \(a \in (\operatorname{dom}f)^{x}\) si ha
+\begin{equation*}
+M\vDash\varphi(a)\quad\implies\quad N\vDash\varphi(fa)
+\end{equation*}
+\end{quote}
+\end{definizione}
+\subsection{Isomorfismo parziale tra strutture del prim'ordine}
+\label{sec:org0333bac}
+\begin{definizione}
+Una \href{20250213105339-funzione_parziale.org}{funzione parziale} \href{20241219101956-funzione_iniettiva.org}{iniettiva} \(f:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è un \uline{isomorfismo parziale} o \uline{immersione parziale} se è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismo} per \(\Delta=\mathcal{L}_{\text{qf}}\) l'\href{20250131103317-formula_del_prim_ordine.org}{insieme delle formule senza quantificatori}, ovvero
+\begin{quote}
+per ogni formula senza quantificatori \(\varphi(x)\) e per ogni \(a \in (\operatorname{dom}f)^{x}\) si ha
+\begin{equation*}
+M\vDash\varphi(a)\quad\implies\quad N\vDash\varphi(fa)
+\end{equation*}
+\end{quote}
+\end{definizione}
+
+\begin{prop}
+Sia \(f:M\to N\) una \href{20250213105339-funzione_parziale.org}{funzione parziale} tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture}. Sono fatti equivalenti:
+\begin{enumerate}
+\item \(f:M\to N\) è un isomorfismo parziale;
+\item esiste un unico \hyperref[sec:org7d4a570]{isomorfismo totale} \(g:\langle \dom f\rangle_{\mathcal{M}}\to \langle \rng f\rangle_{\mathcal{N}}\) tale che \(f \subseteq g\) (dove \(\langle A\rangle_{\mathcal{M}}\) indica la \href{20250131103212-sottostruttura_del_prim_ordine.org}{sottostruttura} di \(\mathcal{M}\) \href{20250212100332-sottostruttura_generata_da_un_insieme.org}{generata} dall'insieme \(A \subseteq M\)).
+\end{enumerate}
+\end{prop}
+\end{document}

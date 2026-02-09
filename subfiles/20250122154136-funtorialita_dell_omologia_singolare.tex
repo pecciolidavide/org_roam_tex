@@ -1,0 +1,62 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}, e siano \(X,Y\) due \href{20250103145124-topologia.org}{spazi topologici}.
+
+Si denoti con \(\mathcal{S}_{\bullet}(X), \mathcal{S}_{\bullet}(Y)\) i \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{complessi di catene singolari} associati:\footnote{Gli \(S_{q}(X)\) sono i \href{20250122133435-simplesso_singolare.org}{moduli delle catene singolari}, e di \(\partial_{q}\) sono le \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{mappe di bordo}.}
+\begin{align*}
+\mathcal{S}_{\bullet}(X) &\coloneqq \set{\left(S_{q}(X), \partial_{q}^{X}\right)}_{q}\\
+\mathcal{S}_{\bullet}(Y) &\coloneqq \set{\left(S_{q}(Y), \partial_{q}^{Y}\right)}_{q}
+\end{align*}
+(vedi \href{20250122133435-simplesso_singolare.org}{Modulo della catene singolari} e \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{Mappa di bordo tra moduli di catene singolari})
+\begin{definizione}
+Sia \(f:X\longrightarrow Y\) una \href{20250103103252-funzione_continua.org}{funzione continua}. Si definisce, per ogni \(q\),\footnote{Il modulo \(S_{q}(X)\) è la \href{20241213095808-somma_diretta.org}{somma diretta} \(R^{(\Sigma_{q}(X))}\), dove \(\Sigma_{q}(X)\) è l'insieme dei \href{20250122133435-simplesso_singolare.org}{simplessi singolari}.}
+\begin{align*}
+\left(f_{\diesis}\right)_{q}: S_{q}(X) &\longrightarrow S_{q}(Y)\\
+\Sigma_{q}(X) \ni \sigma &\longmapsto f\circ\sigma
+\end{align*}
+\end{definizione}
+\begin{prop}
+Per ogni \(q\) il seguente diagramma commuta:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{S_q(X)} \& {S_{q-1}(X)} \\
+	{S_q(Y)} \& {S_{q-1}(Y)}
+	\arrow["{\partial_q^X}", from=1-1, to=1-2]
+	\arrow["{(f_{\diesis})_q}"', from=1-1, to=2-1]
+	\arrow["{(f_{\diesis})_{q-1}}", from=1-2, to=2-2]
+	\arrow["{\partial_q^Y}"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+ovvero le mappe \(\set{(f_{\diesis})_{q}}_{q}\) inducono un \href{20250120163759-categoria_complessi_di_catene.org}{morfismo tra complessi di catene}:
+\begin{equation*}
+f_{\diesis}:\mathcal{S}_{\bullet}(X)\longrightarrow \mathcal{S}_{\bullet}(Y),\qquad f_{\diesis} = \set{(f_{\diesis})_{q}: S_{q}(X)\longrightarrow S_{q}(Y)}_{q}
+\end{equation*}
+\end{prop}
+\begin{proof}
+Sia \(\sigma \in \Sigma_{q}(X)\) base di \(S_{q}(X)\):
+\begin{align*}
+(f_{\diesis})_{q-1}\circ\partial_{q}^{X}(\sigma) &= (f_{\diesis})_{q-1} \left(\sum_{i=0}^{q} (-1)^{i}\sigma\circ \varepsilon_{i}^{q}\right) =  \sum_{i=0}^{q} (-1)^{i} (f_{\diesis})_{q-1} \left(\sigma\circ\varepsilon_{i}^{q}\right)\\
+&= \sum_{i=0}^{q} (-1)^{i} f\circ\sigma\circ\varepsilon_{i}^{q} = \sum_{i=0}^{q} (-1)^{i} (f\circ\sigma)\circ\varepsilon_{i}^{q}\\
+&= \partial_{q}^{Y} (f\circ\sigma) = \partial_{q}^{Y}\circ (f_{\diesis})_{q} (\sigma) \qedhere
+\end{align*}
+\end{proof}
+\begin{cor}
+La mappa
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=tiny]
+	X \& {\mathcal{S}_{\bullet}(X)} \\
+	{X\xrightarrow{f}Y} \& {\mathcal{S}_{\bullet}(X)\xrightarrow{f_{\diesis}} \mathcal{S}_{\bullet}(Y)}
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, maps to, from=1-1, to=1-2]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, maps to, from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+è un \href{20241205131958-funtore.org}{funtore} dalla \href{20241205115600-categoria_top.org}{categoria \(\cat{Top}\)} alla \href{20250120163759-categoria_complessi_di_catene.org}{categoria \(\cat{Ch}_{R}\)}.
+\begin{equation*}
+(\mathcal{S}_{\bullet}, \diesis):\cat{Top}\longrightarrow \cat{Ch}_{R}
+\end{equation*}
+\end{cor}
+\end{document}

@@ -1,0 +1,122 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Proposizione}
+\label{sec:org2e1ea10}
+
+Siano \(\alpha,\beta \in \operatorname{Ord}\) \href{20250203111003-ordinali.org}{ordinali}, e sia \(<\) l'\href{20250203101604-ordine.org}{ordine} \href{20250203111003-ordinali.org}{dato dall'inclusione}.
+
+Siano \(\alpha,\beta \in \operatorname{Ord}\) \href{20250203111003-ordinali.org}{ordinali}, e sia \(<\) l'\href{20250203101604-ordine.org}{ordine} \href{20250203111003-ordinali.org}{dato dall'inclusione}.
+
+\begin{enumerate}
+\item \(\alpha < \beta\) se e solo se \(\alpha \subset \beta\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK}).
+\item \(\alpha\le\beta\) se e solo se \(\alpha \subseteq \beta\).
+\item \(\alpha < \beta\) se e solo se \(\operatorname{S}(\alpha) \le \beta\) (vedi \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme MK}).
+\item \(\alpha < \beta\) se e solo se \(\operatorname{S}(\alpha)< \operatorname{S}(\beta)\).
+\item se \(x \subseteq \alpha\) allora \$ \displaystyle \bigcup x = \(\alpha\) $\backslash$,\(\lor\)$\backslash$, \bigcup x < \(\alpha\) \$. (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata})
+\item \$ \displaystyle \bigcup\left(\operatorname{S}(\(\alpha\))\right) = \(\alpha\) \$.
+\item \$ \displaystyle \(\alpha\)= \operatorname{S}\left(\bigcup \(\alpha\)\right) \$ oppure \(\alpha=\bigcup\alpha\).
+\item Sono fatti equivalenti
+\begin{enumerate}
+\item \(\bigcup \alpha = \alpha\)
+\item \(\alpha=0\) oppure \(\alpha\) è \href{20250203161132-ordinale_limite.org}{ordinale limite} (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK} e \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega})
+\item \(\langle \alpha,<\rangle\) non ha \href{20250203102516-massimo_e_minimo.org}{massimo}.
+\end{enumerate}
+\end{enumerate}
+\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{IdL:matematica\_lm}}
+\label{sec:orge02f4b9}
+\subsubsection{Punto a.}
+\label{sec:orgae9ab38}
+
+Se \(\alpha < \beta\) allora \(\alpha \in \beta\) e quindi \(\alpha \subseteq \beta\) perchè \href{20250130104331-insieme_mk.org}{insiemi} \href{20250203110714-classe_transitiva.org}{transitivi}. \href{20250131180704-nessun_insieme_appartiene_a_se_stesso.org}{Inoltre} \(\alpha\neq \beta\).
+
+Viceversa, se \(\alpha \subset \beta\), allora \(\alpha\neq \beta\) e \(\beta\notin\alpha\) (poiché altrimenti \(\beta \in \beta\)). \href{20250203111003-ordinali.org}{Dunque} \(\alpha \in \beta\).
+\subsubsection{Punto b.}
+\label{sec:org308dba0}
+
+Se \(\alpha \le \beta\) allora \(\alpha \in \beta\) oppure \(\alpha = \beta\) e quindi \(\alpha \subseteq \beta\) perchè \href{20250130104331-insieme_mk.org}{insiemi} \href{20250203110714-classe_transitiva.org}{transitivi}.
+
+Viceversa, se \(\alpha \subseteq \beta\), allora  \(\beta\notin\alpha\) (poiché altrimenti \(\beta \in \beta\)). \href{20250203111003-ordinali.org}{Dunque} \(\alpha \in \beta\) oppure \(\alpha=\beta\), e quindi \(\alpha\le \beta\).
+\subsubsection{Punto c.}
+\label{sec:orgf4badfd}
+
+Sia \(\alpha<\beta\). Allora \(\beta\notin \operatorname{S}(\alpha) = \alpha\cup\set{\alpha}\) (se così fosse, allora \(\beta \in \alpha\) oppure \(\beta = \alpha\). \href{20250203111003-ordinali.org}{Impossibile} poiché \(\alpha \in \beta\)).
+\href{20250203111003-ordinali.org}{Segue quindi} che \(\operatorname{S}(\alpha) \in \beta\) oppure \(\operatorname{S}(\alpha)=\beta\), da cui la tesi.
+
+Se viceversa \(\operatorname{S}(\alpha)\le \beta\), allora \(\alpha \in \operatorname{S}(\alpha) \in \beta\) e siccome \(\beta\) è un \href{20250203111003-ordinali.org}{ordinale} allora è \href{20250203110714-classe_transitiva.org}{transitivo}, e quindi \(\alpha \in \beta\). Inoltre \(\alpha\neq \beta\) poiché altrimenti \(\beta \in \beta\), \href{20250131180704-nessun_insieme_appartiene_a_se_stesso.org}{assurdo}.
+\subsubsection{Punto d.}
+\label{sec:org1de60da}
+Sia \(\alpha<\beta\). Allora \(\beta\notin \operatorname{S}(\alpha) = \alpha\cup\set{\alpha}\) (se così fosse, allora \(\beta \in \alpha\) oppure \(\beta = \alpha\). \href{20250203111003-ordinali.org}{Impossibile} poiché \(\alpha \in \beta\)).
+\href{20250203111003-ordinali.org}{Segue quindi} che \(\operatorname{S}(\alpha) \in \beta\) oppure \(\operatorname{S}(\alpha)=\beta\).
+\begin{itemize}
+\item Se \(\operatorname{S}(\alpha) \in \beta\), allora \(\operatorname{S}(\alpha) \in \beta \in\operatorname{S}(\beta)\), e siccome \(\operatorname{S}(\beta)\) è ordinale e quindi transitivo, si ha \(\operatorname{S}(\alpha) \in \operatorname{S}(\beta)\).
+\item Se \(\operatorname{S}(\alpha) = \beta \in \operatorname{S}(\beta)\) si ha la tesi.
+\end{itemize}
+
+Viceversa, se \(\operatorname{S}(\alpha) < \operatorname{S}(\beta) = \beta\cup\set{\beta}\) si ha che \(\operatorname{S}(\alpha) \in \beta\) oppure \(\operatorname{S}(\alpha) = \beta\), che è \(\operatorname{S}(\alpha) \le \beta\). Per il punto c. \(\alpha < \beta\).
+\subsubsection{Punto e.}
+\label{sec:org213da8a}
+Si ha che \(\bigcup x\) è un ordinale poiché \(x \subseteq \operatorname{Ord}\) (vedi \href{20250203111003-ordinali.org}{Ordinali} e \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata}).
+Allora vale una tra le seguenti:
+\begin{equation*}
+\bigcup x < \alpha;\quad \bigcup x = \alpha;\quad \alpha <\bigcup x
+\end{equation*}
+
+Ma se \(\alpha \in \bigcup x\) allora esiste qualche \(\beta \in x\) tale che
+\begin{equation*}
+\alpha \in \beta \in x \subseteq \alpha
+\end{equation*}
+\href{20250131180704-nessun_insieme_appartiene_a_se_stesso.org}{Assurdo}.
+\subsubsection{Punto f.}
+\label{sec:org9e74277}
+\(\beta \in \bigcup\left(\operatorname{S}(\alpha)\right)\) se e solo se \(\beta \in \eta \in \alpha\) per qualche \(\eta\) oppure \(\beta \in \alpha\).
+
+Se \(\beta \in \bigcup\left(\operatorname{S}(\alpha)\right)\) allora \(\beta \in \eta \in \alpha\) per qualche \(\eta\) oppure \(\beta \in \alpha\). Siccome \(\alpha\) ordinale e quindi transitivo, \(\beta \in \eta \in \alpha\) implica \(\beta \in \alpha\).
+
+Viceversa, se \(\beta \in \alpha\), allora \(\beta \in \bigcup\left(\operatorname{S}(\alpha)\right)\).
+\subsubsection{{\bfseries\sffamily TODO} Punto g.\hfill{}\textsc{IdL:matematica\_lm}}
+\label{sec:orgc8f761b}
+
+Si consideri \(\bigcup\alpha\) un ordinale. \href{20250203111003-ordinali.org}{Ci sono tre casi}:
+\begin{equation*}
+\bigcup\alpha = \alpha;\qquad \alpha < \bigcup\alpha;\qquad \bigcup\alpha < \alpha
+\end{equation*}
+Il secondo porta ad una contraddizione. Siccome \(\alpha \subseteq \operatorname{S}(\alpha)\), allora\footnote{Infatti se \(y \in \bigcup\alpha\) allora esiste \(\eta\in \alpha\) tale che \(y \in \eta\). Ma \(\eta \in \alpha \subseteq \operatorname{S}(\alpha)\) e dunque \(y \in \eta \in \operatorname{S}(\alpha)\) e quindi \(y\) in \(\bigcup\operatorname{S}(\alpha)\).} \(\bigcup \alpha \subseteq \bigcup\left( \operatorname{S}(\alpha)\right)\). Per il punto f. \(\bigcup\left(\operatorname{S}(\alpha)\right)=\alpha\) e quindi
+\begin{equation*}
+\bigcup \alpha \subseteq \alpha \in \bigcup\alpha
+\end{equation*}
+allora \(\alpha \in \alpha\), \href{20250131180704-nessun_insieme_appartiene_a_se_stesso.org}{assurdo}.
+
+Necessariamente, quindi,
+\begin{equation*}
+\bigcup \alpha = \alpha \,\lor\, \bigcup \alpha <\alpha
+\end{equation*}
+
+Se \(\bigcup\alpha < \alpha\), allora, per il punto c.,
+\begin{equation*}
+\operatorname{S}\left(\bigcup\alpha\right)\le \alpha
+\end{equation*}
+Supponiamo ora che
+\begin{equation*}
+\operatorname{S}\left(\bigcup\alpha\right) \in \alpha
+\end{equation*}
+PERCHÉ????????
+Questo genera un assurdo, e pertanto \(\operatorname{S}\left(\bigcup\alpha\right) = \alpha\).
+
+Si è ottenuta la tesi:
+\begin{equation*}
+\bigcup \alpha = \alpha \,\lor\, \operatorname{S}\left(\bigcup\alpha\right) = \alpha
+\end{equation*}
+\subsubsection{{\bfseries\sffamily TODO} Punto h.\hfill{}\textsc{IdL:matematica\_lm}}
+\label{sec:org0b452de}
+\section{Teorema}
+\label{sec:orga28e26f}
+Da questo lemma segue banalmente che \(\lambda\) è un \href{20250203161132-ordinale_limite.org}{ordinale limite} se e solo se
+\begin{equation*}
+\lambda=\bigcup\lambda>0
+\end{equation*}
+\end{document}

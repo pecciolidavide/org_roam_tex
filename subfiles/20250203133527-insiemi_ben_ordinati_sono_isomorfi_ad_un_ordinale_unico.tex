@@ -1,0 +1,90 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Teorema}
+\label{sec:org7849b92}
+Ogni \href{20250130104331-insieme_mk.org}{insieme} \href{20250203104134-buon_ordine_mk.org}{ben ordinato} è \href{20250203110432-isomorfismo_tra_ordini.org}{isomorfo} ad un unico \href{20250203111003-ordinali.org}{ordinale}, ed ogni \href{20250130104320-classe_mk.org}{classe propria} \href{20250203104134-buon_ordine_mk.org}{ben ordinata} è isomorfa a \(\operatorname{Ord}\) (vedi \href{20250203111003-ordinali.org}{Ordinali}).
+Questo isomorfismo è unico.
+\subsection{Dimostrazione}
+\label{sec:orgf340ba5}
+
+Si dimostra solo per gli insiemi.
+
+Sia \(\langle X,\trianglelefteq\rangle\) un insieme ben ordinato, e sia
+\begin{equation*}
+A \coloneqq \set{\alpha \in \operatorname{Ord}\,|\, \exists\, x \in X\ \left(\langle \alpha, \in\rangle \cong \langle \operatorname{pred}(x), \trianglelefteq\rangle\right)}
+\end{equation*}
+
+\begin{itemize}
+\item \uline{\(A\le \operatorname{Ord}\)}.
+
+Supponiamo che
+\begin{equation*}
+  f_{\alpha}: \langle\alpha, \in\rangle \longrightarrow \langle \operatorname{pred}(x), \trianglelefteq\rangle
+\end{equation*}
+sia un \href{20250203110432-isomorfismo_tra_ordini.org}{isomorfismo} che testimonia \(\langle \alpha, \in\rangle \cong \langle \operatorname{pred}(x), \trianglelefteq\rangle\). Allora si ha l'isomorfismo, per ogni \(\beta \in \alpha\)
+\begin{equation*}
+  f_{\alpha}\mathrel{\upharpoonright} \beta : \langle\beta,\in\rangle \longrightarrow \langle \operatorname{pred}\left(f_{\alpha}(\beta)\right), \trianglelefteq\rangle
+\end{equation*}
+e peraltro \(\beta \in A\). Dunque \(A\) è una classe transitiva di ordinali, e peranto \(A \le \operatorname{Ord}\).
+
+\item Sia \(F:A\to X\) la funzione che assegna a ciascun \(\alpha\) l'unico \(x \in X\) tale che
+\begin{equation*}
+  \langle \alpha, \in\rangle \cong \langle \operatorname{pred}(x), \trianglelefteq\rangle.
+\end{equation*}
+
+Questa è ben definita, poiché:
+\begin{equation*}
+  \operatorname{pred}(x) \cong\alpha\cong \operatorname{pred}(y)
+\end{equation*}
+allora \(x=y\), poiché \(X\) è ben ordinato e quindi \(X\not\cong \operatorname{pred}(x)\).
+
+\item \uline{\(F\) preserva l'ordine} (ovvero \(F\) è un isomorfismo tra \(A\) e \(\operatorname{ran}F\)).
+
+Se \(\beta \in \alpha\), siano \(x=F(\alpha)\) e \(y=F(\beta)\). Allora \(\alpha\cong\operatorname{pred}(x)\), con isomorfismo \(f_{\alpha}\). Per il punto precedente, siccome  \(\beta \in \alpha\) allora \(f_{\alpha}\restricted\beta\) testimonia \(\beta\cong \operatorname{pred}(f_{\alpha}(\beta))\). Siccome \(\beta\cong \operatorname{pred}(y)\), allora \(y=f_{\alpha}(\beta) \in \operatorname{pred}(x)\), ovvero \(y\trianglelefteq x\).
+
+\item \uline{\(\operatorname{ran}F\) è un segmento iniziale di \(X\)};
+
+se \(x \in \operatorname{ran}F\) allora \(\operatorname{prec}(x)\cong \alpha\) e pertanto ogni \(y\trianglelefteq x\) corrisponde a \(\beta \in\alpha\), \(\beta\cong \operatorname{pred}(y)\) per il punto precedente. Quindi \(y=F(\beta)\).
+
+\item \uline{\(\operatorname{ran}F\) non è l'insieme dei predecessori di nessun elemento di \(X\)}
+
+Se per assurdo \(A \in \operatorname{Ord}\) e \(\langle A,\in \rangle \cong \langle \operatorname{pred}(\overline{x}),\trianglelefteq\rangle\), allora \(A \in A\). Assurdo
+
+\item Dunque \(\operatorname{ran}F = X\).\qed
+\end{itemize}
+\section{Order type}
+\label{sec:org6028bdf}
+Se \(\langle X,\preceq\rangle\) è una \href{20250130104320-classe_mk.org}{classe} \href{20250203104134-buon_ordine_mk.org}{ben ordinata}, allora il suo \textbf{order type} l'unico \(\Omega \le \operatorname{Ord}\) isomorfo a \(\langle X,\preceq\rangle\), ed è denotato con
+\begin{equation*}
+\operatorname{ot}\langle X,\preceq\rangle = \operatorname{ot}(X)
+\end{equation*}
+L'unico \href{20250203110432-isomorfismo_tra_ordini.org}{isomorfismo}
+\begin{equation*}
+\langle\Omega, \le\rangle \longrightarrow \langle X, \preceq\rangle
+\end{equation*}
+è detto \textbf{funzione enumeratrice}, e si scrive
+\begin{equation*}
+X = \langle x_{i}\mid i <\Omega\rangle
+\end{equation*}
+
+Si ha che \href{20250619101109-classi_equipotenti.org}{\(\Omega\asymp X\)}.
+
+In particolare \(\operatorname{ot}(A) = \operatorname{Ord}\) per ogni \href{20250130104320-classe_mk.org}{classe propria} \(A \subseteq \operatorname{Ord}\).
+\subsection{Order type di una classe qualunque}
+\label{sec:orgc0d8d1b}
+\section{Isomorfismi tra classi ben ordinate}
+\label{sec:org4cdea34}
+Se \(\langle A, \le\rangle, \langle B, \preceq\rangle\) sono due \href{20250130104320-classe_mk.org}{classi} \href{20250203104134-buon_ordine_mk.org}{ben ordinate}, allora esattamente una delle seguenti è vera:
+\begin{enumerate}
+\item \(\exists\, a \in A\ \left(\langle\operatorname{pred}(a),\le\rangle \cong \langle B,\prec\rangle\right)\) (vedi \href{20250206120526-segmento_iniziale_per_un_ordine.org}{Insieme dei predecessori} e \href{20250203110432-isomorfismo_tra_ordini.org}{Isomorfismo tra ordini});
+\item \(\exists\, b \in B\ \left(\langle A,\le\rangle\cong \langle \operatorname{pred}(b),\preceq\rangle\right)\);
+\item \(\langle A, \le\rangle\cong\langle B, \preceq\rangle\).
+\end{enumerate}
+
+In particolare, due \href{20250130104320-classe_mk.org}{classi proprie} ben ordinate sono isomorfe.
+\end{document}

@@ -1,0 +1,64 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funzione olomorfa su una superficie di Riemann a valori complessi}
+\label{sec:org21917af}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}, \(U \subseteq X\) aperto, e \(f:U \to \C\).
+
+\begin{definizione}
+La funzione \(f\) si dice \textbf{olomorfa in \(p \in U\)} se esiste una \href{20260127112715-atlante_complesso.org}{carta locale}
+\begin{equation*}
+\varphi: U_{0} \to V \subseteq \C
+\end{equation*}
+con \(p \in U_{0}\) tale che \(f \circ \varphi^{-1}\) sia \href{20260126110551-funzione_olomorfa.org}{olomorfa} in \(\varphi(p)\).
+\end{definizione}
+
+\begin{oss}
+Questa definizione non dipende dalla scelta della carta locale.
+\end{oss}
+
+\begin{definizione}
+\(f\) si dice \textbf{olomorfa in \(U\)} se è olomorfa in \(p\) per ogni \(p \in U\).
+\end{definizione}
+
+\begin{prop}
+Se \(f\) è olomorfa su \(U\), allora è anche \href{20250103103252-funzione_continua.org}{continua} e \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{\(\mathcal{C}^{\infty}\)} vedendo \(X\) e \(\C\) come \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili} reale.
+\end{prop}
+
+\begin{oss}
+L'insieme delle funzioni olomorfe in \(U\):
+\begin{equation*}
+\set{f:U\subseteq X \to \C \mid f\text{ olomorfa}}
+\end{equation*}
+è una \href{20250110175552-algebra_su_un_campo.org}{\(\C\)-algebra}
+\end{oss}
+\section{Funzione olomorfa tra superfici di Riemann}
+\label{sec:orgdc92f2c}
+Siano \(X,Y\) due \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann}, \(F:X\to Y\) una \href{20250202170607-classe_relazione_binaria.org}{funzione}.
+
+\begin{definizione}
+\(F\) si dice \textbf{olomorfa in \(p \in X\)} se esistono
+\begin{itemize}
+\item una \href{20260127112715-atlante_complesso.org}{carta locale} per \(X\): \(\varphi_{1} : U_{1}\to V_{1} \subseteq \C\), con \(p \in U_{1}\);
+\item una \href{20260127112715-atlante_complesso.org}{carta locale} per \(Y\): \(\varphi_2 : U_2\to V_{2} \subseteq \C\), con \(F(p) \in U_{2}\);
+\end{itemize}
+tali che \(\varphi_{2}\circ F \circ \varphi_{1}^{-1}\) sia definita e olomorfa in un intorno di \(\varphi_{1}(p) \in V_{1} \subseteq \C\).
+\end{definizione}
+
+\begin{definizione}
+\(F\) si dice \textbf{olomorfa} se è olomorfa in \(p\) per ogni \(p \in X\).
+\end{definizione}
+
+\begin{prop}
+\begin{enumerate}
+\item La funzione identità \(\Id:X\to X\) e tutte le funzioni costanti sono olomorfe.
+\item La condizione non dipende dalla scelta delle carte locali.
+\item Se \(Y=\C\), si ottiene la stessa definizione di \hyperref[sec:org21917af]{funzioni olomorfe} \(F:X\to \C\).
+\item Se \(F\) è olomorfa, allora \(F\) è \href{20250103103252-funzione_continua.org}{continua}, \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{\(\mathcal{C}^{\infty}\)} e preserva \href{20251223152054-varieta_differenziabile_orientabile.org}{l'orientazione} come mappa tra \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili}.
+\item Composizione di mappe olomorfe è olomorfa.
+\end{enumerate}
+\end{prop}
+\end{document}

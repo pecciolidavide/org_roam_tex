@@ -1,0 +1,26 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Quoziente di complessi di catene}
+\label{sec:orgfc5c6fb}
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità, e sia \(\mathcal{C}_{\bullet} = \set{(C_{n}, \partial_{n})}_{n \in \Z}\) un \href{20250120163114-complesso_di_catene.org}{complesso di catene di \(R\)-moduli},
+\(\mathcal{D}_{\bullet} = \set{(D_{n}, \partial_{n}^{D})}_{n \in \Z}\)
+un \href{20250128151459-sottocomplesso_di_catene.org}{sottocomplesso} di \(\mathcal{C}_{\bullet}\).
+
+\begin{definizione}
+Il \textbf{quoziente} è il complesso di catene:
+\begin{equation*}
+\mathcal{C}_{\bullet}/\mathcal{D}_{\bullet} \coloneqq \set{\left(\frac{C_{n}}{D_{n}}, \partial_{n}^{*}\right)}_{n \in \Z}
+\end{equation*}
+dove \(C_{n}/D_{n}\) è il \href{20241206142802-sottomoduli.org}{quoziente di \(R\)-moduli} e
+\begin{align*}
+\partial_{n}^{*}: \frac{C_{n}}{D_{n}} &\longrightarrow \frac{C_{n-1}}{D_{n-1}} \\
+x + D_{n} &\longmapsto \partial_{n} x + D_{n-1}
+\end{align*}
+\end{definizione}
+
+La definizione è ben posta poiché \(\partial_{n}[D_{n}] \subseteq D_{n-1}\)
+\end{document}

@@ -1,0 +1,17 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{\LaTeX{} - Verificare se argomento condizionale è pieno}
+\label{sec:org7618106}
+Si supponga di stare definendo un nuovo comando, e che \texttt{\#1} sia  un argomento.
+\begin{verbatim}
+\if\relax\detokenize{#1}\relax
+    % codice da eseguire se #1 è vuoto
+\else
+    % codice da eserguire se #1 non è vuoto
+\fi
+\end{verbatim}
+\end{document}

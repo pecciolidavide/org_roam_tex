@@ -1,0 +1,27 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(M\) un insieme. Un \textbf{\textbf{atlante astratto}} di \(M\) è una collezione \(\set{(U_{\alpha},\varphi_{\alpha})}\) dove \(\set{U_{\alpha}}\) è un \href{20250103164252-ricoprimento.org}{ricoprimento} di \(M\), e dove, per certi \(V_{\alpha} \subseteq \R^{n}\) \href{20250103145124-topologia.org}{aperti}
+\begin{equation*}
+\varphi_{\alpha}: U_{\alpha} \longrightarrow V_{\alpha}
+\end{equation*}
+sono \href{20250104111707-funzione_biunivoca.org}{biezioni} tali che, per ogni \(\alpha, \beta\), se \(U_{\alpha}\cap U_{\beta}\neq 0\) allora
+\begin{itemize}
+\item \(\varphi(U_{\alpha}\cap U_{\beta})\) aperto di \(\R^{n}\);
+\item \(\varphi_{\beta}\circ\varphi_{\alpha}^{-1}: \varphi_{\alpha}(U_{\alpha}\cap U_{\beta})\longrightarrow \varphi_{\beta}(U_{\alpha}\cap U_{\beta})\) è un \href{20250111142332-omeomorfismo.org}{omeomorfismo} tra aperti di \(\R^{n}\).
+\end{itemize}
+
+\((U_{\alpha},\varphi_{\alpha})\) è detta \textbf{carta} dell'atlante.
+\section{Topologia indotta da un atlante}
+\label{sec:orgf68f558}
+Un atlante astratto induce una topologica su \(M\). \(A \subseteq M\) aperto se e solo se, per ogni \(\alpha\) tale che \(A\cap U_{\alpha}\neq \emptyset\),
+\begin{equation*}
+\varphi_{\alpha}(A\cap U_{\alpha})
+\end{equation*}
+è un aperto in \(\R^{n}\).
+\subsection{{\bfseries\sffamily TODO} Dimostrazione che questo induce una topologia\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\label{sec:org4a39dff}
+\end{document}

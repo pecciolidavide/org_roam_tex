@@ -1,0 +1,132 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Toro complesso}
+\label{sec:org08b66d4}
+\subsection{Costruzione come quoziente di gruppi}
+\label{sec:org55416af}
+
+In \(\C^{n}\) si considerino \(2n\) vettori \(\set{w_{1},\dots,w_{2n}}\), \href{20241212142019-insiemi_linearmente_indipendenti.org}{linearmente indipendenti} su \(\R\).
+
+Si consideri ora il \href{20241206143051-sottogruppo.org}{sottogruppo} additivo di \(\C^{n}\) \href{20260115123905-sottogruppo_generato.org}{generato} da \(\set{w_{1},\dots,w_{2n}}\):
+\begin{equation*}
+\Gamma \coloneqq \set{m_{1}w_{1} + \dots + m_{2n}w_{2n} \mid m_{i} \in \Z}
+\end{equation*}
+Alcune proprietà:
+\begin{itemize}
+\item \(\Gamma\) è \href{20241206115531-morfismo_di_gruppi.org}{isomorfo} a \(\Z^{2n}\) come \href{20241205141146-gruppo_abeliano.org}{gruppo},
+\item \(\Gamma \subseteq \C^{n}\) è chiuso;
+\item \(\Gamma\) ha la \href{20250317165247-topologia_discreta.org}{topologia discreta}, ovvero ogni suo punto è \href{20250403131856-punto_isolato.org}{isolato}.
+\end{itemize}
+\(\Gamma\) prende il nome di \uline{reticolo}.
+
+Sia quindi \(X\coloneqq \C^{n}/\Gamma\) il \href{20250127093819-quoziente_di_gruppo_e_sottogruppo.org}{gruppo quoziente}, con proiezione suriettiva:
+\begin{equation*}
+\pi: \C^{n}\to X.
+\end{equation*}
+Si dota quindi \(X\) della \href{20250129155316-spazio_topologico_quoziente.org}{topologia quoziente}.
+
+\begin{itemize}
+\item \textbf{Topologia di \(X\)}:
+
+Definiamo la mappa \(\phi: \C^{n}\to \R^{2n}:\ w_{i}\mapsto e_{i}\), dove \(\set{e_{i}}\) è la \href{20250102163502-base_di_uno_spazio_vettoriale.org}{base} canonica di \(\R^{2n}\). Questa è \(\R\)-\href{20250114101949-funzione_lineare.org}{lineare} ed è un \href{20250111142332-omeomorfismo.org}{omeomorfismo}.
+
+Quindi è una \href{20250104114559-funzione_chiusa.org}{mappa chiusa}, e, siccome \(\Gamma\) è chiuso, \href{20250104114559-funzione_chiusa.org}{anche} \(\restriction{\phi}{\Gamma}\) è chiusa. Inoltre\footnote{Vedi ``\href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Range di una funzione}''}
+\begin{equation*}
+  \phi(\Gamma) = \Z^{2n}
+\end{equation*}
+e \href{20250104114559-funzione_chiusa.org}{pertanto} \(\phi\) è un omeomorfismo tra \(\Gamma\) e \(\Z^{2n}\).
+
+Inoltre, ovviamente, \(\phi\) induce un isomorfismo tra i gruppi:
+\begin{itemize}
+\item \(\R^{2n}\) e \(\C^{n}\);
+\item \(\Gamma\) e \(\Z^{2n}\).
+\end{itemize}
+
+Pertanto\footnote{Questa cosa non mi è per nulla chiara}
+\begin{equation*}
+  X \mathrel{\overset{\text{omeo}}{\approx}} \frac{\R^{2n}}{\Z^{2n}} \mathrel{\overset{\text{omeo}}{\approx}} (\mathds{S}^{1})^{2n}
+\end{equation*}
+e quindi \(X\) è una \href{20250111092123-varieta_topologica.org}{varietà topologica} \href{20250103163701-spazio_topologico_compatto.org}{compatta}, orientabile e di dimensione pari.
+
+\item \textbf{Mappa \(\pi\)}
+
+Siccome \(X\) è il \href{20260128105613-azione_di_gruppo_su_uno_spazio_topologico.org}{quoziente per l'azione di \(\Gamma\) su \(\C^{n}\)}, allora è una \href{20250104114559-funzione_chiusa.org}{mappa aperta}.
+\end{itemize}
+
+Possiamo ora costruire un atlante complesso per \(X\).
+
+\begin{enumerate}
+\item Siccome \(0 \in \Gamma\) e \(\Gamma\) è discreto, esiste un intorno aperto \(U\) di \(0\) in \(\C\) tale che \(\Gamma\cap U = \set{0}\). Ovvero
+\begin{equation*}
+\exists \varepsilon >0\ \tc\quad \forall w \in \Gamma\setminus\set{0}\ \norma{w} > 2\varepsilon.
+\end{equation*}
+
+Allora, per ogni \(z_{0} \in \C^{n}\) fissato, detto
+\begin{equation*}
+D(z_{0};\varepsilon) \coloneqq \set{z \in \C^{n} \mid \norma{z-z_{0}}<\varepsilon}
+\end{equation*}
+la mappa
+\begin{equation*}
+\restriction{\pi}{D(z_{0};\varepsilon)}: D(z_{0};\varepsilon) \to X
+\end{equation*}
+è \href{20241219101956-funzione_iniettiva.org}{iniettiva}: se \(z_{1},z_{2} \in D\) sono tali che \(\pi(z_{1})=\pi(z_{2})\) allora
+\begin{equation*}
+z_{1}-z_{2} \in \Gamma:\qquad \norma{z_{1}-z_{2}} \le \norma{z_{1}-z_{0}} + \norma{z_{0}-z_{2}} < 2\varepsilon
+\end{equation*}
+e quindi \(z_{1}-z_{2} = 0\).
+
+\item Sia quindi \(U_{z_{0}} \coloneqq \pi[D(z_{0};\varepsilon)]\). Siccome \(\pi\) è una mappa aperta, \(U_{z_{0}} \subseteq X\) è un aperto. Inoltre
+\begin{equation*}
+ \restriction{\pi}{D(z_{0};\varepsilon)}:D(z_{0};\varepsilon) \to U_{z_{0}}
+\end{equation*}
+è un \href{20250111142332-omeomorfismo.org}{omeomorfismo}, poiché è una funzione continua, biiettiva e aperta\footnote{Infatti \href{20250104114559-funzione_chiusa.org}{restrizione di mappe aperte ad un aperto sono ancora aperte}.}.
+
+Ammette quindi un inverso \(\varphi_{z_{0}} \coloneqq \big(	\restriction{\pi}{D(z_{0};\varepsilon)}\big)^{-1}\):
+\begin{equation*}
+ \varphi_{z_{0}}:U_{z_{0}}\to D(z_{0};\varepsilon).
+\end{equation*}
+
+Quindi \((U_{z_{0}};\varphi_{z_{0}})\) è una carta locale.
+\end{enumerate}
+
+Si propone \(\set{(U_{z_{0}};\varphi_{z_{0}})}_{z_{0} \in \C^{n}}\) come \href{20260127112715-atlante_complesso.org}{atlante complesso}.
+\begin{itemize}
+\item Sicuramente \(\displaystyle X = \bigcup_{z_{0} \in \C^{n}} U_{z_{0}}\).
+\item Si dimostra la compatibilità: siano \(z_{0},z_{1} \in \C^{n}\) tali che \(U_{z_{0}}\cap U_{z_{1}} \neq \emptyset\):
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+        \&\& {U_{z_0}\cap U_{z_1}} \\
+        \\
+        {D(z_0;\varepsilon)\supseteq A_0} \&\&\&\& {A_1 \subseteq D(z_1;\varepsilon)}
+        \arrow["{\varphi_{z_0}}", from=1-3, to=3-1]
+        \arrow["{\varphi_{z_1}}"', from=1-3, to=3-5]
+        \arrow["\pi", shift left=3, from=3-1, to=1-3]
+        \arrow["h"', from=3-1, to=3-5]
+        \arrow["\pi"', shift right=3, from=3-5, to=1-3]
+\end{tikzcd}
+\end{equation*}
+
+Per ogni \(z \in A_{0}\) si ha
+\begin{equation*}
+  \pi(z) = \pi(h(z))
+\end{equation*}
+e pertanto \(z-h(z) \in \Gamma\).
+
+Se consideriamo l'inclusione \(\iota: A_{0} \subseteq \C^{n} \hookarrow \C^{n}\) si ha che
+\begin{equation*}
+  i-h : A_{0} \to \C
+\end{equation*}
+ha immagine in \(\Gamma\) insieme discreto. Inoltre \(i-h\) è continua, e pertanto è \href{20250325153824-funzione_localmente_costante.org}{localmente costante}.
+
+\href{20250325154046-funzione_localmente_costante_sse_costante_sulle_componenti_connesse.org}{Pertanto}, \(i-h\) è costante sulle \href{20250325160128-componente_connessa_di_uno_spazio_topologico.org}{componenti connesse} di \(A_{0}\), ovvero per ogni \(\Omega \subseteq A_{0}\) componente connessa (aperta) esiste \(\omega_{\Omega} \in \Gamma\) tale che
+\begin{equation*}
+  \forall z \in \Omega:\qquad h(z) = z+\omega_{\Omega}.
+\end{equation*}
+
+Pertanto \(\restriction{h}{\Omega}\) è olomorfa, e quindi lo è \(h\).
+\end{itemize}
+\end{document}

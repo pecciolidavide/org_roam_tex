@@ -1,0 +1,18 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Proposizione}
+\label{sec:orgf91423a}
+
+Siano \(g:\N^{k}\to \N\) e \(h:\N^{k+2}\to \N\) \href{20250202170607-classe_relazione_binaria.org}{funzioni} \href{20250207104855-funzione_ricorsiva.org}{ricorsive} (\href{20250215141024-funzioni_primitive_ricordive.org}{primitive}). Allora la funzione \(f:\N^{k+1}\to \N\) definita da
+\begin{equation*}
+\begin{cases}
+f(\bm{x},0) = g(\bm{x})\\
+f(\bm{x},y+1) = h\left(\bm{x}, y, f^{\text{m}}(\bm{x},y)\right)
+\end{cases}
+\end{equation*}
+è ricorsiva (primitiva), dove \(f^{\text{m}}\) è la \href{20250601160026-funzione_memoria.org}{funzione memoria}.
+\end{document}

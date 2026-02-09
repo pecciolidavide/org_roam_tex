@@ -1,0 +1,210 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità. Siano \(\mathcal{C}_{\bullet}, \mathcal{C}_{\bullet}', \mathcal{C}_{\bullet}''\) dei \href{20250120163114-complesso_di_catene.org}{complessi di catene} e \(f_{\bullet}: \mathcal{C}_{\bullet}'\longrightarrow \mathcal{C}_{\bullet}\), \(g_{\bullet}: \mathcal{C}_{\bullet}\longrightarrow \mathcal{C}_{\bullet}''\) sono \href{20250120163759-categoria_complessi_di_catene.org}{morfismi}, con
+\begin{align*}
+\mathcal{C}_{\bullet} &= \set{(C_{n},\partial_{n})}_{n \in \Z}\\
+\mathcal{C}_{\bullet}' &= \set{(C_{n}',\partial_{n}')}_{n \in \Z}\\
+\mathcal{C}_{\bullet}'' &= \set{(C_{n}'',\partial_{n}'')}_{n \in \Z}
+\end{align*}
+e i morfismi sono
+\begin{align*}
+f_{\bullet} &= \set{f_{n}:C_{n}'\longrightarrow C_{n}}_{n \in \Z}\\
+g_{\bullet} &= \set{g_{n}:C_{n}\longrightarrow C_{n}''}_{n \in \Z}
+\end{align*}
+\begin{thm}
+Se la seguente è una \href{20250120183640-sec_di_complessi_di_catene.org}{SEC di \(\cat{Ch}_{R}\)} (vedi \href{20250120163759-categoria_complessi_di_catene.org}{Categoria Complessi di Catene})
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,column sep=large,row sep=tiny]
+	0 \& {\mathcal{C}_{\bullet}} \& {\mathcal{C}_{\bullet}'} \& {\mathcal{C}_{\bullet}''} \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{f_{\bullet}}", from=1-2, to=1-3]
+	\arrow["{g_{\bullet}}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+allora per ogni \(n \in \Z\) esiste una mappa
+\begin{equation*}
+\partial_{\star}^{(n)}: H_{n}(\mathcal{C}_{\bullet}'')\longrightarrow H_{n-1}(\mathcal{C}_{\bullet}')
+\end{equation*}
+tale che la seguente \href{20250120125644-successione_di_r_moduli.org}{successione} di \href{20241205141053-r_moduli.org}{\(R\)-moduli} è \href{20250120125004-successione_di_r_moduli_esatta.org}{esatta}:\footnote{Vedi:
+\begin{itemize}
+\item \href{20250120164857-modulo_di_omologia_dei_complessi_di_catene.org}{Modulo di omologia dei complessi di catene}
+\item \href{20250120165029-funtore_tra_chr_e_rmod.org}{Funtore da ChR e RMod - di omologia}
+\end{itemize}}
+\begin{equation*}
+\begin{tikzcd}[column sep=large]
+	&& \cdots \\
+	\\
+	{H_n(\mathcal{C}_{\bullet}')} & {H_n(\mathcal{C}_{\bullet})} & {H_n(\mathcal{C}_{\bullet}'')} \\
+	\\
+	{H_{n-1}(\mathcal{C}_{\bullet}')} & {H_{n-1}(\mathcal{C}_{\bullet})} & {H_{n-1}(\mathcal{C}_{\bullet}'')} \\
+	\\
+	\cdots
+	\arrow["{{\partial_{\star}^{(n+1)}}}"{description}, from=1-3, to=3-1]
+	\arrow["{{H_n(f_{\bullet})}}"', from=3-1, to=3-2]
+	\arrow["{{H_n(g_{\bullet})}}"', from=3-2, to=3-3]
+	\arrow["{{\partial_{\star}^{(n)}}}"{description}, from=3-3, to=5-1]
+	\arrow["{{H_{n-1}(f_{\bullet})}}"', from=5-1, to=5-2]
+	\arrow["{{H_{n-1}(g_{\bullet})}}"', from=5-2, to=5-3]
+	\arrow["{{\partial_{\star}^{(n-1)}}}"{description}, from=5-3, to=7-1]
+\end{tikzcd}
+\end{equation*}
+\end{thm}
+\begin{proof}
+Si consideri il seguente diagramma commutativo \href{20250120131527-sec.org}{a righe esatte}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,sep=huge]
+	\& \cdots \& \cdots \& \cdots \\
+	0 \& {C_{n+1}'} \& {C_{n+1}} \& {C_{n+1}''} \& 0 \\
+	0 \& {C_n'} \& {C_n} \& {C_n''} \& 0 \\
+	0 \& {C_{n-1}'} \& {C_{n-1}} \& {C_{n-1}''} \& 0 \\
+	0 \& {C_{n-2}'} \& {C_{n-2}} \& {C_{n-2}''} \& 0 \\
+	\& \cdots \& \cdots \& \cdots
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=1-4, to=2-4]
+	\arrow[from=2-1, to=2-2]
+	\arrow["{f_{n+1}}", from=2-2, to=2-3]
+	\arrow["{\partial_{n+1}'}"', from=2-2, to=3-2]
+	\arrow["{g_{n+1}}", from=2-3, to=2-4]
+	\arrow["{\partial_{n+1}}"', from=2-3, to=3-3]
+	\arrow[from=2-4, to=2-5]
+	\arrow["{\partial_{n+1}''}", from=2-4, to=3-4]
+	\arrow[from=3-1, to=3-2]
+	\arrow["{f_n}", from=3-2, to=3-3]
+	\arrow["{\partial_n'}"', from=3-2, to=4-2]
+	\arrow["{g_n}", from=3-3, to=3-4]
+	\arrow["{\partial_n}"', from=3-3, to=4-3]
+	\arrow[from=3-4, to=3-5]
+	\arrow["{\partial_n''}", from=3-4, to=4-4]
+	\arrow[from=4-1, to=4-2]
+	\arrow["{f_{n-1}}", from=4-2, to=4-3]
+	\arrow["{\partial_{n-1}'}"', from=4-2, to=5-2]
+	\arrow["{g_{n-1}}", from=4-3, to=4-4]
+	\arrow["{\partial_{n-1}}"', from=4-3, to=5-3]
+	\arrow[from=4-4, to=4-5]
+	\arrow["{\partial_{n-1}''}", from=4-4, to=5-4]
+	\arrow[from=5-1, to=5-2]
+	\arrow["{f_{n-2}}", from=5-2, to=5-3]
+	\arrow["{\partial_{n-2}'}"', from=5-2, to=6-2]
+	\arrow["{g_{n-2}}", from=5-3, to=5-4]
+	\arrow["{\partial_{n-2}}"', from=5-3, to=6-3]
+	\arrow[from=5-4, to=5-5]
+	\arrow["{\partial_{n-2}''}", from=5-4, to=6-4]
+\end{tikzcd}
+\end{equation*}
+
+\begin{itemize}
+\item \uline{Costruzione di \(\partial_{\star}\).}
+
+Sia \(z_{n}'' + B_{n}(\mathcal{C}_{\bullet}'') \in H_{n}(\mathcal{C}_{\bullet}'')\).
+
+\href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{Siccome \(g_{n}\) è suriettiva}, esiste \(c_{n} \in C_{n}\) tale che \(g_{n}(c_{n}) = z_{n}''\):
+\begin{equation*}
+  g_{n-1} (\partial_{n}c_{n}) = \partial_{n}''\, g_{n}(c_{n}) =
+  \partial_{n}'' z_{n}''= 0
+\end{equation*}
+dove l'ultima uguaglianza è per \(z_{n}'' \in Z_{n}(\mathcal{C}_{\bullet}'')\).
+
+Pertanto, \(\partial_{n}c_{n} \in \operatorname{ker}g_{n-1} = \operatorname{Im}f_{n-1}\)\footnote{Vedi ``\href{20241213105201-kernel.org}{Kernel}''}.
+
+\href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{Siccome tutte le \(f_{i}\) sono iniettive}, in particolare, esiste un unico \(c_{n-1}' \in C_{n-1}'\) tale che \(\partial_{n}c_{n} =f_{n-1}(c_{n-1}')\)
+
+\begin{itemize}
+\item \uline{Claim: \(c_{n-1}' \in Z_{n-1}' \subseteq C_{n-1}'\)}
+
+Dobbiamo dimostrare che \(\partial_{n-1}'c_{n-1}' = 0\).
+\begin{equation*}
+f_{n-2}\left(\partial_{n-1}'c_{n-1}'\right) = \partial_{n-1} f_{n-1}(c_{n-1}') =\partial_{n-1}\partial_{n}c_{n} =0
+\end{equation*}
+che è nullo poiché \(\partial_{n-1}\partial_{n}\equiv 0\). Siccome \(f_{n-2}\) è iniettiva, allora \(\partial_{n-1}'c_{n-1}'=0\)
+\end{itemize}
+
+Utilizzando la notazione di cui sopra, definiamo
+\begin{equation*}
+  \partial_{\star} \big(z_{n}'' + B_{n}(\mathcal{C}_{\bullet}'')\big) \coloneqq c_{n-1}' + B_{n-1}(\mathcal{C}_{\bullet}')
+\end{equation*}
+\end{itemize}
+
+
+\begin{itemize}
+\item \uline{Buona definizione di \(\partial_{\star}\)}
+
+\begin{itemize}
+\item Dimostriamo che \(\partial_{\star}\) non dipenda dalla scelta di \(c_{n} \in g^{-1}_{n}(z_{n}'')\).
+
+Siano allora \(c_{n},\hat{c}_{n} \in g_{n}^{-1}(z_{n''}) \subseteq C_{n}\).
+Analogamente a prima, esistono e sono unici \(c_{n-1}',\hat{c}_{n-1}' \in C_{n-1}'\) tali che
+\begin{align*}
+f_{n-1}(c_{n-1}')&= \partial_{n}c_{n}\\
+f_{n-1}(\hat{c}_{n-1}') &= \partial_{n}\hat{c}_{n}
+\end{align*}
+
+Inoltre
+\begin{equation*}
+g_{n}(c_{n}-\hat{c}_{n}) = g_{n}(c_{n})-g_{n}(\hat{c}_{n}) = 0
+\end{equation*}
+e dunque \(c_{n}-\hat{c}_{n} \in \operatorname{ker}g_{n} = \operatorname{Im}f_{n}\).
+
+Quindi esiste \(c_{n}'\) tale che \(c_{n}-\hat{c}_{n} = f_{n}(c_{n}')\).
+\begin{equation*}
+\partial_{n}(c_{n}-\hat{c}_{n}) = \partial_{n}f_{n}(c_{n}') = f_{n-1}\left(\partial_{n}' c_{n}'\right)
+\end{equation*}
+dove l'ultima uguaglianza vale per la commutatività del diagramma. Inoltre, siccome \(\partial_{n}\) è un \href{20241206115416-morfismi_r_moduli.org}{morfismo di \(R\)-moduli}, \(\partial_{n}(c_{n}-\hat{c}_{n}) = \partial_{n}c_{n} - \partial_{n}\hat{c}_{n}\).
+
+Pertanto:
+\begin{equation*}
+f_{n-1}(\partial_{n}'c_{n}') = f_{n-1}(c_{n-1}')-f_{n-1}(\hat{c}_{n-1}') = f_{n-1}(c_{n-1}'-\hat{c}_{n-1}')
+\end{equation*}
+e, siccome \(f_{n-1}\) è iniettiva,
+\begin{equation*}
+c_{n-1}'-\hat{c}_{n-1}' = \partial_{n}'c_{n}'
+\end{equation*}
+e quindi
+\begin{equation*}
+c_{n-1}' = \hat{c}_{n-1}' + \partial_{n}'c_{n}'
+\end{equation*}
+
+In definitiva si ha che
+\begin{equation*}
+c_{n-1}'+B_{n}(\mathcal{C}_{\bullet}') = \hat{c}_{n-1}' + B_{n}(\mathcal{C}_{\bullet}')
+\end{equation*}
+
+\item Dimostriamo che \(\partial_{\star}\) non dipenda dalla scelta del rappresentante \(z_{n}''\). (Lasciato per esercizio)\qedhere
+\end{itemize}
+\end{itemize}
+\end{proof}
+\begin{cor}
+Date le due SEC:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	0 \& {\mathcal{C}_{\bullet}'} \& {\mathcal{C}_{\bullet}} \& {\mathcal{C}_{\bullet}''} \& 0 \\
+	0 \& {\mathcal{C}_{\bullet}'} \& {\mathcal{C}_{\bullet}} \& {\mathcal{C}_{\bullet}''} \& 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{f_{\bullet}}", from=1-2, to=1-3]
+	\arrow["{g_{\bullet}}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=2-1, to=2-2]
+	\arrow["{f_{\bullet}}"', from=2-2, to=2-3]
+	\arrow["{-g_{\bullet}}"', from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}
+\end{equation*}
+
+Tramite lo Zig-Zag Lemma vi sono i due morfismi tra i moduli di omologia
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped,row sep=tiny]
+	{H_n(\mathcal{C}_{\bullet}'')} \& {H_{n-1}(\mathcal{C}_{\bullet}')} \\
+	{H_n(\mathcal{C}_{\bullet}'')} \& {H_{n-1}(\mathcal{C}_{\bullet}')}
+	\arrow["{\partial_{\star}}", from=1-1, to=1-2]
+	\arrow["{\partial_{\star}'}"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+
+Allora \(\partial_{\star}' = -\partial_{\star}\).
+\end{cor}
+\end{document}

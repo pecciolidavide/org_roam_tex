@@ -1,0 +1,44 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Suppose \(\mathcal{L}\) countable.
+Let \(|x|=1\).
+Prove that if \(S_{x}(A)\) is countable for every finite set \(A\), then \(T\) is small.
+\end{prop}
+\begin{proof}
+Sia \(\mathcal{U}\vDash T\) modello mostro. Si costruisce \(M \preceq \mathcal{U}\) numerabile tale che \(M\) è \(\omega\)-saturo. Questo dimostra che \(T\) sia sottile.
+
+Sia \(\pi:\omega^{2}\to \omega\) una biiezione tale che per ogni \(j,k <\omega\): \(j,k\le \pi(j,k)\).
+
+Si costruisce per induzione:
+\begin{itemize}
+\item Sia \(A_{0}\coloneqq \emptyset\).
+\item Al passo \(n\)-esimo, si supponga che per ogni \(i\le n\): \(A_{i}\) sia finito. Dunque \(S_{x}(A_{i})\) numerabile, enumerato come segue
+\begin{equation*}
+  S_{x}(A_{i}) \coloneqq \langle p_{ij}(x)\mid j<\omega\rangle.
+\end{equation*}
+Si scelgano quindi \(a_{ij}\) tali che \(\mathcal{U},a_{ij}\vDash p_{ij}(x)\) (che esistono poiché \(\mathcal{U}\) è saturo).
+
+Si definisce quindi
+\begin{equation*}
+  A_{n+1} \coloneqq A_{n}\cup \set{a_{ij}\mid \pi(i,j) = n}.
+\end{equation*}
+insieme finito.
+\end{itemize}
+
+Ponendo \(M\coloneqq \bigcup_{n<\omega} A_{n}\) si ottiene il modello cercato.
+\begin{itemize}
+\item \(M\) è numerabile, poiché unione numerabile di insiemi finiti.
+\item Per ogni formula \(\varphi(x) \in \mathcal{L}(M)\) soddisfacibile in \(\mathcal{U}\), \(\varphi(x) \in \mathcal{L}(A_{i})\) per qualche \(i \in \omega\) e pertanto \(\varphi(x) \in p_{ij}(x) \in S_{x}(A_{i})\) per qualche \(j \in \omega\).
+Dunque \(\mathcal{U},a_{ij}\vDash \varphi(x)\) e \(a_{ij} \in A_{\pi(i,j)+1} \subseteq M\) e pertanto \(M\preceq \mathcal{U}\), e quindi \(M\vDash T\).
+\item Sia \(p(x) \subseteq \mathcal{L}(M)\) un tipo finitamente soddisfacibile a parametri in \(A \subseteq M\) finito.
+Allora \(p(x) \subseteq \mathcal{L}(A_{n})\) per qualche \(n \in \omega\) e pertanto esiste \(q(x) \in S_{x}(A_{n})\) tale che \(p(x) \subseteq q(x)\).
+Per costruzione esiste \(a \in M\) tale che \(\mathcal{U},a\vDash q(x)\) e siccome \(M\preceq \mathcal{U}\) allora \(M,a\vDash q(x)\), ovvero \(M,a\vDash p(x)\).
+Quindi \(M\) è \(\omega\)-saturo.
+\end{itemize}
+\end{proof}
+\end{document}

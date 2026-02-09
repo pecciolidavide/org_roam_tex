@@ -1,0 +1,21 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Theorem 12.3 - Andretta}
+\label{sec:org5048758}
+Siano \(A,B\) insiemi non vuoti, e siano
+\begin{align*}
+g: B&\to A\\
+F: \N\times B\times A &\to A
+\end{align*}
+funzioni. Allora esiste un'unica \(f:\N\times B\to A\) tale che
+\begin{equation*}
+\begin{cases}
+f(0,b) = g(b)\\
+f(n+1,b) = F\left(n,b,f(n,b)\right)
+\end{cases}
+\end{equation*}
+\end{document}

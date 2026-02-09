@@ -1,0 +1,39 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello abeliano con unità}.
+\begin{thm}
+Ogni \href{20241205141053-r_moduli.org}{\(R\)-modulo} \(M\) è \href{20241206142802-sottomoduli.org}{quoziente} di un \href{20241205141053-r_moduli.org}{\(R\)-modulo} \href{20241213094625-modulo_libero.org}{libero}, ovvero esiste un \href{20241205141053-r_moduli.org}{\(R\)-modulo} \(L\), \href{20241213094625-modulo_libero.org}{libero}, tale che siano \href{20241206115416-morfismi_r_moduli.org}{isomorfi}
+\begin{equation*}
+M \cong L/N.
+\end{equation*}
+\end{thm}
+\begin{proof}
+Si consideri il modulo \(R^{(M)} \coloneqq \bigoplus_{m \in M} R\)\footnote{Vedi ``\href{20241213095808-somma_diretta.org}{Somma Diretta}''} e il \href{20241206115416-morfismi_r_moduli.org}{morfismo di \(R\)-moduli}
+\begin{align*}
+f: R^{(M)} &\longrightarrow M\\
+(r_{m})_{m \in M} & \longmapsto \sum_{m \in M} m\cdot r_{m}.
+\end{align*}
+dove la somma è quella del \href{20241205141146-gruppo_abeliano.org}{gruppo} \((M,+)\)\footnote{vedi la definizione di \href{20241205141053-r_moduli.org}{\(R\)-modulo}}. La somma ha senso in quanto per definizione di somma diretta, è finita. È facile vedere che questo sia effettivamente un morfismo.
+\begin{itemize}
+\item Per il \href{20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.org}{primo teorema di isomorfismo}:\footnote{Vedi ``\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}'' e ``\href{20241213105201-kernel.org}{Kernel}''}
+\begin{equation*}
+  f\big[R^{(M)}\big] \cong R^{(M)} / \ker f.
+\end{equation*}
+\item Il \(\ker f\) è un \href{20241206142802-sottomoduli.org}{sotto-\(R\)-modulo}, \(N \coloneqq  \operatorname{ker}f \subseteq_R R^{(M)}\).
+\item \(f\big[R^{(M)}\big] = R^{(M)}\), in quanto \(f\) è \href{20241213105600-funzione_suriettiva.org}{suriettiva}\footnote{Per ogni \(\tilde{m} \in M\)  si consideri \((r_{m})_{m \in M} \in R^{(M)}\):
+\begin{equation*}
+r_{m} = \begin{cases}
+0 & m \neq \tilde{m}\\
+1 & m = \tilde{m}
+\end{cases}
+\end{equation*}
+allora \(f(r_{m})_{m \in M} = \tilde{m}\).}
+\end{itemize}
+
+Siccome \href{20241213095808-somma_diretta.org}{\(L\coloneqq R^{(M)}\) è modulo libero}, si ha la tesi.
+\end{proof}
+\end{document}

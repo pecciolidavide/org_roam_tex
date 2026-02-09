@@ -1,0 +1,39 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(S=\K[x_{1},\dots,x_{n}]\) \href{20241219113434-anello_dei_polinomi.org}{l'anello dei polinomi}
+\section{Definizione}
+\label{sec:org410d430}
+Un polinomio \(F\in S\) si dice \textbf{omogeneo} di grado \(d\) se per ogni \(\lambda \in \K\) si ha che
+\begin{equation*}
+F(\lambda x_{0},\lambda x_{1},\dots,\lambda x_{n}) = \lambda^{d}F(x_{0},x_{1},\dots,x_{n})
+\end{equation*}
+\section{Insiemi di polinomi omogeneri}
+\label{sec:org807696b}
+Definiamo
+\begin{align*}
+S^{h}&=\set{\text{polinomi omogenei}} \subseteq S\\
+S_{d}&=\set{\text{polinomi omogeneri di grado }d} \subseteq S
+\end{align*}
+
+Si ha che \(S^{h}\) è \textbf{solo} un sottoinsieme di \(S\), mentre \(S_{d}\) è un \href{20241206143051-sottogruppo.org}{sottogruppo} di \(S\), con la convenzione che il polinomio nullo sia di grado qualsiasi, e per di più:
+\begin{equation*}
+S=\bigoplus_{d=0}^{+ \infty}S_{d}
+\end{equation*}
+(vedi \href{20241213095808-somma_diretta.org}{Somma-Diretta}).
+\subsection{Dimensione di \(S_{d}\) come \href{20241205142027-spazio_vettoriale.org}{spazio vettoriale}}
+\label{sec:org5a64174}
+Consideriamo \(I=(i_{0},\dots,i_{n})\) un \href{20250105122522-multi_indice.org}{multi-indice}; definiamo \(x^{I} \in S\) come
+\begin{equation*}
+x^{I}\coloneqq x_{0}^{i_{0}}\cdot \dots\cdot x_{n}^{i_{n}}
+\end{equation*}
+Allora l'insieme \(\set{x^{I}}_{I \in D}\), con \(D=\set{(i_{0},\dots,i_{n}): \sum i_{j} = d, i_{j}\ge 0}\) è una base di \(S_{d}\).
+
+Da qui segue che
+\begin{equation*}
+\dim S_{d}=\binom{n+d}{d}
+\end{equation*}
+\end{document}

@@ -1,0 +1,30 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Una famiglia di funzioni \(\mathcal{F}\) da un insieme \(A\) a valori reali si dice \uline{uniformemente limitata} (\emph{uniformly bounded}) se esiste \(M > 0\) tale che
+\begin{equation*}
+\forall x \in A,\ \forall f \in \mathcal{F}\ |f(x)|\le M.
+\end{equation*}
+\end{definizione}
+
+\begin{esempio}
+Sia \(\mathcal{F} \coloneqq \set{\cos(ax+b); a,b \in \R}\). Allora la famiglia \(\mathcal{F}\) è uniformemente limitata su \(\R\), per \(M=1\).
+\end{esempio}
+
+\begin{esempio}
+Si consideri
+\begin{equation*}
+\mathcal{F}\coloneqq \set{\sum_{j=1}^{N} \alpha_{j}\sigma(w_{j}x+b_{j}); \alpha_{j}, w_{j}, b_{j} \in \R\mid \sum_{j=1}^{N}\alpha_{j}^{2} \le 1}
+\end{equation*}
+dove \(\sigma(x)\) è una \href{20250625110110-funzione_sigmoidale.org}{funzione sigmoidale} fissata.
+
+Questa famiglia è uniformemente limitata su \(\R\), per \(M=\sqrt{N}\), poiché, per \href{20250629112810-disuguaglianza_di_cauchy_schwarz.org}{C-S}
+\begin{equation*}
+\bigg\lvert\,\sum_{j=1}^{N}\alpha_{j}\sigma(w_{j}x+b_{j})\,\bigg\rvert^{2}\le \left(\sum_{j=1}^{N}\alpha_{j}\right)\cdot\left(\sum_{j=1}^{N}\sigma(w_{j}x+b_{j})\right)\le 1\cdot N=N.
+\end{equation*}
+\end{esempio}
+\end{document}

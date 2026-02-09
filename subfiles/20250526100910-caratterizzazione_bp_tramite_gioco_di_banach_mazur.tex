@@ -1,0 +1,48 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Lemma}
+\label{sec:org3ad28b6}
+
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250514174255-gioco_di_choquet.org}{di Choquet} non \href{20250131161811-insieme_vuoto_mk.org}{vuoto} tale che esista una \href{20250301193511-spazio_metrico.org}{distanza} \(d\) su \(X\) le cui \href{20250301193511-spazio_metrico.org}{palle aperte} sono aperti di \(X\). Sia \(A \subseteq X\).
+
+Se per ogni aperto \(U \subseteq X\) il \href{20250513111844-gioco_di_banach_mazur.org}{gioco} \(G^{**}\left((X\setminus A)\cup U\right)\) è \href{20250513155732-logic_game.org}{determinato} allora \(A \subseteq X\) ha \href{20250514154039-proprieta_di_baire.org}{BP}.
+\subsection{Dimostrazione}
+\label{sec:org3bdb568}
+
+Sia \(A \subseteq X\). Si definisce l'aperto
+\begin{equation*}
+U(A) \coloneqq \bigcup \set{
+U\subseteq X\text{ aperto}\mid U\setminus A\text{ è magro}
+}.
+\end{equation*}
+Allora \(U(A)\setminus A\) è magro e inoltre, se \(A\) ha la BP, allora \(A\mathrel{=^{*}} U(A)\). Questo segue direttamente dal Teorema 8.29 del Kechris.
+
+In particolare quindi il gioco è determinato  per
+\begin{equation*}
+G^{**}\left((X\setminus A)\cup U(A)\right).
+\end{equation*}
+
+Necessariamente è il giocatore II a vincere questo gioco. Infatti, si supponga per assurdo che I abbia una strategia vincente. Allora, per il \href{20250514174717-teorema_di_caratterizzazione_dei_comagri_tramite_il_gioco_di_banach_mazur.org}{Teorema II} \((X\setminus A)\cup U(A)\) è magro in un aperto non vuoto \(B\). In particolare, quindi \(U(A)\) è magro in \(B\), ovvero \(U(A)\cap B\) è magro in \(B\).
+\begin{itemize}
+\item Se \(U(A)\cap B\neq\emptyset\), siccome \(B \subseteq X\) è un aperto di uno spazio di Baire, allora è uno spazio di Baire; inoltre \(U(A)\cap B\) è un aperto non vuoto di \(B\), quindi è \uline{non magro}. Assurdo.
+\item Se invece \(U(A)\cap B = \emptyset\), si consideri il seguente insieme, magro per definizione:
+\begin{equation*}
+  \left((X\setminus A)\cup U(A)\right) \cap B = \left((X\setminus A)\cap B\right) \cup \left(U(A)\cap B\right) = (X\setminus A)\cap B = B\setminus A
+\end{equation*}
+Allora, per definizione di \(U(A)\), \(B \subseteq U(A)\). Assurdo.
+\end{itemize}
+
+Pertanto, per il \href{20250514174717-teorema_di_caratterizzazione_dei_comagri_tramite_il_gioco_di_banach_mazur.org}{Teorema I}, \((X\setminus A)\cup U(A)\) è comagro. Ma
+\begin{equation*}
+(X\setminus A)\cup U(A) = X \setminus\left(A\setminus U(A)\right)
+\end{equation*}
+e pertanto \(A\setminus U(A)\) è magro. Per il risultato precedente \(U(A)\setminus A\) è magro, e dunque
+\begin{equation*}
+A\mathrel{\triangle}U(A)
+\end{equation*}
+è magro, ovvero \(A\) ha la BP.\qed
+\end{document}

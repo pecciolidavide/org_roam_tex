@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Sia \(K\) un \href{20250121124147-complesso_simpliciale.org}{complesso simpliciale} in \(\R^{n+1}\), e sia \(|K|\) il suo \href{20250121124230-supporto_di_un_complesso_simpliciale.org}{supporto}.
+
+Si definsice una \href{20250103145124-topologia.org}{topologia} su \(|K|\), detta topologia debole:
+\(C \subseteq |K|\) è \href{20250103145124-topologia.org}{chiuso} se e solo se, per ogni \(\sigma \in K\), \(C\cap \sigma \subseteq \R^{n+1}\) è \href{20250103145124-topologia.org}{chiuso}.
+\end{definizione}
+\begin{prop}
+Se \(K\) è un insieme finito, allora la topologia debole di \(|K|\) è uguale alla \href{20250103163814-sottospazio_topologico.org}{topologia indotta} \(|K| \subseteq \R^{n+1}\).
+\end{prop}
+
+\begin{esempio}
+In \(\R^{2}\), sia \(K\) formato dai seguenti \href{20250121121923-simplessi.org}{simplessi}: detto \(P_{\theta} = (\cos\theta,\sin\theta) \in \R^{2}\):
+\begin{equation*}
+K = \set{[0]}\cup\set{[P_{\theta}], [0,P_{\theta}]}_{\theta \in [0,2\pi]}.
+\end{equation*}
+
+Si ha che \(|K| = B_{1}(0)\) (vedi \href{20250121130442-palla_n_dimensionale.org}{Palla n-dimensionale}).
+
+Consideiramo l'insieme
+\begin{equation*}
+C=\set{(x,y) \in |K|: x>0}\cup\set{0}
+\end{equation*}
+C non è un chiuso nella topologia indotta, ma lo è nella topologia debole, poiché
+\begin{equation*}
+C=\bigcup_{-\pi/2<\theta<\pi/2} [0,P_{\theta}]
+\end{equation*}
+\end{esempio}
+\end{document}

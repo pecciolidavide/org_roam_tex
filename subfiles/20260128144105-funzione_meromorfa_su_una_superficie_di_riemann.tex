@@ -1,0 +1,34 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funzione meromorfa su una superficie di Riemann a valori complessi}
+\label{sec:org4e35825}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann}.
+
+\begin{definizione}
+Sia \(A \subseteq X\) aperto. Una \textbf{funzione meromorfa} su \(A\) è una \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{funzione olomorfa}
+\begin{equation*}
+f : A \setminus S \to \C
+\end{equation*}
+tale che:
+\begin{itemize}
+\item \(S \subseteq A\) è un sottoinsieme \href{20250103145124-topologia.org}{chiuso} e \href{20260128123515-sottoinsieme_discreto.org}{discreto}
+\item nei punti di \(S\), \(f\) ha \href{20260128154601-singolarita_isolata_analisi_complessa.org}{singolarità eliminabili} o \href{20260128154601-singolarita_isolata_analisi_complessa.org}{poli}.
+\end{itemize}
+\end{definizione}
+
+\begin{prop}
+Sia \(U \subseteq X\) \href{20250103145124-topologia.org}{aperto} \href{20250103165325-spazio_topologico_connesso.org}{connesso}, \(f\) meromorfa su \(U\), \(f \not\equiv 0\). Allora
+\begin{equation*}
+\bm{T} \coloneqq \set{z_{0} \in U \mid f(z_{0}) = 0\text{ oppure \(z_{0}\) è polo per \(f\)}}
+\end{equation*}
+è \href{20250103145124-topologia.org}{chiuso} e \href{20260128123515-sottoinsieme_discreto.org}{discreto} in \(U\).
+\end{prop}
+
+\begin{prop}
+Sia \(U \subseteq X\) è un \href{20250103145124-topologia.org}{aperto} \href{20250103165325-spazio_topologico_connesso.org}{connesso} e \(f,g\) sono funzioni meromorfe su \(U\). Se \(f\) e \(g\) coincidono su un sottoinsieme non \href{20260128123515-sottoinsieme_discreto.org}{discreto} di \(U\), allora \(f=g\).
+\end{prop}
+\end{document}

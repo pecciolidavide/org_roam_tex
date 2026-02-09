@@ -1,0 +1,100 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Rete Neurale che approssima funzioni continue periodiche}
+\label{sec:orgae3a4ce}
+\begin{prop}
+Per ogni \href{20250630103918-funzione_periodica.org}{funzione periodica} \(F:\R\to \R\) esiste una \href{20250624155858-neurone_artificiale.org}{rete neurale} che la approssima.
+\end{prop}
+\begin{proof}
+Sia \(T\) il periodo di \(F\), ovvero \(T \in \R\) tale che
+\begin{equation*}
+\forall t \in \R\quad F(t+T) = F(t).
+\end{equation*}
+Si consideri
+\begin{equation*}
+\mathcal{A} \coloneqq \set{
+\restriction{f}{[0,T]}\mid f(x) = a_{0}+\sum_{j=1}^{n} a_{j}\cos\left(\frac{2\pi}{T}\,jx\right) + c_{j}\sin \left(\frac{2\pi}{T}\, jx\right); a_{i}, c_{i} \in \R, n=1,2,\dots
+}
+\end{equation*}
+Si noti che per ogni \(f \in \mathcal{A}\)
+\begin{equation*}
+f(0) = f(T).
+\end{equation*}
+
+L'insieme \(\mathcal{A} \subseteq C([0,T])\)\footnote{Vedi ``\href{20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''}, ed inoltre è una \href{20250629165520-algebra_di_funzioni_reali.org}{\(\R\)-algebra}\footnote{Questo si vede facilmente seguendo l'Esempio di ``\href{20250629165520-algebra_di_funzioni_reali.org}{Algebra di funzioni reali}''}. Contiene tutte le funzioni costanti (basta porre \(a_{j}=c_{j} = 0\) per ogni \(j>0\)), e separa i punti, in quanto
+\begin{equation*}
+g(x) = \cos\left(\frac{\pi}{T}\,x\right) \in \mathcal{A}
+\end{equation*}
+è una biiezione tra \([0,T]\) e \([0,1]\).
+
+Dunque per il \href{20250629165421-teorema_di_stone_weierstrass.org}{Teorema di Stone-Weierstrass} \(\mathcal{A}\) è \href{20250301193045-sottoinsieme_denso.org}{denso} in \(C([0,T])\) ed in particolare, siccome \(F \in C([0,T])\), per ogni \(\varepsilon>0\), esiste \(N \in \N\) tale che
+\begin{gather*}
+G(x) \coloneqq a_{0}+\sum_{j=1}^{N} a_{j}\cos\left(\frac{2\pi}{T}\,jx\right) + c_{j}\sin \left(\frac{2\pi}{T}\, jx\right) \in \mathcal{A}\\
+\max_{x \in [0,T]} \left|G(x)- F(x)\right| = \max_{x \in \R} \left|G(x)-F(x)\right| <\varepsilon
+\end{gather*}
+
+Si consideri una rete neurale fatta come segue:
+\begin{itemize}
+\item input: \(x \in \R\);
+\item un \href{20250624155858-neurone_artificiale.org}{layer nascosto} con \(N\) neuroni con funzione di attivazione \(\cos\), con peso dall'input \(w_{j}\) e bias \(b_{j}\);
+\item il neurone di output con funzione di attivazione lineare, bias \(a_{0}\) e pesi dall'hidden layer \(\alpha_{j}\).
+\end{itemize}
+Questa rete è rappresentata in Fig. \ref{fig:retperiod} e produce output
+\begin{equation*}
+y = a_{0} + \sum_{j=1}^{N}\alpha_{j}\cos(w_{j}x+b_{j}).
+\end{equation*}
+Si dimostra che tale rete neurale è in grado di produrre come output \(G(x)\), ovvero che, fissato un livello di precisione \(\varepsilon\), esiste una rete neurale che produce come output una funzione periodica che approssima \(F\) con quel livello di precisione.
+
+Infatti, ponendo
+\begin{equation*}
+w_{j} \coloneqq \frac{2\pi}{T}
+\end{equation*}
+e \(\alpha_{j}, b_{j}\) tali che
+\begin{equation*}
+\begin{cases}
+a_{j} = \alpha_{j}\cos b_{j}\\
+c_{j} = -\alpha_{j}\sin b_{j}
+\end{cases}
+\end{equation*}
+si ottiene che, detto per semplicità di notazione \(\nu\coloneqq 2\pi/T\)
+\begin{align*}
+y &=  a_{0} + \sum_{j=1}^{N}\alpha_{j}\cos(w_{j}x+b_{j})\\
+&= a_{0} + \sum_{j=1}^{N} \alpha_{j}\cos (\nu j x) \cos b_{j} - \alpha_{j}\sin(\nu j x) \sin b_{j}\\
+&= a_{0} + \sum_{j=1}^{N} a_{j} \cos(\nu j x) + c_{j}\sin(\nu j x)\\
+&= a_{0} + \sum_{j=1}^{N} a_{j} \cos\left(\frac{2\pi}{T}\,jx\right) + c_{j}\sin \left(\frac{2\pi}{T}\,jx\right) = G(x).\qedhere
+\end{align*}
+\end{proof}
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	\& 1 \\
+	\&\& {\boxed{\cos}} \\
+	\&\& {\boxed{\cos}} \\
+	{\textcolor{red}{x}} \&\& {\boxed{\cos}} \&\&\& {\boxed{\text{Funzione lineare}}} \& {\textcolor{red}{y}} \\
+	\&\& \vdots \\
+	\&\& {\boxed{\cos}} \&\& 1 \\
+	\& 1
+	\arrow["{b_1}"{description}, from=1-2, to=2-3]
+	\arrow["{\alpha_1}"{description}, from=2-3, to=4-6]
+	\arrow["{\alpha_2}"{description}, from=3-3, to=4-6]
+	\arrow["{w_1}"{description}, from=4-1, to=2-3]
+	\arrow["{w_2}"{description}, from=4-1, to=3-3]
+	\arrow["{w_3}"{description}, from=4-1, to=4-3]
+	\arrow["{w_j}"{description}, from=4-1, to=5-3]
+	\arrow["{w_N}"{description}, from=4-1, to=6-3]
+	\arrow["{\alpha_3}"{description}, from=4-3, to=4-6]
+	\arrow[from=4-6, to=4-7]
+	\arrow["{\alpha_j}"{description}, from=5-3, to=4-6]
+	\arrow["{\alpha_N}"{description}, from=6-3, to=4-6]
+	\arrow["{a_0}"{description}, from=6-5, to=4-6]
+	\arrow["{b_N}"{description}, from=7-2, to=6-3]
+\end{tikzcd}
+\end{equation*}
+\caption{La rete neurale considerata}\label{fig:retperiod}
+\end{figure}
+\end{document}

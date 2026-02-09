@@ -1,0 +1,35 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory} (\uline{senza AC})
+\section{Teorema di Cantor}
+\label{sec:orge2586fe}
+
+Se \(X\) è un \href{20250130104331-insieme_mk.org}{insieme}, allora non esiste alcuna \href{20241213105600-funzione_suriettiva.org}{mappa suriettiva}:\footnote{Vedi ``\href{20250130104245-morse_kelly_set_theory.org}{Insieme delle parti per MK}''}
+\begin{equation*}
+X\surjects \parti{X}
+\end{equation*}
+\section[Corollario]{Corollario\footnote{Vedi:
+\begin{itemize}
+\item \href{20250612151505-aritmetica_dei_cardinali.org}{Elevamento a potenza di cardinali}
+\end{itemize}}}
+\label{sec:org329e925}
+Se vale \href{20250206171508-axiom_of_choiche.org}{AC}, allora:
+
+Sia \(I\) un \href{20250130104331-insieme_mk.org}{insieme}. Allora
+\begin{equation*}
+\card{I}<2^{\card{I}}
+\end{equation*}
+dove \(\card{I}\) è la \href{20241213101756-cardinalita.org}{cardinalità} di \(I\).
+\subsection{Dimostrazione}
+\label{sec:org9cd85f7}
+Si noti che\footnote{Vedi: \href{20250211145622-proprieta_di_prodotto_e_somma_generalizzata_di_cardinali.org}{Proprietà di prodotto e somma generalizzata di cardinali}}
+\begin{align*}
+\card{I} &= \sum_{i \in \card{I}} 1\\
+2^{\card{I}} &= \prod_{i \in \card{I}} 2
+\end{align*}
+e \(1<2\), e pertanto, applicando il \href{20250211104106-somma_di_cardinali_e_minore_del_prodotto_di_cardinali.org}{Teorema di Konig}, si ha la tesi.
+\end{document}

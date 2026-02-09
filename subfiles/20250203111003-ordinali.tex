@@ -1,0 +1,155 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+\section{Definizione}
+\label{sec:org314d499}
+Un \textbf{\textbf{ordinale}} è un \href{20250130104331-insieme_mk.org}{insieme} \href{20250203110714-classe_transitiva.org}{transitivo} tale che tutti i suoi elementi siano transitivi.
+
+Gli ordinali sono generalmente indicati con una lettera greca minuscola, e
+\begin{equation*}
+\operatorname{Ord}
+\end{equation*}
+è la \href{20250130104320-classe_mk.org}{classe} degli ordinali
+\section{Proprietà}
+\label{sec:orge00212d}
+\begin{enumerate}
+\item Se \(\alpha \in \operatorname{Ord}\) allora \(\alpha \subseteq \operatorname{Ord}\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK}) e \(\operatorname{S}(\alpha) \in \operatorname{Ord}\) (vedi \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme MK}).
+\item Se \(x\) è un \href{20250130104331-insieme_mk.org}{insieme} di ordinali, allora (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata})
+\begin{equation*}
+ \bigcup x \in \operatorname{Ord}
+\end{equation*}
+\item La classe \(\operatorname{Ord}\) è \href{20250203110714-classe_transitiva.org}{transitiva}; infatti, se \(\beta \in \alpha \in \operatorname{Ord}\), allora \(\alpha \subseteq \operatorname{Ord}\) e quindi \(\beta \in \operatorname{Ord}\).
+\item \(\operatorname{Ord}\) è una \href{20250130104320-classe_mk.org}{classe propria}.
+\end{enumerate}
+\section{Teorema}
+\label{sec:orgb19b43e}
+Siano \(\alpha, \beta \in \operatorname{Ord}\) due \href{20250203111003-ordinali.org}{ordinali}. Allora vale esattamente una delle seguenti:
+\begin{equation*}
+\alpha \in \beta;\quad \alpha = \beta;\quad \beta \in \alpha
+\end{equation*}
+\subsection{Dimostrazione}
+\label{sec:org3c21756}
+Per l'Axiom of foundation (vedi \href{20250131180704-nessun_insieme_appartiene_a_se_stesso.org}{Nessuna classe appartiene a se stessa}) necessariamente non possono essere vere due opzioni contemporaneamente.
+
+Basta quindi dimostrare che almeno una delle opzioni è verificata, ovvero che
+\begin{equation*}
+A = \set{\alpha \in \operatorname{Ord}\,|\, \exists\, \beta \in \operatorname{Ord}\ \left(\alpha\notin \beta \,\land\, \alpha\neq\beta \,\land\, \beta\notin\alpha\right)}
+\end{equation*}
+è \href{20250131161811-insieme_vuoto_mk.org}{vuoto}.
+
+Se per assurdo \(A\neq \emptyset\), allora, per l'Axiom of Foundation, esiste \(\overline{\alpha} \in A\) tale che
+\begin{equation*}
+\overline{\alpha}\cap A =\emptyset
+\end{equation*}
+
+Allora
+\begin{equation*}
+B \coloneqq \set{\beta \in \operatorname{Ord}\,|\, \beta\notin\overline{\alpha} \,\land\, \beta\neq\overline{\alpha} \,\land\, \overline{\alpha}\notin\beta}
+\end{equation*}
+è non vuota (poiché \(\overline{\alpha} \in A\), e dunque esiste \(\beta\) che soddisfa le condizoini di cui sopra) e pertanto, per l'Axiom of Foundation, esiste \(\overline{\beta} \in B\) tale che \(\overline{\beta}\cap B =\emptyset\).
+
+Se \(\gamma \in \overline{\alpha}\), allora \(\gamma\notin A\) poiché \(\overline{\alpha}\cap A = \emptyset\) e quindi, in particolare
+\begin{equation*}
+\overline{\beta} \in \gamma \,\lor\, \overline{\beta} = \gamma \,\lor\, \gamma \in \overline{\beta}
+\end{equation*}
+(poiché se \(\gamma \notin A\) allora non esistono \(\beta \in \operatorname{Ord}\) tali che nessuna delle tre opzioni valga. Pertanto per \(\overline{\beta}\) deve necessariamente valere una delle tre opzioni)
+
+Le prime due opzioni, siccome \(\overline{\alpha} \in A \subseteq \operatorname{Ord}\) e quindi \(\overline{\alpha}\) è \href{20250203110714-classe_transitiva.org}{transitivo}, implicano che \(\overline{\beta} \in\overline{\alpha}\). Questo è assurdo, poiché \(\overline{\beta} \in B\), e dunque \(\overline{\beta}\notin\overline{\alpha}\).
+
+Pertanto \(\gamma \in \overline{\beta}\). Siccome \(\gamma \in \overline{\alpha}\) è arbitrario, otteniamo \(\overline{\alpha} \subseteq \overline{\beta}\).
+
+Sia invece \(\gamma \in \overline{\beta}\). Allora \(\gamma \notin B\), poiché \(\overline{\beta}\cap B =\emptyset\) e in particolare vale una delle seguenti:
+\begin{equation*}
+\overline{\alpha} \in \gamma \,\lor\, \overline{\alpha} = \gamma \,\lor\, \gamma \in \overline{\alpha}
+\end{equation*}
+Le prime due opzioni, siccome \(\overline{\beta} \in \operatorname{Ord}\) è transitivo, implicano che \(\overline{\alpha} \in \overline{\beta}\). Questo è assurdo, poiché \(\overline{\beta} \in B\) e dunque \(\overline{\alpha} \notin \overline{\beta}\).
+Pertanto \(\gamma \in \overline{\alpha}\). Siccome \(\gamma \in \overline{\beta}\) è arbitrario, otteniamo \(\overline{\beta} = \overline{\alpha}\).
+
+Dunque \(\overline{\alpha}=\overline{\beta}\). Assurdo poiché \(\overline{\alpha} \in A\). Dunque \(A=\emptyset\).
+\section{Corollario}
+\label{sec:org324e923}
+Dunque \(\in\) è un \href{20250203104134-buon_ordine_mk.org}{buon ordine} \href{20250203101604-ordine.org}{stretto} su \(\operatorname{Ord}\).
+\section{Notazione}
+\label{sec:org09873d1}
+Se \(\alpha, \beta \in \operatorname{Ord}\) scriveremo:
+\begin{itemize}
+\item \(\alpha<\beta\) significa \(\alpha \in \beta\);
+\item \(\alpha\le\beta\) significa \(\alpha \in \beta\) oppure \(\alpha=\beta\).
+\end{itemize}
+
+Se \(A \subseteq \operatorname{Ord}\), diciamo che un elemento è il minimo di \(A\) se è l'\href{20250203102516-massimo_e_minimo.org}{elemento \(\in\)-minimale di \(A\)}.
+
+Scriveremo \(A \le \operatorname{Ord}\) per dire che
+\begin{equation*}
+A \in \operatorname{Ord} \,\lor\, A = \operatorname{Ord}
+\end{equation*}
+\section{Osservazione}
+\label{sec:org6c68712}
+Ogni ordinale \(\alpha\) è dotato di un \href{20250203104134-buon_ordine_mk.org}{buon ordine}, in quanto \(\alpha \subseteq \operatorname{Ord}\). Se \(\beta \in \alpha\), allora \(\beta = \operatorname{pred}(\beta,\alpha;\le)\) (vedi \href{20250206120526-segmento_iniziale_per_un_ordine.org}{Insieme dei predecessori}).
+\section{Proposizione}
+\label{sec:org2d7f0eb}
+Siano \(\alpha, \beta\) due ordinali.
+
+\begin{enumerate}
+\item Se \(f:\alpha \longrightarrow\beta\) è una \href{20250203132953-funzione_monotona.org}{funzione crescente}, allora
+\begin{equation*}
+ \gamma \le f(\gamma )
+\end{equation*}
+per ogni \(\gamma \in \alpha\). Inoltre \(\alpha\le \beta\).
+\item Se \(f:\alpha \longrightarrow\beta\) è un \href{20250203110432-isomorfismo_tra_ordini.org}{isomorfismo}, allora \(\alpha=\beta\) e \(f\) è l'identità.
+\end{enumerate}
+\section{Proprietà}
+\label{sec:org9094916}
+Siano \(\alpha,\beta \in \operatorname{Ord}\) \href{20250203111003-ordinali.org}{ordinali}, e sia \(<\) l'\href{20250203101604-ordine.org}{ordine} \hyperref[sec:orgb19b43e]{dato dall'inclusione}.
+
+\begin{enumerate}
+\item \(\alpha < \beta\) se e solo se \(\alpha \subset \beta\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK}).
+\item \(\alpha\le\beta\) se e solo se \(\alpha \subseteq \beta\).
+\item \(\alpha < \beta\) se e solo se \(\operatorname{S}(\alpha) \le \beta\) (vedi \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme MK}).
+\item \(\alpha < \beta\) se e solo se \(\operatorname{S}(\alpha)< \operatorname{S}(\beta)\).
+\item se \(x \subseteq \alpha\) allora \(\displaystyle \bigcup x = \alpha \,\lor\, \bigcup x < \alpha\). (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata})
+\item \(\displaystyle \bigcup\left(\operatorname{S}(\alpha)\right) = \alpha\).
+\item \(\displaystyle \alpha= \operatorname{S}\left(\bigcup \alpha\right)\) oppure \(\alpha=\bigcup\alpha\).
+\item Sono fatti equivalenti
+\begin{enumerate}
+\item \(\bigcup \alpha = \alpha\)
+\item \(\alpha=0\) oppure \(\alpha\) è \href{20250203161132-ordinale_limite.org}{ordinale limite} (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK} e \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega})
+\item \(\langle \alpha,<\rangle\) non ha \href{20250203102516-massimo_e_minimo.org}{massimo}.
+\end{enumerate}
+\item I tre punti precedenti indicano che: se \(\alpha\) è un ordinale successore, allora
+\begin{equation*}
+ \bigcup \operatorname{S}(\alpha) = \alpha = \operatorname{S}\left(\bigcup\alpha\right)
+\end{equation*}
+\item Inoltre, si ha che
+\begin{equation*}
+ \alpha= \bigcup \set{\operatorname{S}(\beta)\mid \beta<\alpha}
+\end{equation*}
+\end{enumerate}
+\section{Caratterizzazione degli ordinali limite}
+\label{sec:org004103b}
+Da questo lemma segue banalmente che \(\lambda\) è un \href{20250203161132-ordinale_limite.org}{ordinale limite} se e solo se
+\begin{equation*}
+\lambda=\bigcup\lambda>0
+\end{equation*}
+\section{Nessuna catena discendente di ordinali}
+\label{sec:org308058d}
+Non esiste nessuna \href{20250102120836-catena.org}{catena discendente} di \href{20250203111003-ordinali.org}{ordinali}, ovvero
+\begin{equation*}
+\lnot\,\exists\,f\ \left(f:\N \longrightarrow \operatorname{Ord} \,\land\, \forall\, n \in \N\ \left(f(\operatorname{S}(n)) < f(n)\right)\right)
+\end{equation*}
+(vedi \href{20250202170607-classe_relazione_binaria.org}{Classe-Funzione}, \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}, \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme MK})
+\section{Intersezione di una classe di ordinali}
+\label{sec:org65a40f0}
+Se \(\emptyset\neq A \subseteq \operatorname{Ord}\) (vedi \href{20250203111003-ordinali.org}{Ordinali}) è una \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoclasse} non \href{20250131161811-insieme_vuoto_mk.org}{vuota}, allora
+\begin{equation*}
+\min A = \bigcap A
+\end{equation*}
+(vedi \href{20250203102516-massimo_e_minimo.org}{Elemento Minimo} e \hyperref[sec:orgb19b43e]{Relazione d'ordine sugli ordinali} e \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Intersezione Generalizzata})
+\section{Unione di una classe di ordinali}
+\label{sec:org82b32fb}
+Se \(A \subseteq \operatorname{Ord}\) (vedi \href{20250203111003-ordinali.org}{Ordinali}) è un \href{20250130104331-insieme_mk.org}{insieme}, allora \(\bigcup A = \operatorname{sup} A\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione Generalizzata} e \href{20250203102516-massimo_e_minimo.org}{Infimum e supremum} e \hyperref[sec:orgb19b43e]{Relazione d'ordine sugli ordinali})
+\end{document}

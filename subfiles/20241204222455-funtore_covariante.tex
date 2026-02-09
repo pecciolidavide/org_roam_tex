@@ -1,0 +1,53 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Siano \(\mathcal{C},\mathcal{C'}\) due \href{20241126100904-categoria.org}{categorie}. Un \textbf{funtore covariante}
+\begin{equation*}
+F:\mathcal{C}\longrightarrow \mathcal{C'}
+\end{equation*}
+è una funzione tale che
+\begin{enumerate}
+\item per ogni \(X \in \operatorname{Ob}(\mathcal{C})\) si ha che \(F(X) \in \operatorname{Ob}(\mathcal{C'})\);
+\item per ogni \(f \in \operatorname{Hom}_{\mathcal{C}} (X,Y)\) si ha che
+\begin{equation*}
+F(f)\in \operatorname{Hom}_{\mathcal{C'}}\left(F(X),F(Y)\right)
+\end{equation*}
+\end{enumerate}
+tali che
+\begin{enumerate}
+\item \(F(f\circ g) = F(f)\circ F(g)\)
+\item \(F(\1_X)=\1_{F(X)}\)
+\end{enumerate}
+\end{definizione}
+\begin{esempio}
+Un funtore covariante è il \href{20241204223712-gruppo_fondamentale.org}{gruppo fondamentale}\footnote{Vedi:
+\begin{itemize}
+\item \href{20241205115614-categoria_top.org}{Categoria-Top*}
+\item \href{20241205115631-categoria_grp.org}{Categoria-Grp}
+\end{itemize}}:
+\begin{align*}
+\Pi_1: \cat{Top*} &\longrightarrow \cat{Grp}\\
+(X,p)&\longmapsto \Pi_1(X,p)
+\end{align*}
+dove se \(f:(X,p) \longrightarrow (Y,q)\) il gruppo fondamentale induce
+\begin{align*}
+\Pi_1(f): \Pi_1(X,p) &\longrightarrow \Pi_1(Y,q)\\
+[\gamma]&\longmapsto [f\circ \gamma]
+\end{align*}
+e inoltre
+\begin{align*}
+    \Pi_1(f\circ g ) &= \Pi_1(f)\circ\Pi_1(g)\\
+    \Pi_1\left(\id_{(X,p)}\right) &= \1_{\Pi_1(X,p)}.
+\end{align*}
+\end{esempio}
+\uline{Notazione}
+Se \(F\)  è un funtore \textbf{covariante} e \(X \dfreccia{f} Y\) allora
+\begin{equation*}
+F(X)\dfreccia{F(f)}F(Y)
+\end{equation*}
+e si indica con \(f_* \coloneqq F(f)\). \(f_*\) si dice il \textbf{push forward} di \(f\) tramite \(F\).
+\end{document}

@@ -1,0 +1,44 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}.
+
+\begin{prop}
+Se \(X\) è una  \href{20250111092123-varieta_topologica.org}{varietà topologica} di dimensione \(n\), allora per ogni \(x \in X\) l'\href{20250128132917-omologia_locale.org}{omologia locale} è
+\begin{equation*}
+H_{q}(X \mid x) = \begin{cases}
+R & q=n\\
+0 & q\neq n
+\end{cases}
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Sia \(U\) un \href{20250111142313-intorno.org}{intorno} di \(x\) fissato, e sia \(\varphi:U\to U' \subseteq \R^{n}: x\mapsto 0\) un \href{20250111142332-omeomorfismo.org}{omeomorfismo}. Consideriamo
+\begin{equation*}
+V' \coloneqq B_{\varepsilon}(0 ) =\set{x \in \R^{n} \mid \norma{x}<\varepsilon} \subseteq U'
+\end{equation*}
+e \(V\) la \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{retroimmmagine tramite} \(\varphi\): \(V=\varphi^{-1}[V']\). Allora \(\restriction{\varphi}{V}: V\to V'\) è un omeomorfismo, così come:
+\begin{equation*}
+\restriction{\varphi}{V} : V\setminus\set{x} \longrightarrow V'\setminus\set{0}.
+\end{equation*}
+Quindi \(\restriction{\varphi}{V}\) \href{20250126191208-funtore_da_topp_a_rmod_di_omologia.org}{induce} \((\restriction{\varphi}{V})_{\star}\) tra i \href{20250122154903-omologia_singolare_relativa.org}{moduli di omologia relativa}:
+\begin{equation*}
+(\restriction{\varphi}{V})_{\star}: H_{q}(V,V\setminus\set{x}) \xrightarrow{\ \cong\ } H_{q}(V',V'\setminus\set{0})
+\end{equation*}
+che per funtorialità è un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo}.
+
+Inoltre, \(V' = \mathds{D}^{n}\) e \(\partial V' \hookrightarrow V'\setminus\set{0}\) è \href{20250122155727-retratto_di_deformazione_di_uno_spazio_topologico.org}{retratto di deformazione} (con \(\mathds{D}^{n}\) si intende il \href{20250127170831-disco_n_dimensionale.org}{disco}), \href{20250126190440-equivalenze_omotopiche_tra_coppie_topologiche_induce_isomorfismo_tra_omologia_singolare_relativa.org}{quindi}
+\begin{equation*}
+H_{q}(V',V'\setminus\set{0}) \cong H_{q}(V', \partial V') =
+H_{q}(\mathds{D}^{n}, \mathds{S}^{n-1}) = \begin{cases}
+R & q=n\\
+0 & q \neq n
+\end{cases}
+\end{equation*}
+dove l'ultima uguaglianza è per l'\href{20250127162702-calcolo_dell_omologia_singolare_della_sfera_e_dell_omologia_singolare_relativa_del_disco_rispetto_alla_sfera.org}{omologia relativa già calcolata}.
+\end{proof}
+\end{document}

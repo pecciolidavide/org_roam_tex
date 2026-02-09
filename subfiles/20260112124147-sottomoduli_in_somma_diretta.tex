@@ -1,0 +1,53 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241205141119-anello.org}{anello commutativo con unità}.
+
+\begin{thm}
+Sia \(M\) un \href{20241205141053-r_moduli.org}{\(R\)-modulo}, e siano \(U,V \subseteq M\) \href{20241206142802-sottomoduli.org}{sottomoduli}. Sono fatti equivalenti:
+\begin{enumerate}
+\item per ogni \(m \in M\), esistono unici \(u \in U\), \(v \in V\) tali che
+\begin{equation*}
+ m=u+v
+\end{equation*}
+\item \(U+V = M\)\footnote{Vedi ``\href{20241206142802-sottomoduli.org}{Somma di sottomoduli}''} e \(U\cap V = \set{0}\);
+\item \(M \cong U \oplus V\).
+\end{enumerate}
+\end{thm}
+\begin{proof}
+\begin{description}
+\item[{(\(1.\Rightarrow 2.\)):}] L'esistenza di \(u,v\) garantiscono che \(U+V = M\). Se per assurdo si avesse \(0\neq x \in U\cap V\), allora
+\begin{equation*}
+  0 = 0 + 0 = (x) + (-x)
+\end{equation*}
+negando l'unicità della scrittura.
+
+\item[{(\(2.\Rightarrow 3.\)):}] Si consideri il morfismo:
+\begin{align*}
+\phi: U\oplus V &\longrightarrow M\\
+(u,v) &\longmapsto u+v
+\end{align*}
+Allora:
+\begin{itemize}
+\item \(\phi\) è suriettivo, poiché \(U+V = M\);
+
+\item \(\phi\) è iniettivo: se \(\varphi(u,v) = u + v = 0\), allora \(u = -v\), e quindi \(u,v \in U\cap V = \set{0}\), e \((u,v) = 0\).
+\end{itemize}
+
+Quindi \(\phi\) è un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo}.
+
+\item[{(\(3.\Rightarrow 1.\)):}] Considerando l'isomorfismo \(\phi\) del punto precedente, allora, se \((u,v) = \phi^{-1}(m)\) con \(u \in U\) e \(v \in V\), allora
+\begin{equation*}
+  u+v = m
+\end{equation*}
+e questa scrittura è unica.
+\qedhere
+\end{description}
+\end{proof}
+\begin{definizione}
+Quando vale una delle condizioni equivalenti, si dice che \(U\) e \(V\) sono in somma diretta, e si scrive (con un abuso di notazione), \(M  = U \oplus V\).
+\end{definizione}
+\end{document}

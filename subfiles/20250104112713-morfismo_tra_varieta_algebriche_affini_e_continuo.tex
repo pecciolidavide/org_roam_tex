@@ -1,0 +1,29 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso} e siano \(X \subseteq \A^{n}\), \(Y \subseteq \A^{m}\) \href{20241231114256-varieta_algebrica_affine.org}{varietà algebriche affini}. (Vedi \href{20241231114009-spazio_affine.org}{Spazio Affine})
+\section{Proposizione}
+\label{sec:orgdd24180}
+Il \href{20250104110524-morfismo_tra_varieta_algebriche_affini.org}{morfismo} \(F:X\longrightarrow Y\) è una \href{20250103103252-funzione_continua.org}{funzione continua} rispetto alla \href{20250103101459-topologia_di_zariski_affine.org}{topologia di Zariski}.
+\subsection{Dimostrazione}
+\label{sec:org9f5dbd4}
+Sia \(C \subseteq Y\) un \href{20250103145124-topologia.org}{chiuso}. La tesi è che \(F^{-1}(C)\) sia chiuso in \(X\).
+
+Siccome \(Y\) è un chiuso di \(\A^{m}\), allora \(C\) è un chiuso di \(\A^{m}\) (vedi \href{20250103163814-sottospazio_topologico.org}{Sottospazio topologico}), e dunque esistono \(g_{1},\dots,g_{s}\in \K[x_{1},\dots,x_{m}]\) tali che
+\begin{equation*}
+C=V(g_{1},\dots,g_{s}) = V(g_{1})\cap \dots\cap V(g_{s}).
+\end{equation*}
+(vedi \href{20241231112823-radici_polinomiali.org}{Luogo di zeri})
+
+Dunque \(F^{-1}(C) = \bigcap F^{-1}\left(V(g_{i})\right)\). (vedi \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}).
+
+È sufficiente dimostrare che \(F^{-1}\left(V(g)\right)\) sia chiuso.
+
+\(a=(a_{1},\dots,a_{n}) \in F^{-1}\left(V(g)\right)\) se e solo se \(F(a) \in V(g)\) (vedi \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}), se e solo se \(g\left(F(a)\right)=0\). Pertanto
+\begin{equation*}
+F^{-1}\left(V(g)\right) = V(g\circ F).
+\end{equation*}
+\end{document}

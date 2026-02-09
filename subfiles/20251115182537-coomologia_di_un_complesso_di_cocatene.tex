@@ -1,0 +1,36 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Coomologia di un complesso di cocatene}
+\label{sec:orgcd49c21}
+\begin{definizione}
+Sia \(A^{\bullet} \coloneqq \left\langle (A^{k}, \operatorname{d}^{k} )\right\rangle_{k \in \Z}\) un \href{20251115182320-complesso_di_cocatene.org}{complesso di cocatene}.
+
+Si definisce il \(k\)-esimo gruppo di coomologia del complesso il \href{20251121143644-quoziente_di_spazi_vettoriali.org}{quoziente}\footnote{Vedi:
+\begin{itemize}
+\item \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Range di una funzione}
+\item \href{20251121143525-kernel_di_una_funzione_tra_spazi_vettoriali.org}{Kernel di una funzione tra spazi vettoriali}
+\end{itemize}}:
+\begin{equation*}
+\operatorname{H}^{k}(A^{\bullet}) \coloneqq \frac{\ker \operatorname{d}^{k}}{\operatorname{Im} \mathrm{d}^{k-1}}.
+\end{equation*}
+Spesso si indica con:
+\begin{itemize}
+\item \(Z^{k} \coloneqq \ker \mathrm{d}^{k}\) l'\uline{insieme dei \(k\)-coclicli};
+\item \(B^{k} \coloneqq \operatorname{Im} \mathrm{d}^{k-1}\) l'\uline{insieme dei \(k\)-cobordi}.
+\end{itemize}
+\end{definizione}
+
+\begin{oss}
+Il quoziente di cui sopra è ben definito in quanto le seguenti inclusioni sono tutti \href{20250114103118-sottospazio_vettoriale.org}{sottospazi vettoriali}:
+\begin{equation*}
+\operatorname{Im} \mathrm{d}^{k-1} \subseteq \ker \mathrm{d}^{k} \subseteq A^{k}
+\end{equation*}
+\end{oss}
+\begin{oss}
+Per ciascun \(k \in \N\), \(\operatorname{H}^{k}(A^{\bullet})\) è uno \href{20241205142027-spazio_vettoriale.org}{spazio vettoriale}.
+\end{oss}
+\end{document}

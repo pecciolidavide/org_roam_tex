@@ -1,0 +1,42 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{prop}
+Sia \(g:[a,b]\to \R\) una funzione continua. Allora, per ogni \(\varepsilon>0\) esiste una partizione equidistante di \([a,b]\):
+\begin{equation*}
+a=x_{0}<x_{1}<\dots<x_{N} = b
+\end{equation*}
+tale che la \href{20250701140551-funzione_lineare_a_tratti.org}{funzione lineare a tratti} \(g_{\varepsilon} : [a,b]\to \R\) che passa per i punti \(\left(x_{i},g(x_{i})\right)\) per \(i=0,\dots,N\), soddisfa
+\begin{equation*}
+\forall x \in [a,b]:\quad |g(x)-g_{\varepsilon}(x)|<\varepsilon.
+\end{equation*}
+\end{prop}
+\begin{proof}
+\hphantom{Ciano}\par
+
+\begin{description}
+\item[{Parte 1.}] Sia \(\varepsilon>0\) fissato. \href{20250701121640-teorema_di_heine_borel.org}{Siccome} \([a,b]\) è compatto, \href{20250630155208-funzione_reale_continua_su_un_compatto_e_uniformemente_continua.org}{allora} \(g\) è \href{20250611135127-funzione_uniformemente_continua.org}{uniformemente continua}. Sia \(\delta>0\) che soddisfi la condizione di uniforme continuità per \(\varepsilon'=\varepsilon/2\).
+
+Sia \(N\) sufficientemente grande affinché \(\frac{b-a}{N}<\delta\), e si definisca la partizione equidistante
+\begin{equation*}
+  x_{j} = a + \frac{b-a}{N}\, j
+\end{equation*}
+e la funzione lineare a tratti, per \(i=1,\dots,\):
+\begin{equation*}
+  g_{\varepsilon}(x) = g(x_{i-1}) +\frac{g(x_{i})-g(x_{i-1})}{x_{i}-x_{i-1}} (x-x_{i-1}),\qquad \forall x \in [x_{i-1},x_{i}]
+\end{equation*}
+
+\item[{Parte 2.}] Sia \(x \in [a,b]\) fissato. Allora \(x \in [x_{k-1},x_{k}]\) per qualche \(k\).
+\begin{align*}
+  |g(x)-g_{\varepsilon}(x)| &\le |g(x)-g(x_{k-1})| + |g(x_{k-1}) - g_{\varepsilon} (x)|\\
+  &\le \frac{\varepsilon}{2} + |g(x_{k-1}) - g_{\varepsilon} (x)|\\
+  &= \frac{\varepsilon}{2} + |g_{\varepsilon}(x_{k-1}) - g_{\varepsilon} (x)|\\
+  &\le \frac{\varepsilon}{2}+ |g_{\varepsilon}(x_{k-1}) - g_{\varepsilon} (x_{k})|\\
+  &= \frac{\varepsilon}{2}+ |g(x_{k-1}) - g (x_{k})| < \frac{\varepsilon}{2}+\frac{\varepsilon}{2} = \varepsilon\qedhere
+\end{align*}
+\end{description}
+\end{proof}
+\end{document}

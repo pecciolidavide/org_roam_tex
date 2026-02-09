@@ -1,0 +1,23 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Atlante complesso}
+\label{sec:org2171f5e}
+\begin{definizione}
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} di \href{20250109155715-spazio_topologico_di_hausdorff.org}{Hausdorff}, \href{20250103165325-spazio_topologico_connesso.org}{connesso} e \href{20250111142303-spazio_topologico_a_base_numerabile.org}{a base numerabile}. Un \textbf{atlante complesso} è una collezione di \textbf{carte locali}:
+\(\set{(U_{\alpha}, \varphi_{\alpha})}_{\alpha \in A}\) tale che:
+\begin{itemize}
+\item \(U_{\alpha} \subseteq X\) è \href{20250103145124-topologia.org}{aperto} e \(\set{U_{\alpha}}\) è un \href{20250103164252-ricoprimento.org}{ricoprimento} di \(X\);
+\item \(V_{\alpha} \subseteq \C^{n}\) è \href{20250103145124-topologia.org}{aperto}, e \(n\eqqcolon \dim_{\C}X\) è la dimensione di \(X\);
+\item \(\varphi_{\alpha}: U_{\alpha} \to V_{\alpha}\) \href{20250111142332-omeomorfismo.org}{omeomorfismo};
+\end{itemize}
+tale che, per ogni \(\alpha,\beta \in A\), se \(U_{\alpha} \cap U_{\beta} \neq \emptyset\) allora\footnote{Vedi ``\href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Range di una funzione}''}
+\begin{equation*}
+\varphi_{\beta}^{-1}\circ \varphi_{\alpha} : \varphi_{\beta}[U_{\alpha}\cap U_{\beta}] \to \varphi_{\alpha}[U_{\alpha}\cap U_{\beta}]
+\end{equation*}
+è un \href{20260127132618-funzione_biolomorfa.org}{biolomorfismo}.
+\end{definizione}
+\end{document}

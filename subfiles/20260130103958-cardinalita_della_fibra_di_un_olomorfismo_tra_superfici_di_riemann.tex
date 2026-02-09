@@ -1,0 +1,29 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\def\mult#1{\mathrm{mult}_{#1}\,}
+
+
+\begin{document}
+
+\section{Cardinalità della fibra di un olomorfismo tra superfici di Riemann}
+\label{sec:org81b8fc0}
+Siano \(X,Y\) \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatte}, e sia \(F:X\to Y\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfismo} non costante. Sia \(d\coloneqq \deg F\) il \href{20260129171444-teorema_del_grado_per_olomorfismi_tra_superfici_di_riemannn.org}{grado di \(F\)}.
+
+\begin{prop}
+Per ogni \(y \in Y\), la \href{20241213101756-cardinalita.org}{cardinalità} della \href{20260128184014-fibra_di_una_funzione.org}{fibra} di \(y\) è:
+\begin{itemize}
+\item se \(y\) \textbf{non è} di \href{20260129104340-punto_di_ramificazione_per_una_funzione_tra_superfici_di_riemann.org}{diramazione}, \(\card{F^{-1}(y)} = d\);
+\item se \(y\) è di \href{20260129104340-punto_di_ramificazione_per_una_funzione_tra_superfici_di_riemann.org}{diramazione}, \(\card{F^{-1}(y)} < d\).
+\end{itemize}
+\end{prop}
+\begin{proof}
+Poiché le due superfici sono compatte, allora \(F\) ha un numero finito di punti di diramazione.
+
+\begin{itemize}
+\item Se \(y\) non è di diramazione, significa che per ogni \(p \in F^{-1}(y)\), \(\mult{p} F = 1\), e pertanto la tesi.
+\item Se \(y\) è di diramazione, significa che esiste \(q \in F^{-1}(y)\) tale che \(\mult{q} F > 1\), e pertanto la tesi.
+\qedhere
+\end{itemize}
+\end{proof}
+\end{document}

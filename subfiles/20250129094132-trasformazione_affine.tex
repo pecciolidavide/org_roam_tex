@@ -1,0 +1,57 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{definizione}
+Siano \(V\) e \(W\) due \href{20241205142027-spazio_vettoriale.org}{spazi vettoriali su un campo \(\K\)}. Una mappa \(f: V \to W\) è detta \textbf{trasformazione affine} se esistono una \href{20250114101949-funzione_lineare.org}{trasformazione lineare} \(L: V \to W\) e un vettore \(b \in W\) tali che:
+\begin{equation*}
+f(v) = L(v) + b \quad \forall v \in V
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Una trasformazione affine è la \href{20250202170607-classe_relazione_binaria.org}{composizione} di una trasformazione lineare seguita da una traslazione.
+\end{oss}
+\section{Funzione affine reale}
+\label{sec:org3d82f67}
+\begin{definizione}
+Nel caso specifico in cui \(V = W = \R\), una funzione \(f: \R \to \R\) si dice \textbf{affine} se esistono due costanti \(m, q \in \R\) tali che:
+\begin{equation*}
+f(x) = mx + q
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Se \(q=0\), la funzione è lineare (omogenea). Se \(m=0\), la funzione è costante.
+\end{oss}
+
+\begin{prop}
+Le funzioni affini reali preservano le combinazioni affini (baricentriche). Ovvero, se \(\sum t_i = 1\):
+\begin{equation*}
+f\left(\sum_{i} t_i x_i\right) = \sum_{i} t_i f(x_i)
+\end{equation*}
+\end{prop}
+
+\begin{definizione}
+Siano \(V = \R^n\) e \(W = \R^m\). Una funzione \(f: \R^n \to \R^m\) si dice \textbf{affine} se esistono una matrice \(A \in M_{m,n}(\R)\) e un vettore \(b \in \R^m\) tali che:
+\begin{equation*}
+f(x) = Ax + b \quad \forall x \in \R^n
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+La matrice \(A\) rappresenta la componente lineare della trasformazione (rotazione, scala, deformazione), mentre il vettore \(b\) rappresenta la traslazione.
+\end{oss}
+
+\begin{prop}
+Una trasformazione affine in \(\R^n\) può essere rappresentata come una trasformazione lineare in \(\R^{n+1}\) utilizzando le \textbf{coordinate omogenee}.
+Se associamo a ogni vettore \(x \in \R^n\) il vettore aumentato \(\tilde{x} = \begin{pmatrix} x \\ 1 \end{pmatrix}\), allora l'azione di \(f\) corrisponde alla moltiplicazione per una matrice a blocchi \(\tilde{A}\):
+\begin{equation*}
+\begin{pmatrix} f(x) \\ 1 \end{pmatrix} =
+\begin{pmatrix} A & b \\ 0 & 1 \end{pmatrix}
+\begin{pmatrix} x \\ 1 \end{pmatrix}
+\end{equation*}
+\end{prop}
+\end{document}

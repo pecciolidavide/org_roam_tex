@@ -1,0 +1,107 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Giochi di Schmidt}
+\label{sec:orge53254b}
+
+\begin{definizione}
+\(\bm{B} \subseteq \R\) è l'insieme dei numeri \uline{badly approximable}. (\(x \in \R\) è badly approximable sse ???)
+\end{definizione}
+
+\(\bm{B}\) è di misura di Lebesgue nulla e magro.
+\subsection{Alcuni giochi}
+\label{sec:org73fb87f}
+
+Per \(T \subseteq \R\) e \(0<\alpha,\beta<1\), \(G_{\text{Sch}}(\alpha,\beta;T)\) è il gioco logico dove i giocatori \textbf{I} e \textbf{II} giocano intervalli chiusi non vuoti \(I_{0}\supseteq I_{1}\supseteq \dots \supseteq I_{i}\supseteq \dots\) di \(\R\) tali che
+\begin{align*}
+\operatorname{diam}(I_{2n+1}) &= \alpha \, \operatorname{diam}(I_{2n})\\
+\operatorname{diam}(I_{2n+2}) &= \beta\, \operatorname{diam}(I_{2n+1})
+\end{align*}
+per ogni \(n \in \N\).
+
+Il giocatore \textbf{II} vince sse \(\bigcap_{n \in \N} I_{n} \subseteq T\). \textbf{I} altrimenti.
+
+\begin{definizione}
+Generalizzazione per \(X\) spazio metrico completo.
+\end{definizione}
+
+L'insieme dei \(T \subseteq \R\) tali che \(I\) ha una strategia vincente è un \(\sigma\)-filtro.
+\subsection{Definizioni di TDI}
+\label{sec:org69e5d46}
+
+Un sottoinsieme \(Y\) di uno spaio topologico \(X\) è
+\begin{itemize}
+\item \uline{mai denso} in \(X\) se \(\Int(\Cl(Y)) = \emptyset\)
+\item \uline{magro} in \(X\) se è unione numerabile di insieme mai densi;
+\item \uline{comagro} in \(X\) se \(X\setminus Y\) è magro.
+\end{itemize}
+
+\(\operatorname{Mgr}(X)\) è la famiglia dei sottoinsiemi magri di \(X\), chiuso sotto sottoinsiemi e unione numerabile.
+
+Alcuni argomenti accennati
+\begin{itemize}
+\item Spazi di Baire.
+\item Se \(X\) di Baire e \(U \subseteq X\) aperto allora \(U\) di Baire.
+\item Giochi di Choquet e spazi di Choquet. (Vedi libro di Oxtoby\footnote{Oxtoby, John C. - \emph{Measure and category.} ISBN: 0-387-90508-1})
+\item Strong Choquet Game e spazi di Strong Choquet.
+\item Proprietà di Baire
+\item Banach-Mazur Game
+\item Spazio di Cantor
+\item Lo spazio \(2^{\N}\) è compatto e omeomorfi all'insieme di tutti i percorsi attraverso ogni \uline{finitely branching tree} senza nodi terminali.
+\item \(2^{\N}\) è omeomorfo all'insieme di Cantor.
+\item \(\N^{\N}\) è omeomorfo a \(\R\setminus D\), dove \(D \subseteq \R\) è un insieme numerabile e denso.
+\item Spazio Polacco
+\end{itemize}
+
+\begin{definizione}
+Un insieme \(P \subseteq X\) è \uline{perfetto} se \(P\) è chiuso in \(X\) e senza punti isolati.
+\end{definizione}
+
+\begin{thm}
+(Teorema di Cantor-Bendixson).
+Se \(X\) è uno spazio polacco e \(C \subseteq X\) è chiuso, allora esistono \(U,P\) unici tali che \(U\cup P = C\); \(U\cap P = \emptyset\) e
+\begin{itemize}
+\item \(U\) è numerabile (possibilmente vuoto), e aperto in \(C\);
+\item \(P\) è perfetto (possibilmente vuoto).
+\end{itemize}
+\end{thm}
+
+\uline{The perfect set game \(G^{*}(A)\)}
+
+\begin{itemize}
+\item Gale-Stewart Games
+\item Alberi e alberi potati
+\item Se \(X\) ha la topologia discreta e \(X^{\omega}\) ha la topologia prodotto, allora i sottoinsiemi chiusi di \(X^{\omega}\) sono esattamente gli insiemi \([T]\), con \(T\) albero potato su \(X\).
+\item Teorema di Gale-Stewart
+\end{itemize}
+
+\begin{thm}
+(Teorema di Martin).
+Se \(B \subseteq \omega^{\omega}\) è boreliano, allora \(G(B)\) è determinato.
+
+Assumendo AC, questo vale per ogni \(B \subseteq X^{\omega}\).
+\end{thm}
+
+\begin{definizione}
+Si definisce l'\uline{assioma di determinatezza per giochi su \(X\)}:
+\begin{description}
+\item[{\(\mathrm{AD}_{X}\):}] \(G(A)\) è determinato per ogni \(A \subseteq X^{\omega}\).
+\end{description}
+\end{definizione}
+
+Se \(X\supseteq Y\) allora \(\mathrm{AD}_{X}\oldimplies \mathrm{AD}_{Y}\).
+
+Con \(\mathrm{AD}\) si intende \(\mathrm{AD}_{\omega}\) (equivalente anche a \(\mathrm{AD}_{2}\)).
+
+???
+
+\begin{thm}
+(Teorema di Martin-Woodin).
+Assumendo \(\mathrm{AD}+\mathrm{DC}\): \(\mathrm{AD}_{\R}\) sse \uline{Unif}.
+\end{thm}
+
+\uline{Unif} è la \emph{uniformization property} in \(\R^{2}\).
+\end{document}

@@ -1,0 +1,52 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}.
+Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}, e sia \(X_{1},X_{2} \subseteq X\). Si denoti con \(\mathcal{S}_{\bullet}\) il \href{20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.org}{complesso di catene singolare}: si ha che
+\begin{equation*}
+\mathcal{S}_{\bullet}(X_{1}) \subseteq \mathcal{S}_{\bullet}(X),\qquad \mathcal{S}_{\bullet}(X_{2}) \subseteq \mathcal{S}_{\bullet}(X)
+\end{equation*}
+sono \href{20250128151459-sottocomplesso_di_catene.org}{sottocomplessi}.
+
+Si denoti con  \(\Sigma_{q}\), per ogni \(q \in \Z\), l'insieme dei \href{20250122133435-simplesso_singolare.org}{\(q\)-simplessi singolari}, e con \(S_{q}\) l'\href{20241205141053-r_moduli.org}{\(R\)-modulo} delle \href{20250122133435-simplesso_singolare.org}{\(q\)-catene singolari}.
+\section{Complesso di catene singolare somma}
+\label{sec:org17e7de3}
+\begin{definizione}
+Si definisce il complesso di catene somma \(\mathcal{S}_{\bullet}^{+}(X_{1},X_{2})\) come la \href{20260203110150-complesso_di_catene_somma.org}{somma dei sottosimplessi}:
+\begin{equation*}
+\mathcal{S}_{\bullet}^{+}(X_{1},X_{2}) \coloneqq \mathcal{S}_{\bullet}(X_{1}) + \mathcal{S}_{\bullet}(X_{2}).
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Questo è un sottocomplesso di \(\mathcal{S}_{\bullet}(X)\), e in particolare:
+\begin{align*}
+S^{+}_{q}(X_{1},X_{2}) &= S_{q}(X_{1}) + S_{q}(X_{2})\\
+&= R^{(\Sigma_{q}(X_{1}))} + R^{(\Sigma_{q}(X_{2}))}\\
+&= R^{(\Sigma_{q}(X_{1})\cup\Sigma_{q}{(X_{2})})}
+\end{align*}
+dove con \(R^{(\cdot)}\) si indica la \href{20241213095808-somma_diretta.org}{somma diretta}.
+\end{oss}
+\section{Complesso di catene singolare intersezione}
+\label{sec:orgecc972b}
+\begin{definizione}
+Si definisce il complesso di catene intersezione \(\mathcal{S}_{\bullet}^{\cap}(X_{1},X_{2})\) come l'\href{20260203110150-complesso_di_catene_somma.org}{intersezione dei sottosimplessi}:
+\begin{equation*}
+\mathcal{S}_{\bullet}^{\cap}(X_{1},X_{2}) \coloneqq \mathcal{S}_{\bullet}(X_{1}) \cap \mathcal{S}_{\bullet}(X_{2}).
+\end{equation*}
+\end{definizione}
+
+\begin{oss}
+Questo è un sottocomplesso di \(\mathcal{S}_{\bullet}(X)\), e in particolare:
+\begin{align*}
+S^{\cap}_{q}(X_{1},X_{2}) &= S_{q}(X_{1}) \cap S_{q}(X_{2})\\
+&= R^{(\Sigma_{q}(X_{1}))} \cap R^{(\Sigma_{q}(X_{2}))}\\
+&= R^{(\Sigma_{q}(X_{1})\cap\Sigma_{q}{(X_{2})})}\\
+&= R^{(\Sigma_{q}(X_{1}\cap X_{2}))} = S_{q}(X_{1}\cap X_{2})
+\end{align*}
+dove con \(R^{(\cdot)}\) si indica la \href{20241213095808-somma_diretta.org}{somma diretta}. Quindi \(\mathcal{S}_{\bullet}^{\cap}(X_{1},X_{2})  = \mathcal{S}_{\bullet}(X_{1}\cap X_{2})\)
+\end{oss}
+\end{document}

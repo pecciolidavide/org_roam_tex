@@ -1,0 +1,42 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\begin{thm}
+Sia \(X\) una \href{20250111092123-varieta_topologica.org}{varietà topologica} di dimensione \(n\), \(Y\) una \href{20250111092123-varieta_topologica.org}{varietà topologica} di dimensione \(m\), e sia
+\begin{equation*}
+f:X \longrightarrow Y
+\end{equation*}
+un \href{20250111142332-omeomorfismo.org}{omeomorfismo}. Allora \(m=n\).
+\end{thm}
+\begin{proof}
+Sia \(R\) un \href{20241219112842-pid.org}{PID}. \(f:X \longrightarrow Y\) si estende ad un \href{20250122160145-categoria_topp.org}{isomorfismo} tra \href{20250122154728-coppia_topologica.org}{coppie topologiche}
+\begin{equation*}
+f:(X,X\setminus\set{x}) \xrightarrow{\ \cong\ } (Y, Y\setminus \set{f(x)})
+\end{equation*}
+che applicando il \href{20241205131958-funtore.org}{funtore} \href{20250126191208-funtore_da_topp_a_rmod_di_omologia.org}{di omologia relativa}, per ogni \(q\) diventa un \href{20241206115416-morfismi_r_moduli.org}{isomorfismo}
+\begin{equation*}
+f_{\star}: H_{q}(X,X\setminus\set{x}) \longrightarrow H_{q}(Y,Y\setminus\set{f(x)})
+\end{equation*}
+ovvero, sfruttando l'\href{20250128132917-omologia_locale.org}{omologia locale}:
+\begin{equation*}
+f_{\star}: H_{q}(X \mid x) \xrightarrow{\ \cong\ } H_{q}(Y \mid f(x))
+\end{equation*}
+
+Dunque per ogni \(q\), considerando l'\href{20250128132928-omologia_locale_di_una_varieta_topologica.org}{omologia locale delle varietà topologiche}
+\begin{equation*}
+\left.
+\begin{aligned}
+q=n\quad &R\\
+q\neq n\quad &0
+\end{aligned}
+\right\}=H_{q}(X,x)\cong H_{q}\left(Y,f(x)\right)= \begin{cases}
+R & q=m\\
+0 & q\neq m
+\end{cases}
+\end{equation*}
+e dunque \(m=n\).
+\end{proof}
+\end{document}

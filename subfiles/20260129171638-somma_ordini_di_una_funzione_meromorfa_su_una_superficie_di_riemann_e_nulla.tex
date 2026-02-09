@@ -1,0 +1,101 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Somma ordini di una funzione meromorfa su una superficie di Riemann è nulla}
+\label{sec:org3bb1daf}
+\begin{prop}
+Sia \(X\) una \href{20260127112828-superficie_di_riemann.org}{superficie di Riemann} \href{20250103163701-spazio_topologico_compatto.org}{compatta} e sia \(f \in \mathcal{M}_{X}(X)\)\footnote{Vedi
+\begin{itemize}
+\item \href{20260128144151-fascio_delle_funzioni_meromorfe_su_una_superficie_di_riemann.org}{Fascio delle funzioni meromorfe su una superficie di Riemann}.
+\end{itemize}} una \href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{funzione meromorfa} e non nulla. Allora la somma degli \href{20260128144450-ordine_di_una_funzione_meromorfa_su_una_superficie_di_riemann.org}{ordini}:
+\begin{equation*}
+\sum_{p \in X} \mathrm{ord}_{p}\, f = 0
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+La funzione \(f\) \href{20260128183731-corrispondenza_funzioni_meromorfe_su_una_superficie_di_riemann_e_funzioni_olomorfe_sulla_sfera_di_riemann.org}{induce} la funzione \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa}\footnote{Vedi
+\begin{itemize}
+\item \href{20260127112905-sfera_di_riemann.org}{Sfera di Riemann}
+\item \href{20260128181135-sfera_di_riemann_biolomorfa_al_piano_proiettivo_complesso.org}{Sfera di Riemann biolomorfa al piano proiettivo complesso}
+\item \href{20260127112924-esempi_fondamentali_di_varieta_complesse.org}{Spazio proiettivo complesso è una varietà complessa}.
+\end{itemize}
+Vedi anche
+\begin{itemize}
+\item \href{20260128154601-singolarita_isolata_analisi_complessa.org}{Polo (Analisi Complessa)}.
+\end{itemize}}
+\begin{align*}
+F: X &\longrightarrow \C_{\infty} \cong \mathds{P}^{1}_{\C}\\
+x &\longmapsto \big(f(x):1\big)\\
+x\text{ polo} &\longmapsto (1:0)
+\end{align*}
+\begin{itemize}
+\item Se \(x_{0}\) è uno zero di \(f\), allora: \(F(x_{0}) \in U_{1} = \set{z_{1} \neq 0}\): per \(\varphi\) carta locale di \(X\) centrata in \(x_{0}\):
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,row sep=tiny]
+        \C \&\& X \&\& {U_1 \subseteq \mathds{P}^1_{\C}} \&\& \C \\
+        {0} \&\& {x_0} \&\& {\big(f(x_0)\duepunti 1\big)} \&\& {f(x_0)}
+        \arrow["\varphi"', from=1-3, to=1-1]
+        \arrow["F", from=1-3, to=1-5]
+        \arrow["{(z_0\duepunti z_1) \mapsto \frac{z_0}{z_1}}", from=1-5, to=1-7]
+        \arrow[maps to, from=2-1, to=2-3]
+        \arrow[maps to, from=2-3, to=2-5]
+        \arrow[maps to, from=2-5, to=2-7]
+\end{tikzcd}
+\end{equation*}
+e pertanto \(f(x_{0}) = f\circ\varphi^{-1}(0)\) e in un intorno di \(0\):
+\begin{equation*}
+  f\circ\varphi^{-1}(z) = (z)^{\mathrm{ord}_{x_{0}} f} \cdot g(z)
+\end{equation*}
+per \(g(z)\) olomorfa e mai nulla.
+
+Ma questa è una scrittura locale per \(F\), e quindi\footnote{Vedi:
+\begin{itemize}
+\item \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{Molteplicità di una funzione tra superfici di Riemann}
+\item \href{20260129104215-forma_normale_locale_per_superfici_di_riemann.org}{Forma normale locale per superfici di Riemann}
+\end{itemize}} \(\mathrm{mult}_{x_{0}} F = \mathrm{ord}_{x_{0}} f\).
+
+\item Se \(x_{1}\) è un polo di \(f\), allora \(F(x_{1}) = (1:0)\): esiste quindi un intorno \(U\) di \(x_{1}\) tale che:
+\begin{itemize}
+\item per ogni \(x \in U\): \(F(x) \in U_{0} \coloneqq \set{z_{0}\neq 0}\);
+
+\item \(f\) è ben definita e non nulla su \(U\setminus\set{x_{1}}\)\footnote{Infatti \href{20260128144105-funzione_meromorfa_su_una_superficie_di_riemann.org}{zeri e molteplicità sono un insieme discreto}.}
+\end{itemize}
+
+e quindi, se \(g(x)\) \href{20260128143822-funzione_olomorfa_su_una_superficie_di_riemann.org}{olomorfa} è espressione locale di \(F\) in \(U_{0}\), per ogni \(x \in U\):
+\begin{equation*}
+  F(x) = \big(1:g(x)\big)
+\end{equation*}
+In particolare, \(g\) è olomorfa e \(g: X\to \C\), e \(g(x_{1}) = 0\). Pertanto, per il punto precedente
+\begin{equation*}
+  \mathrm{mult}_{x_{1}} F = \mathrm{ord}_{x_{1}} g.
+\end{equation*}
+
+Su \(U \setminus \set{x_{1}}\):
+\begin{equation*}
+  F(x) = \big(1:g(x)\big) = \big(f(x):1\big)
+\end{equation*}
+e quindi \(g(x) = \frac{1}{f(x)}\). Quindi \(g(x)\) è meromorfa in \(U\), e per ogni \(x \in U\):
+\begin{equation*}
+  \mathrm{ord}_{x}\, g = -\mathrm{ord}_{x}\, f.
+\end{equation*}
+
+In particolare \(\mathrm{mult}_{x_{1}} F = -\mathrm{ord}_{x_{1}}\, f\)
+\end{itemize}
+
+Calcolando ora la somma, e applicando il \href{20260129171444-teorema_del_grado_per_olomorfismi_tra_superfici_di_riemannn.org}{Teorema del Grado}:
+\begin{equation*}
+\sum_{p \in X} \mathrm{ord}_{p}\, f =
+\sum_{x_0\text{ zero}} \mathrm{ord}_{x_{0}}\, f
+	+ \sum_{x_{1}\text{ polo}} \mathrm{ord}_{x_{1}}\, f = %
+\parentesi{=\deg F}{%
+	\sum_{x_0\text{ zero}} \mathrm{mult}_{x_{0}}\, F} %
+-  \parentesi{=\deg F}{%
+	\sum_{x_{1}\text{ polo}} \mathrm{mult}_{x_{1}}\, F} = 0 %
+\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

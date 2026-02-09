@@ -1,0 +1,33 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Funzione di scelta}
+\label{sec:orgbd1f941}
+\begin{enumerate}
+\item Sia \(\mathcal{A}\) un insieme non vuoto tale che \(\forall\, A \in \mathcal{A}\ (A\neq \emptyset)\).
+
+Una \uline{funzione di scelta} \textbf{\textbf{per}} \(\mathcal{A}\) è
+\begin{equation*}
+ f:\mathcal{A} \to \bigcup\mathcal{A}
+\end{equation*}
+tale che per ogni \(A \in \mathcal{A}\), \(f(A) \in A\).
+
+\item Una \uline{funzione di scelta} \textbf{\textbf{su}} un insieme \(X\neq\emptyset\) è una funzione
+\begin{equation*}
+ F:\parti{X}\to X
+\end{equation*}
+tale che \href{20250205170515-restrizione_di_una_classe.org}{\(f\upharpoonright \parti{X}\setminus\set{\emptyset}\)} sia una funzione di scelta per \(\parti{X}\).
+\end{enumerate}
+\subsection{Funzione di scelta su una classe propria}
+\label{sec:orgb4155c4}
+Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
+
+È possibile ampliare il concetto di cui sopra definendo una funzionr di scelta per una \href{20250130104320-classe_mk.org}{classe propria} \(X\) come una \href{20250202170607-classe_relazione_binaria.org}{classe funzione} \(F\) con \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio}
+\begin{equation*}
+\set{y\ |\ \emptyset\neq y\subseteq X}
+\end{equation*}
+(vedi \href{20250131161811-insieme_vuoto_mk.org}{Insieme vuoto MK} e \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK}) e tale che \(F(y) \in y\) per ogni \(y \in \operatorname{dom}F\).
+\end{document}

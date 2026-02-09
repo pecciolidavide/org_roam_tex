@@ -1,0 +1,43 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Teorema}
+\label{sec:orgf7ad0c6}
+Sia \(X\) uno \href{20250301194013-spazio_polacco.org}{spazio polacco}, e sia \(Y \subseteq X\) un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme}.
+Sono fatti equivalenti:
+\begin{enumerate}
+\item \(Y\) è uno spazio polacco (quando dotato della \href{20250103163814-sottospazio_topologico.org}{topologia di sottospazio});
+\item \(Y\) è un \href{20250304152026-sottoinsiemi_gdelta_e_fsigma.org}{sottoinsieme \(\bm{G}_{\delta}\)} di \(X\).
+\end{enumerate}
+\subsection{Dimostrazione}
+\label{sec:orgf71812e}
+\subsubsection{2. -> 1.}
+\label{sec:org8d6e367}
+Questa implicazione è banale. Infatti, per definizione, se \(Y\) è sottoinsieme \(\bm{G}_{\delta}\) allora è \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{intersezione} \href{20250111143651-insieme_numerabile.org}{numerabile} di sottoinsiemi \href{20250103145124-topologia.org}{aperti} di \(X\).
+Ma \href{20250303115241-proprieta_di_chiusura_degli_spazi_polacchi.org}{gli aperti di \(X\) sono spazi polacchi} e \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{intersezione} \href{20250111143651-insieme_numerabile.org}{numerabile} di spazi polacchi \href{20250303115241-proprieta_di_chiusura_degli_spazi_polacchi.org}{è polacco}.
+\subsubsection{1. -> 2.}
+\label{sec:orgd0eb65f}
+Consideriamo \(\id_{Y}\) la funzione identità su \(Y\).
+$\backslash$[
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	{X\supseteq Y} \& Y
+	\arrow["{\Id_Y}", from=1-1, to=1-2]
+\end{tikzcd}
+$\backslash$]
+Allora, per la proprietà di \href{20250306141326-estensione_di_una_funzione_ad_un_dominio_gdelta.org}{Estensione di una funzione continua ad un dominio \(\bm{G}_{\delta}\)}, \(\Id_{Y}\) può essere estesa a
+\begin{equation*}
+g:G\to Y
+\end{equation*}
+con \(G\) un insieme \(\bm{G}_{\delta}\) di \(X\) tale che (vedi \href{20250103144944-chiusura_topologica.org}{Chiusura Topologica} e \href{20250310111151-funzione_identita.org}{Funzione identità})
+\begin{equation*}
+Y \subseteq G \subseteq \operatorname{Cl}_{X}(Y);\qquad g\upharpoonright Y = \Id_{Y}
+\end{equation*}
+
+Inoltre, \(Y\) è \href{20250301193045-sottoinsieme_denso.org}{denso} in \(\operatorname{Cl}_{X}(Y)\), e quindi \(Y\) è denso in \(G \subseteq \operatorname{Cl}_{X}(Y)\).
+Considerando la \href{20250310110857-estensione_di_una_funzione_continua_da_un_sottoinsieme_denso.org}{Estensione della funzione identità di un sottoinsieme denso}, si ha che \(g=\id_{G}\) e \(Y=G\).
+
+Pertanto \(Y\) è un sottinsieme \(\bm{G}_{\delta}\).
+\end{document}

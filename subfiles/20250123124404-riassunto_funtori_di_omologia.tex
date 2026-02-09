@@ -1,0 +1,40 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Sia \(R\) un \href{20241219112842-pid.org}{PID}. Si considerino le seguenti \href{20241126100904-categoria.org}{categorie}:
+\begin{itemize}
+\item \href{20250122133147-categoria_di_complessi_e_mappe_simpliciali.org}{categoria \(\cat{Pl}\)} dei \href{20250121124147-complesso_simpliciale.org}{complessi simpliciali};
+\item \href{20250120163759-categoria_complessi_di_catene.org}{categoria \(\cat{Ch}_{R}\)} dei \href{20250120163114-complesso_di_catene.org}{complessi di catene};
+\item \href{20241206115740-categoria_degli_r_moduli.org}{categoria \(R\text{-}\cat{Mod}\)} degli \href{20241205141053-r_moduli.org}{\(R\)-moduli};
+\item \href{20241205115600-categoria_top.org}{categoria \(\cat{Top}\)} degli \href{20250103145124-topologia.org}{spazi topologici}.
+\end{itemize}
+
+Si sono costruiti i seguenti \href{20241205131958-funtore.org}{funtori}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,sep=large]
+	{\cat{Pl}} \& {\cat{Ch}_R} \& {R\text{-}\cat{Mod}} \\
+	\& {\cat{Top}}
+	\arrow["{(\mathcal{C}_{\bullet},\diesis)}", from=1-1, to=1-2]
+	\arrow["{(H_n,\star)}", bend right=-40pt, from=1-1, to=1-3]
+	\arrow["{|\cdot|}"', from=1-1, to=2-2]
+	\arrow["{(H_n,\star)}", from=1-2, to=1-3]
+	\arrow["{(\mathcal{S}_{\bullet},\diesis)}"'{pos=0.6}, from=2-2, to=1-2]
+	\arrow["{(H_n,\star)}"', from=2-2, to=1-3]
+\end{tikzcd}
+\end{equation*}
+dove
+\begin{itemize}
+\item \((\mathcal{C}_{\bullet},\diesis)\) è il \href{20250122133308-funtore_diesis_da_complessi_simpliciali_a_complessi_di_catene.org}{Funtore da Pl a ChR - diesis};
+\item \(|\cdot|\) è il \href{20250122133348-funtore_da_complessi_simpliciali_a_spazi_topologici.org}{Funtore da Pl a Top};
+\item \((\mathcal{S}_{\bullet},\diesis)\) è il \href{20250122154136-funtorialita_dell_omologia_singolare.org}{Funtore da Top a ChR - diesis};
+\item i funtori \((H_{n},\star)\) sono i funtori di omologia:
+\begin{itemize}
+\item \href{20250120165029-funtore_tra_chr_e_rmod.org}{Funtore da ChR e RMod - di omologia};
+\item \href{20250123115927-funtore_di_omologia_singolare.org}{Funtore da Top a RMod - di omologia singolare}
+\item \href{20250122175051-funtore_hn_da_categoria_pl_a_categoria_r_mod.org}{Funtore da Pl a R-Mod - di omologia}
+\end{itemize}
+\end{itemize}
+\end{document}

@@ -1,0 +1,26 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+The following illustrates font size alterations in mathmode:
+
+\begin{verbatim}
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}               % Necessary to use \scalebox
+\usepackage{amsmath,amssymb}
+\begin{document}
+\noindent
+normal: $ x^2 + 2xy + y^2 $\\
+displaystyle: $ {\displaystyle x^2 + 2xy + y^2} $\\
+scriptstyle: $ {\scriptstyle x^2 + 2xy + y^2} $\\
+scriptscriptstyle: $ {\scriptscriptstyle x^2 + 2xy + y^2} $\\
+textstyle: $ {\textstyle x^2 + 2xy + y^2} $
+
+\noindent
+\scalebox{0.5}{%
+normal: $ x^2 + 2xy + y^2$}
+\end{document}
+\end{verbatim}
+\end{document}

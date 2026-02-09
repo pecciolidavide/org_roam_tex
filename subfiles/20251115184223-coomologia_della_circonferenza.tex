@@ -1,0 +1,155 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Coomologia della circonferenza}
+\label{sec:org596488b}
+\begin{thm}
+La coomologia di \(\mathds{S}^{1}\)\footnote{\(\mathds{S}^{1}\) è la \href{20250115150754-sfera_n_dimensionale.org}{sfera 1-dimensionale}.} è :
+\begin{equation*}
+H^{k}(\mathds{S}^{1}) = %
+\begin{cases}
+\R & k = 0,1\\
+0 & k \ge 2
+\end{cases}
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+Si consideri la circonferenza \(\mathds{S}^{1}\) rappresentata in figura:
+\begin{equation*}
+\begin{tikzpicture}[>=stealth]
+    % --- Impostazioni ---
+    \def\raggio{1.5} % Definisce il raggio della circonferenza
+    \def\assi{2.5}   % Definisce la lunghezza degli assi
+
+    % --- Piano Cartesiano ---
+    % Disegna l'asse X
+    \draw[->] (-\assi, 0) -- (\assi, 0) node[right] {$x$};
+    % Disegna l'asse Y
+    \draw[->] (0, -\assi) -- (0, \assi) node[above] {$y$};
+    % Segna l'origine (opzionale)
+    \node at (0,0) [below left, gray] {$O$};
+
+    % --- La Circonferenza ---
+    % Disegna una circonferenza centrata in (0,0) con il raggio definito
+    \draw[thick] (0, 0) circle (\raggio);
+
+    % --- Punti N e S ---
+    % Punto N (Nord): Coordinate (0, raggio)
+    % \fill disegna il pallino, node aggiunge l'etichetta
+    \fill (0, \raggio) circle (2.5pt) node[above=3pt, xshift=1em] {\textbf{N}};
+
+    % Punto S (Sud): Coordinate (0, -raggio)
+    \fill (0, -\raggio) circle (2.5pt) node[below=3pt, xshift=1em] {\textbf{S}};
+\end{tikzpicture}
+\end{equation*}
+È una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} di dimensione 1, quindi si vogliono calcolare la \href{20251115172442-gruppo_di_coomologia_di_de_rham.org}{coomologia} \(H^{0}(\mathds{S}^{1})\) e \(H^{1}(\mathds{S}^{1})\).
+
+Si definiscono due aperti:
+\begin{align*}
+U_{0} &= \mathds{S}^{1}\setminus\set{\textbf{N}} \cong \R\\
+U_{1} &= \mathds{S}^{1}\setminus\set{\textbf{S}} \cong \R\\
+U_{0} \cap U_{1} &= \mathds{S}^{1}\setminus\set{\textbf{N},\textbf{S}} \cong \R \sqcup \R
+\end{align*}
+dove gli ultimi sono \href{20250113172924-diffeomorfismo_tra_varieta_differenziabili.org}{diffeomorfismi}. Utilizzando \href{20251115183635-teorema_di_mayer_vietoris_in_coomologia.org}{Mayer-Vietoris} si ottiene la seguente successione esatta:
+\begin{equation*}
+\begin{tikzcd}[column sep=scriptsize]
+	{H^0(\mathds{S}^1)} & {H^0(U_0)\oplus H^0(U_1)} & {H^0(U_0 \cap U_1)} & {H^1(\mathds{S}^1)} & {H^1(U_0)\oplus H^1(U_1)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+\begin{itemize}
+\item Siccome la \href{20251115173810-varieta_differenziabili_diffeomorfe_hanno_stessa_coomologia_di_de_rham.org}{coomologia è invariante per diffeomorfismi}, si ottiene
+\begin{equation*}
+\begin{tikzcd}[column sep=scriptsize]
+        {H^0(\mathds{S}^1)} & {H^0(\R)\oplus H^0(\R)} & {H^0(\R \sqcup \R)} & {H^1(\mathds{S}^1)} & {H^1(\R)\oplus H^1(\R)}
+        \arrow[from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow[from=1-3, to=1-4]
+        \arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+\item Ricordando la \href{20251115173611-coomologia_di_de_rham_di_r.org}{coomologia di \(\R\)}:
+\begin{equation*}
+  H^{k}(\R) = \begin{cases}
+  	\R & k=0\\
+  	0 & k \neq 0
+      \end{cases}
+\end{equation*}
+la successione diventa:
+\begin{equation*}
+\begin{tikzcd}[column sep=scriptsize]
+        {H^0(\mathds{S}^1)} & {\R\oplus \R} & {H^0(\R \sqcup \R)} & {H^1(\mathds{S}^1)} & {0 \oplus 0}
+        \arrow[from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow[from=1-3, to=1-4]
+        \arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+\item Ricordando \href{20251115174538-0_gruppo_di_coomologia_di_de_rham_di_una_varieta_connessa.org}{come funziona lo \(0\) gruppo di coomologia}:
+\begin{equation*}
+\begin{tikzcd}[column sep=scriptsize]
+        {\R} & {\R\oplus \R} & {\R \oplus \R} & {H^1(\mathds{S}^1)} & {0}
+        \arrow[from=1-1, to=1-2]
+        \arrow[from=1-2, to=1-3]
+        \arrow["{\partial^*}", from=1-3, to=1-4]
+        \arrow[from=1-4, to=1-5]
+\end{tikzcd}
+\end{equation*}
+\item Poiché la successione è esatta in \(H^{1}(\mathds{S}^{1})\), \href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{allora} \(\partial^{*}\) il morfismo di connessione è suriettivo, e pertanto \(\dim H^{1}(\mathds{S}^{1})<\infty\). Posso applicare la \href{20251115182133-successione_di_spazi_vettoriali_esatta.org}{somma alterna=0} ottenendo che
+\begin{equation*}
+  \dim H^{1}(\mathds{S}^{1}) = 1
+\end{equation*}
+e pertanto \(H^{1}(\mathds{S}^{1}) \cong \R\).\qedhere
+\end{itemize}
+\end{proof}
+Troviamo ora un generatore di \(H^{1}(\mathds{S}^{1})\). Poiché è uno spazio vettoriale 1-dimensionale, è sufficiente trovare \([\omega] \in H^{1}(\mathds{S}^{1}) \setminus \set{0}\).
+
+Si sfrutta la definizione dei morfismi della successione di Mayer-Vietoris: sia \([f] \in H^{0}(U_{0}\cap U_{1})\), e siano \(\rho_{0},\rho_{1}\) una partizione dell'unità:
+\begin{equation*}
+\partial^{*}[f] = [\omega],%
+\qquad %
+\omega = %
+\begin{cases}
+-\dif\rho_{1} \cdot f & \text{su }U_{0}\\
+\dif \rho_{0} \cdot f & \text{su }U_{1}.
+\end{cases}
+\end{equation*}
+Si consideri anche il morfismo \((\iota_{1}^{*}-\iota_{0}^{*})\), ricordando che \(H^{0}(U_{0}\cap U_{1}) = H^{0}(A \sqcup B) \cong H^{0}(A) \oplus H^{0}(B)\)\footnote{Vedi ``\href{20251223131440-coomologia_delle_unioni_disgiunte.org}{Coomologia delle unioni disgiunte}''}, dove \(A\) e \(B\) sono le semicirconferenze destre e sinistre:
+\begin{equation*}
+\begin{tikzcd}[row sep=tiny]
+	{H^0(U_0)\oplus H^0(U_1)} & {H^0(U_0\cap U_1)} & {H^0(A)\oplus H^0(B)} \\
+	{([u],[v])} & {\big([\restriction{(u-v)}{U_{0}\cap U_{1}}]\big)} & {\big([\restriction{(u-v)}{A}], [\restriction{(u-v)}{B}]\big)} \\
+	& {[g]} & {\big([\restriction{g}{A}],[\restriction{g}{B}]\big)}
+	\arrow["{(\iota_1^*-\iota_0^*)}", from=1-1, to=1-2]
+	\arrow["\cong", from=1-2, to=1-3]
+	\arrow[maps to, from=2-1, to=2-2]
+	\arrow[maps to, from=2-2, to=2-3]
+	\arrow[maps to, from=3-2, to=3-3]
+\end{tikzcd}
+\end{equation*}
+con \(u,v\) funzioni costanti \(C^{\infty}\) rispettivamente su \(U_{0}\) e \(U_{1}\): \(\restriction{u-v}{A} \equiv k_{1}\) e \(\restriction{u-v}{B} \equiv k_{2}\), con \(k_{1},k_{2} \in \R\) e tali che \(k_{1}=k_{2}\).
+
+Si deve scegliere \([f]\) in manierà tale che \(\partial^{*}[f] \neq 0\), ovvero
+\begin{equation*}
+[f] \notin \ker \partial^{*} = \operatorname{Im} (\iota_{1}^{*}-\iota_{0}^{*})
+\end{equation*}
+Sia ad esempio \(f \in C^{\infty}(U_{0}\cap U_{1})\) tale che \(\restriction{f}{A} = 1\) e \(\restriction{f}{B} = 0\), \([f] \in H^{0}(U_{0}\cap U_{1})\). Allora necessariamente \([f] \notin \operatorname{Im}(\iota_{1}^{*}-\iota_{0}^{*})\), e quindi \(\partial^{*}[f] \neq 0\).
+
+Pertanto, \([\omega]\) è un generatore di \(H^{1}(\mathds{S}^{1})\), con
+\begin{equation*}
+\omega=%
+\begin{cases}
+- \dif \rho_{1} & \text{su }U_{0}\cap A\\
+\dif \rho_{1} & \text{su } {U_{1}}\cap A\\
+0 & \text{altrove}.
+\end{cases}
+\end{equation*}
+ben definita.
+\end{document}

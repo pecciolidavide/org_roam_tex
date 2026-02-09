@@ -1,0 +1,83 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Somma Diretta di moduli}
+\label{sec:org3af185c}
+Sia \(R\) un \href{20241205141119-anello.org}{anello} commutativo con unità, e sia \(\set{M_{i}}_{i \in I}\) una famiglia di \href{20241205141053-r_moduli.org}{\(R\)-moduli}.
+
+La \textbf{somma diretta} degli \(M_{i}\) è l'\(R\)-modulo dato da:
+\begin{equation*}
+M \coloneqq\bigoplus_{i \in I} M_{i} =
+\set{(x_{i})_{i \in I} \mid x_{i} = 0 \text{ salvo un numero finito di indici}}
+\end{equation*}
+(dove con \((x_{i})_{i \in I}\) si intende una \href{20250115100904-successione.org}{successione}).
+\begin{itemize}
+\item La struttura di \href{20241205141146-gruppo_abeliano.org}{gruppo} di \(M\) è la seguente: se \((x_{i})_{i \in I},(y_{i})_{i \in I} \in M\), si definisce
+\begin{equation*}
+(x_{i})_{i \in I} + (y_{i})_{i \in I} \coloneqq (x_{i}+y_{i})_{i \in I}
+\end{equation*}
+
+\item La struttura di \(R\)-modulo, invece, è dato dall'azione, per ogni \(a \in R\)
+\begin{equation*}
+  a(x_{i})_{i \in I} \coloneqq (ax_{i})_{i \in I}.
+\end{equation*}
+\end{itemize}
+
+Spesso la successione \((x_{i})_{i \in I}\) si scrive come somma formale \(\sum_{i \in I}x_{i}\).
+
+\uline{Notazione}: quando per ogni \(i \in I\), \(M_{i} = A\), allora si denota:
+\begin{equation*}
+\bigoplus_{i \in I} M_{i} \eqqcolon A^{(I)}.
+\end{equation*}
+
+\uline{Notazione}: se \(I=\set{i}\), allora \(R^{(I)} \eqqcolon R\cdot i\).
+
+\begin{oss}
+Si noti che la somma diretta è associativa e commutativa (\url{https://it.wikipedia.org/wiki/Somma\_diretta})
+\end{oss}
+\subsection{Somma diretta dell'anello è modulo libero}
+\label{sec:org4c63cfe}
+\begin{prop}
+Sia \(R\) un \href{20241205141119-anello.org}{anello commutativo con unità}. Allora, per ogni \href{20250130104331-insieme_mk.org}{insieme} non vuoto \(I\), la \hyperref[sec:org3af185c]{somma diretta}\footnote{\href{20260112124828-ogni_anello_ha_struttura_di_modulo_su_se_stesso.org}{Ogni anello ha struttura di modulo su sé stesso}.}
+\begin{equation*}
+R^{(I)}
+\end{equation*}
+è un \href{20241213094625-modulo_libero.org}{modulo libero} di \href{20260109173733-rango_di_un_modulo.org}{rango} \(\card{I}\)\footnote{Vedi ``\href{20241213101756-cardinalita.org}{Cardinalità}''}.
+\end{prop}
+
+\begin{proof}
+Consideriamo, per ogni \(i \in I\), l'elemento \(e_{i} \in R^{(I)}\),
+\begin{equation*}
+e_{i} = \big(e_{i}(j)\big)_{j \in I}
+\end{equation*}
+tale che \(e_{i}(j) = \delta_{ij}\)\footnote{con \(\delta_{ij}\) si indica la \href{20260109154336-delta_di_kronecher.org}{Delta di Kronecher}} per ogni \(j \in I\). Allora ogni \((x_{i})_{i \in I} \in R^{(I)}\) può essere scritto come
+\begin{equation*}
+(x_{i})_{i \in I} = \sum_{\substack{i \in I\\ x_{i}\neq 0}} x_{i}e_{i}.
+\end{equation*}
+L'insieme \(\set{e_{i}\mid i \in I}\) è una base di \(R^{(I)}\), detta \uline{base canonica}.
+\end{proof}
+
+\begin{oss}
+È quindi possibile considerare come base di \(R^{(I)}\) proprio l'insieme \(I\), che è possibile considerare come sottoinsieme \(I \subseteq R^{(I)}\).
+\end{oss}
+\subsection{Somma diretta di morfismi di moduli}
+\label{sec:org58c77c4}
+\begin{definizione}
+Siano \(\{M_{\alpha}\}_{\alpha \in I}\) e \(\{N_{\alpha}\}_{\alpha \in I}\) due famiglie di \href{20241205141053-r_moduli.org}{\(R\)-moduli} indicizzate da un insieme \(I\) di cardinalità arbitraria.
+Sia data una famiglia di \href{20241206115416-morfismi_r_moduli.org}{morfismi} \(\{f_{\alpha}: M_{\alpha} \longrightarrow N_{\alpha}\}_{\alpha \in I}\).
+
+La \textbf{\textbf{somma diretta della famiglia di morfismi}}, denotata con \(\bigoplus_{\alpha \in I} f_{\alpha}\), è l'unico \href{20241206115416-morfismi_r_moduli.org}{morfismo di moduli}:
+\begin{equation*}
+\bigoplus_{\alpha \in I} f_{\alpha} : \bigoplus_{\alpha \in I} M_{\alpha} \longrightarrow \bigoplus_{\alpha \in I} N_{\alpha}
+\end{equation*}
+definito sugli elementi della somma diretta (ovvero le famiglie \((x_{\alpha})_{\alpha \in I}\) tali che \(x_{\alpha} \neq 0\) solo per un numero finito di indici) come:
+\begin{equation*}
+\left(\bigoplus_{\alpha \in I} f_{\alpha}\right)\left((x_{\alpha})_{\alpha \in I}\right) = (f_{\alpha}(x_{\alpha}))_{\alpha \in I}
+\end{equation*}
+\end{definizione}
+
+La definizione è ben posta poiché, se \(x_{\alpha} = 0\) per quasi tutti gli \(\alpha\), allora anche \(f_{\alpha}(x_{\alpha}) = 0\) per quasi tutti gli \(\alpha\) (essendo \(f_{\alpha}\) morfismo, manda 0 in 0).
+\end{document}

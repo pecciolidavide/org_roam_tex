@@ -1,0 +1,47 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+Si consideri il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} \(L_{Q}\coloneqq\set{+,\cdot,S,0}\).
+\section{Aritmetica di Robinson}
+\label{sec:org13f9792}
+L'\uline{aritmetica di Robinson} \(Q\) è la \(L_{Q}\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250131123109-insieme_di_assiomi_per_una_teoria.org}{assiomatizzata} da:
+\begin{description}
+\item[{(Q1)}] \(\forall\,x\ \forall\,y\ \left(S(x)=S(y)\,\implies\, x=y\right)\);
+\item[{(Q2)}] \(\forall\,x\ \lnot(0=S(x))\);
+\item[{(Q3)}] \(\forall\,x\ \left(\lnot(x=0)\,\implies\, \exists\,z\ (x=S(z))\right)\);
+\item[{(Q4)}] \(\forall\,x\ (x+0=x)\);
+\item[{(Q5)}] \(\forall\,x\ \forall\, y\ \left(x+S(y) = S(x+y)\right)\)
+\item[{(Q6)}] \(\forall\,x\ (x\cdot 0)\);
+\item[{(Q7)}] \(\forall\,x\ \forall\, y\ \left(x\cdot S(y) = x\cdot y + x\right)\).
+\end{description}
+\section{Aritmetica di Peano del prim'ordine}
+\label{sec:org58d9f3a}
+L'\uline{aritmetica di Peano del prim'ordine} \(PA_{1}\), (spesso denotata con \(PA\)), è la \(L_{Q}\)-teoria assiomatizzata da (Q1)-(Q7) e da una famiglia di assiomi di \href{20250202125627-insieme_induttivo_mk.org}{induzione} \(\set{\operatorname{Ind}_{\varphi,x}}\). Data una \(L_{Q}\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} del prim'ordine \(\varphi\) e una variabile \(x\) che occorra \href{20250131103429-variabile_libera_di_una_formula.org}{libera} in \(\varphi\), l'assioma \(\operatorname{Ind}_{\varphi,x}\) è la chiusura universale di
+\begin{equation*}
+\left[\varphi(0) \,\land\, \forall\,u\ (\varphi(x)\implies \varphi(S(x)))\right]\implies \forall\, x\ \varphi(x)
+\end{equation*}
+dove per chiusura universale si intende: in \(\varphi\) ci potrebbero essere altre variabili libere oltre a \(x\); queste si intendono quantificate universalmente all'esterno della formula in display.
+\section{Numerali}
+\label{sec:orgd34e0f3}
+Chiamiamo \uline{numerali} gli \(L_{Q}\)-\href{20250130162316-termine_del_prim_ordine.org}{termini} \href{20250130162316-termine_del_prim_ordine.org}{chiusi} costruiti a partire da \(0\) e \(S\). In particolare, si indica, per ogni \(n \in \N\):
+\begin{equation*}
+\overline{n} \coloneqq \parentesi{n\text{ volte}}{S(S(\dots(S}(0)))).
+\end{equation*}
+\section{Numeri standard e numeri non standard per l'aritmetica di Robinson}
+\label{sec:org58af05d}
+Sia \(\mathcal{M}\) un \href{20250131103035-struttura_del_prim_ordine.org}{modello} di \(Q\). Gli elementi di \href{20250131103035-struttura_del_prim_ordine.org}{\(M=|\mathcal{M}|\)} vengono chiamati numeri. Quelli della forma \href{20250212100302-interpretazione_di_un_termine.org}{\(\overline{n}^{\mathcal{M}}\)} per qualche \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{\(n \in \N\)} sono detti \uline{numeri standard} di \(\mathcal{M}\).
+
+Gli altri eventuali elementi di \(M\) sono detti \uline{numeri non standard}.
+
+La \uline{parte standard} di \(\mathcal{M}\) è la sua \href{20250131103212-sottostruttura_del_prim_ordine.org}{restrizione} di dominio \(\set{\overline{n}^{\mathcal{M}}\mid n \in \N}\) ed è \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfa} al modello standard \(\langle \N,+,\cdot,S,0\rangle\) mediante la mappa \(\overline{n}^{\mathcal{M}}\mapsto n\).
+
+Il modello \(\mathcal{M}\) si dice \uline{non standard} se non è isomorfo al modello standard.
+\begin{oss}
+L'artimetica di Robinson è sufficientemente forte da dimostrare le usuali proprietà di somma e prodotto per la parte standard di ogni suo modello. Queste però non valgono necessariamente per la parte non standard.
+
+Gli assiomi di induzione di \(PA\) ``servono'' proprio a garantire che la parte ``buona'' del modello sia tutta, ovvero che se una proprietà vale su tutta la parte standard, allora vale su \uline{tutto} il modello.
+\end{oss}
+\end{document}

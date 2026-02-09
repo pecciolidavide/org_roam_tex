@@ -1,0 +1,168 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+
+\begin{document}
+
+\section{Gradient Descent con Backpropagation per una RNFF}
+\label{sec:org889eb44}
+Si utilizza la notazione introdotta in ``\href{20250624155858-neurone_artificiale.org}{Rete Neurale Feedforward}'', con input \(x_{i}\) e target \(z_{i}\).
+
+Si supponga di avere una \href{20250624155858-neurone_artificiale.org}{rete neurale} feedforward con parametri \(\bm{w}\), con tutti i neuroni con funzione di attivazione \(\phi\). Si vuole \href{20250627153729-condizioni_necessarie_per_l_esistenza_di_un_minimo_di_una_funzione_reale.org}{minimizzare} la \href{20250624155858-neurone_artificiale.org}{funzione costo} \(C(\bm{w})\), sufficientemente liscia da poter applicare il metodo del \href{20250711122823-algoritmo_di_gradient_descent.org}{Gradient Descent}. È quindi necessario poter calcolare il \href{20250624171244-gradiente_di_una_funzione.org}{gradiente} \(\nabla C\), ovvero calcolare tutte le \href{20250114103236-derivata_parziale.org}{derivate}
+\begin{equation*}
+\dpd{C}{{w_{ij}^{(\ell)}}}.
+\end{equation*}
+Si può vedere, allo stesso tempo, \(C\) come una funzione di tutti i segnali \(s_{j}^{(\ell)}\), per \(\ell\) fissato. Inoltre, ciascun \(w_{ij}^{(\ell)}\) influenza, nel layer \(\ell\), soltanto \(s_{j}^{(\ell)}\). Dunque, applicando la chain rule, si ottiene che
+\begin{equation*}
+\dpd{C}{{w_{ij}^{(\ell)}}} = \dpd{C}{{s^{(\ell)}_{j}}}\cdot \dpd{s^{(\ell)}_{j}}{{w_{ij}^{\ell}}}
+\end{equation*}
+\begin{itemize}
+\item Si denota con \(\delta_{j}^{(\ell)}\coloneqq \pd{C}{{s_{j}^{(\ell)}}}\);
+\item Calcolando \(\pd{s^{(\ell)}_{j}}{{w_{ij}^{\ell}}}\), si ottiene
+\begin{equation*}
+  \pd{s^{(\ell)}_{j}}{{w_{ij}^{\ell}}} = \pd{}{{w_{ij}^{\ell}}}\sum_{k} w_{kj}^{(\ell)} x_{k}^{(\ell-1)} = x_{i}^{(\ell-1)}.
+\end{equation*}
+\end{itemize}
+Segue che ciascun termine del gradiente di \(C\) calcolato rispetto ai pesi \(\bm{w}\) si possa scrivere come
+\begin{equation*}
+\dpd{C}{{w_{ij}^{(\ell)}}} = x_{i}^{(\ell-1)}\cdot\delta_{j}^{(\ell)}
+\end{equation*}
+
+Si vuole trovare i \(\delta_{j}^{(\ell)}\) partendo dal layer più esterno (il Layer \(L\)), e poi calcolare i \(\delta_{j}^{(\ell-1)}\) conoscendo i \(\delta_{j}^{(\ell)}\).
+\begin{itemize}
+\item Il calcolo degli \(\delta^{(L)}_{j}\) dipende sostanzialmente dalla scelta della funzione costo. Se ad esempio,
+\begin{equation*}
+C(\bm{w}) = \frac{1}{2}\sum_{h=1}^{d(L)}(x_{h}^{(L)}-z_{h})^{2},
+\end{equation*}
+allora, dal momento che \(x_{j}^{(L)} = \phi(s_{j}^{L})\), si ottiene che
+\begin{equation*}
+  \delta_{j}^{(L)} = \dpd{C}{{s_{j}^{L}}} = (x_{j}^{(L)}-z_{j})\,\phi'(s_{j}^{L})
+\end{equation*}
+\item Si supponga di conoscere i \(\delta^{(\ell)}\).
+\begin{align*}
+  \delta_{j}^{(\ell-1)} &= \dpd{C}{{s_{j}^{(\ell-1)}}} = \sum_{k} \dpd{C}{{s_{k}^{(\ell)}}}\cdot \dpd{s_{k}^{(\ell)}}{{s_{j}^{(\ell-1)}}}\\
+  &= \sum_{k} \dpd{C}{{s_{k}^{(\ell)}}}\cdot \dpd{}{{s_{j}^{(\ell-1)}}}\left[
+  \sum_{h}w_{hk}^{(\ell)}\cdot x_{h}^{(\ell-1)}
+  \right]\\
+  &= \sum_{k} \dpd{C}{{s_{k}^{(\ell)}}}\cdot \dpd{}{{s_{j}^{(\ell-1)}}}\left[
+  \sum_{h}w_{hk}^{(\ell)}\cdot \phi(s_{h}^{(\ell-1)})
+  \right]\\
+  &= \sum_{k} \dpd{C}{{s_{k}^{(\ell)}}}\cdot w_{jk}^{(\ell)}\cdot\phi'(s_{j}^{(\ell-1)})\\
+  &= \phi'(s_{j}^{\ell-1}) \cdot\sum_{k} \delta_{k}^{(\ell)}\cdot w_{jk}^{(\ell)}
+\end{align*}
+
+Questa è quindi la formula finale:
+\begin{equation*}
+  \delta_{j}^{(\ell-1)} = \phi'(s_{j}^{\ell-1}) \cdot\sum_{k} \delta_{k}^{(\ell)}\cdot w_{jk}^{(\ell)}.
+\end{equation*}
+\end{itemize}
+
+Pertanto l'\href{20250711122823-algoritmo_di_gradient_descent.org}{algoritmo di Gradient Descent} con velocità di apprendimento \(\eta\) è
+\begin{equation*}
+w_{ij}^{(\ell)}(n+1) = w_{ij}^{(\ell)}(n)- \eta\, x_{i}^{(\ell-1)}(n)\cdot\delta_{j}^{(\ell)}(n)
+\end{equation*}
+\subsection{Problemi con la Backpropagation}
+\label{sec:orgc4455e8}
+
+Questo metodo si basa fondamentalmente sulla derivata \(\phi'\) della funzione di attivazione. Questo può portare un errore di \emph{vanishing gradient}, anche per funzioni di attivazioni semplici.
+
+Si consideri infatti \(\phi(t)=\sigma(t)= \frac{1}{1+e^{-t}}\). Se \(t\) è molto grande oppure molto piccolo, allora \(\sigma'(t)\approx 0\). Questo rende il gradiente nullo, e pertanto l'algoritmo non converge (o converge in maniera estremamente lenta).
+
+Inoltre, siccome \(\sigma'=\sigma(1-\sigma)\), si ha che \(\sigma' \in [0,1/4]\), e pertanto la backpropagation attraverso un layer di neuroni riduce il gradiente di \(1/4\). Questo provoca una estrema lentezza di convergenza per l'algoritmo.
+\subsection{Inizializzazione dei pesi - Xavier Initialization (Machine Learning)}
+\label{sec:org21c560a}
+Inizializzare i pesi iniziali \(w_{ij}^{(\ell)}(0) = 0\) causa dei problemi, come mostrato nel seguente esempio.
+
+\begin{esempio}
+Si consideri la \href{20250624155858-neurone_artificiale.org}{rete neurale} mostrata in Figura~\ref{fig:retegincuq}, dove \(\phi\) è la \href{20250624155858-neurone_artificiale.org}{funzione logistica} e la funzione costo da minimizzare è la distanza euclidea, e si supponga di eseguire l'algoritmo di cui sopra con i pesi inizializzati a 0.
+\begin{align*}
+\delta_{1}^{(3)}(0) &= (x^{(3)}_{1}-z_{1})\cdot \phi'(s_{1}^{(3)}(0)) = (x^{(3)}_{1}-z_{1})\cdot\phi'(0)=\frac{1}{2}(x^{(3)}_{1}-z_{1})\\
+x_{1}^{(2)} &= \phi(s_{1}^{(2)}) = \phi(0)\\
+x_{2}^{(2)} &= \phi(s_{2}^{(2)}) = \phi(0)
+\end{align*}
+quindi, seguendo l'algoritmo di gradient descent, i pesi \(w_{11}^{(3)}\) e \(w_{21}^{3}\) si aggiornano allo stesso modo. La stessa cosa succede anche per gli altri layer.\qedhere
+\label{es:regeoijoijoi}
+\end{esempio}
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	\& \bullet \&\& \bullet \&\& \bullet \\
+	\bullet \&\& {\boxed{\Sigma, \phi}} \&\& {\boxed{\Sigma, \phi}} \\
+	\&\&\&\&\&\& {\boxed{\Sigma, \phi}} \\
+	\bullet \&\& {\boxed{\Sigma, \phi}} \&\& {\boxed{\Sigma, \phi}} \\
+	{\ell=0} \&\& {\ell=1} \&\& {\ell=2} \&\& {\ell=L=3}
+	\arrow[from=1-2, to=2-3]
+	\arrow[from=1-2, to=4-3]
+	\arrow[from=1-4, to=2-5]
+	\arrow[from=1-4, to=4-5]
+	\arrow[from=1-6, to=3-7]
+	\arrow[from=2-1, to=2-3]
+	\arrow[from=2-1, to=4-3]
+	\arrow[from=2-3, to=2-5]
+	\arrow[from=2-3, to=4-5]
+	\arrow[from=2-5, to=3-7]
+	\arrow[from=4-1, to=2-3]
+	\arrow[from=4-1, to=4-3]
+	\arrow[from=4-3, to=2-5]
+	\arrow[from=4-3, to=4-5]
+	\arrow[from=4-5, to=3-7]
+\end{tikzcd}
+\end{equation*}
+\caption{\label{fig:retegincuq}Rete neurale per l'Esempio~\ref{es:regeoijoijoi}}
+\end{figure}
+
+Si vuole quindi inizializzare i pesi come \href{20250711175937-variabile_aleatoria.org}{variabile aleatoria}, in maniera tale che la varianza degli input e dei \(\delta\) rimanga invariata nella backpropagation attraverso i layer:
+\begin{align}
+\operatorname{Var}(x^{(\ell)}) &= \operatorname{Var}(x^{(\ell-1)})\label{eq:varianzax}\\
+\operatorname{Var}(\delta^{(\ell)}) &= \operatorname{Var}(\delta^{(\ell-1)})\label{eq:deltax}
+\end{align}
+
+Si consideri quindi
+\begin{align*}
+\operatorname{Var}(x_{k}^{(\ell)}) &= \operatorname{Var}(\phi(s_{k}^{(\ell)}))\\
+&\underset{1}{= } (\phi'(0))^{2}\operatorname{Var}(s_{k}^{(\ell)}) = \operatorname{Var}(s_{k}^{(\ell)}) =\\
+&= \operatorname{Var}\left(\sum_{h} w_{hk}^{(\ell)}\cdot x_{k}^{(\ell-1)}\right) = \sum_{h} \operatorname{Var}( w_{hk}^{(\ell)}\cdot x_{k}^{(\ell-1)}) =\\
+&\underset{2}{=} \sum_{h}\operatorname{Var}(w_{hk}^{(\ell)})\cdot \operatorname{Var}(x_{k}^{(\ell-1)}) \underset{3}{=} \sum_{h}\operatorname{Var}(w^{(\ell)})\cdot \operatorname{Var}(x^{(\ell-1)})\\ &= d^{(\ell)}\,\operatorname{Var}(w^{(\ell)})\cdot \operatorname{Var}(x^{(\ell-1)})
+\end{align*}
+dove si è supposto:
+\begin{enumerate}
+\item di essere in \uline{regime lineare}, ovvero
+\begin{equation*}
+ \phi(x)=\phi(0)+\phi'(0)\,x+ o(x^{2});
+\end{equation*}
+si suppone inoltre che \(\phi'(0)\approx 1\);
+\item sotto le opportune ipotesi: \(w^{(\ell)}_{hk}\) e \(x_{k}^{(\ell-1)}\) indipendenti e a media nulla;
+\item \(w_{hk}^{(\ell)}\) tutte i.i.d. come \(w^{(\ell)}\) e \(x_{k}^{(\ell-1)}\) tutte i.i.d. come \(x^{(\ell-1)}\).
+\end{enumerate}
+
+Dunque affinché~\eqref{eq:varianzax} sia soddisfatta, si deve avere una
+\begin{equation}
+d^{(\ell)}\operatorname{Var}(w^{(\ell)}) = 1\IMPLICA  \operatorname{Var}(w^{(\ell)}) = \frac{1}{d^{(\ell)}}\label{varianzaell}
+\end{equation}
+
+Per quanto riguarda invece i \(\delta\):
+\begin{align*}
+\operatorname{Var}(\delta_{j}^{(\ell-1)}) &= \operatorname{Var}\left(
+\varphi'(s_{j}^{(\ell-1)})\cdot \sum_{k}\delta_{k}^{(\ell)}\cdot w_{jk}^{(\ell)}
+\right)\\
+&\underset{1}{=} \operatorname{Var}\left(
+\sum_{k}\delta_{k}^{(\ell)}\cdot w_{jk}^{(\ell)}
+\right) \underset{2}{=} d^{(\ell-1)}\operatorname{Var}(\delta^{(\ell)})\cdot \operatorname{Var}(w^{(\ell)})\\
+\end{align*}
+dove
+\begin{enumerate}
+\item continua valere che \(\varphi'(0)\approx 1\), e inoltre \(s_{j}^{(\ell-1)}\approx 0\);
+\item sotto le opportune ipotesi: \(\delta^{(\ell)}_{k}\) e \(w_{jk}^{(\ell)}\) indipendenti e a media nulla; \(w_{jk}^{(\ell)}\) tutte i.i.d. come \(w^{(\ell)}\) e \(\delta_{j}^{(\ell)}\) tutte i.i.d. come \(\delta^{(\ell)}\).
+\end{enumerate}
+
+Quindi affinché~\eqref{eq:deltax} sia soddisfatta, si deve avere
+\begin{equation}
+d^{(\ell-1)}\operatorname{Var}(w^{(\ell)})=1\IMPLICA \operatorname{Var}(w^{(\ell-1)}) = \frac{1}{d^{(\ell)}}.\label{varianzaellmenouno}
+\end{equation}
+
+La proposta, quindi, è di scegliere come \(\operatorname{Var}(w^{(\ell)})\) la media armonica dei due valori dati dalle Eq.~\eqref{varianzaell} e~\eqref{varianzaellmenouno},
+\begin{equation*}
+\operatorname{Var}(w^{(\ell)})= \frac{1}{d^{(\ell)} +d^{(\ell-1)}}.
+\end{equation*}
+\end{document}
