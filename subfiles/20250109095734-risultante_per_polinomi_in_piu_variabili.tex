@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Risultante per polinomi in più variabili}
+\label{sec:org153f73d}
 Sia \(A\) un \href{20250108173116-ufd.org}{UFD}. Allora anche \(A[x_{0},\dots,x_{\ell-{1}}]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}) è un UFD, per induzione, dato che se \(A\) ufd \href{20250108173116-ufd.org}{allora} \(A[x]\) ufd.
 
 Sia dunque \(\K\) un \href{20241205142049-campo.org}{campo} \href{20241231112713-campo_algebricamente_chiuso.org}{algebricamente chiuso}, e consideriamo \(\K[x_{0},\dots,x_{\ell}]=\K[x_{0},\dots,x_{\ell-1}][x_{\ell}]\).
@@ -18,7 +22,7 @@ Dunque, se \(f,g \in \K[x_{0},\dots,x_{\ell}]\) si ha che (vedi \href{2025010817
 \operatorname{Res}_{x_{\ell}}(f,g)=0
 \end{equation*}
 dove con \(\operatorname{Res}_{x_{\ell}}\) si intende il risultante calcolato con i coefficienti rispetto alla variabile \(x_{\ell}\). Infatti \(\K\) è un UFD, e dunque il risultato vale.
-\section{Proposizione}
+\subsection{Proposizione}
 \label{sec:org8f02432}
 Si ha che \(\operatorname{Res}_{x_{\ell}}(f,g) \in \K[x_{0},\dots,x_{\ell-1}]\) è un \href{20241231121125-polinomi_omogenei.org}{polinomio omogeneo}. Se \(m=\deg f, n=\deg G\) (vedi \href{20241231124742-grado_polinomi.org}{grado di un polinomio}) allora il grado del risultante è
 \begin{equation*}

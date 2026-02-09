@@ -1,19 +1,22 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
+\usepackage[hyperref]{biblatex}
 \renewcommand{\href}[2]{#2}
-
-
+\date{}
+\title{}
 \begin{document}
 
-\section*{Legge di Hook}
+\section*{Forza Elastica}
+\label{sec:orgb7966cc}
+\subsection*{Legge di Hook}
 \label{sec:org74b9575}
 La legge di Hook asserisce che, data una molla sottoposta ad un allungamento \(\Delta\, x\), questa agisca con una \href{20250315151443-forza.org}{forza} di richiamo \href{20250315151458-proporzionalita_diretta.org}{direttamente proporzionale} all'allungamento:
 \begin{equation*}
 F_{\text{el}} = k\cdot\Delta\, x
 \end{equation*}
 La costante \(k\) è caratteristica della molla, e viene chiamata \textbf{costante elastica}.
-\subsection*{Molle in Serie}
+\subsubsection*{Molle in Serie}
 \label{sec:orgfe486d6}
 Si considerino \(N\) molle, di costanti elastiche \(k_{1},\dots,k_{N}\), collegate come segue, alla cui estremità è applicata una forza \(\vec{F}\).
 \begin{equation*}

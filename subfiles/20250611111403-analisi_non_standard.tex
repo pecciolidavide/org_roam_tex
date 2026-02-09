@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Analisi non-standard}
+\label{sec:org8c34613}
 Sia \(\mathcal{L}\) il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} che contiene:
 \begin{itemize}
 \item per ogni \href{20250203161110-numeri_naturali_sono_ordinali.org}{\(n \in \omega\)} e per ogni \(X \subseteq \R^{n}\), un \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di relazione} \(X\) di \href{20250130162057-linguaggio_del_prim_ordine.org}{arietà} \(n\);
@@ -11,19 +15,19 @@ Sia \(\mathcal{L}\) il \href{20250130162057-linguaggio_del_prim_ordine.org}{ling
 \end{itemize}
 
 Il \uline{modello standard} dell'analisi \(\R\) è la \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} di \href{20250131103035-struttura_del_prim_ordine.org}{dominio} \(\R\), e in cui ciascun simbolo di \(\mathcal{L}\) è intepretato nel modo naturale.
-\section{Teorema}
+\subsection{Teorema}
 \label{sec:org772db7e}
 
 Esiste una \href{20250212102253-sottostruttura_elementare.org}{estensione elementare} di \(\R\), detta \(\starR\), tale che \(\R\neq \starR\).
 
 Inoltre \(\starR\) è un \href{20250611115646-campo_ordinato.org}{campo ordinato}, e viene quindi detto \uline{campo degli iperreali}
-\section{Notazione}
+\subsection{Notazione}
 \label{sec:org59c8cf4}
 
 Se \(X\) è un simbolo di relazione di \(\mathcal{L}\), si denoterà con \(\nonstandard{X}\) la sua interpretazione in \(\starR\); se \(f\) è un simbolo di funzione di \(\mathcal{L}\), si denoterà con \(\nonstandard{f}\) la sua interpretazione in \(\starR\).
 
 Quando sarà chiaro dal contesto, si ometterà l'asterisco.
-\section{Numeri iperreali}
+\subsection{Numeri iperreali}
 \label{sec:org8fbff16}
 Gli elementi di \(\starR\) sono detti \uline{numeri iperreali}; gli elementi di \(R \subseteq \starR\) sono detti \uline{iperreali standard}, mentre gli elementi di \(\starR\setminus \R\) sono detti \uline{iperreali nonstandard}.
 
@@ -36,14 +40,14 @@ Sia \(c \in \starR\):
 Se \(c \in \starR\) è infinito, allora \(c^{-1}\) è infinitesimale.
 
 Tutti i reali standard sono finiti, e \(0\) è l'unico infinitesimo standard.
-\section{Proprietà}
+\subsection{Proprietà}
 \label{sec:org4d613cd}
 
-\subsection{Lemma 1}
+\subsubsection{Lemma 1}
 \label{sec:org7bd144e}
 
 Gli infinitesimi sono chiusi rispetto a somma, prodotto e moltiplicazione per un numero reale.
-\subsection{Lemma 2}
+\subsubsection{Lemma 2}
 \label{sec:orgcfc53fd}
 
 \begin{enumerate}
@@ -51,7 +55,7 @@ Gli infinitesimi sono chiusi rispetto a somma, prodotto e moltiplicazione per un
 
 \item Inoltre, per ogni iperreale finito \(c\) esiste un unico iperreale standard \(b\) tale che \(b-c\) è infinitesimo.
 \end{enumerate}
-\subsubsection{Dimostrazione}
+\paragraph{Dimostrazione}
 \label{sec:org72bf894}
 
 2 implica 1; infatti preso \(c \in \starR\setminus\R\), allora ci sono due possibilità
@@ -71,10 +75,10 @@ Per 2., si ponga per \(c \in \starR\) finito:
 \begin{equation*}
 b\coloneqq \inf\set{a \in \R\mid c<a}.
 \end{equation*}
-\subsection{Campo degli iperreali non è archimedeo}
+\subsubsection{Campo degli iperreali non è archimedeo}
 \label{sec:org35faff9}
 L'esistenza di iperreali infiniti mostra che \(\starR\) non è un \href{20250320150051-gruppo_archimedeo.org}{campo archimedeo}.
-\subsection{Caratterizzazione dei limiti per gli iperreali}
+\subsubsection{Caratterizzazione dei limiti per gli iperreali}
 \label{sec:org01f6b38}
 Sia \(f:\R\to \R\) e siano \(a,\ell \in \R\). Allora:
 \begin{enumerate}
@@ -83,24 +87,24 @@ Sia \(f:\R\to \R\) e siano \(a,\ell \in \R\). Allora:
 \item \(\lim_{x\to a} f(x) = + \infty\) se e solo se per ogni \(a\neq c\approx a\) si ha che \(\nonstandard{f}(c)>0\) è infinito.
 \item \(\lim_{x\to a}(fx) = \ell\) se e solo se per ogni \(a\neq c\approx a\), \(f(c)\approx \ell\).
 \end{enumerate}
-\subsection{Caratterizzazione funzioni continue tramite gli iperreali.}
+\subsubsection{Caratterizzazione funzioni continue tramite gli iperreali.}
 \label{sec:org18021e4}
 Sia \(f:\R\to \R\). Sono equivalenti:
 \begin{enumerate}
 \item \(f\) è \href{20250103103252-funzione_continua.org}{continua};
 \item per ogni \(a,c \in \starR\) finiti, se \(a\approx c\) allora \(\nonstandard{f}(a)\approx \nonstandard{f}(c)\).
 \end{enumerate}
-\subsection{Caratterizzazione funzioni uniformemente contiune tramite gli iperreali}
+\subsubsection{Caratterizzazione funzioni uniformemente contiune tramite gli iperreali}
 \label{sec:orge592f41}
 Sia \(f:\R\to \R\). Sono equivalenti:
 \begin{enumerate}
 \item \(f\) è \href{20250611135127-funzione_uniformemente_continua.org}{uniformemente continua};
 \item per ogni \(a,c \in \starR\), se \(a\approx c\) allora \(\nonstandard{f}(a)\approx \nonstandard{f}(c)\).
 \end{enumerate}
-\section{Altre definizioni}
+\subsection{Altre definizioni}
 \label{sec:org39f8081}
 
-\subsection{Monade di un iperreale}
+\subsubsection{Monade di un iperreale}
 \label{sec:org16f6a99}
 In virtà del \ref{sec:org7bd144e}, è possibile definire una \href{20250113110148-relazione_di_equivalenza.org}{relazione di equivalenza} su \(\starR\): scriveremo \(a\approx b\) se \(|a-b|\) è infinitesimo. La \href{20250114100810-quoziente_rispetto_a_relazione_di_equivalenza.org}{classe di equivalenza} di \(c\) è chiamata \uline{monade di \(c\)}.
 

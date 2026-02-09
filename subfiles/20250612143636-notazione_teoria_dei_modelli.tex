@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Variabili}
+\section{Notazione della TEORIA DEI MODELLI}
+\label{sec:org2fce1bf}
+\subsection{Variabili}
 \label{sec:orgd2b5fc8}
 
 Le variabili saranno indicate spesso con un'unica lettera, anche se sono una \href{20250206170922-sequenze_e_stringhe.org}{stringa}: \(x = \langle x_{i}:i <\alpha\rangle\) dove \(\alpha\) è un \href{20250203111003-ordinali.org}{ordinale} qualsiasi.
@@ -13,7 +17,7 @@ Se \(M\) è una struttura qualsiasi, si indicherà con \(M^{x}\) il \href{202501
 \begin{equation*}
 M^{x}\coloneqq M^{\card{\alpha}}
 \end{equation*}
-\section{Funzioni}
+\subsection{Funzioni}
 \label{sec:org244fb1f}
 
 Se non diversamente specificato, le funzioni \uline{sono parziali}.
@@ -27,7 +31,7 @@ Allo stesso modo se \(b=\langle b_{i}\mid i<\card{x}\rangle\), \(c=\langle c_{i}
 \begin{equation*}
 \set{\langle b,c\rangle}\coloneqq\set{\langle b_{i},c_{i}\rangle\mid i<\card{x}}.
 \end{equation*}
-\section{Insiemi definiti da una formula o da un tipo}
+\subsection{Insiemi definiti da una formula o da un tipo}
 \label{sec:org0f87681}
 
 Se \(\varphi(x)\) è una \href{20250131103317-formula_del_prim_ordine.org}{formula} e \(p(x)\) è un \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo}, allora, per ogni modello \(M\), si indicano nel seguente modo gli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}:
@@ -36,13 +40,13 @@ Se \(\varphi(x)\) è una \href{20250131103317-formula_del_prim_ordine.org}{formu
 p(M^{x}) &\coloneqq \set{a \in M^{x}\mid M\vDash p[a]}.
 \end{align*}
 (vedi \href{20250131122913-soddisfazione_di_una_formula.org}{Soddisfazione di una formula} e \href{20250212164424-tipo_teoria_dei_modelli.org}{Soddisfazione di un tipo})
-\section{Insieme delle formule}
+\subsection{Insieme delle formule}
 \label{sec:org6c95d2e}
 
 Se \(\mathcal{L}\) è un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, allora si denota con \(\mathcal{L}\) \uline{anche} l'insieme delle \(\mathcal{L}\) \href{20250131103317-formula_del_prim_ordine.org}{formule}.
 
 In particolare, se \(A\) è un insieme di parametri, si indica con \(\mathcal{L}(A)\) l'insieme di tutte le \(\mathcal{L}\)-formule a \href{20250212102927-enunciato_con_parametri.org}{parametri in \(A\)}.
-\section{Cardinalità di un linguaggio del prim'ordine}
+\subsection{Cardinalità di un linguaggio del prim'ordine}
 \label{sec:orga5a8517}
 Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}. Si denota con \(\card{\mathcal{L}}\) la \href{20241213101756-cardinalita.org}{cardinalità} di
 \begin{equation*}

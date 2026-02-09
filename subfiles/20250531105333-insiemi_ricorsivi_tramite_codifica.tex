@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Definizione}
+\section{Insiemi ricorsivi tramite codifica}
+\label{sec:org2bddc2b}
+\subsection{Definizione}
 \label{sec:orga5d6e9a}
 Siano \(\varphi: D\to \N\) e \(\psi:E\to \N\) due codifiche ricorsive per gli insiemi numerabili \(E,D\).
 \begin{itemize}
@@ -15,7 +19,7 @@ f_{\varphi,\psi}: \N^{k} &\longrightarrow \N\\
 (x_{1},\dots,x_{k}) &\longmapsto \psi\left[f\left(\varphi^{-1}(x_{1}),\dots,\varphi^{-1}(x_{k})\right)\right]
 \end{align*}
 \end{itemize}
-\section{Esempi}
+\subsection{Esempi}
 \label{sec:org48d4bbe}
 \begin{enumerate}
 \item Le funzioni \(\bm{J}^{k}\) forniscono una codifica ricorsiva dell'insieme \(\N^{k}\), che coincide con la nozione di ricorsività.

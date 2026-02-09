@@ -1,28 +1,32 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Teoria con eliminazione dei quantificatori}
+\label{sec:orgb71815f}
 Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, e sia \(T\) una \(\mathcal{L}\)-teoria \href{20250131123128-teoria_soddisfacibile.org}{soddisfacibile}.
-\section{Eliminazione dei quantificatori sintattica}
+\subsection{Eliminazione dei quantificatori sintattica}
 \label{sec:org3132e52}
 Diciamo che \(T\) \uline{ammette l'eliminazione dei quantificatori} se per ogni \(\mathcal{L}\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\varphi(x)\) esiste una \href{20250131103317-formula_del_prim_ordine.org}{formula senza quantificatori} \(\psi(x)\) tale che
 \begin{equation*}
 T\vdash \varphi(x)\,\iff\,\psi(x)
 \end{equation*}
 (vedi \href{20250131123011-conseguenza_logica.org}{Conseguenza logica})
-\section{Eliminazione dei quantificatori semantica}
+\subsection{Eliminazione dei quantificatori semantica}
 \label{sec:org6a0e61b}
-Diciamo che \(T\) \uline{ammette l'eliminazione dei quantificatori semantica} se ogni \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo parziale} tra \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} di \(T\) è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappa elementare}.
-\section{Eliminazione dei quantificatori}
+Diciamo che \(T\) \uline{ammette l'eliminazione dei quantificatori semantica} se ogni \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo parziale} tra \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} di \(T\) è una \href{20250131103053-morfismo_tra_strutture_del_prim_ordine.org}{mappa elementare}.
+\subsection{Eliminazione dei quantificatori}
 \label{sec:orge51ec2f}
 
 \begin{thm}
 Sono fatti equivalenti:
 \begin{enumerate}
 \item \(T\) ammette l'eliminazione dei quantificatori;
-\item ogni \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo parziale} tra \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} di \(T\) è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{morfismo elementare}.
+\item ogni \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo parziale} tra \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} di \(T\) è una \href{20250131103053-morfismo_tra_strutture_del_prim_ordine.org}{morfismo elementare}.
 \end{enumerate}
 \end{thm}
 \begin{proof}

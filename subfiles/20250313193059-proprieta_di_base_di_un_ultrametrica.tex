@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Proprietà}
+\section{Proprietà di base di un ultrametrica}
+\label{sec:orgd1f7ed1}
+\subsection{Proprietà}
 \label{sec:org5ca283f}
 
 Suppose that \(d\) is an \href{20250318161815-ultrametrica.org}{ultrametric} on a space \(X\). Prove the following statements:
@@ -14,10 +18,10 @@ Suppose that \(d\) is an \href{20250318161815-ultrametrica.org}{ultrametric} on 
 \item If \(y \in B_d(x, \varepsilon)\), then \(B_d(y, \varepsilon) = B_d(x, \varepsilon)\) (``all elements of an open ball are centers of it'').
 \item If two open (closed) balls intersect, then one is contained in the other one.
 \end{enumerate}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org4ff73c2}
 
-\subsubsection{Parte a.}
+\paragraph{Parte a.}
 \label{sec:org4830194}
 Si supponga per assurdo che esistano \(x,y,z \in X\) tali che \(d(x,z)\neq d(y,z)\) e
 \begin{equation*}
@@ -39,7 +43,7 @@ e se ne consideri il massimo \(M\), che esiste poiché l'insieme è finito. La p
 d(x,y) < \max \set{d(x,z),d(y,z)}\le \max\set{d(x,y),d(y,z),d(x,z)} = M
 \end{equation*}
 e pertanto \(M\neq d(x,y)\). Similmente, la seconda condizione asserisce che \(M\neq d(x,z)\) e la terza che \(M\neq d(y,z)\). Assurdo.
-\subsubsection{Parte d.}
+\paragraph{Parte d.}
 \label{sec:org1ea6a2d}
 Siano \(x,y \in X\) e siano \(\varepsilon, \delta >0\), con \(\varepsilon\ge\delta\).
 
@@ -72,7 +76,7 @@ Sia ora \(z \in B_{d}^{\text{cl}}(y,\delta)\), i.e. \(d(z,y)\le\delta\). Allora
  \end{align*}
 e quindi \(z \in B_{d}^{\text{cl}}(x,\varepsilon)\).
 \end{itemize}
-\subsubsection{Parte b.}
+\paragraph{Parte b.}
 \label{sec:org566c69c}
 \begin{itemize}
 \item La palla \(B_{d}(x,\varepsilon)\) è aperta per definizione di \href{20250301193530-topologia_indotta_da_una_distanza.org}{topologia indotta da una metrica}
@@ -102,7 +106,7 @@ Inoltre \(y \in B_{d}^{\text{cl}}\left(y,\frac{\varepsilon}{2}\right)\cap B_{d}^
 
 Quindi \(B_{d}^{\text{cl}}(x,\varepsilon)\) è intorno di ogni suo punto, e \href{20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.org}{quindi} \href{20250103145124-topologia.org}{aperto}.
 \end{itemize}
-\subsubsection{Parte c.}
+\paragraph{Parte c.}
 \label{sec:org08c5d4f}
 Sia \(y \in B_{d}(x,\varepsilon)\). Allora \(d(x,y)<\varepsilon\).
 

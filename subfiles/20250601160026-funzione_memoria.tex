@@ -1,11 +1,15 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Funzione memoria}
+\label{sec:org16c6f46}
 Sia \(f:\N^{k+1}\to \N\) una \href{20250202170607-classe_relazione_binaria.org}{funzione} (anche \href{20250213105339-funzione_parziale.org}{parziale}), e sia \(\godelcode{\cdot}\) la \href{20250531110737-codifica_delle_sequenze_finite_tramite_beta_di_godel.org}{codifica} delle \href{20250206170922-sequenze_e_stringhe.org}{sequenze finite}.
-\section{Definizione}
+\subsection{Definizione}
 \label{sec:org01d40a7}
 
 Si definisce \(f^{\text{m}}: \N^{k+1}\to \N\) la \uline{funzione memoria} associata ad \(f\), definita come segue:
@@ -15,7 +19,7 @@ f^{\text{m}}(\bm{x},y) = \godelcode{f(\bm{x},0),\dots,f(\bm{x},y)}.
 Questa \uline{non è} una funzione totale, e per il suo \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio} vale: \((\bm{x},y) \in \mathrm{dom}(f^{\text{m}})\) se e solo se, per ogni \(z\le y\), \((\bm{x},z) \in \mathrm{dom}(f)\).
 
 In particolare, \(\mathrm{dom}(f^{\text{m}}) = \mathrm{dom}(f)\) se e solo se \(\mathrm{dom}(f)\) è chiuso verso il basso rispetto all'ultima coordinata: questo accade, ad esempio, per le \href{20250215151458-funzioni_ricorsive.org}{funzioni definite per ricorsione}.
-\section{Lemma}
+\subsection{Lemma}
 \label{sec:orgb84af0e}
 
 Sia \(f:\N^{k+1}\to \N\) tale che se \((\bm{x},y) \in \mathrm{dom}(f)\) allora per ogni \(z\le y\): \((\bm{x},z) \in \mathrm{dom}(f)\) (cosicché \(\mathrm{dom}(f)=\mathrm{dom}(f^{\text{m}})\)).

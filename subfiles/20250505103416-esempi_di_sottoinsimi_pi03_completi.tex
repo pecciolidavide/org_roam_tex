@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Esercizio 3}
+\section{Esempi di sottoinsiemi pi03 completi}
+\label{sec:orge69bca6}
+\subsection{Esercizio 3}
 \label{sec:org0aac54e}
 
 Prove that the sets
@@ -15,13 +19,14 @@ C &= \left\{(x_n)_{n \in \omega} \in [0,1]^\omega \,\middle|\, (x_n)_{n \in \ome
 are both \(\bm{\Pi}^0_3\)-complete.
 
 \emph{Hint.} For the hardness part, compare these sets with the \(\bm{\Pi}^0_3\)-complete set \(C_3\) from Exercise 2.1.27 in the notes.
-\subsection{Soluzione}
+\subsubsection{Soluzione}
 \label{sec:org6bf8ee0}
 
-\subsubsection{\(C_{0}\) e \(C\) sono degli insiemi \(\mathbf{\Pi}_{0}^{3}\).}
+\paragraph{\(C_{0}\) e \(C\) sono degli insiemi \(\mathbf{\Pi}_{0}^{3}\).}
 \label{sec:org53520e2}
 
-\paragraph{Insieme \(C_{0}\).}
+\begin{enumerate}
+\item Insieme \(C_{0}\).
 \label{sec:org9a7202a}
 
 Si ha che \((x_{j})_{j \in \omega} \in C_{0}\) se e solo se \((x_{j})_{j \in \omega} \in [0,1]^{\omega}\) e:
@@ -44,7 +49,7 @@ e pertanto \(U_{n,\varepsilon}\) è chiuso. Per il Lemma 2.1.5:
 	C_{0} = \bigcap_{\varepsilon \in \Q^{+}} \bigcup_{N \in \N} \bigcap_{n>N} U_{n,\varepsilon} &\in \bm{\Pi}_{3}^{0}.
 \end{align*}
 e si ottiene che \(C_{0} \in \bm{\Pi}_{3}^{0}\left([0,1]^{\omega}\right)\).
-\paragraph{Insieme \(C\).}
+\item Insieme \(C\).
 \label{sec:orgf98d777}
 
 Si ha che \((x_{j})_{j \in\omega} \in C\) se e solo se \((x_{j})_{j \in\omega} \in [0,1]^{\omega}\) e
@@ -67,7 +72,8 @@ e quindi \(V_{n,m}^{\varepsilon}\) è chiuso. Per il Lemma 2.1.5:
 C = \bigcap_{\varepsilon \in \Q^{+}}\bigcup_{N \in \N}\bigcap_{n,m>N} V_{n,m}^{\varepsilon} &\in \bm{\Pi}_{3}^{0}
 \end{align*}
 e si ottiene che \(C \in \bm{\Pi}_{3}^{0}\left([0,1]^{\omega}\right)\).
-\subsubsection{Hardness}
+\end{enumerate}
+\paragraph{Hardness}
 \label{sec:org2da9842}
 
 È noto (Esercizio 2.1.27) che l'insieme \(C_{3} \coloneqq \set{x \in \omega^{\omega}\mid \lim_{n\to\infty}x(n) = \infty}\) sia \(\bm{\Pi}_{3}^{0}\)-hard. Pertanto si cercano delle funzioni continue
@@ -105,11 +111,12 @@ G: [0,1]^{\omega} &\longrightarrow [0,1]^{\omega}\\
 x_{j/2} & j\text{ pari}.
 \end{cases}
 \end{align*}
-\paragraph{\underline{\(F\) è continua.}}
+\begin{enumerate}
+\item \underline{\(F\) è continua.}
 \label{sec:org97823a4}
 
 La funzione \(F\) è continua poiché lo è su ciascuna componente (in quanto \(\N\) ha la topologia discreta).
-\paragraph{\underline{\(G\) è continua.}}
+\item \underline{\(G\) è continua.}
 \label{sec:org4f0e3c5}
 
 La funzione \(F\) è continua poiché lo è su ciascuna componente:
@@ -117,7 +124,7 @@ La funzione \(F\) è continua poiché lo è su ciascuna componente:
 \item la componente \(j\)-esima di \(G\), con \(j\) dispari, è data dalla funzione costante nulla, continua;
 \item la componente \(j\)-esima di \(G\), con \(j\) pari, è data dalla funzione proiezione \(\pi_{j/2}: [0,1]^{\omega}\to [0,1]\), continua per definizione di topologia prodotto.
 \end{itemize}
-\paragraph{\underline{\(F^{-1}(C_{0})=C_{3}\).}}
+\item \underline{\(F^{-1}(C_{0})=C_{3}\).}
 \label{sec:org0d884e2}
 
 Si dimostra che \(\alpha \in C_{3}\) sse \(F(\alpha) \in C_{0}\).
@@ -136,7 +143,7 @@ poiché \(y_{j}\to 0\). Quindi \((x_{j})_{j \in \omega} \in C_{3}\). Assurdo.
 
 Si ottiene perciò che \(F(\alpha) \notin C_{0}\).
 \end{itemize}
-\paragraph{\underline{\(G^{-1}(C)=C_{0}\).}}
+\item \underline{\(G^{-1}(C)=C_{0}\).}
 \label{sec:org74e1729}
 
 Si dimostra che \(\alpha \in C_{0}\) sse \(G(\alpha) \in C\).
@@ -145,4 +152,5 @@ Si dimostra che \(\alpha \in C_{0}\) sse \(G(\alpha) \in C\).
 \item Se \(\alpha = (x_{j})_{j \in \omega} \in C_{0}\) allora la successione \(\beta= (y_{j})_{j \in \omega} \coloneqq G(\alpha)\) converge a \(0\), e pertanto converge: \(G(\alpha) \in C\).
 \item Viceversa, se \(\alpha = (x_{j})_{j \in \omega}\notin C_{0}\) , allora la successione \(\beta= (y_{j})_{j \in \omega} \coloneqq G(\alpha)\) non converge, in quanto presenta due sottosuccessioni (\((y_{2j+1})_{j \in \omega}\) e \((y_{2j})_{j \in \omega}\)) con caratteri diversi: \(G(\alpha)\notin C\).\qed
 \end{itemize}
+\end{enumerate}
 \end{document}

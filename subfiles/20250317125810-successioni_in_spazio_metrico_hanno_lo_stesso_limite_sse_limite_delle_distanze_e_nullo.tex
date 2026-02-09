@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Teorema}
+\section{Successione delle distanze tende a zero implica successioni hanno lo stesso limite}
+\label{sec:orgad27ffb}
+\subsection{Teorema}
 \label{sec:org6949d7e}
 Sia \((X,d)\) uno \href{20250301193511-spazio_metrico.org}{spazio metrico}, e siano \((z_{n})_{n \in \N}\), \((w_{n})_{n \in \N}\) due \href{20250115100904-successione.org}{successioni}. Se
 \begin{itemize}
@@ -15,7 +19,7 @@ allora \((z_{n})_{n \in \N}\) \href{20250115100930-convergenza_per_una_successio
 \begin{equation*}
 \lim_{n \to \infty} z_{n} = \lim_{n \to \infty} w_{n}
 \end{equation*}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org2358c1a}
 
 Sia \(k \coloneqq \lim_{n\to \infty} w_{n}\).
@@ -36,7 +40,7 @@ Siccome \(X\) è \href{20250109155715-spazio_topologico_di_hausdorff.org}{T2} (v
 \begin{equation*}
 \lim_{n\to \infty} z_{n} = k
 \end{equation*}
-\subsubsection{Limiti uguali \%\% Dimostrazione alternativa}
+\paragraph{Limiti uguali \%\% Dimostrazione alternativa}
 \label{sec:org71406bb}
 Siano quindi
 \begin{equation*}

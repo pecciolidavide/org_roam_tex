@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Proprietà}
+\section{Classe di Borel dell'insieme dei punti di derivabilità di una funzione reale}
+\label{sec:org249f564}
+\subsection{Proprietà}
 \label{sec:orga8906ef}
 
 Given a continuous function \(f : [0, 1] \to \mathbb{R}\), let
@@ -12,7 +16,7 @@ Given a continuous function \(f : [0, 1] \to \mathbb{R}\), let
 D_f = \set{ x \in [0, 1] \mid f' \text{ exists}}.
 \]
 (At endpoints we take one-sided derivatives.) Prove that \(D_f \in \bm{\Pi}^{0}_{3}\left([0,1]\right)\).
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org7c78cd1}
 
 Si ha che \(x \in D_{f}\) se e solo se \(x \in [0,1]\) e per ogni \(\varepsilon \in \R^{+}\) esiste \(\delta \in \R^{ +}\) tale che per ogni \(p, q \in [0,1]\):

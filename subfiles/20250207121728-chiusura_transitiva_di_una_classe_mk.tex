@@ -1,11 +1,15 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Chiusura transitiva di una classe MK}
+\label{sec:orgaf95acd}
 Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
-\section{Definizione}
+\subsection{Definizione}
 \label{sec:org8248774}
 Sia \(X\) una \href{20250130104320-classe_mk.org}{classe}. La chiusura transitiva di \(X\) è
 \begin{align*}
@@ -21,7 +25,7 @@ Si ha che \(y \in \operatorname{TC}(X)\) se e solo se esistono \(x_{0},\dots,x_{
 \begin{equation*}
 y \in x_{0} \in x_{1} \in \dots \in x_{n} \in X
 \end{equation*}
-\subsection{Osservazione}
+\subsubsection{Osservazione}
 \label{sec:orgab47848}
 La classe \(\operatorname{TC}(X)\) è \href{20250203110714-classe_transitiva.org}{transitiva}. Infatti, se \(z \in y \in \operatorname{TC}(X)\) e \(f \in \prescript{\operatorname{S}(n)}{}{V}\) testimonia il fatto che \(y \in \operatorname{TC}(X)\), allora (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Unione di classi MK})
 \begin{equation*}
@@ -38,10 +42,10 @@ e dunque \(x_{n} \in Y\). Pertanto
 y \in x_{0} \in x_{1} \in \dots \in x_{n} \in Y
 \end{equation*}
 e per transitività \(y \in Y\).} \(\operatorname{TC}(X) \subseteq Y\). Dunque \(\operatorname{TC}(X)\) è la più piccola classe transitiva che contiene \(X\).
-\section{Chiusura transitiva di un insieme}
+\subsection{Chiusura transitiva di un insieme}
 \label{sec:org73b64a1}
 Se \(x\) è un insieme, allora si può definire la chiusura transitiva di \(x\) in due modi equivalenti.
-\subsection{Primo metodo}
+\subsubsection{Primo metodo}
 \label{sec:orgb3cbd2c}
 Si usa il \href{20250207121712-teorema_di_ricorsione_caso_speciale.org}{Teorema di Ricorsione - caso speciale}
 
@@ -49,7 +53,7 @@ Si pone \(x_{0}=x\) e \(x_{n+1} = \bigcup x_{n}\) (vedi \href{20250131155822-ope
 \begin{equation*}
 \operatorname{TC}(x) = \bigcup_{n \in \omega} x_{n}
 \end{equation*}
-\subsection{Secondo metodo}
+\subsubsection{Secondo metodo}
 \label{sec:orgd0297f4}
 Si usa il \href{20250207121906-teorema_di_ricorsione.org}{Teorema di Ricorsione}, con \(R=\in\) (vedi \href{20250203100901-relazione_well_founded_mk.org}{Inclusione è irriflessiva, well-founded e left-narrow})
 \begin{equation*}

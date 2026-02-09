@@ -1,15 +1,19 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Morse Kelly Set Theory}
+\label{sec:org42248e4}
 La teoria MK è una \(\mathcal{L}_{\in}\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria della logica del prim'ordine}, dove il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} è
 \begin{equation*}
 \mathcal{L}_{\in} = \set{\in}
 \end{equation*}
 con \(\in\) \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di relazione} binaria
-\section{Definizioni di base}
+\subsection{Definizioni di base}
 \label{sec:org7b332d2}
 
 \begin{itemize}
@@ -41,21 +45,21 @@ con \(\in\) \href{20250130162057-linguaggio_del_prim_ordine.org}{simbolo di rela
 \item {[}BROKEN LINK: a9dda44b-5a98-4c24-9382-15083956fa9c]
 \item \href{20250619101109-classi_equipotenti.org}{Classi equipotenti MK}
 \end{itemize}
-\section{Assiomi di MK}
+\subsection{Assiomi di MK}
 \label{sec:orgc2bb5b8}
 (vedi \href{20250131123109-insieme_di_assiomi_per_una_teoria.org}{Insieme di assiomi per una teoria} e \href{20250131103446-enunciato_del_prim_ordine.org}{Enunciato del prim'ordine})
-\subsection{Axiom of Extensionality}
+\subsubsection{Axiom of Extensionality}
 \label{sec:org4826263}
 \begin{equation*}
 \forall\, A\ \forall\, B\ \left(\left( \forall\, x\ (x \in A \iff x \in B)\right) \implies A = B\right)
 \end{equation*}
-\subsection{Axiom of Comprehension}
+\subsubsection{Axiom of Comprehension}
 \label{sec:orgd75b255}
 Sia \(\varphi(x,y_{1},\dots,y_{n})\) una \href{20250131103317-formula_del_prim_ordine.org}{formula} in cui la variabile \(x\) occorra \href{20250131103429-variabile_libera_di_una_formula.org}{libera}, e sia \(A\) una variabile diversa da \(x,y_{1},\dots,y_{n}\).
 \begin{equation*}
 \forall\,y_{1}\cdots \forall\,y_{n}\ \exists\, A\ \forall\,x \left(x \in A\,\iff\, \left(\operatorname{Set}(x) \,\land\, \varphi(x,y_{1},\dots,y_{n})\right)\right)
 \end{equation*}
-\subsubsection{Osservazioni}
+\paragraph{Osservazioni}
 \label{sec:orgec7562a}
 La classe \(A\) è unica per l'assioma di Extensionality, e si denota
 \begin{equation*}
@@ -66,13 +70,13 @@ Notiamo inoltre che questo assioma ci consente di scrivere \(\set{x_{1},\dots,x_
 \begin{equation*}
 \set{x_{1},\dots,x_{n}}\coloneqq \set{x\,|\, x=x_{1} \,\lor\, x=x_{2} \,\lor\,\dots \,\lor\, x=x_{n}}
 \end{equation*}
-\subsection{Axiom of Set-existence}
+\subsubsection{Axiom of Set-existence}
 \label{sec:orgc710714}
 \begin{equation*}
 \exists\, x\ \operatorname{Set}(x)
 \end{equation*}
 (vedi \href{20250130104331-insieme_mk.org}{Insieme MK})
-\subsection{Axiom of Power-Set}
+\subsubsection{Axiom of Power-Set}
 \label{sec:org527b953}
 \begin{equation*}
 \forall\,A\ \left(\operatorname{Set}(A)\,\implies\,\exists\, P\ \left(\operatorname{Set}(P) \,\land\, \left(\forall\, B\ (B \subseteq A\ \iff\ B \in P)\right)\right)\right)
@@ -80,36 +84,36 @@ Notiamo inoltre che questo assioma ci consente di scrivere \(\set{x_{1},\dots,x_
 (vedi \href{20250130104331-insieme_mk.org}{Insieme MK} e \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK})
 
 \(P\) è l'insieme delle parti di \(A\), e si indica con \(\parti{A}\).
-\subsection{Axiom of Pairing}
+\subsubsection{Axiom of Pairing}
 \label{sec:org96cf968}
 \begin{equation*}
 \forall\, x\ \forall\, y\ \left(\operatorname{Set}(x) \,\land\, \operatorname{Set}(y)\,\implies\, \operatorname{Set}\left(\set{x,y}\right)\right)
 \end{equation*}
 (vedi \href{20250130104331-insieme_mk.org}{Insieme MK})
-\subsection{Axiom of Foundation}
+\subsubsection{Axiom of Foundation}
 \label{sec:orgfb2b182}
 \begin{equation*}
 \forall\, A\ \left(A\neq \emptyset\,\implies\, \left(\exists B (B \in A \,\land\, A\cap B=\emptyset)\right)\right)
 \end{equation*}
 
 Questo assioma ci garantisce che, per ogni classe, ci siano degli elementi al suo interno che non contengano elementi della classe più grande.
-\subsection{Axiom of Union}
+\subsubsection{Axiom of Union}
 \label{sec:org154c2cc}
 \begin{equation*}
 \forall\, A\ \left(\operatorname{Set}(A)\,\implies\, \operatorname{Set}\left(\bigcup A\right)\right)
 \end{equation*}
 (vedi \href{20250130104331-insieme_mk.org}{Insieme MK} e \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Classe Unione}).
-\subsection{Axiom of Infinity}
+\subsubsection{Axiom of Infinity}
 \label{sec:orga7a3c0a}
 Esiste un \href{20250130104331-insieme_mk.org}{insieme} \href{20250202125627-insieme_induttivo_mk.org}{induttivo}, ovvero:
 \begin{equation*}
 \exists\, x\ \left(\operatorname{Set}(x) \,\land\, \emptyset \in x \,\land\,  \forall\, y\ \left(y \in x \,\implies\, \operatorname{S}(y) \in x\right)\right)
 \end{equation*}
 (vedi \href{20250130104331-insieme_mk.org}{Insieme MK} e \href{20250202124648-successore_di_un_insieme_mk.org}{Successore di un insieme MK}).
-\subsection{Axiom of Replacement}
+\subsubsection{Axiom of Replacement}
 \label{sec:org8e4e88f}
 Se \(F\) è una \href{20250202170607-classe_relazione_binaria.org}{classe-funzione} e \(A\) è un \href{20250130104331-insieme_mk.org}{insieme}, allora \(F[A]\) è un \href{20250130104331-insieme_mk.org}{insieme}. (vedi \href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine punto a punto di due classi MK})
-\section{Risultati di base}
+\subsection{Risultati di base}
 \label{sec:org97b9a44}
 \href{20250131160822-ogni_sottoclasse_di_un_insieme_e_un_insieme_mk.org}{Ogni sottoclasse di un insieme è un insieme MK}
 \href{20250131160843-ogni_sottoclasse_di_una_classe_propria_e_una_classe_propria_mk.org}{Ogni sovraclasse di una classe propria è una classe propria MK}

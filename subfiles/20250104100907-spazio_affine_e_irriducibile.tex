@@ -1,25 +1,30 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Spazio affine è irriducibile}
+\label{sec:org346abd3}
 Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
-\section{Proposizione}
+\subsection{Proposizione}
 \label{sec:org9229bf0}
 \(\A^{n}\) (vedi \href{20241231114009-spazio_affine.org}{Spazio Affine}) con la \href{20250103101459-topologia_di_zariski_affine.org}{topologia di Zariski} è \href{20250103164917-sottospazio_irriducibile.org}{irriducibile}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:orgb8b39ad}
 Per la \href{20250103170329-caratterizzazione_di_sottospazi_affini_irriducibili_tramite_ideali.org}{caratterizzazione degli irriducibili con la topologia di Zariski affine}, \(\A^{n}\) è irriducibile se e solo se il suo \href{20250103144124-ideale_di_un_sottoinsieme.org}{ideale} \(I(\A^{n})\) è \href{20250103171055-ideale_primo.org}{primo}.
-\subsubsection{Claim: \(I(\A^{n})=(0)\).}
+\paragraph{Claim: \(I(\A^{n})=(0)\).}
 \label{sec:org272e39d}
 (vedi \href{20241219113154-ideale_generato.org}{Ideale-Generato} e \href{20250103144124-ideale_di_un_sottoinsieme.org}{Ideale di un sottoinsieme})
 
 Dal momento che \((0)=\set{0}\), è sufficiente dimostrare che se \(f \in \K[x_{1},\dots,x_{n}]\) e \(f \neq 0\), allora esiste \(p \in \A^{n}\) tale che \(f(p)\neq 0\). Questo implica che \(I(\A^{n})=\{0\}\). Si dimostra per induzione su \(n\).
-\paragraph{Caso base: \(n=1\)}
+\begin{enumerate}
+\item Caso base: \(n=1\)
 \label{sec:orgeeef3e5}
 Dal momento che \(\K\) è algebricamente chiuso, \href{20250102103618-infinitezza_campi_alg_chiusi.org}{\(\K\) è infinito}, mentre per ogni  \(f \in \K[x_{1}]\) di grado \(d\), \(f\) ha al più \(d\) radici distinte (per il \href{20250102154204-teorema_fondamentale_dell_algebra.org}{Teorema Fondamentale dell'Algebra}).
-\paragraph{Passo induttivo}
+\item Passo induttivo
 \label{sec:org2fabff3}
 Supponiamo l'ipotesi vera per un numero di variabili minori o uguali ad \(n-1\), e sia \(f \in \K[x_{1},\dots,x_{n}]\). Se \(x_{n}\) non compare in \(f\) si ha la tesi per ipotesi induttiva.
 
@@ -37,7 +42,8 @@ non è il polinomio nullo (infatti almeno il coefficiente di grado massimo è no
 \begin{equation*}
 f(a_{1},\dots,a_{n-1},a_{n}) \neq  0.
 \end{equation*}
-\subsubsection{Claim: \((0)\) è un ideale primo}
+\end{enumerate}
+\paragraph{Claim: \((0)\) è un ideale primo}
 \label{sec:org575f509}
 \href{20250104101516-caratterizzazione_domini_d_integrita_tramite_ideali_primi.org}{perché} l'\href{20241219113434-anello_dei_polinomi.org}{anello dei polinomi} \(\K[x_{1},\dots,x_{n}]\) è un \href{20250103143950-dominio_di_integrita.org}{dominio di integrità} (poichè l'\href{20250102115740-anello_dei_polinomi_ad_ideali_principali.org}{Anello dei polinomi è ad ideali principali} e dunque è un dominio di integrità).
 \end{document}

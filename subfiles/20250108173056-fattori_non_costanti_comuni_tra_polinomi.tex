@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Fattori non costanti comuni tra polinomi}
+\label{sec:orge543b2d}
 Sia \(A\) un \href{20250108173116-ufd.org}{UFD}. (\href{20250108173116-ufd.org}{Allora} \(A[X]\) è un UFD)
 
 Siano \(f,g \in A[x]\),
@@ -11,17 +15,17 @@ Siano \(f,g \in A[x]\),
 f(x)&=a_{m}\ x^{m}+a_{m-1}\ x^{m-1} + \dots + a_{0}\\
 g(x)&= b_{n}\ x^{n} + b_{n-1}\ x^{n-1}+\dots+b_{0}
 \end{align*}
-\section{Lemma 1}
+\subsection{Lemma 1}
 \label{sec:org81174f3}
 \(f\) e \(g\) hanno \href{20250108173845-fattore_comune.org}{fattori comuni} non costanti se e solo se esiste \(h \in A[x]\) tale che
 \begin{itemize}
 \item \(\deg h < n+m=\deg fg\) (vedi \href{20241231124742-grado_polinomi.org}{Grado-Polinomi})
 \item \(f\) e \(g\) \href{20250108174027-divisione.org}{dividono} \(h\).
 \end{itemize}
-\subsection{Dimostrazione}
-\label{sec:org12d0994}
+\subsubsection{Dimostrazione}
+\label{sec:org451e4c7}
 
-\subsubsection{``\(\implies\)''}
+\paragraph{``\(\implies\)''}
 \label{sec:orgd3f2949}
 Supponiamo che \(f\) e \(g\) abbiamo come fattore comune non costante \(k \in A[x]\):
 \begin{equation*}
@@ -33,11 +37,11 @@ Allora si ponga \(h=uvk\).
 \begin{equation*}
 \deg h = \deg u + \deg vk < \deg f + \deg g = n+m
 \end{equation*}
-\subsubsection{``\(\impliedby\)''}
+\paragraph{``\(\impliedby\)''}
 \label{sec:orge6ab75c}
 Sia \(h=uf=vg\). Allora \(\deg(u)=\deg h - \deg f<n = \deg g\)
 Dunque i fattori di \(g\) non possono essere dentro ad \(u\), e pertanto ci sono fattori di \(g\) dentro ad \(f\).
-\section{Matrice di Sylvester}
+\subsection{Matrice di Sylvester}
 \label{sec:org044dbd9}
 La matrice di Sylvester tra \(f\) e \(g\) è una matrice \((n+m)\ (n+m)\)
 \begin{equation*}
@@ -95,11 +99,11 @@ Il risultante è
 \operatorname{Res}(f,g)\coloneqq \det S_{f,g} \in A
 \end{equation*}
 (vedi \href{20250104111751-determinante_di_una_matrice.org}{Determinante di una matrice})
-\section{Lemma 2}
+\subsection{Lemma 2}
 \label{sec:org4111c9b}
 \(f\) e \(g\) hanno un fattore non costante in comune se e solo se \(\operatorname{Res}(f,g)=0\).
-\subsection{Dimostrazione}
-\label{sec:org451e4c7}
+\subsubsection{Dimostrazione}
+\label{sec:org995dc6e}
 Dal lemma 1, \(f,g\) hanno un fattore non costante in comune se e solo se esiste \(h \in A[x]\) di grado minore di \(m+n\) divisibile per \(f\) e per \(g\).
 Ma tale \(h\) esiste se e solo se i polinomi seguenti sono \href{20241212142019-insiemi_linearmente_indipendenti.org}{linearmente dipendenti}:
 \begin{equation*}

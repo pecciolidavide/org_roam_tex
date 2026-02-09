@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Notazione}
+\section{Complessità di una formula nel linguaggio dell'aritmetica}
+\label{sec:org1b4e7d4}
+\subsection{Notazione}
 \label{sec:orge0bd1d6}
 
 Si consideri il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine} \(\mathcal{L} = \set{+,\cdot}\). Si definiscono le seguenti pseudoformule (ovvero abbreviazioni):
@@ -17,7 +21,7 @@ Si consideri il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio 
 \item numero uno: ``\(x=1\)'' sse \(x\cdot x=x\);
 \item la \href{20250202124648-successore_di_un_insieme_mk.org}{funzione successore}: ``\(y=S(x)\)'' sse \(\exists\,w\ ( ``w=1" \,\land\, x+w=1)\).
 \end{itemize}
-\subsection{Quantificatore limitato nel linguaggio dell'aritmetica}
+\subsubsection{Quantificatore limitato nel linguaggio dell'aritmetica}
 \label{sec:orgd6e0957}
 Inoltre, per ogni linguaggio \(\mathcal{L}'\supseteq \mathcal{L}\) e per ogni \(\mathcal{L}'\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\psi\) si useranno le seguenti quantificazioni limitate: si scriverà
 \begin{align*}
@@ -30,7 +34,7 @@ in luogo di
 \forall\,w\ &\left(\varphi_{\le}(w,t) \,\implies\, \psi\right).
 \end{align*}
 Queste verranno dette quantificazioni limitate.
-\section{Definizione}
+\subsection{Definizione}
 \label{sec:orga2c61b9}
 
 Sia \(\mathcal{L}'\supseteq \mathcal{L}\) un linguaggio del prim'ordine. Si definiscono le classi di \(\mathcal{L}'\)-formule \(\Delta_{0},\Sigma_{1},\Pi_{1}\):
@@ -73,14 +77,14 @@ Per induzione simultanea è possibile definire, per ogni \href{20250202130045-in
 \item \uline{quantificazioni universali}.
 \end{itemize}
 \end{itemize}
-\section{Osservazioni}
+\subsection{Osservazioni}
 \label{sec:org97f3325}
 \begin{enumerate}
 \item Le classi \(\Delta_{0},\Pi_{n}, \Sigma_{n}\) si intendono chiuse per \href{20250131123033-equivalenza_logica_tra_due_enunciati.org}{equivalenza logica}.
 \item La negazione di una \(\Sigma_{n}\)-formula è (logicamente equivalente a) un \(\Pi_{n}\)-formula.
 \item La negazione di una \(\Pi_{n}\)-formula è (logicamente equivalente a) un \(\Sigma_{n}\)-formula.
 \end{enumerate}
-\section{Descrizione esplicita}
+\subsection{Descrizione esplicita}
 \label{sec:orgf91685a}
 
 Se \(\varphi(x_{1},\dots,x_{k})\) è una \(\Sigma_{1}\) formula, allora esiste una \(\Delta_{0}\) formula \(\psi(x_{1},\dots,x_{k},y)\) tale che \(\varphi\) sia \href{20250131123033-equivalenza_logica_tra_due_enunciati.org}{equivalente} a

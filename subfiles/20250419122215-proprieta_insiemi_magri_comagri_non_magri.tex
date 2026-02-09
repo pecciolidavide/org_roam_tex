@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Proposizione}
+\section{Proprietà insiemi magri, comagri, non magri}
+\label{sec:orgbd04b86}
+\subsection{Proposizione}
 \label{sec:orgf33bb8f}
 Prove that for every topological space \(X\), the following are equivalent:
 \begin{enumerate}
@@ -12,16 +16,16 @@ Prove that for every topological space \(X\), the following are equivalent:
 \item Every comeager set in \(X\) is dense.
 \item The intersection of countably many dense open subsets of \(X\) is dense.
 \end{enumerate}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org1004caa}
 
-\subsubsection{a. implica b.}
+\paragraph{a. implica b.}
 \label{sec:org7367909}
 
 Sia \(A \subseteq X\) un insieme comagro: pertanto \(X\setminus A\) è magro. Se per assurdo \(A\) non è denso, allora esiste \(U \subseteq X\) aperto tale che \(A\cap U = \emptyset\), ovvero \(U \subseteq X\setminus A\).
 
 Dunque \(U\) è sottoinsieme di un magro, e pertanto è magro. Assurdo.
-\subsubsection{b. implica c.}
+\paragraph{b. implica c.}
 \label{sec:org11c898e}
 
 Sia \(\set{U_{n}\mid n \in \omega}\) una collezione di aperti densi di \(X\), e sia, per ogni \(n \in\omega\), \(F_{n} \coloneqq X\setminus U_{n}\).
@@ -33,7 +37,7 @@ Siccome
 X \setminus \bigcap_{n \in \omega} U_n = \bigcup_{n \in \omega} F_n
 \]
 allora \(\bigcap_{n \in \omega} U_{n}\) è comagro, e quindi è denso.
-\subsubsection{c. implica a.}
+\paragraph{c. implica a.}
 \label{sec:orgd4c6ff1}
 
 Sia \(U \subseteq X\) aperto, magro. Per definizione, allora, esistono, per ogni \(n \in\omega\), \(A_{n} \subseteq X\) mai densi tali che

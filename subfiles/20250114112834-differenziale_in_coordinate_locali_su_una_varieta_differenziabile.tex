@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Differenziale in coordinate locali su una varietà differenziabile}
+\label{sec:org0475c25}
 Siano \(M, N\) \href{20250113115909-struttura_differenziabile.org}{varietà differenziabili} (di dimensione, rispettivamente, \(n, m\)),  e sia \(F:M\longrightarrow N\) una \href{20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.org}{funzione \(C^{\infty}\)}. Sia \(p \in M\) e \(q\coloneqq F(p) \in N\).
 Allora esistono \((U,\varphi)\) \href{20250111092123-varieta_topologica.org}{carta} di \(M\), \((V,\psi)\) \href{20250111092123-varieta_topologica.org}{carta} di \(N\), con \(p \in U\) e \(F(U) \subseteq V\) tali che
 \begin{equation*}
@@ -37,7 +41,7 @@ Siccome il \href{20250114111331-differenziale_di_una_funzione_tra_varieta_differ
 }{q}
 \end{equation*}
 con la \href{20250114105957-notazione_di_einstein.org}{Notazione di Einstein}.
-\section{Proposizione}
+\subsection{Proposizione}
 \label{sec:org915704a}
 Indicando con \(\left(\psi\circ F\circ \varphi^{-1}\right)^{r}\) la \(r\)-esima componente di \(\psi\circ F\circ\varphi^{-1}\), si ha che la matrice \((A^{r}_{i})\) è
 \begin{equation*}
@@ -51,9 +55,9 @@ Dunque
 (A^{r}_{i}) = \operatorname{J}_{\psi\circ F\circ \varphi^{-1}}\left(\varphi(p)\right)
 \end{equation*}
 dove \(\operatorname{J}\) è la \href{20250114123754-matrice_jacobiana.org}{Matrice Jacobiana}
-\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\subsubsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
 \label{sec:org4217b09}
-\section{Notazione}
+\subsection{Notazione}
 \label{sec:org464632d}
 Si scrive che
 \begin{equation*}

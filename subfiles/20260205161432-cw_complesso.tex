@@ -1,7 +1,9 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
 \section{CW-complesso}
@@ -14,7 +16,7 @@ X=\bigcup_{n \in \N} X_{n}
 tale che:
 \begin{itemize}
 \item \(X_{0}\) è \href{20260128123515-sottoinsieme_discreto.org}{discreto} e finito;
-\item per ogni \(k\): esiste una famiglia \(\set{e_{\alpha}^{k+1}}_{\alpha \in A^{k+1}}\) di \href{20250215122759-export.org_archive}{\((k+1)\)-celle} ed una famiglia di funzioni \href{20250103103252-funzione_continua.org}{continue} dal \href{20250129161026-bordo.org}{bordo} \(\varphi_{\alpha}^{k+1}: \partial e_{\alpha}^{k+1} \to X_{k}\); tali che \(X_{k+1}\) sia dato dal \href{20250215122759-export.org_archive}{seguente attaccamento}:
+\item per ogni \(k\): esiste una famiglia \(\set{e_{\alpha}^{k+1}}_{\alpha \in A^{k+1}}\) di \href{20260205151208-attaccamento_di_una_k_cella_a_uno_spazio_topologico.org}{\((k+1)\)-celle} ed una famiglia di funzioni \href{20250103103252-funzione_continua.org}{continue} dal \href{20250129161026-bordo.org}{bordo} \(\varphi_{\alpha}^{k+1}: \partial e_{\alpha}^{k+1} \to X_{k}\); tali che \(X_{k+1}\) sia dato dal \href{20260205151208-attaccamento_di_una_k_cella_a_uno_spazio_topologico.org}{seguente attaccamento}:
 \begin{equation*}
 X_{k+1} \coloneqq X_{k} \mathrel{\cup_{\set{\varphi_{\alpha}^{k+1}}}} \left(
   \coprod_{\alpha \in A^{k+1}} e_{\alpha}^{k+1}
@@ -55,4 +57,19 @@ e si definisca \(X_{n} = \set{p} \mathrel{\cup_{\varphi}} e^n_{1}\), dove
 x &\longmapsto p
 \end{align*}
 \end{esempio}
+\subsection{Topologia}
+\label{sec:org74b80d1}
+
+\begin{oss}
+La topologia su un CW-complesso è la topologia debole, ovvero
+\begin{equation*}
+C \subseteq X\ \text{chiuso}%
+\IFF%
+\forall i\ C\cap X_{i}\ \text{chiuso}.
+\end{equation*}
+\end{oss}
+
+\begin{prop}
+Un \(CW\)-complesso è \href{20260209153646-sistema_diretto.org}{limite diretto} dei suoi scheletri con le mappe di immersione.
+\end{prop}
 \end{document}

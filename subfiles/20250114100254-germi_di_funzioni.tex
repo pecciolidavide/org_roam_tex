@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Germi di funzioni}
+\label{sec:orgb2bf1b1}
 Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} di dimensione \(n\), e sia \(p \in M\). Si definisce
 \begin{equation*}
 \mathscr{F}_{p} \coloneqq \set{f:U \longrightarrow \R\ : U \subseteq M\text{ aperto},\ f \text{ è }C^{\infty}}
@@ -21,7 +25,7 @@ Si indica quindi con
 C^{\infty}_{p} \coloneqq \mathscr{F}_{p}/\sim
 \end{equation*}
 il \href{20250114100810-quoziente_rispetto_a_relazione_di_equivalenza.org}{quoziente}. Se \(f \in \mathscr{F}_{p}\) si indica con \(f_{p} \in C^{\infty}_{p}\) la sua \href{20250113110148-relazione_di_equivalenza.org}{classe d'equivalenza}. \(f_p\) si dice il \textbf{germe di \(f\)} in \(p\).
-\section{Osservazione}
+\subsection{Osservazione}
 \label{sec:org746fe3b}
 Se \(f_{p} \in C^{\infty}_{p}\) allora ha senso chiedersi il valore \(f_{p}(p)\), poiché tutti i rappresentanti di \(f_{p}\) hanno lo stesso valore in \(p\).
 \end{document}

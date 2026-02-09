@@ -1,6 +1,7 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
+\usepackage[hyperref]{biblatex}
 \def\U{\mathcal{U}}
 \def\L{\mathcal{L}}
 %
@@ -35,15 +36,17 @@
 \def\X{\mathcal{X}}
 \def\Z{\mathcal{Z}}
 \def\V{\mathcal{V}}
-
-
+\date{}
+\title{}
 \begin{document}
 
+\section{Teoria dei modelli [CORSO]}
+\label{sec:orga4c44e6}
 \maketitle
 \textbf{\textbf{NOTAZIONE IMPORTANTE}}: Tutte le mappe sono parziali, se non diversamente indicato.
 
 Le dispense di questo corso sono 
-\section{Istruzioni Esame}
+\subsection{Istruzioni Esame}
 \label{sec:org89d6e51}
 
 \begin{itemize}
@@ -53,13 +56,13 @@ Le dispense di questo corso sono
 \item Gli esercizi POTREBBERO essere sbagliati.
 \item Alla fine vuole fare un esame in cui si fanno gli esercizi fatti dagli altri durante il corso.
 \end{itemize}
-\section{Lezione 1 - \textit{<2025-09-23 Tue>}}
+\subsection{Lezione 1 - \textit{<2025-09-23 Mar>}}
 \label{sec:org4edeeb7}
 
-\subsection{Ripasso}
+\subsubsection{Ripasso}
 \label{sec:org6a433c6}
 
-\subsubsection{Saturazione e omogeneità}
+\paragraph{Saturazione e omogeneità}
 \label{sec:orgab7a8e9}
 
 Fissiamo un modello saturo \(\mathcal{U}\) di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
@@ -114,7 +117,7 @@ Sono fatti equivalenti:
 \item \(\mathcal{U}\) è debolmente \(\lambda\)-omogeneo e debolmente \(\lambda\)-saturo.
 \end{enumerate}
 \end{prop}
-\subsubsection{\(\mathcal{U}\) come spazio topologico}
+\paragraph{\(\mathcal{U}\) come spazio topologico}
 \label{sec:org6c5b9d9}
 
 Sia \(A \subseteq \mathcal{U}\) piccolo.
@@ -147,7 +150,7 @@ Si noti che \(p(\mathcal{U}^{x}) \subseteq \varphi(\mathcal{U}^{x})\) e \(q(\mat
 
 Nel caso \(A=B\), la Proposizione~\ref{prop:Fatto5} afferma che la \(A\)-topologia è normale.
 \end{oss}
-\subsubsection{Definibilità e Automorfismi}
+\paragraph{Definibilità e Automorfismi}
 \label{sec:orgd8473b1}
 
 \begin{prop}
@@ -160,7 +163,7 @@ f\big[\varphi(\mathcal{U}^{x},b)\big] &= \set{fa\mid a \in \varphi(\mathcal{U}^{
 \end{prop}
 
 Ovvero gli automorfismi mappano insiemi definibili in insiemi definibili, con stessa formula e parametro diverso.
-\subsubsection{Definibilità e invarianza}
+\paragraph{Definibilità e invarianza}
 \label{sec:org14230aa}
 
 \begin{thm}
@@ -178,8 +181,8 @@ Sia \(\mathcal{D} \subseteq \mathcal{U}^{x}\) insieme tipo-definibile\footnote{O
 \item \(\mathcal{D}=p(\mathcal{U}^{x})\) per qualche \(p(x) \subseteq \mathcal{L}(A)\).
 \end{enumerate}
 \end{thm}
-\subsection{Preservation Theorem}
-\label{sec:org7791cbf}
+\subsubsection{Preservation Theorem}
+\label{sec:orgcc4fa82}
 
 Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, \(T\) una \(\mathcal{L}\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} senza \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} finiti.
 
@@ -242,11 +245,11 @@ T\vdash \varphi(x) &\iff \bigvee \set{p(x) \subseteq \Delta: T\vdash p(x)\implie
 &\iff \psi_{1}(x) \lor \dots \lor \psi_{n}(x).\qedhere
 \end{align*}
 \end{proof}
-\section{Lezione 2 - \textit{<2025-09-24 Wed>}}
+\subsection{Lezione 2 - \textit{<2025-09-24 Mer>}}
 \label{sec:orgff4ab4a}
 
-\subsection{Preservation Theorem}
-\label{sec:orgcc4fa82}
+\subsubsection{Preservation Theorem}
+\label{sec:org82f3221}
 
 \begin{cor}
 (Fatto 1). Sono fatti equivalenti:
@@ -255,7 +258,7 @@ T\vdash \varphi(x) &\iff \bigvee \set{p(x) \subseteq \Delta: T\vdash p(x)\implie
 \begin{equation*}
 T\vdash \forall x\ \varphi(x)\iff\psi(x)
 \end{equation*}};
-\item ogni \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo parziale} tra \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} di \(T\) è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{morfismo elementare}
+\item ogni \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{isomorfismo parziale} tra \href{20250131122945-modello_di_un_insieme_di_formule.org}{modelli} di \(T\) è una \href{20250131103053-morfismo_tra_strutture_del_prim_ordine.org}{morfismo elementare}
 \end{enumerate}
 \end{cor}
 \begin{proof}
@@ -344,7 +347,7 @@ Per 2. \(\exists y\ \psi(x;y)\) è preservata dai \(\Delta\)-morfismi. Idem per 
 
 Induzione ovvia per \(\land ,\lor\).
 \end{proof}
-\subsection{Back-and-forth conditions for QE}
+\subsubsection{Back-and-forth conditions for QE}
 \label{sec:org64c60c2}
 
 \begin{prop}
@@ -358,7 +361,7 @@ Induzione ovvia per \(\land ,\lor\).
 \end{itemize}
 \end{enumerate}
 \end{prop}
-\subsection{Model-completeness}
+\subsubsection{Model-completeness}
 \label{sec:org30a1e5a}
 
 \begin{definizione}
@@ -384,7 +387,7 @@ Induzione ovvia per \(\land ,\lor\).
 \begin{equation*}
 \Delta\text{-}\operatorname{Diag}(M) \coloneqq \set{\varphi(x)\mid \varphi(x) \in \Delta, a \in M^{x}}
 \end{equation*}} è una \(\mathcal{L}(M)\)-teoria completa.
-\section{Lezione 3 - \textit{<2025-09-30 Tue>}}
+\subsection{Lezione 3 - \textit{<2025-09-30 Mar>}}
 \label{sec:orgcd82cff}
 
 Sia \(T\) una teoria completa con un modello infinito (ovvero senza modelli finiti). Sia \(\mathcal{U}\vDash T\) modello mostro di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
@@ -537,7 +540,7 @@ Utilizzando questa osservazione:
 
 Sia \(b\) tale che \(b\vDash\varphi(y)\). Sicuramente \(b\notin Y_{0}\). Prendo \(b' \in Y_{0}\setminus Y_{1}\). Per l'osservazione \(c'\mathrel{\equiv_{A}}c\) e quindi \(c'\vDash \varphi(x)\). Assurdo.
 \end{enumerate}
-\section{Lezione 4 - \textit{<2025-10-01 Wed>}}
+\subsection{Lezione 4 - \textit{<2025-10-01 Mer>}}
 \label{sec:org3613b18}
 
 Sia \(T\) una teoria completa con un modello infinito (ovvero senza modelli finiti). Sia \(\mathcal{U}\vDash T\) modello mostro di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
@@ -547,7 +550,7 @@ Sia \(T\) una teoria completa con un modello infinito (ovvero senza modelli fini
 \item \(p(x) \subseteq \mathcal{L}(\mathcal{U})\);
 \item \(\card{p(x)}<\kappa\) (ovvero i tipi sono piccoli).
 \end{itemize}
-\subsection{Modelli primi e modelli atomici}
+\subsubsection{Modelli primi e modelli atomici}
 \label{sec:org02f8ab7}
 
 \begin{definizione}
@@ -670,7 +673,7 @@ Possiamo quindi terminare la dimostrazione del Teorema~\ref{thm:primosseatomico}
 Sia \(\mathcal{L}(A)\) numerabile. Due modelli primi su \(A\) sono isomorfi.
 \label{cor:asteriscojknkjnkjndavljhbdnlahkjdacnskjdnc}
 \end{cor}
-\subsection{Categoricità numerabile}
+\subsubsection{Categoricità numerabile}
 \label{sec:orgda8b082}
 
 \begin{thm}
@@ -758,7 +761,7 @@ Se \(T\) è fortemente minimale allora ogni \(C=\operatorname{acl}(C)\) è omoge
 
 
 (dimostrato la prossima lezione)
-\section{Lezione 5 - \textit{<2025-10-07 Tue>}}
+\subsection{Lezione 5 - \textit{<2025-10-07 Mar>}}
 \label{sec:org92d4adf}
 
 Sia \(T\) una teoria completa con un modello infinito (ovvero senza modelli finiti). Sia \(\mathcal{U}\vDash T\) modello mostro di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
@@ -827,7 +830,7 @@ A\vDash\exists x\ \varphi(x,a)\iff \mathcal{U}\vDash\exists x\ \varphi(x,a)
 
 (\(\Leftarrow\)): Sia \(b \in \mathcal{U}\) tale che \(b,a\vDash\varphi(x,z)\), e sia \(p(x,z)=\operatorname{tp}(b,a)\). \(\card{x,z}\le n\), quindi esiste \(c,a' \in A^{\card{x,z}}\) tale che \(c,a'\vDash\varphi(x,z)\). Sia \(k=\set{\langle a',a\rangle}:A\to A\) mappa elementare. Per omogeneità la estendo a \(k\cup\set{\langle c,c'\rangle}:A\to A\) elementare, quindi \(c',a\vDash\varphi(x;z)\). Pertanto \(c'\) è testimone di \(A\vDash\exists x\ \varphi(x;z)\).
 \end{proof}
-\subsection{Teorie sottili (\emph{small})}
+\subsubsection{Teorie sottili (\emph{small})}
 \label{sec:org5b5f83d}
 
 Sia \(\mathcal{L}\) numerabile. Sia \(T\) una teoria completa con un modello infinito (ovvero senza modelli finiti). Sia \(\mathcal{U}\vDash T\) modello mostro di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
@@ -958,7 +961,7 @@ Dato \(p_{s}(x)\), cerco \(\psi(x) \in \mathcal{L}(A)\) tale che \(p_{s}(x)\cup\
 
 Tale \(\psi\) esiste, altrimenti \(p_{s}(x)\) sarebbe una formula completa su \(A\).
 \end{proof}
-\section{Lezione 6 - \textit{<2025-10-08 Wed>}}
+\subsection{Lezione 6 - \textit{<2025-10-08 Mer>}}
 \label{sec:org1408c71}
 
 \uline{Esercizio} (Vaught): Nessuna teoria completa \(T\) ha esattamente due modelli numerabili. (\(\mathcal{L}\) numerabile)
@@ -986,7 +989,7 @@ Se ci sono solo due modelli, allora \({M}'\cong {M}\) oppure \({M}'\cong {N}\).
 \begin{esempio}
 Esiste una teoria con esattamente 3 modelli. Vedi esercizio di IdL.
 \end{esempio}
-\subsection{Linguaggio a più sorte}
+\subsubsection{Linguaggio a più sorte}
 \label{sec:orge9ac635}
 
 Un linguaggio a più sorte \(\mathcal{L}\) è un insieme
@@ -1027,11 +1030,11 @@ tale che se \(s\neq s'\) allora \(V_{s}\cap V_{s'}=\emptyset\).
 \begin{oss}
 In generale, per un linguaggio a più sorti, posso considerare un linguaggio ad un'unica sorta che contenga un predicato per ogni sorta. Il problema insorge per linguaggi ad infinite sorti, poiché i modelli saturi costruiti nel linguaggio ``ad una sorta'' avrebbero elementi che non sono di nessuna sorte.
 \end{oss}
-\subsection{Linguaggio del secondo ordine}
+\subsubsection{Linguaggio del secondo ordine}
 \label{sec:org964c252}
 
 ???
-\subsection{Immaginari}
+\subsubsection{Immaginari}
 \label{sec:org6494ab3}
 
 Sia \(T\) una \(\mathcal{L}\)-teoria completa con un modello infinito (ovvero senza modelli finiti). Sia \(\mathcal{U}\vDash T\) modello mostro di cardinalità \(\kappa>\card{\mathcal{L}}+\omega\).
@@ -1072,7 +1075,7 @@ Sia \(\mathcal{L}=\set{E}\), \(E^{\mathcal{U}}\) relazione di equivalenza con du
 Se \(\mathcal{A} \subseteq\mathcal{U}\) è una delle due classi, allora
 \(x \in \mathcal{A}\) è equivalente a \(E[b,x]\) per qualche \(b \in \mathcal{U}\).
 \end{esempio}
-\section{Lezione 7 - \textit{<2025-10-14 Tue>}}
+\subsection{Lezione 7 - \textit{<2025-10-14 Mar>}}
 \label{sec:org3e69b91}
 
 \begin{oss}
@@ -1089,7 +1092,7 @@ fa=a',\qquad f\mathcal{A}=\mathcal{A}'.
 \begin{oss}
 Si ha che \(\operatorname{Aut}(\mathcal{U}^{\text{eq}})\cong \operatorname{Aut}(\mathcal{U})\) canonicamente.
 \end{oss}
-\subsection{Sottostrutture elementari}
+\subsubsection{Sottostrutture elementari}
 \label{sec:org19b550a}
 
 Sia \(\mathcal{V}^{\dag}\preceq \mathcal{U}^{\text{eq}}\).
@@ -1273,10 +1276,10 @@ Siccome \(\mathscr{B} \in \operatorname{acl}^{\text{eq}}A\)
 dove \(\varepsilon(x;y) \in \mathcal{L}(A)\) relazione di equivalenza finita.
 
 \(a \in \mathscr{B}\), quindi per qualche \(c_{i}\) si ha \(\varepsilon(a;c_{i})\); siccome \(b\notin \mathscr{B}\) si ha \(\lnot \varepsilon(b;c_{i})\) e quindi \(\lnot \varepsilon(a;b)\).\qed
-\section{Lezione 8 - \textit{<2025-10-15 Wed>}}
+\subsection{Lezione 8 - \textit{<2025-10-15 Mer>}}
 \label{sec:org5a7724d}
 
-\subsection{Eliminazione degli immaginari}
+\subsubsection{Eliminazione degli immaginari}
 \label{sec:org99eac09}
 
 \begin{definizione}
@@ -1448,10 +1451,10 @@ Sia \(f \in \operatorname{Aut}(\mathcal{U}/\set{\mathscr{D}})\). Affermo che \(f
 
 Sia \(a\) tupla che enumera \(A\). L'orbita di \(a/\set{\mathscr{D}}\) è finita, e quindi \(a \in \operatorname{acl}\set{\mathscr{D}}\).
 \end{proof}
-\section{{\bfseries\sffamily TODO} Lezione 9 - \textit{<2025-10-21 Tue>}}
+\subsection{{\bfseries\sffamily TODO} Lezione 9 - \textit{<2025-10-21 Mar>}}
 \label{sec:orgab24d03}
 
-\subsection{Formule e tipi invarianti}
+\subsubsection{Formule e tipi invarianti}
 \label{sec:orgffa02a5}
 
 In this chapter, \(\mathcal{L}\) è un linguaggio, \(T\) is a complete theory without finite models, and \(\mathcal{U}\) is a saturated model of inaccessible cardinality \(\kappa\) strictly larger than \(\card{\mathcal{L}}+\omega\).
@@ -1569,8 +1572,8 @@ Sia \(p(x) \in S_{\varphi}(\mathcal{U})\). \(p(x)\) è \(A\)-invariante sse per 
 \begin{equation*}
 a\mathrel{\equiv_{A\cup\set{c}}}b.
 \end{equation*}
-\subsubsection{Eredi e coeredi}
-\label{sec:org01eb26b}
+\paragraph{Eredi e coeredi}
+\label{sec:org7450f75}
 
 \begin{definizione}
 Un tipo \(p(x) \subseteq \mathcal{L}(\mathcal{U})\) si dice \uline{finitamente soddisfacibile in \(A\)} se per ogni \(\psi(x) \in \set{\land}\!p\):
@@ -1615,10 +1618,10 @@ C\vdash \psi(x) \lor\lnot\psi(x).\qedhere
 \begin{cor}
 Tutti i tipi su un modello \(M\) si estendono a tipi globali invarianti su \(M\).
 \end{cor}
-\section{{\bfseries\sffamily DONE} Lezione 10 - \textit{<2025-10-22 Wed>}}
+\subsection{{\bfseries\sffamily DONE} Lezione 10 - \textit{<2025-10-22 Mer>}}
 \label{sec:org7ea4413}
 
-\subsection{{\bfseries\sffamily DONE} \href{20251026210840-sequenza_di_morley.org}{Sequenze di Morley}}
+\subsubsection{{\bfseries\sffamily DONE} \href{20251026210840-sequenza_di_morley.org}{Sequenze di Morley}}
 \label{sec:orgbc4169b}
 
 Sia \(p(x) \in S(\mathcal{U})\) invariante su \(A\).
@@ -1629,7 +1632,7 @@ Una \uline{sequenza di Morley} di \(p(x)\) su \(A\) è \(\overline{c} \in (\math
 \forall  i<\alpha: \quad c_{i}\vDash p(x)\upharpoonright A\cup{\overline{c}\upharpoonright i}.
 \end{equation*}
 \end{definizione}
-\subsection{Sequenze di indiscernibili}
+\subsubsection{Sequenze di indiscernibili}
 \label{sec:orge72a685}
 
 Sia \((I,<)\) un ordine lineare. Una \(I\)-sequenza è
@@ -1668,8 +1671,8 @@ Mostriamo per induzione su \(n\) che per ogni \(I \in \omega^{(n)}\)
 
 Vedi Proposizione~14.20 di 
 \end{proof}
-\subsection{Eredi e coeredi}
-\label{sec:org7450f75}
+\subsubsection{Eredi e coeredi}
+\label{sec:org630524d}
 
 \begin{definizione}
 Si dice \(p(x) \subseteq \mathcal{L}(\mathcal{U})\) finitamente soddisfacibile in \(M\) se
@@ -1725,7 +1728,7 @@ a \nonfork z = \set{\lnot \varphi(a;z)\mid \varphi(M^{x}, z) = \emptyset\ \varph
 \end{equation*}
 
 La risposta è NO!! See Remark~14.7 e Esercizio~14.13 di .
-\section{{\bfseries\sffamily DONE} Lezione 11 - \textit{<2025-10-28 Tue>}}
+\subsection{{\bfseries\sffamily DONE} Lezione 11 - \textit{<2025-10-28 Mar>}}
 \label{sec:org11a7b2f}
 
 \begin{lem}
@@ -1805,16 +1808,16 @@ Se per qualche \(c_{i}\) e per qualche \(\varphi(x; c \restricted i) \in  p(x) \
 \end{equation*}
 e pertanto \(\lnot\varphi(x; c\restricted i) \in q(x)\). Assurdo perché \(q(x) \subseteq p(x)\) e \(p(x)\) finitamente soddisfacibile.
 \end{proof}
-\subsection{Teorema di Ramsey}
+\subsubsection{Teorema di Ramsey}
 \label{sec:orgcf7853c}
 
 Vedi Sezione 15.1 di .
 
 \href{20251029171516-teorema_di_ramsey.org}{Teorema di Ramsey}
-\section{{\bfseries\sffamily DONE} Lezione 12 - \textit{<2025-10-29 Wed>}}
+\subsection{{\bfseries\sffamily DONE} Lezione 12 - \textit{<2025-10-29 Mer>}}
 \label{sec:orgf61283a}
 
-\subsection{Teorema di Ehrenfeucht-Mostowski}
+\subsubsection{Teorema di Ehrenfeucht-Mostowski}
 \label{sec:org410b8d5}
 
 \begin{thm}
@@ -1879,7 +1882,7 @@ Siccome \(\overline{b}\vDash \operatorname{EM-tp}(\overline{c}/A)\) allora
 \end{equation*}
 e pertanto esiste \(f \in \operatorname{Aut}(\U/A)\) tale che \(f(\overline{b}) = c\), ovvero \(\overline{c}\) è indiscernibile su \(f[M] \supseteq A\).
 \end{proof}
-\subsection{Teorema di Hindman}
+\subsubsection{Teorema di Hindman}
 \label{sec:org8c95747}
 
 Sia \(S\) un semigruppo, \(\L\) un linguaggio che estende il linguaggio dei gruppi moltiplicativi. Sia \(\U \succeq S\) modello mostro.
@@ -1961,10 +1964,10 @@ q(z) = \exists x,y\ \big(z = x\cdot y \land p(x,y)\big).\qedhere
 \end{align*}
 continua a sinistra e in generale non a destra (nella \(S\)-topologia).
 \end{oss}
-\section{{\bfseries\sffamily TODO} Lezione 13 - \textit{<2025-11-04 Tue>}}
+\subsection{{\bfseries\sffamily TODO} Lezione 13 - \textit{<2025-11-04 Mar>}}
 \label{sec:org4123b79}
 
-\subsection{Topological dynamics}
+\subsubsection{Topological dynamics}
 \label{sec:org2770e4d}
 
 Sia \(S\) semigruppo (operazione definibile in \(\L\)), \(\U \succeq S\).
@@ -2188,7 +2191,7 @@ per idempotenza quindi anche
 \(a_{i_{1}}\cdot \dots a_{i_{n}} \cdot b_{0}\)
 ha un colore diverso. Assurdo.
 \end{proof}
-\section{{\bfseries\sffamily TODO} Lezione 14 - \textit{<2025-11-05 Wed>}}
+\subsection{{\bfseries\sffamily TODO} Lezione 14 - \textit{<2025-11-05 Mer>}}
 \label{sec:org21e091b}
 
 \def\D{\mathcal{D}}
@@ -2398,7 +2401,7 @@ Questo è il semigruppo di Ellis. (Stone-Check compactification)
 
 Considerando ora \(u*M\) si è ottenuto un gruppo con l'operazione \(*\). Questo non dipende da \(M\) e \(u\).  Questo è il gruppo di Ellis.
 \end{oss}
-\section{{\bfseries\sffamily DONE} Lezione 15 - \textit{<2025-11-11 Tue>}}
+\subsection{{\bfseries\sffamily DONE} Lezione 15 - \textit{<2025-11-11 Mar>}}
 \label{sec:org0ea30a2}
 \def\D{\mathcal{D}}
 \def\DD{\bm{\D}}
@@ -2558,7 +2561,7 @@ Per ogni \(A \subseteq \N\) ``abbastanza grande'' e per ogni \(k<\omega\) esiste
  I\text{ intervallo}}} %
 \frac{\card{A\cap I}}{\card{I}} > 0.
 \end{equation*}
-\section{{\bfseries\sffamily DONE} Lezione 16 - \textit{<2025-11-12 Wed>}}
+\subsection{{\bfseries\sffamily DONE} Lezione 16 - \textit{<2025-11-12 Mer>}}
 \label{sec:org724efef}
 
 \def\U{\mathcal{U}}
@@ -2591,7 +2594,7 @@ Per ogni \(A \subseteq \N\) ``abbastanza grande'' e per ogni \(k<\omega\) esiste
 \def\nonfork{\nonforkSymbol}
 \renewcommand{\nonfork}[1][\defaultnonforkmodel]{%
 \mathrel{\nonforkSymbol_{#1}}}
-\subsection{Relazioni stabili}
+\subsubsection{Relazioni stabili}
 \label{sec:orgb2b1499}
 
 Sia \(\pi \subseteq \X\times\Z\) una relazione. Si indica indifferentemente
@@ -2777,7 +2780,7 @@ p(x) \restricted{B} \supseteq \set{\pi(x;b) \mid b \in \D\cap B} \cup \set{\lnot
 \end{equation*}
 Ma se \(a\) è tale che \(\pi(a,B) = \D\cap B\), allora \(a\vDash p(x) \restricted{B}\), e quindi \(p(x)\) è finitamente consistente.
 \end{proof}
-\section{{\bfseries\sffamily TODO} Lezione 17 - \textit{<2025-11-18 Tue>}}
+\subsection{{\bfseries\sffamily TODO} Lezione 17 - \textit{<2025-11-18 Mar>}}
 \label{sec:orgabbdca8}
 
 \def\U{\mathcal{U}}
@@ -2952,7 +2955,7 @@ Iterando ottengo una sequenza \(\langle b_{s} \mid s \in 2^{<\omega} \rangle\)
 (Cenno \(\lnot 2.\Rightarrow\lnot 1.\)): se rango \(\infty\) per compattezza esiste albero di altezza \(\kappa\) e quindi \(\card{S\varphi(\U)} = 2^{\kappa}\).
 (Poiché \(2^{<\kappa }= \kappa\)).
 \end{proof}
-\section{{\bfseries\sffamily TODO} Lezione 18 - \textit{<2025-11-25 Tue>}}
+\subsection{{\bfseries\sffamily TODO} Lezione 18 - \textit{<2025-11-25 Mar>}}
 \label{sec:org29cf9c3}
 
 \def\U{\mathcal{U}}
@@ -2988,7 +2991,7 @@ Iterando ottengo una sequenza \(\langle b_{s} \mid s \in 2^{<\omega} \rangle\)
 \def\acl{\operatorname{acl}}
 \def\Lascar{\mathscr{L}}
 \def\distanza#1{\operatorname{d}_{#1}}
-\subsection{Lascar invariance}
+\subsubsection{Lascar invariance}
 \label{sec:org339151c}
 
 Sia \(\D \subseteq \U^{z}\) insieme arbitrario, denotiamo con
@@ -3146,7 +3149,7 @@ Affinché il teorema valga, mi serve la seguente proprietà: per ogni \(\theta(x
 \begin{esempio}
 Sia \(\U \succeq (\Q,<)\), e considero la formula \((x<a) \lor (x \ge a)\).
 \end{esempio}
-\section{{\bfseries\sffamily TODO} Lezione 19 - \textit{<2025-11-26 Wed>}}
+\subsection{{\bfseries\sffamily TODO} Lezione 19 - \textit{<2025-11-26 Mer>}}
 \label{sec:org2807144}
 
 \def\U{\mathcal{U}}
@@ -3342,7 +3345,7 @@ Quindi \(\varphi(a,b_{1}) \iff \varphi(a,b_{2})\) e pertanto \(\psi(\V^{z}) = \v
 
 Ma \(\theta(M^{z}) \neq \emptyset\), quindi anche \(\varphi(a,M^{x}) \neq \emptyset\).
 \end{proof}
-\section{{\bfseries\sffamily TODO} Lezione 20 - \textit{<2025-12-02 Tue>}}
+\subsection{{\bfseries\sffamily TODO} Lezione 20 - \textit{<2025-12-02 Mar>}}
 \label{sec:org595ab47}
 
 \def\U{\mathcal{U}}
@@ -3430,7 +3433,7 @@ Siccome \(b \in \D_{p,\varphi}\), ottengo \(\varphi(a,b)\), e per simmetria otte
 
 Se invece di \(\varphi(x;b)\) prendiamo \(\theta(x;b_{1},\dots,b_{n}) \in \set{\land} p\)
 osserviamo che \(\theta(x;z_{1},\dots,z_{n})\) è stabile e che \(\D_{p,\theta}\) è finita.
-\subsection{Stazionarietà}
+\subsubsection{Stazionarietà}
 \label{sec:orgbef57ce}
 
 \begin{definizione}
@@ -3443,7 +3446,7 @@ Sia \(q(x) \subseteq \L(\U)\). \(q(x)\) è \uline{stazionario} (su \(A\)) se esi
 
 \begin{thm}
 (\(T\) stabile).
-Ogni \(q(x) \in S(\acl^{\eq} A)\)\footnote{\(q(x)\) è un tipo completo a parametri in \(S(\acl^{\eq} A)\).\label{org94f5c3d}} è stazionario su \(A\).
+Ogni \(q(x) \in S(\acl^{\eq} A)\)\footnote{\(q(x)\) è un tipo completo a parametri in \(S(\acl^{\eq} A)\).\label{org956b5b3}} è stazionario su \(A\).
 \label{thm_stazionario_acleq}
 \end{thm}
 \begin{lem}
@@ -3488,7 +3491,7 @@ Segue la tesi.
 
 \uline{Esercizio}:
 (\(T\) stabile).
-Ogni \(q(x) \in S(M)\)\textsuperscript{\ref{org94f5c3d}} è stazionario su \(M\).
+Ogni \(q(x) \in S(M)\)\textsuperscript{\ref{org956b5b3}} è stazionario su \(M\).
 
 \begin{proof}
 (del Teorema~\ref{thm_stazionario_acleq}).
@@ -3515,7 +3518,7 @@ a_{1} \in \D_{t,\varphi^{\text{op}}} \iff a_{2} \in \D_{t,\varphi^{\text{op}}}
 in quando \(\D_{t,\varphi^{\text{op}}} \in \acl^{\eq} A \subseteq M\).
 \end{proof}
 (idea un po' incasinata).
-\section{{\bfseries\sffamily TODO} Lezione 21 - \textit{<2025-12-03 Wed>}}
+\subsection{{\bfseries\sffamily TODO} Lezione 21 - \textit{<2025-12-03 Mer>}}
 \label{sec:orgf662719}
 
 \def\U{\mathcal{U}}
@@ -3690,7 +3693,7 @@ Sia quindi \(C_{1},\dots,C_{n}\) un ricoprimento di \(X\) che testimonia non \(G
 \qedhere
 \end{equation*}
 \end{proof}
-\section{Lezione 22 - \textit{<2025-12-09 Tue>}}
+\subsection{Lezione 22 - \textit{<2025-12-09 Mar>}}
 \label{sec:org2c5ab32}
 
 \(D\) è \(G\)-thick se \(\forall C \subseteq G\) finito
@@ -3896,7 +3899,7 @@ Quindi \(\lnot\DD\) è \(G\)-thick.
 
 Poiché \(G\)-thick=\(G\)-wide, allora esiste \(p_{1}(x) \vdash x \in \DD\) e \(p_{2}(x) \vdash x \notin \DD\), con \(p_{1},p_{2} \in S_{\X}(\U)\). Questo contraddice \(\X\) stazionario.
 \end{proof}
-\section{Lezione 23 (Ultima) - \textit{<2025-12-16 Tue>}}
+\subsection{Lezione 23 (Ultima) - \textit{<2025-12-16 Mar>}}
 \label{sec:orgaa630dd}
 
 Sia \(\Z = \U^{z}\). Fissiamo
@@ -4044,7 +4047,7 @@ La stessa cosa vale se al posto di \(H\) si considera
 G=\Aut(\U/A).
 \end{equation*}
 \end{oss}
-\section{INFO ESAME}
+\subsection{INFO ESAME}
 \label{sec:org3035cac}
 
 Possiamo tenere le dispense del corso durante l'esame. Ha detto che molto probabilmente non ci fornirà la lista degli esercizi papabili.

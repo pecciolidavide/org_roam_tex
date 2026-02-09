@@ -1,11 +1,15 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Prodotti di varietà QP}
+\label{sec:orgba62975}
 Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
-\section{Caso \href{20241231115051-spazio_proiettivo.org}{proiettivo}}
+\subsection{Caso \href{20241231115051-spazio_proiettivo.org}{proiettivo}}
 \label{sec:org7c3f57e}
 
 Siano \(X \subseteq \mathds{P}^{n}_{x}\), \(Y \subseteq \mathds{P}^{m}_{y}\) due \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà algebriche proiettive},
@@ -37,17 +41,17 @@ sono \href{20250104190620-mappa_di_segre.org}{varietà algebriche di }\(\mathds{
 V(F_{1},\dots,F_{k}) &= X\times \mathds{P}^{m}\\
 V(G_{1},\dots,G_{l}) &= \mathds{P}^n\times Y
 \end{align*}
-\subsection{Definizione}
+\subsubsection{Definizione}
 \label{sec:org27d9491}
 Si definisce il prodotto tra \(X\) e \(Y\) come
 \begin{equation*}
 X\times Y \coloneqq (X\times \mathds{P}^{m})\cap (\mathds{P}^{n}\times Y) = V(F_{1},\dots,F_{k},G_{1},\dots,G_{l})
 \end{equation*}
 \href{20241231123223-varieta_algebrica_proiettiva.org}{sottovarietà} di \(\mathds{P}^{n}\times \mathds{P}^{m}\).
-\subsection{Proposizione}
+\subsubsection{Proposizione}
 \label{sec:org5b259ce}
 È rispettata la \href{20250108103928-proprieta_universale_del_prodotto.org}{proprietà universale del prodotto} per la tripla \((X\times Y, \pi_{1},\pi_{2})\), dove \(\pi_{1},\pi_{2}\) sono le proiezioni.
-\subsubsection{Dimostrazione}
+\paragraph{Dimostrazione}
 \label{sec:org0b9bf22}
 Sia \(W\) una \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà algebrica proiettiva}, e siano \(F:W \longrightarrow X\) e \(G:W\longrightarrow Y\) due \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{morfismi}. Dimostriamo che esiste un unico \(H: W \longrightarrow X\times Y\) morfismo che fa commutare il diagramma,
 $\backslash$[
@@ -66,7 +70,8 @@ ovvero
 \begin{equation*}
 \pi_{1}\circ H=F,\qquad \pi_{2}\circ H=G.
 \end{equation*}
-\paragraph{Esistenza di \(H\)}
+\begin{enumerate}
+\item Esistenza di \(H\)
 \label{sec:org1123d81}
 Si definisce
 \begin{align*}
@@ -92,7 +97,8 @@ Dunque in \(U\cap V\) si ha che
 \end{equation*}
 che è un morfismo.
 \end{itemize}
-\paragraph{Unicità di H}
+\item Unicità di H
 \label{sec:org2e6f219}
 Segue dal fatto che i morfismi sono realmente funzioni.
+\end{enumerate}
 \end{document}

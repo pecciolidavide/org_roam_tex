@@ -1,13 +1,17 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Lezione 1}
+\section{Teoria dei modelli [CORSO SEL2025]}
+\label{sec:org3df1aa7}
+\subsection{Lezione 1}
 \label{sec:orgfb5d8ba}
 
-\subsection{Introduzione}
+\subsubsection{Introduzione}
 \label{sec:orgfa1a67b}
 
 Si lavora con un linguaggio
@@ -69,7 +73,7 @@ Una \(\mathcal{L}(A)\)-formula ha parametri in \(A\).
 \item Tuple di variabili/costanti si denotano con \(x\)/\(a\), e, occasionalmente \(\bar{x}\)/\(\bar{a}\). \(|x|\) denota la lunghezza della tupla \(x\) (ex: \(a \in M^{|a|}\))
 \item \(M,N,U,V\) denotano struttura e \(A,B,C\) sono sottoinsiemi del dominio di una struttura.
 \end{itemize}
-\subsection{Immersioni e immersioni elementari}
+\subsubsection{Immersioni e immersioni elementari}
 \label{sec:org23e704f}
 
 Se \(M,N\) sono due \(\mathcal{L}\)-struttura, allora
@@ -132,7 +136,7 @@ L'\uline{unione della catena} è la struttura \(M\) dove
 \item \(f\) funzione, \(\bar{a} \in M^{n}\), allora \(f^{M}(\bar{a}) = f^{M_{i}}(\bar{a})\) per \(i\) tale che \(\bar{a} \in M_{i}^{n}\);
 \item \(R\) relazione, allora \(R^{M} = \bigcup_{i<\lambda} R^{M_{i}}\).
 \end{itemize}
-\subsection{Teorema di Lowenheim-Skolem all'ingiù}
+\subsubsection{Teorema di Lowenheim-Skolem all'ingiù}
 \label{sec:org4579a46}
 
 \begin{thm}
@@ -144,7 +148,7 @@ Allora per ogni \(\lambda\) tale che \(|A|+|\mathcal{L}|\le \lambda \le |N|\) es
 \item \(|M|=\lambda\).
 \end{enumerate}
 \end{thm}
-\subsection{Teoria degli ordini lineari}
+\subsubsection{Teoria degli ordini lineari}
 \label{sec:org5c1dc7d}
 
 Sia \(\mathcal{L}_{lo}=\set{<}\), con \(<\) relazione binaria. Una \(\mathcal{L}_{lo}\) struttura è un \uline{ordine lineare} se soddisfa
@@ -166,7 +170,7 @@ Un ordine lineare è \uline{senza estremi} se
 ??? (vedi \href{20250203101604-ordine.org}{Ordine lineare}, \href{20250203101604-ordine.org}{Ordine denso}, \href{20250203101604-ordine.org}{Ordine senza punto finale})
 
 (\(T_{\text{lo}}\) e \(T_{\text{dlo}}\))
-\subsection{Teoria dei grafi}
+\subsubsection{Teoria dei grafi}
 \label{sec:orgf4ed626}
 
 Sia \(\mathcal{L}_{gph} = \set{R}\). Un \uline{grafo} è una \(\mathcal{L}_{gph}\)-struttura che soddisfa
@@ -176,7 +180,7 @@ Sia \(\mathcal{L}_{gph} = \set{R}\). Un \uline{grafo} è una \(\mathcal{L}_{gph}
 (\(T_{\text{gph}}\) e \(T_{\text{rg}}\))
 
 I modelli di \(T_{\text{dlo}}\) e \(T_{\text{rg}}\) sono necessariamente infiniti.
-\section{Lezione 2}
+\subsection{Lezione 2}
 \label{sec:orgb43d10b}
 
 \begin{definizione}
@@ -332,7 +336,7 @@ In particolare, \(p\) è elementare.
 \begin{cor}
 \(\langle \Q,<\rangle\preceq\langle \R,<\rangle\)
 \end{cor}
-\subsection{Tipi}
+\subsubsection{Tipi}
 \label{sec:orgb2feba2}
 
 Tutte le strutture si intendono in un linguaggio \(\mathcal{L}\) fissato.
@@ -456,10 +460,10 @@ Allora \(p(x)\) è finitamente soddisfacibile in \(M\), e dunque realizzato in \
 
 Per Lowenheim-Skolem all'ingiù, possiamo assumere \(\card{N}=\lambda\).
 \end{proof}
-\section{Lezione 3}
+\subsection{Lezione 3}
 \label{sec:org6135d33}
 
-\subsection{Saturazione}
+\subsubsection{Saturazione}
 \label{sec:org248b155}
 
 \begin{definizione}
@@ -637,7 +641,7 @@ Per \(\lambda\)-omogeneità, esiste \(\alpha\supseteq f\), \(\alpha \in \operato
 b \in O_{N}(a/A).\qedhere
 \end{equation*}
 \end{proof}
-\subsection{Modello mostro}
+\subsubsection{Modello mostro}
 \label{sec:org6de6d42}
 
 Sia \(T\) una teoria completa senza modelli finiti. Lavoriamo in \(\mathcal{U}\vDash T\) tale che
@@ -740,7 +744,7 @@ Sia \(A \subseteq \mathcal{U}\). Per ogni \(\varphi(x) \in \mathcal{L}(\mathcal{
 \end{thm}
 
 Notiamo che la condizione 1. dice che \(\varphi(\mathcal{U})\) è definibile su \(A\).
-\section{Lezione 4}
+\subsection{Lezione 4}
 \label{sec:org9693987}
 
 \begin{oss}
@@ -771,7 +775,7 @@ Allora \(\varphi(\mathcal{U},b)\) è definito da
 \exists z\ [\chi(z) \land \psi(x,z)] \in \mathcal{L}(A).\qedhere
 \end{equation*}
 \end{proof}
-\subsection{Eliminazione dei quantificatori}
+\subsubsection{Eliminazione dei quantificatori}
 \label{sec:org742bfec}
 
 \begin{prop}
@@ -848,7 +852,7 @@ Dal teorema precedente, \(\varphi(x)\) è equivalente a \(\psi(x)\) senza quanti
 
 (\(3.\Rightarrow 2.\)) (traccia): Se \(p_{0}\subseteq p\), \(\card{p_{0}}<\omega\), estendiamo \(p_{0}\) ad \(\alpha \in \operatorname{Aut}(\mathcal{U})\) per back-and-forth. Allora \(p_{0}\) è elementare.
 \end{proof}
-\subsection{Insiemi definibili e algebrici}
+\subsubsection{Insiemi definibili e algebrici}
 \label{sec:orgc9f4a99}
 
 \begin{definizione}
@@ -994,7 +998,7 @@ Segue che \(\beta(a)\) è algebrico su \(\beta(b)\), e dunque
 \beta\big[\operatorname{acl}(A)\big] \subseteq \operatorname{acl}\big(\beta[A]\big).\qedhere
 \end{equation*}
 \end{proof}
-\subsection{Teorie Fortemente Minimali}
+\subsubsection{Teorie Fortemente Minimali}
 \label{sec:org2bdb3ba}
 
 Ricordiamo che in ogni struttura \(M\), gli insiemi finiti e cofiniti sono sempre definibili.
@@ -1016,7 +1020,7 @@ Sia \(a \in \mathcal{U}\), \(B \subseteq \mathcal{U}\). Allora \(a\) è \uline{i
 
 \(B\) è un \uline{insieme indipendente} se per ogni \(b \in B\), \(b\) è indipendente da \(B\setminus\set{b}\).
 \end{definizione}
-\section{Lezione 5}
+\subsection{Lezione 5}
 \label{sec:orga71058c}
 
 \begin{prop}

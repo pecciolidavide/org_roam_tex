@@ -1,0 +1,68 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
+\begin{document}
+
+\section{Omologia singolare di CW-complessi come limite diretto}
+\label{sec:orgbf8bcaa}
+\begin{prop}
+Supponiamo che \(X=\bigcup X_{i}\) sia uno \href{20250103145124-topologia.org}{spazio topologico} tale che \(X_{i} \subseteq X_{j}\) e
+\begin{equation*}
+C \subseteq X\ \text{chiuso}%
+\IFF%
+\forall i\ C\cap X_{i} \subseteq X_{i}\ \text{chiuso}.
+\end{equation*}
+Se per ogni \(K \subseteq X\) \href{20250103163701-spazio_topologico_compatto.org}{compatto} esiste \(X_{i}\) tale che \(K \subseteq X_{i}\), allora l'\href{20250122133631-omologia_singolare.org}{omologia singolare} di \(X\) è il \href{20260209153646-sistema_diretto.org}{limite diretto} delle \href{20250122133631-omologia_singolare.org}{omologie} degli \(X_{i}\):
+\begin{equation*}
+\forall q:\qquad H_{q}(X) = \varinjlim H_{q}(X_{i}).
+\end{equation*}
+\end{prop}
+\begin{proof}
+Sia \(\uprho_{ij}: X_{i} \hookrightarrow X_{j}\) l'inclusione, \(\set{X_{i}, r_{ij}}\) è sistema diretto, con limite
+\begin{equation*}
+X = \varinjlim X_{i}, \qquad r_{i}:X_{i} \longrightarrow X
+\end{equation*}
+
+Poiché il \href{20250123115927-funtore_di_omologia_singolare.org}{funtore di omologia singolare \(H_{q}\)} è un \href{20241204222455-funtore_covariante.org}{funtore covariante}, \href{20260209163309-funtore_covariante_applicato_ad_un_sistema_diretto.org}{allora} \(\set{H_{q}(X_{i}), (r_{ij})_{\star}}\) è un \href{20260209153646-sistema_diretto.org}{sistema diretto}:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{H_q(X_i)} \&\&\&\& {H_q(X_j)} \\
+	\\
+	\&\& {\varinjlim H_q(X_i)} \\
+	\\
+	\\
+	\&\& {H_q(X)}
+	\arrow["{(r_{ij})_\star}", from=1-1, to=1-5]
+	\arrow["{\uprho_i}"{description}, from=1-1, to=3-3]
+	\arrow["{(r_{i})_\star}"', from=1-1, to=6-3]
+	\arrow["{\uprho_j}"{description}, from=1-5, to=3-3]
+	\arrow["{(r_{j})_\star}", from=1-5, to=6-3]
+	\arrow["{\exists!\ \uprho}"{description}, from=3-3, to=6-3]
+\end{tikzcd}
+\end{equation*}
+Mostriamo che \(\uprho\) sia un isomorfismo,
+\begin{equation*}
+\uprho: \varinjlim H_{q}(X_{i}) \longrightarrow H_{q}(X).
+\end{equation*}
+\begin{itemize}
+\item \uline{\(\uprho\) è suriettiva}.
+
+TODO: \lipsum[1]
+
+\item \uline{\(\uprho\) è iniettiva}.
+
+TODO: \lipsum[2].
+\qedhere
+\end{itemize}
+\end{proof}
+
+\begin{cor}
+Siccome i CW-complessi rispettano le ipotesi di cui sopra, allora se \(X\) è \href{20260205161432-cw_complesso.org}{CW-complesso} si ha che
+\begin{equation*}
+\forall q:\qquad H_{q}(X) = \varinjlim H_{q}(X_{i}).
+\end{equation*}
+\end{cor}
+\end{document}

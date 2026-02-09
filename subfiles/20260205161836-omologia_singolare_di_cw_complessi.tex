@@ -1,11 +1,15 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
 \section{Omologia singolare relativa per scheletri di CW-complessi}
 \label{sec:org83cb022}
+Sia \(R\) un \href{20241219112842-pid.org}{PID} fissato.
+
 \begin{oss}
 Sia \(X\) un \href{20260205161432-cw_complesso.org}{CW-complesso}, con scheletri \(X_{j}\). Allora il \href{20250129183516-quoziente_di_una_coppia_topologica_buona.org}{quoziente} di contrazione ad un punto:
 \begin{equation*}
@@ -34,7 +38,7 @@ Più precisamente, se
 \begin{equation*}
 \Phi_{\alpha}^{n} : (e^{n}_{\alpha}, \partial e^{n}_{\alpha}) \longrightarrow (X_{n}, X_{n-1})
 \end{equation*}
-è la \href{20250215122759-export.org_archive}{mappa caratteristica}, allora questa \href{20250126191208-funtore_da_topp_a_rmod_di_omologia.org}{induce} \((\Phi_{\alpha}^{n})_{\star}\):
+è la \href{20260205151208-attaccamento_di_una_k_cella_a_uno_spazio_topologico.org}{mappa caratteristica}, allora questa \href{20250126191208-funtore_da_topp_a_rmod_di_omologia.org}{induce} \((\Phi_{\alpha}^{n})_{\star}\):
 \begin{equation*}
 (\Phi_{\alpha}^{n})_{\star} : H_{n}(e^{n}_{\alpha}; \partial e^{n}_{\alpha}) \to H_{n}(X_{n}, X_{n-1})
 \end{equation*}
@@ -61,16 +65,14 @@ Sia \(X\) un CW-complesso, \(X_{n}\) il suo \(n\)-scheletro. Se \(X\) è finito 
 \end{equation*}
 \item per \(q=n\), l'inclusione \(X_{n} \hookrightarrow X\) \href{20250123115927-funtore_di_omologia_singolare.org}{induce} una mappa \href{20241213105600-funzione_suriettiva.org}{suriettiva}
 \begin{equation*}
- H_{q}(X_{n}) \twoheadrightarrow H_{q}(X).
+ H_{q}(X_{q}) \twoheadrightarrow H_{q}(X).
 \end{equation*}
 \end{enumerate}
 \label{prop:dadim:oiniounouhjiu}
 \end{prop}
-
 \begin{oss}
 Questa proposizione ci assicura che gli \(n\)-scheletri siano delle ``approssimazioni'' di \(X\).
 \end{oss}
-
 \begin{proof}
 (della Proposizione~\ref{prop:dadim:oiniounouhjiu}).
 Fissato \(q\), si consideri la catena di inclusioni
@@ -140,5 +142,65 @@ che dà luogo a
 Siccome \(H_{q}(X_{q+1}, X_{q}) = 0\), \href{20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.org}{allora} \(H_{q}(X_{q}) \longrightarrow H_{q}(X_{q+1})\) è suriettiva.
 \qedhere
 \end{enumerate}
+\end{proof}
+\begin{prop}
+Per ogni \(q\ge 0\):
+\begin{equation*}
+H_{q}(X) = H_{q}(X_{q+1})
+\end{equation*}
+\end{prop}
+\begin{proof}
+Si sfrutti la \href{20260209161309-omologia_singolare_di_cw_complessi_come_limite_diretto.org}{commutatività tra omologia e limiti diretti per i CW-complessi}:
+\begin{equation*}
+H_{q}(X) = \varinjlim H_{q}(X_{i})
+\end{equation*}
+Inoltre, per ogni \(i,j \ge q+1\) si ha che questi sono isomorfismi:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{H_q(X_i)} \&\& {H_q(X_j)} \\
+	\\
+	\& {H_q(X_{q+1})}
+	\arrow["\cong", from=1-1, to=1-3]
+	\arrow["\cong"', from=1-1, to=3-2]
+	\arrow["\cong", from=1-3, to=3-2]
+\end{tikzcd}
+\end{equation*}
+Questo è sufficiente per garantire che \(H_{q}(X_{q+1}) = \varinjlim H_{q}(X_{i})\).
+\end{proof}
+\begin{prop}
+Sia \(X\) un \href{20260205161432-cw_complesso.org}{CW-complesso} tale che \(X=X_{n}\) e con un numero finito di \href{20260205160413-omologia_per_attaccamento_di_k_cella.org}{celle}. Allora
+\begin{enumerate}
+\item per ogni \(q\), il \href{20241205141053-r_moduli.org}{modulo} di \href{20250122133631-omologia_singolare.org}{omologia singolare} \(H_{q}(X)\) è \href{20241213100845-modulo_finitamente_generato.org}{finitamente generato};
+\item per ogni \(q>n\): \(H_{q}(X) = 0\);
+\item \(H_{n}(X)\) è \href{20241213094625-modulo_libero.org}{libero}.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Consideriamo \href{20250122154927-successione_esatta_di_una_coppia_topologica.org}{la SEL dell'omologia relativa}:
+\begin{equation*}
+H_{q}(X_{q-1}) \longrightarrow H_{q}(X_{q}) \longrightarrow H_{q}(X_{q}, X_{q-1})
+\end{equation*}
+Per la proposizione precedente, \(H_{q}(X_{q-1}) = 0\), e dunque
+\begin{equation*}
+i : H_{q}(X_{q}) \hookrightarrow H_{q}(X_{q}, X_{q-1}) \cong \bigoplus_{\alpha} R\cdot [e_{\alpha}^{q}]
+\end{equation*}
+è una mappa \href{20241219101956-funzione_iniettiva.org}{iniettiva}, dove l'ultimo \href{20241206115416-morfismi_r_moduli.org}{isomorfismo} è dato \hyperref[sec:org83cb022]{da un risultato precedente}. Pertanto \(H_{q}(X_{q}, X_{q-1})\) è un modulo libero e finitamente generato (per ipotesi vi è solo un numero finito di celle), e \(i\big(H_{q}(X_{q})\big)\) ne è \href{20241206142802-sottomoduli.org}{sottomodulo}.
+
+Siccome \(R\) è un PID, \href{20241219192830-pid_sottomoduli_sono_liberi.org}{allora}, \(H_{q}(X_{q})\) è libero e finitamente generato.
+
+\begin{itemize}
+\item In particolare, quindi \(H_{n}(X_{n}) = H_{n}(X)\) è libero e finitamente generato (quindi si ha 3.)
+\item Inoltre, consideriamo \(H_{q}(X) = H_{q}(X_{q+1})\):
+\begin{equation*}
+  	H_{q}(X_{q}) \longrightarrow H_{q}(X_{q+1}) \longrightarrow H_{q}(X_{q+1}, X_{q})
+\end{equation*}
+dove \(H_{q}(X_{q+1}, X_{q}) = 0\). Pertanto questa \href{20241213105600-funzione_suriettiva.org}{mappa è suriettiva}
+\begin{equation*}
+  	H_{q}(X_{q}) \longrightarrow H_{q}(X_{q+1})
+\end{equation*}
+con \(H_{q}(X_{q})\) finitamente generato. Allora \(H_{q}(X) = H_{q}(X_{q+1})\) è finitamente generato. Si ha 1.
+\item Per finire, se \(q>n\): \(H_{q}(X_{n}) = 0\), ma \(H_{q}(X_{n}) = H_{q}(X)\). Segue 2.
+\qedhere
+\end{itemize}
 \end{proof}
 \end{document}

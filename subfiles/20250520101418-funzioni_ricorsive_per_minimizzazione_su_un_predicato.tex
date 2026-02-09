@@ -1,13 +1,17 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Funzioni ricorsive per minimizzazione su un predicato}
+\label{sec:org57b958b}
 In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
 
 Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
-\section{Proposizione}
+\subsection{Proposizione}
 \label{sec:org125e579}
 
 Se \(P \subseteq \N^{k+1}\) è un \href{20250216173925-insieme_ricorsivo.org}{predicato ricorsivo}, la \href{20250202170607-classe_relazione_binaria.org}{funzione} \(f: \N^{k}\to \N\) definita tramite l'\href{20250215151440-operatore_di_minimizzazione_non_limitato.org}{operatore di minimizzazione}:
@@ -15,7 +19,7 @@ Se \(P \subseteq \N^{k+1}\) è un \href{20250216173925-insieme_ricorsivo.org}{pr
 f(\oldvec{x}) \coloneqq \minim{y}{P(\oldvec{x},y)}
 \end{equation*}
 è \uline{ricorsiva}. Questa non è necessariamente una funzione \href{20250213105339-funzione_parziale.org}{totale}. \footnote{Infatti possono esistere degli \(\oldvec{x}\) tali che per nessun \(y \in \N\) si abbia \(P(\oldvec{x},y)\).}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org7fbb2cc}
 \begin{equation*}
 f(\oldvec{x}) = \minim{y}{\overline{\operatorname{sgn}}\left(\chi_{P}(\oldvec{x},y)\right)=0}

@@ -1,11 +1,15 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Fibrato tangente}
+\label{sec:org5ac918c}
 Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile} di dimensione \(n\).
-\section{Definizione}
+\subsection{Definizione}
 \label{sec:org95e275b}
 Si definisce il \textbf{fibrato tangente} \(\operatorname{T}M\):
 \begin{equation*}
@@ -16,10 +20,10 @@ Si definisce il \textbf{fibrato tangente} \(\operatorname{T}M\):
 \pi: \operatorname{T}M &\longrightarrow M\\
 v \in \operatorname{T}_{p} M &\longmapsto p
 \end{align*}
-\subsection{Esercizio}
+\subsubsection{Esercizio}
 \label{sec:orgcf0e3f9}
 La funzione \(\pi:\operatorname{T}M\longrightarrow M\) è una \href{20250115105535-sommersione_di_varieta_differenziabili.org}{sommersione}
-\section{Struttura di varietà differenziabile}
+\subsection{Struttura di varietà differenziabile}
 \label{sec:orgaf221e3}
 Se \((U,\varphi)\) è una \href{20250111092123-varieta_topologica.org}{carta} di \(M\), definisco
 \begin{equation*}
@@ -33,6 +37,6 @@ v &\longmapsto \left(\varphi\circ\pi(v), \restriction{\varphi_{\star}}{\pi(v)}(v
 (vedi \href{20250114111331-differenziale_di_una_funzione_tra_varieta_differenziabili.org}{Differenziale di una funzione tra varietà differenziabili})
 
 L'insieme \(\set{(\tilde{U},\tilde{\varphi})}\) è un \href{20250113103136-atlante_topologico_differenziabile.org}{atlante differenziabile} di \(\operatorname{T}M\).
-\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\subsubsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
 \label{sec:orged16a0b}
 \end{document}

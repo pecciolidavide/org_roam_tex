@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Esercizio 3}
+\section{Proprietà insieme trasversale e selettore per una relazione di equivalenza in uno spazio polacco}
+\label{sec:org448dcbb}
+\subsection{Esercizio 3}
 \label{sec:orge6f7293}
 
 Let \(E\) be an equivalence relation on a Polish space \(X\). A \textbf{transversal} for \(E\) is a set \(T \subseteq X\) meeting every \(E\)-equivalence class in exactly one point. A \textbf{selector} for \(E\) is a map \(s: X \to X\) selecting one element from each \(E\)-equivalence class, that is, \(s(x) \in [x]_E\) and \(s(x) = s(y)\) if \(x \mathrel{E} y\). Show that if \(E\) is analytic, then the following are equivalent:
@@ -14,10 +18,10 @@ Let \(E\) be an equivalence relation on a Polish space \(X\). A \textbf{transver
 \item \(E\) admits a Borel transversal;
 \item \(E\) admits a Borel selector.
 \end{enumerate}
-\subsection{Soluzione}
+\subsubsection{Soluzione}
 \label{sec:orgf3c861b}
 
-\subsubsection{c. implica b.}
+\paragraph{c. implica b.}
 \label{sec:org4df0486}
 
 Sia \(s:X\to X\) un selettore boreliano per \(E\) e sia \(T\coloneqq s(X)\).
@@ -54,11 +58,11 @@ si ha che \(D\) è chiuso, poiché \(X\) è metrizzabile e quindi Haussdorf. Ino
 \end{itemize}
 
 Dunque, siccome \(f\) è boreliana e \(D\) è chiuso, \uline{\(T\) è un boreliano}.
-\subsubsection{b. implica a.}
+\paragraph{b. implica a.}
 \label{sec:org8450c5a}
 
 Questo è ovvio, poiché \(\bm{{\operatorname{Bor}}}(X) \subseteq \bm{\Sigma}_{1}^{1}(X)\) per il Corollario 3.1.4.
-\subsubsection{a. implica c.}
+\paragraph{a. implica c.}
 \label{sec:orgd086295}
 
 Sia \(T \subseteq X\) un insieme analitico trasversale per \(E\).

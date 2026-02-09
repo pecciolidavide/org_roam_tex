@@ -1,52 +1,56 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Massimo e minimo}
+\label{sec:org2420e39}
 \textbf{\textbf{\uline{NOTA}: quando si parla di \uline{classi}, se ne parla nell'ambito della \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}; quando si parla di insiemi, il discorso ha validità più generale.}}
 
 Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme} (o una \href{20250130104320-classe_mk.org}{classe}) e sia \(R\) una \href{20250202170607-classe_relazione_binaria.org}{relazione binaria} su \(X\); sia \(Y \subseteq X\) un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} (o \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoclasse}) non vuoto, e sia \(a \in P\).
-\section{Elemento Massimo}
+\subsection{Elemento Massimo}
 \label{sec:orgb65afd4}
 \(a\) si dice \uline{massimo} di \(Y\) se
 \begin{equation*}
 a \in Y\quad \land \quad \forall\, x \in Y\ (x\neq a\implies x\mathrel{R}a);
 \end{equation*}
-\section{Elemento Massimale}
+\subsection{Elemento Massimale}
 \label{sec:org6b9fe84}
 \(a\) si dice \uline{elemento \(R\)-massimale} di \(Y\) se
 \begin{equation*}
 a \in Y\quad \land \quad \forall\, x \in Y\ (x\neq a\implies a\not\mathrel{R}x);
 \end{equation*}
-\section{Elemento Minimo}
+\subsection{Elemento Minimo}
 \label{sec:org8c0accd}
 \(a\) si dice \uline{minimo} di \(Y\) se
 \begin{equation*}
 a \in Y\quad \land \quad \forall\, x \in Y\ (x\neq a\implies a\mathrel{R}x);
 \end{equation*}
-\section{Elemento Minimale}
+\subsection{Elemento Minimale}
 \label{sec:orga073a3f}
 \(a\) si dice \uline{elemento \(R\)-minimale} di \(Y\) se
 \begin{equation*}
 a \in Y\quad \land \quad \forall\, x \in Y\ (x\neq a\implies x\not\mathrel{R}a);
 \end{equation*}
-\section{Elemento Maggiorante}
+\subsection{Elemento Maggiorante}
 \label{sec:orged5a409}
 \(a\) si dice \uline{maggiorante} di \(Y\) se
 \begin{equation*}
 \forall\, x \in Y\ (x\neq a\implies x\mathrel{R}a);
 \end{equation*}
-\section{Elemento Minorante}
+\subsection{Elemento Minorante}
 \label{sec:org281731c}
 \(a\) si dice \uline{minorante} di \(Y\) se
 \begin{equation*}
 \forall\, x \in Y\ (x\neq a\implies a\mathrel{R}x);
 \end{equation*}
-\section{Supremum}
+\subsection{Supremum}
 \label{sec:org8be996d}
 \(a\) è il \uline{supremum} (o \uline{estremo superiore}) di \(Y\) se è il minimo dei maggioranti di \(Y\).
-\section{Infimum}
+\subsection{Infimum}
 \label{sec:orgcd90d0b}
 \(a\) è l'\uline{infimum} (o \uline{estremo inferiore}) di \(Y\) se è il massimo dei minoranti.
 \end{document}

@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Proposizione}
+\section{Proprietà della gerarchia di Borel}
+\label{sec:org6e9ccab}
+\subsection{Proposizione}
 \label{sec:org180f893}
 
 Let \(X\) be a metrizable topological space. Prove by induction on \(1 \leq \alpha < \omega_1\) that:
@@ -13,10 +17,10 @@ Let \(X\) be a metrizable topological space. Prove by induction on \(1 \leq \alp
 \item \(\bm{\Pi}^0_\alpha(X)\) is closed under countable intersections and finite unions;
 \item \(\bm{\Delta}^0_\alpha(X)\) is a Boolean algebra, i.e., it is closed under complements, finite unions, and finite intersections.
 \end{enumerate}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org5128c13}
 
-\subsubsection{Caso base: \(\alpha=1\)}
+\paragraph{Caso base: \(\alpha=1\)}
 \label{sec:orgd7ec588}
 
 \begin{enumerate}
@@ -24,11 +28,12 @@ Let \(X\) be a metrizable topological space. Prove by induction on \(1 \leq \alp
 \item Intersezione di chiusi è chiusa e unione finita di chiusi è chiusa.
 \item Il complementare di un clopen è ancora un clopen, così come unioni e intersezioni finite.
 \end{enumerate}
-\subsubsection{Passo induttivo}
+\paragraph{Passo induttivo}
 \label{sec:org2d49624}
 
 Sia l'enunciato vero per ogni \(\beta<\alpha\).
-\paragraph{Classi additive}
+\begin{enumerate}
+\item Classi additive
 \label{sec:org678f13d}
 
 \begin{itemize}
@@ -53,7 +58,7 @@ Detto \(\beta_{n,m} \coloneqq \max\set{\beta_{n}^{V},\beta_{m}^{U}}<\alpha\), si
 \end{equation*}
 Per ipotesi induttiva, per ogni \(n,m\) si ha \(U_{n}\cap V_{m} \in \bm{\Pi}^0_{\beta_{n,m}}(X)\) e pertanto \(U\cap V \in \bm{\Sigma}^0_\alpha(X)\)
 \end{itemize}
-\paragraph{Classi moltiplicative}
+\item Classi moltiplicative
 \label{sec:org7edf96b}
 
 \begin{itemize}
@@ -76,7 +81,7 @@ e siccome \(\bm{\Sigma}^0_\alpha(X)\) è chiuso per intersezioni finite, allora 
   U\cup V \in \bm{\Pi}^0_\alpha(X).
 \end{equation*}
 \end{itemize}
-\paragraph{Classi ambigue}
+\item Classi ambigue
 \label{sec:orgb5011d2}
 
 \begin{itemize}
@@ -107,4 +112,5 @@ Dunque \(X\setminus U \in \bm{\Sigma}^0_\alpha(X)\cap \bm{\Pi}^0_\alpha(X) = \bm
   \]
 è chiuso per unioni e intersezioni finite.\qed
 \end{itemize}
+\end{enumerate}
 \end{document}

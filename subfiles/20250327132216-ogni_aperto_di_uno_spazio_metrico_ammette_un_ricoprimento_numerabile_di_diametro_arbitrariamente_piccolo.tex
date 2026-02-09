@@ -1,13 +1,17 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Proposizione}
+\section{Ogni chiuso di uno spazio metrico secondo numerabile ammette un ricoprimento numerabile di diametro arbitrariamente piccolo}
+\label{sec:org074b89e}
+\subsection{Proposizione}
 \label{sec:org6f870e9}
 Se \(X\) è uno \href{20250301193511-spazio_metrico.org}{spazio metrico} \href{20250111142303-spazio_topologico_a_base_numerabile.org}{secondo numerabile}, allora per ogni \(U \subseteq X\) \href{20250103145124-topologia.org}{aperto} e per ogni \(\varepsilon \in \R^{+}\), esiste un \href{20250103164252-ricoprimento.org}{ricoprimento} \href{20250103145124-topologia.org}{aperto} \href{20250111143651-insieme_numerabile.org}{numerabile} \((U_{n})_{n \in \omega}\) di \(U\) tale che \(\operatorname{Cl}(U_{n}) \subseteq U\) e \(\operatorname{diam}(U_{n})< \varepsilon\), per ogni \(n \in \omega\).
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org1e920db}
 Sia \((X,d)\) lo \href{20250301193511-spazio_metrico.org}{spazio metrico} in considerazione. Si denotino con
 \begin{equation*}
@@ -39,10 +43,10 @@ e pertanto \(x \in B_{d}(y,\delta) \subseteq U\). Assurdo.
 
 Dunque \(\delta/2<\varepsilon/2\) e \(B_{d}(c,\delta/2) \subseteq U\), e dunque \(r_{c}\ge \delta/2\) per massimalità. Pertanto \(B_{d}(c,r_{c})\supseteq B_{d}(c,\delta/2)\ni y\), e quindi \(y \in \bigcup\mathcal{B}_{U}\).
 \end{itemize}
-\section{NON Proposizione}
+\subsection{NON Proposizione}
 \label{sec:org71b74ca}
 If \(X\) is a \href{20250301193511-spazio_metrico.org}{metric space}, then for every \href{20250103145124-topologia.org}{open} \(U\) and every \(\varepsilon \in \R^{+}\) there is a \href{20250111143651-insieme_numerabile.org}{countable} \href{20250103164252-ricoprimento.org}{covering} \(\left(U_n\right)_{n \in \omega}\) of \(U\) such that \(\operatorname{Cl}\left(U_n\right) \subseteq U\) (vedi \href{20250103144944-chiusura_topologica.org}{Chiusura Topologica}) and \(\operatorname{diam}\left(U_n\right)<\varepsilon\) (vedi \href{20250327131547-diametro_di_un_insieme.org}{Diametro di un insieme}), for all \(n \in \omega\)
-\subsection{Controesempio}
+\subsubsection{Controesempio}
 \label{sec:orge8d6eb5}
 
 Sia \(X \coloneqq \R\times [0,1]\), dotato della \href{20250301193511-spazio_metrico.org}{distanza}:

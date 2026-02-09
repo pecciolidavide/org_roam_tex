@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Atlante astratto}
+\label{sec:org36c7157}
 Sia \(M\) un insieme. Un \textbf{\textbf{atlante astratto}} di \(M\) è una collezione \(\set{(U_{\alpha},\varphi_{\alpha})}\) dove \(\set{U_{\alpha}}\) è un \href{20250103164252-ricoprimento.org}{ricoprimento} di \(M\), e dove, per certi \(V_{\alpha} \subseteq \R^{n}\) \href{20250103145124-topologia.org}{aperti}
 \begin{equation*}
 \varphi_{\alpha}: U_{\alpha} \longrightarrow V_{\alpha}
@@ -15,13 +19,13 @@ sono \href{20250104111707-funzione_biunivoca.org}{biezioni} tali che, per ogni \
 \end{itemize}
 
 \((U_{\alpha},\varphi_{\alpha})\) è detta \textbf{carta} dell'atlante.
-\section{Topologia indotta da un atlante}
+\subsubsection{Topologia indotta da un atlante}
 \label{sec:orgf68f558}
 Un atlante astratto induce una topologica su \(M\). \(A \subseteq M\) aperto se e solo se, per ogni \(\alpha\) tale che \(A\cap U_{\alpha}\neq \emptyset\),
 \begin{equation*}
 \varphi_{\alpha}(A\cap U_{\alpha})
 \end{equation*}
 è un aperto in \(\R^{n}\).
-\subsection{{\bfseries\sffamily TODO} Dimostrazione che questo induce una topologia\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\paragraph{{\bfseries\sffamily TODO} Dimostrazione che questo induce una topologia\hfill{}\textsc{matematica\_lm:geo\_diff}}
 \label{sec:org4a39dff}
 \end{document}

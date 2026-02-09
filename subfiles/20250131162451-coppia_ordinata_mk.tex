@@ -1,14 +1,18 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Formalizzazione in MK}
+\section{Coppia ordinata}
+\label{sec:orge70412c}
+\subsection{Formalizzazione in MK}
 \label{sec:org7b26482}
 
 Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
-\subsection{Coppia ordinata di insiemi (Kuratowski)}
+\subsubsection{Coppia ordinata di insiemi (Kuratowski)}
 \label{sec:org3ea3edc}
 
 Se \(x,y\) sono \href{20250130104331-insieme_mk.org}{insiemi}, allora si definisce la coppia ordinata
@@ -18,17 +22,18 @@ Se \(x,y\) sono \href{20250130104331-insieme_mk.org}{insiemi}, allora si definis
 (che è ancora un insieme per l'assioma of Pairing).
 
 Ovviamente \((x,y)\neq (y,x)\).
-\subsection{Proposizione}
+\subsubsection{Proposizione}
 \label{sec:orgb83844a}
 Per ogni insiemi \(x,y,z,w\) si ha
 \begin{equation*}
 (x,y) = (z,w)\,\iff\, x=z \,\land\, y=w
 \end{equation*}
-\subsubsection{Dimostrazione}
+\paragraph{Dimostrazione}
 \label{sec:org09506e5}
 
 Si dimostra solo (\(\implies\)) perché l'altra implicazione è ovvia
-\paragraph{Caso 1:}
+\begin{enumerate}
+\item Caso 1:
 \label{sec:orgad0c33d}
 
 Se \(x=y\), allora
@@ -41,7 +46,7 @@ Questo implica che \(x=z\) e \(z=w\).
 Quindi \(x=y=z=w\), che implica la tesi.
 
 Allo stesso modo \(y=w\) implica la tesi.
-\paragraph{Caso 2:}
+\item Caso 2:
 \label{sec:org6d11e0f}
 
 Supponiamo ora \(x\neq y\) e \(z\neq w\).
@@ -53,7 +58,8 @@ Siccome \(\set{x,y} \in (x,y) = (z,w) = (x,w)\) allora \(\set{x,y} = \set{x}\) o
 \set{x,y} = \set{x,w}
 \end{equation*}
 e dunque \(y \in \set{x,w}\), e dunque \(x=y\) oppure \(y=w\). Per ipotesi \(x\neq y\), dunque \(y=w\).
-\subsection{Coppia ordinata di classi}
+\end{enumerate}
+\subsubsection{Coppia ordinata di classi}
 \label{sec:orgab4dfa9}
 
 Se \(A, B\) sono \href{20250130104320-classe_mk.org}{classi}, e almeno una delle due è una \href{20250130104320-classe_mk.org}{classe propria}, allora la coppia \((A,B)\) è definita come l'\href{20250113175700-unione_disgiunta.org}{unione disgiunta}.

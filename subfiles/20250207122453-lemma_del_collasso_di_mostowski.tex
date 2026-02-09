@@ -1,11 +1,15 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Lemma del collasso di Mostowski}
+\label{sec:org4d2f67e}
 Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
-\section{Proposizione}
+\subsection{Proposizione}
 \label{sec:orgacddc8d}
 Sia \(X\) una classe, e sia \(R \subseteq X\times X\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK} e \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano di classi MK}) una \href{20250202170607-classe_relazione_binaria.org}{relazione} \href{20250619161501-caratteristiche_delle_relazioni_binarie.org}{irriflessiva}, \href{20250203095749-relazione_left_narrow_mk.org}{left-narrow} e \href{20250203100901-relazione_well_founded_mk.org}{well-founded}.
 \begin{enumerate}
@@ -16,10 +20,10 @@ Sia \(X\) una classe, e sia \(R \subseteq X\times X\) (vedi \href{20250131155822
 è un \href{20241128162125-isomorfismo.org}{isomorfismo} (vedi \href{20250207122542-collasso_di_mostowski.org}{Collasso transitivo})
 \item Se \(R\) è un \href{20250203104134-buon_ordine_mk.org}{buon ordine} \href{20250203101604-ordine.org}{stretto} su \(X\) allora \(\bm{\pi}_{R,X}\) e \(\bm{\varrho}_{R,X}\) coincidono (vedi \href{20250207122234-rango_di_una_relazione_well_founded.org}{Rango di una relazione well-founded}).
 \end{enumerate}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:orgb3b47cf}
 
-\subsubsection{Punto a.}
+\paragraph{Punto a.}
 \label{sec:org16a140c}
 
 \uline{\(\bm{\pi}_{R,X}\) è iniettiva.}
@@ -74,7 +78,7 @@ Se viceversa \(x\mathrel{R}y\) allora, per definizione, \(\bm{\pi}_{R,X}(x) \in 
 \bm{\pi}_{R,X}: X\to \overline{X}
 \end{equation*}
 è un isomorfismo.
-\subsubsection{Punto b.}
+\paragraph{Punto b.}
 \label{sec:org2192cd6}
 Si osservi che banalmente, se \(x\) è \(R\)-minimale allora
 \begin{equation*}
@@ -113,7 +117,7 @@ Applicando l'\href{20250208172824-induzione_transfinita_per_le_relazioni_well_fo
 \begin{equation*}
 \forall\,x \in X\ \bm{\pi}_{R,X}(x) = \bm{\varrho}_{R,X}(x)
 \end{equation*}
-\section{Osservazione}
+\subsection{Osservazione}
 \label{sec:org6852876}
 Si è dimostrato che se \(R\) è un buon ordine stretto su \(X\) allora per ogni \(x \in X\) si ha che
 \begin{equation*}

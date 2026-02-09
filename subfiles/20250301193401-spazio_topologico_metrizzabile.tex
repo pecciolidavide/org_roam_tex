@@ -1,28 +1,32 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Definizione}
+\section{Spazio topologico metrizzabile}
+\label{sec:org48e888e}
+\subsection{Definizione}
 \label{sec:orga6d5c4b}
 
 Uno \href{20250103145124-topologia.org}{spazio topologico} \(X\) si dice \texttt{metrizzabile} se esiste una \href{20250301193511-spazio_metrico.org}{metrica} che \href{20250301193530-topologia_indotta_da_una_distanza.org}{induce} la \href{20250103145124-topologia.org}{topologia}.
-\subsection{Osservazione}
-\label{sec:org545baa5}
+\subsubsection{Osservazione}
+\label{sec:orga698e07}
 
 Se \(d\) è una \href{20250301193511-spazio_metrico.org}{distanza}, allora
 \begin{equation*}
 d' = \frac{d}{1+d}
 \end{equation*}
 è una \href{20250301193925-distanze_equivalenti.org}{distanza equivalente}, con \(d'\le 1\), \href{20250301193939-distanze_equivalenti_inducono_la_stessa_topologia.org}{e pertanto} \href{20250301193530-topologia_indotta_da_una_distanza.org}{induce} la stessa topologica.
-\subsection{Osservazione}
-\label{sec:orga698e07}
+\subsubsection{Osservazione}
+\label{sec:orga9d0433}
 Se \(X\) è uno spazio metrizzabile allora \(X\) è \href{20250111142332-omeomorfismo.org}{omeomorfo} ad uno \href{20250301193511-spazio_metrico.org}{spazio metrico}. Pertanto ne eredita le caratteristiche topologiche:
 \begin{itemize}
 \item X è \href{20250109155715-spazio_topologico_di_hausdorff.org}{T2} (vedi \href{20250317130124-spazi_metrici_sono_t2.org}{Spazi metrici sono T2});
 \end{itemize}
-\subsection{Spazio topologico completamente metrizzabile}
+\subsubsection{Spazio topologico completamente metrizzabile}
 \label{sec:org1ab408f}
 Uno \href{20250103145124-topologia.org}{spazio topologico} \(X\) si dice \texttt{completamente metrizzabile} se esiste una \href{20250301193511-spazio_metrico.org}{metrica} \href{20250301194153-spazio_metrico_completo.org}{completa} che \href{20250301193530-topologia_indotta_da_una_distanza.org}{induce} la \href{20250103145124-topologia.org}{topologia}.
 \end{document}

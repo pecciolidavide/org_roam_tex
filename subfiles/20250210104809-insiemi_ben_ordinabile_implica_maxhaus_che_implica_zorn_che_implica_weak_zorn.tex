@@ -1,11 +1,15 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Catena di implicazioni uniformi MaxHaus, Zorn e wZorn}
+\label{sec:org582f47c}
 Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
-\section{Proposizione}
+\subsection{Proposizione}
 \label{sec:orgc09a2dd}
 Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme} \href{20250131161811-insieme_vuoto_mk.org}{non vuoto}.
 
@@ -13,10 +17,10 @@ Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme} \href{20250131161811-
 (vedi \href{20250210104707-principio_di_massimalita_di_hausdorff.org}{MaxHaus}, \href{20250210104633-lemma_di_zorn.org}{Zorn Lemma} e \href{20250210104633-lemma_di_zorn.org}{Weak Zorn Lemma})
 
 Inoltre \(\textsc{wZorn}\left(\parti{X\times X}\right)\) implica \(X\) ben ordinabile (vedi \href{20250130104245-morse_kelly_set_theory.org}{Insieme delle parti MK} e \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano di classi MK})
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org31095af}
 
-\subsubsection{Punto 1.}
+\paragraph{Punto 1.}
 \label{sec:orgf521cc7}
 Supponiamo che \(X\) sia ben ordinabile, e supponiamo per assurdo che \(\le\) sia un \href{20250203104134-buon_ordine_mk.org}{buon ordine} senza \href{20250102120836-catena.org}{catene massimali}.
 
@@ -33,14 +37,14 @@ K\left(\set{g(\beta)\ |\ \beta<\alpha}\right)
 \right)
 \end{equation*}
 che esiste per il \href{20250207121906-teorema_di_ricorsione.org}{Teorema di Ricorsione}, è iniettiva\footnote{Bisogna dimostrare che sia iniettiva}. \href{20250205152531-numeri_di_hartogs.org}{Assurdo}.
-\subsubsection{Punto 2.}
+\paragraph{Punto 2.}
 \label{sec:orgcb0626c}
 Supponiamo ora \(\textsc{MaxHaus}(X)\), e sia \(\le\) un \href{20250203101604-ordine.org}{ordine} su \(X\) tale che ogni \href{20250102120836-catena.org}{catena} abbia un \href{20250203102516-massimo_e_minimo.org}{estremo superiore}.
 Sia \(C \subseteq X\) è una \href{20250102120836-catena.org}{catena massimale}, allora l'estremo superiore di \(C\) appartiene a \(C\), e pertanto è un \href{20250203102516-massimo_e_minimo.org}{elemento massimale} di \(X\).
-\subsubsection{Punto 3.}
+\paragraph{Punto 3.}
 \label{sec:orgf422540}
 L'implicazione \href{20250210104633-lemma_di_zorn.org}{Zorn} implica \href{20250210104633-lemma_di_zorn.org}{wZorn} è immediata.
-\subsubsection{Punto 4.}
+\paragraph{Punto 4.}
 \label{sec:org9552f4f}
 Sia \(\mathcal{P} \subseteq \parti{X\times X}\) l'insieme di tutti i buoni ordini \(R\) su \(X\) tali che \(\operatorname{fld}(R) \subseteq X\) (vedi \href{20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{Dominio, Range e Campo di una Classe Relazione}).
 

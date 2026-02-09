@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Curva Razionale Normale}
+\label{sec:org66c30a4}
 Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}. La curva razionale normale è una generalizzazione della \href{20250102104043-cubica_gobba.org}{Cubica Gobba}.
 
 Si definisce
@@ -14,7 +18,7 @@ Si definisce
 (vedi \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo} e \href{20241231123223-varieta_algebrica_proiettiva.org}{Varietà Algebrica Proiettiva})
 
 Ovviamente \(\nu_{d}\) è un \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{morfismo}. Sia \(C\coloneqq\nu_{d}(\mathds{P}^{1})\). \(C\) è la curva razionale normale.
-\section{\(C\) è una \href{20241231123223-varieta_algebrica_proiettiva.org}{Varietà Algebrica Proiettiva}.}
+\subsection{\(C\) è una \href{20241231123223-varieta_algebrica_proiettiva.org}{Varietà Algebrica Proiettiva}.}
 \label{sec:org1551dec}
 
 Sia \(A\) la \href{20250104111539-spazio_delle_matrici.org}{matrice}:
@@ -34,7 +38,7 @@ z_{d-2}z_{d}=z_{d-1}^{2}
 \end{cases}
 \end{equation*}
 Si ha che \(C=Y\).
-\subsection{\(C \subseteq Y\)}
+\subsubsection{\(C \subseteq Y\)}
 \label{sec:org0fbf1f6}
 Questa inclusione è ovvia: se \(p = [p_{0}:p_{1}] \in \mathds{P}^{1}\) e \(q=[q_{0}:\dots:q_{d}]=\nu_{d}(p)\), allora
 \begin{equation*}
@@ -49,7 +53,7 @@ q_{i}q_{i+2} &= (p_{0}^{d-i}p_{1}^{i})\ (p_{0}^{d-i-2}p_{1}^{i+2}) = p_{0}^{d-i+
 \end{align*}
 
 e dunque i punti di \(C\) sono soluzioni del sistema.
-\subsection{\(Y \subseteq C\)}
+\subsubsection{\(Y \subseteq C\)}
 \label{sec:orgf5aca6d}
 Sia \(p \in Y\), \(p=[p_{0}:\dots:p_{d}]\). \(p\) risolve il sistema di equazioni.
 
@@ -83,7 +87,7 @@ t_{i} = t_{1}^{i}
 \end{cases}
 \end{equation*}
 e dunque \(p =\nu_{d}\left([1:t_{1}]\right)\), e \(p \in C\).
-\section{\(\nu_{d}\) è un isomorfismo}
+\subsection{\(\nu_{d}\) è un isomorfismo}
 \label{sec:org324b661}
 
 Consideriamo la corestrizione
@@ -107,7 +111,7 @@ U_{i} = \set{z_{i}\neq 0}
 [z_{d-1}:z_{d}] & z\in C\cap U_{d}
 \end{cases}
 \end{equation*}
-\subsection{\(\nu_{d}^{-1}\) è veramente l'inversa}
+\subsubsection{\(\nu_{d}^{-1}\) è veramente l'inversa}
 \label{sec:org6942697}
 
 Sia \(p = \nu_{d}[x_{0}:x_{1}]\), quindi
@@ -117,7 +121,7 @@ p = [x_{0}^{d}:x_{0}^{d-1}x_{1}:\dots:x_{0}x_{1}^{d-1}:x_1^{d}]
 
 Se \(p \in U_{0}\), si ha che \(\nu_{d}^{-1}(p)=[x_{0}^{d}:x_{0}^{d-1}x_{1}]=x_{0}^{d-1}[x_{0}:x_{1}] = [x_{0}:x_{1}]\).
 Se \(p \in U_{d}\), si ha che \(\nu_{d}^{-1}(p)=[x_{0}x_{1}^{d-1}:x_{1}^{d}]=x_{1}^{d-1}[x_{0}:x_{1}]=[x_{0}:x_{1}]\).
-\subsection{\(\nu_{d}^{-1}\) è ben definito.}
+\subsubsection{\(\nu_{d}^{-1}\) è ben definito.}
 \label{sec:org8affe97}
 
 Sia ora \(z \in C\cap U_{0}\cap U_{d}\), \(z=\nu_{d}[x_{0}:x_{1}]\)

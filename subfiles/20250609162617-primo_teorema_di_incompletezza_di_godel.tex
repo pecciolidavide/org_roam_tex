@@ -1,14 +1,18 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Primo Teorema di Incompletezza di Gödel}
+\label{sec:org0480af2}
 Si considerino le notazione della ``\href{20250609104647-buona_codifica_di_un_linguaggio.org}{Aritmetizzazione della sintassi}'', e si fissi una \href{20250609104647-buona_codifica_di_un_linguaggio.org}{buona codifica} \(\#\) per il \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio} \(L_{Q}=\set{+,\cdot,S,0}\) dell'\href{20250608093604-aritmetica.org}{aritmetica di Robinson} \(Q\).
-\section{Premesse}
+\subsection{Premesse}
 \label{sec:org7e0dcaa}
 
-\subsection{Lemma 1}
+\subsubsection{Lemma 1}
 \label{sec:org48d1042}
 
 La seguente funzione è \href{20250215141024-funzioni_primitive_ricordive.org}{ricorsiva primitiva}
@@ -16,21 +20,21 @@ La seguente funzione è \href{20250215141024-funzioni_primitive_ricordive.org}{r
 \operatorname{num}:\N\to \N: n\mapsto \termcode{\overline{n}}
 \end{equation*}
 dove \(\overline{n}\) indica il \href{20250608093604-aritmetica.org}{numerale} associato a \(n\).
-\subsection{Lemma 2}
+\subsubsection{Lemma 2}
 \label{sec:orgdfaba68}
 
 Esiste una funzione \href{20250215141024-funzioni_primitive_ricordive.org}{ricorsiva primitiva} \(D: \N\to \N\) tale che per ogni \(L_{Q}\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\rho(v_{0})\)
 \begin{equation*}
 D\left(\termcode{\rho}\right) = \termcode{\rho(\overline{\termcode{\rho}}/v_{0})}.
 \end{equation*}
-\subsection{Lemma di diagonalizzazione per le formule dell'aritmetica di Robinson}
+\subsubsection{Lemma di diagonalizzazione per le formule dell'aritmetica di Robinson}
 \label{sec:org586b96f}
 Per ogni \(L_{Q}\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} \(\varphi(v_{i})\) con \(v_{i}\) \href{20250131103429-variabile_libera_di_una_formula.org}{libera} in \(\varphi\), esiste un \(L_{Q}\)-\href{20250131103446-enunciato_del_prim_ordine.org}{enunciato} \(\sigma\) tale che l'aritmetica di Robinson \href{20250131123011-conseguenza_logica.org}{dimostri}:
 \begin{equation*}
 Q\vdash \sigma\iff\varphi(\overline{\termcode{\sigma}}/v_{i})
 \end{equation*}
-\subsubsection{Dimostrazione}
-\label{sec:orgdfa46ee}
+\paragraph{Dimostrazione}
+\label{sec:org80d8fef}
 
 Sia \(D\) la funzione del Lemma 2; siccome è \href{20250215141024-funzioni_primitive_ricordive.org}{ricorsiva primitiva}, \href{20250608094553-aritmetica_di_robinson_rappresenta_funzioni_ricorsive_totali_e_predicati_ricorsivi.org}{allora} esiste \(\psi(x,y)\) una \(L_{Q}\)-\href{20250131103317-formula_del_prim_ordine.org}{formula} che \href{20250608094213-insieme_rappresentato_da_una_formula.org}{rappresenta \(D\) in \(Q\)}.
 
@@ -120,12 +124,12 @@ I due punti sopra dimostrano la tesi
 \begin{equation*}
 Q\vdash \sigma\iff \overline{\term{\sigma}}/v_{i}).\qedd
 \end{equation*}
-\section{Primo Teorema di Incompletezza di Gödel}
+\subsection{Primo Teorema di Incompletezza di Gödel}
 \label{sec:org54d21de}
 
 Sia \(L \supseteq L_{Q}\) e sia \(T\supseteq Q\) una \(L\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} \href{20250609162711-teoria_omega_coerente.org}{\(\omega\)-coerente} e \href{20250609135250-teoria_ricorsivamente_assiomatizzabile.org}{ricorsivamente assiomatizzabile}. Allora \(T\) è \href{20250131123151-teoria_completa.org}{incompleta}.
-\subsection{Dimostrazione}
-\label{sec:org80d8fef}
+\subsubsection{Dimostrazione}
+\label{sec:orgdfcb7e6}
 
 Sia \(\operatorname{Ax}(T)\) un sistema di assiomi per \(T\) tale che \(\operatorname{Ax}^{\#}(T) \subseteq \N\) sia ricorsivo.
 
@@ -170,14 +174,14 @@ poiché altrimenti \(\termcode{\sigma_{G}} \in \operatorname{Teor}^{\#}_{T}\).
 
 Dunque \(T\not\vdash \lnot \varphi(\overline{\termcode{\sigma_{G}}}/y)\) e per (\(\diamondsuit\)), quindi \(T\not\vdash\lnot\sigma_{G}\).\qed
 \end{itemize}
-\section{Conseguenze}
+\subsection{Conseguenze}
 \label{sec:org97ae274}
 
-\subsection{Corollario 1}
+\subsubsection{Corollario 1}
 \label{sec:org6fe9d20}
 
 Sia \(T\) una teoria ricorsivamente assiomatizzabile i cui assiomi siano veri in \(\N\). Se \(T\) dimostra gli assiomi (Q1)-(Q7) di \(Q\), allora \(T\) è incompleta. In particolare, l'aritmetica di Peano è incompleta.
-\subsection{Complessità e dimostrabilità nell'aritmetica di Robinson}
+\subsubsection{Complessità e dimostrabilità nell'aritmetica di Robinson}
 \label{sec:org20d160f}
 Sia \(T\supseteq Q\) una \(L_{Q}\)-\href{20250130114950-teoria_del_prim_ordine.org}{teoria} di cui il \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} sia un \href{20250131122945-modello_di_un_insieme_di_formule.org}{modello}. Esiste un \href{20250603170559-complessita_di_una_formula_del_modello_standard.org}{\(\Pi_{1}\)}-\href{20250131103446-enunciato_del_prim_ordine.org}{enunciato} \(\sigma_{G}\) nel linguaggio \(L_{Q}\) vero in \(\N\) tale che \(T\) non è in grado di dimostrare.
 
@@ -188,7 +192,7 @@ Tutti gli \href{20250131103446-enunciato_del_prim_ordine.org}{enunciati} si cons
 \item Gli enunciati \(\Delta_{0}\) veri nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} sono dimostrabili in \(Q\).
 \item Gli enunciati \(\Delta_{0}\) falsi nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} sono refutabili in \(Q\).
 \end{itemize}
-\subsection{Teorema}
+\subsubsection{Teorema}
 \label{sec:org85e1467}
 
 Ogni teoria \(T\supseteq Q\) coerente e ricorsivamente assiomatizzabile è incompleta.

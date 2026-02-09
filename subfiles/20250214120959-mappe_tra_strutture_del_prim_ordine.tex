@@ -1,13 +1,17 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{{[}Riepilogo] Mappe tra strutture del prim'ordine}
+\label{sec:org02bcdb0}
 \maketitle
 
 Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, e siano \(\mathcal{M},\mathcal{N}\) due \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{strutture} di \href{20250131103035-struttura_del_prim_ordine.org}{domini}, rispettivamente, \(M\) ed \(N\).
-\section{Proprietà delle mappe tra strutture del prim'ordine}
+\subsection{Proprietà delle mappe tra strutture del prim'ordine}
 \label{sec:org39c44c2}
 
 \begin{definizione}
@@ -39,9 +43,9 @@ M\vDash \varphi(a) \quad\implies\quad N\vDash \varphi(Fa)
 \end{equation*}
 ovvero se \(F\) è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismo} per \(\Delta=\mathcal{L}\) l'\href{20250131103317-formula_del_prim_ordine.org}{insieme di tutte le formule}.
 \end{definizione}
-\section{Mappe TOTALI tra strutture del prim'ordine}
+\subsection{Mappe TOTALI tra strutture del prim'ordine}
 \label{sec:orgc76bdc3}
-\subsection{Morfismo tra strutture del prim'ordine}
+\subsubsection{Morfismo tra strutture del prim'ordine}
 \label{sec:org544ac38}
 \begin{definizione}
 Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250213105339-funzione_parziale.org}{totale} \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è detta \uline{morfismo} se
@@ -67,7 +71,7 @@ Sia \(F:M\to N\) funzione totale. Sono fatti equivalenti:
 \end{equation*}
 \end{enumerate}
 \end{prop}
-\subsection{Morfismo pieno tra strutture del prim'ordine}
+\subsubsection{Morfismo pieno tra strutture del prim'ordine}
 \label{sec:org513908a}
 \begin{definizione}
 Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250213105339-funzione_parziale.org}{totale} \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è detta \uline{morfismo pieno} se
@@ -86,7 +90,7 @@ Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{202502131
 \begin{prop}
 \textbf{Caratterizzazione come \(\Delta\)-morfismo}: \textbf{\href{20250515141706-da_finire.org}{DA FINIRE}}
 \end{prop}
-\subsection{Immersione tra strutture del prim'ordine}
+\subsubsection{Immersione tra strutture del prim'ordine}
 \label{sec:org52a3fbd}
 \begin{definizione}
 Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250213105339-funzione_parziale.org}{totale} \href{20241219101956-funzione_iniettiva.org}{iniettiva} \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è detta \uline{immersione} se
@@ -120,7 +124,7 @@ ovvero sia \(F\) che \(F^{-1}\) (eventualmente \href{20250213105339-funzione_par
 ovvero sia \(F\) che \(F^{-1}\) (eventualmente \href{20250213105339-funzione_parziale.org}{parziale}) sono dei \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismi} per \(\Delta=\mathcal{L}_{\text{at}}\).
 \end{enumerate}
 \end{prop}
-\subsubsection{Immersione elementare}
+\paragraph{Immersione elementare}
 \label{sec:org0233e01}
 \begin{definizione}
 Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250213105339-funzione_parziale.org}{totale} \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è detta \uline{immersione elementare} se
@@ -143,7 +147,7 @@ Sia \(F:M\to N\) una funzione totale. Sono fatti equivalenti:
 \end{prop}
 
 Inoltre, \href{20250212185030-immersione_elementare_induce_isomorfismo.org}{ogni immersione elementare si estende ad un isomorfismo}.
-\subsection{Isomorfismo tra strutture del prim'ordine}
+\subsubsection{Isomorfismo tra strutture del prim'ordine}
 \label{sec:org7d4a570}
 \begin{definizione}
 Una \href{20250202170607-classe_relazione_binaria.org}{funzione} \href{20250213105339-funzione_parziale.org}{totale} \href{20250104111707-funzione_biunivoca.org}{biiettiva} \(F:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è detta \uline{isomorfismo} se sia \(F\) che la sua \href{20250111142446-funzione_inversa.org}{inversa} \(F^{-1}\) sono \hyperref[sec:org544ac38]{morfismi tra le due strutture}.
@@ -180,9 +184,9 @@ Sia \(F:M\to N\) una funzione totale. Sono fatti equivalenti:
 \item \(F\) è una \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{mappa elementare} biiettiva.
 \end{enumerate}
 \end{prop}
-\section{Mappe PARZIALI tra strutture del prim'ordine}
+\subsection{Mappe PARZIALI tra strutture del prim'ordine}
 \label{sec:org55a73d1}
-\subsection{Morfismo parziale tra strutture del prim'ordine}
+\subsubsection{Morfismo parziale tra strutture del prim'ordine}
 \label{sec:org4de69e8}
 \begin{definizione}
 Una \href{20250213105339-funzione_parziale.org}{funzione parziale} \(f:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è un \uline{morfismo parziale} se è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismo} per \(\Delta=\mathcal{L}_{\text{at}}\) l'\href{20250131103317-formula_del_prim_ordine.org}{insieme delle formule atomiche}, ovvero
@@ -193,7 +197,7 @@ M\vDash\varphi(a)\quad\implies\quad N\vDash\varphi(fa)
 \end{equation*}
 \end{quote}
 \end{definizione}
-\subsection{Isomorfismo parziale tra strutture del prim'ordine}
+\subsubsection{Isomorfismo parziale tra strutture del prim'ordine}
 \label{sec:org0333bac}
 \begin{definizione}
 Una \href{20250213105339-funzione_parziale.org}{funzione parziale} \href{20241219101956-funzione_iniettiva.org}{iniettiva} \(f:M\to N\) tra i \href{20250131103035-struttura_del_prim_ordine.org}{domini delle due strutture} è un \uline{isomorfismo parziale} o \uline{immersione parziale} se è un \href{20250214120959-mappe_tra_strutture_del_prim_ordine.org}{\(\Delta\)-morfismo} per \(\Delta=\mathcal{L}_{\text{qf}}\) l'\href{20250131103317-formula_del_prim_ordine.org}{insieme delle formule senza quantificatori}, ovvero

@@ -1,30 +1,34 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Cardinali}
+\label{sec:org6bb7238}
 Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
-\section{Definizione}
+\subsection{Definizione}
 \label{sec:org17ac02a}
 Un \textbf{cardinale} è un \href{20250203111003-ordinali.org}{ordinale} \(\kappa\) non \href{20250619101109-classi_equipotenti.org}{in biiezione} con nessun \(\alpha < \kappa\).
 
 Si indica con \(\operatorname{Card}\) la \href{20250130104320-classe_mk.org}{classe} dei cardinali.
-\section{Numeri naturali sono cardinali}
+\subsection{Numeri naturali sono cardinali}
 \label{sec:org95e30ce}
 Ogni \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{numero naturale} è un cardinale (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Numeri naturali sono ordinali}), e \(\omega\) è il primo cardinale infinito (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega} e \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega è il più piccolo ordinale limite})
-\section{Proprietà dei cardinali}
+\subsection{Proprietà dei cardinali}
 \label{sec:orga50d7f2}
-Se \(\kappa, \lambda\) sono \href{20250203161341-cardinali.org}{cardinali}, allora
+Se \(\kappa, \lambda\) sono \hyperref[sec:org6bb7238]{cardinali}, allora
 \begin{enumerate}
 \item \(\kappa=\lambda\) se e solo se \(\kappa \asymp\lambda\) (vedi \href{20250619101109-classi_equipotenti.org}{Classi equipotenti MK});
 \item \(\kappa\le \lambda\) (vedi \href{20250203111003-ordinali.org}{Relazione d'ordine sugli ordinali}) se e solo se \(\kappa\preceq \lambda\) (vedi \href{20241219101956-funzione_iniettiva.org}{Classe si inietta MK}).
 \end{enumerate}
-\section{Estremo superiore di un insieme  di cardinali è un cardinale}
+\subsection{Estremo superiore di un insieme  di cardinali è un cardinale}
 \label{sec:orgac99adb}
-Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme} di \href{20250203161341-cardinali.org}{cardinali}. Allora \(\operatorname{sup}(X)\) è un \href{20250203161341-cardinali.org}{cardinale} (vedi \href{20250203111003-ordinali.org}{Relazione d'ordine sugli ordinali} e \href{20250203102516-massimo_e_minimo.org}{Infimum e supremum})
-\subsection{Dimostrazione}
-\label{sec:org42b88da}
+Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme} di \hyperref[sec:org6bb7238]{cardinali}. Allora \(\operatorname{sup}(X)\) è un \hyperref[sec:org6bb7238]{cardinale} (vedi \href{20250203111003-ordinali.org}{Relazione d'ordine sugli ordinali} e \href{20250203102516-massimo_e_minimo.org}{Infimum e supremum})
+\subsubsection{Dimostrazione}
+\label{sec:org0165e24}
 Se \(X\) è un insieme di cardinali, allora \(X\) è un insieme di \href{20250203111003-ordinali.org}{ordinali}, e pertanto
 \begin{equation*}
 \operatorname{sup}(X) = \bigcup X\eqqcolon \lambda
@@ -36,11 +40,11 @@ Se per assurdo \(\lambda\) non fosse un cardinale, \href{20241213101756-cardinal
 |\lambda|<\kappa\le \lambda
 \end{equation*}
 e \href{20241213101756-cardinalita.org}{quindi} \(|\kappa|=|\lambda|\). Quindi \(|\kappa|<\kappa\) e \href{20241213101756-cardinalita.org}{pertanto} \(\kappa\) non è un cardinale. Assurdo (per ipotesi \(\kappa \in X\) e \(X\) insieme di cardinali, dunque \(\kappa\) è un cardinale).
-\section{Corollario}
+\subsection{Corollario}
 \label{sec:orgf65cd84}
 La \href{20250130104320-classe_mk.org}{classe} \(\operatorname{Card}\) è una \href{20250130104320-classe_mk.org}{classe propria}.
-\subsection{Dimostrazione}
-\label{sec:org0165e24}
+\subsubsection{Dimostrazione}
+\label{sec:orgbdfecf8}
 Supponiamo che \(\operatorname{Card} \subseteq \operatorname{Ord}\) sia un \href{20250130104331-insieme_mk.org}{insieme}. Allora \(\sup \operatorname{Card} \in \operatorname{Card}\) (per il Teorema). Se consideriamo il \href{20250205152531-numeri_di_hartogs.org}{numero di Hartogs} di \(\sup\operatorname{Card}\) si ha che
 \begin{equation*}
 \sup \operatorname{Card} < \operatorname{Hrtg}\left(\sup\operatorname{Card}\right) \in \operatorname{Card}

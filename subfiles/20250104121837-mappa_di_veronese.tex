@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Mappa di Veronese}
+\label{sec:org70c7a37}
 Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}.
 Si consideri \(\mathds{P}^{n}\) con coordinate \([x_{0}:\dots:x_{n}]\) (si veda \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo}).
 
@@ -35,10 +39,10 @@ Si definisce la \textbf{mappa di Veronese}
 (vedi \href{20250105124008-spazio_vettoriale_duale.org}{Spazio vettoriale duale})
 
 Questa mappa è un \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{morfismo} tra \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà algebriche proiettive}, con una definizione globale sul suo dominio.
-\section{Varietà di Veronese}
+\subsection{Varietà di Veronese}
 \label{sec:orgd01e511}
 L'immagine \(V_{n,d}\coloneqq\nu_{n,d}(\mathds{P}^{n})\) è detta \textbf{varietà di Veronese} di tipo \((n,d)\).
-\subsection{Dimostrazione che sia realmente una varietà}
+\subsubsection{Dimostrazione che sia realmente una varietà}
 \label{sec:org483e7a8}
 Per \(I,J \in D\), poniamo \(I+J=(i_{0}+j_{0},\dots,i_{n}+j_{n})\).
 
@@ -47,7 +51,7 @@ Posto \(Y\) il \href{20241231112823-radici_polinomiali.org}{luogo delle soluzion
 z_{I}z_{J}=z_{K}z_{L}\qquad \forall\, I,J,K,L: \ I+J=K+L
 \end{equation*}
 si ha che \(V_{n,d}=Y\).
-\subsubsection{\(V_{n,d} \subseteq Y\)}
+\paragraph{\(V_{n,d} \subseteq Y\)}
 \label{sec:orga4f8cab}
 Sia \(p=[p_{0}:\dots:p_{n}] \in \mathds{P}^{n}\), e consideriamo \(\nu_{n,d}(p)=[\dots:P_{I}:\dots]\) con le coordinate di cui sopra. Siano
 \begin{align*}
@@ -63,7 +67,7 @@ P_{I}P_{J}&=(x_{0})^{i_{0}}\dots (x_{n})^{i_{n}} \cdot (x_{0})^{j_{0}}\dots(x_{n
 &= (x_{0})^{k_{0}+l_{0}}\dots(x_{n})^{k_{n}+l_{n}}\\
 &= (x_{0})^{k_{0}}\dots(x_{n})^{k_{n}} \cdot (x_{0})^{l_{0}}\dots(x_{n})^{l_{n}} = P_{K}P_{L}
 \end{align*}
-\subsubsection{\(Y \subseteq V_{n,d}\)}
+\paragraph{\(Y \subseteq V_{n,d}\)}
 \label{sec:org0877463}
 Sia \(K_{\ell}\) il multi-indice composto da soli zeri, ma con \(d\) nella posizione \(\ell\)-esima:
 \begin{equation*}
@@ -72,7 +76,8 @@ K_{\ell}=(0,\dots,0,d,0,\dots,0)
 per \(0\le \ell\le n\).
 
 Sia dunque \(P=[\dots:P_{I}:\dots] \in Y\).
-\paragraph{Claim: esiste \(\ell_{0}\) tale \(P_{K_{\ell_{0}}}\neq 0\)}
+\begin{enumerate}
+\item Claim: esiste \(\ell_{0}\) tale \(P_{K_{\ell_{0}}}\neq 0\)
 \label{sec:org6254999}
 Sia \(i_{\max}\) il massimo indice che compare tra tutti i multiindici \(I\) tali che \(P_{I}\neq 0\). La tesi è dimostrare che \(i_{\max}=d\).
 
@@ -92,7 +97,7 @@ P_{I}^{2}=P_{J}P_{K}
 Siccome \(P_{I}\neq 0\) , necessariamente \(P_{J}\neq 0 \neq P_{K}\), e pertanto è presente un indice \(>i_{\max}\). Assurdo.
 
 Dunque \(i_{\max}=d\), e la tesi è dimostrata.
-\paragraph{{\bfseries\sffamily TODO} \(P \in V_{n,d}\)\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\item {\bfseries\sffamily TODO} \(P \in V_{n,d}\)\hfill{}\textsc{matematica\_lm:geo\_alg}
 \label{sec:org78d61c5}
 Supponiamo che \(P_{K_{0}}\neq 0\). Siano:
 \begin{align*}
@@ -112,6 +117,7 @@ Vale che \(P=Q\). Infatti, se \(I=(i_{0},\dots,i_{n})\):
 Q_{I}&=(q_{0})^{i_{0}}\ \dots\ (q_{n})^{i_{n}}\\
 &= (P_{(d,0,\dots,0)})^{i_{0}}\ (P_{(d-1,1,0,\dots,0)})^{i_{1}}\ \dots\ (P_{(d-1,0,\dots,0,1)})^{i_{n}}
 \end{align*}
-\section{{\bfseries\sffamily TODO} \(\nu_{n,d}\) è un \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{Isomorfismo tra varietà algebriche proiettive}\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\end{enumerate}
+\subsection{{\bfseries\sffamily TODO} \(\nu_{n,d}\) è un \href{20250104120600-morfismo_tra_varieta_algebriche_proiettive.org}{Isomorfismo tra varietà algebriche proiettive}\hfill{}\textsc{matematica\_lm:geo\_alg}}
 \label{sec:org02ffb58}
 \end{document}

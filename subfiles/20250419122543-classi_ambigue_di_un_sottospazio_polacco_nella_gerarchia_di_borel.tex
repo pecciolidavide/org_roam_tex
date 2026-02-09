@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Proposizione}
+\section{Classi ambigue di un sottospazio polacco nella gerarchia di Borel}
+\label{sec:org1fb1595}
+\subsection{Proposizione}
 \label{sec:org76036a4}
 
 Let \(Y \subseteq X\) be Polish spaces. Show that for every \(\alpha \geq 3\),
@@ -12,7 +16,7 @@ Let \(Y \subseteq X\) be Polish spaces. Show that for every \(\alpha \geq 3\),
 \bm{\Delta}^0_\alpha(Y) = \bm{\Delta}^0_\alpha(X) \upharpoonright Y,
 \]
 where as usual \(\bm{\Delta}^0_\alpha(X) \upharpoonright Y = \{ A \cap Y \mid A \in \Delta^0_\alpha(X) \}\).
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:orgd4c8020}
 
 Si richiama il Lemma 2.1.5(vi):
@@ -20,7 +24,7 @@ Si richiama il Lemma 2.1.5(vi):
 \bm{\Sigma}^{0}_{\alpha}(Y) &= \bm{\Sigma}^{0}_{\alpha}(X)\upharpoonright Y;\\
 \bm{\Pi}^{0}_{\alpha}(Y) &= \bm{\Pi}^{0}_{\alpha}(X)\upharpoonright Y.
 \end{align*}
-\subsubsection{Inclusione ``\(\subseteq\)''}
+\paragraph{Inclusione ``\(\subseteq\)''}
 \label{sec:org1ef95df}
 
 Sia \(A \in \bm{\Delta}^{0}_{\alpha}(Y) = \bm{\Sigma}^{0}_{\alpha}(Y) \cap \bm{\Pi}^{0}_{\alpha}(Y)\). Allora esistono \(B \in \bm{\Sigma}^{0}_{\alpha}(X)\) e \(C \in \bm{\Pi}^{0}_{\alpha}(X)\) tali che
@@ -36,7 +40,7 @@ ovvero \(A \in \bm{\Delta}^{0}_{\alpha}(X)\). Inoltre \(A \subseteq Y\), e perta
 \begin{equation*}
 A = A\cap Y \in \bm{\Delta}^{0}_{\alpha}(X)\upharpoonright Y = \set{V\cap Y\mid V \in \bm{\Delta}^{0}_{\alpha}(X)}.
 \end{equation*}
-\subsubsection{Inclusione ``\(\supseteq\)''}
+\paragraph{Inclusione ``\(\supseteq\)''}
 \label{sec:org7add0f6}
 
 Sia \(A \in \bm{\Delta}^{0}_{\alpha}(X)\), ovvero \(A\cap Y \in \bm{\Delta}^{0}_{\alpha}(X)\upharpoonright Y\).

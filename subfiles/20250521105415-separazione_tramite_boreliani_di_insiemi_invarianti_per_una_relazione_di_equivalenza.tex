@@ -1,16 +1,20 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Esercizio 1}
+\section{Separazione tramite boreliani di insiemi invarianti per una relazione di equivalenza su un Polacco}
+\label{sec:orgb66233b}
+\subsection{Esercizio 1}
 \label{sec:orgf60b8f2}
 
 Let \(E\) be an equivalence relation on a Polish space \(X\). A set \(A \subseteq X\) is called \textbf{\(E\)-invariant} if \(x \in A\) and \(y \mathrel{E} x\) implies \(y \in A\), for all \(x, y \in X\). Suppose that \(E\) is analytic, that is, \(E \in \bm{\Sigma}^1_1(X^2)\). Show that if \(A, B \subseteq X\) are disjoint analytic \(E\)-invariant sets, then there is a Borel \(E\)-invariant set \(C \subseteq X\) separating \(A\) from \(B\), that is, \(A \subseteq C\) and \(C \cap B = \emptyset\).
 
 \emph{Hint}: Recursively define sets \(A_n\), \(C_n \subseteq X\) so that \(A_0 = A\), \(C_n\) is a Borel set separating \(A_n\) from \(B\), and \(A_{n+1} \supseteq C_n\) is \(E\)-invariant, analytic, and disjoint from \(B\).
-\subsection{Soluzione}
+\subsubsection{Soluzione}
 \label{sec:orge51d7fb}
 
 \uline{Claim}: Esistono due famiglie \((A_{n})_{n \in \omega}, (C_{n})_{n \in \omega}\) di sottoinsiemi di \(X\), tali che

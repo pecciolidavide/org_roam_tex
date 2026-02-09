@@ -1,11 +1,15 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Criterio di Tarski-Vaught}
+\label{sec:org0894193}
 Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}, e sia \(N\) una \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura}.
-\section{Teorema (Criterio di Tarski-Vaught)}
+\subsection{Teorema (Criterio di Tarski-Vaught)}
 \label{sec:orga2397f1}
 Per ogni \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \(A \subseteq N\), sono fatti equivalenti:
 \begin{enumerate}
@@ -16,9 +20,9 @@ Per ogni \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoi
 \end{equation*}
 (vedi \href{20250131122913-soddisfazione_di_una_formula.org}{Enunciato vero in un modello del prim'ordine})
 \end{enumerate}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org0faa4d2}
-\subsubsection{1 implica 2}
+\paragraph{1 implica 2}
 \label{sec:org630698c}
 
 Se \(M\preceq N\) allora \(M\mathrel{\equiv_{A}}N\) (vedi \href{20250131123208-teorie_elementarmente_equivalente.org}{Strutture elementarmente equivalenti su un sottoinsieme}), e dunque per ogni \(\sigma \in \mathcal{L}(A)\)
@@ -35,10 +39,11 @@ siccome ora \(\varphi(b) \in \mathcal{L}(A)\) allora
 \begin{equation*}
 M\vDash \varphi(b)\text{ per qualche }b \in A\quad\implies\quad N\vDash \varphi(b)\text{ per qualche }b \in A.
 \end{equation*}
-\subsubsection{2 implica 1}
+\paragraph{2 implica 1}
 \label{sec:org00dd687}
 
-\paragraph{Dominio di una sottostruttura}
+\begin{enumerate}
+\item Dominio di una sottostruttura
 \label{sec:orgf8a4ab7}
 
 Si dimostra che \(A \subseteq N\) è il dominio di una \href{20250131103212-sottostruttura_del_prim_ordine.org}{sottostruttura}, ovvero che per ogni \(f \in \mathcal{L}_{\text{fun}}\) (vedi \href{20250130162057-linguaggio_del_prim_ordine.org}{Simbolo di funzione}) di \href{20250130162057-linguaggio_del_prim_ordine.org}{arietà} \(n\), e per ogni \(\overline{a}=(a_{1},\dots,a_{n}) \in A^{n}\) (vedi \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano generalizzato}), \(f^{N}\overline{a} \in A\) (vedi \href{20250212100302-interpretazione_di_un_termine.org}{Interpretazione di un termine}).
@@ -54,7 +59,7 @@ f^{N}(a_{1},\dots,a_{n}) = b \in A.
 \end{equation*}
 
 Sia dunque \(M \subseteq N\) la \href{20250131103212-sottostruttura_del_prim_ordine.org}{sottostruttura} di dominio \(A\).
-\paragraph{Sottostruttura elementare}
+\item Sottostruttura elementare
 \label{sec:orgd458d08}
 
 Si dimostra che per ogni \(\xi(x_{1},\dots,x_{n})\) \(\mathcal{L}\)-formula, per ogni \((a_{1},\dots,a_{n}) \in M^{n}\):
@@ -89,5 +94,6 @@ Bisogna dimostrare che
 N\vDash \exists\,y\ \psi(a_{1},\dots,a_{n}, y)\quad\implies\quad N\vDash \psi(a_{1},\dots,a_{n}, b)\text{ per qualche }b \in A
 \end{equation*}
 ma questo è esattamente la condizione 2.
+\end{enumerate}
 \end{enumerate}
 \end{document}

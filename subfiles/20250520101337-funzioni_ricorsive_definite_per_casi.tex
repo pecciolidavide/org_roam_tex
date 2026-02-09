@@ -1,13 +1,17 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Funzioni ricorsive definite per casi}
+\label{sec:org3d375e8}
 In questa sezione si identificano i \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottinsiemi} di \(\N^{k}\) (vedi \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{Insieme dei numeri naturali MK}) con i \href{20250131103317-formula_del_prim_ordine.org}{predicati} \(k\)-ari (ovvero con \(k\) \href{20250131103429-variabile_libera_di_una_formula.org}{variabili libere}), per mezzo degli \href{20250131122913-soddisfazione_di_una_formula.org}{insiemi di verità}.
 
 Scriveremo indifferentemente \((x_{1},\dots,x_{k}) \in P\) oppure \(P(x_{1},\dots,x_{k})\) per dire che \(\N\vDash P(x_{1},\dots,x_{k})\).
-\section{Proposizione}
+\subsection{Proposizione}
 \label{sec:org3022938}
 
 Se \(P_{1},\dots,P_{k} \subseteq \N^{\ell}\) sono \href{20250216173925-insieme_ricorsivo.org}{insiemi ricorsivi} (\href{20250216174510-insieme_ricorsivo_primitivo.org}{primitivi}) a due a due \href{20250520110008-insiemi_disgiunti.org}{disgiunti}, e per ogni \(1\le i \le k\) le
@@ -25,7 +29,7 @@ f_{k}(\oldvec{x}) & P_{k}(\oldvec{x})\\
 \end{cases}
 \end{equation*}
 è ricorsiva (primitiva).
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org6d7b783}
 \begin{equation*}
 f(\oldvec{x}) = \sum_{i=1}^{k} f_{i}(\oldvec{x})\cdot \chi_{P_{i}}(\oldvec{x}).

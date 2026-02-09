@@ -1,28 +1,32 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Proposizione}
+\section{Zeri di un ideale generato in uno spazio affine}
+\label{sec:org9623552}
+\subsection{Proposizione}
 \label{sec:org18e822a}
 Sia (\K) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}, e sia \(T \subseteq \K[x_{1},\dots,x_{n}]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}).
 Allora
 \begin{equation*}
 V(T) =V\left(\(\langle\) T\(\rangle\) \right) \subseteq \A\textsuperscript{n}
 \end{equation*}[fn:1]
-\subsection{Dimostrazione}
-\label{sec:org1986a60}
+\subsubsection{Dimostrazione}
+\label{sec:org16d11c9}
 Infatti:
 \begin{enumerate}
 \item \(T \subseteq \langle T\rangle\) e dunque \(V(T)\supseteq V\left(\langle T\rangle\right)\) (poiché meno equazioni significano più soluzsSiioni);
 \item Sia \(x \in V(T)\), allora per ogni \(t \in T\) si ha \(t(x)=0\). Sia ora \(p \in \langle T \rangle\), allora \(p=\sum a_{i}t_{i}\) per \(a_{i} \in \K[x_{1},\dots,x_{n}]\) e \(t_{i} \in T\), e dunque \(p(x)=0\). Pertanto \(x \in V\left(\langle T\rangle\right)\). Dunque \(V(T) \subseteq V\left(\langle T\rangle\right)\).
 \end{enumerate}
-\section{Corollario}
+\subsection{Corollario}
 \label{sec:org185cc97}
 Sia \(X\) una \href{20241231114256-varieta_algebrica_affine.org}{Varietà Algebrica Affine}. Allora \(X=V(T_{0})\), dove \(T_{0} \subseteq \K[x_{1},\dots,x_{n}]\) è un insieme \textbf{finito}
-\subsection{Dimostrazione}
-\label{sec:org16d11c9}
+\subsubsection{Dimostrazione}
+\label{sec:org2d9bca6}
 
 Sia \(T \subseteq \K[x_{1},\dots,x_{n}]\) tale che \(X=V(T)\). Per la proposizione, \(X=V\left(\langle T \rangle \right)\). Inoltre, per il \href{20250102165420-teorema_della_base_di_hilbert.org}{Teorema della Base di Hilbert}, \(\K[x_{1},\dots,x_{n}]\) è un \href{20250102115942-anello_noetheriano.org}{Anello Noetheriano} e, pertanto, per il corollario \href{20250102165143-ideali_generati_di_un_anello_noetheriano.org}{Ideali Generati di un Anello Noetheriano}, \(\langle T\rangle \subseteq \K[x_{1},\dots,x_{n}]\) è \href{20241219113154-ideale_generato.org}{finitamente generato}.
 \begin{equation*}

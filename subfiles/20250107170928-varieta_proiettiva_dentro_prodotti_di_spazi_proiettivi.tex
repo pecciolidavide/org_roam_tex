@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Luogo di zeri di polinomi dentro prodotti di spazi proiettivi}
+\label{sec:org6ac6557}
 Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}, e sia \(\Sigma_{n,m} \subseteq \mathds{P}^{N=(n+1)(m+1)-1}_{z=z_{ij}}\) la \href{20250104190620-mappa_di_segre.org}{varietà di Segre} (vedi \href{20241231115051-spazio_proiettivo.org}{Spazio Proiettivo})
 Preso \(F\) un \href{20241231121125-polinomi_omogenei.org}{polinomio omogeneo} in \(\K[z_{ij}]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi}) di \href{20241231124742-grado_polinomi.org}{grado} \(d\), si ha che
 \begin{equation*}
@@ -13,7 +17,7 @@ Y\coloneqq V(F)\cap \Sigma_{n,m}
 è una \href{20241231123223-varieta_algebrica_proiettiva.org}{varietà algebrica di }\(\mathds{P}^{N}\) ed è \(\subseteq \Sigma_{n,m}\). Pertanto, per \href{20250104190620-mappa_di_segre.org}{definizione}, \(\sigma^{-1}(Y)\), dove \(\sigma\) è la \href{20250104190620-mappa_di_segre.org}{mappa di Segre} della dimensione giusta, è una varietà algebrica di \(\mathds{P}^{n}\times \mathds{P}^{m}\).
 
 In \(Y\), attraverso la mappa di Segre, posso scrivere \(z_{ij}=x_{i}y_{j}\). Posso pertanto ottenere delle equazioni polinomiali in \(\mathds{P}^{n}\times \mathds{P}^{m}\) \href{20250107172231-polinomi_biomogenei.org}{biomogenee} di \href{20250107172249-bigrado_di_un_polinomio.org}{bigrado} \((d,d)\).
-\section{Proposizione}
+\subsection{Proposizione}
 \label{sec:org77e5785}
 Sia \(F \in \K[x_{0},\dots,x_{n}; y_{0},\dots,y_{m}]\), \(F\) \href{20250107172231-polinomi_biomogenei.org}{biomogeneo} di \href{20250107172249-bigrado_di_un_polinomio.org}{bigrado} \((d,e)\). È ben definito
 \begin{equation*}
@@ -26,13 +30,13 @@ Equivalentemente, esistono \(F_{1},\dots,F_{k} \in \K[z_{ij}]\) polinomi omogene
 \begin{equation*}
 \sigma\left(V(F)\right)=\Sigma_{n,m}\cap V(F_{1},\dots,F_{k})
 \end{equation*}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:orgf3e50ef}
 
-\subsubsection{Caso \(e=d\)}
+\paragraph{Caso \(e=d\)}
 \label{sec:orga6555a1}
 \(F\) è un polinomio biomogeneo di bigrado \((d,d)\). Pertanto, siccome in \(\Sigma_{n,m}\) si ha che \(z_{ij}=x_{i}y_{j}\), si ottiene un polinomio omogeneo \(F_{1} \in \K[z_{ij}]\) sostituendo in \(F\) a ciascun prodotto \(x_{i}y_{j}\) la variabile \(z_{ij}\).
-\subsubsection{Caso \(d<e\)}
+\paragraph{Caso \(d<e\)}
 \label{sec:org1f940df}
 
 Osserviamo che \(F=0\) se e solo se

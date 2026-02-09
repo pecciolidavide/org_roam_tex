@@ -1,26 +1,30 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Fascio}
+\label{sec:orgb26004b}
 Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico}, e sia \(\mathcal{F}\) un \href{20250324165349-prefascio.org}{prefascio} su \(X\). Diciamo che \(\mathcal{F}\) è un \uline{fascio} se (quando ha senso) soddisfa i seguenti assiomi:
 \begin{itemize}
 \item \hyperref[sec:org9191aa4]{Assioma di fascio (Esistenza)}
 \item \hyperref[sec:orge8290d5]{Assioma di fascio (Unicità)}
 \end{itemize}
 o, equivalentemente, se soddisfa l'\hyperref[sec:org27d7390]{Assioma di fascio}.
-\section{Assioma di fascio (Esistenza)}
+\subsection{Assioma di fascio (Esistenza)}
 \label{sec:org9191aa4}
 Per ogni \(U \subseteq X\) aperto e per ogni \(\set{U_{i}}\) ricoprimento aperto di \(U\), data una collezione di sezioni \(s_{i} \in \mathcal{F}(U_{i})\) tali che
 \begin{equation*}
 \restriction{s_{i}}{U_{i}\cap U_{j}} = \restriction{s_{j}}{U_{i}\cap U_{j}},\quad \forall\, i,j
 \end{equation*}
 esiste \(s \in \mathcal{F}(U)\) tale che per ogni \(i\), \(s_{i}= \restriction{s}{U_{i}}\).
-\section{Assioma di fascio (Unicità)}
+\subsection{Assioma di fascio (Unicità)}
 \label{sec:orge8290d5}
 Per ogni \(U \subseteq X\) aperto e per ogni \(\set{U_{i}}\) ricoprimento aperto di \(U\), se \(s \in \mathcal{F}(U)\) è tale che \(\restriction{s}{U_{i}} = 0\) per ogni \(i\), allora \(s = 0\).
-\section{Assioma di fascio}
+\subsection{Assioma di fascio}
 \label{sec:org27d7390}
 Per ogni \(U \subseteq X\) aperto e per ogni \(\set{U_{i}}\) ricoprimento aperto di \(U\), data una collezione di sezioni \(s_{i} \in \mathcal{F}(U_{i})\) tali che
 \begin{equation*}

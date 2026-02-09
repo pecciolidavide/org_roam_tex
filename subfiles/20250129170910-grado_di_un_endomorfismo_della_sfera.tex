@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Grado di un endomorfismo della sfera}
+\label{sec:org8f45209}
 Sia \(R=\Z\) un \href{20241219112842-pid.org}{PID} e sia \(\mathds{S}^{n}\) la \href{20250115150754-sfera_n_dimensionale.org}{sfera \(n\)-dimensionale}
 \begin{definizione}
 Sia \(f: \mathds{S}^{n} \longrightarrow \mathds{S}^{n}\) una \href{20250103103252-funzione_continua.org}{funzione continua}. Allora applicando il \href{20241205131958-funtore.org}{funtore} \href{20250123115927-funtore_di_omologia_singolare.org}{di omologia singolare}, questa induce un \href{20241206115416-morfismi_r_moduli.org}{morfismo}
@@ -75,7 +79,7 @@ ottenendo che \(g_{\star} = 0\), \(\deg g = 0\).
 e pertanto la tesi.\qedhere
 \end{enumerate}
 \end{proof}
-\section{Grado dell'endomorfismo di riflessione sulla sfera}
+\subsection{Grado dell'endomorfismo di riflessione sulla sfera}
 \label{sec:orgc635bfc}
 \begin{prop}
 Sia
@@ -173,7 +177,7 @@ r_{\star} &= (\partial_{\star}')^{-1} \circ \Id \circ \partial_{\star} = (\parti
 &= - (\partial_{\star}')^{-1}\circ (\partial_{\star}') = - \Id.\qedhere
 \end{align*}
 \end{proof}
-\subsection{Grado della mappa antipodale sulla sfera}
+\subsubsection{Grado della mappa antipodale sulla sfera}
 \label{sec:org1bcf003}
 \begin{cor}
 La mappa antipodale

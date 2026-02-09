@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Trasformazione Affine}
+\label{sec:org74b38c8}
 \begin{definizione}
 Siano \(V\) e \(W\) due \href{20241205142027-spazio_vettoriale.org}{spazi vettoriali su un campo \(\K\)}. Una mappa \(f: V \to W\) è detta \textbf{trasformazione affine} se esistono una \href{20250114101949-funzione_lineare.org}{trasformazione lineare} \(L: V \to W\) e un vettore \(b \in W\) tali che:
 \begin{equation*}
@@ -14,7 +18,7 @@ f(v) = L(v) + b \quad \forall v \in V
 \begin{oss}
 Una trasformazione affine è la \href{20250202170607-classe_relazione_binaria.org}{composizione} di una trasformazione lineare seguita da una traslazione.
 \end{oss}
-\section{Funzione affine reale}
+\subsection{Funzione affine reale}
 \label{sec:org3d82f67}
 \begin{definizione}
 Nel caso specifico in cui \(V = W = \R\), una funzione \(f: \R \to \R\) si dice \textbf{affine} se esistono due costanti \(m, q \in \R\) tali che:

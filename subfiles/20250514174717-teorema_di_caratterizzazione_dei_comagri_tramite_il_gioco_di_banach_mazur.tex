@@ -1,15 +1,19 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Teorema I}
+\section{Caratterizzazione di magri e comagri tramite il gioco di Banach-Mazur}
+\label{sec:org2d63cf3}
+\subsection{Teorema I}
 \label{sec:org5fb1b80}
 
 Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250131161811-insieme_vuoto_mk.org}{non vuoto}, e sia \(A \subseteq X\) un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} qualsiasi. Allora \(A\) è \href{20250419122752-insieme_magro.org}{comagro} se e solo se il giocatore II ha una \href{20250513171520-giochi_di_gale_stewart.org}{strategia vincente} nel \href{20250513111844-gioco_di_banach_mazur.org}{gioco di Banach-Mazur} \(G^{**}(A)\).
-\subsection{Dimostrazione}
-\label{sec:org252d2c5}
+\subsubsection{Dimostrazione}
+\label{sec:orga8acb56}
 
 (\(\Rightarrow\)): Se \(A\) è comagro, allora esistono \((W_{n})_{n \in\omega}\) aperti densi di \(X\) tali che
 \begin{equation*}
@@ -105,13 +109,13 @@ Poiché \(\sigma\) è una strategia vincente per il giocatore II, allora per ogn
 \bigcap_{i \in \omega} U_{i} = \bigcap_{i \in \omega} V_{i}\subseteq A
 \end{equation*}
 e dunque \(x \in A\).\qed
-\section{Teorema II}
+\subsection{Teorema II}
 \label{sec:org1694d8d}
 Se \(X\) è uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250514174255-gioco_di_choquet.org}{di Choquet} non \href{20250131161811-insieme_vuoto_mk.org}{vuoto} ed esiste una \href{20250301193511-spazio_metrico.org}{distanza} \(d\) su \(X\) le cui \href{20250301193511-spazio_metrico.org}{palle aperte} sono aperti di \(X\), allora:
 
 \(A\) è \href{20250419122752-insieme_magro.org}{magro} in un \href{20250103145124-topologia.org}{aperto} non vuoto se e solo se il giocatore I ha una \href{20250513171520-giochi_di_gale_stewart.org}{strategia vincente} nel \href{20250513111844-gioco_di_banach_mazur.org}{gioco di Banach-Mazur} \(G^{**}(A)\).
-\subsection{Dimostrazione}
-\label{sec:orga8acb56}
+\subsubsection{Dimostrazione}
+\label{sec:org13e6224}
 
 (\(\Rightarrow\)): Se \(A\) è magro in \(Y \subseteq X\), sia per ogni \(n \in \omega\): \(W_{n} \subseteq Y\) aperti densi di \(Y\), con
 \begin{equation*}

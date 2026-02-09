@@ -1,0 +1,75 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
+\begin{document}
+
+\section{Sistema diretto}
+\label{sec:orgb601304}
+Sia \(\mathcal{C}\) una categoria, e sia \(I\) un \href{20250203101604-ordine.org}{insieme ordinato} \href{20250202184517-ordine_superiormente_diretto.org}{diretto superiorimente}, ovvero
+\begin{equation*}
+\forall i,j \in I\ \exists k \in I\quad\big(i\le k \land  j\le k\big).
+\end{equation*}
+
+\begin{definizione}
+Un \textbf{sistema diretto} in \(\mathcal{C}\) è una famiglia \(\set{G_{i}, \uprho_{ij}}\) tale che:
+\begin{itemize}
+\item \(G_{i} \in \operatorname{Ob}(\mathcal{C})\);
+\item per ogni \(j\ge i\): \(\uprho_{ij} : G_{i} \longrightarrow G_{j}\)
+\end{itemize}
+e inoltre, per ogni \(i \le j \le k\) il seguente diagramma commuta:
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{G_i} \&\& {G_k} \\
+	\& {G_j}
+	\arrow["{\uprho_{ik}}", from=1-1, to=1-3]
+	\arrow["{\uprho_{ij}}"', from=1-1, to=2-2]
+	\arrow["{\uprho_{jk}}"', from=2-2, to=1-3]
+\end{tikzcd}%
+\hspace{5em} \uprho_{jk} \circ \uprho_{ij} = \uprho_{ik}.
+\end{equation*}
+\end{definizione}
+\section{Limite diretto}
+\label{sec:org0802a13}
+\begin{definizione}
+Dato \(\set{G_{i}, \uprho_{ij}}\) sistema diretto il \textbf{limite diretto dei \(G_{i}\)} è
+\begin{itemize}
+\item un oggetto \(G = \varinjlim G_{i}\);
+\item dotato di morfismi \(\uprho_{j}:G_{j} \to G\) tali che \(\uprho_{j} \circ \uprho_{ij} = \uprho_{i}\);
+\end{itemize}
+dotato della seguente proprietà universale:
+\begin{itemize}
+\item per ogni \(Z \in \operatorname{Ob}(\mathcal{C})\) dotato di mappe \(f_{i}: G_{i}\to Z\) tali che \(f_{j} \circ \uprho_{ij} = f_{i}\), esiste un unico \(f:G\to Z\) tale che \(f\circ\uprho_{j} = f_{j}\).
+\end{itemize}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{G_i} \&\&\&\& {G_j} \\
+	\&\& G \\
+	\\
+	\\
+	\&\& Z
+	\arrow["{\uprho_{ij}}", from=1-1, to=1-5]
+	\arrow["{\uprho_i}"{description}, from=1-1, to=2-3]
+	\arrow["{f_i}"', from=1-1, to=5-3]
+	\arrow["{\uprho_j}"{description}, from=1-5, to=2-3]
+	\arrow["{f_j}", from=1-5, to=5-3]
+	\arrow["{\exists!\ f}"{description}, dashed, from=2-3, to=5-3]
+\end{tikzcd}
+\end{equation*}
+\end{definizione}
+
+\begin{esempio}
+Nella categoria \href{20241205115600-categoria_top.org}{\(\mathcal{C}=\cat{Top}\) degli spazi topologici}, si consideri
+\begin{equation*}
+X_{i} \subseteq X_{j},\qquad \uprho_{ij}: X_{i} \hookrightarrow X_{j}.
+\end{equation*}
+Allora \(\varinjlim X_{i} = \bigcup X_{i}\) dotato della ``topologia debole'', ovvero
+\begin{equation*}
+C \subseteq \bigcup X_{i}\ \text{chiuso} %
+\IFF %
+\forall i\ C\cap X_{i}\ \text{chiuso}
+\end{equation*}
+\end{esempio}
+\end{document}

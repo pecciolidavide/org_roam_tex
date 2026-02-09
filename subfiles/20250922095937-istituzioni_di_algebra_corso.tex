@@ -1,6 +1,7 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
+\usepackage[hyperref]{biblatex}
 \def\im{\operatorname{Im}}
 \def\coker{\operatorname{coker}}
 \def\tensor{tensore}
@@ -51,13 +52,15 @@
 \use{algpseudocode}
 \use{algorithm}
 \use{algpseudocode}
-
-
+\date{}
+\title{}
 \begin{document}
 
+\section{Istituzioni di Algebra [CORSO]}
+\label{sec:orgd917e7e}
 \maketitle
 \tableofcontents\newpage
-\section{Introduzione}
+\subsection{Introduzione}
 \label{sec:orgc817ba4}
 
 \begin{itemize}
@@ -91,10 +94,10 @@ L'esame può essere fatto in qualsiasi momento dell'anno, e il voto verrà poi r
 La Terracini seguira pedissequamente il libro, quindi non metterà note.
 \newpage
 \part{Algebra commutativa di base}
-\section{Lezione 1 - \textit{<2025-09-22 Mon>}}
+\subsection{Lezione 1 - \textit{<2025-09-22 Lun>}}
 \label{sec:orgf0c1723}
 
-\subsection{Anelli e ideali}
+\subsubsection{Anelli e ideali}
 \label{sec:orgeddf584}
 
 \begin{definizione}
@@ -197,7 +200,7 @@ Lasciata per esercizio.
 \begin{oss}
 L'unico anello in cui \(1_{A}=0_{A}\) è l'anello zero: \(A=\set{0}\).  Inoltre, l'anello zero è sottoanello \uline{solo di se stesso}.
 \end{oss}
-\subsubsection{Ideali}
+\paragraph{Ideali}
 \label{sec:org9d294e1}
 
 \begin{definizione}
@@ -274,7 +277,7 @@ Quindi \(\iota[B]\) non è un ideale.
 \begin{oss}
 Un \uline{campo} non ha ideali non banali.
 \end{oss}
-\subsubsection{Anelli quoziente}
+\paragraph{Anelli quoziente}
 \label{sec:org72b62fe}
 
 Se \(A\) è un anello e \(I \subseteq A\) è un ideale, allora \(\langle I,+\rangle\) è un sottogruppo normale di \(\langle A,+\rangle\). Si definisce il \uline{gruppo quoziente}
@@ -356,7 +359,7 @@ Se \(A\) ha caratteristica \(n\), si ha che \(\forall a  \in A\): \(na = 0_{A}\)
 \begin{oss}
 Il quoziente \(A/A\) è l'anello zero.
 \end{oss}
-\subsubsection{Ideali in un anello quoziente}
+\paragraph{Ideali in un anello quoziente}
 \label{sec:org86733b1}
 
 Sia \(A\) un anello, \(I \subseteq A\) un ideale, e si consideri l'anello quoziente con la proiezione:
@@ -423,9 +426,9 @@ In \(\R[X,Y]\), l'ideale \((X,Y)\) non è principale:
 &= \set{h(X,Y) \in \R[X,Y] \mid h(0,0) = 0}.
 \end{align*}
 \end{esempio}
-\section{Lezione 2 - \textit{<2025-09-23 Tue>}}
+\subsection{Lezione 2 - \textit{<2025-09-23 Mar>}}
 \label{sec:orgf7fef50}
-\subsubsection{Domini di integrità}
+\paragraph{Domini di integrità}
 \label{sec:orgce7edbf}
 
 \begin{definizione}
@@ -558,7 +561,7 @@ y &\longmapsto xy,
 
 Se \(A\) è finito, allora \(m_{x}\) iniettiva implica che \(m_{x}\) sia suriettiva, e pertanto \(1 \in \operatorname{Im}(m_{x})\), ovvero \(x\) invertibile.
 \end{proof}
-\subsubsection{Ideali primi e massimali}
+\paragraph{Ideali primi e massimali}
 \label{sec:orgc2c7400}
 
 \begin{definizione}
@@ -673,7 +676,7 @@ Allora \(A\) è un anello locale con ideale massimale
 \mathcal{M} =\set{\frac{f(x)}{g(x)} \in A\mid f(0) = 0} = (X)
 \end{equation*}
 \end{esempio}
-\subsubsection{Nilradicale e Radicale di Jacobson}
+\paragraph{Nilradicale e Radicale di Jacobson}
 \label{sec:orgd378d02}
 
 \begin{definizione}
@@ -738,7 +741,7 @@ e quindi \(x^{n+m} \in \mathcal{B} + (yz)\), ovvero \(x^{n+m} \in \mathcal{B}\).
 
 Quindi \(\mathcal{B}\) primo e \(x \in \mathcal{B}\).
 \end{proof}
-\section{Lezione 3 - \textit{<2025-09-29 Mon>}}
+\subsection{Lezione 3 - \textit{<2025-09-29 Lun>}}
 \label{sec:org668a361}
 
 \begin{definizione}
@@ -764,7 +767,7 @@ Quindi per ogni \(\mathcal{M}\) massimale, \(1-xy \in \mathcal{M}\), e pertanto 
 
 Pertanto \(1-xy \notin A^{\times}\).
 \end{proof}
-\subsubsection{Operazioni sugli ideali}
+\paragraph{Operazioni sugli ideali}
 \label{sec:org60e4884}
 
 \begin{itemize}
@@ -884,7 +887,7 @@ Analogamente se \(\mathcal{A}_{1},\dots,\mathcal{A}_{n}\) sono coprimi a coppie\
 \mathcal{A}_{1} \cap \dots\cap \mathcal{A}_{n} =\mathcal{A}_{1}\dots\mathcal{A}_{n}.
 \end{equation*}
 \end{oss}
-\subsubsection{Prodotto diretto di Anelli}
+\paragraph{Prodotto diretto di Anelli}
 \label{sec:orgef6da7b}
 
 \begin{definizione}
@@ -959,7 +962,7 @@ allora \(\varphi\) suriettiva se e solo se \(\mathcal{A}_{i},\mathcal{A}_{j}\) c
 \begin{oss}
 In questo caso \(\ker\varphi=\bigcap_{i=1}^{n}\mathcal{A}_{i}\) e pertanto \(\varphi\) è iniettiva se e solo se \(\bigcap_{i=1}^{n}\mathcal{A}_{i}=(0)\).
 \end{oss}
-\subsubsection{Proprietà di evitamento (\emph{avoidance}) e assorbimento (\emph{absorbance}) degli ideali primi}
+\paragraph{Proprietà di evitamento (\emph{avoidance}) e assorbimento (\emph{absorbance}) degli ideali primi}
 \label{sec:org68b3260}
 
 \begin{lem}
@@ -1010,7 +1013,7 @@ Se invece \(\bigcap \mathcal{A}_{i} = \mathcal{P}\), allora per quanto detto esi
 \end{equation*}
 \end{enumerate}
 \end{proof}
-\subsubsection{Quoziente di Ideali}
+\paragraph{Quoziente di Ideali}
 \label{sec:org9159922}
 
 \begin{definizione}
@@ -1045,7 +1048,7 @@ In \(\Z\), siano \(\mathcal{A}=(m)\) e \(\mathcal{B}=(n)\). Allora
 &= \set{r \in \Z: \frac{m}{d}\mathrel{|}r} = \big(\frac{m}{d}\big).
 \end{align*}
 \end{esempio}
-\subsubsection{Radicale di un ideale}
+\paragraph{Radicale di un ideale}
 \label{sec:org605ac6b}
 
 \begin{definizione}
@@ -1073,9 +1076,9 @@ Posto \(\varphi:A\to A/\mathcal{A}\), allora
 \item se \(\mathcal{P}\) è primo allora \(\sqrt{\mathcal{P}^{n}} = \mathcal{P}\) per ogni \(n\ge 1\);
 \item \(r(\mathcal{A}\cap\mathcal{B}) = r(\mathcal{A})\cap r(\mathcal{B}) = r(\mathcal{A}\mathcal{B})\).
 \end{itemize}
-\section{Lezione 4 - \textit{<2025-09-30 Tue>}}
+\subsection{Lezione 4 - \textit{<2025-09-30 Mar>}}
 \label{sec:orgbb39ef3}
-\subsubsection{Contrazione ed estensione di ideali}
+\paragraph{Contrazione ed estensione di ideali}
 \label{sec:org3b954ee}
 
 Siano \(A,B\) due anelli e \(f:A\to B\) un omomorfismo.
@@ -1183,7 +1186,7 @@ Se \(p \in \Z\) è primo,
 \item \((2)^{\text{e}}\) non è primo (infatti \(2=\sqrt{2}\,\sqrt{2}\)).
 \end{itemize}
 \end{esempio}
-\subsection{Spec di un anello [Parentesi estemporanea fuori programma]}
+\subsubsection{Spec di un anello [Parentesi estemporanea fuori programma]}
 \label{sec:org4bef61b}
 
 In geometria algebrica ``classica'' si studia il luogo degli zeri di sistemi di equazioni polinomiali: dato un campo \(\K\) e dati \(f_{i} \in \K[X_{1},\dots,X_{n}]\) per \(i=1,\dots,k\) l'oggetto di studio è
@@ -1337,7 +1340,7 @@ In generale, vale che
 \begin{oss}
 Si ha che \(\operatorname{Spec}(A)\) è un fascio di anelli ed è uno schema.
 \end{oss}
-\subsection{Moduli}
+\subsubsection{Moduli}
 \label{sec:org2fc5fd5}
 
 \begin{definizione}
@@ -1389,7 +1392,7 @@ f(m_{1}+m_{2}) &= f(m_{1})+f(m_{2}) & \forall m_{1},m_{2}& \in M\\
 f(am) &= a\,f(m) & \forall a \in A, \forall m & \in M.
 \end{align*}
 \end{definizione}
-\section{Lezione 5 - \textit{<2025-10-06 Mon>}}
+\subsection{Lezione 5 - \textit{<2025-10-06 Lun>}}
 \label{sec:org9c917da}
 
 \begin{prop}
@@ -1441,7 +1444,7 @@ Si ha che il seguente è un isomorfismo:
 f &\longmapsto f(1_{A})
 \end{align*}
 \end{oss}
-\subsubsection{Sottomoduli}
+\paragraph{Sottomoduli}
 \label{sec:org405455c}
 
 \begin{definizione}
@@ -1466,7 +1469,7 @@ m &\longmapsto m
 \end{align*}
 è un morfismo di moduli.
 \end{oss}
-\subsubsection{Modulo quoziente}
+\paragraph{Modulo quoziente}
 \label{sec:org7437ba8}
 \begin{definizione}
 Se \(N \subseteq M\) è un sottomodulo, allora si dota \(\langle M/N,+\rangle\) gruppo quoziente\footnote{Ovvero \(M/N = \set{m+N\mid m \in M}\).} di una struttura di \(A\)-modulo:
@@ -1538,7 +1541,7 @@ m &\longmapsto am
 \end{align*}
 è un omomorfismo di \(A\)-moduli.
 \end{esempio}
-\subsubsection{Generatori}
+\paragraph{Generatori}
 \label{sec:orga4babae}
 
 \begin{definizione}
@@ -1564,7 +1567,7 @@ A=(1).
 \end{equation*}
 Tuttavia si ha anche, ovviamente \(A=(A)\).
 \end{esempio}
-\subsubsection{Operazioni sui sottomoduli}
+\paragraph{Operazioni sui sottomoduli}
 \label{sec:org3f5e0e9}
 
 \begin{oss}
@@ -1667,7 +1670,7 @@ am_{1}=0\qquad bm_{2}=0
 \end{equation*}
 e dunque \(ab(m_{1}+m_{2}) = 0\) con \(ab\neq 0\) e se \(m \in M_{\text{tors}}\) allora \(am \in M_{\text{tors}}\) per ogni \(a \in A\).
 \end{proof}
-\subsubsection{Somma diretta e prodotto diretto}
+\paragraph{Somma diretta e prodotto diretto}
 \label{sec:org08470ed}
 
 \begin{definizione}
@@ -1739,8 +1742,8 @@ In generale non tutti gli \(A\)-moduli sono liberi, come garantisce la seguente 
 \begin{prop}
 Sia \(A\) un dominio. Se un \(A\)-modulo \(M\) è libero allora è privo di torsione.
 \end{prop}
-\subsubsection{Caratteristica dei moduli liberi}
-\label{sec:org87dc434}
+\paragraph{Caratteristica dei moduli liberi}
+\label{sec:orgd390e05}
 
 \begin{definizione}
 Sia \(M\) un \(A\)-modulo. Una \uline{base} \(\mathscr{B}\) di \(M\) è un insieme di generatori tale che ogni elemento di \(M\) si scrive in modo unico come combinazione lineare finita (in \(A\)) di elementi di \(\mathscr{B}\).
@@ -1754,11 +1757,11 @@ Un insieme  \(S=\set{m_{1},\dots,m_{k} } \subseteq M\) si dice \uline{linearment
 \begin{oss}
 Una base è un insieme di generatori linearmente indipendente.
 \end{oss}
-\section{Lezione 6 - \textit{<2025-10-07 Tue>}}
+\subsection{Lezione 6 - \textit{<2025-10-07 Mar>}}
 \label{sec:org95dc85e}
 
-\subsubsection{Caratteristica dei moduli liberi}
-\label{sec:orgd390e05}
+\paragraph{Caratteristica dei moduli liberi}
+\label{sec:org17de669}
 
 \begin{prop}
 Un \(A\)-modulo \(M\) è libero se e solo se \(M\) ha una base.
@@ -1843,7 +1846,7 @@ q_{1}=\frac{a_{1}}{d},\quad q_{2}=\frac{a_{2}}{d},\quad a_{1},a_{2},d \in \Z
 \end{equation*}
 allora \(da_{2}q_{1}-da_{1}q_{2}=0\).
 \end{oss}
-\subsubsection{Proprietà degli \(A\)-moduli f.g.}
+\paragraph{Proprietà degli \(A\)-moduli f.g.}
 \label{sec:org2cf997c}
 
 \begin{thm}
@@ -1932,7 +1935,7 @@ Se \((A,\mathcal{M},k)\) locale, il corollario dice in particolare che se \(M/\m
 
 (\(\Leftarrow\)): Sia \(N=(m_{1},\dots,m_{n})\). Poiché \((\overline{m_{1}},\dots,\overline{m_{n}})\) generano \(M/\mathcal{A}M\) si ha \(M=\mathcal{A}M+N\) e quindi, per Nakayama, \(M=N\).
 \end{proof}
-\subsubsection{Successioni esatte}
+\paragraph{Successioni esatte}
 \label{sec:org5c3dc58}
 
 Una successione di \(A\)-moduli e omomorfismi è
@@ -1968,7 +1971,7 @@ Sia \(M\) un \(A\)-modulo, e sia \(N \subseteq M\) un sottomodulo. Allora la seg
 \end{tikzcd}
 \end{equation*}
 \end{esempio}
-\subsubsection{Problema dell'esattezza di un funtore}
+\paragraph{Problema dell'esattezza di un funtore}
 \label{sec:orgfa664be}
 
 Sia \(\mathscr{F}\) funtore dalla categoria degli \(A\)-moduli in sé stessa.
@@ -2065,7 +2068,7 @@ Per ipotesi \(\operatorname{im} f= \ker g\) e in particolare \(g\circ f=0\); qui
 
 ULTIMARE DIMOSTRAZIONE
 \end{proof}
-\section{Lezione 7 - \textit{<2025-10-10 Fri>}}
+\subsection{Lezione 7 - \textit{<2025-10-10 Ven>}}
 \label{sec:org6dc593d}
 
 \begin{lem}
@@ -2122,7 +2125,7 @@ Occorre però provare che la definizione di \(\delta\) non dipende dalla scelta 
 \ker f = \im \restriction{v}{f''}\qquad \im \delta = \ker \tilde{u}'.\qedhere
 \end{equation*}
 \end{proof}
-\subsection{Prodotto tensoriale di \(A\)-moduli}
+\subsubsection{Prodotto tensoriale di \(A\)-moduli}
 \label{sec:orgf6f3e69}
 
 \begin{definizione}
@@ -2273,11 +2276,11 @@ Questa mappa è bilineare.
 
 Per la proprietà universale, esiste un unico omomorfismo \(\phi: A \tensor M \to M\) tale che \(\phi(a \otimes m) = am\).
 \end{proof}
-\subsection{Estensione e restrizione degli Scalari}
+\subsubsection{Estensione e restrizione degli Scalari}
 \label{sec:org8710ac1}
 
-\subsubsection{Spazi Vettoriali}
-\label{sec:org291bc49}
+\paragraph{Spazi Vettoriali}
+\label{sec:org7ed5b4b}
 
 \begin{itemize}
 \item Se \(V, W\) sono spazi vettoriali su un campo \(K\), e abbiamo basi \(\{v_i\}\) e \(\{w_j\}\), allora \(\{v_i \otimes w_j\}\) è una base di \(V \otimes_K W\).
@@ -2307,7 +2310,7 @@ con
   \dim_{K}(V \tensor[K] L) &= \dim_{K}(V) \cdot \dim_{K}(L)
 \end{align*}
 \end{itemize}
-\subsubsection{Caso Generale: Moduli e Algebre}
+\paragraph{Caso Generale: Moduli e Algebre}
 \label{sec:orgb678d07}
 
 Sia \(f: A \to B\) un omomorfismo di anelli. \(B\) è un \(A\)-modulo.
@@ -2326,10 +2329,10 @@ Il \(B\)-modulo \(M_{B}\) si dice ottenuto dall'\(A\)-modulo \(M\) per estension
 \end{equation*}
 Questo processo è detto restrizione degli scalari.
 \end{itemize}
-\section{Lezione 8 - \textit{<2025-10-13 Mon>}}
+\subsection{Lezione 8 - \textit{<2025-10-13 Lun>}}
 \label{sec:orgec0a79b}
 
-\subsection{Prodotto tensoriale}
+\subsubsection{Prodotto tensoriale}
 \label{sec:orgf8aeff1}
 
 Siano \(M, N\) degli \(A\)-moduli, si può costruire \(M \otimes N\) e una mappa bilineare \(g: M \times N \to M \otimes N\) \(A\)-bilineare definita da \(g(m,n) = m \otimes n\).
@@ -2347,7 +2350,7 @@ Per ogni funzione bilineare \(\phi: M \times N \to P\), con \(P\) un \(A\)-modul
 \end{tikzcd}
 \end{equation*}
 \end{prop}
-\subsection{Proprietà del prodotto tensoriale}
+\subsubsection{Proprietà del prodotto tensoriale}
 \label{sec:org6427013}
 
 \begin{prop}
@@ -2436,7 +2439,7 @@ Questa è esatta. Tensorizziamo con \(\Z_2\), e ricordiamo che \(M \otimes_A A \
 \end{equation*}
 Ma la moltiplicazione per \(2\) è la mappa nulla, che non è iniettiva (mentre l'iniezione originale lo era).
 \end{oss}
-\subsection{Moduli Piatti}
+\subsubsection{Moduli Piatti}
 \label{sec:orgd7c2557}
 
 \begin{definizione}
@@ -2464,7 +2467,7 @@ Questo vale perché
 (siccome \(M \tensor A \cong A\)).
 \end{itemize}
 \end{esempio}
-\subsection{Limite Diretto (Iniettivo)}
+\subsubsection{Limite Diretto (Iniettivo)}
 \label{sec:org21b5f3b}
 
 \begin{definizione}
@@ -2504,7 +2507,7 @@ Tale \(\tilde{M}\) deve soddisfare la seguente \textbf{proprietà universale}:
 \begin{quote}
 Se \(N\) è un \(A\)-modulo con omomorfismi \(\mu_i: M_i \to N\) tali che \(\mu_j \circ \varphi_{ij} = \mu_i\) per ogni \(j \ge i\), allora esiste un unico omomorfismo \(F: \tilde{M} \to N\) tale che \(\mu_i = F \circ \varphi_i\).
 \end{quote}
-\subsubsection{Costruzione di \(\tilde{M}\):}
+\paragraph{Costruzione di \(\tilde{M}\):}
 \label{sec:org79f0676}
 Consideriamo \(\bigoplus_{i \in I} M_i\). Dobbiamo richiedere la compatibilità, cioè identificare \(x_i\) in \(M_i\) con la sua immagine in \(M_j\).
 \begin{equation*}
@@ -2539,7 +2542,7 @@ Mostrare che \(\tilde{M}\) soddisfa la proprietà universale con:
 \begin{equation*}
 \varinjlim \Z_{n} \cong \Q/\Z.
 \end{equation*}
-\subsubsection{Limite diretto e prodotto tensoriale}
+\paragraph{Limite diretto e prodotto tensoriale}
 \label{sec:orgb5cb940}
 
 \begin{prop}
@@ -2575,7 +2578,7 @@ B: (\varinjlim M_i) \otimes N \to \varinjlim (M_i \otimes N)
 \item Si verifica che \(A\) e \(B\) sono l'una l'inversa dell'altra.\qedhere
 \end{enumerate}
 \end{proof}
-\subsection{Limite Inverso (Proiettivo)}
+\subsubsection{Limite Inverso (Proiettivo)}
 \label{sec:org3666c2a}
 
 \begin{definizione}
@@ -2603,7 +2606,7 @@ Se \(N\) è un \(A\)-modulo con omomorfismi \(\nu_i: N \to M_{i}\) tali che \(\p
 \end{quote}
 
 \(\overline{M}\) è il \textbf{limite inverso} (o proiettivo) degli \(M_i\), denotato con \(\varprojlim M_i\).
-\subsubsection{Costruzione di \(\overline{M}\):}
+\paragraph{Costruzione di \(\overline{M}\):}
 \label{sec:orgcfec346}
 Prendiamo il prodotto diretto.
 \begin{equation*}
@@ -2622,7 +2625,7 @@ Limite di anelli è un anello.
 \end{equation*}
 dove dico cosè \(a\) modulo \(n\), per ogni \(n \in \N\).
 \end{esempio}
-\subsubsection{Limiti inversi e prodotto tensoriale}
+\paragraph{Limiti inversi e prodotto tensoriale}
 \label{sec:org5a48243}
 
 \begin{oss}
@@ -2647,11 +2650,11 @@ Tuttavia \((\varprojlim \Z_n) \tensor[\Z] \Q = \hat{\Z} \tensor[\Z] \Q \neq \{0\
 \begin{esempio}
 Fissato un primo \(p\), considerando \(\{ p^n \mid n \in \N \}\) ordinato da \(p^{n}\le p^{m}\) sse \(n\le m\), si ha \(\varprojlim \Z_{p^n} = \Z_p\) (Interi \(p\)-adici), \(\Z_{p} \supseteq \Z\).
 \end{esempio}
-\section{Lezione 9 - \textit{<2025-10-14 Tue>}}
+\subsection{Lezione 9 - \textit{<2025-10-14 Mar>}}
 \label{sec:org9fbb735}
-\subsection{Anelli e Moduli di Frazioni}
+\subsubsection{Anelli e Moduli di Frazioni}
 \label{sec:org5d8f2fe}
-\subsubsection{Anelli di frazioni}
+\paragraph{Anelli di frazioni}
 \label{sec:orged18938}
 
 Sia \(A\) un anello.
@@ -2827,7 +2830,7 @@ allora
 funzioni razionali definite in \((a_{1},\dots,a_{n})\)
 \end{itemize}
 \end{esempio}
-\subsubsection{Ideali dell'anello di frazioni}
+\paragraph{Ideali dell'anello di frazioni}
 \label{sec:org8967be5}
 
 Si consideri
@@ -2918,7 +2921,7 @@ In particolare, fissato \(\mathcal{P}_{0}\) ideale primo di \(A\), se \(S=A\setm
 \set{\text{ideali primi di }A\text{ contenuti in }\mathcal{P}_{0}}\leftrightsquigarrow \set{\text{ideali primi di }A_{\mathcal{P}_{0}}}
 \end{equation*}
 e dunque \(A_{\mathcal{P}_{0}}\) è un anello locale con unico ideale massimale \(\mathcal{P}_{0}^{\text{e}}\).
-\subsubsection{Localizzazione come limite iniettivo}
+\paragraph{Localizzazione come limite iniettivo}
 \label{sec:orgc618309}
 
 Dato \(\mathcal{P}\) primo, sia \(S=A\setminus\mathcal{P}\).
@@ -2952,7 +2955,7 @@ ovvero se \(U_{t} \subseteq U_{s}\).
 \((S,\le)\) è un insieme diretto.
 
 ????? Finire
-\section{Lezione 10 - \textit{<2025-10-17 Fri>}}
+\subsection{Lezione 10 - \textit{<2025-10-17 Ven>}}
 \label{sec:org344a769}
 
 Sia \(\mathscr{P}\) ideale primo, e sia \(S\coloneqq A\setminus\mathscr{P}\). Per ogni \(s \in S\) si definisce
@@ -3021,7 +3024,7 @@ Inoltre
 \lim_{f\notin\mathscr{M}} A_{f} = A_{\mathscr{M}}= \set{\frac{h(X_{1},\dots,X_{n})}{r(X_{1},\dots,X_{n})}\mid r(a_{1},\dots,a_{n})\neq 0}.
 \end{equation*}
 \end{esempio}
-\subsubsection{Localizzazione di moduli}
+\paragraph{Localizzazione di moduli}
 \label{sec:org0cfed21}
 
 Se \(A\) è un anello, \(S \subseteq A\) parte moltiplicativa e \(M\) un \(A\)-modulo.
@@ -3140,7 +3143,7 @@ e applico \(S^{-1}\):
 \end{equation*}
 esatta. Applico il Teorema Fondamentale di Isomorfismo.\qedhere
 \end{proof}
-\subsubsection{Localizzazione e prodotto tensoriale}
+\paragraph{Localizzazione e prodotto tensoriale}
 \label{sec:org2592237}
 
 \begin{prop}
@@ -3203,7 +3206,7 @@ In particolare, se \(S=A\setminus\mathscr{P}\) allora
 \begin{equation*}
 (M\mathbin{\otimes_{A}}N)_{\mathscr{P}}\cong M_{\mathscr{P}}\mathbin{\otimes_{A_{\mathscr{P}}}} N_{\mathscr{P}}.
 \end{equation*}
-\subsubsection{Proprietà locali}
+\paragraph{Proprietà locali}
 \label{sec:org6dc5ba2}
 
 \begin{definizione}
@@ -3222,7 +3225,7 @@ La proprietà ``essere nullo'' è una proprietà locale. Se \(M_{\mathscr{P}}\) 
 \begin{esempio}
 La proprietà ``essere un anello locale'' non è una proprietà locale. \(\Z\) non è un anello locale, ma \(\forall  \mathscr{P}\) primo di \(\Z\), \(\Z_{\mathscr{P}}\) è locale.
 \end{esempio}
-\section{Lezione 11 - \textit{<2025-10-20 Mon>}}
+\subsection{Lezione 11 - \textit{<2025-10-20 Lun>}}
 \label{sec:org893f895}
 
 \begin{prop}
@@ -3287,7 +3290,7 @@ e pertanto
 \end{equation*}
 è esatta.
 \end{proof}
-\subsection{Decomposizione primaria di ideali}
+\subsubsection{Decomposizione primaria di ideali}
 \label{sec:org7edd4b0}
 
 \uline{Motivazioni}:
@@ -3436,7 +3439,7 @@ In particolare:
 \begin{proof}
 Vedi dimostrazione del Teorema~4.5 di .
 \end{proof}
-\section{Lezione 12 - \textit{<2025-10-21 Tue>}}
+\subsection{Lezione 12 - \textit{<2025-10-21 Mar>}}
 \label{sec:orgf1ab03b}
 
 \begin{esempio}
@@ -3580,11 +3583,11 @@ Quindi per ogni \(f \in D\) esiste \(f(x_{i})=0\) per almeno un \(i=1,\dots,n\).
 \end{esempio}
 \newpage
 \part{Algebra commutativa avanzata}
-\section{Lezione 13 - \textit{<2025-10-24 Fri>}}
+\subsection{Lezione 13 - \textit{<2025-10-24 Ven>}}
 \label{sec:orga373305}
 
 Lei segue 
-\subsection{Condizioni Catenarie (Noetherianità - Artinianità)}
+\subsubsection{Condizioni Catenarie (Noetherianità - Artinianità)}
 \label{sec:org8e77636}
 
 Sia \((V, \le)\) un insieme parzialmente ordinato. Analizziamo alcune proprietà fondamentali.
@@ -3636,7 +3639,7 @@ Di conseguenza:
 \end{equation*}
 Quindi \(V\) soddisfa la ACC.
 \end{proof}
-\subsection{Moduli e Anelli Noetheriani e Artiniani}
+\subsubsection{Moduli e Anelli Noetheriani e Artiniani}
 \label{sec:org20dbbd3}
 
 Sia \(R\) un anello commutativo con unità e sia \(M\) un \(R\)-modulo.
@@ -3675,7 +3678,7 @@ Sia \(R\) anello commutativo con unità.
 (sse ogni catena discendente di ideali diventa stazionaria).
 \end{itemize}
 \end{definizione}
-\subsection{Esempi e Controesempi}
+\subsubsection{Esempi e Controesempi}
 \label{sec:org58353cd}
 
 \begin{esempio}
@@ -3856,8 +3859,8 @@ Ma \(p\) è primo, assurdo.
 Quindi \(G_i \subsetneq G_{i+1}\) e pertanto \(E(p)\) non è noetheriano.
 \end{enumerate}
 \end{esempio}
-\subsection{Spazi Vettoriali}
-\label{sec:org7ed5b4b}
+\subsubsection{Spazi Vettoriali}
+\label{sec:orgd2467ce}
 
 Sia \(R = \K\) un campo.
 
@@ -3915,7 +3918,7 @@ Questa è una catena discendente \textbf{non stazionaria}, ovvero \(V\) non arti
 
 Quindi deve essere \(\dim V < \infty\).
 \end{proof}
-\subsection{Caratterizzazione dei Moduli Noetheriani}
+\subsubsection{Caratterizzazione dei Moduli Noetheriani}
 \label{sec:orgda3c635}
 
 \begin{prop}
@@ -3969,7 +3972,7 @@ G \subseteq L_N \subseteq L_{N+1} \subseteq \dots \subseteq G
 Da cui \(G = L_{N+i}\), cioè la catena è stazionaria.
 Quindi \(M\) è noetheriano
 \end{proof}
-\section{Lezione 14 - \textit{<2025-10-27 Mon>}}
+\subsection{Lezione 14 - \textit{<2025-10-27 Lun>}}
 \label{sec:org12e69d4}
 
 \begin{prop}
@@ -4305,7 +4308,7 @@ si ha che \(L/M_{i-1}\) è sottomodulo proprio di \(M_{i}/M_{i-1}\), e quindi \(
 
 Quindi dire che la catena stretta è serie di composizione significa che non è possibile aggiungere ulteriori sottomoduli e ottenere ancora una catena stretta.
 \end{oss}
-\section{Lezione 15 - \textit{<2025-10-28 Tue>}}
+\subsection{Lezione 15 - \textit{<2025-10-28 Mar>}}
 \label{sec:orgc91c704}
 
 \begin{thm}
@@ -4639,7 +4642,7 @@ Per induzione si dimostra che la serie~\eqref{seriecompo:3} è isomorfa alla ser
 \end{itemize}
 \end{itemize}
 \end{proof}
-\section{Lezione 16 - \textit{<2025-10-31 Fri>}}
+\subsection{Lezione 16 - \textit{<2025-10-31 Ven>}}
 \label{sec:orgd022f47}
 
 \begin{lem}
@@ -4749,7 +4752,7 @@ e per ipotesi induttiva questo è
 dove l'ultima uguaglianza è per il Lemma~\ref{lemmasommamudouli}.\qedhere
 \end{itemize}
 \end{proof}
-\subsection{Anelli Noetheriani}
+\subsubsection{Anelli Noetheriani}
 \label{sec:orgadf8feb}
 
 \begin{definizione}
@@ -4885,7 +4888,7 @@ Questa decomposizione però non è minimale. Per ottenerne una minimale bisogna 
 \end{equation*}
 Questi sono tutti primari, ma non irriducibili.
 \end{esempio}
-\section{Lezione 17 - \textit{<2025-11-03 Mon>}}
+\subsection{Lezione 17 - \textit{<2025-11-03 Lun>}}
 \label{sec:org201f2b5}
 
 \begin{lem}
@@ -4985,7 +4988,7 @@ Allora:
 \text{AC è stazionaria } \IMPLICA B \text{ è noetheriano.}
 \end{equation*}
 \end{proof}
-\subsection{Teorema della base di Hilbert}
+\subsubsection{Teorema della base di Hilbert}
 \label{sec:org340acf3}
 
 \begin{lem}
@@ -5105,7 +5108,7 @@ I\coloneqq(X_{1},X_{2},\dots,X_{n},\dots)
 \end{equation*}
 e pertanto non è finitamente generato. Segue che \(B\) non è Noetheriano.
 \end{esempio}
-\subsubsection{\(A\)-algebre}
+\paragraph{\(A\)-algebre}
 \label{sec:orge48db38}
 
 Siano \(A,B\) anelli e sia \(f:A\to B\) un morfismo di anelli. Allora \(B\) è una \(A\)-algebra, ovvero \(B\) è un anello ed un \(A\)-modulo.
@@ -5182,7 +5185,7 @@ vale che
 \end{equation*}
 Pertanto ogni \(A\)-algebra finitamente generata è quoziente di un opportuno anello polinomiale su un suo ideale.
 \end{oss}
-\section{Lezione 18 - \textit{<2025-11-04 Tue>}}
+\subsection{Lezione 18 - \textit{<2025-11-04 Mar>}}
 \label{sec:org64cc253}
 
 \begin{definizione}
@@ -5426,7 +5429,7 @@ e pertanto \(P = (f^{(1)}, \dots, f^{(t)})\) è f.g.
 
 Segue \(\AXform\) è noetheriano.
 \end{proof}
-\subsection{Sottoanelli e Noetherianità}
+\subsubsection{Sottoanelli e Noetherianità}
 \label{sec:org61c684f}
 
 Se ho un anello noetheriano, posso dedurre che ogni suo sottoanello è noetheriano?
@@ -5457,7 +5460,7 @@ Ma \(L\) contiene come sottoanello \(A_\infty\) che \textbf{non} è noetheriano.
 \item \(A[x]\) noetheriano implica \(A\) noetheriano?
 \item \(\AXform\) noetheriano implica \(A\) noetheriano?
 \end{itemize}
-\subsection{Divisori dello Zero e Decomposizione Primaria}
+\subsubsection{Divisori dello Zero e Decomposizione Primaria}
 \label{sec:org95a421f}
 
 
@@ -5528,7 +5531,7 @@ a \in \sqrt{\mathfrak{q}_j} = P_j %
 \qedhere
 \end{equation*}
 \end{proof}
-\section{Lezione 19 - \textit{<2025-11-07 Fri>}}
+\subsection{Lezione 19 - \textit{<2025-11-07 Ven>}}
 \label{sec:org4ad8ee2}
 
 Sia \(A\) anello commutativo con unità, \(\idealeA \subseteq A\) ideale decomponibile. Dimostro che
@@ -5874,10 +5877,10 @@ In particolare, iterando, si ha che \(b=b\cdot c^{v} = 0\), ma
 \end{equation*}
 Assurdo.
 \end{proof}
-\section{Lezione 20 - \textit{<2025-11-10 Mon>}}
+\subsection{Lezione 20 - \textit{<2025-11-10 Lun>}}
 \label{sec:orge797eee}
 
-\subsection{Teoremi su Anelli Artiniani e Noetheriani}
+\subsubsection{Teoremi su Anelli Artiniani e Noetheriani}
 \label{sec:orgd15dede}
 
 \begin{thm}
@@ -5971,7 +5974,7 @@ Dunque ogni ideale primo è massimale. Poiché \(A\) è noetheriano e ogni primo
 Se \(A\) è artiniano, allora \(A\) è isomorfo a un prodotto finito di anelli locali artiniani.
 \end{thm}
 \emph{(Esercizio per esame)}
-\subsection{Teorema di Struttura di Moduli su PID}
+\subsubsection{Teorema di Struttura di Moduli su PID}
 \label{sec:org30bc9ae}
 
 \begin{thm}
@@ -6135,7 +6138,7 @@ Mi serve l'ipotesi di PID perché, nel processo di riduzione della matrice (scam
 \end{bmatrix}
 \end{equation*}
 sia invertibile, opero sulle righe/colonne come combinazioni lineari. Nel caso PID, posso usare l'identità di Bezout per generare tali trasformazioni.
-\section{Lezione 21 - \textit{<2025-11-11 Tue>}}
+\subsection{Lezione 21 - \textit{<2025-11-11 Mar>}}
 \label{sec:org10e1404}
 
 \begin{thm}
@@ -6463,10 +6466,10 @@ M \cong A^{\ell} \oplus A/(p_{1}^{t_{1}})\oplus\dots \oplus A/(p_{s}^{t_{s}}).
 \begin{proof}
 \lipsum[1].
 \end{proof}
-\section{Lezione 22 - \textit{<2025-11-14 Fri>}}
+\subsection{Lezione 22 - \textit{<2025-11-14 Ven>}}
 \label{sec:org90dca3e}
 
-\subsection{Forma canonica di Jordan}
+\subsubsection{Forma canonica di Jordan}
 \label{sec:orga594a0f}
 
 Sia \(A\) anello commutativo con unità, \(M\) un \(A\)-modulo. Sia
@@ -6783,10 +6786,10 @@ Cerco \(v_{4}\). Si ricorda che \((X-1)v_{3} = 0\), e pertanto esiste \(v\) nell
 
 Calcolando, trovo il \(v_{4}\) vettore di base per avere \(\psi\) in forma di Jordan.
 \end{esempio}
-\section{Lezione 23 - \textit{<2025-11-17 Mon>}}
+\subsection{Lezione 23 - \textit{<2025-11-17 Lun>}}
 \label{sec:org7019d8b}
 
-\subsection{Dipendenza Integrale}
+\subsubsection{Dipendenza Integrale}
 \label{sec:orga86d4fb}
 
 \begin{definizione}
@@ -6879,7 +6882,7 @@ Dal richiamo (3) si ottiene la tesi applicando il polinomio caratteristico all'o
 \begin{definizione}
 Un anello \(A\) e un \(A\)-modulo \(M\) si dicono \textbf{fedeli} quando \((0 :_A M) = (0)\).
 \end{definizione}
-\subsection{Caratterizzazioni della Dipendenza Integrale}
+\subsubsection{Caratterizzazioni della Dipendenza Integrale}
 \label{sec:orgf548b16}
 
 \begin{thm}
@@ -6943,7 +6946,7 @@ Per la proprietà transitiva dei moduli f.g. (Richiamo 2), \(A[u_1, \dots, u_n]\
 \qedhere
 \end{itemize}
 \end{proof}
-\subsection{Chiusura Integrale}
+\subsubsection{Chiusura Integrale}
 \label{sec:org56b6e30}
 
 \begin{lem}
@@ -6984,7 +6987,7 @@ Sia \(A''\) la chiusura integrale di \(A'\) in \(B\).
 Allora, per il corollario precedente (transitività), \(A''\) è intero su \(A\).
 Ogni elemento di \(A''\) è intero su \(A\), quindi \(A'' \subseteq A'\) e in particolare \(A' = A''\).
 \end{proof}
-\subsection{Comportamento con Quozienti e Localizzazioni}
+\subsubsection{Comportamento con Quozienti e Localizzazioni}
 \label{sec:org64642b7}
 
 Siano \(A \subseteq B\) anelli, \(B\) intero su \(A\).
@@ -7055,7 +7058,7 @@ Allora:
 (poiché \(s'b \in A'\) e \(s's \in S\)).\qedhere
 \end{itemize}
 \end{proof}
-\section{Lezione 24 - \textit{<2025-11-18 Tue>}}
+\subsection{Lezione 24 - \textit{<2025-11-18 Mar>}}
 \label{sec:org3715687}
 
 \begin{definizione}
@@ -7404,7 +7407,7 @@ Allora \(x \in \mathfrak{p}_{1}\), e quindi \(\mathfrak{p}_{1}\,B_{\mathfrak{q}_
 \end{proof}
 \newpage
 \part{Tecniche computazionali per ideali di \(\K[X_{0},\dots,X_{n}]\)}
-\section{Lezione 25 - \textit{<2025-11-21 Fri>}}
+\subsection{Lezione 25 - \textit{<2025-11-21 Ven>}}
 \label{sec:orgae0ad49}
 
 \textbf{Ripasso sulle \(A\)-algebre}
@@ -7444,7 +7447,7 @@ Consideriamo ora \(\K[X,Y]\): questo è un UFD, ma non è un PID.
 \end{itemize}
 
 Questo è l'\textbf{ideal membership problem} (basi di Gröbner).
-\subsection{Monoide}
+\subsubsection{Monoide}
 \label{sec:orgafc7f5d}
 
 \begin{definizione}
@@ -7647,7 +7650,7 @@ Per ogni \(n\ge 1\), \(\langle \N^{n},+\rangle\) è Noetheriano.
 \begin{proof}
 Sia \(\Gamma\) un monoideale di \(\langle \N^{n},+\rangle\). Allora \(\Gamma^{\min}\) è finito e genera tutto \(\Gamma\).
 \end{proof}
-\section{Lezione 26 - \textit{<2025-11-24 Mon>}}
+\subsection{Lezione 26 - \textit{<2025-11-24 Lun>}}
 \label{sec:org313c24f}
 
 \begin{cor}
@@ -7751,7 +7754,7 @@ Quindi da \(f\) considero \(\supp f = \set{s_{1},\dots,s_{\ell}}\). Verifico se 
 \begin{definizione}
 Se \(I\) è ideale monomiale, l'insieme dei termini minimali che lo generano è \uline{base monomiale di \(I\)}. (Questa base è unica, ed è un insieme minimale di generatori di \(I\).)
 \end{definizione}
-\subsection{Monomoduli}
+\subsubsection{Monomoduli}
 \label{sec:orgdc414a2}
 
 \begin{esempio}
@@ -7802,7 +7805,7 @@ M\cong I_{1}e_{1}\oplus \dots \oplus I_{r} e_{r}.%
 \qedhere
 \end{equation*}
 \end{proof}
-\subsection{Divisione}
+\subsubsection{Divisione}
 \label{sec:orga558af1}
 
 In \(\K[X]\) esistono \(q, r\) della divisione di \(f\) rispetto  \(g \neq 0\) e identifico il resto con il grado.
@@ -7827,7 +7830,7 @@ Se \(f=X_{1}^{2}+X_{2}^{2}\), \(g=X_{1}+X_{2}\) in \(\K[X_{1},X_{2}]\):
 \end{align*}
 Perché l'accoppiata quoziente-resto: \((X_{1}+X_{2}, -2X_{1}X_{2})\) dovrebbe essere migliore di \((X_{1}-X_{2}, 2X_{2}^{2})\)? Non c'è unicitò, e il grado non consente di riconoscere i termini.
 \end{esempio}
-\subsubsection{\emph{Term order}}
+\paragraph{\emph{Term order}}
 \label{sec:org4c91e84}
 
 \begin{definizione}
@@ -7937,7 +7940,7 @@ Questo definisce un term order sse la prima entrata non nulla di ogni colonna di
   \end{pmatrix}
 \end{equation*}
 \end{itemize}
-\section{Lezione 27 - \textit{<2025-11-25 Tue>}}
+\subsection{Lezione 27 - \textit{<2025-11-25 Mar>}}
 \label{sec:orgccaf078}
 
 \begin{definizione}
@@ -8249,7 +8252,7 @@ Quindi \(m=0\) e pertanto \(c_{i}=0\) per ogni \(i\).\qedhere
 Quindi \(\LT_{\sigma}(M)\) ci fornisce un sistema completo di rappresentanti del quoziente \(P^{r}/M\) come \(\K\)-spazio vettoriale.
 
 Dato \(M\), come ``calcolo'' \(\LT_{\sigma}(M)\)? So che è finitamente generato.
-\subsection{Divisioni in \(\K[X_{1},\dots,X_{n}]\)}
+\subsubsection{Divisioni in \(\K[X_{1},\dots,X_{n}]\)}
 \label{sec:orgfdaee3d}
 
 \begin{esempio}
@@ -8273,10 +8276,10 @@ Faccio la divisione:
 \textbf{\textbf{BOH}}.
 \end{quote}
 \end{esempio}
-\section{Lezione 28 - \textit{<2025-11-28 Fri>}}
+\subsection{Lezione 28 - \textit{<2025-11-28 Ven>}}
 \label{sec:org67d641c}
 
-\subsection{Divisione con Resto con Term Order}
+\subsubsection{Divisione con Resto con Term Order}
 \label{sec:orgce45e8f}
 
 \begin{esempio}
@@ -8427,7 +8430,7 @@ r = r', \quad q_1 = q'_1, \dots, q_s = q'_s.%
 \qedhere
 \end{equation*}
 \end{proof}
-\subsection{Problema dell'Appartenenza Ideale (Ideal Membership Problem)}
+\subsubsection{Problema dell'Appartenenza Ideale (Ideal Membership Problem)}
 \label{sec:org5889547}
 
 Questa divisione, purtroppo, non basta a risolvere il problema dell'appartenenza ideale.
@@ -8461,7 +8464,7 @@ Il resto è 0, quindi \(f \in (g_1, g_2)\).
 \end{esempio}
 
 Questo ci mostra che il resto dipende dall'ordine dei generatori.
-\subsection{Base di Gröbner}
+\subsubsection{Base di Gröbner}
 \label{sec:orgc093f0d}
 
 \begin{definizione}
@@ -8530,10 +8533,10 @@ In particolare, \(m \in M\) sse \(r = 0\). Questo risolve l'ideal membership pro
 \begin{oss}
 Non stiamo dicendo che i quozienti \(q_1, \dots, q_s\) siano indipendenti dall'ordine dei polinomi nella GB quando effettuo la divisione. Stiamo dicendo che \textbf{il resto} \(r\) (e la parte \(g \in M\)) è unico.
 \end{oss}
-\section{Lezione 29 - \textit{<2025-12-01 Mon>}}
+\subsection{Lezione 29 - \textit{<2025-12-01 Lun>}}
 \label{sec:org2220439}
 
-\subsection{Module Membership Problem}
+\subsubsection{Module Membership Problem}
 \label{sec:org1561c38}
 
 \begin{prop}
@@ -8570,7 +8573,7 @@ m = \sum_{i=1}^{s} q_{i} g_{i} + 0 \in Pg_{1}+\dots+P{g_{s}} = M
 \end{equation*}
 e pertanto \(m \in M\).
 \end{proof}
-\subsection{Esistenza della Base di Groebner}
+\subsubsection{Esistenza della Base di Groebner}
 \label{sec:org07a516c}
 
 \begin{prop}
@@ -8649,7 +8652,7 @@ G \subseteq H \subseteq M
 \end{equation*}
 allora \(H\) è una GB di \(M\).
 \end{oss}
-\subsection{Basi di Groebner ridotte}
+\subsubsection{Basi di Groebner ridotte}
 \label{sec:org5b01396}
 
 Fisso un term order. Sia \(G=\set{g_{1},\dots,g_{s}}\) una GB,
@@ -8686,8 +8689,8 @@ che genera ancora \(M\).
 
 ??????????? FINIRE (Chiedere ad Elisa)
 \end{proof}
-\subsection{Criterio di Buchberger}
-\label{sec:orgfdaa643}
+\subsubsection{Criterio di Buchberger}
+\label{sec:orgaaebc5d}
 
 Sia \(G= \set{g_{1},\dots,g_{s}} \subseteq P^{\ell}\), fisso term order.
 \begin{quote}
@@ -8751,11 +8754,11 @@ Sia \(G=\set{g_{1},\dots,g_{s}} \subseteq P^{\ell}\), fisso un term order.
 \overline{S(g_{i}, g_{j})}^{\ G}= 0
 \end{equation*}
 \end{thm}
-\section{Lezione 30 - \textit{<2025-12-02 Tue>}}
+\subsection{Lezione 30 - \textit{<2025-12-02 Mar>}}
 \label{sec:orgbb956b6}
 
-\subsection{Criterio di Buchberger}
-\label{sec:orgaaebc5d}
+\subsubsection{Criterio di Buchberger}
+\label{sec:org1ca59b3}
 
 Fissiamo un \textbf{term order} (ordinamento monomiale). Sia \(G = \{g_1, \dots, g_s\} \subseteq P\) e sia \(I = (G)\) l'ideale generato da \(G\).
 
@@ -9009,7 +9012,7 @@ Da cui: \(\overline{S(g_1, g_2)}^G = 0\) e quindi per il criterio di Buchberger:
 
 \emph{(Volendo si può provare a prendere Lex \(x > y > z\) e si nota che allora \(g_1\) e \(g_2\) non formano più una GB!)}
 \end{esempio}
-\subsection{Algoritmo di Buchberger}
+\subsubsection{Algoritmo di Buchberger}
 \label{sec:org0e8b30c}
 
 Se \(G\) non è GB, come faccio a trovare una GB per \((G)\)?
@@ -9073,7 +9076,7 @@ In ogni caso l'algoritmo termina sempre! (Per la noetherianità dell'anello dei 
 \State \Return \(G\)
 \end{algorithmic}
 \end{algorithm}
-\section{Lezione 31 - \textit{<2025-12-05 Fri>}}
+\subsection{Lezione 31 - \textit{<2025-12-05 Ven>}}
 \label{sec:org2e82941}
 
 \begin{prop}
@@ -9236,7 +9239,7 @@ Ecco l'algoritmo:
 \item Calcolo la GB ridotta di \((g_1, \dots, g_l)\).
 \item Se le due GB ridotte sono uguali sse \((f_1, \dots, f_s) = (g_1, \dots, g_l)\).
 \end{enumerate}
-\subsection{Teorema di Eliminazione}
+\subsubsection{Teorema di Eliminazione}
 \label{sec:orgc9c6c6c}
 
 Sia \(I = (f_1, \dots, f_s) \subset P\) e \(J = (g_1, \dots, g_l) \subset P\).
@@ -9380,7 +9383,7 @@ Qui non ho infiniti termini con DegLex.
 
 Esiste un algoritmo (\textbf{F.G.L.M.}) che prende una GB rispetto a un term order \(<_1\) (magari veloce come DegRevLex) e dà la base di GB dello stesso ideale rispetto a un ordine \(<_2\) (come Lex, necessario per l'eliminazione) senza rifare Buchberger da zero, rendendo il calcolo più efficiente.
 \end{oss}
-\section{Lezione 32 - \textit{<2025-12-09 Tue>}}
+\subsection{Lezione 32 - \textit{<2025-12-09 Mar>}}
 \label{sec:orgb894a2d}
 
 Il termine ``Sizigie'' deriva dal greco e significa ``allineamento''.
@@ -9634,7 +9637,7 @@ Le risoluzioni che costruiamo con Schreyer dipendono dal term order \(>\) e quin
 
 Esiste \textbf{LA} risoluzione MINIMALE di \(M = \langle G \rangle_P\) e da questa si leggono ad esempio: i numeri di Betti, la lunghezza della risoluzione, la regolarità di Castelnuovo-Mumford (per ideali omogenei).
 \end{oss}
-\section{Lezione 33 - \textit{<2025-12-15 Mon>}}
+\subsection{Lezione 33 - \textit{<2025-12-15 Lun>}}
 \label{sec:orge4aa288}
 
 \begin{esempio}
@@ -9654,7 +9657,7 @@ Queste condizioni implicano che \(G\) sia GB di \(I\) rispetto a DegLex con \(X>
 
 Inoltre \(G\) è la GB ridotta di \(I\).
 \end{esempio}
-\subsection{Applicazioni alla Geometria Algebrica}
+\subsubsection{Applicazioni alla Geometria Algebrica}
 \label{sec:org172d600}
 
 Siano \(f_{1},\dots,f_{s} \in \K[X_{1},\dots,X_{K}] = P\), \(S=\set{f_{1},\dots,f_{s}}\). Pongo
@@ -9721,7 +9724,7 @@ In \(\C[X,Y]\), invece:
 \mathfrak{A} = (X^{2}+Y^{2}+1) \xrightarrow{\V} \V(\mathfrak{A}) \neq \emptyset \xrightarrow{\idealeDi}  \idealeDi(\V(\mathfrak{A})) \neq \C[X,Y].
 \end{equation*}
 \end{esempio}
-\subsection{Nullstellensatz di Hilbert}
+\subsubsection{Nullstellensatz di Hilbert}
 \label{sec:org1ba8e9c}
 
 \begin{thm}
@@ -9916,11 +9919,11 @@ Il Teorema~\ref{nullstellensatz:weak} vale se \(\K\neq\overline{\K}\)?
 \mathfrak{A} = (X^{2}+Y^{2}+1) \subseteq \R[X,Y],\qquad \V(\mathfrak{A}) = \emptyset.
 \end{equation*}
 \end{esempio}
-\section{{\bfseries\sffamily TODO} Lezione 34 - \textit{<2025-12-16 Tue>}}
+\subsection{{\bfseries\sffamily TODO} Lezione 34 - \textit{<2025-12-16 Mar>}}
 \label{sec:org5517b98}
 
 ???
-\section{Lezione 35 - \textit{<2025-12-17 Wed>}}
+\subsection{Lezione 35 - \textit{<2025-12-17 Mer>}}
 \label{sec:org4bccaad}
 
 \uline{Nota}: con \(\bm{X}\) si intende la tupla \(X_{1},\dots,X_{n}\).
@@ -10067,11 +10070,11 @@ f = p(\bm{X},1)+ q(\bm{X},1) = p(\bm{X},1) +0  = p(\bm{X},1) \in I.
 
 Pertanto, \(f \in I\cap J\).
 \end{proof}
-\subsection{Algoritmo di calcolo intersezioni di ideali}
+\subsubsection{Algoritmo di calcolo intersezioni di ideali}
 \label{sec:orga333ee7}
 
 \textbf{\textbf{MANCA UN PEZZO}} (ma dovrebbe caricare le sue note)
-\subsection{Calcolo del minimo comune multiplo}
+\subsubsection{Calcolo del minimo comune multiplo}
 \label{sec:org16e28f2}
 
 \begin{oss}
@@ -10131,7 +10134,7 @@ per calcolare \(\operatorname{mcm}(f,g)\) procedo nel modo seguente:
 \item ottengo \(I\cap J = \big(tf, (1-t)g \big) \cap \K[X_{1},\dots,X_{n}]\)
 \item \(h=\operatorname{mcm}(f,g)\) è l'\uline{unico} polinomio della GB ``di eliminazione della \(t\)'' che non dipende dalla \(t\).
 \end{itemize}
-\subsection{Colon tra ideali}
+\subsubsection{Colon tra ideali}
 \label{sec:org0fcdb33}
 
 \uline{Ricordiamo}:
@@ -10230,10 +10233,10 @@ dove \(\mathfrak{M} = (X_{1},\dots,X_{n})\).
 
 Un ideale \(I\) è saturato se \(I^{\text{sat}} = I\).
 \end{esempio}
-\section{Lezione 36 - \textit{<2025-12-19 Fri>}}
+\subsection{Lezione 36 - \textit{<2025-12-19 Ven>}}
 \label{sec:orgcac5675}
 
-\subsection{Automatic Geometric Theorem Proving}
+\subsubsection{Automatic Geometric Theorem Proving}
 \label{sec:org5fa2a15}
 
 \begin{esempio}
@@ -10381,7 +10384,7 @@ se e solo se la GB di \(J\) (rispetto a qualunque term order) è \(\set{1}\).
 \end{oss}
 
 L'esempio di prima è tratto da 
-\subsection{Colorazione dei grafi}
+\subsubsection{Colorazione dei grafi}
 \label{sec:orgbe8ad89}
 
 \begin{definizione}

@@ -1,19 +1,23 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Topologia di Zariski affine}
+\label{sec:orgf4cb026}
 Nella \href{20250103103232-topologia_euclidea.org}{topologia euclidea}, gli zeri di \href{20250103103252-funzione_continua.org}{funzioni continue} sono usualmente chiusi, pertanto ha senso definire una topologia come segue:
-\section{Definizione}
+\subsection{Definizione}
 \label{sec:orgacff47e}
 La \href{20250103145124-topologia.org}{topologia} di Zariski su \href{20241231114009-spazio_affine.org}{\(\A^{n}\)} è quella che ha per chiusi tutte e sole le \href{20241231114256-varieta_algebrica_affine.org}{varietà algebriche affini}; ovvero, \(C \subseteq \A^{n}\) è chiuso se e solo se \(C\) è il \href{20241231112823-radici_polinomiali.org}{luogo di zeri} di \href{20241231112750-polinomio.org}{polinomi}.
-\subsection{Dimostrazione che sia una topologia}
+\subsubsection{Dimostrazione che sia una topologia}
 \label{sec:orgdb9b4ae}
-\subsubsection{Contiene \(\emptyset\) e \(\A^{n}\)}
+\paragraph{Contiene \(\emptyset\) e \(\A^{n}\)}
 \label{sec:orgf87421b}
 Infatti, \(\emptyset=V(1)\) e \(\A^{n} = V(0)\).
-\subsubsection{Chiuso per intersezioni}
+\paragraph{Chiuso per intersezioni}
 \label{sec:orgf9d1d22}
 Siano, per \(i \in I\), \(X_{i}=V(T_{i})\), con \(T_{i} \subseteq \K[x_{1},\dots,x_{n}]\) (vedi \href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi})
 
@@ -21,7 +25,7 @@ Siano, per \(i \in I\), \(X_{i}=V(T_{i})\), con \(T_{i} \subseteq \K[x_{1},\dots
 \begin{equation*}
 \bigcap_{i \in I}V(T_{i}) = V\left(\bigcup_{i \in I} T_{i}\right)
 \end{equation*}
-\subsubsection{Chiuso per unioni finite}
+\paragraph{Chiuso per unioni finite}
 \label{sec:orgd6fab98}
 Siano \(X_{1}=V(T_{1})\) e \(X_{2}=V(T_{2})\).
 Allora \(X_{1}\cup X_{2} =V(T_{1})\cup V(T_{2}) = V(T_{1} \cdot T_{2})\) dove

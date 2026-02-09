@@ -1,11 +1,15 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Chiusura transitiva di una relazione}
+\label{sec:org3d99cd7}
 \textbf{\textbf{\uline{NOTA}: quando si parla di \uline{classi}, se ne parla nell'ambito della \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}; quando si parla di insiemi, il discorso ha validità più generale.}}
-\section{Definizione}
+\subsection{Definizione}
 \label{sec:org1d3bce7}
 Sia \(X\) un \href{20250130104331-insieme_mk.org}{insieme} (o una \href{20250130104320-classe_mk.org}{classe}), e sia \(R\) una \href{20250202170607-classe_relazione_binaria.org}{relazione} su \(X\).
 
@@ -28,24 +32,25 @@ In altre parole, \(x\mathrel{\tilde{R}}y\) se e solo se esistono \(x_{0},\dots,x
 \begin{equation*}
 x=x_{0}\mathrel{R}x_{1},\ x_{1}\mathrel{R}x_{2}\ \dots,\ x_{n-1}\mathrel{R}x_{n} = y
 \end{equation*}
-\subsection{Osservazione}
+\subsubsection{Osservazione}
 \label{sec:org1adfd5f}
 Per costruzione \(\tilde{R}\) è la più piccola \href{20250202170607-classe_relazione_binaria.org}{relazione} \href{20250203110714-classe_transitiva.org}{transitiva} su \(X\) tale che\footnote{Vedi ``\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK}''} \(R \subseteq \tilde{R}\)
-\section{Proprietà}
+\subsection{Proprietà}
 \label{sec:org3a81980}
-Sia \(X\) una \href{20250130104320-classe_mk.org}{classe}, e sia \(R\) una \href{20250202170607-classe_relazione_binaria.org}{relazione} su \(X\). Sia \(\tilde{R}\) la sua \href{20250207121738-chiusura_transitiva_di_una_relazione_mk.org}{chiusura transitiva}.
+Sia \(X\) una \href{20250130104320-classe_mk.org}{classe}, e sia \(R\) una \href{20250202170607-classe_relazione_binaria.org}{relazione} su \(X\). Sia \(\tilde{R}\) la sua \hyperref[sec:org3d99cd7]{chiusura transitiva}.
 
 \begin{enumerate}
 \item \(R\) è \href{20250203095749-relazione_left_narrow_mk.org}{regolare} su \(X\) se e solo se \(\tilde{R}\) è \href{20250203095749-relazione_left_narrow_mk.org}{regolare} su \(X\).
 \item \(R\) è \href{20250203100901-relazione_well_founded_mk.org}{ben fondata} su \(X\) se e solo se \(\tilde{R}\) è \href{20250203100901-relazione_well_founded_mk.org}{ben fondata} su \(X\).
 \end{enumerate}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org97f82ce}
-\subsubsection{Dimostrazione 1}
+\paragraph{Dimostrazione 1}
 \label{sec:orga0371d2}
 
 Siccome \(R \subseteq \tilde{R}\) è sufficiente dimostrare che \(\tilde{R}\) è left-narrow se lo è \(R\), dal momento che il viceversa è immediato.
-\paragraph{Claim}
+\begin{enumerate}
+\item Claim
 \label{sec:orgb6386d0}
 
 Sia \(\overline{x} \in X\) fissato. Esiste una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \href{20250130104331-insieme_mk.org}{insiemi} \(\langle Z_{n}\ |\ n \in \omega\rangle\) indicizzata da \href{20250203161110-numeri_naturali_sono_ordinali.org}{\(\omega\)} tali che:
@@ -53,7 +58,7 @@ Sia \(\overline{x} \in X\) fissato. Esiste una \href{20250206170922-sequenze_e_s
 Z_{0} &= \set{y \in X\ |\ y\mathrel{R}\overline{x}}\\
 Z_{n+1} &=  \set{y \in X\ |\ \exists\, z \in Z_{n}\ (y\mathrel{R}z)} = \bigcup_{z \in Z_{n}} \set{y \in X\ |\ y\mathrel{R}z}
 \end{align*}
-\paragraph{Dimostrazione del Claim}
+\item Dimostrazione del Claim
 \label{sec:org0b787f5}
 
 Si applichi il \href{20250207121712-teorema_di_ricorsione_caso_speciale.org}{Teorema di ricorsione (caso speciale)}, con
@@ -63,7 +68,7 @@ A &= V\\
 F(n,a) &=\set{x \in X\ |\ \exists\, y \in a\ (x\mathrel{R}y)}
 \end{align*}
 ottenendo \(G(n) = Z_{n}\), dove \(V\) è la \href{20250203104513-classe_totale.org}{classe di tutti gli insiemi}.
-\paragraph{Fine della dimostrazione}
+\item Fine della dimostrazione
 \label{sec:orge088ff6}
 
 Tramite gli assiomi di Replacement e dell'Unione,
@@ -71,7 +76,8 @@ Tramite gli assiomi di Replacement e dell'Unione,
 \bigcup_{n \in \omega} Z_{n}
 \end{equation*}
 è un insieme, ed è uguale a \(\set{y \in X\ |\ y\mathrel{\tilde{R}}\overline{x}}\).
-\subsubsection{Dimostrazione 2}
+\end{enumerate}
+\paragraph{Dimostrazione 2}
 \label{sec:orgb3576fc}
 
 Siccome \(R \subseteq \tilde{R}\) è sufficiente dimostrare che \(\tilde{R}\) è well-founded se lo è \(R\), dal momento che il viceversa è immediato.

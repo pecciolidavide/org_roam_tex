@@ -1,14 +1,18 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Teoria della ricorsività [CORSO SEL2025]}
+\label{sec:org38ca632}
 \begin{latex}
-
+\title{Teoria della ricorsività}
 \maketitle
 \end{latex}
-\section{Lezione 1}
+\subsection{Lezione 1}
 \label{sec:orgfb9c186}
 
 La ``Teoria della ricorsività'' è stata rinominata ``Teoria della computabilità'' all'inizio degli anni '90.
@@ -24,7 +28,7 @@ Struttura del corso
 \item Esplorando l'universo di Turing.
 \item (Computable Structure Theory.)
 \end{enumerate}
-\subsection{Notazione}
+\subsubsection{Notazione}
 \label{sec:org13a8b82}
 
 \begin{itemize}
@@ -32,11 +36,11 @@ Struttura del corso
 \item Con \(\oldvec{x}\) si denotano le \(k\)-uple di numeri naturali \((x_{1},\dots,x_{k})\)
 \item Si consentono le funzioni parziali. Si scriverà \(f(x)\uparrow\) per scrivere che \(f\) non è definita su \(x\). Viceversa, \(f(x)\downarrow\) significa che \(f(x)=y\).
 \end{itemize}
-\subsection{Modelli di computazione}
+\subsubsection{Modelli di computazione}
 \label{sec:orgdf6f83d}
 
 Lo scopo di un modello di computazione è quello di catturare la classe delle funzioni computabili ``intuitivi''.
-\subsection{Funzioni parziali ricorsive}
+\subsubsection{Funzioni parziali ricorsive}
 \label{sec:orga0431ec}
 
 Si formalizza la computabilità dal basso verso l'alto:
@@ -165,10 +169,10 @@ Questo porta ad una tesi (a prima vista incredibile):
 \begin{quote}
 Ogni funzione intuitivamente computabile è parziale ricorsiva\qquad(\textbf{\textbf{T}})
 \end{quote}
-\section{Lezione 2}
+\subsection{Lezione 2}
 \label{sec:org1965a62}
 
-\subsection{Turing's computability}
+\subsubsection{Turing's computability}
 \label{sec:org73e9cf8}
 
 Le macchine di Turing possono essere descritte come: \emph{macchine che assomigliano agli esseri umani quando questi si comportano come macchine}.
@@ -311,14 +315,14 @@ La classe delle funzioni computabili è ottenibile in molti altri modelli comput
 \item diagrammi di flussi
 \item Java, Python, C
 \end{itemize}
-\subsection{Tesi di Church-Turing}
+\subsubsection{Tesi di Church-Turing}
 \label{sec:orgb80cfa2}
 
 La classe delle funzioni intuitivamente computabile coincide con la classe delle funzioni computabili in ciascuno dei modelli (equivalenti) di computazione. \hfill (\textbf{\textbf{CTT}})
-\section{Lezione 3}
+\subsection{Lezione 3}
 \label{sec:org9c2b09d}
 
-\subsection{Conseguenze di CTT}
+\subsubsection{Conseguenze di CTT}
 \label{sec:orgb198355}
 
 \begin{oss}
@@ -372,7 +376,7 @@ Provando ad utilizzare nuovamente la diagonalizzazione, si definisca
 \end{cases}
 \end{equation*}
 che \uline{è computabile}. Qui la diagonalizzazione ``fallisce'', poiché \(\varphi_{x}(x) \cong\psi(x)\) ogni qualvolta che \(\varphi_{x}(x)\uparrow\), e peranto la parzialità delle funzioni computabili è una ``difesa'' contro la diagonalizzazione.
-\subsection{Teorema di Punto fisso di Kleene}
+\subsubsection{Teorema di Punto fisso di Kleene}
 \label{sec:org2ef168a}
 
 \begin{thm}
@@ -382,7 +386,7 @@ che \uline{è computabile}. Qui la diagonalizzazione ``fallisce'', poiché \(\va
 \end{equation*}
 \label{thm:kleenfpt}
 \end{thm}
-\subsubsection{Conseguenze del Teorema}
+\paragraph{Conseguenze del Teorema}
 \label{sec:org1290f7a}
 
 \begin{oss}
@@ -450,7 +454,7 @@ Applicando il teorema di punto fisso: esiste \(e\) con
 \end{equation*}
 per ogni \(y\).
 \end{proof}
-\subsubsection{Dimostrazione del Teorema di Punto Fisso}
+\paragraph{Dimostrazione del Teorema di Punto Fisso}
 \label{sec:org0f977a5}
 
 \begin{proof}
@@ -484,7 +488,7 @@ Dunque \(\varphi_{m}\) converge ovunque, ed in particolare \(\varphi_{m}(m)\down
 \varphi_{\varphi_{m}(m)}(y) = \varphi_{f(\varphi_{m}(m))}(y).\qedhere
 \end{equation*}
 \end{proof}
-\subsection{Indecidibilità}
+\subsubsection{Indecidibilità}
 \label{sec:orga618701}
 
 L'indecidibilità non è semplicemente legato alla logica. Alcuni famosi esempi:
@@ -496,7 +500,7 @@ L'indecidibilità non è semplicemente legato alla logica. Alcuni famosi esempi:
 \end{itemize}
 
 La maggior parte delle prove di indecidibilità procedono riducendo il problema all'halting problem.
-\subsubsection{Busy Beaver}
+\paragraph{Busy Beaver}
 \label{sec:org429bf78}
 
 Dato un numero fissato di stati, qual è il massimo numero di passi che una macchina di Turing può fare prima di fermarsi?
@@ -529,7 +533,7 @@ Il problema è che \(\mathrm{BB}\) cresce più di ogni funzione computabile. Alc
 
 In particolare, \(\mathrm{BB}\) cresce così velocemente che ZFC non può determinare praticamente nessun suo valore.
 \end{esempio}
-\subsection{Computable enumeration}
+\subsubsection{Computable enumeration}
 \label{sec:orga2dfb1a}
 
 L'indecidibilità non è la fine della storia. Si sono sviluppate delle \uline{gerarchie} dell'impossibilità.
@@ -571,7 +575,7 @@ Se \(A,B\) sono c.e., allora anche \(A\cup B, A\cap B\) sono c.e.
 \begin{prop}
 Gli insiemi c.e. non sono chiusi per complemento.
 \end{prop}
-\section{Lezione 4}
+\subsection{Lezione 4}
 \label{sec:org0c61adb}
 
 \begin{prop}
@@ -596,7 +600,7 @@ e \in \overline{K}\iff e \in W_{w} \iff e \in K
 \end{equation*}
 Assurdo.
 \end{proof}
-\subsection{Riducibilità \emph{many-one}.}
+\subsubsection{Riducibilità \emph{many-one}.}
 \label{sec:org7ab1248}
 
 \begin{definizione}
@@ -730,7 +734,7 @@ Resta da verificare che:
 \item la condizione \(\mathcal{N}_{e}\) è preservata.\qedhere
 \end{itemize}
 \end{proof}
-\subsection{Teorema di Godel}
+\subsubsection{Teorema di Godel}
 \label{sec:org8cfd9bf}
 
 Il linguaggio dell'aritmetica è sufficientemente ricco per rappresentare la computabilità. In particolare, esiste una formula \(\varphi^{K}(x)\) tale che

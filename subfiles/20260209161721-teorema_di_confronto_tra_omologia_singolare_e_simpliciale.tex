@@ -1,0 +1,90 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[../main]{subfiles}
+
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
+\begin{document}
+
+\section{Teorema di Confronto tra omologia singolare e simpliciale}
+\label{sec:org174b851}
+Sia \(R\) un \href{20241219112842-pid.org}{PID} fissato.
+
+\begin{thm}
+Se \(K\) è un \href{20250121124147-complesso_simpliciale.org}{complesso simpliciale} e \(|K|\) è il suo \href{20250121124230-supporto_di_un_complesso_simpliciale.org}{supporto}, allora vi è il seguente \href{20241206115416-morfismi_r_moduli.org}{isomorfismo} tra \href{20250121160827-omologia_simpliciale.org}{omologia simpliciale} \(H_{q}^{\text{simp}}\) e \href{20250122133631-omologia_singolare.org}{singolare} \(H_{q}^{\text{sing}}\):
+\begin{equation*}
+\forall q:\qquad H_{q}^{\text{simp}}(K) \cong H_{q}^{\text{sing}}(|K|).
+\end{equation*}
+\end{thm}
+TODO sistemare
+
+\begin{proof}
+Consideriamo lo spazio topologico \(X \coloneqq |K|\). Questo spazio ammette una struttura naturale di CW-complesso definita ponendo come \(q\)-scheletro l'unione di tutti i simplessi di dimensione minore o uguale a \(q\):
+\begin{equation*}
+X_q \coloneqq \bigcup_{\substack{\sigma \in K \\ \dim \sigma \le q}} |\sigma| \subseteq |K|
+\end{equation*}
+Le \(q\)-celle aperte corrispondono esattamente agli interni dei \(q\)-simplessi di \(K\).
+Dobbiamo costruire un isomorfismo di complessi di catene tra il complesso delle catene simpliciali \(C_{\bullet}^{\Delta}(K)\) e il complesso delle catene cellulari \(S_{\bullet}^{\text{cw}}(X)\).
+
+\textbf{\textbf{1. Definizione della mappa tra catene}}
+Per ogni \(q\)-simplesso \(\sigma = [P_0, \dots, P_q] \in K_q\), consideriamo la mappa caratteristica canonica:
+\begin{equation*}
+c_\sigma : \Delta^q \longrightarrow |K|
+\end{equation*}
+definita come l'unica mappa affine tale che \(c_\sigma(e_i) = P_i\), dove \(\{e_i\}\) sono i vertici standard del simplesso standard \(\Delta^q\).
+Questa mappa definisce un generatore nel gruppo delle catene cellulari:
+\begin{equation*}
+[c_\sigma] \in H_q(X_q, X_{q-1}) = S_q^{\text{cw}}(X).
+\end{equation*}
+Definiamo l'omomorfismo \(\Psi_q: C_q^{\Delta}(K) \longrightarrow S_q^{\text{cw}}(X)\) estendendo per linearità l'assegnazione:
+\begin{equation*}
+\Psi_q(\sigma) \coloneqq [c_\sigma]
+\end{equation*}
+Poiché le celle di \(X\) sono in corrispondenza biunivoca con i simplessi di \(K\), \(\Psi_q\) manda una base in una base, ed è dunque un isomorfismo di moduli per ogni \(q\).
+
+\textbf{\textbf{2. Commutazione con i bordi}}
+Dobbiamo verificare che \(\Psi\) sia un morfismo di complessi, ovvero che commuti con gli operatori di bordo: \(\operatorname{d}_q \circ \Psi_q = \Psi_{q-1} \circ \partial_q^{\Delta}\).
+
+Ricordiamo che il bordo simpliciale è dato da:
+\begin{equation*}
+\partial_q^{\Delta}(\sigma) = \sum_{i=0}^q (-1)^i [P_0, \dots, \hat{P}_i, \dots, P_q] = \sum_{i=0}^q (-1)^i \sigma_i
+\end{equation*}
+Calcoliamo ora il bordo cellulare \(\operatorname{d}_q[c_\sigma]\). Per definizione, \(\operatorname{d}_q\) è la composizione nel diagramma della successione esatta lunga della coppia \((X_q, X_{q-1})\):
+\begin{equation*}
+\scalebox{0.9}{%
+\begin{tikzcd}[ampersand replacement=\&]
+	{H_q(X_q, X_{q-1})} \& {H_{q-1}(X_{q-1})} \& {H_{q-1}(X_{q-1}, X_{q-2})} \\
+	{[c_\sigma]} \& {[\partial c_\sigma]} \& {\operatorname{d}_q[c_\sigma]}
+	\arrow["{\partial}", from=1-1, to=1-2]
+	\arrow["{j_{q-1}}", from=1-2, to=1-3]
+	\arrow[maps to, from=2-1, to=2-2]
+	\arrow[maps to, from=2-2, to=2-3]
+\end{tikzcd}%
+}
+\end{equation*}
+Il bordo singolare di \(c_\sigma\) è, per definizione di catena singolare:
+\begin{equation*}
+\partial c_\sigma = \sum_{i=0}^q (-1)^i (c_\sigma \circ \epsilon_i^q)
+\end{equation*}
+dove \(\epsilon_i^q: \Delta^{q-1} \to \Delta^q\) è l'inclusione della \(i\)-esima faccia.
+Osserviamo che la composizione \(c_\sigma \circ \epsilon_i^q\) è esattamente la mappa caratteristica del simplesso \((q-1)\)-dimensionale \(\sigma_i\) ottenuto rimuovendo il vertice \(i\)-esimo:
+\begin{equation*}
+c_\sigma \circ \epsilon_i^q = c_{\sigma_i}
+\end{equation*}
+Quindi, passando alle classi di omologia relativa in \(S_{q-1}^{\text{cw}}(X) = H_{q-1}(X_{q-1}, X_{q-2})\):
+\begin{equation*}
+\operatorname{d}_q(\Psi_q(\sigma)) = \operatorname{d}_q[c_\sigma] = \left[ \sum_{i=0}^q (-1)^i c_{\sigma_i} \right] = \sum_{i=0}^q (-1)^i [c_{\sigma_i}] = \sum_{i=0}^q (-1)^i \Psi_{q-1}(\sigma_i)
+\end{equation*}
+Dall'altro lato:
+\begin{equation*}
+\Psi_{q-1}(\partial_q^{\Delta}\sigma) = \Psi_{q-1}\left(\sum_{i=0}^q (-1)^i \sigma_i\right) = \sum_{i=0}^q (-1)^i \Psi_{q-1}(\sigma_i)
+\end{equation*}
+Le due espressioni coincidono.
+
+\textbf{\textbf{Conclusione}}
+Poiché \(\Psi_{\bullet}: C_{\bullet}^{\Delta}(K) \to S_{\bullet}^{\text{cw}}(|K|)\) è un isomorfismo di complessi di catene, induce un isomorfismo in omologia:
+\begin{equation*}
+H_q^{\Delta}(K) \cong H_q^{\text{cw}}(|K|) \cong H_q(|K|).\qedhere
+\end{equation*}
+\end{proof}
+\end{document}

@@ -1,18 +1,22 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Teorema di Löwenheim-Skolem all'insù}
+\label{sec:orgc27d231}
 Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}.
-\section{Teorema}
+\subsection{Teorema}
 \label{sec:org94ef627}
 Per ogni \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} \(M\) \href{20250205120448-classe_finita_e_infinita_mk.org}{infinita}, e per ogni \href{20250203161341-cardinali.org}{cardinale} \(\lambda\), esiste una \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura} \(N\) tale che
 \begin{enumerate}
 \item \(M\preceq N\) (vedi \href{20250212102253-sottostruttura_elementare.org}{Sottostruttura elementare});
 \item \(\card{N}>\lambda\) (vedi \href{20241213101756-cardinalita.org}{Cardinalità} e \href{20250203111003-ordinali.org}{Relazione d'ordine sugli ordinali}).
 \end{enumerate}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:orgc56029f}
 Sia \(x=\langle x_{i}\ |\ i<\lambda\rangle\) una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \href{20250130162057-linguaggio_del_prim_ordine.org}{variabili} distinte.
 Il \href{20250212164424-tipo_teoria_dei_modelli.org}{tipo}

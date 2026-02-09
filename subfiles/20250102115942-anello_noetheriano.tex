@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Definizioni}
+\section{Anello Noetheriano}
+\label{sec:org61bcd60}
+\subsection{Definizioni}
 \label{sec:orge567cc0}
 Un \href{20241205141119-anello.org}{anello commutativo con unità} \(A\) si dice \uline{Noetheriano} (vedi \href{20250102120132-emmy_noether.org}{Emmy Noether}) se vale una delle seguenti proprietà equivalenti:
 \begin{enumerate}
@@ -19,10 +23,10 @@ Un \href{20241205141119-anello.org}{anello commutativo con unità} \(A\) si dice
 \end{equation*}
 (vedi \href{20250102120722-acc.org}{ACC})
 \end{enumerate}
-\section{Dimostrazione}
+\subsection{Dimostrazione}
 \label{sec:org53275e0}
 Le due condizioni di cui sopra sono equivalenti
-\subsection{\(1\implies 2\)}
+\subsubsection{\(1\implies 2\)}
 \label{sec:org1268d5e}
 
 Sia \(I_{1} \subseteq I_{2} \subseteq \dots\subseteq I_{j} \subseteq \dots\) una catena ascendente di ideali. Sia
@@ -40,7 +44,7 @@ Dunque \(I_{N}=I\) e, per ogni \(k\ge 0\) si ha
 I_{N+m}\supseteq I_{N}=I,\qquad I_{N+m} \subseteq I
 \end{equation*}
 e pertanto \(I_{N+m}=I_{N}\).
-\subsection{\(2\implies 1\)}
+\subsubsection{\(2\implies 1\)}
 \label{sec:orgb5fc71e}
 
 Osservazione: se \(I\) è un ideale non finitamente generato, e \(r_{1},\dots,r_{n} \in I\), allora anche \(I\setminus (r_{1},\dots,r_{n})\) è non finitamente generato. Infatti, se per assurdo \(I\setminus(r_{1},\dots,r_{n})\) fosse generato da \(t_{1},\dots,t_{k}\), allora \(I\) sarebbe generato da \(t_{1},\dots,t_{k},r_{1},\dots,r_{n}\).

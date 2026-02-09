@@ -1,17 +1,21 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Nullstellensatz debole implica Nullstellensatz}
+\label{sec:org3a3f6f9}
 Sia \(\K\) un \href{20241231112713-campo_algebricamente_chiuso.org}{campo algebricamente chiuso}, e sia \(J \subseteq \K[x_{1},\dots,x_{n}]\) un \href{20241219112955-ideale.org}{ideale}. Sia  \(V(J) \subseteq \A^{n}\) (vedi \href{20241231114009-spazio_affine.org}{Spazio Affine} e \href{20241231112823-radici_polinomiali.org}{Luogo di zeri}).
-\section{Lemma di Rabinowitsch.}
+\subsection{Lemma di Rabinowitsch.}
 \label{sec:org19301ad}
 Il \href{20250110143644-nullstellensatz_debole.org}{Nullstellensatz debole} implica il \href{20250110143120-nullstellensatz.org}{Nullstellensatz}
-\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\subsubsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_alg}}
 \label{sec:orgc58381a}
 
-\subsubsection{\(I\left(V(J)\right) \subseteq \sqrt{J}\)}
+\paragraph{\(I\left(V(J)\right) \subseteq \sqrt{J}\)}
 \label{sec:org4d943a6}
 Sia \(f \in I\left(V(J)\right)\) (vedi \href{20250103144124-ideale_di_un_sottoinsieme.org}{Ideale di un sottoinsieme}). Per definizione, \(\forall\, x \in V(J)\) si ha che \(f(x)=0\). Siccome
 \begin{equation*}
@@ -51,7 +55,7 @@ f^{s} = \sum_{i=0}^{s} f^{s-i}g_{i},\qquad g_{i} \in J
 \end{equation*}
 
 Pertanto \(f^{s} \in J\), dunque \(f \in \sqrt{J}\), quindi \(I\left(V(J)\right) \subseteq \sqrt{J}\)
-\subsubsection{\(\sqrt{J} \subseteq I\left(V(J)\right)\)}
+\paragraph{\(\sqrt{J} \subseteq I\left(V(J)\right)\)}
 \label{sec:orge8d1a96}
 Sia \(f \in \sqrt{J}\). Allora esiste \(r \ge 1\) tale che \(f^{r} \in J\).
 

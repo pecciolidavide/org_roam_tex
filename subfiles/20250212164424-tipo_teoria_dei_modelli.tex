@@ -1,15 +1,19 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Tipo - Teoria dei Modelli}
+\label{sec:org0ee03ef}
 Sia \(\mathcal{L}\) un \href{20250130162057-linguaggio_del_prim_ordine.org}{linguaggio del prim'ordine}. Si utilizzerà la \href{20250612143636-notazione_teoria_dei_modelli.org}{Notazione TEORIA DEI MODELLI}.
 
 Un \textbf{tipo} è un insieme di \(\mathcal{L}\)-\href{20250131103317-formula_del_prim_ordine.org}{formule}. Si denota con \(p(x)\), dove \(x\) indicano le \href{20250130162057-linguaggio_del_prim_ordine.org}{variabili} che potrebbero \href{20250131103429-variabile_libera_di_una_formula.org}{occorrere} tra le formule.
 
 Sia \(M\) una \(\mathcal{L}\)-\href{20250131103035-struttura_del_prim_ordine.org}{struttura}.
-\section{Soddisfazione di un tipo}
+\subsection{Soddisfazione di un tipo}
 \label{sec:orge621b33}
 Se per qualche \(a \in M^{x}\) si ha che per ogni \(\varphi(x) \in p(x)\) vale \(M\vDash \varphi(a)\) (vedi \href{20250131122913-soddisfazione_di_una_formula.org}{Soddisfazione di una formula}) si scive una delle seguenti:
 \begin{align*}
@@ -18,20 +22,20 @@ M, (a) &\vDash p(x)\\
 a &\vDash p(x)
 \end{align*}
 Diremo che \(a\) è una \uline{soluzione} o una \uline{realizzazione} di \(p(x)\).
-\section{Tipo soddisfacibile}
+\subsection{Tipo soddisfacibile}
 \label{sec:orgb69db67}
 \begin{itemize}
 \item Diremo che \(p(x)\) è \uline{soddisfacibile in \(M\)} (consistente in \(M\)) se ha una soluzione in \(M\).
 \item Diremo che \(p(x)\) è \uline{soddisfacibile} (consistente) se è realizzato per qualche \(\mathcal{L}\)-struttura
 \end{itemize}
-\section{Tipo finitamente soddisfacibile}
+\subsection{Tipo finitamente soddisfacibile}
 \label{sec:org15af1f1}
 \begin{itemize}
 \item Diremo che \(p(x)\) è \uline{finitamente soddisfacibile in \(M\)} (o finitamente consistente) se tutti i sottoinsiemi finiti \(q(x) \subseteq p(x)\) sono soddisfacibili in \(M\) (o, equivalentemente, se la congiunzione arbitraria di formule di \(p(x)\) sono \href{20250131123540-formula_soddisfacibile.org}{soddisfacibili in \(M\)}).
 
 \item Diremo che \(p(x)\) è \uline{finitamente soddisfacibile} se tutti i sottoinsiemi finiti \(q(x) \subseteq p(x)\) sono soddisfacibili.
 \end{itemize}
-\section{Tipo di un elemento di una struttura}
+\subsection{Tipo di un elemento di una struttura}
 \label{sec:orgb9e78f3}
 Sia \(a \in M^{\lambda}\) per qualche \href{20250203161341-cardinali.org}{cardinale} \(\lambda\), e sia \(x\) una variabile di lunghezza \(\lambda\).
 
@@ -57,7 +61,7 @@ Se \(\Delta\) è un insieme di formule (chiuso per sostituzione di variabili) si
 \varphi(x) \in \Delta\ |\ M\vDash \varphi(a)
 }
 \end{equation*}
-\subsection{Tuple elementarmente equivalenti su un insieme di parametri}
+\subsubsection{Tuple elementarmente equivalenti su un insieme di parametri}
 \label{sec:orgf1511c4}
 \begin{definizione}
 Se \(a,b \in M^{\lambda}\) e \(A \subseteq M\), si scrive
@@ -69,7 +73,7 @@ a \mathrel{\equiv_{A}} b
 \operatorname{tp}_{M}(a/A) = \operatorname{tp}_{M}(b/A).
 \end{equation*}
 \end{definizione}
-\section{Insieme definito da un tipo}
+\subsection{Insieme definito da un tipo}
 \label{sec:org3b9e43b}
 Sia \(p(x)\) un tipo, \(p(x) = \set{\varphi_{\alpha}(x)\mid \alpha <\lambda}\).
 

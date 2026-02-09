@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Definizione}
+\section{Logical Game}
+\label{sec:org5054d60}
+\subsection{Definizione}
 \label{sec:org0decaed}
 Un \uline{gioco logico} è una quadrupla \(\mathcal{G} \coloneqq (\Omega, f, W_{\text{I}}, W_{\text{II}})\) dove:
 \begin{itemize}
@@ -29,10 +33,10 @@ f(a_{0},a_{1},\dots,a_{n}) = \text{I}
 allora l'elemento \(a_{n+1}\) sarà scelto dal giocatore I.
 
 Si dirà che il giocatore I \uline{vince la giocata \(\bm{a}\)} se \(\bm{a} \in W_{\text{I}}\); si dirà che il giocatore II \uline{vince la giocata \(\bm{b}\)} se \(\bm{b} \in W_{\text{II}}\).
-\subsection{Gioco Logico totale}
+\subsubsection{Gioco Logico totale}
 \label{sec:org7b2a258}
 Un gioco è detto \uline{totale} se \(\Omega^{\omega} \subseteq W_{\text{I}}\cup W_{\text{II}}\).
-\subsection{Strategia per un gioco logico}
+\subsubsection{Strategia per un gioco logico}
 \label{sec:org5c2ab6d}
 Si definiscano i seguenti insiemi:
 \begin{align*}
@@ -50,7 +54,7 @@ Formalmente, una strategia per il giocatore \(j\) (con \(j=\text{I},\text{II}\))
 A strategy for a player is said to be \uline{winning} if that player wins every play in which he or she uses the strategy, regardless of what the other player does.
 
 Un gioco si dice \uline{determinato} se esiste una strategia vincente per I o per II.
-\section{Bibliography}
+\subsection{Bibliography}
 \label{sec:org1527e1d}
 \begin{itemize}
 \item Hodges, Wilfrid and Jouko Väänänen, ``Logic and Games'', The Stanford Encyclopedia of Philosophy (Winter 2024 Edition), Edward N. Zalta \& Uri Nodelman (eds.), URL = \url{https://plato.stanford.edu/archives/win2024/entries/logic-games/}.

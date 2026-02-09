@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Teorema}
+\section{Scomposizione di sp top noetheriani in componenti irriducibili}
+\label{sec:org6bdf5e1}
+\subsection{Teorema}
 \label{sec:org2f37de0}
 
 Sia \(X\) uno \href{20250103145124-topologia.org}{spazio topologico} \href{20250103152646-spazio_topologico_noetheriano.org}{noetheriano}, e sia \(Y \subseteq X\) un \href{20250103163814-sottospazio_topologico.org}{sottospazio} \href{20250103145124-topologia.org}{chiuso}. Allora esiste un numero finito di chiusi \href{20250103164917-sottospazio_irriducibile.org}{irriducibili}
@@ -14,16 +18,16 @@ Y_{1},\dots,Y_{n}
 tali che \(Y=Y_{1}\cup \dots \cup Y_{n}\).
 
 Inoltre, se \(\forall\, i \neq j\) si ha \(Y_{i}\not\subseteq Y_{j}\), allora la decomposizione è unica. Le \(Y_{i}\) si chiamano \textbf{componenti irriducibili} di \(Y\).
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:orgaf541bb}
 
-\subsubsection{Esistenza}
+\paragraph{Esistenza}
 \label{sec:org3999962}
 Sia \(\mathscr{F}\) la famiglia dei chiusi di \(X\) che non ammettono una decomposizione finita.
 Se \(\mathscr{F}\neq\emptyset\) allora esiste \(Y \in \mathscr{F}\) \href{20250203102516-massimo_e_minimo.org}{minimale}, \href{20250103155209-caratterizzazione_topologia_noetheriana.org}{poiché \(X\) è noetheriano}. \(Y\) non è irriducibile (poiché altrimenti sarebbe già decomposto) e pertanto esistono \(Y_{1},Y_{2}\) chiusi propri di \(Y\) tali che \(Y=Y_{1}\cup Y_{2}\).
 
 Per minimalità di \(Y\), \(Y_{1},Y_{2}\notin \mathscr{F}\), e pertanto entrambi ammettono una decomposizione finita. Dunque \(Y\) ammette una decomposizione finita, assurdo.
-\subsubsection{{\bfseries\sffamily TODO} Unicità\hfill{}\textsc{matematica\_lm:geo\_alg}}
+\paragraph{{\bfseries\sffamily TODO} Unicità\hfill{}\textsc{matematica\_lm:geo\_alg}}
 \label{sec:org12526c7}
 Siano
 \begin{equation*}

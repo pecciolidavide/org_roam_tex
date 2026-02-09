@@ -1,13 +1,16 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
+\usepackage[hyperref]{biblatex}
 \use{upgreek}
 \def\tau{\uptau}
-
-
+\date{}
+\title{}
 \begin{document}
 
-\section{Unione disgiunta di insiemi}
+\section{Unione disgiunta}
+\label{sec:org8949b14}
+\subsection{Unione disgiunta di insiemi}
 \label{sec:org6715598}
 
 Dati due \href{20250130104331-insieme_mk.org}{insiemi} \(A,B\), la loro \uline{unione disgiunta}, indicata con \(A\amalg B\) o con \(A\uplus B\) è
@@ -15,11 +18,11 @@ Dati due \href{20250130104331-insieme_mk.org}{insiemi} \(A,B\), la loro \uline{u
 A\amalg B =A\uplus B = (\set{0}\times A)\cup (\set{1}\times B)
 \end{equation*}
 (vedi \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano} e \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Unione})
-\section{Unione disgiunta di spazi topologici}
+\subsection{Unione disgiunta di spazi topologici}
 \label{sec:orgd554458}
 \begin{definizione}
 Sia \(\{(X_i, \tau_i)\}_{i \in I}\) una famiglia indicizzata di \href{20250103145124-topologia.org}{spazi topologici}.
-L'\textbf{\textbf{unione disgiunta}} (o somma topologica) è l'insieme \(X\) definito come l'\href{20250113175700-unione_disgiunta.org}{unione disgiunta insiemistica}:
+L'\textbf{\textbf{unione disgiunta}} (o somma topologica) è l'insieme \(X\) definito come l'\hyperref[sec:org8949b14]{unione disgiunta insiemistica}:
 \begin{equation*}
 X = \coprod_{i \in I} X_i := \bigcup_{i \in I} (X_i \times \{i\})
 \end{equation*}

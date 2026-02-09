@@ -1,13 +1,17 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Teorema}
+\section{Teorema della Base di Hilbert}
+\label{sec:orge7a8a4c}
+\subsection{Teorema}
 \label{sec:org009e45d}
 Sia \(A\) un \href{20250102115942-anello_noetheriano.org}{Anello Noetheriano}. Allora l'\href{20241219113434-anello_dei_polinomi.org}{Anello-dei-polinomi} ad una indeterminata \(A[X]\) è un \href{20250102115942-anello_noetheriano.org}{Anello Noetheriano}.
-\subsection{dim.}
+\subsubsection{dim.}
 \label{sec:orge091e1b}
 Per assurdo, sia \(I \subseteq A[X]\) un ideale non finitamente generato.
 Sia \(f_{1}\in I\) il polinomio di grado \textbf{minimo} tale che \((f_{1}) \neq I\). Si denoti con \(d_{1}=\deg f_{1}\).
@@ -57,7 +61,7 @@ f_{N+1} = (f_{N+1}-g) + g
 \end{equation*}
 e, siccome gli ideali sono chiusi rispetto alla somma, si ha che \$ f\textsubscript{N+1} \(\in\) (f\textsubscript{1},\dots{},f\textsubscript{N}) \$. Assurdo.}
 Pertanto il polinomio scelto \$ f\textsubscript{N+1} \$ non è quello con grado minimo a soddisfare le richieste. Assurdo.
-\section{Corollario}
+\subsection{Corollario}
 \label{sec:org8ce04f8}
 Sia \(A\) un \href{20250102115942-anello_noetheriano.org}{Anello Noetheriano}. Allora l'\href{20241219113434-anello_dei_polinomi.org}{anello dei polinomi} \(A[x_{1},\dots,x_{n}]\) è noetheriano.
 \end{document}

@@ -1,11 +1,15 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Codifica delle sequenze finite tramite beta di Godel}
+\label{sec:org071bb6e}
 La \href{20250531110725-funzione_beta_di_godel.org}{funzione \(\beta\) di Godel} ha molte proprietà che garantiscono che si possa \href{20250531104048-codifica_di_un_insieme_numerabile.org}{codificare} ``bene'' l'\href{20250206170922-sequenze_e_stringhe.org}{insieme delle sequenze finite} di \href{20250202130045-insieme_dei_numeri_naturali_mk.org}{numeri naturali}, \href{20250205182056-equipotenza_di_insiemi_di_funzioni.org}{che è numerabile}.
-\section{Lemma della Funzione di Godel}
+\subsection{Lemma della Funzione di Godel}
 \label{sec:org97fc9cd}
 Sia quindi \(\beta:\N^{2}\to \N\) la funzione beta di Godel. Per ogni \(k \in \N\) e per ogni \((a_{0},\dots,a_{k}) \in \N^{k+1}\) esiste \(m \in \N\) tale che
 \begin{equation*}
@@ -21,7 +25,7 @@ si ha che i \(c_{i}\) sono a due a due \href{20250531114007-numeri_naturali_copr
 \end{quote}
 
 Questo permette di definire la \href{20250531104048-codifica_di_un_insieme_numerabile.org}{codifica} \(\varphi:\N^{<\omega}\to \N\).
-\section{Definizione}
+\subsection{Definizione}
 \label{sec:org2aae0e6}
 
 Data la sequenza \(s=\langle a_{1},\dots,a_{k}\rangle\), si pone
@@ -33,7 +37,7 @@ come \uline{il più piccolo} \(m \in \N\) tale che
 \beta(m,0) = k \,\land\,  \forall\, 1\le i\le k\ \left(\beta(m,i)=a_{i}\right).
 \end{equation*}
 Questo esiste per il lemma precedente.
-\section{Proprietà}
+\subsection{Proprietà}
 \label{sec:org19e7ef1}
 \begin{itemize}
 \item Il range della codifica \(\mathrm{Seq} = \operatorname{rng}(\varphi)\) è ricorsivo primitivo, in quanto
@@ -50,7 +54,7 @@ Questo esiste per il lemma precedente.
   \godelcode{a_{1},\dots,a_{k}} \ge a_{j}.
 \end{equation*}
 \end{itemize}
-\section{Funzioni Ausiliari alla codifica di Godel}
+\subsection{Funzioni Ausiliari alla codifica di Godel}
 \label{sec:org4bc076d}
 \begin{itemize}
 \item La funzione \(\ell(x) \coloneqq\beta(x,0)\) che indica la lunghezza di una stringa è \href{20250215141024-funzioni_primitive_ricordive.org}{ricorsiva primitiva}, \href{20250531110725-funzione_beta_di_godel.org}{in quanto lo è \(\beta\)}.
@@ -68,7 +72,7 @@ dove \(\concat\) è la \href{20250206170922-sequenze_e_stringhe.org}{concatenazi
 \end{equation*}
 dove \(s\upharpoonright \ell\) indica il \href{20250206170922-sequenze_e_stringhe.org}{segmento iniziale} di \(s\). Quindi \(\mathrm{IS}(m,\ell)\) è il codice del segmento iniziale della stringa che codifica in \(m\).
 \end{itemize}
-\section{Proposizione}
+\subsection{Proposizione}
 \label{sec:orgd27614e}
 \begin{enumerate}
 \item Esiste una funzione ricorsiva primitiva tale che, per gni \(a_{1},\dots,a_{k} \in \N\)

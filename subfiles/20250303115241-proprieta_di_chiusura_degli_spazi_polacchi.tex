@@ -1,50 +1,53 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
+\usepackage[hyperref]{biblatex}
 \renewcommand{\href}[2]{#2}
-
-
+\date{}
+\title{}
 \begin{document}
 
-\section{Chiusura per omeomorfismi}
+\section{Proprietà di chiusura degli Spazi Polacchi}
+\label{sec:org6147152}
+\subsection{Chiusura per omeomorfismi}
 \label{sec:org7b9e2a7}
 Se \(X\) uno \href{20250301194013-spazio_polacco.org}{spazio polacco} e \(r: X\to Y\) è un \href{20250111142332-omeomorfismo.org}{omeomorfismo}, allora \(Y\) è uno \href{20250301194013-spazio_polacco.org}{spazio polacco}.
-\section{Chiusura per sottoinsiemi chiusi}
+\subsection{Chiusura per sottoinsiemi chiusi}
 \label{sec:org7d5432c}
 Se \(X\) uno \href{20250301194013-spazio_polacco.org}{spazio polacco} e \(C \subseteq X\) è un \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{sottoinsieme} \href{20250103145124-topologia.org}{chiuso}, allora \(C\) è uno \href{20250301194013-spazio_polacco.org}{spazio polacco} con la \href{20250103163814-sottospazio_topologico.org}{topologia di sottospazio}.
-\subsection{Dimostrazione}
-\label{sec:org0a78ce6}
+\subsubsection{Dimostrazione}
+\label{sec:org738f263}
 Segue dalla \href{20250303120747-caratterizzazione_dei_chiusi_in_termini_di_successioni.org}{caratterizzazione dei chiusi in termini di successioni}.
-\section{Chiusura per prodotto cartesiano numerabile}
+\subsection{Chiusura per prodotto cartesiano numerabile}
 \label{sec:orgfcb7662}
 Se \(\langle X_{n}\rangle_{n \in \omega}\) è una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \href{20250301194013-spazio_polacco.org}{spazi polacchi} (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}), allora il \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{prodotto}
 \begin{equation*}
 \prod_{n \in \omega} X_{n}
 \end{equation*}
 è uno spazio polacco con la \href{20250109154723-topologia_prodotto.org}{topologia prodotto}.
-\subsection{{\bfseries\sffamily TODO} Dimostrazione}
-\label{sec:org9782ddf}
-\section{Chiusura per unione disgiunta numerabile}
+\subsubsection{{\bfseries\sffamily TODO} Dimostrazione}
+\label{sec:org28c9565}
+\subsection{Chiusura per unione disgiunta numerabile}
 \label{sec:org12b0a9b}
 Se \(\langle X_{n}\rangle_{n \in \omega}\) è una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \href{20250301194013-spazio_polacco.org}{spazi polacchi} (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega}), allora l'\href{20250113175700-unione_disgiunta.org}{unione disgiunta}
 \begin{equation*}
 \coprod_{n \in \omega} X_{n}
 \end{equation*}
 è uno \href{20250301194013-spazio_polacco.org}{spazio polacco}
-\subsection{{\bfseries\sffamily TODO} Dimostrazione}
-\label{sec:org4283013}
-\section{Chisura per intersezione numerabile}
+\subsubsection{{\bfseries\sffamily TODO} Dimostrazione}
+\label{sec:org434dc43}
+\subsection{Chisura per intersezione numerabile}
 \label{sec:org481ffe5}
 Sia \(X\) uno \href{20250301194013-spazio_polacco.org}{spazio polacco} e sia \(\langle Y_{n}\rangle_{n \in \omega}\) una \href{20250206170922-sequenze_e_stringhe.org}{sequenza} di \href{20250301194013-spazio_polacco.org}{spazi polacchi}, \(Y_{n} \subseteq X\) (vedi \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale omega} e \href{20250103163814-sottospazio_topologico.org}{Sottospazio topologico}).
 
 Allora \(Y\coloneqq\bigcap_{n \in\omega} Y_{i}\) è uno spazio polacco dotato della \href{20250103163814-sottospazio_topologico.org}{topologia di sottospazio} (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Intersezione di classi MK}).
-\subsection{{\bfseries\sffamily TODO} Dimostrazione}
-\label{sec:org51a748d}
-\section{Sottoinsiemi aperti di spazi polacchi sono polacchi}
+\subsubsection{{\bfseries\sffamily TODO} Dimostrazione}
+\label{sec:orgeb7edce}
+\subsection{Sottoinsiemi aperti di spazi polacchi sono polacchi}
 \label{sec:org402c64d}
 Sia \(X\) uno \href{20250301194013-spazio_polacco.org}{spazio polacco} e sia \(Y \subseteq X\) un \href{20250103163814-sottospazio_topologico.org}{sottoinsieme} \href{20250103145124-topologia.org}{aperto}. Allora \(Y\) è \href{20250301194013-spazio_polacco.org}{polacco} con la \href{20250103163814-sottospazio_topologico.org}{topologia di sottospazio}.
-\subsection{Dimostrazione}
-\label{sec:org738f263}
+\subsubsection{Dimostrazione}
+\label{sec:org568bedd}
 Sicuramente \(Y\) è \href{20250111142303-spazio_topologico_a_base_numerabile.org}{secondo numerabile}, e pertanto è necessario mostrare solamente che sia \href{20250301193401-spazio_topologico_metrizzabile.org}{completamente metrizzabile}.
 
 Sia \(d: X\times X\to \R\) una \href{20250301193511-spazio_metrico.org}{distanza} su \(X\) tale che \((X,d)\) sia uno \href{20250301194153-spazio_metrico_completo.org}{spazio metrico completo}, e tale che \href{20250301193530-topologia_indotta_da_una_distanza.org}{induca} la topologia di \(X\).
@@ -59,8 +62,8 @@ e si definisca su \(Y\):
 d'(x,y) \coloneqq d(x,y) + \left|\frac{1}{d(x,F)} - \frac{1}{d(y,F)}\right|
 \end{equation*}
 
-Osserviamo\footnote{Sarebbe da dimostrare questa continuità\label{orgda77937}} che \(d(\cdot, F): X\to [0,1]\) è una funzione \href{20250103103252-funzione_continua.org}{continua}.
-\subsubsection{\(d\) e \(d'\) inducono la stessa topologia su \(Y\)}
+Osserviamo\footnote{Sarebbe da dimostrare questa continuità\label{org6eae7b3}} che \(d(\cdot, F): X\to [0,1]\) è una funzione \href{20250103103252-funzione_continua.org}{continua}.
+\paragraph{\(d\) e \(d'\) inducono la stessa topologia su \(Y\)}
 \label{sec:orgb16c289}
 Per definizione di \(d'\), si ha che, \(\forall\, x,y \in Y\):
 \begin{equation*}
@@ -100,7 +103,7 @@ Allora, per ogni \(y \in Y\cap B_{d}(x,\varepsilon')\) si ha
 d'(x,y) = d(x,y) + \left|\frac{1}{d(x,F)}-\frac{1}{d(y,F)}\right|<\varepsilon'+\frac{\varepsilon}{2} < \varepsilon
 \end{equation*}
 e quindi \(y \in B_{d'}(x,\varepsilon)\).
-\subsubsection{\((Y,d')\) è uno spazio metrico completo.}
+\paragraph{\((Y,d')\) è uno spazio metrico completo.}
 \label{sec:org1a0939f}
 Siccome \(d\) e \(d'\) \href{20250301193530-topologia_indotta_da_una_distanza.org}{inducono} la stessa topologia, allora ogni \href{20250115100904-successione.org}{successione} di \(d'\)-\href{20250303134529-successione_di_cauchy.org}{Cauchy} è \(d\)-Cauchy.
 
@@ -135,7 +138,7 @@ t &\longmapsto \frac{1}{t}
 d(y_{i}, F)\to \frac{1}{\ell}\neq 0
 \end{equation*}
 
-Per \href{20250103103252-funzione_continua.org}{continuità}\textsuperscript{\ref{orgda77937}} di \(d(\cdot, F)\) (vedi \href{20250304142114-funzione_continua_e_continua_per_successioni.org}{Funzione continua è continua per successioni})
+Per \href{20250103103252-funzione_continua.org}{continuità}\textsuperscript{\ref{org6eae7b3}} di \(d(\cdot, F)\) (vedi \href{20250304142114-funzione_continua_e_continua_per_successioni.org}{Funzione continua è continua per successioni})
 \begin{equation*}
 d(y_{i}, F)\to d(y,F)
 \end{equation*}

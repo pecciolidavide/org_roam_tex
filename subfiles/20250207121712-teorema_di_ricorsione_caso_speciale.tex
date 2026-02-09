@@ -1,11 +1,15 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Teorema di Ricorsione - caso speciale}
+\label{sec:org839d80b}
 Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
-\section[Teorema]{Teorema\footnote{Vedi
+\subsection[Teorema]{Teorema\footnote{Vedi
 \begin{itemize}
 \item \href{20250203161110-numeri_naturali_sono_ordinali.org}{Ordinale Omega}
 \item \href{20250131183735-prodotto_cartesiano_di_classi_mk.org}{Prodotto cartesiano}
@@ -21,7 +25,7 @@ G(0) = \overline{a}\\
 G\left(\operatorname{S}(n)\right) = F\left(n, G(n)\right).
 \end{cases}
 \end{equation*}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org65c422c}
 
 Sia
@@ -41,10 +45,10 @@ p(0) = \overline{a}\\
 p\left(\operatorname{S}(n)\right) = F\left(n, p(n)\right)
 \end{cases}
 \end{equation*}
-\subsubsection{Claim}
+\paragraph{Claim}
 \label{sec:org12652e5}
 Se \(p,q \in \mathcal{G}\) allora \(p\cup q\) è una \href{20250202170607-classe_relazione_binaria.org}{funzione}, e dunque \(p\cup q \in \mathcal{G}\).
-\subsubsection{Dimostrazione del claim}
+\paragraph{Dimostrazione del claim}
 \label{sec:orga4283e4}
 Se per assurdo \(p\cup q\) non è una funzione, allora esiste un \href{20250203102516-massimo_e_minimo.org}{minimo} \(n \in \operatorname{dom}(p)\cap \operatorname{dom}(q)\) tale che
 \begin{equation*}
@@ -56,7 +60,7 @@ Necessariamente \(n\neq 0\), poiché \(p(0) = \overline{a}= q(0)\), e pertanto \
 p(n) = F\left(k, p(k)\right) = F\left(k,q(k)\right)=q(n)
 \end{equation*}
 dove, siccome \(k<n\), allora \(p(k)=q(k)\) per minimalità di \(n\). Assurdo.
-\subsubsection{Costruzione della funzione G}
+\paragraph{Costruzione della funzione G}
 \label{sec:org54d28d7}
 Grazie al claim \href{20250202180416-unione_di_relazioni_funzionali_mk.org}{si ottiene che} l'\href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{unione} di \(\mathcal{G}\)
 \begin{equation*}
@@ -78,7 +82,7 @@ per qualche \(p \in \mathcal{G}\), con\footnote{Infatti, se \(p:m\to A\) allora 
 \end{itemize}
 
 Dunque \(G\) è una funzione (eventualmente parziale) che soddisfa le ipotesi.
-\subsubsection{Si deve dimostrare che è una funzione totale.}
+\paragraph{Si deve dimostrare che è una funzione totale.}
 \label{sec:orgbb8c2a0}
 Si dimostra che \(\operatorname{dom}G = \omega\).
 Supponiamo per assurdo che \(\operatorname{dom}G\subsetneqq\omega\), e sia \(\overline{n}\) sia il \href{20250203102516-massimo_e_minimo.org}{minimo} tale che \(\overline{n}\notin \operatorname{dom}G\). Dal momento che \(0 \in \operatorname{dom}G\), allora \(\overline{n}=\operatorname{S}(\overline{m})\) per qualche \(\overline{m} \in \omega\).
@@ -90,7 +94,7 @@ Si definisce
 Si ha che \(\overline{p} \in \mathcal{G}\). (Ovvio poiché \(\overline{n}\) è il minimo \(\notin \operatorname{dom}G\), e quindi \(\overline{p}:\overline{n}\to A\)).
 
 Ma dunque \(\overline{p} \subseteq G\) e dunque \(\overline{n} \in \operatorname{dom}G\). Assurdo.
-\subsubsection{Unicità della funzione G}
+\paragraph{Unicità della funzione G}
 \label{sec:orgd5427ed}
 Sia \(G'\) un'altra funzione che soddisfa il teorema, e sia \(\overline{n}\) il più piccolo tale che
 \begin{equation*}

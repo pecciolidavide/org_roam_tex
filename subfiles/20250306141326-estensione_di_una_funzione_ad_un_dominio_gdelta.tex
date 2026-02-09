@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Teorema}
+\section{Estensione di una funzione continua ad un dominio Gdelta}
+\label{sec:orga9ae0af}
+\subsection{Teorema}
 \label{sec:orgceb6a09}
 Siano \(X,Y\) due \href{20250103145124-topologia.org}{spazi topologici}, \(X\) \href{20250301193401-spazio_topologico_metrizzabile.org}{metrizzabile} e \(Y\) \href{20250301193401-spazio_topologico_metrizzabile.org}{completamente metrizzabile}.
 Sia \(A \subseteq X\) e sia \(f:A\to Y\) una \href{20250103103252-funzione_continua.org}{funzione continua}.
@@ -21,10 +25,10 @@ Allora esiste \(G \subseteq X\) un \href{20250130104331-insieme_mk.org}{insieme}
 \item \(g\) \href{20250103103252-funzione_continua.org}{continua};
 \item \(g \upharpoonright A = f\) (vedi \href{20250205170515-restrizione_di_una_classe.org}{Restrizione di una classe MK})
 \end{enumerate}
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org88d96bc}
 Sia \(d'\) una \href{20250301194153-spazio_metrico_completo.org}{metrica completa} \href{20250301193530-topologia_indotta_da_una_distanza.org}{compatibile} su \(Y\).
-\subsubsection{Definizione insieme \(G\)}
+\paragraph{Definizione insieme \(G\)}
 \label{sec:org4714019}
 Si ponga
 \begin{equation*}
@@ -42,7 +46,7 @@ Inoltre, ovviamente \(G \subseteq \operatorname{Cl}(A)\), mentre, siccome \(f\) 
 \begin{equation*}
 A \subseteq G \subseteq \operatorname{Cl}(A)
 \end{equation*}
-\subsubsection{Definizione funzione \(g\)}
+\paragraph{Definizione funzione \(g\)}
 \label{sec:org6e200b8}
 Sia \(z \in G \subseteq \operatorname{Cl}(A)\). Sia \((z_{n})_{n \in \N} \subseteq A\) una \href{20250115100904-successione.org}{successione} \href{20250115100930-convergenza_per_una_successione.org}{convergente} a \(z\) (vedi \href{20250303121451-caratterizzazione_della_chiusura_in_termini_di_successioni.org}{Caratterizzazione della chiusura in termini di successioni})
 
@@ -70,7 +74,8 @@ Si pone quindi
 \begin{equation*}
 g(z) \coloneqq \lim_{n \to \infty} f(z_{n})
 \end{equation*}
-\paragraph{Buona definizione}
+\begin{enumerate}
+\item Buona definizione
 \label{sec:org3ca32c7}
 
 Sia \(z \in G\) e siano \((z_{n})_{n \in \N} \subseteq A\) e \((w_{n})_{n \in \N} \subseteq A\) due successioni convergenti a \(z\). Dobbiamo dimostrare che
@@ -89,7 +94,7 @@ e dunque, per la \href{20250306115949-disuguaglianza_triangolare.org}{disuguagli
 d'\left(f(z_{n}), f(w_{n})\right)&\le d'\left(f(z_{n}),g(z)\right)+ d'\left(f(w_{n}), g(z)\right)\\
 &< \frac{\varepsilon}{2}+\frac{\varepsilon}{2} = \varepsilon.
 \end{align*}
-\paragraph{Estende \(f\)}
+\item Estende \(f\)
 \label{sec:org87a14ae}
 
 
@@ -98,7 +103,7 @@ Sia \(z \in A\), e si consideri la \href{20250115100904-successione.org}{success
 g(z) = \lim_{n\to \infty} f(z_{n}) = \lim_{n\to \infty} f(z) = f(z)
 \end{equation*}
 Quindi \(g\upharpoonright A = f\).
-\paragraph{Continuità}
+\item Continuità
 \label{sec:org6b4804f}
 Per dimostrare che \(g\) sia continua in \(G\), \href{20250306135302-oscillazione_di_una_funzione_in_uno_spazio_metrico.org}{dimostriamo} che \(\forall\, z \in G\) si ha \(\operatorname{osc}_{g}(z) = 0\).
 Per ogni aperto \(U \subseteq X\), per definizione di \(g\) si ha che
@@ -114,4 +119,5 @@ In particolare, per \href{20250306135302-oscillazione_di_una_funzione_in_uno_spa
 &= \operatorname{osc}_{f}(z)
 \end{align*}
 Ma \(\operatorname{osc}_{f}(z) = 0\) poiché \(z \in G\), dunque \(\operatorname{osc}_{g}(z)= 0\) e quindi \(g\) continua in \(z\).
+\end{enumerate}
 \end{document}

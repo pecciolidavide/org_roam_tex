@@ -1,6 +1,7 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
+\usepackage[hyperref]{biblatex}
 \def\L{\operatorname{L}}
 \def\Frvar{\operatorname{Frvar}}
 \def\M{\mathcal{M}}
@@ -11,14 +12,16 @@
 \def\defaultbooleanmodel{B}
 \def\defaultmodel{\M}
 \def\eval#1{\[[#1\]]_{\defaultbooleanmodel}^{\defaultmodel}}
-
-
+\date{}
+\title{}
 \begin{document}
 
+\section{Boolean valued semantics for infinitary logics [CORSO]}
+\label{sec:org0528a65}
 \maketitle
 
 \href{https://www.mathphd.unito.it/do/corsi.pl/Show?\_id=o1lj}{See the campusnet webpage}, and the \href{https://drive.google.com/drive/folders/1EnAASHseIcdUT5CfzvPMmaQbQODLSTnt?usp=sharing}{course material}.
-\section{Lecture 1 -  \textit{<2025-11-17 Mon>}}
+\subsection{Lecture 1 -  \textit{<2025-11-17 Lun>}}
 \label{sec:orga21c3b1}
 
 We work in ZFC
@@ -140,7 +143,7 @@ So we have a \(R\) functional from \(X\) to \(Y\), total and surjective on \(Y\)
 \end{esempio}
 
 \textbf{From now on no function symbols in what is written, but reintroducing them is a standard exercise}.
-\subsection{Tarski semantics for \(\L_{\kappa,\lambda}\)}
+\subsubsection{Tarski semantics for \(\L_{\kappa,\lambda}\)}
 \label{sec:org74968f4}
 
 \begin{definizione}
@@ -193,7 +196,7 @@ With this semantics
 \item the first example is in \(\L_{\omega_{1},\omega_{1}}\) and its Tarski models are linear orders of uncountable cofinality.
 \item the second example is in \(\L_{\omega_{2},\omega}\) and has no Tarski models.
 \end{itemize}
-\subsection{Proof system}
+\subsubsection{Proof system}
 \label{sec:org1466af6}
 
 See page 9 of 
@@ -226,7 +229,7 @@ and let
 \end{align*}
 then \(\psi_{1}\mathrel{\vDash_{\text{TS}}}\psi_{2}\) but \(\psi_{1}\not\vdash \psi_{2}\).
 \end{esempio}
-\section{Lecture 2 - \textit{<2025-11-19 Wed>}}
+\subsection{Lecture 2 - \textit{<2025-11-19 Mer>}}
 \label{sec:org7d2671a}
 
 A little recap/obs about last lecture.
@@ -272,7 +275,7 @@ If \((M,E)\vDash \mathrm{ZFC}\) as axiomatized in signature \(\set{\in}\), we ha
 \end{esempio}
 
 Completeness for the proof system fine for \(\omega\)-signatures. (first order signatures). But this is not important, since \(\L_{\infty,\omega}\) is the \uline{good} infinitary logic.
-\subsection{Failure of interpolation for Tarski semantics on \(\L_{\infty,\omega}\) and \(\L_{\infty,\infty}\).}
+\subsubsection{Failure of interpolation for Tarski semantics on \(\L_{\infty,\omega}\) and \(\L_{\infty,\infty}\).}
 \label{sec:org00dda55}
 
 In PHD THESIS (to cite):
@@ -322,7 +325,7 @@ Then \(C \sqsubseteq B\), \(C\vDash\psi(c,a_{1},\dots,a_{n})\) and \(C\cong A\) 
 A\vDash \psi(f(c),a_{1},\dots,a_{n}).\qedhere
 \end{equation*}
 \end{proof}
-\subsection{Boolean valid semantics}
+\subsubsection{Boolean valid semantics}
 \label{sec:org8b8b72b}
 
 \begin{definizione}
@@ -350,7 +353,7 @@ R_{i}^{\M}: M^{n_{i}} &\longrightarrow B\\
 \end{align*}
 \end{enumerate}
 \end{definizione}
-\section{Lecture 3 - \textit{<2025-11-24 Mon>}}
+\subsection{Lecture 3 - \textit{<2025-11-24 Lun>}}
 \label{sec:org8969ac6}
 
 Last lecture:
@@ -497,7 +500,7 @@ If \(T_{0} \subseteq T\) is finite, let \(K\) be s.t. all constant \(c_{i} \in \
 (K+1, c_{i}\mapsto i, c_{\omega}\mapsto k) \vDash T_{0}
 \end{equation*}
 while no \(\M\vDash T\).
-\subsection{Boolean valued semantics}
+\subsubsection{Boolean valued semantics}
 \label{sec:org10307cc}
 
 \begin{definizione}
@@ -539,7 +542,7 @@ Let \(\M\) be a \(B\)-valued model and assume \(B\) is a complete boolean algebr
 Definition~3.4 of 
 \end{quote}
 \end{definizione}
-\section{Lecture 4 - \textit{<2025-11-26 Wed>}}
+\subsection{Lecture 4 - \textit{<2025-11-26 Mer>}}
 \label{sec:org0d92801}
 
 
@@ -742,7 +745,7 @@ Assume \(\M\) is full for \(\L_{\omega,\omega}\). Then for all \(\L_{\omega,\ome
 \eval{f<g} &= \big[\set{x \in \R \mid f(x) < g(x)}\big]-
 \end{align*}
 \(\M\) is not a full model for first order logic.
-\section{Lecture 5 - \textit{<2025-12-01 Mon>}}
+\subsection{Lecture 5 - \textit{<2025-12-01 Lun>}}
 \label{sec:org91d82e1}
 
 Non ho preso appunti

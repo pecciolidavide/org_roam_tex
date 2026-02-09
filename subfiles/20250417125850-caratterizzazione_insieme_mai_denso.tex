@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Proposizione}
+\section{Caratterizzazione insieme mai denso}
+\label{sec:org29e6e12}
+\subsection{Proposizione}
 \label{sec:orgcce372b}
 
 Prove that for every \href{20250103145124-topologia.org}{topological space} \(X\) and every \(A \subseteq X\), the following are equivalent:
@@ -16,10 +20,10 @@ Prove that for every \href{20250103145124-topologia.org}{topological space} \(X\
 \end{enumerate}
 
 Conclude that \(B \subseteq X\) is \href{20250419122752-insieme_magro.org}{comeager} if and only if it contains a countable intersection of dense open sets.
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org5313aac}
 
-\subsubsection{a implica b}
+\paragraph{a implica b}
 \label{sec:org9a5a998}
 
 Sia \(B\coloneqq \operatorname{Cl}_{X}(A)\), e sia per assurdo \(b \in \mathring{B}\). Allora esiste \(U \subseteq B\) aperto di \(X\) tale che \(b \in U\).
@@ -37,13 +41,13 @@ Sia \(x \in U\) e sia \(V\) un intorno aperto di \(x\) in \(X\). Si vuole dimost
 \end{itemize}
 
 Per l'arbitrarietà di \(V\), si è dimostrato che \(x \in \operatorname{Cl}_{X}(A\cap U)\), ovvero che \(A\cap U\) è denso in \(U\). Questo contraddice l'ipotesi.
-\subsubsection{b implica c}
+\paragraph{b implica c}
 \label{sec:orgc43775b}
 
 Sia \(V\coloneqq X\setminus \operatorname{Cl}_{X}(A)\). Allora \(V\) è \uline{denso}, in quanto il suo complementare \(\operatorname{Cl}_{X}(A)\) ha parte interna vuota (per ipotesi).
 
 L'insieme \(V\) è aperto poiché complementare di un chiuso, e inoltre \(A\cap V=\emptyset\).
-\subsubsection{c implica a}
+\paragraph{c implica a}
 \label{sec:orgfa605ae}
 
 Sia per assurdo \(U \subseteq X\) un aperto non vuoto tale che \(\operatorname{Cl}_{U}(A\cap U) = U\).
@@ -55,7 +59,7 @@ Poiché \(V\) è denso in \(X\), \(U\cap V\neq \emptyset\) aperto di \(X\) e qui
 poiché \(V\cap A=\emptyset\).
 
 Assurdo, poiché se \(A\cap U\) è denso in \(U\), allora \(A\cap U\) incontra ogni aperto di \(U\).
-\subsubsection{Caratterizzazione degli insiemi comagri}
+\paragraph{Caratterizzazione degli insiemi comagri}
 \label{sec:org8e645c2}
 \begin{itemize}
 \item Se \(B\) è comagro, allora si può scrivere:

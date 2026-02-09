@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Esercizio 4}
+\section{Coanalitici sono unione di omega1 boreliani}
+\label{sec:orgc3ac1fe}
+\subsection{Esercizio 4}
 \label{sec:org2991974}
 
 Prove the following theorem:
@@ -29,10 +33,10 @@ by completing the details of the following steps:
 
 \item What happens if \(X\) is a countable Polish space?
 \end{enumerate}
-\subsection{Soluzione}
+\subsubsection{Soluzione}
 \label{sec:orgced53fd}
 
-\subsubsection{Parte a.}
+\paragraph{Parte a.}
 \label{sec:org0889b3a}
 
 Si consideri lo spazio polacco \(X\coloneqq\mathrm{LO} \subseteq 2^{\omega\times\omega}\) e si adotti la notazione dell'Esempio 3.1.8: l'insieme \(\mathrm{NWO}\) è analitico, mentre l'insieme \(\mathrm{WO}\) è coanalitico. È dunque possibile porre
@@ -123,7 +127,7 @@ ed inoltre, per ogni \(\xi<\omega_{1}\), \(A_{\xi} \subseteq \mathrm{WO}\) e dun
 
 Per doppia inclusione si ha proprio \(\mathrm{WO} = \bigcup_{\xi<\omega_{1}} A_{\xi}\).
 \end{itemize}
-\subsubsection{Parte b.}
+\paragraph{Parte b.}
 \label{sec:orgd51b05b}
 
 Sia \(X\coloneqq\omega^{\omega}\) e \(A \in \bm{\Pi}_{1}^{1}(X)\).
@@ -143,7 +147,7 @@ Posto \(A_{\xi}\coloneqq f^{-1}(B_{\xi})\), si ha che \(A_{\xi} \in \bm{{\operat
 A=\bigcup_{\xi<\omega_{1}} A_{\xi}
 \end{equation*}
 con \(A_{\xi}\) boreliani.
-\subsubsection{Parte c.}
+\paragraph{Parte c.}
 \label{sec:org3f6666a}
 
 Sia \(X\) uno spazio polacco non numerabile, e sia \(A \in \bm{\Pi}_{1}^1(X)\). Per il Teorema 3.2.9 esiste un isomorfismo Boreliano:
@@ -163,7 +167,7 @@ A= F(B) = F\left(\bigcup_{\xi<\omega_{1}} B_{\xi}\right) = \bigcup_{\xi<\omega_{
 \end{equation*}
 
 Posto ora \(A_{\xi} \coloneqq F(B_{\xi})\), questi sono Boreliani per il Corollario 3.2.7, poiché \(F\) Boreliana iniettiva e \(B_{\xi}\) Boreliano.
-\subsubsection{Parte d.}
+\paragraph{Parte d.}
 \label{sec:orgcd7171b}
 
 Se \(X\) è numerabile allora il teorema è banale: ogni sottoinsieme di \(X\) è unione numerabile di singoletti, che sono chiusi, e pertanto ogni sottoinsieme di \(X\) è un Boreliano.\qed

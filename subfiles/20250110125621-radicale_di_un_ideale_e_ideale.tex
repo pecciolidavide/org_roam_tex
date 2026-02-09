@@ -1,16 +1,20 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Proposizione}
+\section{Radicale di un ideale è ideale}
+\label{sec:org3abae24}
+\subsection{Proposizione}
 \label{sec:org0ae064f}
 Sia \(S\) un \href{20241205141119-anello.org}{anello commutativo}, \(J \subseteq S\) un \href{20241219112955-ideale.org}{ideale} e \(\sqrt{J}\) il \href{20250110125225-radicale_di_un_ideale.org}{radicale} di \(J\). Allora \(\sqrt{J}\) è un ideale.
-\subsection{Dimostrazione}
+\subsubsection{Dimostrazione}
 \label{sec:org374be67}
 
-\subsubsection{Somma}
+\paragraph{Somma}
 \label{sec:org3cc364c}
 Siano \(f,g \in \sqrt{J}\). Allora \(f^{r}, g^{s} \in J\) per qualche \(r,s \in \N\).
 
@@ -20,7 +24,7 @@ Allora \((f+g)^{r+s} \in J\), poiché
 \end{equation*}
 per il \href{20250110142129-teorema_del_coefficiente_binomiale.org}{teorema del coefficiente binomiale}: quindi ciascun termine della somma contiene una potenza di \(f\) maggiore o uguale ad \(r\) oppure una potenza di \(g\) maggiore o uguale a \(s\).
 Quindi \(f+g \in \sqrt{J}\).
-\subsubsection{Prodotto}
+\paragraph{Prodotto}
 \label{sec:org13f180e}
 Siano \(f,g \in \sqrt{J}\). Allora \(f^{r}, g^{s} \in J\) per qualche \(r,s \in \N\). Senza perdita di generalità si supponga \(r>s\).
 

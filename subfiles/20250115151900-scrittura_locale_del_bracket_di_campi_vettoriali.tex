@@ -1,9 +1,13 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
+\section{Scrittura locale del bracket di campi vettoriali}
+\label{sec:org8a49a7a}
 Sia \(M\) una \href{20250113115909-struttura_differenziabile.org}{varietà differenziabile}, e siano \(X,Y \in \Gamma(M)\) (vedi \href{20250115110259-campo_vettoriale_su_una_varieta_differenziabile.org}{Campo vettoriale su una varietà differenziabile}).
 
 Sia \((U,\varphi)\), \(\varphi=(x^{1},\dots,x^{n})\) una \href{20250111092123-varieta_topologica.org}{carta} su \(M\). Questo induce, su \(U\):
@@ -11,13 +15,13 @@ Sia \((U,\varphi)\), \(\varphi=(x^{1},\dots,x^{n})\) una \href{20250111092123-va
 \restriction{X}{U} = X^{k}\dpd{}{{x^{k}}},\qquad \restriction{Y}{U} = Y^{r}\dpd{}{{x^{r}}}
 \end{equation*}
 con la \href{20250114105957-notazione_di_einstein.org}{Notazione di Einstein}. Vedi \href{20250115113256-componenti_locali_di_un_campo_vettoriale.org}{Componenti locali di un campo vettoriale}.
-\section{Proposizione}
+\subsection{Proposizione}
 \label{sec:orged69459}
 Si ha che
 \begin{equation*}
 \restriction{[X,Y]}{U} = \left(X^{k}\dpd{{Y^{r}}}{{x^{k}}} - Y^{k}\dpd{{X^{r}}}{{x^{k}}}
 \right)\dpd{}{{x^{r}}}
 \end{equation*}
-\subsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
+\subsubsection{{\bfseries\sffamily TODO} Dimostrazione\hfill{}\textsc{matematica\_lm:geo\_diff}}
 \label{sec:orgb346857}
 \end{document}

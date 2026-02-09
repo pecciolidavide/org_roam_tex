@@ -1,10 +1,14 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Esercizio 2}
+\section{Proprietà insieme parzialmente trasversale per una relazione di equivalenza in uno spazio polacco}
+\label{sec:orgc94c96a}
+\subsection{Esercizio 2}
 \label{sec:orgc9f7205}
 
 Let \(E\) be an equivalence relation on a Polish space \(X\). A \textbf{partial transversal} for \(E\) is a set \(T \subseteq X\) meeting each \(E\)-equivalence class in at most one point. Show that the following are equivalent:
@@ -13,10 +17,10 @@ Let \(E\) be an equivalence relation on a Polish space \(X\). A \textbf{partial 
 \item \(E\) admits an uncountable Borel partial transversal;
 \item there is a Borel function \(f: \R \to X\) such that \(f(r_0) \not\mathrel{E} f(r_1)\) for all distinct \(r_0, r_1 \in \R\).
 \end{enumerate}
-\subsection{Soluzione}
+\subsubsection{Soluzione}
 \label{sec:orgf9d7dd3}
 
-\subsubsection{a. implica b.}
+\paragraph{a. implica b.}
 \label{sec:orgbc3538f}
 
 \uline{Osservazione}: se \(T \subseteq X\) è un insieme trasversale parziale, allora ogni \(T' \subseteq T\) è ancora un insieme trasversale parziale.
@@ -33,11 +37,11 @@ una immersione topologica, ovvero \(\iota\) continua e iniettiva;
 \end{itemize}
 
 Pertanto l'insieme analitico trasversale parziale \(T\) ammette un sottoinsieme boreliano non numerabile \(T' \subseteq T\), e per l'Osservazione iniziale, \(T'\) è un insieme trasversale parziale.
-\subsubsection{b. implica a.}
+\paragraph{b. implica a.}
 \label{sec:orgae03cc4}
 
 Questo è ovvio, poiché \(\bm{{\operatorname{Bor}}}(X) \subseteq \bm{\Sigma}_{1}^{1}(X)\) per il Corollario 3.1.4.
-\subsubsection{b. implica c.}
+\paragraph{b. implica c.}
 \label{sec:org61e6a7d}
 
 Sia \(T' \subseteq X\) un insieme boreliano trasversale parziale. Allora, per il Corollario 3.2.7 esiste un chiuso \(F \subseteq \omega^{\omega}\) e una funzione continua e iniettiva
@@ -64,7 +68,7 @@ f(r_{0})\mathrel{E} f(r_{1})
 si avrebbe che \(T'\) contiene due elementi distinti della stessa classe di \(E\)-equivalenza. Assurdo.
 
 Pertanto, se \(r_{0}\neq r_{1} \in \R\), allora \(f(r_{0})\not\mathrel{E}f(r_{1})\).
-\subsubsection{c. implica b.}
+\paragraph{c. implica b.}
 \label{sec:org497694f}
 
 La funzione \(f\) è necessariamente \uline{iniettiva}, poiché se per assurdo esistessero \(r_{0}\neq r_{1} \in \R\) tali che \(f(r_{0})=f(r_{1})\), allora per la \uline{riflessività} di \(E\):

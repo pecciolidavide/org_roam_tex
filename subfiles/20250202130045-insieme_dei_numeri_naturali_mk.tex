@@ -1,16 +1,20 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Principio di induzione}
+\section{Insieme dei numeri naturali}
+\label{sec:orga7644a9}
+\subsection{Principio di induzione}
 \label{sec:orge56be82}
-\section{Costruzione in MK}
+\subsection{Costruzione in MK}
 \label{sec:org00ba3cb}
 
 Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}.
-\subsection{Definizione\hfill{}\textsc{IdL:matematica\_lm}}
+\subsubsection{Definizione\hfill{}\textsc{IdL:matematica\_lm}}
 \label{sec:org6c36f24}
 
 Sia \(\mathcal{J}\) la \href{20250130104320-classe_mk.org}{classe} di tutti gli \href{20250202125627-insieme_induttivo_mk.org}{insiemi induttivi} (che esiste per l'Axiom of Comprehension). Si definisce \(\N\) come l'insieme \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{intersezione}:
@@ -25,23 +29,25 @@ Si definiscono:
 2 &\coloneqq \operatorname{S}(1)\\
 \vdots
 \end{align*}
-\subsection{Proposizione}
+\subsubsection{Proposizione}
 \label{sec:orgde8ec1d}
 \(\N\) è un insieme induttivo e se \(n \in\N\) allora \(n = 0\) oppure \(n=\operatorname{S}(m)\) per qualche \(m \in \N\).
-\subsubsection{Dimostrazione}
-\label{sec:org5506a99}
+\paragraph{Dimostrazione}
+\label{sec:orgeed81f2}
 
-\paragraph{Insieme induttivo}
+\begin{enumerate}
+\item Insieme induttivo
 \label{sec:orge2e8de6}
 
 \(\N\) è sicuramente un insieme \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{poiché è una intersezione}. Inoltre \(\emptyset \in \N\) poiché \(\forall\, J \in \mathcal{J}\ (\emptyset \in J)\).
 Inoltre, se \(n \in \N\) allora \(\forall\,J \in \mathcal{J}\ (n \in J)\), e siccome \(J\) induttivo allora \(\operatorname{S}(n) \in J\). Dunque \(\forall\, J \in \mathcal{J}\ \left(\operatorname{S}(n) \in J\right)\) e dunque \(\operatorname{S}(n) \in \N\).
-\paragraph{Elementi di \(\N\)}
+\item Elementi di \(\N\)
 \label{sec:orgb09a99e}
 
 Supponiamo per assurdo che \(n \in \N\setminus\set{\emptyset}\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottrazione di classi MK}) sia tale che \(\operatorname{S}(m)\neq n\) per ogni \(m \in \N\).
 Allora \(J \coloneqq \N\setminus \set{n}\) è un insieme induttivo, e dunque \(J \in \mathcal{J}\) e quindi \(\N \subseteq J\). Ma \(J \subset \N\), contraddizione.
-\subsection{Induzione per i naturali}
+\end{enumerate}
+\subsubsection{Induzione per i naturali}
 \label{sec:org519e2f2}
 
 Sia \(I \subseteq \N\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_classi_mk.org}{Sottoclasse MK}) tale che
@@ -50,8 +56,8 @@ Sia \(I \subseteq \N\) (vedi \href{20250131155822-operazioni_insiemistiche_tra_c
 \item \(\forall\, n \ \left(n \in I \,\implies\, \operatorname{S}(n) \in I\right)\)
 \end{enumerate}
 Allora \(I=\N\).
-\subsubsection{Dimostrazione}
-\label{sec:orgeed81f2}
+\paragraph{Dimostrazione}
+\label{sec:orgb180bfd}
 
 Basta mostrare che \(N \subseteq I\), ma \(I\) è un insieme induttivo per definizione.
 \end{document}

@@ -1,35 +1,39 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-
+\usepackage[hyperref]{biblatex}
+\date{}
+\title{}
 \begin{document}
 
-\section{Unione}
+\section{Operazioni insiemistiche}
+\label{sec:orgba3589c}
+\subsection{Unione}
 \label{sec:org5458193}
-\subsection{Unione generalizzata}
+\subsubsection{Unione generalizzata}
 \label{sec:org76db5cc}
-\section{Intersezione}
+\subsection{Intersezione}
 \label{sec:org426f2da}
-\section{Sottrazione insiemistica}
+\subsection{Sottrazione insiemistica}
 \label{sec:org299d85f}
-\section{Differenza simmetrica tra due insiemi}
+\subsection{Differenza simmetrica tra due insiemi}
 \label{sec:org898c240}
-\section{Sottoinsieme}
+\subsection{Sottoinsieme}
 \label{sec:org03a0556}
-\section{Generalizzazione nell'ambito MK}
+\subsection{Generalizzazione nell'ambito MK}
 \label{sec:orgc2d0a72}
 
 Contesto: \href{20250130104245-morse_kelly_set_theory.org}{Morse Kelly Set Theory}
 
 Siano \(A,B\) due classi. Prr l'assioma di Comprehension, possiamo scrivere
-\subsection{Unione di classi MK}
+\subsubsection{Unione di classi MK}
 \label{sec:orgede3c82}
 \begin{equation*}
 A\cup B \coloneqq \set{x\,|\, x \in A \,\land\,  x \in B}
 \end{equation*}
 
 Per l'Axiom of Extensionality, è commutativa.
-\subsubsection{Classe Unione Generalizzata MK}
+\paragraph{Classe Unione Generalizzata MK}
 \label{sec:orgecf548b}
 Sia \(A\) una \href{20250130104320-classe_mk.org}{classe}.
 Si definisce la classe unione:
@@ -42,14 +46,14 @@ Se \(x,y\) sono insiemi, allora per l'Axiom of pairing \(\set{x,y}\) è un insie
 \begin{equation*}
 x\cup y = \bigcup\set{x,y}
 \end{equation*}
-\subsection{Intersezione di classi MK}
+\subsubsection{Intersezione di classi MK}
 \label{sec:org8eb3ce4}
 \begin{equation*}
 A\cap B \coloneqq \set{x\,|\, x \in A \,\lor\, x \in B}
 \end{equation*}
 
 Per l'Axiom of Extensionality, è commutativa.
-\subsubsection{Classe Intersezione Generalizzata}
+\paragraph{Classe Intersezione Generalizzata}
 \label{sec:orgf6111d0}
 Sia \(A\) una \href{20250130104320-classe_mk.org}{classe}.
 Si definisce la classe intersezione
@@ -69,21 +73,21 @@ La classe intersezione è sempre un \href{20250130104331-insieme_mk.org}{insieme
 \bigcap A \subseteq x
 \end{equation*}
 e \(x\) è un insieme.
-\subsection{Sottrazione di classi MK}
+\subsubsection{Sottrazione di classi MK}
 \label{sec:orgd08eb9f}
 \begin{equation*}
 A\setminus B \coloneqq \set{x\,|\, x \in A \,\land\,  x \notin B}
 \end{equation*}
 
 Per l'Axiom of Extensionality, è commutativa.
-\subsection{Differenza simmetrica di classi MK}
+\subsubsection{Differenza simmetrica di classi MK}
 \label{sec:org1ba90f6}
 \begin{equation*}
 A\mathrel{\triangle} B\coloneqq (A\setminus B)\cup(B\setminus A)
 \end{equation*}
 
 Per l'Axiom of Extensionality, è commutativa.
-\subsection{Sottoclasse MK}
+\subsubsection{Sottoclasse MK}
 \label{sec:orge7be09b}
 Scriveremo \(A \subseteq B\) (e diremo che \(A\) è una sottoclasse di \(B\)) se e solo se
 \begin{equation*}
