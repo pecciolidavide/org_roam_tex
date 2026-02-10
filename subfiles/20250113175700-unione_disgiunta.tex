@@ -1,11 +1,6 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-\usepackage[hyperref]{biblatex}
-\use{upgreek}
-\def\tau{\uptau}
-\date{}
-\title{}
 \begin{document}
 
 \section{Unione disgiunta}
@@ -21,15 +16,15 @@ A\amalg B =A\uplus B = (\set{0}\times A)\cup (\set{1}\times B)
 \subsection{Unione disgiunta di spazi topologici}
 \label{sec:orgd554458}
 \begin{definizione}
-Sia \(\{(X_i, \tau_i)\}_{i \in I}\) una famiglia indicizzata di \href{20250103145124-topologia.org}{spazi topologici}.
+Sia \(\{(X_i, \uptau_i)\}_{i \in I}\) una famiglia indicizzata di \href{20250103145124-topologia.org}{spazi topologici}.
 L'\textbf{\textbf{unione disgiunta}} (o somma topologica) è l'insieme \(X\) definito come l'\hyperref[sec:org8949b14]{unione disgiunta insiemistica}:
 \begin{equation*}
 X = \coprod_{i \in I} X_i := \bigcup_{i \in I} (X_i \times \{i\})
 \end{equation*}
-dotato della \textbf{\textbf{topologia dell'unione disgiunta}} \(\tau\).
-Un sottoinsieme \(U \subseteq X\) è definito aperto in \(X\) (cioè \(U \in \tau\)) se e solo se la sua intersezione con ogni spazio componente è aperta nella topologia originale di quello spazio. Formalmente:
+dotato della \textbf{\textbf{topologia dell'unione disgiunta}} \(\uptau\).
+Un sottoinsieme \(U \subseteq X\) è definito aperto in \(X\) (cioè \(U \in \uptau\)) se e solo se la sua intersezione con ogni spazio componente è aperta nella topologia originale di quello spazio. Formalmente:
 \begin{equation*}
-U \in \tau \iff \forall i \in I, \quad U \cap X_i \in \tau_i
+U \in \uptau \iff \forall i \in I, \quad U \cap X_i \in \uptau_i
 \end{equation*}
 dove identifichiamo \(X_i\) con la sua immagine canonica in \(X\).
 \end{definizione}
@@ -40,7 +35,7 @@ Inoltre, in questa topologia, ogni \(X_i\) è sia un sottoinsieme aperto che un 
 \end{oss}
 
 \begin{prop}
-Sia \(X = \coprod_{i \in I} X_i\) l'unione disgiunta della famiglia di spazi topologici \(\{(X_i, \tau_i)\}_{i \in I}\) e siano \(\iota_j: X_j \to X\) le iniezioni canoniche per ogni \(j \in I\).
+Sia \(X = \coprod_{i \in I} X_i\) l'unione disgiunta della famiglia di spazi topologici \(\{(X_i, \uptau_i)\}_{i \in I}\) e siano \(\iota_j: X_j \to X\) le iniezioni canoniche per ogni \(j \in I\).
 Per ogni spazio topologico \(Z\) e per ogni famiglia di funzioni continue \(\{f_i: X_i \to Z\}_{i \in I}\), esiste un'unica funzione continua \(f: X \to Z\) tale che il seguente diagramma commuti per ogni \(i \in I\):
 \begin{equation*}
 f \circ \iota_i = f_i

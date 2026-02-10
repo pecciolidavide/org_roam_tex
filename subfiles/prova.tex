@@ -1,191 +1,195 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-\def\LT{\mathrm{LT}}
-\def\LM{\mathrm{LM}}
-\def\LC{\mathrm{LC}}
-\def\tail{\mathrm{coda}}
-\use{algorithm}
-\use{algpseudocode}
+%% \def\LT{\mathrm{LT}}
+%% \def\LM{\mathrm{LM}}
+%% \def\LC{\mathrm{LC}}
+%% \def\tail{\mathrm{coda}}
+%% \use{algorithm}
+%% \use{algpseudocode}
 
 
 \begin{document}
 
-\section{Lezione 30 - \textit{<2025-12-02 Tue>}}
-\label{sec:org06f9eeb}
+\section{Prova}
 
-\subsection{Criterio di Buchberger}
-\label{sec:org8360a0d}
+\lipsum[1]
 
-Fissiamo un \emph{term order}. Sia \(G = \{g_1, \dots, g_n\} \subseteq P\) e sia \(I = (G)\) l'ideale generato da \(G\).
+%% \section{Lezione 30 - \textit{<2025-12-02 Tue>}}
+%% \label{sec:org06f9eeb}
 
-\begin{thm}
-(Criterio di Buchberger).
-\(G\) è una Base di Gröbner (GB) di \(I\) se e solo se:
-\begin{equation*}
-\forall i < j : \overline{S(g_i, g_j)}^G = 0
-\end{equation*}
-Ovvero, il resto della divisione degli S-polinomi rispetto a \(G\) è zero.
-\label{crit:Buchberger}
-\end{thm}
+%% \subsection{Criterio di Buchberger}
+%% \label{sec:org8360a0d}
 
-\begin{proof}
-(\(\Rightarrow\)):
-Se \(G\) è una GB di \(I\), sappiamo che per definizione gli S-polinomi appartengono all'ideale:
-\begin{equation*}
-S(g_i, g_j) = u g_i - v g_j \in I = (G)
-\end{equation*}
-Poiché \(G\) è una GB, il resto della divisione di qualsiasi elemento di \(I\) per \(G\) è unico e deve essere 0. Pertanto:
-\begin{equation*}
-S(g_i, g_j) \in I \implies \overline{S(g_i, g_j)}^G = 0. \qedhere
-\end{equation*}
-\end{proof}
+%% Fissiamo un \emph{term order}. Sia \(G = \{g_1, \dots, g_n\} \subseteq P\) e sia \(I = (G)\) l'ideale generato da \(G\).
 
-Per dimostrare l'altra impliaczione è necessario un lemma:
-\begin{lem}
-Fissiamo un term order. Sia \(\{f_1, \dots, f_l\}\) un insieme di polinomi con \(f_i \in P\) tale che \(\LT(f_i) = t \in T^{(n)}\) per ogni \(i\).
-Sia \(f = \sum_{i=1}^{l} c_i f_i\) con \(c_i \in K\) tale che \(\LT(f) < t\).
-Allora \(f\) è una combinazione lineare degli S-polinomi:
-\begin{equation*}
-f = \sum c_{jk} S(f_j, f_k) \quad \text{con } \LT(S(f_j, f_k)) < t
-\end{equation*}
-\end{lem}
-\begin{proof}
-Consideriamo l'S-polinomio tra \(f_j\) e \(f_k\). Poiché \(\LT(f_j) = \LT(f_k) = t\), il minimo comune multiplo è \(t\).
-\begin{equation*}
-S(f_j, f_k) = \frac{t}{\LC(f_j)\LT(f_j)} f_j - \frac{t}{\LC(f_k)\LT(f_k)} f_k = \frac{1}{\LC(f_j)} f_j - \frac{1}{\LC(f_k)} f_k
-\end{equation*}
-Scriviamo \(f_i = d_i \cdot t + \tail(f_i)\), dove \(d_i = \LC(f_i)\).
-Per ipotesi, \(\LT(\sum c_i f_i) < t\). Questo implica che il termine di grado \(t\) si cancella nella somma, ovvero:
-\begin{equation*}
-\sum_{i=1}^{l} c_i d_i = 0
-\end{equation*}
-Definiamo \(p_i = \frac{f_i}{d_i}\). Notiamo che \(S(f_j, f_k) = p_j - p_k\).
-Riscriviamo la combinazione lineare usando una somma telescopica:
-\begin{align*}
-\sum_{i=1}^{l} c_i f_i &= \sum_{i=1}^{l} c_i d_i p_i \\
-&= c_1 d_1 p_1 + c_2 d_2 p_2 + \dots + c_l d_l p_l \\
-&= c_1 d_1 (p_1 - p_2) + (c_1 d_1 + c_2 d_2)(p_2 - p_3) + \dots + \left(\sum_{i=1}^{l} c_i d_i\right) p_l
-\end{align*}
-L'ultimo termine è nullo perché \(\sum c_i d_i = 0\).
-Quindi abbiamo riscritto \(f\) come combinazione lineare di termini del tipo \(p_j - p_{j+1}\), che sono multipli scalari di \(S(f_j, f_{j+1})\). Inoltre, poiché i termini di testa si cancellano in \(p_j - p_k\), vale \(\LT(S(f_j, f_k)) < t\).
-\end{proof}
+%% \begin{thm}
+%% (Criterio di Buchberger).
+%% \(G\) è una Base di Gröbner (GB) di \(I\) se e solo se:
+%% \begin{equation*}
+%% \forall i < j : \overline{S(g_i, g_j)}^G = 0
+%% \end{equation*}
+%% Ovvero, il resto della divisione degli S-polinomi rispetto a \(G\) è zero.
+%% \label{crit:Buchberger}
+%% \end{thm}
 
-\begin{proof}
-(del Teorema\nbps{}\ref{crit:Buchberger}, \(\Leftarrow\)).
+%% \begin{proof}
+%% (\(\Rightarrow\)):
+%% Se \(G\) è una GB di \(I\), sappiamo che per definizione gli S-polinomi appartengono all'ideale:
+%% \begin{equation*}
+%% S(g_i, g_j) = u g_i - v g_j \in I = (G)
+%% \end{equation*}
+%% Poiché \(G\) è una GB, il resto della divisione di qualsiasi elemento di \(I\) per \(G\) è unico e deve essere 0. Pertanto:
+%% \begin{equation*}
+%% S(g_i, g_j) \in I \implies \overline{S(g_i, g_j)}^G = 0. \qedhere
+%% \end{equation*}
+%% \end{proof}
 
-\emph{Ipotesi:} \(G = \{g_1, \dots, g_n\} \subseteq P\) e \(I=(G)\). Per ogni \(i < j\), \(\overline{S(g_i, g_j)}^G = 0\).
+%% Per dimostrare l'altra impliaczione è necessario un lemma:
+%% \begin{lem}
+%% Fissiamo un term order. Sia \(\{f_1, \dots, f_l\}\) un insieme di polinomi con \(f_i \in P\) tale che \(\LT(f_i) = t \in T^{(n)}\) per ogni \(i\).
+%% Sia \(f = \sum_{i=1}^{l} c_i f_i\) con \(c_i \in K\) tale che \(\LT(f) < t\).
+%% Allora \(f\) è una combinazione lineare degli S-polinomi:
+%% \begin{equation*}
+%% f = \sum c_{jk} S(f_j, f_k) \quad \text{con } \LT(S(f_j, f_k)) < t
+%% \end{equation*}
+%% \end{lem}
+%% \begin{proof}
+%% Consideriamo l'S-polinomio tra \(f_j\) e \(f_k\). Poiché \(\LT(f_j) = \LT(f_k) = t\), il minimo comune multiplo è \(t\).
+%% \begin{equation*}
+%% S(f_j, f_k) = \frac{t}{\LC(f_j)\LT(f_j)} f_j - \frac{t}{\LC(f_k)\LT(f_k)} f_k = \frac{1}{\LC(f_j)} f_j - \frac{1}{\LC(f_k)} f_k
+%% \end{equation*}
+%% Scriviamo \(f_i = d_i \cdot t + \tail(f_i)\), dove \(d_i = \LC(f_i)\).
+%% Per ipotesi, \(\LT(\sum c_i f_i) < t\). Questo implica che il termine di grado \(t\) si cancella nella somma, ovvero:
+%% \begin{equation*}
+%% \sum_{i=1}^{l} c_i d_i = 0
+%% \end{equation*}
+%% Definiamo \(p_i = \frac{f_i}{d_i}\). Notiamo che \(S(f_j, f_k) = p_j - p_k\).
+%% Riscriviamo la combinazione lineare usando una somma telescopica:
+%% \begin{align*}
+%% \sum_{i=1}^{l} c_i f_i &= \sum_{i=1}^{l} c_i d_i p_i \\
+%% &= c_1 d_1 p_1 + c_2 d_2 p_2 + \dots + c_l d_l p_l \\
+%% &= c_1 d_1 (p_1 - p_2) + (c_1 d_1 + c_2 d_2)(p_2 - p_3) + \dots + \left(\sum_{i=1}^{l} c_i d_i\right) p_l
+%% \end{align*}
+%% L'ultimo termine è nullo perché \(\sum c_i d_i = 0\).
+%% Quindi abbiamo riscritto \(f\) come combinazione lineare di termini del tipo \(p_j - p_{j+1}\), che sono multipli scalari di \(S(f_j, f_{j+1})\). Inoltre, poiché i termini di testa si cancellano in \(p_j - p_k\), vale \(\LT(S(f_j, f_k)) < t\).
+%% \end{proof}
 
-\emph{Tesi:} \(G\) è una GB di \(I\), ovvero \(\forall f \in I, \LT(f) \in (\LT(g_1), \dots, \LT(g_n))\).
+%% \begin{proof}
+%% (del Teorema\nbps{}\ref{crit:Buchberger}, \(\Leftarrow\)).
 
-Sia \(f \in I\). Poiché \(G\) genera \(I\), possiamo scrivere:
-\begin{equation*}
-f = \sum_{i=1}^{N} h_i g_i
-\end{equation*}
-Consideriamo il termine massimo in questa rappresentazione: \(\delta = \max_i \{ \LT(h_i g_i) \}\).
-Certamente \(\LT(f) \le \delta\).
+%% \emph{Ipotesi:} \(G = \{g_1, \dots, g_n\} \subseteq P\) e \(I=(G)\). Per ogni \(i < j\), \(\overline{S(g_i, g_j)}^G = 0\).
 
-\begin{enumerate}
-\item Caso 1: \(\LT(f) = \delta\).
+%% \emph{Tesi:} \(G\) è una GB di \(I\), ovvero \(\forall f \in I, \LT(f) \in (\LT(g_1), \dots, \LT(g_n))\).
 
-Allora esiste un indice \(k\) tale che \(\LT(f) = \LT(h_k g_k) = \LT(h_k)\LT(g_k)\). Questo implica che \(\LT(f)\) è divisibile per \(\LT(g_k)\), quindi \(\LT(f) \in (\LT(G))\), e la condizione di GB è soddisfatta.
+%% Sia \(f \in I\). Poiché \(G\) genera \(I\), possiamo scrivere:
+%% \begin{equation*}
+%% f = \sum_{i=1}^{N} h_i g_i
+%% \end{equation*}
+%% Consideriamo il termine massimo in questa rappresentazione: \(\delta = \max_i \{ \LT(h_i g_i) \}\).
+%% Certamente \(\LT(f) \le \delta\).
 
-\item Caso 2: \(\LT(f) < \delta\).
+%% \begin{enumerate}
+%% \item Caso 1: \(\LT(f) = \delta\).
 
-Questo significa che i termini di testa nella somma \(\sum h_i g_i\) si cancellano.
-Scegliamo una rappresentazione di \(f = \sum h_i g_i\) tale che \(\delta = \max \{ \LT(h_i g_i) \}\) sia \textbf{minimale}.
-Chiamiamo questo massimo \(t\). Per assurdo, supponiamo \(\LT(f) < t\).
+%% Allora esiste un indice \(k\) tale che \(\LT(f) = \LT(h_k g_k) = \LT(h_k)\LT(g_k)\). Questo implica che \(\LT(f)\) è divisibile per \(\LT(g_k)\), quindi \(\LT(f) \in (\LT(G))\), e la condizione di GB è soddisfatta.
 
-Isoliamo i termini che hanno grado \(t\):
-\begin{equation*}
-f = \sum_{\LT(h_i g_i) = t} h_i g_i + \sum_{\LT(h_i g_i) < t} h_i g_i
-\end{equation*}
-Consideriamo la prima parte. Possiamo scrivere \(h_i = \LC(h_i) \cdot \LM(h_i) + \tail(h_i)\).
-La somma dei termini di testa deve annullarsi (perché \(\LT(f) < t\)):
-\begin{equation*}
-\sum_{\LT(h_i g_i)=t} \LC(h_i) \LM(h_i) g_i
-\end{equation*}
-Questa è una combinazione lineare di termini \(M_i g_i\) (dove \(M_i\) sono monomi) che hanno tutti lo stesso \(\LT = t\).
-Per il \textbf{Lemma} dimostrato sopra, questa somma può essere riscritta come combinazione lineare degli S-polinomi di questi termini \(\{M_i g_i\}\):
-\begin{equation*}
-\sum c_{jk} S(M_j g_j, M_k g_k)
-\end{equation*}
-Nota: \(S(M_j g_j, M_k g_k) = \frac{t}{w_{jk}} S(g_j, g_k)\) dove \(w_{jk} = \text{mcm}(\LT(g_j), \LT(g_k))\).
+%% \item Caso 2: \(\LT(f) < \delta\).
 
-Per ipotesi, \(\overline{S(g_j, g_k)}^G = 0\), il che significa che l'algoritmo di divisione ci dà:
-\begin{equation*}
-S(g_j, g_k) = \sum q_{\nu} g_{\nu} \quad \text{con } \LT(q_{\nu} g_{\nu}) \le \LT(S(g_j, g_k)) < w_{jk}
-\end{equation*}
-Sostituendo queste espressioni nella somma originale, otteniamo una nuova scrittura per \(f\):
-\begin{equation*}
-f = \sum \tilde{h}_i g_i
-\end{equation*}
-dove tutti i termini hanno grado strettamente minore di \(t\).
-Questo contraddice la \textbf{minimalità} di \(t\) che avevamo assunto.
-Quindi il caso \(\LT(f) < \max \LT(h_i g_i)\) non può verificarsi con la scelta minimale. Deve valere \(\LT(f) = \max \LT(h_i g_i)\), il che implica che \(G\) è una Base di Gröbner.
-\end{enumerate}
-\end{proof}
-\subsection{Esempi}
-\label{sec:org6b47623}
+%% Questo significa che i termini di testa nella somma \(\sum h_i g_i\) si cancellano.
+%% Scegliamo una rappresentazione di \(f = \sum h_i g_i\) tale che \(\delta = \max \{ \LT(h_i g_i) \}\) sia \textbf{minimale}.
+%% Chiamiamo questo massimo \(t\). Per assurdo, supponiamo \(\LT(f) < t\).
 
-\begin{esempio}
-Sia \(G = \{y - x^2, z - x^3\} \subseteq K[x,y,z]\) con term order Lex \(z > y > x\).
+%% Isoliamo i termini che hanno grado \(t\):
+%% \begin{equation*}
+%% f = \sum_{\LT(h_i g_i) = t} h_i g_i + \sum_{\LT(h_i g_i) < t} h_i g_i
+%% \end{equation*}
+%% Consideriamo la prima parte. Possiamo scrivere \(h_i = \LC(h_i) \cdot \LM(h_i) + \tail(h_i)\).
+%% La somma dei termini di testa deve annullarsi (perché \(\LT(f) < t\)):
+%% \begin{equation*}
+%% \sum_{\LT(h_i g_i)=t} \LC(h_i) \LM(h_i) g_i
+%% \end{equation*}
+%% Questa è una combinazione lineare di termini \(M_i g_i\) (dove \(M_i\) sono monomi) che hanno tutti lo stesso \(\LT = t\).
+%% Per il \textbf{Lemma} dimostrato sopra, questa somma può essere riscritta come combinazione lineare degli S-polinomi di questi termini \(\{M_i g_i\}\):
+%% \begin{equation*}
+%% \sum c_{jk} S(M_j g_j, M_k g_k)
+%% \end{equation*}
+%% Nota: \(S(M_j g_j, M_k g_k) = \frac{t}{w_{jk}} S(g_j, g_k)\) dove \(w_{jk} = \text{mcm}(\LT(g_j), \LT(g_k))\).
 
-\begin{itemize}
-\item \(g_1 = y - x^2\), \(\LT(g_1) = y\)
-\item \(g_2 = z - x^3\), \(\LT(g_2) = z\)
-\end{itemize}
+%% Per ipotesi, \(\overline{S(g_j, g_k)}^G = 0\), il che significa che l'algoritmo di divisione ci dà:
+%% \begin{equation*}
+%% S(g_j, g_k) = \sum q_{\nu} g_{\nu} \quad \text{con } \LT(q_{\nu} g_{\nu}) \le \LT(S(g_j, g_k)) < w_{jk}
+%% \end{equation*}
+%% Sostituendo queste espressioni nella somma originale, otteniamo una nuova scrittura per \(f\):
+%% \begin{equation*}
+%% f = \sum \tilde{h}_i g_i
+%% \end{equation*}
+%% dove tutti i termini hanno grado strettamente minore di \(t\).
+%% Questo contraddice la \textbf{minimalità} di \(t\) che avevamo assunto.
+%% Quindi il caso \(\LT(f) < \max \LT(h_i g_i)\) non può verificarsi con la scelta minimale. Deve valere \(\LT(f) = \max \LT(h_i g_i)\), il che implica che \(G\) è una Base di Gröbner.
+%% \end{enumerate}
+%% \end{proof}
+%% \subsection{Esempi}
+%% \label{sec:org6b47623}
 
-Calcoliamo l'S-polinomio:
-\begin{equation*}
-S(g_1, g_2) = \frac{yz}{y}(y-x^2) - \frac{yz}{z}(z-x^3) = z(y-x^2) - y(z-x^3) = zy - zx^2 - yz + yx^3 = yx^3 - zx^2
-\end{equation*}
-Ordiniamo il risultato: \(yx^3 - zx^2\). Dividiamo per \(G\):
+%% \begin{esempio}
+%% Sia \(G = \{y - x^2, z - x^3\} \subseteq K[x,y,z]\) con term order Lex \(z > y > x\).
 
-\begin{itemize}
-\item \(yx^3\) è divisibile per \(\LT(g_1)=y\)? Sì. \(yx^3 = x^3 \cdot y\).
-\item Sottraiamo \(x^3 g_1 = x^3(y-x^2) = x^3y - x^5\).
-\item Resto parziale: \((yx^3 - zx^2) - (yx^3 - x^5) = -zx^2 + x^5\).
-\item \(-zx^2\) è divisibile per \(\LT(g_2)=z\)? Sì.
-\item Sottraiamo \(-x^2 g_2 = -x^2(z-x^3) = -x^2z + x^5\).
-\item Resto: \((-zx^2 + x^5) - (-zx^2 + x^5) = 0\).
-\end{itemize}
+%% \begin{itemize}
+%% \item \(g_1 = y - x^2\), \(\LT(g_1) = y\)
+%% \item \(g_2 = z - x^3\), \(\LT(g_2) = z\)
+%% \end{itemize}
 
-Poiché \(\overline{S(g_1, g_2)}^G = 0\), per il criterio di Buchberger, \(G\) è una GB.
-\end{esempio}
+%% Calcoliamo l'S-polinomio:
+%% \begin{equation*}
+%% S(g_1, g_2) = \frac{yz}{y}(y-x^2) - \frac{yz}{z}(z-x^3) = z(y-x^2) - y(z-x^3) = zy - zx^2 - yz + yx^3 = yx^3 - zx^2
+%% \end{equation*}
+%% Ordiniamo il risultato: \(yx^3 - zx^2\). Dividiamo per \(G\):
 
-\begin{esempio}
-Siano \(f_1 = x^3 - 2xy\), \(f_2 = x^2y - 2y^2 + x\) in \(K[x,y]\) con ordine DegLex \(x > y\).
-\(G = \{f_1, f_2\}\). È una GB?
-\begin{equation*}
-S(f_1, f_2) = \frac{x^3y}{x^3}f_1 - \frac{x^3y}{x^2y}f_2 = y f_1 - x f_2 = y(x^3 - 2xy) - x(x^2y - 2y^2 + x) = -x^2
-\end{equation*}
-Il resto della divisione di \(-x^2\) per \(f_1, f_2\) è \(-x^2\) (nessun LT divide \(x^2\)).
-Poiché il resto è non nullo, aggiungiamo \(f_3 = -x^2\) (o meglio \(x^2\)) a \(G\).
-Nuovo insieme \(G' = \{f_1, f_2, x^2\}\).
-Bisogna iterare calcolando \(S(f_1, f_3)\) e \(S(f_2, f_3)\) finché tutti gli S-polinomi riducono a zero.
-\end{esempio}
-\subsection{Algoritmo di Buchberger}
-\label{sec:orgfed931f}
+%% \begin{itemize}
+%% \item \(yx^3\) è divisibile per \(\LT(g_1)=y\)? Sì. \(yx^3 = x^3 \cdot y\).
+%% \item Sottraiamo \(x^3 g_1 = x^3(y-x^2) = x^3y - x^5\).
+%% \item Resto parziale: \((yx^3 - zx^2) - (yx^3 - x^5) = -zx^2 + x^5\).
+%% \item \(-zx^2\) è divisibile per \(\LT(g_2)=z\)? Sì.
+%% \item Sottraiamo \(-x^2 g_2 = -x^2(z-x^3) = -x^2z + x^5\).
+%% \item Resto: \((-zx^2 + x^5) - (-zx^2 + x^5) = 0\).
+%% \end{itemize}
 
-\begin{algorithm}
-\caption{Algoritmo di Buchberger}
-\begin{algorithmic}[1]
-\State \textbf{Input:} \(F = \{f_1, \dots, f_s\} \subseteq P\), un term order.
-\State \textbf{Output:} \(G = \{g_1, \dots, g_l\}\) tale che \((G)=(F)\) e \(G\) è GB.
-\State \(G \gets F\)
-\State \textbf{Repeat}
-    \State \(G' \gets G\)
-    \For{ogni coppia \(\{p, q\} \subseteq G', p \neq q\)}
-        \State \(S \gets \overline{S(p, q)}^{G'}\) \Comment{Resto della divisione}
-        \If{\(S \neq 0\)}
-            \State \(G \gets G \cup \{S\}\)
-        \EndIf
-    \EndFor
-\State \textbf{Until} \(G = G'\)
-\State \Return \(G\)
-\end{algorithmic}
-\end{algorithm}
+%% Poiché \(\overline{S(g_1, g_2)}^G = 0\), per il criterio di Buchberger, \(G\) è una GB.
+%% \end{esempio}
 
-L'algoritmo termina sempre perché \(K[x_1, \dots, x_n]\) è noetheriano (Teorema della base di Hilbert), quindi la catena ascendente degli ideali generati dai termini di testa deve stabilizzarsi (\(LT(G_0) \subseteq LT(G_1) \subseteq \dots\)).
+%% \begin{esempio}
+%% Siano \(f_1 = x^3 - 2xy\), \(f_2 = x^2y - 2y^2 + x\) in \(K[x,y]\) con ordine DegLex \(x > y\).
+%% \(G = \{f_1, f_2\}\). È una GB?
+%% \begin{equation*}
+%% S(f_1, f_2) = \frac{x^3y}{x^3}f_1 - \frac{x^3y}{x^2y}f_2 = y f_1 - x f_2 = y(x^3 - 2xy) - x(x^2y - 2y^2 + x) = -x^2
+%% \end{equation*}
+%% Il resto della divisione di \(-x^2\) per \(f_1, f_2\) è \(-x^2\) (nessun LT divide \(x^2\)).
+%% Poiché il resto è non nullo, aggiungiamo \(f_3 = -x^2\) (o meglio \(x^2\)) a \(G\).
+%% Nuovo insieme \(G' = \{f_1, f_2, x^2\}\).
+%% Bisogna iterare calcolando \(S(f_1, f_3)\) e \(S(f_2, f_3)\) finché tutti gli S-polinomi riducono a zero.
+%% \end{esempio}
+%% \subsection{Algoritmo di Buchberger}
+%% \label{sec:orgfed931f}
+
+%% \begin{algorithm}
+%% \caption{Algoritmo di Buchberger}
+%% \begin{algorithmic}[1]
+%% \State \textbf{Input:} \(F = \{f_1, \dots, f_s\} \subseteq P\), un term order.
+%% \State \textbf{Output:} \(G = \{g_1, \dots, g_l\}\) tale che \((G)=(F)\) e \(G\) è GB.
+%% \State \(G \gets F\)
+%% \State \textbf{Repeat}
+%%     \State \(G' \gets G\)
+%%     \For{ogni coppia \(\{p, q\} \subseteq G', p \neq q\)}
+%%         \State \(S \gets \overline{S(p, q)}^{G'}\) \Comment{Resto della divisione}
+%%         \If{\(S \neq 0\)}
+%%             \State \(G \gets G \cup \{S\}\)
+%%         \EndIf
+%%     \EndFor
+%% \State \textbf{Until} \(G = G'\)
+%% \State \Return \(G\)
+%% \end{algorithmic}
+%% \end{algorithm}
+
+%% L'algoritmo termina sempre perché \(K[x_1, \dots, x_n]\) è noetheriano (Teorema della base di Hilbert), quindi la catena ascendente degli ideali generati dai termini di testa deve stabilizzarsi (\(LT(G_0) \subseteq LT(G_1) \subseteq \dots\)).
 \end{document}

@@ -1,10 +1,6 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-\use{upgreek}
-\def\tau{\uptau}
-
-
 \begin{document}
 
 \section{Teorema di Escissione}
@@ -196,23 +192,23 @@ Applicando il \href{20250129100530-lemma_del_numero_di_lebesgue.org}{Lemma del n
 \end{equation*}
 con \(\iota:\Delta_{q}\to \Delta_{q}\) l'identità. Inoltre, per \href{20250128132040-mappa_di_suddivisione_tra_complessi_di_catene_singolari.org}{costruzione}
 \begin{equation*}
-\operatorname{sd}^{m}(\iota)=\sum a_{i}\tau_{i}
+\operatorname{sd}^{m}(\iota)=\sum a_{i}\uptau_{i}
 \end{equation*}
-con \(\tau_{i}\) \href{20250129094132-trasformazione_affine.org}{trasformazioni affini}. In particolare, quindi, si ha che
+con \(\uptau_{i}\) \href{20250129094132-trasformazione_affine.org}{trasformazioni affini}. In particolare, quindi, si ha che
 \begin{equation*}
-\operatorname{diam}\operatorname{Im}\tau_{i} < \lambda %
+\operatorname{diam}\operatorname{Im}\uptau_{i} < \lambda %
 \IMPLICA %
-\operatorname{Im}\tau_{i} \subseteq U_{1}\ %
+\operatorname{Im}\uptau_{i} \subseteq U_{1}\ %
 \text{ o }\ %
-\operatorname{Im}\tau_{i} \subseteq U_{2}.
+\operatorname{Im}\uptau_{i} \subseteq U_{2}.
 \end{equation*}
 Calcolando adesso \(\operatorname{sd}^{m}_{q}(\sigma)\):
 \begin{equation*}
-\operatorname{sd}^{m}_{q}(\sigma) = \sigma_{\diesis} \, \operatorname{sd}^{m}(\iota) = \sum a_{i}\, \sigma\circ\tau_{i}
+\operatorname{sd}^{m}_{q}(\sigma) = \sigma_{\diesis} \, \operatorname{sd}^{m}(\iota) = \sum a_{i}\, \sigma\circ\uptau_{i}
 \end{equation*}
-e ogni \(\operatorname{Im}(\sigma\circ\tau_{i}) \subseteq \mathring{X}_{1}\) oppure \(\operatorname{Im}(\sigma\circ\tau_{i}) \subseteq \mathring{X}_{2}\).
+e ogni \(\operatorname{Im}(\sigma\circ\uptau_{i}) \subseteq \mathring{X}_{1}\) oppure \(\operatorname{Im}(\sigma\circ\uptau_{i}) \subseteq \mathring{X}_{2}\).
 
-Pertanto, per ogni \(i\), \(\sigma \circ \tau_{i} \in \Sigma_{q}(\mathring{X}_{1})\) oppure \(\sigma \circ \tau_{i} \in \Sigma_{q}(\mathring{X}_{2})\), e quindi, per definizione di \href{20241206142802-sottomoduli.org}{somma di moduli}:
+Pertanto, per ogni \(i\), \(\sigma \circ \uptau_{i} \in \Sigma_{q}(\mathring{X}_{1})\) oppure \(\sigma \circ \uptau_{i} \in \Sigma_{q}(\mathring{X}_{2})\), e quindi, per definizione di \href{20241206142802-sottomoduli.org}{somma di moduli}:
 \begin{equation*}
 \operatorname{sd}^{m}_{q}(\sigma) \in S_{q}(X_{1}) + S_{q}(X_{2}) = S_{q}^{+}(X_{1},X_{2}).
 \qedhere

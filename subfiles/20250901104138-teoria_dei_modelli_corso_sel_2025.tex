@@ -1,9 +1,7 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-\usepackage[hyperref]{biblatex}
-\date{}
-\title{}
+
 \begin{document}
 
 \section{Teoria dei modelli [CORSO SEL2025]}
@@ -36,7 +34,7 @@ Definizioni di base:
 \end{equation*}
 \item \(T\) è una teoria \uline{completa} se per ogni enunciato \(\sigma\) si ha
 \begin{equation*}
- T\vDash \sigma\quad\text{o}\quadT\vDash\lnot\sigma.
+ T\vDash \sigma\quad\text{o}\quad T\vDash\lnot\sigma.
 \end{equation*}
 \item Scriviamo \(M\equiv N\), e diremo che \(M,N\) sono \uline{elementarmente equivalenti} se
 \begin{equation*}
@@ -277,7 +275,7 @@ Dunque \(I=\set{p:M\to N\text{ immersione parziale finita}}\neq \emptyset\).
 Siano ora \(p \in I\) e \(m \in M\). Considero \(U,V \subseteq \operatorname{rng}(p)\)
 \begin{align*}
 U&=\set{p(a) \in \operatorname{rng}(p)\mid R(m,a)}\\
-V&=\set{p(a) \in \operatorname{rng}(p)\mid \lnotR(m,a)}
+V&=\set{p(a) \in \operatorname{rng}(p)\mid \lnot R(m,a)}
 \end{align*}
 Dunque esiste \(n \in N\) tale che, per ogni \(a \in \operatorname{dom}(p)\)
 \begin{equation*}

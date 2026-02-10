@@ -1,14 +1,12 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-\usepackage[hyperref]{biblatex}
-\date{}
-\title{}
+
 \begin{document}
 
 \section{Definibilità e ricorsivita}
 \label{sec:org1d21038}
-Sia \(\N\) l'\href{20250202130045-insieme_dei_numeri_naturali_mk.org}{insieme dei numeri naturali}, e sia \(\langle \N,+,\codt,\rangle\) il \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard dell'aritmetica}.
+Sia \(\N\) l'\href{20250202130045-insieme_dei_numeri_naturali_mk.org}{insieme dei numeri naturali}, e sia \(\langle \N,+,\cdot,\rangle\) il \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard dell'aritmetica}.
 \begin{thm}
 Ogni \href{20250202170607-classe_relazione_binaria.org}{funzione} (\href{20250213105339-funzione_parziale.org}{parziale}) \(f:\N^{k}\to \N\) \href{20250215151458-funzioni_ricorsive.org}{ricorsiva} è \(\Sigma_{1}\)-\href{20250603170634-insieme_definibile_nel_modello_standard.org}{definibile} nel \href{20250606095019-modello_standard_dell_artimetica.org}{modello standard} \(\langle \N,+,\cdot\rangle\).
 \end{thm}
@@ -31,7 +29,7 @@ Resta da dimostrare che la classe delle funzioni \(\Sigma_{1}\)-definibili è ch
 \item Siano \(f(y_{1},\dots,y_{\ell})\), \(g_{1}(x_{1},\dots,x_{k}),\dots,g_{\ell}(x_{1},\dots,x_{k})\) funzioni \(\Sigma_{1}\)-definibili. Allora
 \begin{multline*}
   ``z = f\left(g_{1}(x_{1},\dots,x_{k}),\dots,g_{\ell}(x_{1},\dots,x_{k})\right)"\quad \iff\\
-  &\iff\quad \exists\,z_{1}\, \dots\, \exists\, z_{\ell}\ \left(``z=f(z_{1},\dots,z_{\ell})" \,\land\, \bigwedge_{i=1}^{\ell} ``g_{i}(x_{1},\dots,x_{k}) = z_{i}"\right).
+  \iff\quad \exists\,z_{1}\, \dots\, \exists\, z_{\ell}\ \left(``z=f(z_{1},\dots,z_{\ell})" \,\land\, \bigwedge_{i=1}^{\ell} ``g_{i}(x_{1},\dots,x_{k}) = z_{i}"\right).
 \end{multline*}
 \item Sia \(h(x_{1},\dots,x_{k},z)\) una funzione \(\Sigma_{1}\)-definibile, e sia
 \begin{equation*}

@@ -1,10 +1,6 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-\use{upgreek}
-\def\tau{\uptau}
-
-
 \begin{document}
 
 \section{Classificazione dei tori complessi}
@@ -13,16 +9,16 @@ Si consideri il semipiano superiore di \(\C\):
 \begin{equation*}
 \mathds{H} \coloneqq \set{z \in \C \mid \operatorname{Im} z > 0}.
 \end{equation*}
-Per ogni \(\tau \in \mathds{H}\), sia \(L_{\tau}\) il reticolo generato da \(1\) e \(\tau\):
+Per ogni \(\uptau \in \mathds{H}\), sia \(L_{\uptau}\) il reticolo generato da \(1\) e \(\uptau\):
 \begin{equation*}
-L_{\tau} \coloneqq \set{z_{1} + z_{2}\,\tau \mid z_{1},z_{2} \in \Z}
+L_{\uptau} \coloneqq \set{z_{1} + z_{2}\,\uptau \mid z_{1},z_{2} \in \Z}
 \end{equation*}
-e sia \(X_{\tau} \coloneqq \C/L_{\tau}\) il \href{20260127113001-toro_complesso.org}{toro complesso} dato dal \href{20250127093819-quoziente_di_gruppo_e_sottogruppo.org}{quoziente} con \(L_{\tau}\).
+e sia \(X_{\uptau} \coloneqq \C/L_{\uptau}\) il \href{20260127113001-toro_complesso.org}{toro complesso} dato dal \href{20250127093819-quoziente_di_gruppo_e_sottogruppo.org}{quoziente} con \(L_{\uptau}\).
 
 \begin{prop}
-Sia \(Y\) un toro complesso qualsiasi. Allora esiste \(\tau \in \mathds{H}\) tale che
+Sia \(Y\) un toro complesso qualsiasi. Allora esiste \(\uptau \in \mathds{H}\) tale che
 \begin{equation*}
-Y = X_{\tau}.
+Y = X_{\uptau}.
 \end{equation*}
 \end{prop}
 
@@ -36,17 +32,17 @@ Allora \(w_{1},w_{2}\) sono \(\R\)-\href{20241212142019-insiemi_linearmente_indi
 Allora \(\gamma\cdot M\) è il reticolo generato da \(1,\frac{\omega_{2}}{\omega_{1}}\), linearmente indipendenti su \(\R\). Pertanto, \(\frac{w_{2}}{w_{1}}\notin \R\).
 
 \begin{itemize}
-\item Se \(\operatorname{Im}\frac{w_{2}}{w_{1}} > 0\), allora \(\tau\coloneqq \frac{w_{2}}{w_{1}}\) e
+\item Se \(\operatorname{Im}\frac{w_{2}}{w_{1}} > 0\), allora \(\uptau\coloneqq \frac{w_{2}}{w_{1}}\) e
 \begin{equation*}
-  \gamma \cdot M = L_{\tau}
+  \gamma \cdot M = L_{\uptau}
 \end{equation*}
-e \href{20260201182313-isomorfismo_tra_tori_complessi.org}{quindi} \(Y \cong X_{\tau}\).
+e \href{20260201182313-isomorfismo_tra_tori_complessi.org}{quindi} \(Y \cong X_{\uptau}\).
 
-\item Se \(\operatorname{Im}\frac{w_{2}}{w_{1}} < 0\), allora \(\tau\coloneqq - \frac{w_{2}}{w_{1}}\) e\footnote{Ovviamente \(\left(1,\frac{w_{2}}{w_{1}}\right)\) e \(\left(1,-\frac{w_{2}}{w_{1}}\right)\) generano lo stesso reticolo.}
+\item Se \(\operatorname{Im}\frac{w_{2}}{w_{1}} < 0\), allora \(\uptau\coloneqq - \frac{w_{2}}{w_{1}}\) e\footnote{Ovviamente \(\left(1,\frac{w_{2}}{w_{1}}\right)\) e \(\left(1,-\frac{w_{2}}{w_{1}}\right)\) generano lo stesso reticolo.}
 \begin{equation*}
-  \gamma \cdot M = L_{\tau}
+  \gamma \cdot M = L_{\uptau}
 \end{equation*}
-e \href{20260201182313-isomorfismo_tra_tori_complessi.org}{quindi} \(Y \cong X_{\tau}\).
+e \href{20260201182313-isomorfismo_tra_tori_complessi.org}{quindi} \(Y \cong X_{\uptau}\).
 \qedhere
 \end{itemize}
 \end{proof}
@@ -54,40 +50,40 @@ e \href{20260201182313-isomorfismo_tra_tori_complessi.org}{quindi} \(Y \cong X_{
 La situazione quindi è la seguente:\footnote{A meno di \href{20260128144717-isomorfismo_tra_superfici_di_riemann.org}{isomorfismo} tra \href{20260127112828-superficie_di_riemann.org}{superfici di Riemann}.}
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
-	{\set{\text{tori complessi}}/\text{iso}} \&\&\& {\set{X_{\tau}}_{\tau \in \mathds{H}}/\text{iso}}
+	{\set{\text{tori complessi}}/\text{iso}} \&\&\& {\set{X_{\uptau}}_{\uptau \in \mathds{H}}/\text{iso}}
 	\arrow["{1\duepunti 1}", tail reversed, from=1-1, to=1-4]
 \end{tikzcd}
 \end{equation*}
 
 \begin{prop}
-Siano \(\tau,\tau' \in \mathds{H}\). Sono fatti equivalenti:
+Siano \(\uptau,\uptau' \in \mathds{H}\). Sono fatti equivalenti:
 \begin{enumerate}
-\item sono isomorfi: \(X_{\tau} \cong X_{\tau'}\);
+\item sono isomorfi: \(X_{\uptau} \cong X_{\uptau'}\);
 \item esiste \(\left(\begin{smallmatrix} a & b\\ c & d\end{smallmatrix}\right) \in \operatorname{SL}(2;\Z)\)\footnote{\(\operatorname{SL}(n, \K)\) è il \href{20250113142317-gruppo_lineare_speciale.org}{gruppo lineare speciale}} tale che
 \begin{equation*}
- \tau = \frac{a\tau' + b}{c\tau' + d}.
+ \uptau = \frac{a\uptau' + b}{c\uptau' + d}.
 \end{equation*}
 \end{enumerate}
 \end{prop}
 
 \begin{proof}
-Per la \href{20260201182313-isomorfismo_tra_tori_complessi.org}{caratterizzazione dei tori isomorfi}, \(X_{\tau}\cong X_{\tau'}\) se e solo se esiste \(\gamma \in \C\setminus \set{0}\) tale che \(\gamma\cdot L_{\tau} = L_{\tau'}\), dove
+Per la \href{20260201182313-isomorfismo_tra_tori_complessi.org}{caratterizzazione dei tori isomorfi}, \(X_{\uptau}\cong X_{\uptau'}\) se e solo se esiste \(\gamma \in \C\setminus \set{0}\) tale che \(\gamma\cdot L_{\uptau} = L_{\uptau'}\), dove
 \begin{align*}
-L_{\tau} &= \set{z_{1}+\tau \, z_{2} \mid z_{1},z_{2} \in \Z}\\
-L_{\tau'} &= \set{z_{1}+\tau' \, z_{2} \mid z_{1},z_{2} \in \Z}\\
-\gamma \cdot L_{\tau} &= \set{\gamma\cdot(z_{1}+\tau \, z_{2}) \mid z_{1},z_{2} \in \Z} = \set{z_{1}\,\gamma + z_{2}\, (\gamma\tau) \mid z_{1},z_{2} \in \Z}
+L_{\uptau} &= \set{z_{1}+\uptau \, z_{2} \mid z_{1},z_{2} \in \Z}\\
+L_{\uptau'} &= \set{z_{1}+\uptau' \, z_{2} \mid z_{1},z_{2} \in \Z}\\
+\gamma \cdot L_{\uptau} &= \set{\gamma\cdot(z_{1}+\uptau \, z_{2}) \mid z_{1},z_{2} \in \Z} = \set{z_{1}\,\gamma + z_{2}\, (\gamma\uptau) \mid z_{1},z_{2} \in \Z}
 \end{align*}
-ovvero se e solo se esiste \(\gamma \in \C\setminus\set{0}\) tale che \(\gamma,\gamma\tau \in L_{\tau'}\), e lo generano come gruppo additivo.
+ovvero se e solo se esiste \(\gamma \in \C\setminus\set{0}\) tale che \(\gamma,\gamma\uptau \in L_{\uptau'}\), e lo generano come gruppo additivo.
 
-(\(\Rightarrow\)): Siccome \(\gamma, \gamma\tau \in L_{\tau'}\) allora esistono \(a,b,c,d \in \Z\) tali che
+(\(\Rightarrow\)): Siccome \(\gamma, \gamma\uptau \in L_{\uptau'}\) allora esistono \(a,b,c,d \in \Z\) tali che
 \begin{align*}
-0 \neq \gamma &= c\tau' + d\\
-\gamma\tau &= a\tau' + b
+0 \neq \gamma &= c\uptau' + d\\
+\gamma\uptau &= a\uptau' + b
 \end{align*}
-Allora \(\tau = \frac{a\tau'+b}{c\tau' + d}\), e \(\left(\begin{smallmatrix} a & b\\ c & d \end{smallmatrix}\right) \in \Z^{2\times 2}\):
+Allora \(\uptau = \frac{a\uptau'+b}{c\uptau' + d}\), e \(\left(\begin{smallmatrix} a & b\\ c & d \end{smallmatrix}\right) \in \Z^{2\times 2}\):
 \begin{equation*}
 \begin{pmatrix}
-\gamma\tau\\
+\gamma\uptau\\
 \gamma
 \end{pmatrix} =
 \begin{pmatrix}
@@ -95,20 +91,20 @@ a & b\\
 c & d
 \end{pmatrix}\
 \begin{pmatrix}
-\tau'\\
+\uptau'\\
 1
 \end{pmatrix}
 \end{equation*}
 
-Siccome \(1, \tau' \in \gamma L_{\tau}\) allora esistono \(a',b',c',d' \in \Z\) tali che
+Siccome \(1, \uptau' \in \gamma L_{\uptau}\) allora esistono \(a',b',c',d' \in \Z\) tali che
 \begin{align*}
-1 &= \gamma(c'\tau + d')\\
-\tau' &= \gamma(a'\tau + b')
+1 &= \gamma(c'\uptau + d')\\
+\uptau' &= \gamma(a'\uptau + b')
 \end{align*}
 Allora \(\left(\begin{smallmatrix} a' & b'\\ c' & d' \end{smallmatrix}\right) \in \Z^{2\times 2}\) è tale che :
 \begin{equation*}
 \begin{pmatrix}
-\tau'\\
+\uptau'\\
 1
 \end{pmatrix} =
 \begin{pmatrix}
@@ -116,7 +112,7 @@ a' & b'\\
 c' & d'
 \end{pmatrix}\
 \begin{pmatrix}
-\gamma \tau\\
+\gamma \uptau\\
 \gamma
 \end{pmatrix}
 \end{equation*}
@@ -130,31 +126,31 @@ e devono entrambi essere numeri interi. Segue che
 \det \begin{pmatrix} a & b\\ c & d \end{pmatrix} = \pm 1
 \end{equation*}
 
-Inoltre si ha che\footnote{\(\overline{\tau'}\) è il \href{20260201232630-complesso_coniugato.org}{complesso coniugato}}
+Inoltre si ha che\footnote{\(\overline{\uptau'}\) è il \href{20260201232630-complesso_coniugato.org}{complesso coniugato}}
 \begin{align*}
-\operatorname{Im} \tau &= \operatorname{Im}\left( %
-\frac{a\tau'+ b}{c\tau' + d}
+\operatorname{Im} \uptau &= \operatorname{Im}\left( %
+\frac{a\uptau'+ b}{c\uptau' + d}
 \right) = \operatorname{Im}\left( %
-\frac{(a\tau'+ b)(c\overline{\tau'}+d)}{|c\tau' + d|^{2}}
+\frac{(a\uptau'+ b)(c\overline{\uptau'}+d)}{|c\uptau' + d|^{2}}
 \right)\\[2ex]
 &= \operatorname{Im}\left( %
 \frac{%
-	ac \, |\tau'|^{2} + ad \,\tau' + bc\, \overline{\tau'} + bc%
-}{|c\tau' + d|^{2}}
+	ac \, |\uptau'|^{2} + ad \,\uptau' + bc\, \overline{\uptau'} + bc%
+}{|c\uptau' + d|^{2}}
 \right)\\
-&= \frac{1}{|c\tau' + d|^{2}} \cdot \operatorname{Im}(ac \, |\tau'|^{2} + ad \,\tau' + bc\, \overline{\tau'} + bc)\\
-&= \frac{1}{|c\tau' + d|^{2}} \cdot \operatorname{Im}(ad \,\tau' + bc\, \overline{\tau'})\\
-&= \frac{1}{|c\tau' + d|^{2}} \cdot \bigg[ad\,\operatorname{Im}(\tau') + bc\, \operatorname{Im}(\overline{\tau'})\bigg]\\
-&= \frac{1}{|c\tau' + d|^{2}} \cdot \bigg[ad\,\operatorname{Im}(\tau') - bc\, \operatorname{Im}({\tau'})\bigg]\\
-&= \frac{1}{|c\tau' + d|^{2}} \cdot (ad-bc)\operatorname{Im}(\tau')\\
-&= \frac{1}{|c\tau' + d|^{2}} \cdot \det\begin{pmatrix}
+&= \frac{1}{|c\uptau' + d|^{2}} \cdot \operatorname{Im}(ac \, |\uptau'|^{2} + ad \,\uptau' + bc\, \overline{\uptau'} + bc)\\
+&= \frac{1}{|c\uptau' + d|^{2}} \cdot \operatorname{Im}(ad \,\uptau' + bc\, \overline{\uptau'})\\
+&= \frac{1}{|c\uptau' + d|^{2}} \cdot \bigg[ad\,\operatorname{Im}(\uptau') + bc\, \operatorname{Im}(\overline{\uptau'})\bigg]\\
+&= \frac{1}{|c\uptau' + d|^{2}} \cdot \bigg[ad\,\operatorname{Im}(\uptau') - bc\, \operatorname{Im}({\uptau'})\bigg]\\
+&= \frac{1}{|c\uptau' + d|^{2}} \cdot (ad-bc)\operatorname{Im}(\uptau')\\
+&= \frac{1}{|c\uptau' + d|^{2}} \cdot \det\begin{pmatrix}
 a & b\\
 c & d
-\end{pmatrix}\cdot \operatorname{Im}(\tau')
+\end{pmatrix}\cdot \operatorname{Im}(\uptau')
 \end{align*}
-e quindi, per concordanza dei segni (\(\operatorname{Im}\tau > 0\), \(\operatorname{Im}\tau' >0\)), si deve avere \(\det\left(\begin{smallmatrix} a & b\\c & d \end{smallmatrix}\right) > 0'\).
+e quindi, per concordanza dei segni (\(\operatorname{Im}\uptau > 0\), \(\operatorname{Im}\uptau' >0\)), si deve avere \(\det\left(\begin{smallmatrix} a & b\\c & d \end{smallmatrix}\right) > 0'\).
 
-(\(\Leftarrow\)): Supponiamo quindi che \(\tau = \frac{a\tau'+b}{c\tau' + d}\), con
+(\(\Leftarrow\)): Supponiamo quindi che \(\uptau = \frac{a\uptau'+b}{c\uptau' + d}\), con
 \begin{equation*}
 \begin{pmatrix}
 a & b\\
@@ -162,26 +158,26 @@ c & d
 \end{pmatrix} \in \operatorname{SL}(2;\Z).
 \end{equation*}
 
-Sia \(\gamma \coloneqq c\tau' + d\).
+Sia \(\gamma \coloneqq c\uptau' + d\).
 \begin{itemize}
-\item \(\gamma \neq 0\), poiché \((c,d) \neq (0,0)\) visto che la matrice è invertibile, e \(\tau'\notin \R\).
-\item Ovviamente \(\gamma, \gamma\,\tau \in L_{\tau'}\), in quanto
+\item \(\gamma \neq 0\), poiché \((c,d) \neq (0,0)\) visto che la matrice è invertibile, e \(\uptau'\notin \R\).
+\item Ovviamente \(\gamma, \gamma\,\uptau \in L_{\uptau'}\), in quanto
 \begin{equation*}
-  \gamma\,\tau = \gamma\, \frac{a\tau'+b}{c\tau' + d} = a\tau' + b.
+  \gamma\,\uptau = \gamma\, \frac{a\uptau'+b}{c\uptau' + d} = a\uptau' + b.
 \end{equation*}
-\item Per dimostrare che \(\gamma,\gamma\,\tau\) generino \(L_{\tau'}\) come gruppo additivo, è sufficiente scrivere \(1,\tau'\) come \(\Z\)-combinazione lineare di \(\gamma,\gamma\,\tau\). In particolare, sia \(A' \in \Z^{2\times 2}\) la matrice inversa di \(\left(\begin{smallmatrix} a & b\\ c & d\end{smallmatrix}\right)\). Allora
+\item Per dimostrare che \(\gamma,\gamma\,\uptau\) generino \(L_{\uptau'}\) come gruppo additivo, è sufficiente scrivere \(1,\uptau'\) come \(\Z\)-combinazione lineare di \(\gamma,\gamma\,\uptau\). In particolare, sia \(A' \in \Z^{2\times 2}\) la matrice inversa di \(\left(\begin{smallmatrix} a & b\\ c & d\end{smallmatrix}\right)\). Allora
 \begin{equation*}
   A'\cdot \begin{pmatrix}
-  	\gamma\,\tau\\
+  	\gamma\,\uptau\\
   	\gamma
   \end{pmatrix} = A' \cdot \begin{pmatrix}
   	a & b\\
   	c & d
   \end{pmatrix} \cdot \begin{pmatrix}
-  	\tau'\\
+  	\uptau'\\
   	1
   \end{pmatrix} = \begin{pmatrix}
-  	\tau'\\
+  	\uptau'\\
   	1
   \end{pmatrix}.
   \qedhere
@@ -197,16 +193,16 @@ a & b\\
 c & d
 \end{pmatrix} \in \operatorname{SL}(2;\Z),\qquad \begin{aligned}
 \mathds{H} & \longrightarrow \mathds{H}\\
-\tau &\longmapsto \frac{a\tau + b}{c\tau + d}.
+\uptau &\longmapsto \frac{a\uptau + b}{c\uptau + d}.
 \end{aligned}
 \end{equation*}
 \end{prop}
 
 \begin{oss}
-In particolare, quindi, \(X_{\tau} \cong X_{\tau'}\) se e solo se \(\tau,\tau'\) sono nella stessa \href{20260201185059-azione_di_gruppo.org}{orbita} per questa azione. In definitiva, si ha
+In particolare, quindi, \(X_{\uptau} \cong X_{\uptau'}\) se e solo se \(\uptau,\uptau'\) sono nella stessa \href{20260201185059-azione_di_gruppo.org}{orbita} per questa azione. In definitiva, si ha
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
-	{\set{\text{tori complessi}}/\text{iso}} \&\& {\set{X_{\tau}}_{\tau \in \mathds{H}}/\text{iso}} \&\& {\mathds{H}/\operatorname{SL}(2;\Z)}
+	{\set{\text{tori complessi}}/\text{iso}} \&\& {\set{X_{\uptau}}_{\uptau \in \mathds{H}}/\text{iso}} \&\& {\mathds{H}/\operatorname{SL}(2;\Z)}
 	\arrow["{{1\duepunti 1}}", tail reversed, from=1-1, to=1-3]
 	\arrow["{1\duepunti 1}", tail reversed, from=1-3, to=1-5]
 \end{tikzcd}

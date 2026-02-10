@@ -1,10 +1,6 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-\use{upgreek}
-\def\tau{\uptau}
-
-
 \begin{document}
 
 \section{Mesh di una catena singolare}
@@ -14,23 +10,23 @@ Sia \(R\) un \href{20241219112842-pid.org}{PID}. Si consideri \(\Delta_{q}\) il 
 \item Si consideri \(\Sigma_{q}(\Delta_{q})\) l'insieme dei \href{20250122133435-simplesso_singolare.org}{simplessi singolari},
 \item Si consideri \(S_{q}(\Delta_{q}) = R^{(\Sigma_{q}(\Delta_{q}))}\)\footnote{Questa è la \href{20241213095808-somma_diretta.org}{somma diretta}.} il \href{20241205141053-r_moduli.org}{modulo} delle \href{20250122133435-simplesso_singolare.org}{catene singolari}
 \end{itemize}
-Per ogni \(c \in S_{q}(\Delta_{q})\), siano\footnote{Queste esistono poiché \(\Sigma_{q}(\Delta_{q})\) è \href{20241213094625-modulo_libero.org}{base} di \(S_{q}(\Delta_{q})\).} \(\tau_{1},\dots,\tau_{n} \in \Sigma_{q}(\Delta_{q})\) tali che
+Per ogni \(c \in S_{q}(\Delta_{q})\), siano\footnote{Queste esistono poiché \(\Sigma_{q}(\Delta_{q})\) è \href{20241213094625-modulo_libero.org}{base} di \(S_{q}(\Delta_{q})\).} \(\uptau_{1},\dots,\uptau_{n} \in \Sigma_{q}(\Delta_{q})\) tali che
 \begin{equation*}
-c=\sum_{i}a_{i}\cdot \tau_{i},\qquad a_{i } \in R
+c=\sum_{i}a_{i}\cdot \uptau_{i},\qquad a_{i } \in R
 \end{equation*}
 
 \begin{definizione}
 Si definisce la mesh di \(c\):\footnote{Vedi ``\href{20250202190147-immagine_punto_a_punto_di_due_classi.org}{Immagine e retroimmagine tramite una funzione}'' e ``\href{20250203102516-massimo_e_minimo.org}{Elemento Massimo}''.}
 \begin{equation*}
-\operatorname{mesh}(c) \coloneqq \max_{i}\set{\operatorname{diam}\big(\operatorname{Im}(\tau_{i})\big)}_{i}
+\operatorname{mesh}(c) \coloneqq \max_{i}\set{\operatorname{diam}\big(\operatorname{Im}(\uptau_{i})\big)}_{i}
 \end{equation*}
 dove \(\operatorname{diam}\) è la massima distanza tra due punti di un insieme di \(\R^{k}\).
 \end{definizione}
 
 \begin{oss}
-Se \(\tau:\Delta_{q}\to \Delta_{q}\) \href{20250129094132-trasformazione_affine.org}{trasformazione affine}, con \(P_{i} \coloneqq \tau(e_{i})\)\footnote{Con \(e_{i}\) si indicano \href{20250121122324-simplesso_standard.org}{i punti base di \(\Delta_{q}\)}}, allora
+Se \(\uptau:\Delta_{q}\to \Delta_{q}\) \href{20250129094132-trasformazione_affine.org}{trasformazione affine}, con \(P_{i} \coloneqq \uptau(e_{i})\)\footnote{Con \(e_{i}\) si indicano \href{20250121122324-simplesso_standard.org}{i punti base di \(\Delta_{q}\)}}, allora
 \begin{equation*}
-\operatorname{diam}\big(\operatorname{Im}(\tau_{i})\big) = %
+\operatorname{diam}\big(\operatorname{Im}(\uptau_{i})\big) = %
 \operatorname{diam} [P_{0},\dots,P_{q}] = \max_{i,j} \norma{P_{i}-P_{j}}.
 \end{equation*}
 \end{oss}
@@ -40,9 +36,9 @@ Se \(\tau:\Delta_{q}\to \Delta_{q}\) \href{20250129094132-trasformazione_affine.
 Si consideri \(\operatorname{sd}_{q} :S_{q}(\Delta_{q})\to S_{q}(\Delta_{q})\) \href{20250128132040-mappa_di_suddivisione_tra_complessi_di_catene_singolari.org}{mappa di suddivisione}.
 
 \begin{lem}
-Se \(\tau:\Delta_{q}\to \Delta_{q}\) \href{20250129094132-trasformazione_affine.org}{trasformazione affine}, \(\tau \in S_{q}(\Delta_{q})\), allora
+Se \(\uptau:\Delta_{q}\to \Delta_{q}\) \href{20250129094132-trasformazione_affine.org}{trasformazione affine}, \(\uptau \in S_{q}(\Delta_{q})\), allora
 \begin{equation*}
-\operatorname{mesh}(\operatorname{sd}_{q}\tau) \le \frac{q}{q+1} \operatorname{mesh}(\tau).
+\operatorname{mesh}(\operatorname{sd}_{q}\uptau) \le \frac{q}{q+1} \operatorname{mesh}(\uptau).
 \end{equation*}
 \end{lem}
 

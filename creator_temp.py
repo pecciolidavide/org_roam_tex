@@ -83,7 +83,7 @@ def main():
         # Nota: usiamo f-string con / forzato per compatibilità LaTeX
         path = f"{SUBFILES_DIR}/{name_without_ext}"
 
-        subfiles_latex_code += f"\\titoletto{{{path}}}\n\\subfile{{{path}}}\n\\newpage\n"
+        subfiles_latex_code += f"\\subfile{{{path}}}\n"
 
     if cleaned_count > 0:
         print(f"Note: Rimossi comandi indesiderati da {cleaned_count} file.")
@@ -93,8 +93,6 @@ def main():
 
 \usepackage{subfiles}
 \input{preamble.tex}
-
-\def\titoletto#1{\centering #1 \newline}
 
 \begin{document}
 

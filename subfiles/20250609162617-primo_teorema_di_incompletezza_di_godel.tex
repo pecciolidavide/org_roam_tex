@@ -1,9 +1,7 @@
 % Intended LaTeX compiler: pdflatex
 \documentclass[../main]{subfiles}
 
-\usepackage[hyperref]{biblatex}
-\date{}
-\title{}
+
 \begin{document}
 
 \section{Primo Teorema di Incompletezza di Gödel}
@@ -61,7 +59,7 @@ Q\vdash \sigma\iff \varphi(\overline{\termcode{\sigma}}/v_{i})
 \begin{itemize}
 \item Si supponga quindi che \(Q\vdash \sigma\), ovvero, per definizione di \(\rho\):
 \begin{equation*}
-     Q\vdash \forall\,v_{i}\ \left(\psi(\overline{\termcode{\rho}},v_{i})\implies \varphi(v_{i})\right)\tag{\star}
+     Q\vdash \forall\,v_{i}\ \left(\psi(\overline{\termcode{\rho}},v_{i})\implies \varphi(v_{i})\right)\tag{\(\star\)}
 \end{equation*}
 
 Inoltre, siccome \(\psi(x,y)\) rappresenta \(D\), allora
@@ -70,7 +68,7 @@ Inoltre, siccome \(\psi(x,y)\) rappresenta \(D\), allora
 \end{equation*}
 ovvero proprio
 \begin{equation*}
-     Q\vdash \psi(\overline{\termcode{\rho}}, \overline{\termcode{\rho(\overline{\termcode{\rho}}/v_{0})}})\tag{\star\star}
+     Q\vdash \psi(\overline{\termcode{\rho}}, \overline{\termcode{\rho(\overline{\termcode{\rho}}/v_{0})}})\tag{\(\star\star\)}
 \end{equation*}
 Per (\(\star\)), istanziando \(v_{i}\) con \(\overline{\termcode{\rho(\overline{\termcode{\rho}}/v_{0})}}\):
 \begin{equation*}
@@ -97,7 +95,7 @@ Questo dimostra che
 
 Allora
 \begin{equation*}
-  M\vDash \varphi(\overline{\termcode{\sigma}}/v_{i})\tag{\star\star\star}
+  M\vDash \varphi(\overline{\termcode{\sigma}}/v_{i})\tag{\(\star\star\star\)}
 \end{equation*}
 
 Mostriamo che \(M\vDash \sigma\), ovvero
@@ -117,12 +115,12 @@ Per l'arbitrarietà di \(q \in M\), si ottiene
 \end{equation*}
 e per arbitrarietà di \(M\vDash Q\): \(Q\vdash \sigma\).
 
-Questo dimostra che \(Q\vdash \varphi(\overline{\term{\sigma}}/v_{i})\implies \sigma\).
+Questo dimostra che \(Q\vdash \varphi(\overline{\termcode{\sigma}}/v_{i})\implies \sigma\).
 \end{itemize}
 
 I due punti sopra dimostrano la tesi
 \begin{equation*}
-Q\vdash \sigma\iff \overline{\term{\sigma}}/v_{i}).\qedd
+Q\vdash \sigma\iff \overline{\termcode{\sigma}}/v_{i}).\qedd
 \end{equation*}
 \subsection{Primo Teorema di Incompletezza di Gödel}
 \label{sec:org54d21de}
@@ -140,7 +138,7 @@ Sia quindi \(\varphi(y)\) la \(L\)-formula \(\lnot \exists\, x\ \psi(x,y)\). \fo
 
 Per il Lemma di Diagonalizzazione, esiste \(\sigma_{G}\) tale che \footnote{Per costruzione, siccome \(\varphi(y)\) è \(\Pi_{1}\), allora anche \(\sigma_{G}\) è \(\Pi_{1}\).}
 \begin{equation*}
-T\supseteq Q\vdash \sigma_{G}\iff\varphi(\overline{\termcode{\sigma_{G}}}/y).\tag{\diamondsuit}
+T\supseteq Q\vdash \sigma_{G}\iff\varphi(\overline{\termcode{\sigma_{G}}}/y).\tag{\(\diamondsuit\)}
 \end{equation*}
 
 Si dimostra che \(T\not\vdash \sigma_{G}\) e \(T\not\vdash\lnot\sigma_{G}\).
