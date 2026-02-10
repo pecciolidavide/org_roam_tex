@@ -8,7 +8,8 @@
 \label{sec:orge66a38a}
 %% Alcuni simboli
 \def\nonforkSymbol{\mathbin{\raise1.8ex\rlap{\kern0.6ex\rule{0.6ex}{0.1ex}}\rlap{\kern1.1ex\rule{0.1ex}{1.9ex}}\raise-0.3ex\hbox{$\smile$} } }
-\newcommand{\nonfork}[1][M]{\mathrel{\nonforkSymbol_{#1}}}
+\def\nonfork{\relax}
+\renewcommand{\nonfork}[1][M]{\mathrel{\nonforkSymbol_{#1}}}
 %% Leggibilità
 %
 \def\L{\mathcal{L}} % Il linguaggio
