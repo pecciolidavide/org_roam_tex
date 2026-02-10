@@ -1,18 +1,18 @@
 [0] Config.pm:304> INFO - This is Biber 2.12
 [0] Config.pm:307> INFO - Logfile is 'main.blg'
-[41] biber-darwin:315> INFO - === Mar Feb 10, 2026, 00:07:44
-[69] Biber.pm:371> INFO - Reading 'main.bcf'
-[154] Biber.pm:889> INFO - Found 2 citekeys in bib section 0
-[170] Biber.pm:4093> INFO - Processing section 0
-[185] Biber.pm:4254> INFO - Looking for bibtex format file '~/Documents/GLOBAL_ORG/org/roam/bib/master.bib' for section 0
-[442] bibtex.pm:1523> INFO - LaTeX decoding ...
-[1637] bibtex.pm:1340> INFO - Found BibTeX data source '/Users/davidepeccioli/Documents/GLOBAL_ORG/org/roam/bib/master.bib'
-[1748] Utils.pm:193> WARN - ISBN '978-3-030-36720-6 978-3-030-36721-3' in entry 'calinDeepLearningArchitectures2020' is invalid - run biber with '--validate_datamodel' for details.
-[1752] Utils.pm:193> WARN - year field 'a.a. 2024-25' in entry 'derossiAppuntiCorsoDi2024' is not an integer - this will probably not sort properly.
-[1765] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1765] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1765] Biber.pm:3921> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'it-IT'
-[1765] Biber.pm:3927> INFO - No sort tailoring available for locale 'it-IT'
-[1768] bbl.pm:636> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[1769] bbl.pm:739> INFO - Output to main.bbl
-[1769] Biber.pm:110> INFO - WARNINGS: 2
+[34] biber-darwin:315> INFO - === Mar Feb 10, 2026, 10:43:05
+[59] Biber.pm:371> INFO - Reading 'main.bcf'
+[146] Biber.pm:889> INFO - Found 2 citekeys in bib section 0
+[161] Biber.pm:4093> INFO - Processing section 0
+[173] Biber.pm:4254> INFO - Looking for bibtex format file '~/Documents/GLOBAL_ORG/org/roam/bib/master.bib' for section 0
+[435] bibtex.pm:1523> INFO - LaTeX decoding ...
+[1635] bibtex.pm:1340> INFO - Found BibTeX data source '/Users/davidepeccioli/Documents/GLOBAL_ORG/org/roam/bib/master.bib'
+[1739] Utils.pm:193> WARN - ISBN '978-3-030-36720-6 978-3-030-36721-3' in entry 'calinDeepLearningArchitectures2020' is invalid - run biber with '--validate_datamodel' for details.
+[1742] Utils.pm:193> WARN - year field 'a.a. 2024-25' in entry 'derossiAppuntiCorsoDi2024' is not an integer - this will probably not sort properly.
+[1754] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1754] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1754] Biber.pm:3921> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'it-IT'
+[1754] Biber.pm:3927> INFO - No sort tailoring available for locale 'it-IT'
+[1757] bbl.pm:636> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[1759] bbl.pm:739> INFO - Output to main.bbl
+[1759] Biber.pm:110> INFO - WARNINGS: 2

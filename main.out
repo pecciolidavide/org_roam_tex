@@ -2304,3 +2304,702 @@
 \BOOKMARK [2][]{subsection.1084.1}{Corsi}{section.1084}% 2304
 \BOOKMARK [2][]{subsection.1084.2}{Lectio Magistralis}{section.1084}% 2305
 \BOOKMARK [2][]{subsection.1084.3}{Talks Informali}{section.1084}% 2306
+\BOOKMARK [1][]{section.1085}{Teoria della ricorsivit\340 [CORSO SEL2025]}{}% 2307
+\BOOKMARK [2][]{subsection.1085.1}{Lezione 1}{section.1085}% 2308
+\BOOKMARK [3][]{subsubsection.1085.1.1}{Notazione}{subsection.1085.1}% 2309
+\BOOKMARK [3][]{subsubsection.1085.1.2}{Modelli di computazione}{subsection.1085.1}% 2310
+\BOOKMARK [3][]{subsubsection.1085.1.3}{Funzioni parziali ricorsive}{subsection.1085.1}% 2311
+\BOOKMARK [2][]{subsection.1085.2}{Lezione 2}{section.1085}% 2312
+\BOOKMARK [3][]{subsubsection.1085.2.1}{Turing's computability}{subsection.1085.2}% 2313
+\BOOKMARK [3][]{subsubsection.1085.2.2}{Tesi di Church-Turing}{subsection.1085.2}% 2314
+\BOOKMARK [2][]{subsection.1085.3}{Lezione 3}{section.1085}% 2315
+\BOOKMARK [3][]{subsubsection.1085.3.1}{Conseguenze di CTT}{subsection.1085.3}% 2316
+\BOOKMARK [3][]{subsubsection.1085.3.2}{Teorema di Punto fisso di Kleene}{subsection.1085.3}% 2317
+\BOOKMARK [3][]{subsubsection.1085.3.3}{Indecidibilit\340}{subsection.1085.3}% 2318
+\BOOKMARK [3][]{subsubsection.1085.3.4}{Computable enumeration}{subsection.1085.3}% 2319
+\BOOKMARK [2][]{subsection.1085.4}{Lezione 4}{section.1085}% 2320
+\BOOKMARK [3][]{subsubsection.1085.4.1}{Riducibilit\340 many-one.}{subsection.1085.4}% 2321
+\BOOKMARK [3][]{subsubsection.1085.4.2}{Teorema di Godel}{subsection.1085.4}% 2322
+\BOOKMARK [1][]{section.1086}{Reverse Mathematics [CORSO SEL2025]}{}% 2323
+\BOOKMARK [2][]{subsection.1086.1}{Introduzione}{section.1086}% 2324
+\BOOKMARK [2][]{subsection.1086.2}{Aritmetica del second'ordine L2 e Z2.}{section.1086}% 2325
+\BOOKMARK [2][]{subsection.1086.3}{``Big Five''}{section.1086}% 2326
+\BOOKMARK [3][]{subsubsection.1086.3.1}{RCA0}{subsection.1086.3}% 2327
+\BOOKMARK [3][]{subsubsection.1086.3.2}{WKL0}{subsection.1086.3}% 2328
+\BOOKMARK [3][]{subsubsection.1086.3.3}{ACA0}{subsection.1086.3}% 2329
+\BOOKMARK [3][]{subsubsection.1086.3.4}{ATR0}{subsection.1086.3}% 2330
+\BOOKMARK [3][]{subsubsection.1086.3.5}{11-CA0}{subsection.1086.3}% 2331
+\BOOKMARK [3][]{subsubsection.1086.3.6}{Riferimenti:}{subsection.1086.3}% 2332
+\BOOKMARK [2][]{subsection.1086.4}{Esempio}{section.1086}% 2333
+\BOOKMARK [1][]{section.1087}{Iperoperazioni}{}% 2334
+\BOOKMARK [1][]{section.1088}{Chi ha paura delle incoerenze? [CORSO SEL2025]}{}% 2335
+\BOOKMARK [1][]{section.1089}{In lode della Quasi Verit\340: Algebre di Boole Perturbate, la loro Logica e Applicazioni [CORSO SEL2025]}{}% 2336
+\BOOKMARK [1][]{section.1090}{Istituzioni di Algebra [CORSO]}{}% 2337
+\BOOKMARK [2][]{subsection.1090.1}{Introduzione}{section.1090}% 2338
+\BOOKMARK [0][]{part.1}{I Algebra commutativa di base}{}% 2339
+\BOOKMARK [1][]{subsection.1090.2}{Lezione 1 - <2025-09-22 Lun>}{part.1}% 2340
+\BOOKMARK [2][]{subsubsection.1090.2.1}{Anelli e ideali}{subsection.1090.2}% 2341
+\BOOKMARK [2][]{subsection.1090.3}{Lezione 2 - <2025-09-23 Mar>}{subsection.1090.2}% 2342
+\BOOKMARK [2][]{subsection.1090.4}{Lezione 3 - <2025-09-29 Lun>}{subsection.1090.2}% 2343
+\BOOKMARK [2][]{subsection.1090.5}{Lezione 4 - <2025-09-30 Mar>}{subsection.1090.2}% 2344
+\BOOKMARK [3][]{subsubsection.1090.5.1}{Spec di un anello [Parentesi estemporanea fuori programma]}{subsection.1090.5}% 2345
+\BOOKMARK [3][]{subsubsection.1090.5.2}{Moduli}{subsection.1090.5}% 2346
+\BOOKMARK [2][]{subsection.1090.6}{Lezione 5 - <2025-10-06 Lun>}{subsection.1090.2}% 2347
+\BOOKMARK [2][]{subsection.1090.7}{Lezione 6 - <2025-10-07 Mar>}{subsection.1090.2}% 2348
+\BOOKMARK [2][]{subsection.1090.8}{Lezione 7 - <2025-10-10 Ven>}{subsection.1090.2}% 2349
+\BOOKMARK [3][]{subsubsection.1090.8.1}{Prodotto tensoriale di A-moduli}{subsection.1090.8}% 2350
+\BOOKMARK [3][]{subsubsection.1090.8.2}{Estensione e restrizione degli Scalari}{subsection.1090.8}% 2351
+\BOOKMARK [2][]{subsection.1090.9}{Lezione 8 - <2025-10-13 Lun>}{subsection.1090.2}% 2352
+\BOOKMARK [3][]{subsubsection.1090.9.1}{Prodotto tensoriale}{subsection.1090.9}% 2353
+\BOOKMARK [3][]{subsubsection.1090.9.2}{Propriet\340 del prodotto tensoriale}{subsection.1090.9}% 2354
+\BOOKMARK [3][]{subsubsection.1090.9.3}{Moduli Piatti}{subsection.1090.9}% 2355
+\BOOKMARK [3][]{subsubsection.1090.9.4}{Limite Diretto \(Iniettivo\)}{subsection.1090.9}% 2356
+\BOOKMARK [3][]{subsubsection.1090.9.5}{Limite Inverso \(Proiettivo\)}{subsection.1090.9}% 2357
+\BOOKMARK [2][]{subsection.1090.10}{Lezione 9 - <2025-10-14 Mar>}{subsection.1090.2}% 2358
+\BOOKMARK [3][]{subsubsection.1090.10.1}{Anelli e Moduli di Frazioni}{subsection.1090.10}% 2359
+\BOOKMARK [2][]{subsection.1090.11}{Lezione 10 - <2025-10-17 Ven>}{subsection.1090.2}% 2360
+\BOOKMARK [2][]{subsection.1090.12}{Lezione 11 - <2025-10-20 Lun>}{subsection.1090.2}% 2361
+\BOOKMARK [3][]{subsubsection.1090.12.1}{Decomposizione primaria di ideali}{subsection.1090.12}% 2362
+\BOOKMARK [2][]{subsection.1090.13}{Lezione 12 - <2025-10-21 Mar>}{subsection.1090.2}% 2363
+\BOOKMARK [0][]{part.2}{II Algebra commutativa avanzata}{}% 2364
+\BOOKMARK [1][]{subsection.1090.14}{Lezione 13 - <2025-10-24 Ven>}{part.2}% 2365
+\BOOKMARK [2][]{subsubsection.1090.14.1}{Condizioni Catenarie \(Noetherianit\340 - Artinianit\340\)}{subsection.1090.14}% 2366
+\BOOKMARK [3][]{subsubsection.1090.14.2}{Moduli e Anelli Noetheriani e Artiniani}{subsubsection.1090.14.1}% 2367
+\BOOKMARK [3][]{subsubsection.1090.14.3}{Esempi e Controesempi}{subsubsection.1090.14.1}% 2368
+\BOOKMARK [3][]{subsubsection.1090.14.4}{Spazi Vettoriali}{subsubsection.1090.14.1}% 2369
+\BOOKMARK [3][]{subsubsection.1090.14.5}{Caratterizzazione dei Moduli Noetheriani}{subsubsection.1090.14.1}% 2370
+\BOOKMARK [2][]{subsection.1090.15}{Lezione 14 - <2025-10-27 Lun>}{subsection.1090.14}% 2371
+\BOOKMARK [2][]{subsection.1090.16}{Lezione 15 - <2025-10-28 Mar>}{subsection.1090.14}% 2372
+\BOOKMARK [2][]{subsection.1090.17}{Lezione 16 - <2025-10-31 Ven>}{subsection.1090.14}% 2373
+\BOOKMARK [3][]{subsubsection.1090.17.1}{Anelli Noetheriani}{subsection.1090.17}% 2374
+\BOOKMARK [2][]{subsection.1090.18}{Lezione 17 - <2025-11-03 Lun>}{subsection.1090.14}% 2375
+\BOOKMARK [3][]{subsubsection.1090.18.1}{Teorema della base di Hilbert}{subsection.1090.18}% 2376
+\BOOKMARK [2][]{subsection.1090.19}{Lezione 18 - <2025-11-04 Mar>}{subsection.1090.14}% 2377
+\BOOKMARK [3][]{subsubsection.1090.19.1}{Sottoanelli e Noetherianit\340}{subsection.1090.19}% 2378
+\BOOKMARK [3][]{subsubsection.1090.19.2}{Divisori dello Zero e Decomposizione Primaria}{subsection.1090.19}% 2379
+\BOOKMARK [2][]{subsection.1090.20}{Lezione 19 - <2025-11-07 Ven>}{subsection.1090.14}% 2380
+\BOOKMARK [2][]{subsection.1090.21}{Lezione 20 - <2025-11-10 Lun>}{subsection.1090.14}% 2381
+\BOOKMARK [3][]{subsubsection.1090.21.1}{Teoremi su Anelli Artiniani e Noetheriani}{subsection.1090.21}% 2382
+\BOOKMARK [3][]{subsubsection.1090.21.2}{Teorema di Struttura di Moduli su PID}{subsection.1090.21}% 2383
+\BOOKMARK [2][]{subsection.1090.22}{Lezione 21 - <2025-11-11 Mar>}{subsection.1090.14}% 2384
+\BOOKMARK [2][]{subsection.1090.23}{Lezione 22 - <2025-11-14 Ven>}{subsection.1090.14}% 2385
+\BOOKMARK [3][]{subsubsection.1090.23.1}{Forma canonica di Jordan}{subsection.1090.23}% 2386
+\BOOKMARK [2][]{subsection.1090.24}{Lezione 23 - <2025-11-17 Lun>}{subsection.1090.14}% 2387
+\BOOKMARK [3][]{subsubsection.1090.24.1}{Dipendenza Integrale}{subsection.1090.24}% 2388
+\BOOKMARK [3][]{subsubsection.1090.24.2}{Caratterizzazioni della Dipendenza Integrale}{subsection.1090.24}% 2389
+\BOOKMARK [3][]{subsubsection.1090.24.3}{Chiusura Integrale}{subsection.1090.24}% 2390
+\BOOKMARK [3][]{subsubsection.1090.24.4}{Comportamento con Quozienti e Localizzazioni}{subsection.1090.24}% 2391
+\BOOKMARK [2][]{subsection.1090.25}{Lezione 24 - <2025-11-18 Mar>}{subsection.1090.14}% 2392
+\BOOKMARK [0][]{part.3}{III Tecniche computazionali per ideali di K[X0,\203,Xn]}{}% 2393
+\BOOKMARK [1][]{subsection.1090.26}{Lezione 25 - <2025-11-21 Ven>}{part.3}% 2394
+\BOOKMARK [2][]{subsubsection.1090.26.1}{Monoide}{subsection.1090.26}% 2395
+\BOOKMARK [2][]{subsection.1090.27}{Lezione 26 - <2025-11-24 Lun>}{subsection.1090.26}% 2396
+\BOOKMARK [3][]{subsubsection.1090.27.1}{Monomoduli}{subsection.1090.27}% 2397
+\BOOKMARK [3][]{subsubsection.1090.27.2}{Divisione}{subsection.1090.27}% 2398
+\BOOKMARK [2][]{subsection.1090.28}{Lezione 27 - <2025-11-25 Mar>}{subsection.1090.26}% 2399
+\BOOKMARK [3][]{subsubsection.1090.28.1}{Divisioni in K[X1,\203,Xn]}{subsection.1090.28}% 2400
+\BOOKMARK [2][]{subsection.1090.29}{Lezione 28 - <2025-11-28 Ven>}{subsection.1090.26}% 2401
+\BOOKMARK [3][]{subsubsection.1090.29.1}{Divisione con Resto con Term Order}{subsection.1090.29}% 2402
+\BOOKMARK [3][]{subsubsection.1090.29.2}{Problema dell'Appartenenza Ideale \(Ideal Membership Problem\)}{subsection.1090.29}% 2403
+\BOOKMARK [3][]{subsubsection.1090.29.3}{Base di Gr\366bner}{subsection.1090.29}% 2404
+\BOOKMARK [2][]{subsection.1090.30}{Lezione 29 - <2025-12-01 Lun>}{subsection.1090.26}% 2405
+\BOOKMARK [3][]{subsubsection.1090.30.1}{Module Membership Problem}{subsection.1090.30}% 2406
+\BOOKMARK [3][]{subsubsection.1090.30.2}{Esistenza della Base di Groebner}{subsection.1090.30}% 2407
+\BOOKMARK [3][]{subsubsection.1090.30.3}{Basi di Groebner ridotte}{subsection.1090.30}% 2408
+\BOOKMARK [3][]{subsubsection.1090.30.4}{Criterio di Buchberger}{subsection.1090.30}% 2409
+\BOOKMARK [2][]{subsection.1090.31}{Lezione 30 - <2025-12-02 Mar>}{subsection.1090.26}% 2410
+\BOOKMARK [3][]{subsubsection.1090.31.1}{Criterio di Buchberger}{subsection.1090.31}% 2411
+\BOOKMARK [3][]{subsubsection.1090.31.2}{Algoritmo di Buchberger}{subsection.1090.31}% 2412
+\BOOKMARK [2][]{subsection.1090.32}{Lezione 31 - <2025-12-05 Ven>}{subsection.1090.26}% 2413
+\BOOKMARK [3][]{subsubsection.1090.32.1}{Teorema di Eliminazione}{subsection.1090.32}% 2414
+\BOOKMARK [2][]{subsection.1090.33}{Lezione 32 - <2025-12-09 Mar>}{subsection.1090.26}% 2415
+\BOOKMARK [2][]{subsection.1090.34}{Lezione 33 - <2025-12-15 Lun>}{subsection.1090.26}% 2416
+\BOOKMARK [3][]{subsubsection.1090.34.1}{Applicazioni alla Geometria Algebrica}{subsection.1090.34}% 2417
+\BOOKMARK [3][]{subsubsection.1090.34.2}{Nullstellensatz di Hilbert}{subsection.1090.34}% 2418
+\BOOKMARK [2][]{subsection.1090.35}{TODO Lezione 34 - <2025-12-16 Mar>}{subsection.1090.26}% 2419
+\BOOKMARK [2][]{subsection.1090.36}{Lezione 35 - <2025-12-17 Mer>}{subsection.1090.26}% 2420
+\BOOKMARK [3][]{subsubsection.1090.36.1}{Algoritmo di calcolo intersezioni di ideali}{subsection.1090.36}% 2421
+\BOOKMARK [3][]{subsubsection.1090.36.2}{Calcolo del minimo comune multiplo}{subsection.1090.36}% 2422
+\BOOKMARK [3][]{subsubsection.1090.36.3}{Colon tra ideali}{subsection.1090.36}% 2423
+\BOOKMARK [2][]{subsection.1090.37}{Lezione 36 - <2025-12-19 Ven>}{subsection.1090.26}% 2424
+\BOOKMARK [3][]{subsubsection.1090.37.1}{Automatic Geometric Theorem Proving}{subsection.1090.37}% 2425
+\BOOKMARK [3][]{subsubsection.1090.37.2}{Colorazione dei grafi}{subsection.1090.37}% 2426
+\BOOKMARK [1][]{section.1091}{Teoria dei modelli [CORSO]}{part.3}% 2427
+\BOOKMARK [2][]{subsection.1091.1}{Istruzioni Esame}{section.1091}% 2428
+\BOOKMARK [2][]{subsection.1091.2}{Lezione 1 - <2025-09-23 Mar>}{section.1091}% 2429
+\BOOKMARK [3][]{subsubsection.1091.2.1}{Ripasso}{subsection.1091.2}% 2430
+\BOOKMARK [3][]{subsubsection.1091.2.2}{Preservation Theorem}{subsection.1091.2}% 2431
+\BOOKMARK [2][]{subsection.1091.3}{Lezione 2 - <2025-09-24 Mer>}{section.1091}% 2432
+\BOOKMARK [3][]{subsubsection.1091.3.1}{Preservation Theorem}{subsection.1091.3}% 2433
+\BOOKMARK [3][]{subsubsection.1091.3.2}{Back-and-forth conditions for QE}{subsection.1091.3}% 2434
+\BOOKMARK [3][]{subsubsection.1091.3.3}{Model-completeness}{subsection.1091.3}% 2435
+\BOOKMARK [2][]{subsection.1091.4}{Lezione 3 - <2025-09-30 Mar>}{section.1091}% 2436
+\BOOKMARK [2][]{subsection.1091.5}{Lezione 4 - <2025-10-01 Mer>}{section.1091}% 2437
+\BOOKMARK [3][]{subsubsection.1091.5.1}{Modelli primi e modelli atomici}{subsection.1091.5}% 2438
+\BOOKMARK [3][]{subsubsection.1091.5.2}{Categoricit\340 numerabile}{subsection.1091.5}% 2439
+\BOOKMARK [2][]{subsection.1091.6}{Lezione 5 - <2025-10-07 Mar>}{section.1091}% 2440
+\BOOKMARK [3][]{subsubsection.1091.6.1}{Teorie sottili \(small\)}{subsection.1091.6}% 2441
+\BOOKMARK [2][]{subsection.1091.7}{Lezione 6 - <2025-10-08 Mer>}{section.1091}% 2442
+\BOOKMARK [3][]{subsubsection.1091.7.1}{Linguaggio a pi\371 sorte}{subsection.1091.7}% 2443
+\BOOKMARK [3][]{subsubsection.1091.7.2}{Linguaggio del secondo ordine}{subsection.1091.7}% 2444
+\BOOKMARK [3][]{subsubsection.1091.7.3}{Immaginari}{subsection.1091.7}% 2445
+\BOOKMARK [2][]{subsection.1091.8}{Lezione 7 - <2025-10-14 Mar>}{section.1091}% 2446
+\BOOKMARK [3][]{subsubsection.1091.8.1}{Sottostrutture elementari}{subsection.1091.8}% 2447
+\BOOKMARK [2][]{subsection.1091.9}{Lezione 8 - <2025-10-15 Mer>}{section.1091}% 2448
+\BOOKMARK [3][]{subsubsection.1091.9.1}{Eliminazione degli immaginari}{subsection.1091.9}% 2449
+\BOOKMARK [2][]{subsection.1091.10}{TODO Lezione 9 - <2025-10-21 Mar>}{section.1091}% 2450
+\BOOKMARK [3][]{subsubsection.1091.10.1}{Formule e tipi invarianti}{subsection.1091.10}% 2451
+\BOOKMARK [2][]{subsection.1091.11}{DONE Lezione 10 - <2025-10-22 Mer>}{section.1091}% 2452
+\BOOKMARK [3][]{subsubsection.1091.11.1}{DONE Sequenze di Morley}{subsection.1091.11}% 2453
+\BOOKMARK [3][]{subsubsection.1091.11.2}{Sequenze di indiscernibili}{subsection.1091.11}% 2454
+\BOOKMARK [3][]{subsubsection.1091.11.3}{Eredi e coeredi}{subsection.1091.11}% 2455
+\BOOKMARK [2][]{subsection.1091.12}{DONE Lezione 11 - <2025-10-28 Mar>}{section.1091}% 2456
+\BOOKMARK [3][]{subsubsection.1091.12.1}{Teorema di Ramsey}{subsection.1091.12}% 2457
+\BOOKMARK [2][]{subsection.1091.13}{DONE Lezione 12 - <2025-10-29 Mer>}{section.1091}% 2458
+\BOOKMARK [3][]{subsubsection.1091.13.1}{Teorema di Ehrenfeucht-Mostowski}{subsection.1091.13}% 2459
+\BOOKMARK [3][]{subsubsection.1091.13.2}{Teorema di Hindman}{subsection.1091.13}% 2460
+\BOOKMARK [2][]{subsection.1091.14}{TODO Lezione 13 - <2025-11-04 Mar>}{section.1091}% 2461
+\BOOKMARK [3][]{subsubsection.1091.14.1}{Topological dynamics}{subsection.1091.14}% 2462
+\BOOKMARK [2][]{subsection.1091.15}{TODO Lezione 14 - <2025-11-05 Mer>}{section.1091}% 2463
+\BOOKMARK [2][]{subsection.1091.16}{DONE Lezione 15 - <2025-11-11 Mar>}{section.1091}% 2464
+\BOOKMARK [2][]{subsection.1091.17}{DONE Lezione 16 - <2025-11-12 Mer>}{section.1091}% 2465
+\BOOKMARK [3][]{subsubsection.1091.17.1}{Relazioni stabili}{subsection.1091.17}% 2466
+\BOOKMARK [2][]{subsection.1091.18}{TODO Lezione 17 - <2025-11-18 Mar>}{section.1091}% 2467
+\BOOKMARK [2][]{subsection.1091.19}{TODO Lezione 18 - <2025-11-25 Mar>}{section.1091}% 2468
+\BOOKMARK [3][]{subsubsection.1091.19.1}{Lascar invariance}{subsection.1091.19}% 2469
+\BOOKMARK [2][]{subsection.1091.20}{TODO Lezione 19 - <2025-11-26 Mer>}{section.1091}% 2470
+\BOOKMARK [2][]{subsection.1091.21}{TODO Lezione 20 - <2025-12-02 Mar>}{section.1091}% 2471
+\BOOKMARK [3][]{subsubsection.1091.21.1}{Stazionariet\340}{subsection.1091.21}% 2472
+\BOOKMARK [2][]{subsection.1091.22}{TODO Lezione 21 - <2025-12-03 Mer>}{section.1091}% 2473
+\BOOKMARK [2][]{subsection.1091.23}{Lezione 22 - <2025-12-09 Mar>}{section.1091}% 2474
+\BOOKMARK [2][]{subsection.1091.24}{Lezione 23 \(Ultima\) - <2025-12-16 Mar>}{section.1091}% 2475
+\BOOKMARK [2][]{subsection.1091.25}{INFO ESAME}{section.1091}% 2476
+\BOOKMARK [1][]{section.1092}{Subacquea [META]}{part.3}% 2477
+\BOOKMARK [2][]{subsection.1092.1}{Gestione immersione}{section.1092}% 2478
+\BOOKMARK [2][]{subsection.1092.2}{Fisiologia e fisica}{section.1092}% 2479
+\BOOKMARK [2][]{subsection.1092.3}{Esercizi}{section.1092}% 2480
+\BOOKMARK [2][]{subsection.1092.4}{Nuoto in superficie - Descrizione}{section.1092}% 2481
+\BOOKMARK [2][]{subsection.1092.5}{Nuoto in superficie - Tecniche componenti}{section.1092}% 2482
+\BOOKMARK [2][]{subsection.1092.6}{Apnea dinamica senza attrezzi - Descrizione}{section.1092}% 2483
+\BOOKMARK [2][]{subsection.1092.7}{Apena dinamica senza attrezzi - Tecniche componenti}{section.1092}% 2484
+\BOOKMARK [2][]{subsection.1092.8}{Salvamento di un apneista incosciente sul fondo - Descrizione}{section.1092}% 2485
+\BOOKMARK [2][]{subsection.1092.9}{Salvamento di un apneista incosciente sul fondo - Tecniche componenti}{section.1092}% 2486
+\BOOKMARK [2][]{subsection.1092.10}{Capovolte in raccolta - Descrizione}{section.1092}% 2487
+\BOOKMARK [2][]{subsection.1092.11}{Capovolte in raccolta - Tecniche componenti}{section.1092}% 2488
+\BOOKMARK [2][]{subsection.1092.12}{Equipaggiamento sul fondo - Descrizione}{section.1092}% 2489
+\BOOKMARK [2][]{subsection.1092.13}{Equipaggiamento sul fondo - Tecniche componenti}{section.1092}% 2490
+\BOOKMARK [2][]{subsection.1092.14}{Capovolte con attrezzatura - Descrizione}{section.1092}% 2491
+\BOOKMARK [2][]{subsection.1092.15}{Capovolte con attrezzatura - Tecniche componenti}{section.1092}% 2492
+\BOOKMARK [1][]{section.1093}{\(bib\) Zambella - A Cr\350che Course in Model Theory}{part.3}% 2493
+\BOOKMARK [1][]{section.1094}{Modello debolmente lambda saturo}{part.3}% 2494
+\BOOKMARK [1][]{section.1095}{Modello debolmente lambda saturo sse lambda universale}{part.3}% 2495
+\BOOKMARK [1][]{section.1096}{Modello saturo sse omogeneo e debolmente saturo}{part.3}% 2496
+\BOOKMARK [1][]{section.1097}{Modello debolmente lambda omogeneo}{part.3}% 2497
+\BOOKMARK [1][]{section.1098}{Insieme invariante rispetto ad insieme di parametri in un modello mostro}{part.3}% 2498
+\BOOKMARK [1][]{section.1099}{Caratterizzazione insiemi invarianti su un insieme in un modello mostro}{part.3}% 2499
+\BOOKMARK [1][]{section.1100}{Gruppo degli automorfismi di una struttura del prim'ordine}{part.3}% 2500
+\BOOKMARK [1][]{section.1101}{Orbite rispetto all'azione del gruppo degli automorfismi in una struttura del prim'ordine}{part.3}% 2501
+\BOOKMARK [1][]{section.1102}{Lyndon-Robinson Lemma}{part.3}% 2502
+\BOOKMARK [1][]{section.1103}{Caratterizzazione delle conseguenze di un delta-tipo tramite la preservazione per delta-morfismi}{part.3}% 2503
+\BOOKMARK [1][]{section.1104}{Teoria con delta-eliminazione positiva dei quantificatori}{part.3}% 2504
+\BOOKMARK [1][]{section.1105}{Caratterizzazione semantica della delta-eliminazione positiva dei quantificatori}{part.3}% 2505
+\BOOKMARK [1][]{section.1106}{Estendere dominio e codominio di un delta-morfismo}{part.3}% 2506
+\BOOKMARK [1][]{section.1107}{Caratterizzazione delta-morfismi estendibili a delta-morfismi totali}{part.3}% 2507
+\BOOKMARK [1][]{section.1108}{Caratterizzazione delta-morfismi estendibili a delta-morfismi suriettivi}{part.3}% 2508
+\BOOKMARK [1][]{section.1109}{Caratterizzazione della delta-eliminazione positiva dei quantificatori tramite delta-morfismi}{part.3}% 2509
+\BOOKMARK [1][]{section.1110}{Teoria delta-model-completa}{part.3}% 2510
+\BOOKMARK [1][]{section.1111}{Caratterizzazione Teoria delta-model-completa tramite eliminazione positiva dei quantificatori}{part.3}% 2511
+\BOOKMARK [1][]{section.1112}{Caratterizzazione delle formule preservate da delta-morfismi}{part.3}% 2512
+\BOOKMARK [1][]{section.1113}{Chiusura di un insieme di formule rispetto a connettivi logici}{part.3}% 2513
+\BOOKMARK [1][]{section.1114}{Topological Games [LECTIO]}{part.3}% 2514
+\BOOKMARK [2][]{subsection.1114.1}{Giochi di Schmidt}{section.1114}% 2515
+\BOOKMARK [3][]{subsubsection.1114.1.1}{Alcuni giochi}{subsection.1114.1}% 2516
+\BOOKMARK [3][]{subsubsection.1114.1.2}{Definizioni di TDI}{subsection.1114.1}% 2517
+\BOOKMARK [1][]{section.1115}{Cardinalit\340 degli insiemi invarianti}{part.3}% 2518
+\BOOKMARK [1][]{section.1116}{Insieme delle formule del prim'ordine}{part.3}% 2519
+\BOOKMARK [1][]{section.1117}{Cardinalit\340 dell'insieme delle formule di un linguaggio del prim'ordine}{part.3}% 2520
+\BOOKMARK [1][]{section.1118}{Formula invariante su un insieme}{part.3}% 2521
+\BOOKMARK [1][]{section.1119}{phi-formula su un insieme}{part.3}% 2522
+\BOOKMARK [2][]{subsection.1119.1}{phi-tipo su un insieme}{section.1119}% 2523
+\BOOKMARK [1][]{section.1120}{Tipo invariante su un insieme}{part.3}% 2524
+\BOOKMARK [1][]{section.1121}{Caratterizzazione phi-tipi invarianti su un insieme}{part.3}% 2525
+\BOOKMARK [1][]{section.1122}{Tipo finitamente soddisfacibile in un insieme nel modello mostro}{part.3}% 2526
+\BOOKMARK [1][]{section.1123}{Caratterizzazione tipi finitamente soddisfacibili in un insieme}{part.3}% 2527
+\BOOKMARK [1][]{section.1124}{Tipo finitamente soddisfacibile \350 invariante}{part.3}% 2528
+\BOOKMARK [1][]{section.1125}{Estensione tipo finitamente soddisfacibile in un insieme a tipo globale}{part.3}% 2529
+\BOOKMARK [1][]{section.1126}{Sequenza di Morley}{part.3}% 2530
+\BOOKMARK [1][]{section.1127}{Sequenza di indiscernibili}{part.3}% 2531
+\BOOKMARK [1][]{section.1128}{Sequenza di Morley \350 indiscernibile}{part.3}% 2532
+\BOOKMARK [1][]{section.1129}{Coerede di un tipo}{part.3}% 2533
+\BOOKMARK [1][]{section.1130}{Sequenza di coeredi}{part.3}% 2534
+\BOOKMARK [1][]{section.1131}{Caratterizzazione sequenza di coeredi}{part.3}% 2535
+\BOOKMARK [1][]{section.1132}{eq-espansione di un modello mostro}{part.3}% 2536
+\BOOKMARK [1][]{section.1133}{Caratterizzazione sequenza di coeredi}{part.3}% 2537
+\BOOKMARK [1][]{section.1134}{Tipo completo}{part.3}% 2538
+\BOOKMARK [1][]{section.1135}{Relazione eredi-coeredi}{part.3}% 2539
+\BOOKMARK [1][]{section.1136}{Restrizione di un tipo ad un insieme di parametri}{part.3}% 2540
+\BOOKMARK [1][]{section.1137}{Teorema di Ramsey}{part.3}% 2541
+\BOOKMARK [1][]{section.1138}{Lemma del diagramma elementare}{part.3}% 2542
+\BOOKMARK [1][]{section.1139}{Relazione erede-coerede stazionaria}{part.3}% 2543
+\BOOKMARK [1][]{section.1140}{Estensione semigruppo a Modello Mostro}{part.3}% 2544
+\BOOKMARK [2][]{subsection.1140.1}{Operazione di semigruppo}{section.1140}% 2545
+\BOOKMARK [2][]{subsection.1140.2}{Semigruppo di Ellis}{section.1140}% 2546
+\BOOKMARK [2][]{subsection.1140.3}{Insiemi idempotenti e Teorema di Ellis}{section.1140}% 2547
+\BOOKMARK [2][]{subsection.1140.4}{Gruppo di Ellis}{section.1140}% 2548
+\BOOKMARK [1][]{section.1141}{Teorema di Hindman}{part.3}% 2549
+\BOOKMARK [1][]{section.1142}{Semigruppo}{part.3}% 2550
+\BOOKMARK [1][]{section.1143}{Omomorfismo di semigruppi}{part.3}% 2551
+\BOOKMARK [1][]{section.1144}{Teoria dei gruppi}{part.3}% 2552
+\BOOKMARK [1][]{section.1145}{Insieme tipo-definibile su un insieme \350 invariante}{part.3}% 2553
+\BOOKMARK [1][]{section.1146}{Scambio di unioni/intersezioni e immagini/retroimmagini di funzione}{part.3}% 2554
+\BOOKMARK [1][]{section.1147}{Tipo di Ehrenfeucht-Mostowski}{part.3}% 2555
+\BOOKMARK [1][]{section.1148}{Teorema di Ehrenfeucht-Mostowski}{part.3}% 2556
+\BOOKMARK [1][]{section.1149}{Estensione di sequenza di indiscernibili su un insieme ad un Modello}{part.3}% 2557
+\BOOKMARK [1][]{section.1150}{LaTeX - Creare Flashcard}{part.3}% 2558
+\BOOKMARK [1][]{section.1151}{Teorema di Hales-Jewett}{part.3}% 2559
+\BOOKMARK [1][]{section.1152}{Colorazione}{part.3}% 2560
+\BOOKMARK [2][]{subsection.1152.1}{Colorazione di un insieme}{section.1152}% 2561
+\BOOKMARK [3][]{subsubsection.1152.1.1}{Sottoinsieme monocromatico}{subsection.1152.1}% 2562
+\BOOKMARK [2][]{subsection.1152.2}{Colorazione di un grafo}{section.1152}% 2563
+\BOOKMARK [1][]{section.1153}{Teorema di Van der Waerden}{part.3}% 2564
+\BOOKMARK [1][]{section.1154}{Progressione Aritmetica}{part.3}% 2565
+\BOOKMARK [1][]{section.1155}{Teorema di Szem\351redi}{part.3}% 2566
+\BOOKMARK [1][]{section.1156}{Densit\340 di Banach}{part.3}% 2567
+\BOOKMARK [1][]{section.1157}{Stile - Scala di Formalit\340}{part.3}% 2568
+\BOOKMARK [2][]{subsection.1157.1}{Catalogazione dei capi formalit\340 \205 Citt\340}{section.1157}% 2569
+\BOOKMARK [2][]{subsection.1157.2}{Scala di formalit\340 \205 Campagna}{section.1157}% 2570
+\BOOKMARK [2][]{subsection.1157.3}{Scaletta CITT\300}{section.1157}% 2571
+\BOOKMARK [2][]{subsection.1157.4}{Scaletta CAMPAGNA}{section.1157}% 2572
+\BOOKMARK [2][]{subsection.1157.5}{Scaletta Mista}{section.1157}% 2573
+\BOOKMARK [1][]{section.1158}{Coordinate locali su una variet\340 sono Cinfinito}{part.3}% 2574
+\BOOKMARK [1][]{section.1159}{Idee tesi laurea magistrale [Bibliografia]}{part.3}% 2575
+\BOOKMARK [1][]{section.1160}{Collegare le note - Zettelkasten}{part.3}% 2576
+\BOOKMARK [1][]{section.1161}{Zettelkasten}{part.3}% 2577
+\BOOKMARK [1][]{section.1162}{Relazione stabile}{part.3}% 2578
+\BOOKMARK [1][]{section.1163}{Relazione stabile in un Modello Mostro}{part.3}% 2579
+\BOOKMARK [1][]{section.1164}{Combinazione booleana di relazioni stabili \350 stabile}{part.3}% 2580
+\BOOKMARK [1][]{section.1165}{Insieme approssimabile da una relazione}{part.3}% 2581
+\BOOKMARK [1][]{section.1166}{Caratterizzazione relazione stabile tramite insiemi approssimabili}{part.3}% 2582
+\BOOKMARK [1][]{section.1167}{Caratterizzazione relazione stabile in un modello mostro tramite insiemi approssimabili}{part.3}% 2583
+\BOOKMARK [1][]{section.1168}{Insieme approssimabile da una relazione in un Modello Mostro}{part.3}% 2584
+\BOOKMARK [1][]{section.1169}{Topologia di 2X}{part.3}% 2585
+\BOOKMARK [1][]{section.1170}{Cardinalit\340 insieme delle parti}{part.3}% 2586
+\BOOKMARK [1][]{section.1171}{Insieme esternamente definibile in un modello mostro}{part.3}% 2587
+\BOOKMARK [1][]{section.1172}{Forma differenziale in un punto}{part.3}% 2588
+\BOOKMARK [1][]{section.1173}{Forma differenziale}{part.3}% 2589
+\BOOKMARK [1][]{section.1174}{Prodotto wedge tra forme differenziali}{part.3}% 2590
+\BOOKMARK [1][]{section.1175}{Differenziale di una forma}{part.3}% 2591
+\BOOKMARK [1][]{section.1176}{Propriet\340 del differenziale di forme}{part.3}% 2592
+\BOOKMARK [1][]{section.1177}{Gruppo di Coomologia di De Rham}{part.3}% 2593
+\BOOKMARK [1][]{section.1178}{Forma differenziale chiusa}{part.3}% 2594
+\BOOKMARK [1][]{section.1179}{Forma differenziale esatta}{part.3}% 2595
+\BOOKMARK [1][]{section.1180}{Campo vettoriale conservativo su Rn}{part.3}% 2596
+\BOOKMARK [1][]{section.1181}{Coomologia di De Rham di R.}{part.3}% 2597
+\BOOKMARK [1][]{section.1182}{Coomologia di De Rham di Rn.}{part.3}% 2598
+\BOOKMARK [1][]{section.1183}{Variet\340 differenziabili diffeomorfe hanno stessa Coomologia di de Rham}{part.3}% 2599
+\BOOKMARK [1][]{section.1184}{Pullback di una funzione tra variet\340 differenziabili}{part.3}% 2600
+\BOOKMARK [1][]{section.1185}{Propriet\340 del pullback di una funzione tra variet\340 differenziabili}{part.3}% 2601
+\BOOKMARK [1][]{section.1186}{0-gruppo di coomologia di de Rham di una variet\340 connessa}{part.3}% 2602
+\BOOKMARK [1][]{section.1187}{Prodotto wedge in Coomologia di De Rham}{part.3}% 2603
+\BOOKMARK [1][]{section.1188}{Coomologia di De Rham come funtore}{part.3}% 2604
+\BOOKMARK [1][]{section.1189}{Successione di spazi vettoriali esatta}{part.3}% 2605
+\BOOKMARK [1][]{section.1190}{Complesso di cocatene}{part.3}% 2606
+\BOOKMARK [1][]{section.1191}{Coomologia di un complesso di cocatene}{part.3}% 2607
+\BOOKMARK [1][]{section.1192}{Morfismo tra complessi di cocatene}{part.3}% 2608
+\BOOKMARK [1][]{section.1193}{Successione Esatta di Complessi di Cocatene}{part.3}% 2609
+\BOOKMARK [1][]{section.1194}{Morfismo tra complessi di cocatene induce morfismo in coomologia}{part.3}% 2610
+\BOOKMARK [1][]{section.1195}{Zig-Zag Lemma \(per complessi di cocatene\)}{part.3}% 2611
+\BOOKMARK [1][]{section.1196}{Teorema di Mayer-Vietoris \(in coomologia\)}{part.3}% 2612
+\BOOKMARK [1][]{section.1197}{Coomologia della circonferenza}{part.3}% 2613
+\BOOKMARK [1][]{section.1198}{Coomologia delle sfere}{part.3}% 2614
+\BOOKMARK [1][]{section.1199}{Forma volume su una variet\340 differenziabile}{part.3}% 2615
+\BOOKMARK [1][]{section.1200}{Caratterizzazione variet\340 differenziabile orientabile tramite forma volume}{part.3}% 2616
+\BOOKMARK [1][]{section.1201}{Integrazione di forme su variet\340 differenziabile orientata}{part.3}% 2617
+\BOOKMARK [1][]{section.1202}{Teorema di Stokes}{part.3}% 2618
+\BOOKMARK [1][]{section.1203}{Coomologia dello spazio proiettivo reale}{part.3}% 2619
+\BOOKMARK [1][]{section.1204}{Coomologia del toro}{part.3}% 2620
+\BOOKMARK [1][]{section.1205}{Ricoprimento aciclico di una variet\340 differenziabile}{part.3}% 2621
+\BOOKMARK [1][]{section.1206}{Variet\340 differenziabile di tipo finito}{part.3}% 2622
+\BOOKMARK [1][]{section.1207}{Variet\340 differenziabile di tipo finito ha coomologia di dimensione finita}{part.3}% 2623
+\BOOKMARK [2][]{subsection.1207.1}{Variet\340 differenziabile compatta ha coomologia di dimensione finita}{section.1207}% 2624
+\BOOKMARK [1][]{section.1208}{Coomologia a supporto compatto}{part.3}% 2625
+\BOOKMARK [1][]{section.1209}{Coomologia a supporto compatto 0-dimensionale}{part.3}% 2626
+\BOOKMARK [1][]{section.1210}{Coomologia a supporto compatto di R}{part.3}% 2627
+\BOOKMARK [1][]{section.1211}{Coomologia a supporto compatto di Rn}{part.3}% 2628
+\BOOKMARK [1][]{section.1212}{Coomologia in dimensione massima}{part.3}% 2629
+\BOOKMARK [1][]{section.1213}{Caratterizzazione forme esatte di grado massimo su variet\340 orientabile, connessa e compatta}{part.3}% 2630
+\BOOKMARK [1][]{section.1214}{Caratterizzazione forme esatte di grado massimo a supporto compatto su variet\340 orientabile connessa}{part.3}% 2631
+\BOOKMARK [1][]{section.1215}{Integrale di forma su sottovariet\340 non nullo implica forma non esatta}{part.3}% 2632
+\BOOKMARK [1][]{section.1216}{Boolean valued semantics for infinitary logics [CORSO]}{part.3}% 2633
+\BOOKMARK [2][]{subsection.1216.1}{Lecture 1 - <2025-11-17 Lun>}{section.1216}% 2634
+\BOOKMARK [3][]{subsubsection.1216.1.1}{Tarski semantics for L,}{subsection.1216.1}% 2635
+\BOOKMARK [3][]{subsubsection.1216.1.2}{Proof system}{subsection.1216.1}% 2636
+\BOOKMARK [2][]{subsection.1216.2}{Lecture 2 - <2025-11-19 Mer>}{section.1216}% 2637
+\BOOKMARK [3][]{subsubsection.1216.2.1}{Failure of interpolation for Tarski semantics on L, and L,.}{subsection.1216.2}% 2638
+\BOOKMARK [3][]{subsubsection.1216.2.2}{Boolean valid semantics}{subsection.1216.2}% 2639
+\BOOKMARK [2][]{subsection.1216.3}{Lecture 3 - <2025-11-24 Lun>}{section.1216}% 2640
+\BOOKMARK [3][]{subsubsection.1216.3.1}{Boolean valued semantics}{subsection.1216.3}% 2641
+\BOOKMARK [2][]{subsection.1216.4}{Lecture 4 - <2025-11-26 Mer>}{section.1216}% 2642
+\BOOKMARK [2][]{subsection.1216.5}{Lecture 5 - <2025-12-01 Lun>}{section.1216}% 2643
+\BOOKMARK [1][]{section.1217}{Teorema di Milliken-Taylor}{part.3}% 2644
+\BOOKMARK [1][]{section.1218}{Teorema di Schwarz}{part.3}% 2645
+\BOOKMARK [1][]{section.1219}{Kernel di una funzione tra spazi vettoriali \350 spazio vettoriale}{part.3}% 2646
+\BOOKMARK [1][]{section.1220}{Quoziente di spazi vettoriali}{part.3}% 2647
+\BOOKMARK [2][]{subsection.1220.1}{Dimensione dello spazio vettoriale quoziente}{section.1220}% 2648
+\BOOKMARK [1][]{section.1221}{Pullback di una funzione tra variet\340 differenziabili in coomologia}{part.3}% 2649
+\BOOKMARK [1][]{section.1222}{Insieme approssimabile dal basso da una relazione}{part.3}% 2650
+\BOOKMARK [1][]{section.1223}{Rango binario di Shelah di una relazione}{part.3}% 2651
+\BOOKMARK [1][]{section.1224}{\(bib\) FIPSAS - ``P1 - Lezione T5 - Apparato respiratorio e circolatorio''}{part.3}% 2652
+\BOOKMARK [2][]{subsection.1224.1}{Approfondimento SLIDES}{section.1224}% 2653
+\BOOKMARK [3][]{subsubsection.1224.1.1}{Slide 1: FIPSAS - 1o GRADO AR: ARGOMENTI DEL CORSO}{subsection.1224.1}% 2654
+\BOOKMARK [3][]{subsubsection.1224.1.2}{Slide 2: CENNI DI ANATOMIA E FISIOLOGIA - Cellule \(p. 71\)}{subsection.1224.1}% 2655
+\BOOKMARK [3][]{subsubsection.1224.1.3}{Slide 3: CENNI DI ANATOMIA E FISIOLOGIA - Tessuti, Organi, Apparati}{subsection.1224.1}% 2656
+\BOOKMARK [3][]{subsubsection.1224.1.4}{Slide 4: APPARATO RESPIRATORIO - Funzione e Costituzione \(p. 71\)}{subsection.1224.1}% 2657
+\BOOKMARK [3][]{subsubsection.1224.1.5}{Slide 5: APPARATO RESPIRATORIO - Vie Aeree Inferiori \(Dettaglio\)}{subsection.1224.1}% 2658
+\BOOKMARK [3][]{subsubsection.1224.1.6}{Slide 6: APPARATO RESPIRATORIO - Respirazione: Inspirazione \(Fase attiva\)}{subsection.1224.1}% 2659
+\BOOKMARK [3][]{subsubsection.1224.1.7}{Slide 7: APPARATO RESPIRATORIO - Respirazione: Espirazione \(Fase passiva\)}{subsection.1224.1}% 2660
+\BOOKMARK [3][]{subsubsection.1224.1.8}{Slide 8: APPARATO RESPIRATORIO - Volumi e Capacit\340 Polmonari}{subsection.1224.1}% 2661
+\BOOKMARK [3][]{subsubsection.1224.1.9}{Slide 9: APPARATO RESPIRATORIO - Composizione Aria e Ruolo dell'Azoto}{subsection.1224.1}% 2662
+\BOOKMARK [3][]{subsubsection.1224.1.10}{Slide 10: APPARATO RESPIRATORIO - Respirazione in Immersione}{subsection.1224.1}% 2663
+\BOOKMARK [3][]{subsubsection.1224.1.11}{Slide 11: APPARATO CIRCOLATORIO - Funzione e Costituzione \(p. 75\)}{subsection.1224.1}% 2664
+\BOOKMARK [3][]{subsubsection.1224.1.12}{Slide 12: APPARATO CIRCOLATORIO - Grande e Piccolo Circolo}{subsection.1224.1}% 2665
+\BOOKMARK [3][]{subsubsection.1224.1.13}{Appendice: Principi Fisici e Fisiologici Correlati al Contenuto delle Slide}{subsection.1224.1}% 2666
+\BOOKMARK [1][]{section.1225}{\(bib\) Neuman - Physiology and Medicine of Hyperbaric Oxygen Therapy, 2008}{part.3}% 2667
+\BOOKMARK [2][]{subsection.1225.1}{La pressione atmosferica al livello del mare \350 pari a 1 ATA \(che equivale a 14.7 psi o 101.32 kPa\).}{section.1225}% 2668
+\BOOKMARK [2][]{subsection.1225.2}{La pressione assoluta \(Pabs\) \350 la somma della pressione atmosferica \(Patm\) e della pressione misurata dal manometro \(Pgauge\): Pabs = Patm + Pgauge. Ad esempio, un trattamento a 2.4 ATA al livello del mare richiede una pressione manometrica di 1.4 ATA \(1.0 ATA + 1.4 ATA = 2.4 ATA\).}{section.1225}% 2669
+\BOOKMARK [2][]{subsection.1225.3}{\310 direttamente proporzionale alla percentuale di quel gas nel volume totale della miscela.}{section.1225}% 2670
+\BOOKMARK [2][]{subsection.1225.4}{Determina direttamente la quantit\340 di gas assorbito nei tessuti. Questo \350 fondamentale per la comprensione di condizioni come l'embolia gassosa arteriosa \(AGE\), la malattia da decompressione \(DCS\) e la tossicit\340 da ossigeno \(oxygen toxicity\), come trattato nei Capitoli 13, 14 e 23.}{section.1225}% 2671
+\BOOKMARK [2][]{subsection.1225.5}{Per esempio, a 6.0 ATA \(165 fsw\), la pressione parziale di ossigeno \(PO2\) \350 1.26 ATA e quella dell'azoto \(PN2\) \350 4.74 ATA, assumendo aria \(21\045 O2, 79\045 N2\) [75t].}{section.1225}% 2672
+\BOOKMARK [2][]{subsection.1225.6}{Ruolo del Medico Iperbarico: I medici iperbarici esaminano spesso subacquei sportivi e commerciali per valutarne l'idoneit\340 e, talvolta, per trattare lesioni legate all'immersione.}{section.1225}% 2673
+\BOOKMARK [2][]{subsection.1225.7}{Modelli Amministrativi: Esistono differenze regionali significative.}{section.1225}% 2674
+\BOOKMARK [2][]{subsection.1225.8}{Approccio di I Primi Principi \(A Generic Approach\): Per valutare l'idoneit\340 in presenza di una condizione medica, si devono porre tre domande fondamentali:}{section.1225}% 2675
+\BOOKMARK [2][]{subsection.1225.9}{Rispondere ``s\354'' o ``non lo so'' a una di queste richiede una revisione pi\371 approfondita, e un ``s\354'' definitivo richiede una valutazione rischio/beneficio.}{section.1225}% 2676
+\BOOKMARK [2][]{subsection.1225.10}{Forame Ovale Pervio \(Patent Foramen Ovale, PFO\): Vi \350 una comprovata sovra-rappresentazione di shunt destro-sinistro \(come il PFO\) tra i subacquei che hanno sofferto di DCS neurologica o vestibolococleare. Un shunt maggiore \350 stato riscontrato nel 71\045 dei casi vestibolococleari \(rispetto al 12\045 dei controlli\).}{section.1225}% 2677
+\BOOKMARK [2][]{subsection.1225.11}{Asma: L'asma \350 comune nella popolazione subacquea. Il principale rischio \350 il barotrauma polmonare \(PBT\), che pu\362 portare ad AGE. \310 difficile dimostrare con certezza che i subacquei asmatici siano a rischio significativamente maggiore di infortuni da immersione. La valutazione pu\362 includere la spirometria o il test di provocazione bronchiale [102, 103f].}{section.1225}% 2678
+\BOOKMARK [2][]{subsection.1225.12}{Radiografia del Torace \(CXR\): La necessit\340 di routine \350 controversa. Tuttavia, una CXR pu\362 rilevare anomalie polmonari \(ad esempio, bolle enfisematose\) che predispongono a PBT e AGE. Tali anomalie sono state associate a casi di PBT e AGE.}{section.1225}% 2679
+\BOOKMARK [2][]{subsection.1225.13}{Esame Neurologico: \310 fondamentale documentare quantitativamente eventuali anomalie per avere un punteggio di riferimento \(baseline score\) nel caso in cui il subacqueo necessiti di trattamento per DCS neurologica.}{section.1225}% 2680
+\BOOKMARK [2][]{subsection.1225.14}{L'O2 si lega all'emoglobina \(Hb\) per essere trasportato, ma in condizioni iperbariche, la quantit\340 di ossigeno disciolto fisicamente nel plasma aumenta drasticamente \(secondo la Legge di Henry, discussa nel Capitolo 4\).}{section.1225}% 2681
+\BOOKMARK [2][]{subsection.1225.15}{Durante la respirazione di O2 al livello del mare, la PO2 nel sangue venoso giugulare raramente superava i 60 mmHg; la respirazione di ossigeno a 3.5 ATA porta a profili di ossigenazione tissutale che riflettono un'alta differenza artero-venosa [177, 603f].}{section.1225}% 2682
+\BOOKMARK [2][]{subsection.1225.16}{Questo effetto \350 pi\371 marcato nei vasi del cervello, della retina e del muscolo scheletrico.}{section.1225}% 2683
+\BOOKMARK [2][]{subsection.1225.17}{Nonostante la riduzione del flusso sanguigno \(ad esempio, cerebrale, che diminuisce l'apporto di ossigeno\), l'enorme aumento di O2 disciolto garantisce comunque un aumento netto di ossigeno fornito ai tessuti.}{section.1225}% 2684
+\BOOKMARK [2][]{subsection.1225.18}{Un'elevata PaCO2 \(anidride carbonica arteriosa\) aumenta il flusso sanguigno cerebrale, il che a sua volta aumenta la tossicit\340 dell'ossigeno per il sistema nervoso centrale \(CNS\) e il rischio di convulsioni.}{section.1225}% 2685
+\BOOKMARK [2][]{subsection.1225.19}{Gli esseri umani, senza una cabina pressurizzata, possono tollerare un range di pressione che va da circa 0.17 ATA \(a 50.000 piedi di altitudine\) a 70 ATA \(circa 2300 piedi sotto la superficie del mare\). Questa variazione di circa 700 volte \350 tollerabile solo con l'uso di attrezzature specializzate per la respirazione.}{section.1225}% 2686
+\BOOKMARK [2][]{subsection.1225.20}{Narcosi da Azoto \(Rapture of the Deep\): Quando si respira aria in profondit\340, l'aumento della PN2 provoca narcosi \(come descritto da Paul Bert nel 1878 e da Cousteau 100 anni dopo\). La narcosi da azoto \350 un problema neurologico che limita le immersioni in aria a circa 4 ATA \(99 fsw\) [214f, 220].}{section.1225}% 2687
+\BOOKMARK [2][]{subsection.1225.21}{Tossicit\340 da Ossigeno del SNC \(CNS Oxygen Toxicity\): \310 il limite pi\371 pressante nell'uso dell'ossigeno iperbarico \(in HBOT e immersione con Nitrox\). Pu\362 verificarsi rapidamente a PO2 di 2 ATA o superiore e pu\362 portare a convulsioni violente con poco o nessun preavviso.}{section.1225}% 2688
+\BOOKMARK [2][]{subsection.1225.22}{HPNS \(High-Pressure Nervous Syndrome\): A profondit\340 estreme \(oltre 10\20515 ATA\), la compressione idrostatica diretta influenza il SNC, producendo un aumento dell'attivit\340 neurale che risulta in tremori.}{section.1225}% 2689
+\BOOKMARK [2][]{subsection.1225.23}{Effetti Moderati \(<5 ATA\): Anche i livelli moderati di pressione \(quelli utilizzati in HBOT\) possono avere effetti misurabili che non sono semplicemente dovuti alla PO2: alterazioni nella diffusione dei gas polmonari, resistenza delle vie aeree, flusso sanguigno tissutale locale, e segnalazione neuronale.}{section.1225}% 2690
+\BOOKMARK [2][]{subsection.1225.24}{Causa Principale: Nella subacquea, l'AGE \350 quasi sempre una conseguenza del barotrauma polmonare \(PBT\). Il PBT si verifica quando l'aria rimane intrappolata nei polmoni durante la risalita \(anche di soli 1 metro\) e l'espansione del gas rompe gli alveoli, permettendo all'aria di entrare nel flusso sanguigno arterioso.}{section.1225}% 2691
+\BOOKMARK [2][]{subsection.1225.25}{Sintomi: I sintomi sono estremamente variabili, ma sono riferibili all'occlusione del sistema vascolare del SNC. I segni suggestivi di AGE includono perdita di coscienza transitoria, cecit\340 o disorientamento dopo l'emersione.}{section.1225}% 2692
+\BOOKMARK [2][]{subsection.1225.26}{Diagnosi: L'AGE \350 una diagnosi clinica. Qualsiasi paziente con una storia suggestiva di AGE richiede un esame neurologico dettagliato e una consulenza iperbarica, poich\351 le lesioni neurologiche sottili sono difficili da escludere in fase acuta e un ritardo nel trattamento pu\362 rendere le lesioni irreversibili.}{section.1225}% 2693
+\BOOKMARK [2][]{subsection.1225.27}{Priorit\340: La ricompressione immediata \350 indicata per l'AGE confermata o sospetta.}{section.1225}% 2694
+\BOOKMARK [2][]{subsection.1225.28}{Protocolli: Il trattamento mira a ridurre meccanicamente la dimensione delle bolle \(Legge di Boyle\) e ad aumentare la PO2 tissutale.}{section.1225}% 2695
+\BOOKMARK [2][]{subsection.1225.29}{Fattori di Rischio: Il rischio \350 legato al carico di gas inerte \(profilo tempo-profondit\340\), alla velocit\340 di risalita e alla presenza di shunt destro-sinistro \(PFO\), che permettono alle bolle venose \(VGE\) di raggiungere la circolazione arteriosa.}{section.1225}% 2696
+\BOOKMARK [2][]{subsection.1225.30}{Sintomi Comuni: I sintomi sono estremamente variabili, ma i pi\371 comuni includono dolore \(bends\), parestesia, debolezza muscolare e affaticamento [314f]. La DCS cardiorespiratoria \(chokes\) \350 caratteristica di alti livelli di VGE.}{section.1225}% 2697
+\BOOKMARK [2][]{subsection.1225.31}{Diagnosi: La DCS \350 una diagnosi clinica basata su storia e esame fisico. La differenziazione tra DCS neurologica e AGE si basa su fattori come il tempo di insorgenza e la presenza di alterazione della coscienza.}{section.1225}% 2698
+\BOOKMARK [2][]{subsection.1225.32}{Ricompressione: Il trattamento primario \350 la ricompressione, per ridurre la dimensione delle bolle e favorirne la riassorbimento.}{section.1225}% 2699
+\BOOKMARK [2][]{subsection.1225.33}{Protocolli Standard: Il Tavolo 6 della Marina USA \(U.S. Navy Table 6\) \(2.8 ATA o 60 fsw, respirando O2\) \350 il gold standard per la DCS [323, 324t]. La raccomandazione iniziale per la DCS neurologica \350 la compressione a 18 msw \(60 fsw\) respirando O2 al 100\045.}{section.1225}% 2700
+\BOOKMARK [2][]{subsection.1225.34}{Uso di Gas Inerti Terapeutici: L'uso di un gas inerte diverso \(come l'elio in una miscela Heliox o Nitrox\) durante la ricompressione profonda \(es. Tavolo 6A\) pu\362 facilitare l'eliminazione delle bolle [322, 327f].}{section.1225}% 2701
+\BOOKMARK [2][]{subsection.1225.35}{Trattamento in Acqua \(In-Water Recompression, IWR\): Pu\362 essere utilizzato in luoghi remoti quando non \350 disponibile una camera iperbarica. Richiede la somministrazione di ossigeno al 100\045 tramite maschera a pieno facciale, protezione termica e un accompagnatore.}{section.1225}% 2702
+\BOOKMARK [2][]{subsection.1225.36}{Terapia Aggiuntiva \(Adjunctive Therapy\): La somministrazione di liquidi \(cristalloidi\) \350 considerata cruciale \(Livello 1C\) [341, 342t]. La lidocaina pu\362 essere usata come adiuvante per la DCS neurologica [342t, 375].}{section.1225}% 2703
+\BOOKMARK [2][]{subsection.1225.37}{Ritardo nel Trattamento \(Delayed Treatment\): Sebbene il beneficio diminuisca col ritardo, la ricompressione pu\362 essere comunque utile. Per i sintomi lievi, un ritardo non \350 associato a un peggioramento a lungo termine dell'esito.}{section.1225}% 2704
+\BOOKMARK [2][]{subsection.1225.38}{Complicazione pi\371 Comune: Il MEBT \350 la complicanza pi\371 frequente dell'HBOT \(incidenza 3.8 - 12 per 1000 esposizioni\). \310 causato dall'incapacit\340 di equilibrare la pressione tra l'orecchio medio e l'ambiente esterno, spesso dovuto alla disfunzione della Tuba di Eustachio \(ET\).}{section.1225}% 2705
+\BOOKMARK [2][]{subsection.1225.39}{Prevenzione e Trattamento: Si prevengono con l'educazione alle manovre di compensazione \(come Valsalva\). In caso di disfunzione cronica o incapacit\340 di compensare, si pu\362 ricorrere alla miringotomia \(incisione del timpano\) o all'inserimento di un tubo di ventilazione \(tympanostomy tube\) [518, 519f, 585].}{section.1225}% 2706
+\BOOKMARK [2][]{subsection.1225.40}{Rischio Raro ma Serio: IEBT \350 raro ma pu\362 portare a perdita dell'udito e disfunzione vestibolare. Le lesioni includono rotture della membrana della finestra rotonda o della membrana di Reissner.}{section.1225}% 2707
+\BOOKMARK [2][]{subsection.1225.41}{Chirurgia Otologica: La stapedectomia \(intervento chirurgico per l'otosclerosi\) \350 considerata una controindicazione relativa all'immersione e all'HBOT, a causa del potenziale rischio di penetrazione della protesi e danni all'orecchio interno dovuti ai cambiamenti di pressione. Si sconsiglia l'immersione anche dopo la timpanoplastica.}{section.1225}% 2708
+\BOOKMARK [2][]{subsection.1225.42}{Barodontalgia: Dolore ai denti causato da variazioni di pressione. \310 stato segnalato in aviatori e subacquei, ma non nei pazienti sottoposti a HBOT.}{section.1225}% 2709
+\BOOKMARK [2][]{subsection.1225.43}{Impianti Cocleari: Sebbene siano stati riportati casi di subacquei con impianti funzionanti, si raccomanda di consultare il produttore prima di iniziare l'HBOT per garantire la sicurezza del paziente e mantenere la garanzia.}{section.1225}% 2710
+\BOOKMARK [2][]{subsection.1225.44}{Limite pi\371 Critico: \310 la limitazione pi\371 pressante dell'HBOT e dell'immersione con gas arricchiti.}{section.1225}% 2711
+\BOOKMARK [2][]{subsection.1225.45}{Manifestazione: Si manifesta con convulsioni \(crisi epilettiche\). Possono essere precedute da sintomi prodromici \(tremori, nausea, contrazioni muscolari, alterazioni visive\), ma questi segnali non sono affidabili e non sempre si verificano prima dell'esordio convulsivo.}{section.1225}% 2712
+\BOOKMARK [2][]{subsection.1225.46}{Fattori di Rischio: La ritenzione di CO2 aumenta il rischio di convulsioni perch\351 induce vasodilatazione cerebrale, che aumenta l'esposizione del cervello all'ossigeno.}{section.1225}% 2713
+\BOOKMARK [2][]{subsection.1225.47}{Tolleranza: La tolleranza alla tossicit\340 del SNC \350 stata definita utilizzando un indice obiettivo pre-convulsivo, come i decrementi progressivi nel rapporto TI/TT \(componente temporale della ventilazione\).}{section.1225}% 2714
+\BOOKMARK [2][]{subsection.1225.48}{Effetti: La tossicit\340 polmonare \350 causata dal danno chimico all'epitelio alveolare e all'endotelio capillare [604f].}{section.1225}% 2715
+\BOOKMARK [2][]{subsection.1225.49}{Misurazione: Viene misurata dal declino progressivo e significativo della Capacit\340 Vitale \(VC\) [613, 614f]. Sono state generate curve iperboliche per prevedere la tolleranza polmonare all'ossigeno in base alla pressione e alla durata dell'esposizione [617f, 621f].}{section.1225}% 2716
+\BOOKMARK [2][]{subsection.1225.50}{Intermittent Exposure \(Air Breaks\): La tossicit\340 polmonare e del SNC pu\362 essere ritardata in modo significativo alternando periodi di respirazione di ossigeno \(O2\) con periodi di respirazione di aria ambiente \(air breaks\). Questo metodo \350 essenziale per la sicurezza nei protocolli HBOT prolungati, come il Tavolo 6 della Marina USA.}{section.1225}% 2717
+\BOOKMARK [2][]{subsection.1225.51}{Idoneit\340: La valutazione medica per l'immersione \350 cruciale, specialmente per condizioni come PFO o anamnesi di asma, che aumentano il rischio di DCS e PBT/AGE.}{section.1225}% 2718
+\BOOKMARK [2][]{subsection.1225.52}{Incidenti: AGE \(causata da PBT, spesso in risalita rapida\) e DCS \(formazione di bolle\) sono le emergenze primarie.}{section.1225}% 2719
+\BOOKMARK [2][]{subsection.1225.53}{Trattamento: La ricompressione immediata \350 il trattamento fondamentale, spesso utilizzando il Tavolo 6 della Marina USA \(60 fsw/2.8 ATA O2\).}{section.1225}% 2720
+\BOOKMARK [2][]{subsection.1225.54}{Barotrauma: La complicanza pi\371 comune per i subacquei \350 il barotrauma dell'orecchio medio \(MEBT\), ma l'IEBT \350 pi\371 grave; si deve prestare attenzione anche alla presenza di chirurgia otologica pregressa \(es. stapedectomia\).}{section.1225}% 2721
+\BOOKMARK [2][]{subsection.1225.55}{La sicurezza in immersione \350 limitata dalla tossicit\340 da ossigeno del SNC a PO2 2 ATA e dalla narcosi da azoto a PN2 3-4 ATA.}{section.1225}% 2722
+\BOOKMARK [2][]{subsection.1225.56}{L'uso di *interruzioni di aria \(*air breaks\)** \350 la tecnica standard per estendere la tolleranza all'ossigeno durante i trattamenti prolungati di ricompressione \(come il Tavolo 6\).}{section.1225}% 2723
+\BOOKMARK [1][]{section.1226}{Esercizio: Nuoto in superficie}{part.3}% 2724
+\BOOKMARK [2][]{subsection.1226.1}{Descrizione}{section.1226}% 2725
+\BOOKMARK [2][]{subsection.1226.2}{Tecniche componenti}{section.1226}% 2726
+\BOOKMARK [1][]{section.1227}{Esercizio: Apnea dinamica senza attrezzi}{part.3}% 2727
+\BOOKMARK [2][]{subsection.1227.1}{Descrizione}{section.1227}% 2728
+\BOOKMARK [2][]{subsection.1227.2}{Tecniche componenti}{section.1227}% 2729
+\BOOKMARK [1][]{section.1228}{Esercizio: Salvamento di un apneista incosciente sul fondo}{part.3}% 2730
+\BOOKMARK [2][]{subsection.1228.1}{Descrizione}{section.1228}% 2731
+\BOOKMARK [2][]{subsection.1228.2}{Tecniche componenti}{section.1228}% 2732
+\BOOKMARK [1][]{section.1229}{Esercizio: Capovolte in raccolta}{part.3}% 2733
+\BOOKMARK [2][]{subsection.1229.1}{Descrizione}{section.1229}% 2734
+\BOOKMARK [2][]{subsection.1229.2}{Tecniche componenti}{section.1229}% 2735
+\BOOKMARK [1][]{section.1230}{Esercizio: Equipaggiamento sul fondo}{part.3}% 2736
+\BOOKMARK [2][]{subsection.1230.1}{Descrizione}{section.1230}% 2737
+\BOOKMARK [2][]{subsection.1230.2}{Tecniche componenti}{section.1230}% 2738
+\BOOKMARK [1][]{section.1231}{Esercizio: Capovolte con attrezzatura}{part.3}% 2739
+\BOOKMARK [2][]{subsection.1231.1}{Descrizione}{section.1231}% 2740
+\BOOKMARK [2][]{subsection.1231.2}{Tecniche componenti}{section.1231}% 2741
+\BOOKMARK [1][]{section.1232}{Immersione Subacquea ricreativa}{part.3}% 2742
+\BOOKMARK [2][]{subsection.1232.1}{Pianificazione dell'immersione}{section.1232}% 2743
+\BOOKMARK [2][]{subsection.1232.2}{Briefing}{section.1232}% 2744
+\BOOKMARK [3][]{subsubsection.1232.2.1}{Briefing}{subsection.1232.2}% 2745
+\BOOKMARK [3][]{subsubsection.1232.2.2}{Debriefing}{subsection.1232.2}% 2746
+\BOOKMARK [2][]{subsection.1232.3}{Gestione dell'immersione da istruttore}{section.1232}% 2747
+\BOOKMARK [3][]{subsubsection.1232.3.1}{Comfort degli allievi}{subsection.1232.3}% 2748
+\BOOKMARK [3][]{subsubsection.1232.3.2}{Sicurezza}{subsection.1232.3}% 2749
+\BOOKMARK [3][]{subsubsection.1232.3.3}{Percorso}{subsection.1232.3}% 2750
+\BOOKMARK [3][]{subsubsection.1232.3.4}{Altri consigli}{subsection.1232.3}% 2751
+\BOOKMARK [1][]{section.1233}{Attrezzatura subacquea}{part.3}% 2752
+\BOOKMARK [2][]{subsection.1233.1}{Gestione in acqua}{section.1233}% 2753
+\BOOKMARK [2][]{subsection.1233.2}{Gestione fuori dall'acqua}{section.1233}% 2754
+\BOOKMARK [3][]{subsubsection.1233.2.1}{CESTA + BORSONE}{subsection.1233.2}% 2755
+\BOOKMARK [2][]{subsection.1233.3}{Gestione a casa}{section.1233}% 2756
+\BOOKMARK [1][]{section.1234}{Subacquea - Lancio del pallone sparabile}{part.3}% 2757
+\BOOKMARK [1][]{section.1235}{Decompressione Gas in Immersione}{part.3}% 2758
+\BOOKMARK [1][]{section.1236}{Restrizione di una forma ad una sottovariet\340}{part.3}% 2759
+\BOOKMARK [1][]{section.1237}{Algebra Graduata}{part.3}% 2760
+\BOOKMARK [1][]{section.1238}{Morfismo tra algebre graduate}{part.3}% 2761
+\BOOKMARK [1][]{section.1239}{Modulo graduato}{part.3}% 2762
+\BOOKMARK [1][]{section.1240}{Morfismo tra moduli graduati}{part.3}% 2763
+\BOOKMARK [1][]{section.1241}{INBOX - Fleeting Notes}{part.3}% 2764
+\BOOKMARK [2][]{subsection.1241.1}{Note di lettura: ``Il Pendolo di Foucault''.}{section.1241}% 2765
+\BOOKMARK [2][]{subsection.1241.2}{Note di lettura: Il Grande Gatsby}{section.1241}% 2766
+\BOOKMARK [2][]{subsection.1241.3}{How to study well}{section.1241}% 2767
+\BOOKMARK [2][]{subsection.1241.4}{Metodo di Studio e Organizzazione}{section.1241}% 2768
+\BOOKMARK [3][]{subsubsection.1241.4.1}{Come studiare}{subsection.1241.4}% 2769
+\BOOKMARK [3][]{subsubsection.1241.4.2}{In particolare}{subsection.1241.4}% 2770
+\BOOKMARK [3][]{subsubsection.1241.4.3}{Dubbi e Riflessioni}{subsection.1241.4}% 2771
+\BOOKMARK [2][]{subsection.1241.5}{Salvataggio tools}{section.1241}% 2772
+\BOOKMARK [2][]{subsection.1241.6}{META}{section.1241}% 2773
+\BOOKMARK [1][]{section.1242}{Teorema della derivata nulla}{part.3}% 2774
+\BOOKMARK [1][]{section.1243}{Funzione Bilineare}{part.3}% 2775
+\BOOKMARK [1][]{section.1244}{Pullback di una inclusione tra variet\340 differenziabili}{part.3}% 2776
+\BOOKMARK [1][]{section.1245}{Coomologia delle unioni disgiunte}{part.3}% 2777
+\BOOKMARK [1][]{section.1246}{Riduzione della coomologia di un prodotto con la retta reale}{part.3}% 2778
+\BOOKMARK [1][]{section.1247}{Teorema di invarianza omotopica per la coomologia di De Rham}{part.3}% 2779
+\BOOKMARK [1][]{section.1248}{Variet\340 Differenziabile Orientabile}{part.3}% 2780
+\BOOKMARK [1][]{section.1249}{Supporto di una forma differenziale}{part.3}% 2781
+\BOOKMARK [1][]{section.1250}{Atlante orientato}{part.3}% 2782
+\BOOKMARK [1][]{section.1251}{Partizione dell'unit\340}{part.3}% 2783
+\BOOKMARK [1][]{section.1252}{Orientabilit\340 delle sfere}{part.3}% 2784
+\BOOKMARK [1][]{section.1253}{Formula di Kunneth}{part.3}% 2785
+\BOOKMARK [1][]{section.1254}{Rn \350 contraibile}{part.3}% 2786
+\BOOKMARK [1][]{section.1255}{Variet\340 differenziabili diffeomorfe hanno stessa coomologia a supporto compatto}{part.3}% 2787
+\BOOKMARK [1][]{section.1256}{Successione di spazi vettoriali esatta induce successione esatta dei duali}{part.3}% 2788
+\BOOKMARK [1][]{section.1257}{Teorema fondamentale del calcolo integrale}{part.3}% 2789
+\BOOKMARK [1][]{section.1258}{Funzione duale}{part.3}% 2790
+\BOOKMARK [1][]{section.1259}{Successione di Mayer-Vietoris per coomologia a supporto compatto}{part.3}% 2791
+\BOOKMARK [1][]{section.1260}{Forma differenziale a supporto compatto}{part.3}% 2792
+\BOOKMARK [1][]{section.1261}{Estensione a zero di una forma differenziale a supporto compatto}{part.3}% 2793
+\BOOKMARK [1][]{section.1262}{Dualit\340 di Poincar\351}{part.3}% 2794
+\BOOKMARK [1][]{section.1263}{Prodotto Tensoriale}{part.3}% 2795
+\BOOKMARK [1][]{section.1264}{Immagine continua di spazio compatto \350 compatto}{part.3}% 2796
+\BOOKMARK [1][]{section.1265}{Forma volume sulla sfera}{part.3}% 2797
+\BOOKMARK [1][]{section.1266}{Coomologia del nastro di Moebius}{part.3}% 2798
+\BOOKMARK [1][]{section.1267}{Caratterizzazione forma esatta sulla sfera}{part.3}% 2799
+\BOOKMARK [1][]{section.1268}{Caratterizzazione forma esatta nello spazio proiettivo reale di dimensione dispari}{part.3}% 2800
+\BOOKMARK [1][]{section.1269}{Integrale di forme su sottovariet\340 differenziabile}{part.3}% 2801
+\BOOKMARK [1][]{section.1270}{Coomologia delle superfici topologiche compatte orientabili}{part.3}% 2802
+\BOOKMARK [1][]{section.1271}{Grado di una funzione propria tra variet\340 differenziabili}{part.3}% 2803
+\BOOKMARK [1][]{section.1272}{Teorema di Sard}{part.3}% 2804
+\BOOKMARK [1][]{section.1273}{Teorema del Grado}{part.3}% 2805
+\BOOKMARK [1][]{section.1274}{Teorema Nullit\340 + Rango}{part.3}% 2806
+\BOOKMARK [2][]{subsection.1274.1}{Mappa lineare non nulla tra spazi vettoriali di dimensione uno \350 isomorfismo}{section.1274}% 2807
+\BOOKMARK [1][]{section.1275}{Superficie Topologica}{part.3}% 2808
+\BOOKMARK [1][]{section.1276}{Funtore da RMod a Rmod - Torsione}{part.3}% 2809
+\BOOKMARK [1][]{section.1277}{Delta di Kronecher}{part.3}% 2810
+\BOOKMARK [1][]{section.1278}{Rango di un modulo}{part.3}% 2811
+\BOOKMARK [2][]{subsection.1278.1}{Rango di un modulo libero}{section.1278}% 2812
+\BOOKMARK [2][]{subsection.1278.2}{Rango di un modulo FG}{section.1278}% 2813
+\BOOKMARK [1][]{section.1279}{Prodotto cartesiano di moduli}{part.3}% 2814
+\BOOKMARK [1][]{section.1280}{Sottomoduli in somma diretta}{part.3}% 2815
+\BOOKMARK [1][]{section.1281}{Ogni anello ha struttura di modulo su s\351 stesso}{part.3}% 2816
+\BOOKMARK [1][]{section.1282}{Logical Pluralism}{part.3}% 2817
+\BOOKMARK [1][]{section.1283}{Sottogruppo generato}{part.3}% 2818
+\BOOKMARK [1][]{section.1284}{Condizione sufficiente modello omega-saturo}{part.3}% 2819
+\BOOKMARK [1][]{section.1285}{Funzione olomorfa}{part.3}% 2820
+\BOOKMARK [1][]{section.1286}{Funzione olomorfa su un aperto semplicemente connesso ammette primitiva}{part.3}% 2821
+\BOOKMARK [1][]{section.1287}{Logaritmo complesso \350 olomorfo su un aperto semplicemente connesso}{part.3}% 2822
+\BOOKMARK [1][]{section.1288}{Funzione olomorfa su aperto semplicemente connesso ammette un logaritmo}{part.3}% 2823
+\BOOKMARK [1][]{section.1289}{Funzione olomorfa su un aperto semplicemente connesso ammette radice m-esima}{part.3}% 2824
+\BOOKMARK [1][]{section.1290}{Mappa esponenziale tra fasci di funzioni olomorfe}{part.3}% 2825
+\BOOKMARK [1][]{section.1291}{Spazio topologico semplicemente connesso \350 connesso}{part.3}% 2826
+\BOOKMARK [1][]{section.1292}{Caratterizzazione di successione esatta di fasci tramite spighe}{part.3}% 2827
+\BOOKMARK [1][]{section.1293}{Successione di morfismi esatta}{part.3}% 2828
+\BOOKMARK [1][]{section.1294}{Caratterizzazione morfismo di fasci iniettivo tramite spighe}{part.3}% 2829
+\BOOKMARK [1][]{section.1295}{Caratterizzazione morfismo di fasci suriettivo tramite spighe}{part.3}% 2830
+\BOOKMARK [1][]{section.1296}{Esattezza di successione di fasci rispetto alle sezioni globali}{part.3}% 2831
+\BOOKMARK [1][]{section.1297}{Complesso}{part.3}% 2832
+\BOOKMARK [1][]{section.1298}{Atlante complesso}{part.3}% 2833
+\BOOKMARK [1][]{section.1299}{Struttura Complessa}{part.3}% 2834
+\BOOKMARK [1][]{section.1300}{Variet\340 Complessa}{part.3}% 2835
+\BOOKMARK [1][]{section.1301}{Superficie di Riemann}{part.3}% 2836
+\BOOKMARK [2][]{subsection.1301.1}{Genere topologico di una Superficie di Riemann}{section.1301}% 2837
+\BOOKMARK [1][]{section.1302}{Sfera di Riemann}{part.3}% 2838
+\BOOKMARK [1][]{section.1303}{Esempi fondamentali di variet\340 complesse}{part.3}% 2839
+\BOOKMARK [2][]{subsection.1303.1}{Spazio proiettivo complesso \350 una variet\340 complessa}{section.1303}% 2840
+\BOOKMARK [2][]{subsection.1303.2}{Aperti connessi di una variet\340 complessa sono variet\340 complessa}{section.1303}% 2841
+\BOOKMARK [1][]{section.1304}{Struttura Complessa per le sfere}{part.3}% 2842
+\BOOKMARK [1][]{section.1305}{Toro complesso}{part.3}% 2843
+\BOOKMARK [2][]{subsection.1305.1}{Costruzione come quoziente di gruppi}{section.1305}% 2844
+\BOOKMARK [1][]{section.1306}{Funzione biolomorfa}{part.3}% 2845
+\BOOKMARK [1][]{section.1307}{Equazioni di Cauchy-Riemann}{part.3}% 2846
+\BOOKMARK [1][]{section.1308}{Proiezione stereografica}{part.3}% 2847
+\BOOKMARK [1][]{section.1309}{Topologia pi\371 fine}{part.3}% 2848
+\BOOKMARK [1][]{section.1310}{Azione di gruppo su uno spazio topologico}{part.3}% 2849
+\BOOKMARK [1][]{section.1311}{Punto di accumulazione}{part.3}% 2850
+\BOOKMARK [1][]{section.1312}{Sottoinsieme discreto}{part.3}% 2851
+\BOOKMARK [1][]{section.1313}{Ordine di una funzione olomorfa}{part.3}% 2852
+\BOOKMARK [1][]{section.1314}{Teorema di analicit\340 delle funzioni olomorfe}{part.3}% 2853
+\BOOKMARK [1][]{section.1315}{Forma normale locale per funzione olomorfa}{part.3}% 2854
+\BOOKMARK [1][]{section.1316}{Principio di identit\340 per funzioni olomorfe}{part.3}% 2855
+\BOOKMARK [1][]{section.1317}{Teorema di inversione locale}{part.3}% 2856
+\BOOKMARK [1][]{section.1318}{Funzione olomorfa iniettiva \350 biolomorfismo locale}{part.3}% 2857
+\BOOKMARK [1][]{section.1319}{Funzione olomorfa su una superficie di Riemann a valori complessi}{part.3}% 2858
+\BOOKMARK [1][]{section.1320}{Funzione olomorfa tra superfici di Riemann}{part.3}% 2859
+\BOOKMARK [1][]{section.1321}{Fascio delle funzioni olomorfe su una superficie di Riemann}{part.3}% 2860
+\BOOKMARK [1][]{section.1322}{Teorema del massimo modulo}{part.3}% 2861
+\BOOKMARK [2][]{subsection.1322.1}{Versione complessa}{section.1322}% 2862
+\BOOKMARK [2][]{subsection.1322.2}{Per superfici di Riemann}{section.1322}% 2863
+\BOOKMARK [1][]{section.1323}{Principio di identit\340 per funzioni olomorfe su Superfici di Riemann}{part.3}% 2864
+\BOOKMARK [1][]{section.1324}{Funzione meromorfa}{part.3}% 2865
+\BOOKMARK [1][]{section.1325}{Funzione meromorfa su una superficie di Riemann a valori complessi}{part.3}% 2866
+\BOOKMARK [1][]{section.1326}{Fascio delle funzioni meromorfe su una superficie di Riemann}{part.3}% 2867
+\BOOKMARK [1][]{section.1327}{Funzioni meromorfe sulla sfera di Riemann}{part.3}% 2868
+\BOOKMARK [1][]{section.1328}{Ordine di una funzione meromorfa}{part.3}% 2869
+\BOOKMARK [1][]{section.1329}{Ordine di una funzione meromorfa su una superficie di Riemann}{part.3}% 2870
+\BOOKMARK [1][]{section.1330}{Isomorfismo tra superfici di Riemann}{part.3}% 2871
+\BOOKMARK [1][]{section.1331}{Teorema della mappa aperta \(superfici di Riemann\)}{part.3}% 2872
+\BOOKMARK [1][]{section.1332}{Modulo di un numero complesso}{part.3}% 2873
+\BOOKMARK [1][]{section.1333}{Funzione olomorfa su una superficie di Riemann compatta a valori complessi}{part.3}% 2874
+\BOOKMARK [1][]{section.1334}{Singolarit\340 isolata \(Analisi Complessa\)}{part.3}% 2875
+\BOOKMARK [2][]{subsection.1334.1}{Per superfici di Riemann}{section.1334}% 2876
+\BOOKMARK [1][]{section.1335}{Serie di Laurent}{part.3}% 2877
+\BOOKMARK [1][]{section.1336}{Sottoinsieme discreto in un compatto}{part.3}% 2878
+\BOOKMARK [1][]{section.1337}{Torrent}{part.3}% 2879
+\BOOKMARK [1][]{section.1338}{Sfera di Riemann biolomorfa alla retta proiettiva complessa}{part.3}% 2880
+\BOOKMARK [1][]{section.1339}{Teorema della mappa aperta \(Analisi Complessa\)}{part.3}% 2881
+\BOOKMARK [1][]{section.1340}{Corrispondenza funzioni meromorfe su una superficie di Riemann e funzioni olomorfe sulla Sfera di Riemann}{part.3}% 2882
+\BOOKMARK [2][]{subsection.1340.1}{Esistenza funzioni meromorfe a valori complessi per superfici di Riemann compatte}{section.1340}% 2883
+\BOOKMARK [1][]{section.1341}{Propriet\340 funzione olomorfa non costante tra superfici di Riemann con dominio compatto}{part.3}% 2884
+\BOOKMARK [1][]{section.1342}{Fibra di una funzione}{part.3}% 2885
+\BOOKMARK [1][]{section.1343}{LaTeX - Testo Multiriga in ambiente matematico}{part.3}% 2886
+\BOOKMARK [1][]{section.1344}{Grafico di funzioni olomorfe \350 superficie di Riemann}{part.3}% 2887
+\BOOKMARK [1][]{section.1345}{Teorema della funzione implicita complesso}{part.3}% 2888
+\BOOKMARK [1][]{section.1346}{Superficie di Riemann definita tramite Teorema della funzione implicita}{part.3}% 2889
+\BOOKMARK [1][]{section.1347}{Curva Piana affine liscia complessa}{part.3}% 2890
+\BOOKMARK [2][]{subsection.1347.1}{Molteplicit\340 dei punti di una Curva Piana affine liscia complessa}{section.1347}% 2891
+\BOOKMARK [1][]{section.1348}{Curva Piana proiettiva liscia complessa}{part.3}% 2892
+\BOOKMARK [1][]{section.1349}{Sottovariet\340 complessa dello spazio proiettivo}{part.3}% 2893
+\BOOKMARK [1][]{section.1350}{Superficie di Riemann proiettiva}{part.3}% 2894
+\BOOKMARK [1][]{section.1351}{Forma normale locale per superfici di Riemann}{part.3}% 2895
+\BOOKMARK [2][]{subsection.1351.1}{Molteplicit\340 di una funzione tra superfici di Riemann}{section.1351}% 2896
+\BOOKMARK [1][]{section.1352}{Punto di ramificazione per una funzione tra superfici di Riemann}{part.3}% 2897
+\BOOKMARK [1][]{section.1353}{Polinomio Irriducibile}{part.3}% 2898
+\BOOKMARK [1][]{section.1354}{Esempio di calcolo delle moltiplicit\340 di una funzione tra superfici di Riemann}{part.3}% 2899
+\BOOKMARK [1][]{section.1355}{Teorema del Grado per olomorfismi tra superfici di Riemannn}{part.3}% 2900
+\BOOKMARK [1][]{section.1356}{Caratterizzazione isomorfismo tra superfici di Riemann tramite grado}{part.3}% 2901
+\BOOKMARK [1][]{section.1357}{Somma ordini di una funzione meromorfa su una superficie di Riemann \350 nulla}{part.3}% 2902
+\BOOKMARK [1][]{section.1358}{Caratterizzazione sfera di Riemann tramite meromorfismo}{part.3}% 2903
+\BOOKMARK [1][]{section.1359}{Caratteristica di Eulero-Poincar\351 per una superficie di Riemann}{part.3}% 2904
+\BOOKMARK [1][]{section.1360}{Formula di Hurwitz \(Superfici di Riemann\)}{part.3}% 2905
+\BOOKMARK [1][]{section.1361}{Mappa di potenza complessa}{part.3}% 2906
+\BOOKMARK [1][]{section.1362}{Scomposizione della differenza di potenze}{part.3}% 2907
+\BOOKMARK [1][]{section.1363}{Polinomi sono continui}{part.3}% 2908
+\BOOKMARK [1][]{section.1364}{Convergenza di una successione in uno spazio topologico}{part.3}% 2909
+\BOOKMARK [1][]{section.1365}{Cardinalit\340 della fibra di un olomorfismo tra superfici di Riemann}{part.3}% 2910
+\BOOKMARK [1][]{section.1366}{Triangolazione di una superficie topologica}{part.3}% 2911
+\BOOKMARK [1][]{section.1367}{Caratteristica di Eulero per una superficie topologica}{part.3}% 2912
+\BOOKMARK [1][]{section.1368}{Teorema di classificazione delle superfici topologiche}{part.3}% 2913
+\BOOKMARK [1][]{section.1369}{Superficie Topologica Orientabile}{part.3}% 2914
+\BOOKMARK [1][]{section.1370}{Sfera con g manici}{part.3}% 2915
+\BOOKMARK [1][]{section.1371}{Somma connessa di superfici topologiche}{part.3}% 2916
+\BOOKMARK [1][]{section.1372}{Piano Proiettivo Reale \350 superficie topologica}{part.3}% 2917
+\BOOKMARK [1][]{section.1373}{Genere topologico di una Superficie di Riemann non cresce per olomorfismo}{part.3}% 2918
+\BOOKMARK [1][]{section.1374}{Genere topologico di un curva piana proiettiva liscia complessa}{part.3}% 2919
+\BOOKMARK [1][]{section.1375}{Funzione olomorfa tra superfici di Riemann compatte induce rivestimento topologico}{part.3}% 2920
+\BOOKMARK [1][]{section.1376}{TOPIC - Geometria Differenziale Complessa}{part.3}% 2921
+\BOOKMARK [1][]{section.1377}{Funzione olomorfa tra superfici di Riemann di genere uno \350 rivestimento topologico}{part.3}% 2922
+\BOOKMARK [1][]{section.1378}{Funzione olomorfa a valori nella sfera di Riemann ramifica}{part.3}% 2923
+\BOOKMARK [1][]{section.1379}{Mappe tra tori complessi}{part.3}% 2924
+\BOOKMARK [1][]{section.1380}{Isomorfismo tra tori complessi}{part.3}% 2925
+\BOOKMARK [1][]{section.1381}{Classificazione dei tori complessi}{part.3}% 2926
+\BOOKMARK [1][]{section.1382}{Azione di gruppo}{part.3}% 2927
+\BOOKMARK [2][]{subsection.1382.1}{Orbita sotto azione di gruppo}{section.1382}% 2928
+\BOOKMARK [1][]{section.1383}{Teorema di Liouville}{part.3}% 2929
+\BOOKMARK [1][]{section.1384}{Complesso coniugato}{part.3}% 2930
+\BOOKMARK [1][]{section.1385}{Gruppo delle funzioni in a valore intero}{part.3}% 2931
+\BOOKMARK [2][]{subsection.1385.1}{Supporto di una funzione a valore intero}{section.1385}% 2932
+\BOOKMARK [1][]{section.1386}{Divisore di una superficie di Riemann}{part.3}% 2933
+\BOOKMARK [2][]{subsection.1386.1}{Grado di un divisore di una superficie di Riemann}{section.1386}% 2934
+\BOOKMARK [1][]{section.1387}{Divisore di una funzione Meromorfa}{part.3}% 2935
+\BOOKMARK [1][]{section.1388}{Divisori linearmente equivalenti di una superficie di Riemann}{part.3}% 2936
+\BOOKMARK [1][]{section.1389}{Gruppo di Picard di una superficie di Riemann}{part.3}% 2937
+\BOOKMARK [2][]{subsection.1389.1}{Grado di un elemento del gruppo di Picard}{section.1389}% 2938
+\BOOKMARK [1][]{section.1390}{Caratterizzazione sfera di Riemann tramite gruppo di Picard}{part.3}% 2939
+\BOOKMARK [1][]{section.1391}{Divisore effettivo di una superficie di Riemann}{part.3}% 2940
+\BOOKMARK [1][]{section.1392}{Pullback di un divisore tra superfici di Riemann}{part.3}% 2941
+\BOOKMARK [2][]{subsection.1392.1}{Pullback come omomorfismo}{section.1392}% 2942
+\BOOKMARK [1][]{section.1393}{Divisore di ramificazione di una funzione olomorfa}{part.3}% 2943
+\BOOKMARK [1][]{section.1394}{Fascio associato ad un divisore su una superficie di Riemann}{part.3}% 2944
+\BOOKMARK [1][]{section.1395}{Sezioni globali del fascio associato ad un divisore su una superficie di Riemann}{part.3}% 2945
+\BOOKMARK [2][]{subsection.1395.1}{Dimensione della sezione globale del fascio associato ad un divisore su una superficie di Riemann compatta}{section.1395}% 2946
+\BOOKMARK [1][]{section.1396}{Divisori linearmente equivalenti inducono fasci isomorfi}{part.3}% 2947
+\BOOKMARK [1][]{section.1397}{Pic0 di una superficie di Riemann}{part.3}% 2948
+\BOOKMARK [1][]{section.1398}{LaTeX - Enumerate skippabile}{part.3}% 2949
+\BOOKMARK [1][]{section.1399}{LaTeX - Verificare se argomento condizionale \350 pieno}{part.3}% 2950
+\BOOKMARK [1][]{section.1400}{Successione esatta corta di fasci data da un divisore e un punto di una superficie di Riemann}{part.3}% 2951
+\BOOKMARK [1][]{section.1401}{Fibrato vettoriale complesso di una variet\340 differenziabile}{part.3}% 2952
+\BOOKMARK [2][]{subsection.1401.1}{Cociclo di un fibrato vettoriale complesso}{section.1401}% 2953
+\BOOKMARK [1][]{section.1402}{Fibrato vettoriale olomorfo}{part.3}% 2954
+\BOOKMARK [1][]{section.1403}{Cociclo di un fibrato vettoriale olomorfo}{part.3}% 2955
+\BOOKMARK [1][]{section.1404}{Spazio tangente complessificato}{part.3}% 2956
+\BOOKMARK [1][]{section.1405}{Funzione antiolomorfa su una superficie di Riemann}{part.3}% 2957
+\BOOKMARK [1][]{section.1406}{Spazio tangente olomorfo}{part.3}% 2958
+\BOOKMARK [1][]{section.1407}{Sezioni globali del fascio associato ad un divisore sulla sfera di Riemann}{part.3}% 2959
+\BOOKMARK [1][]{section.1408}{Sezioni globali del fascio associato ad un punto per superfici di Riemann compatte}{part.3}% 2960
+\BOOKMARK [1][]{section.1409}{Formula di Grassman}{part.3}% 2961
+\BOOKMARK [1][]{section.1410}{Complesso di catene Nucleo e Immagine}{part.3}% 2962
+\BOOKMARK [1][]{section.1411}{Somma e intersezione di complessi di catene}{part.3}% 2963
+\BOOKMARK [1][]{section.1412}{Caratterizzazione funzioni tra complessi di catene tramite successioni esatte}{part.3}% 2964
+\BOOKMARK [1][]{section.1413}{Isomorfismo indotto da una SEC di complessi di catene}{part.3}% 2965
+\BOOKMARK [1][]{section.1414}{LaTeX - Dimensione font mathmode}{part.3}% 2966
+\BOOKMARK [1][]{section.1415}{Somma diretta di complessi di catene}{part.3}% 2967
+\BOOKMARK [2][]{subsection.1415.1}{Somma diretta di morfismi tra complessi di catene}{section.1415}% 2968
+\BOOKMARK [1][]{section.1416}{LaTeX - Mostrare margini di un documento}{part.3}% 2969
+\BOOKMARK [1][]{section.1417}{Omologia della somma diretta di complessi di catene}{part.3}% 2970
+\BOOKMARK [1][]{section.1418}{Omologia Singolare Relativa di una coppia topologica buona}{part.3}% 2971
+\BOOKMARK [1][]{section.1419}{Attaccamento di una k-cella a uno spazio topologico}{part.3}% 2972
+\BOOKMARK [2][]{subsection.1419.1}{Attaccamento di una famiglia di k-celle ad uno spazio topologico}{section.1419}% 2973
+\BOOKMARK [1][]{section.1420}{Omologia per attaccamento di k-cella}{part.3}% 2974
+\BOOKMARK [1][]{section.1421}{CW-complesso}{part.3}% 2975
+\BOOKMARK [2][]{subsection.1421.1}{Topologia}{section.1421}% 2976
+\BOOKMARK [1][]{section.1422}{Struttura di CW-complesso per spazio proiettivo reale}{part.3}% 2977
+\BOOKMARK [1][]{section.1423}{Struttura di CW-complesso per spazio proiettivo complesso}{part.3}% 2978
+\BOOKMARK [1][]{section.1424}{Omologia singolare relativa per scheletri di CW-complessi}{part.3}% 2979
+\BOOKMARK [1][]{section.1425}{Omologia singolare di CW-complessi}{part.3}% 2980
+\BOOKMARK [1][]{section.1426}{Complesso di catene cellulari}{part.3}% 2981
+\BOOKMARK [2][]{subsection.1426.1}{Calcolo esplicito della mappa di bordo}{section.1426}% 2982
+\BOOKMARK [1][]{section.1427}{Omologia Cellulare}{part.3}% 2983
+\BOOKMARK [1][]{section.1428}{LaTeX - Gestione TODOs}{part.3}% 2984
+\BOOKMARK [1][]{section.1429}{Rango in una successione di R-moduli finitamente generati}{part.3}% 2985
+\BOOKMARK [1][]{section.1430}{Unione finita di compatti \350 compatta}{part.3}% 2986
+\BOOKMARK [2][]{subsection.1430.1}{Compattezza dell'unione disgiunta}{section.1430}% 2987
+\BOOKMARK [1][]{section.1431}{LaTeX - Ambiene commento}{part.3}% 2988
+\BOOKMARK [1][]{section.1432}{LaTeX - Gestione Multi-file}{part.3}% 2989
+\BOOKMARK [1][]{section.1433}{Sistema diretto}{part.3}% 2990
+\BOOKMARK [1][]{section.1434}{Limite diretto}{part.3}% 2991
+\BOOKMARK [1][]{section.1435}{Omologia singolare di CW-complessi come limite diretto}{part.3}% 2992
+\BOOKMARK [1][]{section.1436}{Calcolo dell'omologia singolare dello spazio proiettivo reale}{part.3}% 2993
+\BOOKMARK [1][]{section.1437}{Teorema di Confronto tra omologia singolare e simpliciale}{part.3}% 2994
+\BOOKMARK [1][]{section.1438}{Funtore esatto}{part.3}% 2995
+\BOOKMARK [1][]{section.1439}{Prodotto tensoriale di moduli}{part.3}% 2996
+\BOOKMARK [1][]{section.1440}{Funtore prodotto tensoriale}{part.3}% 2997
+\BOOKMARK [1][]{section.1441}{Complesso di catene come modulo graduato}{part.3}% 2998
+\BOOKMARK [1][]{section.1442}{Prodotto tensoriale di complessi di catene}{part.3}% 2999
+\BOOKMARK [1][]{section.1443}{Teorema di K\374nneth}{part.3}% 3000
+\BOOKMARK [1][]{section.1444}{Teorema dei coefficienti universali}{part.3}% 3001
+\BOOKMARK [1][]{section.1445}{Topologia debole}{part.3}% 3002
+\BOOKMARK [1][]{section.1446}{Funtore covariante applicato ad un sistema diretto}{part.3}% 3003
+\BOOKMARK [1][]{section.1447}{Homepage}{part.3}% 3004
+\BOOKMARK [1][]{section.1448}{Prova}{part.3}% 3005
